@@ -148,6 +148,7 @@ export const RETAILERS = [
   "sainsburys",
   "shoppers",
   "canadiantire",
+  "loblaws",
   "dm",
   "rossmann",
   "mueller",

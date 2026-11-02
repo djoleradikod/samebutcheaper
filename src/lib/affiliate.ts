@@ -80,6 +80,7 @@ export const RETAILER_LABEL: Record<string, string> = {
   sainsburys: "Sainsbury's",
   shoppers: "Shoppers Drug Mart",
   canadiantire: "Canadian Tire",
+  loblaws: "Loblaws",
   dm: "dm",
   rossmann: "Rossmann",
   mueller: "Müller",

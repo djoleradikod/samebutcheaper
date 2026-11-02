@@ -1,0 +1,655 @@
+[
+  {
+    "slug": "advil-vs-life-brand-ibuprofen-200mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Advil vs Life Brand Ibuprofen 200mg",
+    "brand": {
+      "brand": "Advil",
+      "product": "Advil Regular Strength Tablets, Ibuprofen 200 mg",
+      "size": 50,
+      "unit": "tablet",
+      "price": 12.49,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/tablets/p/21287569_EA",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Regular Strength Ibuprofen USP 200 mg, 100 Tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 6.49,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/regular-strength-ibuprofen-usp-200-mg-100-tablets/p/21725952_EA",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are regular-strength ibuprofen 200 mg tablets, and Life Brand is Shoppers Drug Mart and Loblaw's own label.",
+    "evidence": "Both prices are from the same Loblaws (loblaws.ca) search listing on 2026-11-02: Advil Tablets, 50 ct, $12.49 ($0.25 each), and Life Brand Regular Strength Ibuprofen USP 200 mg, 100 tablets, $6.49. The Life Brand listing states ibuprofen USP 200 mg. Walmart.ca lists the same Advil Regular Strength tablets as '200 mg Ibuprofen', which is the strength of every plain Advil tablet sold in Canada.",
+    "differences": "Advil tablets have a sugar coating. Life Brand's inactive ingredients and coating may differ. The Life Brand pack is twice the size.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=ibuprofen",
+      "https://www.loblaws.ca/en/search?search-bar=acetaminophen",
+      "https://www.walmart.ca/en/ip/Advil-Regular-Strength-Tablets-for-Headaches-and-Pain-Relief-200-mg-Ibuprofen-24-Count/10155848"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "advil-vs-equate-ibuprofen-200mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Advil vs Equate Ibuprofen 200mg",
+    "brand": {
+      "brand": "Advil",
+      "product": "Advil Regular Strength Tablets, 200 mg Ibuprofen, 24 Count",
+      "size": 24,
+      "unit": "tablet",
+      "price": 5.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.ca/en/ip/Advil-Regular-Strength-Tablets-for-Headaches-and-Pain-Relief-200-mg-Ibuprofen-24-Count/10155848",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Ibuprofen Tablet, 200mg, 120 Tablets",
+      "size": 120,
+      "unit": "tablet",
+      "price": 11.28,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.ca/en/ip/Equate-Ibuprofen-Tablet-200mg-120-Tablets/6000208283848",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are plain ibuprofen 200 mg tablets sold at Walmart.ca.",
+    "evidence": "Walmart.ca listings checked on 2026-11-02: Advil Regular Strength Tablets, 200 mg ibuprofen, 24 count, $5.97, and Equate Ibuprofen Tablet 200 mg, 120 tablets, $11.28. Both product names state ibuprofen 200 mg. The Equate caplet version (120 caplets) is the same price.",
+    "differences": "The Advil pack checked is small (24 tablets). Larger Advil packs cost less per tablet, so the gap narrows a little. Coating and inactive ingredients may differ.",
+    "sources": [
+      "https://www.walmart.ca/en/c/kp/ibuprofen",
+      "https://www.walmart.ca/en/ip/Equate-Ibuprofen-Tablet-200mg-120-Tablets/6000208283848",
+      "https://www.walmart.ca/en/ip/equate-ibuprofen-caplet-200mg-120-caplets/6000208285201"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "imodium-liqui-gels-vs-life-brand-loperamide-liquid-gels-2mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Imodium Liqui-Gels vs Life Brand Diarrhea Relief Liquid Gels 2mg",
+    "brand": {
+      "brand": "Imodium",
+      "product": "Imodium Liqui-Gels, Loperamide Hydrochloride 2 mg, 60 Liquid Capsules",
+      "size": 60,
+      "unit": "capsule",
+      "price": 47.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/liqui-gels/p/20783909_EA",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Diarrhea Relief Liquid Gels 2 mg, 24 Capsules",
+      "size": 24,
+      "unit": "capsule",
+      "price": 7.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/diarrhea-relief-liquid-gels-2-mg-24-capsules/p/21683425_EA",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 2 mg loperamide liquid-gel capsules for diarrhea, the same dose and form.",
+    "evidence": "Loblaws (loblaws.ca) search for 'loperamide' on 2026-11-02 listed Imodium Liqui-Gels 60 ct at $47.99 ($0.80 each) and Life Brand Diarrhea Relief Liquid Gels 2 mg, 24 capsules, at $7.99 ($0.33 each). Walmart.ca's Imodium Liqui-Gels listing states loperamide hydrochloride 2 mg. Life Brand's diarrhea-relief range at Shoppers Drug Mart is loperamide hydrochloride, but the Loblaws liquid-gel listing names only the 2 mg strength, not the active, so check the box says loperamide.",
+    "differences": "Compared with Imodium's biggest (cheapest per capsule) pack. Against the 24-count Imodium ($32.99) the saving is larger. Inactive ingredients in the capsule shell may differ.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=loperamide",
+      "https://www.walmart.ca/en/ip/imodium-liqui-gels-fast-relief-of-diarrhea-loperamide-hydrochloride-antidiarrheal-60-liquid-capsules-2mg/6000195359086",
+      "https://www.shoppersdrugmart.ca/life-brand-lb-diarrhea-relief-loperamide-hydrochloride-tablet/p/BB_057800147404?variantCode=057800147404"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "dulcolax-vs-equate-bisacodyl-5mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Dulcolax vs Equate Bisacodyl 5mg",
+    "brand": {
+      "brand": "Dulcolax",
+      "product": "Dulcolax Bisacodyl Tablets, 5 mg Stimulant Laxative, 10 Count",
+      "size": 10,
+      "unit": "tablet",
+      "price": 3.57,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.ca/en/ip/dulcolax-bisacodyl-tablets-5mg-stimulant-laxatives-for-occasional-constipation-relief-laxative-and-constipation-relief-for-adults-and-children-6-and-o/6000199092508",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Bisacodyl Tablets Stimulant Laxative, 5 mg, 100 Tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 14.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.ca/en/ip/equate-bisacody-tablets-stimulant-laxative-5-mg-100-tablets/2N9MU335BWGS",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are bisacodyl 5 mg stimulant-laxative tablets.",
+    "evidence": "Walmart.ca's laxative pages on 2026-11-02 listed Dulcolax Bisacodyl Tablets 5 mg, 10 count, at $3.57 ($0.36 each) and Equate Bisacodyl Tablets Stimulant Laxative 5 mg, 100 tablets, at $14.98 ($0.15 each). Walmart.ca misspells the Equate name as 'Bisacody'. Both names state bisacodyl 5 mg. Loblaws lists the same Dulcolax 5 mg 10-pack at $3.49.",
+    "differences": "Only Dulcolax's 10-tablet pack was checked. Larger Dulcolax packs cost less per tablet, so the real gap may be smaller. Coating and inactive ingredients may differ.",
+    "sources": [
+      "https://www.walmart.ca/en/browse/health/digestive-health/constipation-relief-laxatives/6000199008297_32478_32483?f=1021670&b=1",
+      "https://www.walmart.ca/en/browse/health/digestive-health/constipation-relief-laxatives/6000199008297_32478_32483?facet=brand%3AEquate",
+      "https://www.loblaws.ca/en/search?search-bar=bisacodyl"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "claritin-vs-life-brand-24-hour-allergy-remedy-loratadine-10mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Claritin vs Life Brand 24 Hour Allergy Remedy (Loratadine 10mg)",
+    "brand": {
+      "brand": "Claritin",
+      "product": "Claritin Allergy Medicine, 24-Hour Non-Drowsy Relief, Loratadine 10 mg, 50 Tablets",
+      "size": 50,
+      "unit": "tablet",
+      "price": 37.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/allergy-medicine-24-hour-non-drowsy-relief/p/20944742_EA",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand 24 Hour Allergy Remedy (loratadine 10 mg), 85 Tablets",
+      "size": 85,
+      "unit": "tablet",
+      "price": 32.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/24-hour-allergy-remedy/p/21298567_EA",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are once-a-day non-drowsy loratadine 10 mg tablets.",
+    "evidence": "Loblaws (loblaws.ca) listed Claritin 24-Hour Non-Drowsy 50 ct at $37.99 ($0.76 each) and Life Brand 24 Hour Allergy Remedy 85 ct at $32.99 ($0.39 each) on 2026-11-02, and Claritin's 30-count listing states 10 mg. Health Canada's Drug Product Database has exactly one product named '24 HOUR ALLERGY REMEDY' (DIN 02280159, Vita Health Products), and its only active is loratadine 10 mg. The Loblaws listing doesn't print the DIN, so check the box for DIN 02280159 or 'loratadine 10 mg'.",
+    "differences": "Claritin is cheaper at Walmart.ca, where the 95-tablet pack was $39.97 ($0.42 each), but Life Brand still costs less per tablet. Inactive ingredients may differ.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=loratadine",
+      "https://www.loblaws.ca/en/search?search-bar=desloratadine",
+      "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=24%20hour%20allergy%20remedy",
+      "https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json&id=76583",
+      "https://www.walmart.ca/en/c/kp/loratadine"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "tylenol-extra-strength-vs-life-brand-acetaminophen-500mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Tylenol Extra Strength vs Life Brand Acetaminophen 500mg",
+    "brand": {
+      "brand": "Tylenol",
+      "product": "Tylenol Extra Strength 500 mg eZ Tablets, 150 Count",
+      "size": 150,
+      "unit": "tablet",
+      "price": 16.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/500-mg-ez-tablets/p/20040611_EA",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Extra Strength Acetaminophen 500 mg, 500 Tablets",
+      "size": 500,
+      "unit": "tablet",
+      "price": 30.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/extra-strength-acetaminophen-500-mg-500-tablets/p/21168704_EA",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are extra-strength acetaminophen 500 mg tablets, the same dose of the same single active.",
+    "evidence": "Loblaws (loblaws.ca) on 2026-11-02 listed Tylenol 500 mg eZ Tablets, 150 ct, at $16.99 regular ($16.50 on a limited sale), and Life Brand Extra Strength Acetaminophen 500 mg, 500 tablets, at $30.99 ($0.06 each). Walmart.ca's listing for the same Tylenol eZ Tabs states 'Acetaminophen 500mg'.",
+    "differences": "Tylenol eZ Tabs have a smoother coating and an easy-swallow shape. Much of the saving comes from the 500-count bottle: at the same 150 count, Life Brand ($14.99) is about 12% cheaper.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=tylenol",
+      "https://www.loblaws.ca/en/search?search-bar=acetaminophen",
+      "https://www.walmart.ca/en/ip/Tylenol-Extra-Strength-Pain-Relief-Acetaminophen-500mg-EZTabs-100-Count/6000186982297"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "advil-extra-strength-vs-life-brand-ibuprofen-400mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Advil Extra Strength vs Life Brand Ibuprofen Extra Strength 400mg",
+    "brand": {
+      "brand": "Advil",
+      "product": "Advil Extra Strength Caplets, 400 mg Ibuprofen, 32 Count",
+      "size": 32,
+      "unit": "tablet",
+      "price": 13.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/extra-strength-caplets/p/20316898002_EA",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "400 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Ibuprofen Extra Strength 400 mg, 45 Count",
+      "size": 45,
+      "unit": "tablet",
+      "price": 11.49,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/ibuprofen-extra-strength-400mg/p/21231999_EA",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "400 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are extra-strength ibuprofen at 400 mg per pill.",
+    "evidence": "Loblaws (loblaws.ca) on 2026-11-02 listed Advil Extra Strength Caplets, 32 ct, at $13.99 ($0.44 each) and Life Brand Ibuprofen Extra Strength 400 mg, 45 ct, at $11.49 ($0.26 each). Walmart.ca's listing for the same Advil product states '400 Mg Ibuprofen, 32 Count'. The Life Brand listing states 400 mg but not whether it's a caplet or a round tablet.",
+    "differences": "Advil is a coated caplet. The Life Brand listing doesn't say whether its pills are caplets or tablets. Inactive ingredients may differ.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=ibuprofen",
+      "https://www.loblaws.ca/en/search?search-bar=naproxen",
+      "https://www.walmart.ca/en/ip/advil-extra-strength-caplets-for-headaches-and-pain-relief-400-mg-ibuprofen-32-count/10155691"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "reactine-vs-life-brand-cetirizine-10mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Reactine Extra Strength vs Life Brand Cetirizine 10mg",
+    "brand": {
+      "brand": "Reactine",
+      "product": "Reactine Extra Strength Tablets, Cetirizine Hydrochloride 10 mg, 84 Count",
+      "size": 84,
+      "unit": "tablet",
+      "price": 54.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/tablets-extra-strength-10-mg/p/20115714_EA",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine hydrochloride",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Extra Strength Allergy Relief Cetirizine Hydrochloride Tablets, 84 Count",
+      "size": 84,
+      "unit": "tablet",
+      "price": 33.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/extra-strength-allergy-relief-cetirizine-hydrochlo/p/21229420_EA",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine hydrochloride",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are extra-strength cetirizine hydrochloride tablets. In Canada, 'Extra Strength' cetirizine means 10 mg.",
+    "evidence": "Loblaws (loblaws.ca) on 2026-11-02 listed Reactine Tablets Extra Strength 10 mg, 84 ct, at $54.99 ($0.65 each) and Life Brand Extra Strength Allergy Relief Cetirizine Hydrochloride Tablets, 84 ct, at $33.99 ($0.40 each). The Life Brand name says 'Extra Strength' but doesn't print the mg. In Canada, cetirizine comes as Regular Strength 5 mg or Extra Strength 10 mg, and a same-named 'Extra Strength Allergy Relief' product (Kirkland, DIN 02315955) is cetirizine 10 mg.",
+    "differences": "Same tablet count. Reactine's 120-count pack ($62.99 at Loblaws) and Walmart.ca's Reactine 120-count ($46.77 on sale) cost less per tablet, which shrinks or removes the saving. Inactive ingredients may differ.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=reactine",
+      "https://www.loblaws.ca/en/search?search-bar=cetirizine",
+      "https://www.shoppersdrugmart.ca/extra-strength-allergy-relief-cetirizine-hydrochloride/p/BB_057800973485",
+      "https://www.costco.ca/p/-/kirkland-signature-allergy-relief-extra-strength10-mg-200-tablets/100556077",
+      "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=extra%20strength%20allergy%20relief"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "aerius-vs-life-brand-desloratadine-5mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Aerius vs Life Brand Desloratadine 5mg",
+    "brand": {
+      "brand": "Aerius",
+      "product": "Aerius Desloratadine Tablets USP, 5 mg, 70 Count",
+      "size": 70,
+      "unit": "tablet",
+      "price": 52.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/desloratadine-tablets-usp-5-mg/p/21685369_EA",
+      "key_ingredients": [
+        {
+          "name": "Desloratadine",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Desloratadine Allergy Control 5 mg, 80 Tablets",
+      "size": 80,
+      "unit": "tablet",
+      "price": 43.49,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/desloratadine-allergy-control-5-mg-80-tablets/p/21222056_EA",
+      "key_ingredients": [
+        {
+          "name": "Desloratadine",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are desloratadine 5 mg once-daily allergy tablets.",
+    "evidence": "Loblaws (loblaws.ca) on 2026-11-02 listed Aerius Desloratadine Tablets USP 5 mg, 70 ct, at $52.99 ($0.76 each) and Life Brand Desloratadine Allergy Control 5 mg, 80 tablets, at $43.49 ($0.54 each). Both product names state desloratadine 5 mg, and Shoppers Drug Mart lists the Life Brand product as 'Desloratadine Tablets 5mg'.",
+    "differences": "Inactive ingredients and tablet colour may differ.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=aerius",
+      "https://www.loblaws.ca/en/search?search-bar=desloratadine",
+      "https://www.shoppersdrugmart.ca/life-brand-desloratadine-allergy-control-desloratadine-tablet/p/BB_057800718819?variantCode=057800718819"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "restoralax-vs-life-brand-clearlax-peg-3350-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "RestoraLAX vs Life Brand ClearLax (PEG 3350)",
+    "brand": {
+      "brand": "RestoraLAX",
+      "product": "RestoraLAX Powder Laxative, 45 Doses (765 g)",
+      "size": 765,
+      "unit": "g",
+      "price": 37.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/powder-laxative-effective-relief-no-taste-no-grit/p/20938326_EA",
+      "key_ingredients": [
+        {
+          "name": "Polyethylene glycol 3350",
+          "amount": "100% (17 g per dose)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand ClearLax Polyethylene Glycol 3350 Powder for Oral Solution, 765 g",
+      "size": 765,
+      "unit": "g",
+      "price": 28.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/clearlax-polyethylene-glycol-3350-powder-for-oral/p/21227987_EA",
+      "key_ingredients": [
+        {
+          "name": "Polyethylene glycol 3350",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are pure polyethylene glycol 3350 powder, the same osmotic laxative, in the same 765 g size.",
+    "evidence": "Health Canada's Drug Product Database lists RestoraLAX (DIN 02318164, Bayer) with a single active, polyethylene glycol 3350 at 100% w/w. The Life Brand ClearLax listing names polyethylene glycol 3350 powder for oral solution. Loblaws (loblaws.ca) on 2026-11-02 listed RestoraLAX 45 doses at $37.99 ($4.97/100 g, which is 765 g) and Life Brand ClearLax 765 g at $28.99 ($3.79/100 g). Walmart.ca confirms the RestoraLAX 45-dose pack is 765 g.",
+    "differences": "None in the powder itself. The packaging and measuring cap differ.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=restoralax",
+      "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=restoralax",
+      "https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json&id=80366",
+      "https://www.walmart.ca/en/ip/restoralax-powder-stool-softener-laxative-effective-constipation-relief-for-adults-no-taste-no-grit-no-gas-no-bloat-no-cramps-no-sudden-urge/6000195567503"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nicorette-vs-equate-nicotine-gum-4mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Quit smoking",
+    "title": "Nicorette 4mg vs Equate Nicotine Gum 4mg",
+    "brand": {
+      "brand": "Nicorette",
+      "product": "Nicorette Fruit Gum, Nicotine 4 mg, 210 Pieces",
+      "size": 210,
+      "unit": "piece",
+      "price": 64.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.ca/en/ip/Nicorette-Fruit-Gum-4-mg-Quit-Smoking-Nicotine-Gum-Smoking-Cessation-Aid-NRT-Reduce-Cravings-210-pieces/6000195954352",
+      "key_ingredients": [
+        {
+          "name": "Nicotine (as nicotine polacrilex)",
+          "amount": "4 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Nicotine Gum Ultra Fresh Fruit, Nicotine Polacrilex Gum USP 4 mg, 210 Count",
+      "size": 210,
+      "unit": "piece",
+      "price": 51.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.ca/en/ip/Equate-Nicotine-Gum-Ultra-Fresh-Fruit-4mg-210ct/6000197566965",
+      "key_ingredients": [
+        {
+          "name": "Nicotine (as nicotine polacrilex)",
+          "amount": "4 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 4 mg nicotine polacrilex replacement gum in a 210-piece pack.",
+    "evidence": "Walmart.ca's nicotine gum pages on 2026-11-02 listed Nicorette 4 mg gum, 210 pieces (Fruit, Mint or Peppermint), at $64.97, and Equate Nicotine Gum 4 mg, 210 ct (Ultra Fresh Fruit or Ultra Chill Mint), at $51.97. Walmart.ca titles the Equate gum 'Nicotine Polacrilex Gum USP 4mg', and the Nicorette listings state nicotine 4 mg.",
+    "differences": "Flavours and gum coating differ. The same 210-count Equate gum in Walmart.ca's non-'Ultra' line was $69.97, which is not cheaper, so buy the 'Ultra' 210 ct.",
+    "sources": [
+      "https://www.walmart.ca/en/browse/health/quit-smoking/nicotine-gum/6000199008297_6000196190236_6000205773432",
+      "https://www.walmart.ca/en/browse/health/quit-smoking/nicotine-gum/6000199008297_6000196190236_6000205773432?facet=brand:Equate",
+      "https://www.walmart.ca/en/ip/equate-nicotine-gum-ultra-fresh-fruit-4mg-210ct/6000197566964"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "aleve-vs-life-brand-naproxen-220mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Aleve vs Life Brand Naproxen 220mg",
+    "brand": {
+      "brand": "Aleve",
+      "product": "Aleve Naproxen Sodium Tablets USP, 220 mg, 24 Count",
+      "size": 24,
+      "unit": "tablet",
+      "price": 6.49,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/naproxen-sodium-tablets-usp-220-mg/p/21693703_EA",
+      "key_ingredients": [
+        {
+          "name": "Naproxen sodium",
+          "amount": "220 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Naproxen 220 mg Caplets, 24 Count",
+      "size": 24,
+      "unit": "tablet",
+      "price": 5.49,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/naproxen-220-mg-24-caplets/p/21140551_EA",
+      "key_ingredients": [
+        {
+          "name": "Naproxen sodium",
+          "amount": "220 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 220 mg naproxen pain relievers that last up to 12 hours, in a 24-count pack.",
+    "evidence": "Loblaws (loblaws.ca) on 2026-11-02 listed Aleve Naproxen Sodium Tablets USP 220 mg, 24 ct, at $6.49 and Life Brand Naproxen 220 mg Caplets, 24 ct, at $5.49. The Life Brand listing says 'Naproxen 220 mg' without the word 'sodium'. Non-prescription naproxen in Canada is sold as naproxen sodium 220 mg, but confirm it on the box.",
+    "differences": "Aleve is a tablet and Life Brand is a caplet. The saving is small, about 15%.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=naproxen",
+      "https://www.loblaws.ca/en/search?search-bar=ibuprofen"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nicorette-vs-life-brand-nicotine-gum-2mg-ca",
+    "market": "CA",
+    "category": "otc-medicine",
+    "subcategory": "Quit smoking",
+    "title": "Nicorette 2mg vs Life Brand Nicotine Gum 2mg",
+    "brand": {
+      "brand": "Nicorette",
+      "product": "Nicorette Nicotine Gum Mint 2 mg, 210 Pieces",
+      "size": 210,
+      "unit": "piece",
+      "price": 72.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/nicotine-gum-mint-2mg/p/21073490_EA",
+      "key_ingredients": [
+        {
+          "name": "Nicotine (as nicotine polacrilex)",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Life Brand",
+      "product": "Life Brand Menthol Nicotine Gum 2 mg, 210 Chewing Gums",
+      "size": 210,
+      "unit": "piece",
+      "price": 62.99,
+      "retailer": "loblaws",
+      "asin": null,
+      "url": "https://www.loblaws.ca/en/menthol-nicotine-gum-2-mg-210-chewing-gums/p/21536736_EA",
+      "key_ingredients": [
+        {
+          "name": "Nicotine (as nicotine polacrilex)",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 2 mg nicotine replacement gum in a 210-piece pack.",
+    "evidence": "Loblaws (loblaws.ca) on 2026-11-02 listed Nicorette Nicotine Gum Mint 2 mg, 210 ct, at $72.99 regular ($69.99 on sale), and Life Brand Menthol Nicotine Gum 2 mg, 210 ct, at $62.99. Life Brand also sells a 2 mg Fruit gum, 210 ct, at the same $62.99. Both listings state 2 mg nicotine. The Life Brand listing doesn't name the nicotine salt, but nicotine gum sold in Canada uses nicotine polacrilex (resin).",
+    "differences": "Flavours differ (Nicorette Mint vs Life Brand Menthol or Fruit). The saving is about 14% at Nicorette's regular price and about 10% when Nicorette is on sale.",
+    "sources": [
+      "https://www.loblaws.ca/en/search?search-bar=nicotine%20gum",
+      "https://www.walmart.ca/en/browse/health/quit-smoking/nicotine-gum/6000199008297_6000196190236_6000205773432"
+    ],
+    "price_checked": "2026-11"
+  }
+]
