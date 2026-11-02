@@ -25,10 +25,22 @@ export default function PrivacyPage() {
         <li>
           <strong>Suggestions</strong> you send through the suggestion form.
         </li>
+        <li>
+          <strong>Product checks.</strong> When you search, scan or photograph a product on the product check
+          page, we record what was looked up, your country and whether we had a verified swap, with the same
+          daily-changing hash. This tells us which products to research next.
+        </li>
+        <li>
+          <strong>Photos.</strong> Barcodes are read on your own device. If a photo has no readable barcode, it
+          is sent to our label reader (Anthropic&apos;s Claude) to read the text on the pack, and then discarded.
+          We don&apos;t store your photos.
+        </li>
       </ul>
       <h2>Cookies</h2>
       <p>
-        We don&apos;t set advertising or tracking cookies. When you visit a retailer such as Amazon through our
+        We set one functional cookie, <code>sbc_country</code>, so we can show stores that deliver to your
+        country. It holds only a country code, which you can change at any time. We don&apos;t set advertising
+        or tracking cookies. When you visit a retailer such as Amazon through our
         links, that retailer may set its own cookies under its own privacy policy, which is how affiliate
         purchases are credited.
       </p>

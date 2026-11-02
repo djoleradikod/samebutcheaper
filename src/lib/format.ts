@@ -1,13 +1,30 @@
-export function usd(n: number) {
-  if (n >= 100) return `$${Math.round(n).toLocaleString("en-US")}`;
-  return `$${n.toFixed(2)}`;
+import type { Market } from "./markets";
+
+export type Currency = Market["currency"];
+
+const SYMBOL: Record<Currency, string> = { USD: "$", GBP: "£", CAD: "CA$", EUR: "€" };
+const CENTS: Record<Currency, string> = { USD: "¢", GBP: "p", CAD: "¢", EUR: " ct" };
+
+/** A price in its own currency: $12.34, £12.34, CA$12.34, €12.34. Whole units from 100 up. */
+export function money(n: number, currency: Currency) {
+  const sym = SYMBOL[currency];
+  if (n >= 100) return `${sym}${Math.round(n).toLocaleString("en-US")}`;
+  return `${sym}${n.toFixed(2)}`;
 }
 
-/** Price-per-unit formatting: cents for tiny values, dollars otherwise. */
-export function ppu(n: number) {
-  if (n < 0.01) return `${(n * 100).toFixed(2)}¢`;
-  if (n < 1) return `${(n * 100).toFixed(1)}¢`;
-  return `$${n.toFixed(2)}`;
+/** Price per unit: cents (or pence) for tiny values, whole currency otherwise. */
+export function ppu(n: number, currency: Currency) {
+  if (n < 0.01) return `${(n * 100).toFixed(2)}${CENTS[currency]}`;
+  if (n < 1) return `${(n * 100).toFixed(1)}${CENTS[currency]}`;
+  return `${SYMBOL[currency]}${n.toFixed(2)}`;
+}
+
+/** Sums amounts per currency: "$120 + £40". */
+export function moneyTotals(items: { amount: number; currency: Currency }[]) {
+  const totals = new Map<Currency, number>();
+  for (const i of items) totals.set(i.currency, (totals.get(i.currency) ?? 0) + i.amount);
+  if (!totals.size) return money(0, "USD");
+  return [...totals].map(([c, n]) => money(n, c)).join(" + ");
 }
 
 export function pct(n: number) {
@@ -34,4 +51,12 @@ export function monthYear(iso: string) {
     year: "numeric",
     timeZone: "UTC",
   });
+}
+
+/** A title-case name for use mid-sentence: "OTC Medicine" -> "OTC medicine", "Vitamin D3" -> "vitamin D3". */
+export function inSentence(name: string) {
+  return name
+    .split(" ")
+    .map((w) => (/^[A-Z][a-z]+$/.test(w) ? w.toLowerCase() : w))
+    .join(" ");
 }

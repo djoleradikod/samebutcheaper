@@ -1,7 +1,8 @@
 import "server-only";
 import catalogJson from "@/generated/catalog.json";
-import type { Catalog, CategorySlug, Pair, PairSummary } from "./types";
+import type { Bundle, Catalog, CategorySlug, Pair, PairSummary } from "./types";
 import { CATEGORIES } from "./categories";
+import { APPROX_USD, type MarketCode } from "./markets";
 
 const catalog = catalogJson as unknown as Catalog;
 
@@ -18,18 +19,19 @@ export function getPairsByCategory(category: CategorySlug): Pair[] {
   return catalog.pairs.filter((p) => p.category === category);
 }
 
-export function getFeaturedPairs(limit = 12): Pair[] {
+export function getFeaturedPairs(limit = 12, market?: MarketCode): Pair[] {
   // One-per-subcategory first so the homepage shows variety, then fill.
+  const pool = market ? catalog.pairs.filter((p) => p.market === market) : catalog.pairs;
   const picked: Pair[] = [];
   const seenSub = new Set<string>();
-  for (const p of catalog.pairs) {
+  for (const p of pool) {
     const key = `${p.category}:${p.subcategory.toLowerCase()}`;
     if (p.confidence !== "high" || seenSub.has(key)) continue;
     seenSub.add(key);
     picked.push(p);
     if (picked.length >= limit) return picked;
   }
-  for (const p of catalog.pairs) {
+  for (const p of pool) {
     if (!picked.includes(p)) picked.push(p);
     if (picked.length >= limit) break;
   }
@@ -37,17 +39,26 @@ export function getFeaturedPairs(limit = 12): Pair[] {
 }
 
 export function getBiggestDollarSavings(limit = 6): Pair[] {
-  return [...catalog.pairs].sort((a, b) => b.savingsPerPack - a.savingsPerPack).slice(0, limit);
+  const usd = (p: Pair) => p.savingsPerPack * APPROX_USD[p.currency];
+  return [...catalog.pairs].sort((a, b) => usd(b) - usd(a)).slice(0, limit);
 }
 
 export function getRelatedPairs(pair: Pair, limit = 4): Pair[] {
-  const sameSub = catalog.pairs.filter(
-    (p) => p.slug !== pair.slug && p.category === pair.category && p.subcategory === pair.subcategory,
-  );
-  const sameCat = catalog.pairs.filter(
-    (p) => p.slug !== pair.slug && p.category === pair.category && !sameSub.includes(p),
-  );
-  return [...sameSub, ...sameCat].slice(0, limit);
+  // Same country's prices first, then the closest product type.
+  const rank = (p: Pair) => (p.market === pair.market ? 0 : 2) + (p.subcategory === pair.subcategory ? 0 : 1);
+  return catalog.pairs
+    .filter((p) => p.slug !== pair.slug && p.category === pair.category)
+    .map((p, i) => ({ p, r: rank(p), i }))
+    .sort((a, b) => a.r - b.r || a.i - b.i)
+    .slice(0, limit)
+    .map((x) => x.p);
+}
+
+/** Markets with verified prices, with how many swaps each has. */
+export function getMarketCounts(): Partial<Record<MarketCode, number>> {
+  const counts: Partial<Record<MarketCode, number>> = {};
+  for (const p of catalog.pairs) counts[p.market] = (counts[p.market] ?? 0) + 1;
+  return counts;
 }
 
 export function getCategoryStats() {
@@ -76,6 +87,8 @@ export function toSummary(p: Pair): PairSummary {
   return {
     slug: p.slug,
     title: p.title,
+    market: p.market,
+    currency: p.currency,
     category: p.category,
     subcategory: p.subcategory,
     brandName: p.brand.brand,
@@ -95,4 +108,122 @@ export function toSummary(p: Pair): PairSummary {
       p.subcategory,
     ].join(" "),
   };
+}
+
+/* ---------------------------------------------------------------- bundles */
+
+export function getAllBundles(): Bundle[] {
+  return catalog.bundles ?? [];
+}
+
+export function getBundle(slug: string): Bundle | undefined {
+  return getAllBundles().find((b) => b.slug === slug);
+}
+
+/* ---------------------------------------------------- ingredients & brands */
+
+export function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/\(.*?\)/g, " ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** Ingredient matches only count for chemistry-based matches, not specs. */
+const INGREDIENT_MATCHES = new Set(["identical_active", "identical_formula", "same_manufacturer"]);
+
+const INGREDIENT_STOP = new Set(["chemistry", "formula", "ingredients", "sodium", "potassium", "chloride", "dextrose", "maltodextrin"]);
+
+/** Canonical ingredient key: drops salt forms and grade labels so "Cetirizine HCl" and "cetirizine" group. */
+export function ingredientKey(name: string) {
+  const base = slugify(name)
+    .replace(/-(usp|nf|hcl|hydrochloride|dihydrochloride|monohydrate)\b/g, "")
+    .replace(/^white-(petrolatum)$/, "$1")
+    .replace(/-+$/g, "")
+    .replace(/\b(paracetamol|aciclovir|beclometasone|salbutamol)\b/g, (w) => SAME_AS_US[w]);
+  return INGREDIENT_STOP.has(base) ? "" : base;
+}
+
+/** International names that group with their US names, so UK and US swaps share one page. */
+const SAME_AS_US: Record<string, string> = {
+  paracetamol: "acetaminophen",
+  aciclovir: "acyclovir",
+  beclometasone: "beclomethasone",
+  salbutamol: "albuterol",
+};
+
+/** Page titles that show both names. */
+const DUAL_NAME: Record<string, string> = {
+  acetaminophen: "Acetaminophen (paracetamol)",
+  acyclovir: "Acyclovir (aciclovir)",
+  "beclomethasone-dipropionate": "Beclomethasone (beclometasone) dipropionate",
+};
+
+function ingredientLabel(name: string) {
+  return name
+    .replace(/\s*\(.*?\)\s*/g, " ")
+    .replace(/\b(USP|NF|HCl|hydrochloride|dihydrochloride)\b/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export type IngredientEntry = { slug: string; name: string; pairs: Pair[] };
+
+const ingredientIndex: Map<string, IngredientEntry> = (() => {
+  const map = new Map<string, IngredientEntry>();
+  for (const p of catalog.pairs) {
+    if (!INGREDIENT_MATCHES.has(p.match_type)) continue;
+    for (const ing of p.alternative.key_ingredients) {
+      const slug = ingredientKey(ing.name);
+      if (!slug || slug.length < 3) continue;
+      const entry = map.get(slug) ?? { slug, name: DUAL_NAME[slug] ?? ingredientLabel(ing.name), pairs: [] };
+      if (!entry.pairs.includes(p)) entry.pairs.push(p);
+      map.set(slug, entry);
+    }
+  }
+  return map;
+})();
+
+export function getIngredients(): IngredientEntry[] {
+  return [...ingredientIndex.values()].sort((a, b) => b.pairs.length - a.pairs.length || a.name.localeCompare(b.name));
+}
+
+export function getIngredient(slug: string) {
+  return ingredientIndex.get(slug);
+}
+
+export function ingredientSlugFor(name: string): string | undefined {
+  const slug = ingredientKey(name);
+  return ingredientIndex.has(slug) ? slug : undefined;
+}
+
+export type BrandEntry = { slug: string; name: string; pairs: Pair[]; bundles: Bundle[] };
+
+const brandIndex: Map<string, BrandEntry> = (() => {
+  const map = new Map<string, BrandEntry>();
+  const get = (name: string) => {
+    const slug = slugify(name);
+    const entry = map.get(slug) ?? { slug, name, pairs: [], bundles: [] };
+    map.set(slug, entry);
+    return entry;
+  };
+  for (const p of catalog.pairs) get(p.brand.brand).pairs.push(p);
+  for (const b of catalog.bundles ?? []) get(b.bundle.brand).bundles.push(b);
+  return map;
+})();
+
+export function getBrands(): BrandEntry[] {
+  return [...brandIndex.values()].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getBrand(slug: string) {
+  return brandIndex.get(slug);
+}
+
+export function brandSlugFor(name: string): string {
+  return slugify(name);
 }

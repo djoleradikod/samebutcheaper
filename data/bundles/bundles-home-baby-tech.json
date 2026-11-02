@@ -1,0 +1,433 @@
+[
+  {
+    "slug": "vicks-dayquil-nyquil-liquicaps-combo-vs-equate-daytime-nighttime-softgels",
+    "category": "otc-medicine",
+    "title": "Vicks DayQuil & NyQuil Cold & Flu LiquiCaps Combo vs Equate Daytime + Nighttime softgels",
+    "bundle": {
+      "brand": "Vicks",
+      "name": "Vicks DayQuil & NyQuil Cold & Flu LiquiCaps Combo Pack, 24 count (16 DayQuil + 8 NyQuil)",
+      "price_usd": 10.97,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/p/39451983",
+      "items": [
+        {
+          "name": "DayQuil Cold & Flu LiquiCaps",
+          "size": 16,
+          "unit": "softgel",
+          "key_ingredients": [
+            {
+              "name": "Acetaminophen",
+              "amount": "325 mg"
+            },
+            {
+              "name": "Dextromethorphan HBr",
+              "amount": "10 mg"
+            },
+            {
+              "name": "Phenylephrine HCl",
+              "amount": "5 mg"
+            }
+          ]
+        },
+        {
+          "name": "NyQuil Cold & Flu LiquiCaps",
+          "size": 8,
+          "unit": "softgel",
+          "key_ingredients": [
+            {
+              "name": "Acetaminophen",
+              "amount": "325 mg"
+            },
+            {
+              "name": "Dextromethorphan HBr",
+              "amount": "15 mg"
+            },
+            {
+              "name": "Doxylamine succinate",
+              "amount": "6.25 mg"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Equate",
+        "product": "Equate Daytime Non-Drowsy Cold and Flu Multi-Symptom Relief Softgels, 24 count",
+        "size": 24,
+        "unit": "softgel",
+        "price_usd": 5.98,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Equate-Non-Drowsy-Cold-and-Flu-Multi-Symptom-Relief-Softgels-24-Count/606058708",
+        "key_ingredients": [
+          {
+            "name": "Acetaminophen",
+            "amount": "325 mg"
+          },
+          {
+            "name": "Dextromethorphan HBr",
+            "amount": "10 mg"
+          },
+          {
+            "name": "Phenylephrine HCl",
+            "amount": "5 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "Equate",
+        "product": "Equate Nighttime Multi-Symptom Cold and Flu Softgels, 24 count (Compare to Vicks NyQuil Cold & Flu)",
+        "size": 24,
+        "unit": "softgel",
+        "price_usd": 5.98,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/20608083",
+        "key_ingredients": [
+          {
+            "name": "Acetaminophen",
+            "amount": "325 mg"
+          },
+          {
+            "name": "Dextromethorphan HBr",
+            "amount": "15 mg"
+          },
+          {
+            "name": "Doxylamine succinate",
+            "amount": "6.25 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "The Vicks day/night combo is just 16 DayQuil and 8 NyQuil LiquiCaps, and Equate sells softgels with the same three actives at the same strengths for about half the price per capsule.",
+    "evidence": "Hannaford's listing for the 24-count Vicks combo gives the split as 16 DayQuil and 8 NyQuil, with DayQuil at acetaminophen 325 mg, dextromethorphan HBr 10 mg and phenylephrine HCl 5 mg per LiquiCap, and NyQuil at acetaminophen 325 mg, dextromethorphan HBr 15 mg and doxylamine succinate 6.25 mg per LiquiCap. Giant Food's listing for the 48-count pack shows the same per-capsule amounts. Walmart's FDA-listed Equate Daytime softgel label (Wal-Mart Stores, NDC 49035-215, including a 24-count carton) gives acetaminophen 325 mg, dextromethorphan HBr 10 mg and phenylephrine HCl 5 mg per softgel and says 'Compare to DayQuil LiquiCaps Active Ingredients'. Walmart's 24-count listing shows the same 325 mg / 10 mg / 5 mg. The Equate Nitetime softgel label (NDC 49035-977) gives acetaminophen 325 mg, dextromethorphan HBr 15 mg and doxylamine succinate 6.25 mg per softgel and says 'Compare to NyQuil LiquiCaps Active Ingredients'. The Walmart 24-count listing matches.",
+    "differences": "Buying the two Equate boxes gets you 24 of each (48 softgels for $11.96, about $1 more upfront than the 24-count Vicks pack), and the per-capsule saving only counts once you use the extra capsules. Against Vicks' larger 60-count combo at Walmart ($21.97, 36.6 cents a capsule), Equate's 24.9 cents a capsule still saves about 32%. Inactive ingredients, capsule colour and packaging differ. The Equate FDA labels we read are for the same formula and pack sizes but may be an earlier label version than the box on the shelf. Both day formulas contain oral phenylephrine, which an FDA advisory panel judged ineffective as a decongestant in 2023. Both day and night contain acetaminophen, so don't take them with other acetaminophen products.",
+    "sources": [
+      "https://www.walmart.com/ip/p/39451983",
+      "https://hannaford.com/groceries/product/vicks-dayquil-nyquil-cold-flu-relief-liquicaps-combo-pack-24-ct-box/276857",
+      "https://giantfoodstores.com/groceries/health-beauty/cough-cold-flu/vicks-dayquil-nyquil-cold-flu-relief-combo-pack-liquicaps-48-ct-box.html",
+      "https://www.walmart.com/ip/Equate-Non-Drowsy-Cold-and-Flu-Multi-Symptom-Relief-Softgels-24-Count/606058708",
+      "https://drugs.com/otc/107531/equate-daytime-cold-and-flu.html",
+      "https://www.walmart.com/ip/20608083",
+      "https://drugs.com/otc/107533/equate-nitetime-cold-and-flu.html",
+      "https://www.walmart.com/ip/688227544"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "duracell-coppertop-aa-aaa-variety-pack-vs-kirkland-aa-aaa",
+    "category": "tech-tools",
+    "title": "Duracell Coppertop AA + AAA Variety Pack vs Kirkland Signature AA and AAA",
+    "bundle": {
+      "brand": "Duracell",
+      "name": "Duracell Coppertop Power Boost AA and AAA Alkaline Batteries Variety Pack, 48 total (24 AA + 24 AAA)",
+      "price_usd": 39.99,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "homedepot",
+      "asin": null,
+      "url": "https://www.homedepot.com/p/Duracell-Coppertop-Alkaline-24-Count-AA-and-24-Count-AAA-Battery-Variety-Pack-48-Total-Batteries-004133304285/317059515",
+      "items": [
+        {
+          "name": "Duracell Coppertop AA alkaline batteries",
+          "size": 24,
+          "unit": "battery",
+          "key_ingredients": [
+            {
+              "name": "Chemistry",
+              "amount": "Alkaline, 1.5 V, AA"
+            }
+          ]
+        },
+        {
+          "name": "Duracell Coppertop AAA alkaline batteries",
+          "size": 24,
+          "unit": "battery",
+          "key_ingredients": [
+            {
+              "name": "Chemistry",
+              "amount": "Alkaline, 1.5 V, AAA"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Kirkland Signature",
+        "product": "Kirkland Signature Alkaline AA Batteries, 48-count",
+        "size": 48,
+        "unit": "battery",
+        "price_usd": 15.99,
+        "retailer": "costco",
+        "asin": null,
+        "url": "https://www.costco.com/kirkland-signature-alkaline-aa-batteries%2C-48-count.product.100796702.html",
+        "key_ingredients": [
+          {
+            "name": "Chemistry",
+            "amount": "Alkaline, 1.5 V, AA"
+          }
+        ],
+        "match_type": "same_manufacturer"
+      },
+      {
+        "replaces": 1,
+        "brand": "Kirkland Signature",
+        "product": "Kirkland Signature Alkaline AAA Batteries, 48-count",
+        "size": 48,
+        "unit": "battery",
+        "price_usd": 15.99,
+        "retailer": "costco",
+        "asin": null,
+        "url": "https://www.costco.com/kirkland-signature-alkaline-aaa-batteries-48-count.product.100796711.html",
+        "key_ingredients": [
+          {
+            "name": "Chemistry",
+            "amount": "Alkaline, 1.5 V, AAA"
+          }
+        ],
+        "match_type": "same_manufacturer"
+      }
+    ],
+    "match_type": "same_manufacturer",
+    "confidence": "medium",
+    "summary": "Duracell's 24 AA + 24 AAA variety pack costs about 83 cents a battery, while Costco's Kirkland alkalines, which Costco's then-CEO said Duracell makes, cost about 33 cents each.",
+    "evidence": "Home Depot lists the Duracell Coppertop Power Boost variety pack (model 004133304285) as 24 AA plus 24 AAA alkaline batteries for $39.99. In a 2016 WSB-TV interview, then-Costco CEO Craig Jelinek said Duracell produces Kirkland batteries, as reported by SlashGear and Hunker. Warehouse Runner shows Costco's Kirkland AA 48-count (item 2322010) at $15.99 in current warehouse listings. Costco's AAA 48-count page lists alkaline chemistry with a 12-year shelf life, and Hunker gives its regular price as $15.99. In Project Farm's tests, as summarised by SlashGear, Kirkland AA ranked just behind Duracell and Energizer Max.",
+    "differences": "The same-factory evidence is a 2016 statement, and Costco could have changed suppliers since then. Kirkland cells lack Coppertop's 'Power Boost' marketing, and Project Farm ranked them slightly behind Duracell-branded AAs. You need a Costco membership, and you have to buy 48 of each size ($31.98 for 96 batteries), which is still less upfront than the $39.99 Duracell pack. The Kirkland AAA price comes from Hunker's report of Costco's regular price rather than a live listing. Duracell's variety pack is often cheaper on sale or at other retailers.",
+    "sources": [
+      "https://www.homedepot.com/p/Duracell-Coppertop-Alkaline-24-Count-AA-and-24-Count-AAA-Battery-Variety-Pack-48-Total-Batteries-004133304285/317059515",
+      "https://app.warehouserunner.com/costco/2322010-kirkland-signature-aa-batteries-alkaline-48-ct",
+      "https://www.costco.com/kirkland-signature-alkaline-aaa-batteries-48-count.product.100796711.html",
+      "https://www.hunker.com/2040072/are-costco-kirkland-batteries-made-by-duracell",
+      "https://www.slashgear.com/2091912/who-makes-costco-batteries-where-manufactured",
+      "https://www.slashgear.com/2149811/amazon-basics-aa-batteries-vs-costco-kirkland-test-data-results/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "childrens-tylenol-liquid-chewables-bundle-vs-equate-childrens-acetaminophen",
+    "category": "baby",
+    "title": "Children's Tylenol Liquid + Chewables bundle vs Equate Children's acetaminophen",
+    "bundle": {
+      "brand": "Tylenol",
+      "name": "Children's Tylenol Liquid (4 fl oz) & Chewables (24 count), 2 pc bundle, Grape",
+      "price_usd": 11.47,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Children-s-Tylenol-Liquid-4-fl-oz-Chewables-24-Ct-2-pc-bundle/721511353",
+      "items": [
+        {
+          "name": "Children's Tylenol Oral Suspension, Grape",
+          "size": 4,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Acetaminophen",
+              "amount": "160 mg per 5 mL"
+            }
+          ]
+        },
+        {
+          "name": "Children's Tylenol Chewables, Grape",
+          "size": 24,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Acetaminophen",
+              "amount": "160 mg per chewable tablet"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Equate",
+        "product": "Equate Children's Pain & Fever Acetaminophen Oral Suspension, Bubble Gum, 4 fl oz",
+        "size": 4,
+        "unit": "fl oz",
+        "price_usd": 3.17,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/10324463",
+        "key_ingredients": [
+          {
+            "name": "Acetaminophen",
+            "amount": "160 mg per 5 mL"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "Equate",
+        "product": "Equate Children's Pain & Fever Relief Acetaminophen Chewable Tablets, 160 mg, Grape, 24 count",
+        "size": 24,
+        "unit": "tablet",
+        "price_usd": 3.26,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/189110509",
+        "key_ingredients": [
+          {
+            "name": "Acetaminophen",
+            "amount": "160 mg per chewable tablet"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both pieces of the Children's Tylenol bundle, the 160 mg/5 mL liquid and the 160 mg chewables, are sold by Equate at the same strength for $6.43 together instead of $11.47.",
+    "evidence": "Walmart's bundle listing gives Children's Tylenol Oral Suspension at acetaminophen 160 mg per 5 mL (4 fl oz) and Children's Tylenol Chewables at 160 mg per tablet (24 count), both grape and for ages 2 to 11. The Equate Children's Pain & Fever suspension label shows acetaminophen 160 mg per 5 mL and 'Compare to Children's Tylenol Oral Suspension active ingredient' (Walmart listing and otclabels Drug Facts). Walmart's Equate chewables listing shows acetaminophen 160 mg per chewable tablet, 24 count, grape, 'Compare to Children's Tylenol Active Ingredient'.",
+    "differences": "The cheapest Equate liquid is bubble gum flavoured and contains dyes; Equate also sells a dye-free cherry version. The Equate chewables listing says it compares to Children's Tylenol Meltaways, which are also 160 mg per tablet. Inactive ingredients, taste and the dosing syringe or cup differ. Dose by weight or age as the label directs, and don't give both forms in the same dosing window. A third-party product tracker lists the same 2-piece Tylenol pack on Amazon as ASIN B07HPYLLJ3; we did not check that on Amazon.",
+    "sources": [
+      "https://www.walmart.com/ip/Children-s-Tylenol-Liquid-4-fl-oz-Chewables-24-Ct-2-pc-bundle/721511353",
+      "https://www.walmart.com/ip/10324463",
+      "https://otclabels.com/lib/otc/otc-meds/equate-childrens-pain-and-fever/",
+      "https://www.walmart.com/ip/189110509"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mucinex-fast-max-nightshift-liquid-combo-vs-equate-severe-congestion-cough-nighttime-cold-flu",
+    "category": "otc-medicine",
+    "title": "Mucinex Fast-Max & NightShift Combo Pack vs Equate Severe Congestion & Cough + Equate Nighttime Cold & Flu",
+    "bundle": {
+      "brand": "Mucinex",
+      "name": "Mucinex Fast-Max & NightShift Combo Pack (Fast-Max Severe Congestion & Cough + NightShift Cold & Flu), 2 x 6 fl oz",
+      "price_usd": 22.44,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/574263358",
+      "items": [
+        {
+          "name": "Maximum Strength Mucinex Fast-Max Severe Congestion & Cough liquid",
+          "size": 6,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Dextromethorphan HBr",
+              "amount": "20 mg per 20 mL"
+            },
+            {
+              "name": "Guaifenesin",
+              "amount": "400 mg per 20 mL"
+            },
+            {
+              "name": "Phenylephrine HCl",
+              "amount": "10 mg per 20 mL"
+            }
+          ]
+        },
+        {
+          "name": "Mucinex NightShift Cold & Flu liquid",
+          "size": 6,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Acetaminophen",
+              "amount": "650 mg per 20 mL"
+            },
+            {
+              "name": "Dextromethorphan HBr",
+              "amount": "20 mg per 20 mL"
+            },
+            {
+              "name": "Triprolidine HCl",
+              "amount": "2.5 mg per 20 mL"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Equate",
+        "product": "Equate Maximum Strength Severe Congestion Relief Cough Suppressant and Expectorant Liquid, 6 fl oz",
+        "size": 6,
+        "unit": "fl oz",
+        "price_usd": 8.62,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/199982667",
+        "key_ingredients": [
+          {
+            "name": "Dextromethorphan HBr",
+            "amount": "20 mg per 20 mL"
+          },
+          {
+            "name": "Guaifenesin",
+            "amount": "400 mg per 20 mL"
+          },
+          {
+            "name": "Phenylephrine HCl",
+            "amount": "10 mg per 20 mL"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "Equate",
+        "product": "Equate Nighttime Cold & Flu Liquid, 6 fl oz (Compare to Mucinex Nightshift Cold & Flu)",
+        "size": 6,
+        "unit": "fl oz",
+        "price_usd": 5.47,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Equate-Nighttime-Cold-Flu-Liquid-6-fl-oz-Compare-to-Mucinex-Nightshift-Cold-Flu-Active-Ingredients/813296296",
+        "key_ingredients": [
+          {
+            "name": "Acetaminophen",
+            "amount": "650 mg per 20 mL"
+          },
+          {
+            "name": "Dextromethorphan HBr",
+            "amount": "20 mg per 20 mL"
+          },
+          {
+            "name": "Triprolidine HCl",
+            "amount": "2.5 mg per 20 mL"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Mucinex's day/night liquid twin pack is two 6 oz bottles that Equate sells separately, each labelled as a match for the Mucinex active ingredients, for $14.09 instead of $22.44.",
+    "evidence": "Walmart's combo listing names the two bottles as Maximum Strength Mucinex Fast-Max Severe Congestion & Cough (dextromethorphan HBr, guaifenesin, phenylephrine HCl) and Mucinex NightShift Cold & Flu (acetaminophen, dextromethorphan HBr, triprolidine HCl), dosed at 20 mL. The Equate Severe Congestion liquid lists dextromethorphan HBr 20 mg, guaifenesin 400 mg and phenylephrine HCl 10 mg with a 20 mL dose and says 'Compare to Mucinex Fast-Max Maximum Strength Severe Congestion & Cough active ingredients'. The FDA label for Walmart's Nighttime Cold & Flu liquid (NDC 79903-119, 6 fl oz) gives acetaminophen 650 mg, dextromethorphan HBr 20 mg and triprolidine HCl 2.5 mg per 20 mL and says 'Compare to Mucinex Nightshift Cold & Flu active ingredients'. Mucinex's own NightShift Cold & Flu caplet label works out to the same 650 mg / 20 mg / 2.5 mg per 2-caplet dose.",
+    "differences": "We could not open a Drug Facts panel for the two Mucinex liquids themselves. Their per-dose strengths rest on Walmart's ingredient list plus Equate's FDA-filed 'compare to' labels, so confidence is medium. Flavours and inactive ingredients differ. The day liquid contains oral phenylephrine, which an FDA advisory panel judged ineffective as a decongestant in 2023. The night liquid contains acetaminophen, so don't combine it with other acetaminophen products.",
+    "sources": [
+      "https://www.walmart.com/ip/574263358",
+      "https://www.walmart.com/ip/199982667",
+      "https://www.walmart.com/ip/Equate-Nighttime-Cold-Flu-Liquid-6-fl-oz-Compare-to-Mucinex-Nightshift-Cold-Flu-Active-Ingredients/813296296",
+      "https://ndclist.com/ndc/79903-119/label",
+      "https://otclabels.com/lib/otc/otc-meds/mucinex-nightshift-cold-and-flu-maximum-strength/"
+    ],
+    "price_checked": "2026-11"
+  }
+]

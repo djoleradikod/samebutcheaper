@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AlertTriangle, Check, ChevronRight, ExternalLink, Info, Minus } from "lucide-react";
-import { getAllPairs, getPair, getRelatedPairs, toSummary } from "@/lib/catalog";
+import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
+import { SaveButton } from "@/components/SaveButton";
 import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
-import { formatSize, monthYear, ppu, usd } from "@/lib/format";
-import { RETAILER_LABEL } from "@/lib/affiliate";
+import { formatSize, inSentence, monthYear, ppu, money } from "@/lib/format";
+import { atStore, mayEarn, RETAILER_LABEL } from "@/lib/affiliate";
 import { ConfidenceBadge, MatchBadge, SavingsBadge } from "@/components/Badges";
 import { PairCard } from "@/components/PairCard";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import { SITE } from "@/lib/site";
+import { WhereToBuy } from "@/components/WhereToBuy";
 import type { Pair, ProductSide } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }: PageProps<"/compare/[slug]">)
   const pair = getPair(slug);
   if (!pair) return { title: "Swap not found" };
   const title = `${pair.brand.brand} vs ${pair.alternative.brand}: save ${Math.round(pair.savingsPct)}%`;
-  const description = `${pair.summary} ${ppu(pair.alternative.ppu)} vs ${ppu(pair.brand.ppu)} per ${pair.brand.unit}.`;
+  const description = `${pair.summary} ${ppu(pair.alternative.ppu, pair.currency)} vs ${ppu(pair.brand.ppu, pair.currency)} per ${pair.brand.unit}.`;
   return {
     title,
     description,
@@ -52,8 +54,10 @@ function ingredientRows(pair: Pair) {
     if (row) row.alt = i.amount;
     else rows.set(key, { name: i.name, alt: i.amount });
   }
+  const chemistry = pair.match_type !== "equivalent_spec";
   return [...rows.values()].map((r) => ({
     ...r,
+    ingredientSlug: chemistry ? ingredientSlugFor(r.name) : undefined,
     match:
       r.brand !== undefined &&
       r.alt !== undefined &&
@@ -68,6 +72,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
 
   const cat = CATEGORY_MAP[pair.category];
   const related = getRelatedPairs(pair, 3).map(toSummary);
+  const brandCount = getBrand(brandSlugFor(pair.brand.brand))?.pairs.length ?? 0;
   const rows = ingredientRows(pair);
   const unitsPerPack = pair.brand.size;
 
@@ -88,8 +93,8 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
       brand: { "@type": "Brand", name: p.brand },
       offers: {
         "@type": "Offer",
-        price: p.price_usd.toFixed(2),
-        priceCurrency: "USD",
+        price: p.price.toFixed(2),
+        priceCurrency: pair.currency,
         url: p.url,
       },
     })),
@@ -123,13 +128,13 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
             <div>
               <p className="text-xs text-muted">Price per {pair.brand.unit}</p>
               <p className="text-lg">
-                <span className="text-muted line-through">{ppu(pair.brand.ppu)}</span>{" "}
-                <span className="font-semibold text-accent">{ppu(pair.alternative.ppu)}</span>
+                <span className="text-muted line-through">{ppu(pair.brand.ppu, pair.currency)}</span>{" "}
+                <span className="font-semibold text-accent">{ppu(pair.alternative.ppu, pair.currency)}</span>
               </p>
             </div>
             <div>
               <p className="text-xs text-muted">Saved on a pack of {formatSize(unitsPerPack, pair.brand.unit)}</p>
-              <p className="text-lg font-semibold">{usd(pair.savingsPerPack)}</p>
+              <p className="text-lg font-semibold">{money(pair.savingsPerPack, pair.currency)}</p>
             </div>
           </div>
         </div>
@@ -167,7 +172,15 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
                   <tbody className="num divide-y divide-line">
                     {rows.map((r) => (
                       <tr key={r.name}>
-                        <td className="px-3 py-3 sm:px-5 font-medium">{r.name}</td>
+                        <td className="px-3 py-3 font-medium sm:px-5">
+                          {r.ingredientSlug ? (
+                            <Link href={`/ingredient/${r.ingredientSlug}`} className="underline decoration-line-strong underline-offset-4 hover:text-accent hover:decoration-accent">
+                              {r.name}
+                            </Link>
+                          ) : (
+                            r.name
+                          )}
+                        </td>
                         <td className="px-3 py-3 sm:px-5 text-ink-2">{r.brand ?? "—"}</td>
                         <td className="px-3 py-3 sm:px-5 text-ink-2">{r.alt ?? "—"}</td>
                         <td className="px-3 py-3 sm:px-5">
@@ -236,6 +249,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
           <SavingsCalculator
+            currency={pair.currency}
             brandPpu={pair.brand.ppu}
             altPpu={pair.alternative.ppu}
             unit={pair.brand.unit}
@@ -247,19 +261,44 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
             target="_blank"
             className="btn btn-primary w-full py-3.5 text-base"
           >
-            Get {pair.alternative.brand} on {RETAILER_LABEL[pair.alternative.retailer]}
+            Get {pair.alternative.brand} {atStore(pair.alternative.retailer)}
             <ExternalLink className="h-4 w-4" />
           </a>
           <p className="text-center text-xs text-muted">
-            Affiliate link. We may earn a commission at no cost to you.{" "}
+            {mayEarn(pair.alternative)
+              ? "Affiliate link. We may earn a commission at no cost to you."
+              : "We don't earn anything from this link."}{" "}
             <Link href="/disclosure" className="underline underline-offset-2">Details</Link>
           </p>
+          <WhereToBuy
+            slug={pair.slug}
+            market={pair.market}
+            retailer={pair.alternative.retailer}
+            retailerLabel={RETAILER_LABEL[pair.alternative.retailer]}
+            lookFor={pair.lookFor}
+            health={HEALTH_CATEGORIES.has(pair.category)}
+            compareWith={
+              pair.brand.product.toLowerCase().startsWith(pair.brand.brand.toLowerCase())
+                ? pair.brand.product
+                : `${pair.brand.brand} ${pair.brand.product}`
+            }
+          />
+          <SaveButton slug={pair.slug} />
+          {brandCount > 1 && (
+            <Link
+              href={`/brand/${brandSlugFor(pair.brand.brand)}`}
+              className="block rounded-xl border border-line bg-surface px-4 py-3 text-sm hover:border-accent"
+            >
+              <span className="font-medium">{brandCount} {pair.brand.brand} products</span> have cheaper
+              matches <span className="text-accent">→</span>
+            </Link>
+          )}
         </aside>
       </div>
 
       {related.length > 0 && (
         <section className="container-page pb-4">
-          <h2 className="display text-2xl font-medium">More {cat.name.toLowerCase()} swaps</h2>
+          <h2 className="display text-2xl font-medium">More {inSentence(cat.name)} swaps</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <PairCard key={p.slug} pair={p} />
@@ -300,11 +339,11 @@ function ProductPanel({ side, pair, product }: { side: "brand" | "alternative"; 
         </div>
         <div>
           <dt className="text-xs text-muted">Price</dt>
-          <dd className="font-medium">{usd(product.price_usd)}</dd>
+          <dd className="font-medium">{money(product.price, pair.currency)}</dd>
         </div>
         <div>
           <dt className="text-xs text-muted">Per {product.unit}</dt>
-          <dd className={`font-semibold ${isAlt ? "text-accent" : ""}`}>{ppu(product.ppu)}</dd>
+          <dd className={`font-semibold ${isAlt ? "text-accent" : ""}`}>{ppu(product.ppu, pair.currency)}</dd>
         </div>
       </dl>
       <div className="mt-auto pt-5">
@@ -314,7 +353,7 @@ function ProductPanel({ side, pair, product }: { side: "brand" | "alternative"; 
           rel="sponsored nofollow noopener"
           className={`btn w-full ${isAlt ? "btn-primary" : "btn-ghost"}`}
         >
-          {isAlt ? "Check price" : "Brand price"} on {RETAILER_LABEL[product.retailer]}
+          {isAlt ? "Check price" : "Brand price"} {atStore(product.retailer)}
           <ExternalLink className="h-4 w-4" />
         </a>
       </div>

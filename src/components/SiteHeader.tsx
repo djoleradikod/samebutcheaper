@@ -1,12 +1,16 @@
 import Link from "next/link";
-import { Menu, Search } from "lucide-react";
+import { Bookmark, Menu, Search } from "lucide-react";
+import { SavedCount } from "./SaveButton";
 import { Logo } from "./Logo";
 import { CATEGORIES } from "@/lib/categories";
 import { CategoryIcon } from "./CategoryIcon";
 import { Dropdown } from "./Dropdown";
+import { CountryPicker } from "./CountryPicker";
 
 const NAV = [
+  { href: "/check", label: "Check a product" },
   { href: "/biggest-savings", label: "Biggest savings" },
+  { href: "/bundles", label: "Bundles" },
   { href: "/how-we-verify", label: "How we verify" },
   { href: "/suggest", label: "Suggest a swap" },
 ];
@@ -19,7 +23,7 @@ export function SiteHeader() {
           <Logo />
         </Link>
 
-        <form action="/search" className="relative ml-2 hidden flex-1 md:block md:max-w-sm">
+        <form action="/search" className="relative ml-2 hidden flex-1 md:block md:max-w-sm xl:hidden">
           <Search className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted" />
           <input
             name="q"
@@ -30,7 +34,7 @@ export function SiteHeader() {
           />
         </form>
 
-        <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="ml-auto hidden items-center gap-1 whitespace-nowrap xl:flex" aria-label="Main">
           <Dropdown
             className="relative"
             summary="Categories"
@@ -61,9 +65,29 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
+          <Link
+            href="/search"
+            aria-label="Search swaps"
+            className="inline-flex items-center rounded-lg px-2.5 py-2 text-ink-2 hover:text-ink"
+          >
+            <Search className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/my-list"
+            aria-label="My savings list"
+            className="inline-flex items-center rounded-lg px-2.5 py-2 text-sm font-medium text-ink-2 hover:text-ink"
+          >
+            <Bookmark className="h-4 w-4" />
+            <SavedCount />
+          </Link>
+          <CountryPicker className="ml-1" />
         </nav>
 
-        <div className="ml-auto flex items-center gap-1 lg:hidden">
+        <div className="ml-auto flex items-center gap-1 xl:hidden">
+          <Link href="/my-list" aria-label="My savings list" className="inline-flex items-center rounded-lg p-2">
+            <Bookmark className="h-5 w-5" />
+            <SavedCount />
+          </Link>
           <Link href="/search" aria-label="Search" className="rounded-lg p-2 md:hidden">
             <Search className="h-5 w-5" />
           </Link>
@@ -79,6 +103,10 @@ export function SiteHeader() {
                   {n.label}
                 </Link>
               ))}
+              <div className="flex items-center justify-between px-3 py-2">
+                <span className="text-sm text-muted">Shopping from</span>
+                <CountryPicker withName />
+              </div>
               <div className="my-2 border-t border-line" />
               {CATEGORIES.map((c) => (
                 <Link

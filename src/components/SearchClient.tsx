@@ -5,10 +5,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Fuse from "fuse.js";
 import { Search } from "lucide-react";
-import type { PairSummary } from "@/lib/types";
+import type { Bundle, PairSummary } from "@/lib/types";
 import { PairCard } from "./PairCard";
+import { BundleCard } from "./BundleCard";
 
-export function SearchClient({ pairs }: { pairs: PairSummary[] }) {
+export function SearchClient({ pairs, bundles = [] }: { pairs: PairSummary[]; bundles?: Bundle[] }) {
   const params = useSearchParams();
   const router = useRouter();
   const initial = params.get("q") ?? "";
@@ -39,8 +40,26 @@ export function SearchClient({ pairs }: { pairs: PairSummary[] }) {
     [pairs],
   );
 
+  const bundleFuse = useMemo(
+    () =>
+      new Fuse(bundles, {
+        keys: [
+          { name: "bundle.brand", weight: 3 },
+          { name: "bundle.name", weight: 2 },
+          { name: "title", weight: 2 },
+          { name: "bundle.items.name", weight: 1 },
+          { name: "components.product", weight: 1 },
+        ],
+        threshold: 0.35,
+        ignoreLocation: true,
+        minMatchCharLength: 2,
+      }),
+    [bundles],
+  );
+
   const term = q.trim();
   const results = term ? fuse.search(term).map((r) => r.item) : [];
+  const bundleResults = term ? bundleFuse.search(term).map((r) => r.item) : [];
 
   return (
     <div>
@@ -68,10 +87,13 @@ export function SearchClient({ pairs }: { pairs: PairSummary[] }) {
       {term ? (
         <>
           <p className="num mt-6 text-sm text-muted" aria-live="polite">
-            {results.length} result{results.length === 1 ? "" : "s"} for “{term}”
+            {results.length + bundleResults.length} result{results.length + bundleResults.length === 1 ? "" : "s"} for “{term}”
           </p>
-          {results.length > 0 ? (
+          {results.length + bundleResults.length > 0 ? (
             <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {bundleResults.map((b) => (
+                <BundleCard key={b.slug} bundle={b} />
+              ))}
               {results.map((p) => (
                 <PairCard key={p.slug} pair={p} />
               ))}

@@ -921,7 +921,7 @@
       "price_usd": 4.76,
       "retailer": "walmart",
       "asin": null,
-      "url": "https://www.walmart.com/ip/787469306",
+      "url": "https://www.walmart.com/search?q=equate+extra+strength+medicated+body+powder",
       "key_ingredients": [
         {
           "name": "Menthol",
@@ -933,7 +933,7 @@
     "confidence": "medium",
     "summary": "Both are 10 oz medicated body powders whose only active ingredient is 0.8% menthol for itch relief.",
     "evidence": "Gold Bond's talc-free Extra Strength drug facts list menthol 0.8% as the only active (HEB and Hannaford listings, Walmart listing). Walmart's NDC listing for Equate Medicated Body Extra Strength powder (NDC 49035-0822-01, 283 g) lists menthol 0.80%. Walmart shows the Equate Extra Strength 10 oz at $4.76 as comparable to Gold Bond Extra Strength.",
-    "differences": "The Equate price comes from the 'similar items' section of the Gold Bond page, not its own product page. We did not confirm whether the Equate powder base is talc-free; check the box if that matters to you. The NDC page also has a stray '0.15%' comparison line, which is the original-strength figure.",
+    "differences": "The Equate price comes from the 'similar items' section of the Gold Bond page, not its own product page. We did not confirm whether the Equate powder base is talc-free; check the box if that matters to you. The NDC page also has a stray '0.15%' comparison line, which is the original-strength figure. The Equate link opens a Walmart search, because we only saw its price on the Gold Bond page.",
     "sources": [
       "https://www.walmart.com/ip/787469306",
       "https://www.heb.com/product-detail/gold-bond-medicated-talc-free-extra-strength-body-powderfor-cooling-absorbing-itch-relief/4904001",

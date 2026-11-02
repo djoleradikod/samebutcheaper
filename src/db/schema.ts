@@ -7,6 +7,7 @@ import {
   index,
   uniqueIndex,
   pgEnum,
+  boolean,
 } from "drizzle-orm/pg-core";
 
 /** Outbound affiliate clicks, used to see which swaps people actually buy. */
@@ -57,4 +58,25 @@ export const subscribers = pgTable(
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => [uniqueIndex("subscribers_email_idx").on(t.email)],
+);
+
+/**
+ * Product lookups from /check (text, barcode, photo). Lookups with no verified
+ * swap are the research queue: what shoppers want that we don't cover yet.
+ */
+export const lookups = pgTable(
+  "lookups",
+  {
+    id: serial("id").primaryKey(),
+    kind: varchar("kind", { length: 16 }).notNull(), // "text" | "barcode" | "photo" | "product"
+    query: varchar("query", { length: 200 }),
+    source: varchar("source", { length: 16 }),
+    sourceId: varchar("source_id", { length: 80 }),
+    productName: varchar("product_name", { length: 200 }),
+    verified: boolean("verified").default(false).notNull(),
+    country: varchar("country", { length: 2 }),
+    visitorHash: varchar("visitor_hash", { length: 64 }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => [index("lookups_created_idx").on(t.createdAt), index("lookups_verified_idx").on(t.verified)],
 );

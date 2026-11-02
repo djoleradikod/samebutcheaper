@@ -7,6 +7,7 @@ import { getPairsByCategory, toSummary } from "@/lib/catalog";
 import { PairBrowser } from "@/components/PairBrowser";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import type { CategorySlug } from "@/lib/types";
+import { inSentence } from "@/lib/format";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }));
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: PageProps<"/category/[slug]">
   const count = getPairsByCategory(cat.slug).length;
   return {
     title: `Cheaper ${cat.name}: ${count} verified swaps`,
-    description: `${cat.description} Browse ${count} verified cheaper alternatives to brand-name ${cat.name.toLowerCase()}.`,
+    description: `${cat.description} Browse ${count} verified cheaper alternatives to brand-name ${inSentence(cat.name)}.`,
     alternates: { canonical: `/category/${cat.slug}` },
   };
 }
@@ -50,7 +51,7 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
               <CategoryIcon icon={cat.icon} className="h-7 w-7" />
             </span>
             <div>
-              <h1 className="display text-4xl font-medium sm:text-5xl">Cheaper {cat.name.toLowerCase()}</h1>
+              <h1 className="display text-4xl font-medium sm:text-5xl">Cheaper {inSentence(cat.name)}</h1>
               <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">{cat.description}</p>
               {pairs.length > 0 && (
                 <p className="num mt-4 text-sm text-muted">

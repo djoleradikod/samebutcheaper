@@ -1,6 +1,7 @@
 # Catalog data
 
 Every swap lives in `data/pairs/*.json` (one file per research batch; any file name works).
+Bundles (a brand's kit rebuilt from cheaper items) live in `data/bundles/*.json`.
 Each file is a JSON array of pairs. `npm run catalog` validates all of them against
 `src/lib/schema.ts` and writes `src/generated/catalog.json`, which the site reads.
 It runs automatically before `npm run dev` and `npm run build`, and the build fails if any pair is invalid.
@@ -13,21 +14,29 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 - `brand.unit` and `alternative.unit` must be the same unit, because savings are computed per unit.
 - At least 2 real `sources` URLs.
 - The alternative must be at least 5% cheaper per unit, or the build rejects it.
-- `asin` is optional. When it is set, Amazon links go to `amazon.com/dp/<ASIN>?tag=<AMAZON_ASSOCIATE_TAG>`.
+- `market` is the country the prices were checked in: `US` (default), `GB`, `CA` or `DE`. `price` is in
+  that country's currency (USD, GBP, CAD, EUR), and both sides of a pair must be priced in the same market.
+  Slugs for non-US pairs end in `-gb`, `-ca` or `-de`. (Older files use `price_usd`; it still works and means USD.)
+- `retailer` is one of the stores in `RETAILERS` in `src/lib/markets.ts`, or `other`.
+- `asin` is optional. When it is set, Amazon links go to that market's Amazon store (`amazon.com`, `amazon.co.uk`,
+  `amazon.ca`, `amazon.de`) with the matching affiliate tag.
+- `look_for` is optional: what a shopper in another country should search for, when the automatic phrase
+  (actives, strength and form) wouldn't work.
 
 ## Example
 
 ```json
 {
   "slug": "advil-vs-amazon-basic-care-ibuprofen-200mg",
+  "market": "US",
   "category": "otc-medicine",
   "subcategory": "Pain relief",
   "title": "Advil vs Amazon Basic Care Ibuprofen 200mg",
   "brand":       { "brand": "Advil", "product": "Advil Tablets 200mg", "size": 200, "unit": "tablet",
-                   "price_usd": 17.97, "retailer": "amazon", "asin": null, "url": "https://www.amazon.com/s?k=advil+200",
+                   "price": 17.97, "retailer": "amazon", "asin": null, "url": "https://www.amazon.com/s?k=advil+200",
                    "key_ingredients": [{ "name": "Ibuprofen", "amount": "200 mg" }] },
   "alternative": { "brand": "Amazon Basic Care", "product": "Ibuprofen Tablets 200mg", "size": 500, "unit": "tablet",
-                   "price_usd": 11.49, "retailer": "amazon", "asin": null, "url": "https://www.amazon.com/s?k=basic+care+ibuprofen",
+                   "price": 11.49, "retailer": "amazon", "asin": null, "url": "https://www.amazon.com/s?k=basic+care+ibuprofen",
                    "key_ingredients": [{ "name": "Ibuprofen", "amount": "200 mg" }] },
   "match_type": "identical_active",
   "confidence": "high",

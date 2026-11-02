@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { getAllPairs, toSummary } from "@/lib/catalog";
+import { getAllBundles, getAllPairs, toSummary } from "@/lib/catalog";
 import { SearchClient } from "@/components/SearchClient";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function SearchPage() {
       </p>
       <div className="mt-8">
         <Suspense fallback={<div className="h-14 max-w-2xl rounded-2xl border border-line bg-surface" />}>
-          <SearchClient pairs={pairs} />
+          <SearchClient pairs={pairs} bundles={getAllBundles()} />
         </Suspense>
       </div>
     </section>

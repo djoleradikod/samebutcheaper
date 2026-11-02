@@ -1,19 +1,23 @@
 import Link from "next/link";
-import { ArrowRight, Check, Megaphone, Search, ShieldCheck, Scale } from "lucide-react";
+import { ArrowRight, Camera, Check, Megaphone, ScanBarcode, Search, ShieldCheck, Scale } from "lucide-react";
 import {
+  getAllBundles,
   getAllPairs,
+  getIngredients,
   getBiggestDollarSavings,
   getCategoryStats,
   getFeaturedPairs,
   getSiteStats,
   toSummary,
 } from "@/lib/catalog";
-import { PairCard } from "@/components/PairCard";
+import { FeaturedPairs } from "@/components/FeaturedPairs";
+import { BundleCard } from "@/components/BundleCard";
 import { CategoryIcon } from "@/components/CategoryIcon";
 import { MatchBadge, SavingsBadge } from "@/components/Badges";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { MATCH_TYPE_META } from "@/lib/categories";
-import { ppu, usd } from "@/lib/format";
+import { MARKET_CODES } from "@/lib/markets";
+import { money, ppu } from "@/lib/format";
 import type { MatchType } from "@/lib/types";
 
 const FAQ = [
@@ -41,10 +45,14 @@ const FAQ = [
 
 export default function Home() {
   const stats = getSiteStats();
-  const featured = getFeaturedPairs(12).map(toSummary);
+  const featured = Object.fromEntries(
+    MARKET_CODES.map((m) => [m, getFeaturedPairs(12, m).map(toSummary)]).filter(([, list]) => list.length),
+  );
   const dollar = getBiggestDollarSavings(6);
   const categories = getCategoryStats().filter((c) => c.count > 0);
   const hero = getAllPairs()[0];
+  const bundles = getAllBundles().slice(0, 3);
+  const topIngredients = getIngredients().slice(0, 18);
   const chips = Array.from(new Set(getAllPairs().slice(0, 40).map((p) => p.brand.brand))).slice(0, 7);
 
   const faqLd = {
@@ -112,6 +120,14 @@ export default function Home() {
                 ))}
               </div>
             )}
+            <Link
+              href="/check"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent underline-offset-4 hover:underline"
+            >
+              <ScanBarcode className="h-4 w-4" />
+              Not on our list? Check any product by name, barcode or photo
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
           {hero && <HeroReceipt pair={hero} />}
@@ -127,12 +143,50 @@ export default function Home() {
           href="/biggest-savings"
           cta="See all swaps"
         />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((p, i) => (
-            <PairCard key={p.slug} pair={p} rank={i + 1} />
-          ))}
+        <FeaturedPairs lists={featured} />
+      </section>
+
+      {/* ---------- Product check ---------- */}
+      <section className="container-page pb-16">
+        <div className="card flex flex-col gap-6 overflow-hidden p-6 sm:p-8 md:flex-row md:items-center">
+          <div className="flex shrink-0 gap-3 text-accent">
+            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-accent-soft">
+              <ScanBarcode className="h-7 w-7" />
+            </span>
+            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-accent-soft">
+              <Camera className="h-7 w-7" />
+            </span>
+          </div>
+          <div className="min-w-0 flex-1">
+            <h2 className="display text-2xl font-medium sm:text-3xl">Check what&apos;s in your cabinet</h2>
+            <p className="mt-2 max-w-2xl leading-relaxed text-ink-2">
+              Scan a barcode or snap a label. We read the official label, tell you what it&apos;s for and what&apos;s
+              really in it, and show cheaper products with the same ingredients from stores that deliver to you.
+            </p>
+          </div>
+          <Link href="/check" className="btn btn-primary shrink-0 px-6 py-3">
+            Check a product <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
+
+      {/* ---------- Bundles ---------- */}
+      {bundles.length > 0 && (
+        <section className="container-page pb-16">
+          <SectionHeading
+            eyebrow="Kits, sets and stacks"
+            title="Brand bundles, rebuilt for less"
+            body="Regimens and kits taken apart item by item, then rebuilt from cheaper products with the same ingredients."
+            href="/bundles"
+            cta="All bundles"
+          />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {bundles.map((b) => (
+              <BundleCard key={b.slug} bundle={b} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ---------- Categories ---------- */}
       <section className="border-y border-line bg-surface">
@@ -158,6 +212,27 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          {topIngredients.length > 0 && (
+            <div className="mt-10">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-semibold">Or start from the ingredient on the label</h3>
+                <Link href="/ingredients" className="text-sm font-semibold text-accent hover:underline">
+                  All ingredients →
+                </Link>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {topIngredients.map((i) => (
+                  <Link
+                    key={i.slug}
+                    href={`/ingredient/${i.slug}`}
+                    className="rounded-full border border-line bg-paper px-3 py-1.5 text-sm text-ink-2 hover:border-accent hover:text-accent"
+                  >
+                    {i.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -212,7 +287,7 @@ export default function Home() {
       {dollar.length > 0 && (
         <section className="container-page py-16">
           <SectionHeading
-            eyebrow="Biggest in dollars"
+            eyebrow="Biggest in cash"
             title="Where the switch saves the most cash"
             body="Based on buying the same amount as one brand-name pack."
           />
@@ -231,7 +306,7 @@ export default function Home() {
                     <span className="block truncate text-sm text-muted">{p.subcategory}</span>
                   </span>
                   <span className="num text-right">
-                    <span className="block font-semibold">{usd(p.savingsPerPack)} saved</span>
+                    <span className="block font-semibold">{money(p.savingsPerPack, p.currency)} saved</span>
                     <span className="block text-xs text-muted">{Math.round(p.savingsPct)}% cheaper</span>
                   </span>
                 </Link>
@@ -344,14 +419,14 @@ function HeroReceipt({ pair }: { pair: ReturnType<typeof getAllPairs>[number] })
             <p className="text-xs text-brand-tone">Brand name</p>
             <p className="mt-1 font-semibold">{pair.brand.brand}</p>
             <p className="num mt-3 text-2xl text-muted line-through decoration-brand-tone/50">
-              {ppu(pair.brand.ppu)}
+              {ppu(pair.brand.ppu, pair.currency)}
             </p>
             <p className="text-xs text-muted">per {pair.brand.unit}</p>
           </div>
           <div className="bg-accent-soft/50 p-5">
             <p className="text-xs text-accent">Same thing</p>
             <p className="mt-1 font-semibold">{pair.alternative.brand}</p>
-            <p className="num mt-3 text-2xl font-semibold text-accent">{ppu(pair.alternative.ppu)}</p>
+            <p className="num mt-3 text-2xl font-semibold text-accent">{ppu(pair.alternative.ppu, pair.currency)}</p>
             <p className="text-xs text-muted">per {pair.alternative.unit}</p>
           </div>
         </div>

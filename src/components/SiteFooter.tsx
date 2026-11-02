@@ -36,7 +36,12 @@ export function SiteFooter() {
         <div>
           <h2 className="text-sm font-semibold">SameButCheaper</h2>
           <ul className="mt-3 space-y-2 text-sm text-muted">
+            <li><Link href="/check" className="hover:text-ink">Check any product</Link></li>
             <li><Link href="/biggest-savings" className="hover:text-ink">Biggest savings</Link></li>
+            <li><Link href="/bundles" className="hover:text-ink">Bundles</Link></li>
+            <li><Link href="/ingredients" className="hover:text-ink">Browse by ingredient</Link></li>
+            <li><Link href="/brands" className="hover:text-ink">Browse by brand</Link></li>
+            <li><Link href="/my-list" className="hover:text-ink">My savings list</Link></li>
             <li><Link href="/how-we-verify" className="hover:text-ink">How we verify</Link></li>
             <li><Link href="/suggest" className="hover:text-ink">Suggest a swap</Link></li>
             <li><Link href="/about" className="hover:text-ink">About</Link></li>

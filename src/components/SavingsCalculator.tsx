@@ -1,23 +1,23 @@
 "use client";
 
 import { useId, useState } from "react";
-
-function money(n: number) {
-  return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: n < 100 ? 2 : 0 });
-}
+import { money as fmt, type Currency } from "@/lib/format";
 
 export function SavingsCalculator({
   brandPpu,
   altPpu,
   unit,
   defaultMonthly,
+  currency = "USD",
 }: {
   brandPpu: number;
   altPpu: number;
   unit: string;
   defaultMonthly: number;
+  currency?: Currency;
 }) {
   const id = useId();
+  const money = (n: number) => fmt(n, currency);
   const [monthly, setMonthly] = useState(() => Math.max(1, Math.round(defaultMonthly)));
   const diff = Math.max(0, brandPpu - altPpu);
   const yearly = diff * monthly * 12;

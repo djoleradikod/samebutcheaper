@@ -2,8 +2,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { PairSummary } from "@/lib/types";
 import { CATEGORY_MAP } from "@/lib/categories";
-import { ppu, usd } from "@/lib/format";
+import { ppu, money } from "@/lib/format";
 import { MatchBadge, SavingsBadge } from "./Badges";
+import { MarketTag } from "./MarketTag";
 
 export function PairCard({ pair, rank }: { pair: PairSummary; rank?: number }) {
   const cat = CATEGORY_MAP[pair.category];
@@ -17,7 +18,10 @@ export function PairCard({ pair, rank }: { pair: PairSummary; rank?: number }) {
           {rank ? <span className="num mr-1.5 text-ink">#{rank}</span> : null}
           {pair.subcategory || cat.name}
         </span>
-        <SavingsBadge pct={pair.savingsPct} />
+        <span className="flex items-center gap-1.5">
+          <MarketTag market={pair.market} />
+          <SavingsBadge pct={pair.savingsPct} />
+        </span>
       </div>
 
       <div className="mt-4 space-y-3">
@@ -40,13 +44,13 @@ export function PairCard({ pair, rank }: { pair: PairSummary; rank?: number }) {
           <div>
             <p className="text-xs text-muted">Per {pair.unit}</p>
             <p>
-              <span className="text-muted line-through">{ppu(pair.brandPpu)}</span>{" "}
-              <span className="font-semibold text-accent">{ppu(pair.altPpu)}</span>
+              <span className="text-muted line-through">{ppu(pair.brandPpu, pair.currency)}</span>{" "}
+              <span className="font-semibold text-accent">{ppu(pair.altPpu, pair.currency)}</span>
             </p>
           </div>
           <div className="text-right">
             <p className="text-xs text-muted">Saved per pack</p>
-            <p className="font-semibold">{usd(pair.savingsPerPack)}</p>
+            <p className="font-semibold">{money(pair.savingsPerPack, pair.currency)}</p>
           </div>
         </div>
         <div className="mt-3 flex items-center justify-between">

@@ -10,7 +10,7 @@ SameButCheaper lists cheaper products that are *verifiably the same* as famous b
 | --- | --- |
 | Web | Next.js 16 (App Router, Cache Components), React 19, Tailwind CSS 4 |
 | Catalog | JSON files in `data/pairs/`, validated with Zod and compiled at build time, so every swap page is static HTML |
-| Database | PostgreSQL 16 via Drizzle ORM. It stores affiliate clicks, swap suggestions and newsletter sign-ups |
+| Database | PostgreSQL 16 via Drizzle ORM. It stores affiliate clicks, product lookups, swap suggestions and newsletter sign-ups |
 | Deploy | Docker (standalone Next.js output) plus Postgres, with optional Caddy for automatic HTTPS |
 
 The site works without a database. Clicks are then not logged, and the forms say sign-ups aren't open yet.
@@ -20,11 +20,15 @@ The site works without a database. Clicks are then not logged, and the forms say
 - `/`: hero search, the biggest savings, categories, how verification works, newsletter and FAQ
 - `/compare/[slug]`: a swap with price per unit, a savings calculator, a side-by-side ingredient table, evidence, differences, sources and buy buttons
 - `/category/[slug]`, `/biggest-savings`: lists you can filter and sort
+- `/check`: look up any product by name, barcode or photo. It shows what the product is for and what's in it (openFDA and DailyMed drug labels, the NIH supplement label database, Open Beauty/Food/Pet Food Facts), our verified cheaper swaps with the same ingredients, and store searches for the shopper's country
+- `/bundle/[slug]`, `/bundles`: a brand's kit rebuilt from cheaper items with the same ingredients
+- `/ingredient/[slug]`, `/brand/[slug]`: every swap for one ingredient or brand
 - `/search`: fuzzy search by brand, product or ingredient
 - `/suggest`: visitors suggest a swap (saved to the database)
 - `/how-we-verify`, `/about`, `/disclosure`, `/privacy`
 - `/go/[slug]/[alternative|brand]`: logs the click, then redirects to the affiliate URL
-- `/admin`: clicks, suggestions and subscribers, behind HTTP Basic auth (`admin` / `ADMIN_PASSWORD`)
+- `/out`: logs a click on a store search ("find it in your country") and redirects to that store
+- `/admin`: clicks, suggestions, subscribers and the research queue (products people looked up that we haven't verified yet), behind HTTP Basic auth (`admin` / `ADMIN_PASSWORD`)
 - `/sitemap.xml`, `/robots.txt`, `/api/health`
 
 ## Run locally (dev)
@@ -61,13 +65,30 @@ Caddy gets and renews the Let's Encrypt certificate automatically. You can then 
 
 **Backups:** `docker compose exec db pg_dump -U sbc samebutcheaper > backup-$(date +%F).sql`
 
+## Countries and prices
+
+Each swap and bundle has a `market` (US, GB, CA or DE) and prices in that country's currency. The site works out the shopper's country from a CDN header (`cf-ipcountry` from Cloudflare, or Vercel or CloudFront's equivalent), falling back to the browser language, and stores it in the `sbc_country` cookie. Shoppers can change it with the country picker in the header.
+
+Swap lists show the shopper's own country's prices first. When a store doesn't deliver to the shopper, the swap page tells them what to search for locally (the active ingredients and strength, in the local spelling) with links to stores that deliver there.
+
+**Tip:** put Cloudflare (free plan) in front of the Hetzner server. It sends `cf-ipcountry` on every request, so the country is detected from the visitor's location instead of their browser language.
+
+## Product check
+
+`/check` works without any keys, except photo label reading:
+
+- **Barcodes** are read in the browser (native `BarcodeDetector`, or a WebAssembly fallback served from `/vendor`), so photos with a barcode never leave the device.
+- **Photos without a barcode** go to Claude to read the label. Set `ANTHROPIC_API_KEY`. Each photo costs roughly a couple of cents. There's a built-in limit per visitor (8 per 10 minutes, 40 per day).
+- **openFDA** works without a key at low volume; a free `OPENFDA_API_KEY` raises the limit.
+- Lookups are cached for a day. Every lookup is logged (without the photo) so `/admin` can show the most-requested products we haven't verified yet.
+
 ## Adding swaps
 
 Add pairs to any JSON file in `data/pairs/`. The format and rules are in [`data/README.md`](data/README.md). `npm run catalog` validates them. CI runs the same check and fails the build on a bad pair.
 
 ## Affiliate setup
 
-1. Join [Amazon Associates](https://affiliate-program.amazon.com/) and put your tracking ID in `AMAZON_ASSOCIATE_TAG`.
+1. Join [Amazon Associates](https://affiliate-program.amazon.com/) and put your tracking ID in `AMAZON_ASSOCIATE_TAG`. Amazon runs a separate program per country; put the UK, Canada and Germany tags in `AMAZON_TAGS` (format in `.env.example`).
 2. Optional: Walmart and Target run through Impact. Put their deep-link templates (with `{url}`) in `WALMART_AFFILIATE_TEMPLATE` and `TARGET_AFFILIATE_TEMPLATE`.
 3. Rebuild or restart. No code changes are needed.
 

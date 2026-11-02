@@ -1,7 +1,48 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { isKnownCountry } from "@/lib/markets";
 
-/** HTTP Basic auth for /admin. Set ADMIN_PASSWORD (user name is "admin"). */
+const COUNTRY_COOKIE = "sbc_country";
+
+/**
+ * 1. HTTP Basic auth for /admin (ADMIN_PASSWORD; the user name is "admin").
+ * 2. Remembers the shopper's country in a cookie the first time we see them,
+ *    so pages can show stores that deliver there. Pages stay static; the
+ *    client reads the cookie.
+ */
 export function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) return adminAuth(request);
+
+  const response = NextResponse.next();
+  if (!request.cookies.has(COUNTRY_COOKIE)) {
+    const country = detectCountry(request.headers);
+    if (country) {
+      response.cookies.set(COUNTRY_COOKIE, country, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
+    }
+  }
+  return response;
+}
+
+/**
+ * Country from a CDN geo header when one sits in front of the site
+ * (Cloudflare, Vercel, CloudFront, or a custom X-Country-Code from Caddy),
+ * otherwise from the browser's language region (en-GB, de-DE, sr-RS...).
+ */
+export function detectCountry(headers: Headers): string | null {
+  for (const h of ["cf-ipcountry", "x-vercel-ip-country", "cloudfront-viewer-country", "x-country-code"]) {
+    const v = headers.get(h)?.trim().toUpperCase();
+    if (v && isKnownCountry(v)) return v;
+  }
+  const lang = headers.get("accept-language") ?? "";
+  for (const part of lang.split(",")) {
+    const tag = part.split(";")[0].trim();
+    const region = tag.split("-")[1]?.toUpperCase();
+    if (region && isKnownCountry(region)) return region;
+  }
+  return null;
+}
+
+function adminAuth(request: NextRequest) {
   const password = process.env.ADMIN_PASSWORD;
   if (!password) return new NextResponse("Admin is disabled. Set ADMIN_PASSWORD.", { status: 404 });
 
@@ -17,4 +58,7 @@ export function proxy(request: NextRequest) {
   });
 }
 
-export const config = { matcher: ["/admin", "/admin/:path*"] };
+export const config = {
+  // Pages only: skip Next internals, API routes, redirects and files with an extension.
+  matcher: ["/((?!_next/|api/|go/|out|favicon.ico|.*\\.[a-z0-9]+$).*)"],
+};

@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
-import { getAllPairs } from "@/lib/catalog";
+import { getAllBundles, getAllPairs, getBrands, getIngredients } from "@/lib/catalog";
 import { CATEGORIES } from "@/lib/categories";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/biggest-savings", "/how-we-verify", "/suggest", "/about", "/disclosure", "/privacy"];
+  const staticPages = ["", "/check", "/biggest-savings", "/bundles", "/ingredients", "/brands", "/how-we-verify", "/suggest", "/about", "/disclosure", "/privacy"];
   return [
     ...staticPages.map((p) => ({
       url: `${SITE.url}${p}`,
@@ -20,6 +20,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE.url}/compare/${p.slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.9,
+    })),
+    ...getAllBundles().map((b) => ({
+      url: `${SITE.url}/bundle/${b.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+    ...getIngredients().map((i) => ({
+      url: `${SITE.url}/ingredient/${i.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...getBrands().map((b) => ({
+      url: `${SITE.url}/brand/${b.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 }

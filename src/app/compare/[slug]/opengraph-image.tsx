@@ -66,10 +66,10 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         </div>
         <div style={{ display: "flex", marginTop: "auto", gap: 48, fontSize: 36, alignItems: "baseline" }}>
           <div style={{ display: "flex", color: "#6b766f", textDecoration: "line-through" }}>
-            {ppu(pair.brand.ppu)}
+            {ppu(pair.brand.ppu, pair.currency)}
           </div>
           <div style={{ display: "flex", color: green, fontWeight: 700, fontSize: 56 }}>
-            {ppu(pair.alternative.ppu)}
+            {ppu(pair.alternative.ppu, pair.currency)}
           </div>
           <div style={{ display: "flex", color: "#6b766f" }}>per {pair.brand.unit}</div>
         </div>

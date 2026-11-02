@@ -1,0 +1,745 @@
+[
+ {
+  "slug": "neutrogena-oil-free-acne-wash-3-pack-vs-equate-oil-free-acne-wash",
+  "category": "skincare-personal-care",
+  "title": "Neutrogena Oil-Free Acne Wash 3-Pack vs Equate Oil-Free Acne Wash",
+  "bundle": {
+   "brand": "Neutrogena",
+   "name": "(3 pack) Neutrogena Oil-Free Acne Face Wash, Salicylic Acid Facial Cleanser & Acne Treatment, 6 fl oz each",
+   "price_usd": 26.61,
+   "billing": "one-time",
+   "supply_days": null,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://walmart.com/ip/seort/15379064918",
+   "items": [
+    {
+     "name": "Oil-Free Acne Wash, bottle 1",
+     "size": 6,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    },
+    {
+     "name": "Oil-Free Acne Wash, bottle 2",
+     "size": 6,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    },
+    {
+     "name": "Oil-Free Acne Wash, bottle 3",
+     "size": 6,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    }
+   ],
+   "extras": []
+  },
+  "components": [
+   {
+    "replaces": 0,
+    "brand": "Equate",
+    "product": "Equate Beauty Oil-Free Acne Face Wash, 2% Salicylic Acid, 12 fl oz (Compare to Neutrogena Oil-Free Acne Wash)",
+    "size": 12,
+    "unit": "fl oz",
+    "price_usd": 5.77,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://walmart.com/ip/seort/551834008",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 1,
+    "brand": "Equate",
+    "product": "Equate Beauty Oil-Free Acne Face Wash, 2% Salicylic Acid, 12 fl oz (Compare to Neutrogena Oil-Free Acne Wash)",
+    "size": 12,
+    "unit": "fl oz",
+    "price_usd": 5.77,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://walmart.com/ip/seort/551834008",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 2,
+    "brand": "Equate",
+    "product": "Equate Beauty Oil-Free Acne Face Wash, 2% Salicylic Acid, 12 fl oz (Compare to Neutrogena Oil-Free Acne Wash)",
+    "size": 12,
+    "unit": "fl oz",
+    "price_usd": 5.77,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://walmart.com/ip/seort/551834008",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   }
+  ],
+  "match_type": "identical_active",
+  "confidence": "high",
+  "summary": "Each bottle in the 3-pack is a 2% salicylic acid acne wash, and Equate's 12 fl oz Oil-Free Acne Wash has the same 2% salicylic acid and says 'Compare to Neutrogena Oil-Free Acne Wash' on its label.",
+  "evidence": "Walmart's listing for the Neutrogena 3-pack (sold and shipped by Walmart.com) states salicylic acid 2%, as does the single 9.1 fl oz Neutrogena listing. The FDA-registered label for Equate Beauty Oil Free Acne Wash (NDC 49035-947, distributed by Wal-Mart) lists salicylic acid 2% as the only active ingredient and carries 'Compare to Neutrogena Oil-Free Acne Wash'. Both are rinse-off facial cleansers.",
+  "differences": "Inactive ingredients differ (Equate uses a sodium C14-16 olefin sulfonate and cocamidopropyl betaine base with aloe and chamomile, Neutrogena has its own surfactant blend and fragrance), so lather and scent may differ. The Equate 12 fl oz page showed out of stock when checked; the 9.1 fl oz Equate 'Salicylic Acid Treatment Acne Wash' (also 'Compare to Neutrogena Oil-Free Acne Wash') is $5.77 when in stock. Buying two 12 fl oz Equate bottles (24 fl oz) covers the 18 fl oz in the 3-pack.",
+  "sources": [
+   "https://walmart.com/ip/seort/15379064918",
+   "https://www.walmart.com/ip/Neutrogena-Oil-Free-Acne-Face-Wash-With-Salicylic-Acid-9-1-Oz/10308600",
+   "https://ndclist.com/ndc/49035-947/label",
+   "https://walmart.com/ip/seort/551834008",
+   "https://www.walmart.com/ip/seort/16451723401"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "head-and-shoulders-classic-clean-2-pack-vs-equate-everyday-clean-dandruff-shampoo",
+  "category": "beauty-hair",
+  "title": "Head & Shoulders Classic Clean 2-Pack vs Equate Everyday Clean Dandruff Shampoo",
+  "bundle": {
+   "brand": "Head & Shoulders",
+   "name": "(2 pack) Head and Shoulders Dandruff Shampoo, Classic Clean, 28.2 fl oz each",
+   "price_usd": 24.94,
+   "billing": "one-time",
+   "supply_days": null,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/ip/6238924788",
+   "items": [
+    {
+     "name": "Classic Clean Dandruff Shampoo, bottle 1",
+     "size": 28.2,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Pyrithione zinc",
+       "amount": "1%"
+      }
+     ]
+    },
+    {
+     "name": "Classic Clean Dandruff Shampoo, bottle 2",
+     "size": 28.2,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Pyrithione zinc",
+       "amount": "1%"
+      }
+     ]
+    }
+   ],
+   "extras": []
+  },
+  "components": [
+   {
+    "replaces": 0,
+    "brand": "Equate",
+    "product": "Equate Everyday Clean Nourishing Dandruff Shampoo, Pyrithione Zinc 1%, 28.2 fl oz",
+    "size": 28.2,
+    "unit": "fl oz",
+    "price_usd": 5.97,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/seort/14964719959",
+    "key_ingredients": [
+     {
+      "name": "Pyrithione zinc",
+      "amount": "1%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 1,
+    "brand": "Equate",
+    "product": "Equate Everyday Clean Nourishing Dandruff Shampoo, Pyrithione Zinc 1%, 28.2 fl oz",
+    "size": 28.2,
+    "unit": "fl oz",
+    "price_usd": 5.97,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/seort/14964719959",
+    "key_ingredients": [
+     {
+      "name": "Pyrithione zinc",
+      "amount": "1%"
+     }
+    ],
+    "match_type": "identical_active"
+   }
+  ],
+  "match_type": "identical_active",
+  "confidence": "high",
+  "summary": "The 2-pack is just two bottles of 1% pyrithione zinc dandruff shampoo, and Equate Everyday Clean has the same 1% pyrithione zinc in the same 28.2 fl oz size for under half the price.",
+  "evidence": "Walmart's 2-pack listing names pyrithione zinc as the active; the Head & Shoulders Classic Clean Drug Facts (otclabels) list pyrithione zinc 1%. The Equate Everyday Clean Dandruff Shampoo Drug Facts list pyrithione zinc 1% and compare to Head & Shoulders' active ingredient. This reuses our verified single-bottle pair (Head & Shoulders Classic Clean 28.2 fl oz vs Equate Everyday Clean 28.2 fl oz).",
+  "differences": "The 2-pack is priced the same per bottle as a single Head & Shoulders bottle ($12.47), so there is no multi-pack discount to lose. Fragrance and conditioning agents differ, and Head & Shoulders markets its own formula technology. The Walmart 2-pack page does not print the percentage; it comes from the Head & Shoulders label.",
+  "sources": [
+   "https://www.walmart.com/ip/6238924788",
+   "https://otclabels.com/lib/otc/otc-meds/head-and-shoulders-classic-clean/",
+   "https://www.walmart.com/ip/seort/14964719959",
+   "https://otclabels.com/lib/otc/otc-meds/equate-everyday-clean-dandruff-anti-dandruff/"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "aquaphor-healing-ointment-2-pack-vs-equate-advanced-healing-ointment",
+  "category": "skincare-personal-care",
+  "title": "Aquaphor Healing Ointment 2-Pack vs Equate Advanced Healing Ointment",
+  "bundle": {
+   "brand": "Aquaphor",
+   "name": "(2 pack) Aquaphor Healing Ointment Skin Protectant, Fragrance Free, 14 oz jars",
+   "price_usd": 36.74,
+   "billing": "one-time",
+   "supply_days": null,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/ip/2-pack-Aquaphor-Healing-Ointment-Advanced-Therapy-Skin-Protectant-for-Dry-Compromised-Skin-14-oz-Jar/16341820176",
+   "items": [
+    {
+     "name": "Healing Ointment, 14 oz jar 1",
+     "size": 14,
+     "unit": "oz",
+     "key_ingredients": [
+      {
+       "name": "Petrolatum",
+       "amount": "41%"
+      }
+     ]
+    },
+    {
+     "name": "Healing Ointment, 14 oz jar 2",
+     "size": 14,
+     "unit": "oz",
+     "key_ingredients": [
+      {
+       "name": "Petrolatum",
+       "amount": "41%"
+      }
+     ]
+    }
+   ],
+   "extras": []
+  },
+  "components": [
+   {
+    "replaces": 0,
+    "brand": "Equate",
+    "product": "Equate Beauty Advanced Healing Ointment, Petrolatum 41%, 14 oz",
+    "size": 14,
+    "unit": "oz",
+    "price_usd": 10.52,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/14520420",
+    "key_ingredients": [
+     {
+      "name": "Petrolatum",
+      "amount": "41%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 1,
+    "brand": "Equate",
+    "product": "Equate Beauty Advanced Healing Ointment, Petrolatum 41%, 14 oz",
+    "size": 14,
+    "unit": "oz",
+    "price_usd": 10.52,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/14520420",
+    "key_ingredients": [
+     {
+      "name": "Petrolatum",
+      "amount": "41%"
+     }
+    ],
+    "match_type": "identical_active"
+   }
+  ],
+  "match_type": "identical_active",
+  "confidence": "high",
+  "summary": "Equate Advanced Healing Ointment has the same 41% petrolatum and the same six inactive ingredients in the same order as Aquaphor, so two 14 oz Equate jars rebuild the Aquaphor 2-pack for much less.",
+  "evidence": "Walmart sells the Aquaphor 2 x 14 oz pack directly (sold and shipped by Walmart.com) and lists white petrolatum as the active. Aquaphor's Drug Facts list petrolatum 41% with mineral oil, ceresin, lanolin alcohol, panthenol, glycerin and bisabolol. Equate's Drug Facts list petrolatum 41% and the same six inactives in the same order, with 'Compare to Aquaphor Healing Ointment's Active Ingredient'. This reuses our verified single-jar pair.",
+  "differences": "Only the order of ingredients is published, not each inactive's percentage, so texture may differ slightly. Jar design differs.",
+  "sources": [
+   "https://www.walmart.com/ip/2-pack-Aquaphor-Healing-Ointment-Advanced-Therapy-Skin-Protectant-for-Dry-Compromised-Skin-14-oz-Jar/16341820176",
+   "https://www.walmart.com/ip/770285760",
+   "https://www.walmart.com/ip/14520420",
+   "https://otclabels.com/lib/otc/otc-meds/advanced-healing-7/"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "vaseline-original-healing-jelly-3-pack-vs-equate-petroleum-jelly-3-pack",
+  "category": "skincare-personal-care",
+  "title": "Vaseline Original Healing Jelly 3-Pack vs Equate Petroleum Jelly 3-Pack",
+  "bundle": {
+   "brand": "Vaseline",
+   "name": "(3 pack) Vaseline Original Healing Petroleum Jelly, 100% Pure Petroleum Jelly, 13 oz jars",
+   "price_usd": 17.91,
+   "billing": "one-time",
+   "supply_days": null,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/ip/3-pack-Vaseline-Original-Healing-Petroleum-Jelly-Slugging-Skincare-for-All-Skin-13-oz/16509855764",
+   "items": [
+    {
+     "name": "Original Healing Jelly, 13 oz jar 1",
+     "size": 13,
+     "unit": "oz",
+     "key_ingredients": [
+      {
+       "name": "White petrolatum USP",
+       "amount": "100%"
+      }
+     ]
+    },
+    {
+     "name": "Original Healing Jelly, 13 oz jar 2",
+     "size": 13,
+     "unit": "oz",
+     "key_ingredients": [
+      {
+       "name": "White petrolatum USP",
+       "amount": "100%"
+      }
+     ]
+    },
+    {
+     "name": "Original Healing Jelly, 13 oz jar 3",
+     "size": 13,
+     "unit": "oz",
+     "key_ingredients": [
+      {
+       "name": "White petrolatum USP",
+       "amount": "100%"
+      }
+     ]
+    }
+   ],
+   "extras": []
+  },
+  "components": [
+   {
+    "replaces": 0,
+    "brand": "Equate",
+    "product": "Equate Petroleum Jelly Skin Protectant, 100% White Petrolatum USP, 13 oz, 3 pack (Compare to Vaseline)",
+    "size": 39,
+    "unit": "oz",
+    "price_usd": 8.34,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/Equate-Petroleum-Jelly-13-oz-Skin-Protectant-Original-All-Skin-Types/13374461277",
+    "key_ingredients": [
+     {
+      "name": "White petrolatum USP",
+      "amount": "100%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 1,
+    "brand": "Equate",
+    "product": "Equate Petroleum Jelly Skin Protectant, 100% White Petrolatum USP, 13 oz, 3 pack (Compare to Vaseline)",
+    "size": 39,
+    "unit": "oz",
+    "price_usd": 8.34,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/Equate-Petroleum-Jelly-13-oz-Skin-Protectant-Original-All-Skin-Types/13374461277",
+    "key_ingredients": [
+     {
+      "name": "White petrolatum USP",
+      "amount": "100%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 2,
+    "brand": "Equate",
+    "product": "Equate Petroleum Jelly Skin Protectant, 100% White Petrolatum USP, 13 oz, 3 pack (Compare to Vaseline)",
+    "size": 39,
+    "unit": "oz",
+    "price_usd": 8.34,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/Equate-Petroleum-Jelly-13-oz-Skin-Protectant-Original-All-Skin-Types/13374461277",
+    "key_ingredients": [
+     {
+      "name": "White petrolatum USP",
+      "amount": "100%"
+     }
+    ],
+    "match_type": "identical_active"
+   }
+  ],
+  "match_type": "identical_active",
+  "confidence": "high",
+  "summary": "Both 3-packs are three 13 oz jars of single-ingredient 100% white petrolatum USP, so Equate's 3-pack is literally the same substance for less than half the price.",
+  "evidence": "Walmart sells the Vaseline 3 x 13 oz pack directly (sold and shipped by Walmart.com) and titles it '100% Pure Petroleum Jelly'. Vaseline's Drug Facts list white petrolatum USP (100%) as the only ingredient. Walmart lists Equate Petroleum Jelly's primary ingredient as 'White Petrolatum, USP (100%)', with 'Compare to Vaseline' in the name, and the 3 x 13 oz Equate pack is $8.34. This reuses our verified single-jar pair.",
+  "differences": "Vaseline claims a triple-purification process; both are USP grade, so the purity standard is the same, but refining and odour can vary slightly. Jar design differs.",
+  "sources": [
+   "https://www.walmart.com/ip/3-pack-Vaseline-Original-Healing-Petroleum-Jelly-Slugging-Skincare-for-All-Skin-13-oz/16509855764",
+   "https://www.vitacost.com/products/vaseline-healing-jelly-original-13-oz-368-g-83595",
+   "https://www.walmart.com/ip/Equate-Petroleum-Jelly-13-oz-Skin-Protectant-Original-All-Skin-Types/13374461277"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "selsun-blue-medicated-3-pack-vs-equate-medicated-dandruff-shampoo-selenium-sulfide",
+  "category": "beauty-hair",
+  "title": "Selsun Blue Medicated 3-Pack vs Equate Medicated Dandruff Shampoo",
+  "bundle": {
+   "brand": "Selsun Blue",
+   "name": "(3 pack) Selsun Blue Medicated Antidandruff Shampoo, 11 fl oz each",
+   "price_usd": 23.76,
+   "billing": "one-time",
+   "supply_days": null,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/ip/3-pack-Selsun-Blue-Medicated-Antidandruff-Shampoo-11-fl-oz/15332673658",
+   "items": [
+    {
+     "name": "Medicated Antidandruff Shampoo, bottle 1",
+     "size": 11,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Selenium sulfide",
+       "amount": "1%"
+      }
+     ]
+    },
+    {
+     "name": "Medicated Antidandruff Shampoo, bottle 2",
+     "size": 11,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Selenium sulfide",
+       "amount": "1%"
+      }
+     ]
+    },
+    {
+     "name": "Medicated Antidandruff Shampoo, bottle 3",
+     "size": 11,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Selenium sulfide",
+       "amount": "1%"
+      }
+     ]
+    }
+   ],
+   "extras": []
+  },
+  "components": [
+   {
+    "replaces": 0,
+    "brand": "Equate",
+    "product": "Equate Medicated Dandruff Shampoo, Selenium Sulfide 1%, 11 fl oz (Compare to Selsun Blue Medicated)",
+    "size": 11,
+    "unit": "fl oz",
+    "price_usd": 4.84,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/615874681",
+    "key_ingredients": [
+     {
+      "name": "Selenium sulfide",
+      "amount": "1%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 1,
+    "brand": "Equate",
+    "product": "Equate Medicated Dandruff Shampoo, Selenium Sulfide 1%, 11 fl oz (Compare to Selsun Blue Medicated)",
+    "size": 11,
+    "unit": "fl oz",
+    "price_usd": 4.84,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/615874681",
+    "key_ingredients": [
+     {
+      "name": "Selenium sulfide",
+      "amount": "1%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 2,
+    "brand": "Equate",
+    "product": "Equate Medicated Dandruff Shampoo, Selenium Sulfide 1%, 11 fl oz (Compare to Selsun Blue Medicated)",
+    "size": 11,
+    "unit": "fl oz",
+    "price_usd": 4.84,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/615874681",
+    "key_ingredients": [
+     {
+      "name": "Selenium sulfide",
+      "amount": "1%"
+     }
+    ],
+    "match_type": "identical_active"
+   }
+  ],
+  "match_type": "identical_active",
+  "confidence": "high",
+  "summary": "Each bottle in the Selsun Blue 3-pack is 1% selenium sulfide shampoo, and Equate Medicated Dandruff Shampoo has the same 1% selenium sulfide in the same 11 fl oz bottle and compares itself to Selsun Blue Medicated.",
+  "evidence": "Walmart's 3-pack listing says the shampoo is 'made with 1% selenium sulfide', and Selsun Blue Medicated's Drug Facts (Vitacost listing) list selenium sulfide 1%. Equate Medicated Dandruff Shampoo's FDA label (NDC 49035-534) lists selenium sulfide 1%, and Walmart sells it as 'Compare to Selsun Blue Medicated'. This reuses our verified single-bottle pair.",
+  "differences": "Selsun Blue Medicated contains menthol for a cooling feel; Equate's inactive ingredients and fragrance differ. The Walmart 3-pack page does not name the seller. The 3-pack costs the same per bottle as a single Selsun Blue ($7.92), so there is no multi-pack discount to lose.",
+  "sources": [
+   "https://www.walmart.com/ip/3-pack-Selsun-Blue-Medicated-Antidandruff-Shampoo-11-fl-oz/15332673658",
+   "https://www.vitacost.com/products/selsun-blue-antidandruff-shampoo-medicated-11-fl-oz-325-ml-91012",
+   "https://www.walmart.com/ip/615874681",
+   "https://ndclist.com/ndc/49035-534/label"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "neutrogena-pink-grapefruit-acne-wash-2-pack-vs-equate-oil-free-acne-wash",
+  "category": "skincare-personal-care",
+  "title": "Neutrogena Pink Grapefruit Acne Wash 2-Pack vs Equate Oil-Free Acne Wash",
+  "bundle": {
+   "brand": "Neutrogena",
+   "name": "(2 pack) Neutrogena Oil-Free Pink Grapefruit Acne Face Wash, Salicylic Acid Facial Cleanser, 9.1 fl oz pumps",
+   "price_usd": 18.24,
+   "billing": "one-time",
+   "supply_days": null,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/ip/12927714297",
+   "items": [
+    {
+     "name": "Oil-Free Pink Grapefruit Acne Wash, bottle 1",
+     "size": 9.1,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    },
+    {
+     "name": "Oil-Free Pink Grapefruit Acne Wash, bottle 2",
+     "size": 9.1,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    }
+   ],
+   "extras": []
+  },
+  "components": [
+   {
+    "replaces": 0,
+    "brand": "Equate",
+    "product": "Equate Beauty Oil-Free Acne Face Wash, 2% Salicylic Acid, 12 fl oz (Compare to Neutrogena Oil-Free Acne Wash)",
+    "size": 12,
+    "unit": "fl oz",
+    "price_usd": 5.77,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://walmart.com/ip/seort/551834008",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 1,
+    "brand": "Equate",
+    "product": "Equate Beauty Oil-Free Acne Face Wash, 2% Salicylic Acid, 12 fl oz (Compare to Neutrogena Oil-Free Acne Wash)",
+    "size": 12,
+    "unit": "fl oz",
+    "price_usd": 5.77,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://walmart.com/ip/seort/551834008",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   }
+  ],
+  "match_type": "identical_active",
+  "confidence": "high",
+  "summary": "Neutrogena's Pink Grapefruit wash is a 2% salicylic acid rinse-off acne cleanser, and Equate's Oil-Free Acne Wash delivers the same 2% salicylic acid for about half the price per ounce.",
+  "evidence": "Walmart's 2-pack listing states salicylic acid 2% for the Neutrogena Pink Grapefruit wash. Equate Beauty Oil Free Acne Wash's FDA label (NDC 49035-947, distributed by Wal-Mart) lists salicylic acid 2% as its only active ingredient. Both are rinse-off facial cleansers used the same way (wash, rinse, once or twice daily).",
+  "differences": "Equate's label compares itself to Neutrogena's original (red) Oil-Free Acne Wash, not specifically to the Pink Grapefruit version, so the grapefruit scent and Neutrogena's vitamin C and MicroClear marketing claims are not replicated; inactive ingredients differ. Equate comes in a 12 fl oz flip-cap bottle, not a pump, and its page showed out of stock when checked. The Walmart 2-pack page does not name the seller.",
+  "sources": [
+   "https://www.walmart.com/ip/12927714297",
+   "https://ndclist.com/ndc/49035-947/label",
+   "https://walmart.com/ip/seort/551834008"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "neutrogena-body-clear-pink-grapefruit-3-pack-vs-equate-pink-grapefruit-acne-body-wash",
+  "category": "skincare-personal-care",
+  "title": "Neutrogena Body Clear Pink Grapefruit 3-Pack vs Equate Pink Grapefruit Acne Body Wash",
+  "bundle": {
+   "brand": "Neutrogena",
+   "name": "(3 pack) Neutrogena Body Clear Pink Grapefruit Acne Body Wash, 8.5 fl oz each",
+   "price_usd": 29.91,
+   "billing": "one-time",
+   "supply_days": null,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/ip/Neutrogena-Body-Clear-Pink-Grapefruit-Acne-Body-Wash-8-5-fl-oz/15332573763",
+   "items": [
+    {
+     "name": "Body Clear Pink Grapefruit Acne Body Wash, bottle 1",
+     "size": 8.5,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    },
+    {
+     "name": "Body Clear Pink Grapefruit Acne Body Wash, bottle 2",
+     "size": 8.5,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    },
+    {
+     "name": "Body Clear Pink Grapefruit Acne Body Wash, bottle 3",
+     "size": 8.5,
+     "unit": "fl oz",
+     "key_ingredients": [
+      {
+       "name": "Salicylic acid",
+       "amount": "2%"
+      }
+     ]
+    }
+   ],
+   "extras": []
+  },
+  "components": [
+   {
+    "replaces": 0,
+    "brand": "Equate",
+    "product": "Equate Foaming Body Wash, Pink Grapefruit, 2% Salicylic Acid, 8.5 fl oz (Compare to Neutrogena Body Clear Body Wash Pink Grapefruit)",
+    "size": 8.5,
+    "unit": "fl oz",
+    "price_usd": 4.67,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/43436406",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 1,
+    "brand": "Equate",
+    "product": "Equate Foaming Body Wash, Pink Grapefruit, 2% Salicylic Acid, 8.5 fl oz (Compare to Neutrogena Body Clear Body Wash Pink Grapefruit)",
+    "size": 8.5,
+    "unit": "fl oz",
+    "price_usd": 4.67,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/43436406",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   },
+   {
+    "replaces": 2,
+    "brand": "Equate",
+    "product": "Equate Foaming Body Wash, Pink Grapefruit, 2% Salicylic Acid, 8.5 fl oz (Compare to Neutrogena Body Clear Body Wash Pink Grapefruit)",
+    "size": 8.5,
+    "unit": "fl oz",
+    "price_usd": 4.67,
+    "retailer": "walmart",
+    "asin": null,
+    "url": "https://www.walmart.com/ip/43436406",
+    "key_ingredients": [
+     {
+      "name": "Salicylic acid",
+      "amount": "2%"
+     }
+    ],
+    "match_type": "identical_active"
+   }
+  ],
+  "match_type": "identical_active",
+  "confidence": "high",
+  "summary": "Each bottle is a 2% salicylic acid pink grapefruit acne body wash, and Equate's version has the same 2% salicylic acid in the same 8.5 fl oz size and is sold as 'Compare to Neutrogena Body Clear Body Wash Pink Grapefruit'.",
+  "evidence": "Walmart's Neutrogena 3-pack listing states salicylic acid 2%. Walmart's Equate Foaming Body Wash Pink Grapefruit listing states salicylic acid 2.0%, 8.5 fl oz (251 mL), and its product title reads 'Compare to Neutrogena Body Clear Body Wash Pink Grapefruit'. Both are rinse-off body washes for body acne.",
+  "differences": "Inactive ingredients and fragrance may differ; we did not compare the full inactive lists. The single Equate bottle showed out of stock when checked; Walmart also lists an Equate 4-pack at $18.68 ($4.67 a bottle). The Neutrogena 3-pack page does not name the seller, and the 3-pack costs the same per bottle as a single Neutrogena bottle ($9.97).",
+  "sources": [
+   "https://www.walmart.com/ip/Neutrogena-Body-Clear-Pink-Grapefruit-Acne-Body-Wash-8-5-fl-oz/15332573763",
+   "https://www.walmart.com/ip/43436406"
+  ],
+  "price_checked": "2026-11"
+ }
+]

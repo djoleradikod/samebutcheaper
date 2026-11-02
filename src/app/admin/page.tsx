@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { connection } from "next/server";
-import { desc, gte, sql, count } from "drizzle-orm";
+import { and, desc, eq, gte, sql, count } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 import { getPair, getSiteStats } from "@/lib/catalog";
 
@@ -26,7 +26,8 @@ async function AdminData() {
     return <p className="mt-6 text-warn">DATABASE_URL is not configured, so there is no click or suggestion data.</p>;
   }
   const since = daysAgo(30);
-  const [[totals], topPairs, subs, [subCount]] = await Promise.all([
+  const wantedName = sql<string>`lower(coalesce(${schema.lookups.productName}, ${schema.lookups.query}))`;
+  const [[totals], topPairs, subs, [subCount], wanted, [lookupTotals]] = await Promise.all([
     db
       .select({
         clicks: count(),
@@ -43,6 +44,25 @@ async function AdminData() {
       .limit(25),
     db.select().from(schema.submissions).orderBy(desc(schema.submissions.createdAt)).limit(50),
     db.select({ n: count() }).from(schema.subscribers),
+    db
+      .select({
+        name: wantedName,
+        n: count(),
+        countries: sql<string>`string_agg(distinct ${schema.lookups.country}, ', ')`,
+        kinds: sql<string>`string_agg(distinct ${schema.lookups.kind}, ', ')`,
+      })
+      .from(schema.lookups)
+      .where(and(gte(schema.lookups.createdAt, since), eq(schema.lookups.verified, false)))
+      .groupBy(wantedName)
+      .orderBy(desc(count()))
+      .limit(40),
+    db
+      .select({
+        n: count(),
+        verified: sql<number>`count(*) filter (where ${schema.lookups.verified})`.mapWith(Number),
+      })
+      .from(schema.lookups)
+      .where(gte(schema.lookups.createdAt, since)),
   ]);
 
   return (
@@ -70,6 +90,31 @@ async function AdminData() {
             ))}
             {topPairs.length === 0 && (
               <tr><td colSpan={3} className="p-6 text-center text-muted">No clicks yet.</td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-semibold">Research queue: most checked products without a verified swap</h2>
+        <p className="mt-1 text-sm text-muted">
+          Last 30 days · {lookupTotals?.n ?? 0} product checks, {lookupTotals?.verified ?? 0} of them had a verified swap.
+        </p>
+        <table className="card num mt-3 w-full overflow-hidden text-sm">
+          <thead className="bg-surface-2 text-left text-xs text-muted">
+            <tr><th className="p-3">Product or search</th><th className="p-3">How</th><th className="p-3">Countries</th><th className="p-3 text-right">Checks</th></tr>
+          </thead>
+          <tbody className="divide-y divide-line">
+            {wanted.map((r) => (
+              <tr key={r.name ?? "unknown"}>
+                <td className="p-3">{r.name ?? "(unknown)"}</td>
+                <td className="p-3 text-muted">{r.kinds}</td>
+                <td className="p-3 text-muted">{r.countries ?? ""}</td>
+                <td className="p-3 text-right font-semibold">{r.n}</td>
+              </tr>
+            ))}
+            {wanted.length === 0 && (
+              <tr><td colSpan={4} className="p-6 text-center text-muted">No product checks yet.</td></tr>
             )}
           </tbody>
         </table>

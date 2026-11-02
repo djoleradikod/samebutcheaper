@@ -1,0 +1,463 @@
+[
+  {
+    "slug": "momentous-nightly-sleep-pack-vs-build-your-own-sleep-stack",
+    "category": "supplements",
+    "title": "Momentous Nightly Sleep Pack vs a build-your-own magnesium + L-theanine + apigenin stack",
+    "bundle": {
+      "brand": "Momentous",
+      "name": "Momentous Nightly Sleep, 30 single-serve packs (3 capsules each)",
+      "price_usd": 79.99,
+      "billing": "one-time",
+      "supply_days": 30,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://livemomentous.com/products/sleep-pack",
+      "items": [
+        {
+          "name": "Magnesium (as magnesium bisglycinate) 200 mg per pack",
+          "size": 30,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Magnesium (as magnesium bisglycinate)",
+              "amount": "200 mg"
+            }
+          ]
+        },
+        {
+          "name": "L-Theanine 200 mg per pack",
+          "size": 30,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "L-Theanine",
+              "amount": "200 mg"
+            }
+          ]
+        },
+        {
+          "name": "Apigenin 50 mg per pack",
+          "size": 30,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Apigenin (from grapefruit)",
+              "amount": "50 mg"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Single-serve travel packets",
+        "Subscribe & save price $59.99 per 30 packs"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Spring Valley",
+        "product": "Spring Valley High Absorption Magnesium Glycinate Capsules, 200 mg per 2-capsule serving, 120 count",
+        "size": 60,
+        "unit": "serving",
+        "price_usd": 10.87,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Spring-Valley-High-Absorption-Magnesium-Glycinate-Capsules-for-Bone-and-Muscle-Support-200-mg-120-Count/19275150103",
+        "key_ingredients": [
+          {
+            "name": "Magnesium (as magnesium glycinate chelate)",
+            "amount": "200 mg per 2 capsules"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "Nutricost",
+        "product": "Nutricost L-Theanine 200 mg, 120 capsules",
+        "size": 120,
+        "unit": "serving",
+        "price_usd": 11.95,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Nutricost-L-Theanine-200-mg-120-Capsules/5456773790",
+        "key_ingredients": [
+          {
+            "name": "L-Theanine",
+            "amount": "200 mg per capsule"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 2,
+        "brand": "Nutricost",
+        "product": "Nutricost Apigenin 50 mg, 180 capsules",
+        "size": 180,
+        "unit": "serving",
+        "price_usd": 21.95,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://business.walmart.com/ip/Nutricost-Apigenin-50mg-180-Capsules-Non-GMO-Gluten-Free-Vegan/3204154252",
+        "key_ingredients": [
+          {
+            "name": "Apigenin",
+            "amount": "50 mg per capsule"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Momentous's sleep pack is just 200 mg magnesium bisglycinate, 200 mg L-theanine and 50 mg apigenin, and you can buy those same three doses separately for about $12 a month instead of $80.",
+    "evidence": "Momentous's product page lists the supplement facts per pack (3 capsules): magnesium (as magnesium bisglycinate) 200 mg, L-theanine 200 mg and apigenin 50 mg, 30 packs for $79.99 one-time or $59.99 on subscription. Walmart's Spring Valley listing states 200 mg magnesium glycinate per 2-capsule serving (120 capsules = 60 servings). Nutricost's Walmart listings state 200 mg L-theanine per capsule (120 servings) and 50 mg apigenin per capsule (1-capsule serving, 180 count). Retailer listings did not show the full supplement-facts text for the Nutricost products, so confidence is medium; a DSLD-registered alternative for apigenin is Double Wood Apigenin 50 mg (DSLD 286145).",
+    "differences": "You take 4 capsules from three bottles (2 magnesium, 1 theanine, 1 apigenin) instead of 3 capsules from one packet. Momentous says its apigenin comes from grapefruit; the Nutricost listing doesn't name a source. Momentous also sells the same formula as a 90-capsule, 30-serving jar for $59.99 one-time ($44.99 on subscription), which showed 'estimated to be back in stock soon' when checked; the build-your-own stack still saves about 80% against that jar or the $59.99 pack subscription.",
+    "sources": [
+      "https://livemomentous.com/products/sleep-pack",
+      "https://www.walmart.com/ip/Spring-Valley-High-Absorption-Magnesium-Glycinate-Capsules-for-Bone-and-Muscle-Support-200-mg-120-Count/19275150103",
+      "https://www.walmart.com/ip/Nutricost-L-Theanine-200-mg-120-Capsules/5456773790",
+      "https://business.walmart.com/ip/Nutricost-Apigenin-50mg-180-Capsules-Non-GMO-Gluten-Free-Vegan/3204154252",
+      "https://api.ods.od.nih.gov/dsld/v9/label/286145",
+      "https://www.livemomentous.com/en-ca/products/foundational-sleep-bundle-60"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "thorne-sleep-stack-vs-build-your-own-gaba-melatonin-magnesium",
+    "category": "supplements",
+    "title": "Thorne Sleep Stack vs a build-your-own GABA + melatonin + magnesium stack",
+    "bundle": {
+      "brand": "Thorne",
+      "name": "Thorne Sleep Stack (PharmaGABA-250, Melaton-3, Magnesium Bisglycinate powder)",
+      "price_usd": 115.0,
+      "billing": "one-time",
+      "supply_days": 60,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.thorne.com/products/dp/sleep-bundle",
+      "items": [
+        {
+          "name": "PharmaGABA-250, 60 capsules",
+          "size": 60,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "GABA (as PharmaGABA)",
+              "amount": "250 mg"
+            }
+          ]
+        },
+        {
+          "name": "Melaton-3, 60 capsules",
+          "size": 60,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Melatonin",
+              "amount": "3 mg"
+            }
+          ]
+        },
+        {
+          "name": "Magnesium Bisglycinate powder, 60 scoops",
+          "size": 60,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Magnesium (as magnesium bisglycinate)",
+              "amount": "200 mg"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Swanson",
+        "product": "Swanson GABA (Gamma-Aminobutyric Acid) 250 mg, 60 capsules",
+        "size": 60,
+        "unit": "serving",
+        "price_usd": 9.34,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://business.walmart.com/ip/Swanson-Gaba-Gamma-Aminobutyric-Acid-250-mg-60-Capsules/177482478",
+        "key_ingredients": [
+          {
+            "name": "GABA (gamma-aminobutyric acid)",
+            "amount": "250 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "Spring Valley",
+        "product": "Spring Valley Fast-Dissolve Melatonin Tablets, Strawberry, 3 mg, 120 count",
+        "size": 120,
+        "unit": "serving",
+        "price_usd": 5.36,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Spring-Valley-Fast-Dissolve-Melatonin-Dietary-Supplement-Tablets-3-mg-120-Count/40711580",
+        "key_ingredients": [
+          {
+            "name": "Melatonin",
+            "amount": "3 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 2,
+        "brand": "Spring Valley",
+        "product": "Spring Valley High Absorption Magnesium Glycinate Capsules, 200 mg per 2-capsule serving, 120 count",
+        "size": 60,
+        "unit": "serving",
+        "price_usd": 10.87,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Spring-Valley-High-Absorption-Magnesium-Glycinate-Capsules-for-Bone-and-Muscle-Support-200-mg-120-Count/19275150103",
+        "key_ingredients": [
+          {
+            "name": "Magnesium (as magnesium glycinate chelate)",
+            "amount": "200 mg per 2 capsules"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Thorne's $115 Sleep Stack is 250 mg GABA, 3 mg melatonin and 200 mg magnesium bisglycinate, and the same three doses cost about $23 for the same 60 nights from store and value brands.",
+    "evidence": "NIH DSLD labels confirm Thorne PharmaGABA-250 at 250 mg GABA per capsule, 60 capsules (DSLD 336348), and Melaton-3 at 3 mg melatonin per capsule, 60 capsules (DSLD 298036). Thorne's Magnesium Bisglycinate page and DSLD 284233 show 200 mg magnesium as magnesium bisglycinate per 3.11 g scoop, 60 servings. The Walmart listings show Swanson GABA at 250 mg per capsule (60 count), Spring Valley Fast-Dissolve melatonin at 3 mg per tablet (120 count) and Spring Valley magnesium glycinate at 200 mg per 2 capsules (120 count, 60 servings). Swanson's full supplement-facts panel was not shown on the listing, so confidence is medium.",
+    "differences": "Thorne uses PharmaGABA, GABA made by fermentation; Swanson's GABA is the same molecule at the same 250 mg dose, but it is not the PharmaGABA ingredient. Thorne's magnesium is a flavored powder (citric acid, monk fruit) you mix in water; the Spring Valley version is 2 capsules. Spring Valley melatonin is a strawberry fast-dissolve tablet rather than a swallowed capsule. You get 60 extra melatonin tablets in the bottle. The 60-day supply assumes 1 GABA capsule a night; Thorne's label allows up to 3 a day.",
+    "sources": [
+      "https://www.thorne.com/products/dp/sleep-bundle",
+      "https://api.ods.od.nih.gov/dsld/v9/label/336348",
+      "https://api.ods.od.nih.gov/dsld/v9/label/298036",
+      "https://thorne.com/products/dp/magnesium-bisglycinate",
+      "https://api.ods.od.nih.gov/dsld/v9/label/284233",
+      "https://business.walmart.com/ip/Swanson-Gaba-Gamma-Aminobutyric-Acid-250-mg-60-Capsules/177482478",
+      "https://www.walmart.com/ip/Spring-Valley-Fast-Dissolve-Melatonin-Dietary-Supplement-Tablets-3-mg-120-Count/40711580",
+      "https://www.walmart.com/ip/Spring-Valley-High-Absorption-Magnesium-Glycinate-Capsules-for-Bone-and-Muscle-Support-200-mg-120-Count/19275150103"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "thorne-sleep-stack-for-athletes-vs-melatonin-plus-magnesium-glycinate",
+    "category": "supplements",
+    "title": "Thorne Sleep Stack for Athletes vs store-brand melatonin 3 mg + magnesium glycinate",
+    "bundle": {
+      "brand": "Thorne",
+      "name": "Thorne Sleep Stack for Athletes (Melaton-3 + Magnesium Bisglycinate powder)",
+      "price_usd": 62.0,
+      "billing": "one-time",
+      "supply_days": 60,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.thorne.com/products/dp/sleep-bundle-for-athletes",
+      "items": [
+        {
+          "name": "Melaton-3, 60 capsules",
+          "size": 60,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Melatonin",
+              "amount": "3 mg"
+            }
+          ]
+        },
+        {
+          "name": "Magnesium Bisglycinate powder, 60 scoops",
+          "size": 60,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Magnesium (as magnesium bisglycinate)",
+              "amount": "200 mg"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Spring Valley",
+        "product": "Spring Valley Fast-Dissolve Melatonin Tablets, Strawberry, 3 mg, 120 count",
+        "size": 120,
+        "unit": "serving",
+        "price_usd": 5.36,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Spring-Valley-Fast-Dissolve-Melatonin-Dietary-Supplement-Tablets-3-mg-120-Count/40711580",
+        "key_ingredients": [
+          {
+            "name": "Melatonin",
+            "amount": "3 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "Spring Valley",
+        "product": "Spring Valley High Absorption Magnesium Glycinate Capsules, 200 mg per 2-capsule serving, 120 count",
+        "size": 60,
+        "unit": "serving",
+        "price_usd": 10.87,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Spring-Valley-High-Absorption-Magnesium-Glycinate-Capsules-for-Bone-and-Muscle-Support-200-mg-120-Count/19275150103",
+        "key_ingredients": [
+          {
+            "name": "Magnesium (as magnesium glycinate chelate)",
+            "amount": "200 mg per 2 capsules"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Thorne's two-product athlete sleep stack is 3 mg melatonin plus 200 mg magnesium bisglycinate, and Spring Valley sells both doses for about $14 for the same 60 nights.",
+    "evidence": "Thorne's stack page lists Melaton-3 (60) and Magnesium Bisglycinate (60 scoops) for $62. NIH DSLD 298036 shows Melaton-3 at 3 mg melatonin per capsule, 60 capsules, and Thorne's Magnesium Bisglycinate page (and DSLD 284233) shows 200 mg magnesium as magnesium bisglycinate per scoop, 60 servings. Walmart lists Spring Valley Fast-Dissolve Melatonin at 3 mg per tablet (120 count, $5.36) and Spring Valley magnesium glycinate at 200 mg per 2-capsule serving (120 capsules, $10.87). The Spring Valley listings did not show full supplement-facts panels, so confidence is medium.",
+    "differences": "Thorne's magnesium is a powder (with citric acid and monk fruit) that you stir into water; Spring Valley's is 2 capsules. Thorne's melatonin is a swallowed capsule; Spring Valley's is a strawberry fast-dissolve tablet.",
+    "sources": [
+      "https://www.thorne.com/products/dp/sleep-bundle-for-athletes",
+      "https://api.ods.od.nih.gov/dsld/v9/label/298036",
+      "https://thorne.com/products/dp/magnesium-bisglycinate",
+      "https://api.ods.od.nih.gov/dsld/v9/label/284233",
+      "https://www.walmart.com/ip/Spring-Valley-Fast-Dissolve-Melatonin-Dietary-Supplement-Tablets-3-mg-120-Count/40711580",
+      "https://www.walmart.com/ip/Spring-Valley-High-Absorption-Magnesium-Glycinate-Capsules-for-Bone-and-Muscle-Support-200-mg-120-Count/19275150103"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "momentous-anti-inflammatory-stack-vs-meriva-creatine-d3",
+    "category": "supplements",
+    "title": "Momentous Anti-Inflammatory Stack vs Doctor's Best Meriva + Nutricost creatine + Spring Valley D3",
+    "bundle": {
+      "brand": "Momentous",
+      "name": "Momentous Anti-Inflammatory Stack for Women (Turmeric, Creatine, Vitamin D3), 30 servings",
+      "price_usd": 79.97,
+      "billing": "one-time",
+      "supply_days": 30,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.livemomentous.com/products/anti-inflammatory-stack",
+      "items": [
+        {
+          "name": "Momentous Turmeric, 60 capsules (2 per serving)",
+          "size": 30,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Meriva curcumin phytosome (turmeric extract, 18% curcuminoids)",
+              "amount": "1,000 mg"
+            }
+          ]
+        },
+        {
+          "name": "Momentous Creatine, unflavored, 150 g",
+          "size": 30,
+          "unit": "serving (5 g)",
+          "key_ingredients": [
+            {
+              "name": "Creatine monohydrate",
+              "amount": "5 g"
+            }
+          ]
+        },
+        {
+          "name": "Momentous Vitamin D3 2000 IU, 60 liquid capsules",
+          "size": 60,
+          "unit": "serving",
+          "key_ingredients": [
+            {
+              "name": "Vitamin D3 (plant-based cholecalciferol)",
+              "amount": "50 mcg (2,000 IU)"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Subscribe & save price $59.98"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Doctor's Best",
+        "product": "Doctor's Best Curcumin Phytosome with Meriva, 180 veggie capsules (1,000 mg per 2 capsules)",
+        "size": 90,
+        "unit": "serving",
+        "price_usd": 54.99,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Doctor-s-Best-Curcumin-Phytosome-with-Meriva-Non-GMO-Vegan-Gluten-Free-Soy-Free-Joint-Support-500-mg-180-Veggie-Caps/177789070",
+        "key_ingredients": [
+          {
+            "name": "Meriva curcumin phytosome (min. 18% curcuminoids, 180 mg)",
+            "amount": "1,000 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "Nutricost",
+        "product": "Nutricost Creatine Monohydrate Micronized Powder, Unflavored, 500 g, 100 servings",
+        "size": 100,
+        "unit": "serving (5 g)",
+        "price_usd": 23.5,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/nutricost-creatine-monohydrate-powder-500-grams/-/A-89144833",
+        "key_ingredients": [
+          {
+            "name": "Creatine monohydrate (micronized)",
+            "amount": "5 g"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 2,
+        "brand": "Spring Valley",
+        "product": "Spring Valley Vitamin D3 Softgels, 50 mcg (2,000 IU), 400 count",
+        "size": 400,
+        "unit": "serving",
+        "price_usd": 9.38,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/Spring-Valley-Vitamin-D3-Supplement-Softgels-50-Mcg-2-000-IU-400-Count/1728703957",
+        "key_ingredients": [
+          {
+            "name": "Vitamin D3 (cholecalciferol)",
+            "amount": "50 mcg (2,000 IU)"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Momentous's anti-inflammatory stack is 1,000 mg Meriva turmeric, 5 g creatine and 2,000 IU D3, and the same doses from Doctor's Best, Nutricost and Spring Valley cost about $27 a month instead of $80.",
+    "evidence": "Momentous's stack page lists the supplement facts: Turmeric with Meriva 1,000 mg per 2 capsules (turmeric standardized to 18% curcuminoids, 30 servings), Creatine 5 g creatine monohydrate per scoop (30 servings) and Vitamin D3 50 mcg (2,000 IU) per capsule (60 servings), $79.97 one-time. NIH DSLD 302652 confirms Doctor's Best Curcumin Phytosome with Meriva at 1,000 mg Meriva per 2 capsules, min. 18% (180 mg) curcuminoids, 90 servings. The creatine and D3 alternatives are the already-verified Nutricost creatine (5 g per serving, 100 servings) and Spring Valley D3 (50 mcg per softgel) pairs.",
+    "differences": "Momentous's D3 is plant-based (vegan) cholecalciferol in olive oil; Spring Valley D3 is a standard softgel and is not labeled vegan. Momentous describes its own 'Signature Spec' creatine; Nutricost is micronized creatine monohydrate. The Momentous stack page showed 'estimated to be back in stock soon' when checked. The upfront cost of the full alternative packs ($87.87) is higher than one stack, but it covers 3 months of turmeric, more than 3 months of creatine and over a year of D3.",
+    "sources": [
+      "https://www.livemomentous.com/products/anti-inflammatory-stack",
+      "https://api.ods.od.nih.gov/dsld/v9/label/302652",
+      "https://www.walmart.com/ip/Doctor-s-Best-Curcumin-Phytosome-with-Meriva-Non-GMO-Vegan-Gluten-Free-Soy-Free-Joint-Support-500-mg-180-Veggie-Caps/177789070",
+      "https://www.target.com/p/nutricost-creatine-monohydrate-powder-500-grams/-/A-89144833",
+      "https://www.walmart.com/ip/Spring-Valley-Vitamin-D3-Supplement-Softgels-50-Mcg-2-000-IU-400-Count/1728703957"
+    ],
+    "price_checked": "2026-11"
+  }
+]
