@@ -1,0 +1,1239 @@
+[
+  {
+    "slug": "advil-vs-equate-ibuprofen-200mg",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Advil vs Equate Ibuprofen 200mg",
+    "brand": {
+      "brand": "Advil",
+      "product": "Advil Coated Tablets, Ibuprofen 200 mg, 300 count",
+      "size": 300,
+      "unit": "tablet",
+      "price_usd": 23.48,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Advil-Pain-Relievers-and-Fever-Reducer-Coated-Tablets-200Mg-Ibuprofen-300-Count/17325054",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Ibuprofen Tablets 200 mg, 500 count",
+      "size": 500,
+      "unit": "tablet",
+      "price_usd": 8.78,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Ibuprofen-Tablets-200-mg-Pain-Reliever-and-Fever-Reducer-500-Count/39661525",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 200 mg ibuprofen coated tablets, the same NSAID at the same dose.",
+    "evidence": "Walmart's listing for Advil 300-count shows ibuprofen 200 mg coated tablets at $23.48. Walmart's Equate 500-count listing shows ibuprofen 200 mg coated tablets at $8.78 (1.8 cents each).",
+    "differences": "Coating colour and inactive ingredients differ. Advil is sold in smaller bottles; the Equate price is for a 500-count bottle.",
+    "sources": [
+      "https://www.walmart.com/ip/Advil-Pain-Relievers-and-Fever-Reducer-Coated-Tablets-200Mg-Ibuprofen-300-Count/17325054",
+      "https://www.walmart.com/ip/Equate-Ibuprofen-Tablets-200-mg-Pain-Reliever-and-Fever-Reducer-500-Count/39661525"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "tylenol-extra-strength-vs-equate-acetaminophen-500mg",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Tylenol Extra Strength vs Equate Extra Strength Acetaminophen 500mg",
+    "brand": {
+      "brand": "Tylenol",
+      "product": "Tylenol Extra Strength Caplets, Acetaminophen 500 mg, 225 count",
+      "size": 225,
+      "unit": "caplet",
+      "price_usd": 19.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Tylenol-Extra-Strength-Caplets-225-ct/10294196",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Extra Strength Acetaminophen Caplets 500 mg, 500 count",
+      "size": 500,
+      "unit": "caplet",
+      "price_usd": 7.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Extra-Strength-Acetaminophen-Caplets-500-mg-500-Count/509037085",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 500 mg acetaminophen caplets, and Equate labels itself 'Compare to Tylenol Extra Strength active ingredient'.",
+    "evidence": "Walmart's Tylenol listing shows acetaminophen 500 mg caplets, 225 count, for $19.97. The Equate listing shows acetaminophen 500 mg caplets, 500 count, for $7.98 (1.6 cents per caplet).",
+    "differences": "Inactive ingredients and caplet coating may differ. Price per caplet compares a 225-count with a 500-count bottle.",
+    "sources": [
+      "https://www.walmart.com/ip/Tylenol-Extra-Strength-Caplets-225-ct/10294196",
+      "https://www.walmart.com/ip/Equate-Extra-Strength-Acetaminophen-Caplets-500-mg-500-Count/509037085"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "aleve-vs-equate-naproxen-sodium-220mg",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Aleve vs Equate Naproxen Sodium 220mg",
+    "brand": {
+      "brand": "Aleve",
+      "product": "Aleve Naproxen Sodium Caplets 220 mg, 200 count",
+      "size": 200,
+      "unit": "caplet",
+      "price_usd": 16.0,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Aleve-Pain-Relief-Naproxen-Sodium-Caplets-200-Count/938759653",
+      "key_ingredients": [
+        {
+          "name": "Naproxen sodium",
+          "amount": "220 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate All Day Pain Relief Naproxen Sodium Caplets 220 mg, 270 count",
+      "size": 270,
+      "unit": "caplet",
+      "price_usd": 11.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Naproxen-Sodium-All-Day-Pain-Relief-Caplets-220-mg-270-Count/5316226532",
+      "key_ingredients": [
+        {
+          "name": "Naproxen sodium",
+          "amount": "220 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are naproxen sodium 220 mg caplets, and Equate is labelled 'Compare to Aleve Caplets active ingredient'.",
+    "evidence": "Walmart sells Aleve 200-count caplets for $16.00 (sale; was $19.97). The Equate 270-count listing states naproxen sodium 220 mg caplets for $11.97. Walmart's title for the same Aleve listing names the strength as 220 mg.",
+    "differences": "The Aleve price is a sale price (regular $19.97), so savings are larger at the regular price. Inactive ingredients differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Aleve-Pain-Relief-Naproxen-Sodium-Caplets-200-Count/938759653",
+      "https://www.walmart.com/ip/Equate-Naproxen-Sodium-All-Day-Pain-Relief-Caplets-220-mg-270-Count/5316226532"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "excedrin-migraine-vs-equate-migraine",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Excedrin Migraine vs Equate Migraine Relief",
+    "brand": {
+      "brand": "Excedrin",
+      "product": "Excedrin Migraine Caplets, 200 count",
+      "size": 200,
+      "unit": "tablet",
+      "price_usd": 19.73,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Excedrin-Migraine-Caplets-for-Migraine-Headache-Relief-200-Count/24766557",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Aspirin",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "65 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Migraine Pain Relieving Aid Tablets, 100 count",
+      "size": 100,
+      "unit": "tablet",
+      "price_usd": 8.78,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Migraine-Pain-Relieving-Aid-Acetaminophen-Aspirin-and-Caffeine-Tablets-100-Count-Compare-to-Excedrin-Migraine-Relief-Active-Ingredients/5459814934",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Aspirin",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "65 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both contain acetaminophen 250 mg, aspirin 250 mg and caffeine 65 mg per dose unit, and both are labelled for migraine.",
+    "evidence": "Walmart lists Excedrin Migraine as acetaminophen 250 mg, aspirin 250 mg and caffeine 65 mg, 200 caplets for $19.73. The Equate Migraine listing shows the same three actives at the same strengths, 100 tablets for $8.78.",
+    "differences": "Excedrin comes as caplets and Equate Migraine as tablets. Savings per pill are small (about 11%). Equate Extra Strength Headache Relief has the same three actives at the same strengths and was listed at $4.97 for 200 caplets, but it is labelled for headache, not migraine.",
+    "sources": [
+      "https://www.walmart.com/ip/Excedrin-Migraine-Caplets-for-Migraine-Headache-Relief-200-Count/24766557",
+      "https://www.walmart.com/ip/Equate-Migraine-Pain-Relieving-Aid-Acetaminophen-Aspirin-and-Caffeine-Tablets-100-Count-Compare-to-Excedrin-Migraine-Relief-Active-Ingredients/5459814934",
+      "https://www.walmart.com/c/kp/equate-migraine"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "claritin-vs-equate-loratadine-10mg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Claritin vs Equate Loratadine 10mg",
+    "brand": {
+      "brand": "Claritin",
+      "product": "Claritin 24 Hour Non-Drowsy Loratadine Tablets, 70 count",
+      "size": 70,
+      "unit": "tablet",
+      "price_usd": 38.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/p/21982648",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Non-Drowsy All Day Allergy Relief Loratadine 10 mg, 300 count",
+      "size": 300,
+      "unit": "tablet",
+      "price_usd": 20.88,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Allergy-Relief-Loratadine-Tablets-10-mg-Antihistamine-300-Count/2691499737",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are loratadine 10 mg once-daily tablets, and Equate is labelled 'Compare to Claritin 24 Hour active ingredient'.",
+    "evidence": "Walmart's Claritin listing shows loratadine 10 mg tablets, 70 count, for $38.97 (55.7 cents each). The Equate listing shows loratadine USP 10 mg tablets, 300 count (2 bottles of 150), for $20.88 (7.0 cents each).",
+    "differences": "The Equate 300-count was marked out of stock online when checked, so the price may move. Inactive ingredients differ. Kirkland AllerClear (loratadine 10 mg, 365 count) at Costco is another low-cost option.",
+    "sources": [
+      "https://www.walmart.com/ip/p/21982648",
+      "https://www.walmart.com/ip/Equate-Allergy-Relief-Loratadine-Tablets-10-mg-Antihistamine-300-Count/2691499737",
+      "https://www.costco.com/p/-/kirkland-signature-nondrowsy-allerclear-antihistamine-10-mg-365-tablets/11602332"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "zyrtec-vs-equate-cetirizine-10mg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Zyrtec vs Equate Cetirizine 10mg",
+    "brand": {
+      "brand": "Zyrtec",
+      "product": "Zyrtec 24 Hour Allergy Tablets, Cetirizine HCl 10 mg, 90 count",
+      "size": 90,
+      "unit": "tablet",
+      "price_usd": 39.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine HCl",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate 24 Hour Allergy Relief Cetirizine HCl Tablets 10 mg, 90 count",
+      "size": 90,
+      "unit": "tablet",
+      "price_usd": 12.88,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://business.walmart.com/ip/Equate-24-Hour-Allergy-Cetirizine-Hydrochloride-Tablets-10-mg-90-Count/10898797",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine HCl",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are cetirizine HCl 10 mg tablets in the same 90-count size.",
+    "evidence": "Walmart lists Zyrtec 90-count at $39.97 (44.4 cents each), with cetirizine HCl 10 mg. Walmart's Equate 90-count listing shows cetirizine HCl 10 mg tablets for $12.88 (14.3 cents each).",
+    "differences": "Inactive ingredients and tablet shape differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
+      "https://business.walmart.com/ip/Equate-24-Hour-Allergy-Cetirizine-Hydrochloride-Tablets-10-mg-90-Count/10898797"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "allegra-vs-equate-fexofenadine-180mg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Allegra vs Equate Fexofenadine 180mg",
+    "brand": {
+      "brand": "Allegra",
+      "product": "Allegra Adult 24 Hour Allergy Tablets, Fexofenadine HCl 180 mg, 70 count",
+      "size": 70,
+      "unit": "tablet",
+      "price_usd": 36.96,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Allegra-24-Hour-Non-Drowsy-Antihistamine-Medicine-Tablets-for-Adult-Allergy-Relief-Fexofenadine-180-mg-70-Pills/20530894",
+      "key_ingredients": [
+        {
+          "name": "Fexofenadine HCl",
+          "amount": "180 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Fexofenadine HCl USP Non-Drowsy Allergy Relief Tablets 180 mg, 300 count",
+      "size": 300,
+      "unit": "tablet",
+      "price_usd": 37.24,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://business.walmart.com/ip/Equate-Fexofenadine-180mg-300-Count/16417012021",
+      "key_ingredients": [
+        {
+          "name": "Fexofenadine HCl",
+          "amount": "180 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are fexofenadine HCl 180 mg once-daily tablets.",
+    "evidence": "Walmart lists Allegra 24 Hour 70-count, fexofenadine HCl 180 mg, at $36.96 (52.8 cents each). Walmart's Equate 300-count listing shows fexofenadine HCl USP 180 mg for $37.24 (12.4 cents each).",
+    "differences": "The Equate price is from Walmart's business site. A 2 x 90 Equate pack on walmart.com was about $24.77 (13.8 cents each). Inactive ingredients differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Allegra-24-Hour-Non-Drowsy-Antihistamine-Medicine-Tablets-for-Adult-Allergy-Relief-Fexofenadine-180-mg-70-Pills/20530894",
+      "https://business.walmart.com/ip/Equate-Fexofenadine-180mg-300-Count/16417012021",
+      "https://www.walmart.com/ip/Equate-Fexofenadine-180mg-2-x-90-Count/16380319834"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "xyzal-vs-equate-levocetirizine-5mg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Xyzal vs Equate Levocetirizine 5mg",
+    "brand": {
+      "brand": "Xyzal",
+      "product": "Xyzal 24 Hour Allergy Relief, Levocetirizine Dihydrochloride 5 mg, 60 count",
+      "size": 60,
+      "unit": "tablet",
+      "price_usd": 27.96,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Xyzal-24-Hour-Allergy-Relief-Medicine-Original-Prescription-Strength-Antihistamine-Levocetirizine-Dihydrochloride-Tablets-5-mg-60-Count/17896511625",
+      "key_ingredients": [
+        {
+          "name": "Levocetirizine dihydrochloride",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Levocetirizine Dihydrochloride USP Allergy Relief Tablets 5 mg, 35 count",
+      "size": 35,
+      "unit": "tablet",
+      "price_usd": 9.88,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Levocetirizine-Dihydrochloride-USP-Allergy-Relief-Tablets-5-mg-35-Count/952178038",
+      "key_ingredients": [
+        {
+          "name": "Levocetirizine dihydrochloride",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are levocetirizine dihydrochloride 5 mg tablets, and Equate is labelled 'Compare to Xyzal Allergy 24HR active ingredient'.",
+    "evidence": "Walmart lists Xyzal 60-count, levocetirizine dihydrochloride 5 mg, at $27.96 (46.6 cents each). The Equate 35-count listing shows levocetirizine dihydrochloride USP 5 mg for $9.88 (28.2 cents each).",
+    "differences": "Equate comes in a smaller bottle; per-tablet savings are about 40%. Inactive ingredients differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Xyzal-24-Hour-Allergy-Relief-Medicine-Original-Prescription-Strength-Antihistamine-Levocetirizine-Dihydrochloride-Tablets-5-mg-60-Count/17896511625",
+      "https://www.walmart.com/ip/Equate-Levocetirizine-Dihydrochloride-USP-Allergy-Relief-Tablets-5-mg-35-Count/952178038"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "flonase-vs-equate-fluticasone-50mcg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Flonase vs Equate Fluticasone Nasal Spray",
+    "brand": {
+      "brand": "Flonase",
+      "product": "Flonase Allergy Relief Nasal Spray, 144 metered sprays",
+      "size": 144,
+      "unit": "spray",
+      "price_usd": 21.99,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://business.walmart.com/ip/Flonase-24-Hour-Non-Drowsy-Allergy-Relief-Medicine-Nasal-Spray-144-Sprays/752393566",
+      "key_ingredients": [
+        {
+          "name": "Fluticasone propionate",
+          "amount": "50 mcg per spray"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate 24 Hour Non-Drowsy Fluticasone Propionate Nasal Spray 50 mcg, 72 sprays",
+      "size": 72,
+      "unit": "spray",
+      "price_usd": 7.48,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Fluticasone-Propionate-Nasal-Allergy-Relief-Spray-50-mcg-Non-Drowsy-72-Metered-Sprays/11616557275",
+      "key_ingredients": [
+        {
+          "name": "Fluticasone propionate",
+          "amount": "50 mcg per spray"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are fluticasone propionate 50 mcg per metered spray (glucocorticoid) nasal sprays.",
+    "evidence": "Walmart lists Flonase Allergy Relief 144 sprays at $21.99 (sale; was $27.98), with fluticasone propionate as the active. The Equate listing shows fluticasone propionate 50 mcg per spray, 72 sprays, for $7.48 (was $9.87). The Flonase page did not print the per-spray amount (Flonase Allergy Relief is sold as 50 mcg per spray), so confidence is medium.",
+    "differences": "The Flonase price is a sale price. The bottle sizes differ, so the comparison is per spray. The nozzle and inactive ingredients may differ.",
+    "sources": [
+      "https://business.walmart.com/ip/Flonase-24-Hour-Non-Drowsy-Allergy-Relief-Medicine-Nasal-Spray-144-Sprays/752393566",
+      "https://www.walmart.com/ip/Equate-Fluticasone-Propionate-Nasal-Allergy-Relief-Spray-50-mcg-Non-Drowsy-72-Metered-Sprays/11616557275",
+      "https://business.walmart.com/ip/Equate-Non-Drowsy-Allergy-Relief-Spray-Fluticasone-Propionate-Glucocorticoid-50-mcg-Per-Spray-144-Sprays/251773357"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "benadryl-vs-equate-diphenhydramine-25mg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Benadryl Allergy vs Equate Diphenhydramine 25mg",
+    "brand": {
+      "brand": "Benadryl",
+      "product": "Benadryl Allergy Ultratabs, Diphenhydramine HCl 25 mg, 100 count",
+      "size": 100,
+      "unit": "tablet",
+      "price_usd": 14.72,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Benadryl-Ultratabs-Antihistamine-Cold-Allergy-Relief-Tablets-100-Ct/31956102",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine HCl",
+          "amount": "25 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Allergy Relief Diphenhydramine HCl 25 mg Tablets, 365 count",
+      "size": 365,
+      "unit": "tablet",
+      "price_usd": 7.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://business.walmart.com/ip/Equate-Allergy-Relief-Diphenhydramine-Tablets-25mg-365-Count/40816795",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine HCl",
+          "amount": "25 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are diphenhydramine HCl 25 mg tablets, and Equate is labelled 'Compare to Benadryl Allergy Ultratab active ingredient'.",
+    "evidence": "Walmart lists Benadryl Ultratabs 100-count, diphenhydramine HCl 25 mg, at $14.72. Walmart's Equate 365-count listing shows diphenhydramine HCl 25 mg tablets for $7.98 (2.2 cents each).",
+    "differences": "Tablet coating and colour differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Benadryl-Ultratabs-Antihistamine-Cold-Allergy-Relief-Tablets-100-Ct/31956102",
+      "https://business.walmart.com/ip/Equate-Allergy-Relief-Diphenhydramine-Tablets-25mg-365-Count/40816795"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "prilosec-otc-vs-equate-omeprazole-20mg",
+    "category": "otc-medicine",
+    "subcategory": "Stomach",
+    "title": "Prilosec OTC vs Equate Omeprazole 20mg",
+    "brand": {
+      "brand": "Prilosec OTC",
+      "product": "Prilosec OTC Omeprazole Delayed-Release Tablets 20 mg, 42 count",
+      "size": 42,
+      "unit": "tablet",
+      "price_usd": 29.95,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353",
+      "key_ingredients": [
+        {
+          "name": "Omeprazole magnesium",
+          "amount": "20.6 mg (equal to 20 mg omeprazole)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Omeprazole Delayed Release Tablets 20 mg, 42 count",
+      "size": 42,
+      "unit": "tablet",
+      "price_usd": 9.5,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Omeprazole-Delayed-Release-Tablets-20-mg-Acid-Reducer-Frequent-Heartburn-42-Count/10324782",
+      "key_ingredients": [
+        {
+          "name": "Omeprazole",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both deliver 20 mg of omeprazole in a once-daily delayed-release tablet for a 14-day course, and Equate is labelled 'Compare to Prilosec OTC'.",
+    "evidence": "Walmart lists Prilosec OTC 42 tablets at $29.95 (71.3 cents each). The Equate 42-count listing shows omeprazole 20 mg delayed-release tablets for $9.50, and DailyMed lists Equate Omeprazole delayed-release tablets (plain omeprazole) from Walmart. Walmart's Prilosec OTC page lists omeprazole 20 mg per tablet. Prilosec OTC uses the magnesium salt.",
+    "differences": "Prilosec OTC uses the magnesium salt (20.6 mg omeprazole magnesium) and Equate uses plain omeprazole 20 mg. They are the same drug and dose of omeprazole but not the identical salt, so confidence is medium. Equate also sells an omeprazole magnesium capsule version.",
+    "sources": [
+      "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353",
+      "https://www.walmart.com/ip/Equate-Omeprazole-Delayed-Release-Tablets-20-mg-Acid-Reducer-Frequent-Heartburn-42-Count/10324782",
+      "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=equate+omeprazole"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nexium-24hr-vs-equate-esomeprazole-20mg",
+    "category": "otc-medicine",
+    "subcategory": "Stomach",
+    "title": "Nexium 24HR vs Equate Esomeprazole 20mg",
+    "brand": {
+      "brand": "Nexium 24HR",
+      "product": "Nexium 24HR Delayed Release Capsules, Esomeprazole 20 mg, 42 count",
+      "size": 42,
+      "unit": "capsule",
+      "price_usd": 25.28,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Nexium-24HR-Capsules-20mg-42-Ct-Delayed-Release-Heartburn-Relief-Esomeprazole-Magnesium-Acid-Reducer/35284453",
+      "key_ingredients": [
+        {
+          "name": "Esomeprazole (as esomeprazole magnesium)",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Esomeprazole Magnesium Delayed Release Capsules 20 mg, 42 count",
+      "size": 42,
+      "unit": "capsule",
+      "price_usd": 9.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/3-Pack-Equate-Esomeprazole-Magnesium-Delayed-Release-Capsules-20mg-42-Ct/8457196",
+      "key_ingredients": [
+        {
+          "name": "Esomeprazole (as esomeprazole magnesium)",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are esomeprazole magnesium 20 mg delayed-release capsules, one per day for 14 days.",
+    "evidence": "Walmart lists Nexium 24HR 42 capsules, esomeprazole magnesium 20 mg, at $25.28 (60.2 cents each). The Equate 42-count listing shows esomeprazole magnesium 20 mg delayed-release capsules for $9.97 (23.7 cents each). DailyMed lists Equate Esomeprazole Magnesium delayed-release capsules from Walmart.",
+    "differences": "Capsule colour and inactive ingredients differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Nexium-24HR-Capsules-20mg-42-Ct-Delayed-Release-Heartburn-Relief-Esomeprazole-Magnesium-Acid-Reducer/35284453",
+      "https://www.walmart.com/ip/3-Pack-Equate-Esomeprazole-Magnesium-Delayed-Release-Capsules-20mg-42-Ct/8457196",
+      "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=equate+esomeprazole"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "pepcid-ac-maximum-strength-vs-equate-famotidine-20mg",
+    "category": "otc-medicine",
+    "subcategory": "Stomach",
+    "title": "Pepcid AC Maximum Strength vs Equate Famotidine 20mg",
+    "brand": {
+      "brand": "Pepcid AC",
+      "product": "Pepcid AC Maximum Strength, Famotidine 20 mg, 50 count",
+      "size": 50,
+      "unit": "tablet",
+      "price_usd": 15.0,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Pepcid-AC-Maximum-Strength-Heartburn-Medicine-20-mg-Famotidine-50-Ct/10309599",
+      "key_ingredients": [
+        {
+          "name": "Famotidine",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Maximum Strength Famotidine 20 mg Tablets, 200 count",
+      "size": 200,
+      "unit": "tablet",
+      "price_usd": 11.57,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Maximum-Strength-Famotidine-Tablets-20-mg-200-Count/850734185",
+      "key_ingredients": [
+        {
+          "name": "Famotidine",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are famotidine 20 mg tablets, and Equate is labelled 'Compare to Maximum Strength Pepcid AC active ingredient'.",
+    "evidence": "Walmart's Pepcid AC Maximum Strength 50-count listing shows famotidine 20 mg at $15.00 (was $19.48). Walmart's Equate 200-count listing, sold by Walmart.com, shows famotidine USP 20 mg for $11.57 (5.8 cents each).",
+    "differences": "The Pepcid price came from a marketplace seller on Walmart.com, on sale from $19.48. Inactive ingredients differ. Zantac 360 also uses famotidine, but no Zantac 360 price was checked.",
+    "sources": [
+      "https://www.walmart.com/ip/Pepcid-AC-Maximum-Strength-Heartburn-Medicine-20-mg-Famotidine-50-Ct/10309599",
+      "https://www.walmart.com/ip/Equate-Maximum-Strength-Famotidine-Tablets-20-mg-200-Count/850734185"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "tums-smoothies-extra-strength-vs-equate-smooth-antacid-750mg",
+    "category": "otc-medicine",
+    "subcategory": "Stomach",
+    "title": "Tums Smoothies Extra Strength vs Equate Extra Strength Smooth Antacid",
+    "brand": {
+      "brand": "Tums",
+      "product": "Tums Smoothies Extra Strength Chewable Antacid Tablets, Berry Fusion, 140 count",
+      "size": 140,
+      "unit": "tablet",
+      "price_usd": 9.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Tums-Smoothies-Extra-Strength-Heartburn-Relief-Chewable-Tablets-Berry-Fusion-140-Ct/10317004",
+      "key_ingredients": [
+        {
+          "name": "Calcium carbonate",
+          "amount": "750 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Extra Strength Smooth Chews Antacid Tablets, Assorted Fruit, 140 count",
+      "size": 140,
+      "unit": "tablet",
+      "price_usd": 4.94,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Extra-Strength-Smooth-Chews-Antacid-Tablets-Assorted-Fruit-over-the-Counter-140-Count/683480261",
+      "key_ingredients": [
+        {
+          "name": "Calcium carbonate",
+          "amount": "750 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are Extra Strength calcium carbonate 750 mg smooth chewable antacids in 140-count bottles.",
+    "evidence": "The Equate listing states calcium carbonate 750 mg per tablet and 'compare to Tums Smoothies'. Walmart lists Tums Smoothies Extra Strength 140-count at $9.98. Tums Extra Strength products are 750 mg calcium carbonate, but the Walmart category page did not show the mg for this exact listing, so confidence is medium.",
+    "differences": "Flavours differ. The single Equate bottle was out of stock online when checked; a 3-pack was $12.60 ($4.20 each).",
+    "sources": [
+      "https://www.walmart.com/ip/Tums-Smoothies-Extra-Strength-Heartburn-Relief-Chewable-Tablets-Berry-Fusion-140-Ct/10317004",
+      "https://www.walmart.com/ip/Equate-Extra-Strength-Smooth-Chews-Antacid-Tablets-Assorted-Fruit-over-the-Counter-140-Count/683480261",
+      "https://www.walmart.com/c/kp/tums-extra-strength"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "imodium-ad-vs-equate-loperamide-2mg",
+    "category": "otc-medicine",
+    "subcategory": "Stomach",
+    "title": "Imodium A-D vs Equate Loperamide 2mg",
+    "brand": {
+      "brand": "Imodium A-D",
+      "product": "Imodium A-D Anti-Diarrheal Caplets, Loperamide HCl 2 mg, 24 count",
+      "size": 24,
+      "unit": "caplet",
+      "price_usd": 11.48,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Imodium-A-D-Diarrhea-Relief-Caplets-Loperamide-Hydrochloride-24-ct/45809353",
+      "key_ingredients": [
+        {
+          "name": "Loperamide HCl",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Loperamide Tablets for Diarrhea 2 mg, 24 count",
+      "size": 24,
+      "unit": "caplet",
+      "price_usd": 4.18,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Loperamide-Tablets-for-Diarrhea-2-mg-24-Count/1120328",
+      "key_ingredients": [
+        {
+          "name": "Loperamide HCl",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are loperamide HCl 2 mg caplets in the same 24-count size.",
+    "evidence": "Walmart sells Imodium A-D 24 caplets, loperamide HCl 2 mg, for $11.48 (47.8 cents each). Walmart's Equate 24-count listing shows loperamide HCl 2 mg capsule-shaped tablets for $4.18 (17.4 cents each).",
+    "differences": "Inactive ingredients and colour differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Imodium-A-D-Diarrhea-Relief-Caplets-Loperamide-Hydrochloride-24-ct/45809353",
+      "https://www.walmart.com/ip/Equate-Loperamide-Tablets-for-Diarrhea-2-mg-24-Count/1120328"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "miralax-vs-equate-clearlax-peg-3350",
+    "category": "otc-medicine",
+    "subcategory": "Stomach",
+    "title": "MiraLAX vs Equate ClearLAX PEG 3350",
+    "brand": {
+      "brand": "MiraLAX",
+      "product": "MiraLAX Laxative Powder, 26.9 oz",
+      "size": 26.9,
+      "unit": "oz",
+      "price_usd": 29.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/MiraLAX-Laxative-Powder-26-90-oz/36483385",
+      "key_ingredients": [
+        {
+          "name": "Polyethylene glycol 3350",
+          "amount": "17 g per dose"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate ClearLAX Polyethylene Glycol 3350 Powder, 26.9 oz, 45 doses",
+      "size": 26.9,
+      "unit": "oz",
+      "price_usd": 14.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-ClearLAX-Polyethylene-Glycol-3350-Powder-Solution-Osmotic-Laxative-Laxatives-Constipation-26-9-oz-45-Doses-Compare-MiraLAX-Active-Ingredient/44807514",
+      "key_ingredients": [
+        {
+          "name": "Polyethylene glycol 3350",
+          "amount": "17 g per dose"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are unflavoured polyethylene glycol 3350 powder dosed at 17 g, in the same 26.9 oz size.",
+    "evidence": "The Equate ClearLAX listing states polyethylene glycol 3350, 17 g per dose, and 'compare to MiraLAX active ingredient'. On Walmart's MiraLAX page, MiraLAX 26.9 oz was $29.97 and Equate ClearLAX 26.9 oz (45 doses) was $14.97. MiraLAX's only active ingredient is PEG 3350.",
+    "differences": "MiraLAX has no inactive ingredients. Check the Equate label if you need the same. Prices are from Walmart's MiraLAX listing page.",
+    "sources": [
+      "https://www.walmart.com/ip/MiraLAX-Laxative-Powder-26-90-oz/36483385",
+      "https://www.walmart.com/ip/Equate-ClearLAX-Polyethylene-Glycol-3350-Powder-Solution-Osmotic-Laxative-Laxatives-Constipation-26-9-oz-45-Doses-Compare-MiraLAX-Active-Ingredient/44807514",
+      "https://www.walmart.com/c/kp/miralax-laxative-powder",
+      "https://business.walmart.com/ip/Equate-ClearLax-Polyethylene-Glycol-3350-Powder-for-Solution-Unflavored-30-Doses/14122821"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "colace-vs-equate-stool-softener-docusate-100mg",
+    "category": "otc-medicine",
+    "subcategory": "Stomach",
+    "title": "Colace vs Equate Stool Softener Docusate 100mg",
+    "brand": {
+      "brand": "Colace",
+      "product": "Colace Regular Strength Stool Softener Capsules 100 mg, 100 count",
+      "size": 100,
+      "unit": "capsule",
+      "price_usd": 22.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Colace-100-mg-Stool-Softener-Regular-Strength-Capsules-100-Count/5208396982",
+      "key_ingredients": [
+        {
+          "name": "Docusate sodium",
+          "amount": "100 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Stool Softener Docusate Sodium Softgels 100 mg, 140 count",
+      "size": 140,
+      "unit": "capsule",
+      "price_usd": 4.74,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Stool-Softener-Laxative-Softgels-for-Constipation-100-mg-140-Count/377095128",
+      "key_ingredients": [
+        {
+          "name": "Docusate sodium",
+          "amount": "100 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are docusate sodium 100 mg stool-softener softgel capsules.",
+    "evidence": "On Walmart's Colace listing page, Colace 100 mg capsules (100 count) were $22.97 and Equate docusate sodium 100 mg softgels (140 count) were $4.74. Colace Regular Strength is docusate sodium 100 mg. The prices and strengths come from the listing page, not from each product's label page, so confidence is medium.",
+    "differences": "Capsule shell and inactive ingredients differ. A 400-count Equate bottle was listed from $9.83, so it may be cheaper still.",
+    "sources": [
+      "https://www.walmart.com/ip/Colace-100-mg-Stool-Softener-Regular-Strength-Capsules-100-Count/5208396982",
+      "https://www.walmart.com/ip/Equate-Stool-Softener-Laxative-Softgels-for-Constipation-100-mg-140-Count/377095128",
+      "https://www.walmart.com/c/kp/colace-stool-softener"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "unisom-sleeptabs-vs-equate-doxylamine-25mg",
+    "category": "otc-medicine",
+    "subcategory": "Sleep",
+    "title": "Unisom SleepTabs vs Equate Doxylamine 25mg",
+    "brand": {
+      "brand": "Unisom",
+      "product": "Unisom SleepTabs, Doxylamine Succinate 25 mg, 32 count",
+      "size": 32,
+      "unit": "tablet",
+      "price_usd": 8.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/SleepTabs-Doxylamine-Succinate-Tablets-32ct/10307672",
+      "key_ingredients": [
+        {
+          "name": "Doxylamine succinate",
+          "amount": "25 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Nighttime Sleep-Aid Doxylamine Succinate 25 mg Tablets, 32 count",
+      "size": 32,
+      "unit": "tablet",
+      "price_usd": 4.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Doxylamine-Succinate-25mg-Tablets-for-Nighttime-Sleep-Support-32-Count/1120313",
+      "key_ingredients": [
+        {
+          "name": "Doxylamine succinate",
+          "amount": "25 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are doxylamine succinate 25 mg sleep-aid tablets in the same 32-count size.",
+    "evidence": "Walmart's Equate listing shows doxylamine succinate 25 mg, 32 tablets, for $4.98 and says 'compare to Unisom SleepTabs'. Walmart's Unisom SleepTabs 32-count was $8.98. The Unisom listing names doxylamine succinate but the listing page did not print the 25 mg strength, so confidence is medium.",
+    "differences": "Unisom's 80-count was $13.98 (17.5 cents each), which narrows the gap if you buy the larger bottle. Inactive ingredients differ.",
+    "sources": [
+      "https://www.walmart.com/ip/SleepTabs-Doxylamine-Succinate-Tablets-32ct/10307672",
+      "https://www.walmart.com/ip/Equate-Doxylamine-Succinate-25mg-Tablets-for-Nighttime-Sleep-Support-32-Count/1120313",
+      "https://www.walmart.com/c/kp/doxylamine-succinate"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mucinex-vs-equate-mucus-relief-guaifenesin-600mg",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "Mucinex 12 Hour vs Equate Mucus Relief Guaifenesin 600mg",
+    "brand": {
+      "brand": "Mucinex",
+      "product": "Mucinex 12 Hour Chest Congestion Extended-Release Tablets 600 mg, 100 count",
+      "size": 100,
+      "unit": "tablet",
+      "price_usd": 45.6,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Mucinex-12-Hour-Chest-Congestion-Expectorant-Tablets-600mg-100-Count/581373632",
+      "key_ingredients": [
+        {
+          "name": "Guaifenesin (extended-release)",
+          "amount": "600 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Mucus and Chest Congestion Relief Guaifenesin ER Tablets 600 mg, 40 count",
+      "size": 40,
+      "unit": "tablet",
+      "price_usd": 14.12,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Mucus-and-Chest-Congestion-Relief-Guaifenesin-Extended-Release-Tablets-600-mg-12-Hour-Expectorant-40-Count/19605912794",
+      "key_ingredients": [
+        {
+          "name": "Guaifenesin (extended-release)",
+          "amount": "600 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 12-hour extended-release guaifenesin 600 mg tablets.",
+    "evidence": "On Walmart's Mucinex 12-hour page, Mucinex 600 mg ER 100-count was $45.60 and Equate guaifenesin ER 600 mg 12-hour 40-count was listed from $14.12. The strengths come from the product titles.",
+    "differences": "The Equate price is a 'from' price, and savings are modest (about 23% per tablet) against the bulk Mucinex bottle. The bi-layer release design may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Mucinex-12-Hour-Chest-Congestion-Expectorant-Tablets-600mg-100-Count/581373632",
+      "https://www.walmart.com/ip/Mucus-and-Chest-Congestion-Relief-Guaifenesin-Extended-Release-Tablets-600-mg-12-Hour-Expectorant-40-Count/19605912794",
+      "https://www.walmart.com/c/kp/mucinex-12-hour"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "cortizone-10-vs-equate-hydrocortisone-1-percent",
+    "category": "otc-medicine",
+    "subcategory": "Skin and first aid",
+    "title": "Cortizone-10 Intensive Healing vs Equate Hydrocortisone 1% Cream",
+    "brand": {
+      "brand": "Cortizone-10",
+      "product": "Cortizone-10 Maximum Strength Intensive Healing Itch Relief Cream, 1% Hydrocortisone, 2 oz",
+      "size": 2,
+      "unit": "oz",
+      "price_usd": 9.42,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Cortizone-10-Maximum-Strength-Intensive-Healing-Itch-Relief-Cream-1-Hydrocortisone-Fast-Acting-Anti-Itch-Cream-Bug-Bites-Rash-Eczema-Psoriasis-Poison/1220714814",
+      "key_ingredients": [
+        {
+          "name": "Hydrocortisone",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Anti-Itch Hydrocortisone 1% Cream, Intensive Healing Formula, 2 oz",
+      "size": 2,
+      "unit": "oz",
+      "price_usd": 5.92,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Hydrocortisone-Intense-Healing-Cream-2-oz/100484307",
+      "key_ingredients": [
+        {
+          "name": "Hydrocortisone",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are maximum-strength 1% hydrocortisone anti-itch creams in an 'intensive healing' base, in the same 2 oz size.",
+    "evidence": "Walmart's hydrocortisone page lists Cortizone-10 Maximum Strength Intensive Healing 1% hydrocortisone 2 oz at $9.42. Walmart's Equate itch and rash listings show Equate 1% hydrocortisone Intensive Healing Formula 2 oz at $5.92; the 1 oz version says 'Compare to Cortizone-10 Intensive Healing Formula active ingredient'.",
+    "differences": "The moisturising base may differ. Only the active ingredient is matched.",
+    "sources": [
+      "https://www.walmart.com/ip/Cortizone-10-Maximum-Strength-Intensive-Healing-Itch-Relief-Cream-1-Hydrocortisone-Fast-Acting-Anti-Itch-Cream-Bug-Bites-Rash-Eczema-Psoriasis-Poison/1220714814",
+      "https://www.walmart.com/ip/Equate-Hydrocortisone-Intense-Healing-Cream-2-oz/100484307",
+      "https://www.walmart.com/c/kp/hydrocortisone-cream",
+      "https://www.walmart.com/browse/health/itching-rash-treatments/976760_2571007_9291959?facet=brand%3AEquate"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "monistat-7-vs-equate-miconazole-7",
+    "category": "otc-medicine",
+    "subcategory": "Women's health",
+    "title": "Monistat 7 vs Equate Miconazole 7-Day",
+    "brand": {
+      "brand": "Monistat",
+      "product": "Monistat 7 Miconazole Cream 1.59 oz + 7 Disposable Applicators",
+      "size": 1,
+      "unit": "7-day kit",
+      "price_usd": 14.24,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Monistat-7-Miconazole-Cream-7-Day-Yeast-Infection-Treatment-Cream-for-Women-1-59-Oz-7-Disposable-Applicators/125730082",
+      "key_ingredients": [
+        {
+          "name": "Miconazole nitrate",
+          "amount": "2% (100 mg per applicator)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Miconazole 7-Day Antifungal Treatment with Disposable Applicators, 1.59 oz",
+      "size": 1,
+      "unit": "7-day kit",
+      "price_usd": 6.57,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Miconazole-7-Day-Vaginal-Cream-with-Disposable-Applicators-1-59-oz-Yeast-Infection-Treatment/549962132?classType=VARIANT&athbdg=L1600",
+      "key_ingredients": [
+        {
+          "name": "Miconazole nitrate",
+          "amount": "2% (100 mg per applicator)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 7-day miconazole nitrate vaginal creams, 1.59 oz with 7 disposable applicators, and Equate is labelled 'Compare to Monistat 7'.",
+    "evidence": "Walmart's Equate listing shows miconazole nitrate USP, 1.59 oz with 7 disposable applicators, for $6.57 and says 'Compare to Monistat 7'. Walmart listed Monistat 7 1.59 oz + 7 disposable applicators at $14.24. The 7-day OTC cream is 2% miconazole, but the Equate page did not print the percentage, so confidence is medium.",
+    "differences": "Equate's percentage was not shown on the retailer page; check the box for 2%.",
+    "sources": [
+      "https://www.walmart.com/ip/Monistat-7-Miconazole-Cream-7-Day-Yeast-Infection-Treatment-Cream-for-Women-1-59-Oz-7-Disposable-Applicators/125730082",
+      "https://www.walmart.com/ip/Equate-Miconazole-7-Day-Vaginal-Cream-with-Disposable-Applicators-1-59-oz-Yeast-Infection-Treatment/549962132?classType=VARIANT&athbdg=L1600",
+      "https://www.walmart.com/c/kp/monistat-7",
+      "https://www.walmart.com/c/kp/miconazole-nitrate"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nicorette-gum-vs-equate-coated-nicotine-gum-2mg",
+    "category": "otc-medicine",
+    "subcategory": "Quit smoking",
+    "title": "Nicorette Gum vs Equate Coated Nicotine Gum 2mg",
+    "brand": {
+      "brand": "Nicorette",
+      "product": "Nicorette Nicotine Gum 2 mg, White Ice Mint, 160 count",
+      "size": 160,
+      "unit": "piece",
+      "price_usd": 65.0,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Nicorette-Nicotine-Gum-Stop-Smoking-Aids-2-Mg-White-Ice-Mint-160-Count/37062040",
+      "key_ingredients": [
+        {
+          "name": "Nicotine (as nicotine polacrilex)",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Coated Nicotine Gum 2 mg, Fruit, 200 count",
+      "size": 200,
+      "unit": "piece",
+      "price_usd": 43.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Coated-Nicotine-Gum-2-mg-Fruit-Flavor-200-Count-Stop-Smoking-Aid/16674313113",
+      "key_ingredients": [
+        {
+          "name": "Nicotine (as nicotine polacrilex)",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are coated nicotine polacrilex gum at the 2 mg strength.",
+    "evidence": "Walmart's nicotine gum page listed Nicorette 2 mg White Ice Mint 160-count at $65.00 and Equate Coated Nicotine Gum 2 mg 200-count at $43.97. Equate 4 mg (fruit and mint, 200 count) was also $43.97.",
+    "differences": "The flavours differ (Equate in this listing is fruit; Equate mint was seen in 4 mg). The Nicorette listing showed several size options, so check the price for the 160-count. Prices come from the category listing page.",
+    "sources": [
+      "https://www.walmart.com/ip/Nicorette-Nicotine-Gum-Stop-Smoking-Aids-2-Mg-White-Ice-Mint-160-Count/37062040",
+      "https://www.walmart.com/ip/Equate-Coated-Nicotine-Gum-2-mg-Fruit-Flavor-200-Count-Stop-Smoking-Aid/16674313113",
+      "https://www.walmart.com/c/kp/nicotine-gum"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mens-rogaine-foam-vs-equate-minoxidil-5-foam",
+    "category": "otc-medicine",
+    "subcategory": "Hair regrowth",
+    "title": "Men's Rogaine 5% Foam vs Equate Minoxidil 5% Foam",
+    "brand": {
+      "brand": "Rogaine",
+      "product": "Men's Rogaine 5% Minoxidil Foam, 3 x 2.11 oz (3-month supply)",
+      "size": 6.33,
+      "unit": "oz",
+      "price_usd": 49.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Men-s-Rogaine-5-Minoxidil-Foam-Treatment-3-Month-Supply/11081994",
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "5% (foam)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Minoxidil Topical Aerosol Hair Regrowth Treatment for Men, 3 x 2.11 oz",
+      "size": 6.33,
+      "unit": "oz",
+      "price_usd": 32.94,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Aerosol-Hair-Regrowth-Treatment-for-Men-3-Month-Supply-2-11-oz-3-Piece/20648073",
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "5% (foam)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are minoxidil 5% topical foam in three 2.11 oz cans (a 3-month supply).",
+    "evidence": "Walmart, as the seller, lists Men's Rogaine 5% minoxidil foam, 3 x 2.11 oz, at $49.97. Walmart's Equate men's listing shows minoxidil 5% foam, 3 x 2.11 oz, for $32.94 ($5.20/oz) and names Men's Rogaine as having the same active ingredient.",
+    "differences": "Foam feel and fragrance-free status may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Men-s-Rogaine-5-Minoxidil-Foam-Treatment-3-Month-Supply/11081994",
+      "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Aerosol-Hair-Regrowth-Treatment-for-Men-3-Month-Supply-2-11-oz-3-Piece/20648073"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "plan-b-one-step-vs-my-way-levonorgestrel-1-5mg",
+    "category": "otc-medicine",
+    "subcategory": "Women's health",
+    "title": "Plan B One-Step vs My Way Levonorgestrel 1.5mg",
+    "brand": {
+      "brand": "Plan B One-Step",
+      "product": "Plan B One-Step Emergency Contraceptive, 1 tablet",
+      "size": 1,
+      "unit": "tablet",
+      "price_usd": 46.87,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Plan-B-One-Step-Emergency-Contraceptive-1-Tablet-1-5-mg/635562277",
+      "key_ingredients": [
+        {
+          "name": "Levonorgestrel",
+          "amount": "1.5 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "My Way",
+      "product": "My Way Emergency Contraceptive, Levonorgestrel 1.5 mg, 1 tablet",
+      "size": 1,
+      "unit": "tablet",
+      "price_usd": 8.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/MyWay-Emergency-Contraceptive-Pill-Compare-to-Plan-B-One-Step-1-5MG-ONE-TABLET-1PK/20125705556",
+      "key_ingredients": [
+        {
+          "name": "Levonorgestrel",
+          "amount": "1.5 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are a single levonorgestrel 1.5 mg tablet, and My Way is an FDA-approved generic (ANDA 201446).",
+    "evidence": "DailyMed shows Plan B One-Step and My Way (Lupin) as OTC levonorgestrel 1.5 mg tablets, with My Way under ANDA 201446. Walmart.com sells Plan B One-Step for $46.87 and lists My Way 1-pack for $8.97.",
+    "differences": "My Way on Walmart.com is sold by a marketplace seller (DirectRx, fulfilled by Walmart). Other approved generics, such as Take Action, Aftera and EContra, are also available.",
+    "sources": [
+      "https://www.walmart.com/ip/Plan-B-One-Step-Emergency-Contraceptive-1-Tablet-1-5-mg/635562277",
+      "https://www.walmart.com/ip/MyWay-Emergency-Contraceptive-Pill-Compare-to-Plan-B-One-Step-1-5MG-ONE-TABLET-1PK/20125705556",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6ce6b40e-14ac-47bd-a648-ddf9e452e559",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3efec61d-e0a6-49c5-9b88-834db6d171fd"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "voltaren-vs-equate-diclofenac-gel-1-percent",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Voltaren Arthritis Gel vs Equate Diclofenac 1% Gel",
+    "brand": {
+      "brand": "Voltaren",
+      "product": "Voltaren Arthritis Pain Gel, Diclofenac Sodium 1%, 100 g",
+      "size": 100,
+      "unit": "g",
+      "price_usd": 19.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Voltaren-Arthritis-Pain-Gel-Diclofenac-Sodium-Topical-Gel-1-Nsaid-100-G/556463039",
+      "key_ingredients": [
+        {
+          "name": "Diclofenac sodium",
+          "amount": "1% topical gel"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Arthritis Pain Relieving Gel, Diclofenac Sodium Topical Gel 1%, 3.53 oz (100 g)",
+      "size": 100,
+      "unit": "g",
+      "price_usd": 13.88,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Arthritis-Pain-Relieving-Gel-Diclofenac-Sodium-Topical-Gel-1-Percent-3-53-Oz/17167304409?classType=VARIANT",
+      "key_ingredients": [
+        {
+          "name": "Diclofenac sodium",
+          "amount": "1% topical gel"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are diclofenac sodium 1% topical NSAID gel in a 100 g (3.53 oz) tube.",
+    "evidence": "On Walmart's Voltaren page, Voltaren Arthritis Pain Gel diclofenac sodium 1% 100 g was $19.98. On Walmart's diclofenac gel page, Equate diclofenac sodium topical gel 1%, 3.53 oz, was $13.88 ($3.93/oz).",
+    "differences": "The Voltaren 150 g tube ($25.98) narrows the gap. Gel base and cap design may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Voltaren-Arthritis-Pain-Gel-Diclofenac-Sodium-Topical-Gel-1-Nsaid-100-G/556463039",
+      "https://www.walmart.com/ip/Equate-Arthritis-Pain-Relieving-Gel-Diclofenac-Sodium-Topical-Gel-1-Percent-3-53-Oz/17167304409?classType=VARIANT",
+      "https://www.walmart.com/c/kp/voltaren-gel",
+      "https://www.walmart.com/c/kp/diclofenac-gel"
+    ],
+    "price_checked": "2026-11"
+  }
+]

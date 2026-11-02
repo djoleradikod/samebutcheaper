@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "starbucks-house-blend-vs-kirkland-signature-house-blend-whole-bean",
+    "category": "food-pantry",
+    "subcategory": "Coffee",
+    "title": "Starbucks House Blend vs Kirkland Signature House Blend (Roasted by Starbucks)",
+    "brand": {
+      "brand": "Starbucks",
+      "product": "Starbucks House Blend Medium Roast Whole Bean Coffee, 40 oz",
+      "size": 40,
+      "unit": "oz",
+      "price_usd": 32.79,
+      "retailer": "bjs",
+      "asin": null,
+      "url": "https://www.bjs.com/product/starbucks-house-blend-bean-medium-roast-coffee/3000000000000140350",
+      "key_ingredients": [
+        {
+          "name": "100% arabica coffee, medium roast",
+          "amount": "40 oz"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature House Blend Coffee, Medium Roast, Whole Bean, 2.5 lb (Custom Roasted by Starbucks)",
+      "size": 40,
+      "unit": "oz",
+      "price_usd": 17.99,
+      "retailer": "costco",
+      "asin": null,
+      "url": "https://www.costco.com/p/-/kirkland-signature-house-blend-coffee-medium-roast-whole-bean-25-lbs/100493931",
+      "key_ingredients": [
+        {
+          "name": "100% arabica coffee, medium roast",
+          "amount": "40 oz"
+        }
+      ]
+    },
+    "match_type": "same_manufacturer",
+    "confidence": "medium",
+    "summary": "Costco's Kirkland Signature House Blend is labelled 'Custom Roasted by Starbucks', so Starbucks roasts it, and it costs about half as much per ounce as Starbucks-branded House Blend.",
+    "evidence": "Costco's product page for item 100493931 says 'Custom Roasted by Starbucks Medium Roast Smooth & Balanced 2.5 lb bag' (net weight 40 oz). Warehouse Runner's Costco price tracker shows it at $16.89-$18.99 in warehouses, with recent updates at $17.99. BJ's lists Starbucks House Blend whole bean 40 oz at $32.79.",
+    "differences": "Starbucks roasts it, but Costco does not say it is the exact same blend recipe as retail Starbucks House Blend, so we mark this medium rather than identical. The BJ's Starbucks listing was sold out when checked, so treat $32.79 as a typical price. The Kirkland price is the in-warehouse member price.",
+    "sources": [
+      "https://www.costco.com/p/-/kirkland-signature-house-blend-coffee-medium-roast-whole-bean-25-lbs/100493931",
+      "https://app.warehouserunner.com/costco/1726089-kirkland-signature-house-blend-whole-bean-2-5-lb",
+      "https://www.bjs.com/product/starbucks-house-blend-bean-medium-roast-coffee/3000000000000140350"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "arm-and-hammer-baking-soda-vs-great-value-baking-soda",
+    "category": "food-pantry",
+    "subcategory": "Baking staples",
+    "title": "Arm & Hammer Baking Soda vs Great Value Baking Soda",
+    "brand": {
+      "brand": "Arm & Hammer",
+      "product": "ARM & HAMMER Pure Baking Soda, 3 lb Resealable Bag",
+      "size": 48,
+      "unit": "oz",
+      "price_usd": 3.42,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/ARM-HAMMER-Pure-Baking-Soda-For-Baking-Cleaning-Deodorizing-3-lb-Resealable-Bag/1776406028",
+      "key_ingredients": [
+        {
+          "name": "Sodium bicarbonate",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Great Value",
+      "product": "Great Value Baking Soda, 4 lb",
+      "size": 64,
+      "unit": "oz",
+      "price_usd": 3.42,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Great-Value-Baking-Soda-64-Oz/583743030",
+      "key_ingredients": [
+        {
+          "name": "Sodium bicarbonate",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "medium",
+    "summary": "Both are single-ingredient sodium bicarbonate, so the same price buys a 4 lb bag of Great Value instead of a 3 lb bag of Arm & Hammer.",
+    "evidence": "Walmart's Arm & Hammer listing describes it as '100% Pure Sodium Bicarbonate Powder'. Walmart's Great Value listing says it is 'Made with sodium bicarbonate for a simple, single-ingredient formula'. Walmart prices: 7.1 cents/oz vs 5.3 cents/oz.",
+    "differences": "We could not read either ingredient panel directly (Walmart's ingredient sections were blank), so the match rests on the retailer descriptions. That is why it is marked medium. The savings are small in dollars. At the 1 lb size, Arm & Hammer was $1.52 and Great Value $1.00.",
+    "sources": [
+      "https://www.walmart.com/ip/ARM-HAMMER-Pure-Baking-Soda-For-Baking-Cleaning-Deodorizing-3-lb-Resealable-Bag/1776406028",
+      "https://www.walmart.com/ip/Great-Value-Baking-Soda-64-Oz/583743030",
+      "https://www.walmart.com/ip/Great-Value-Baking-Soda-1-Lb/10315486",
+      "https://www.walmart.com/browse/food/baking-soda/976759_976780_9959366_5053287_7963908"
+    ],
+    "price_checked": "2026-11"
+  }
+]

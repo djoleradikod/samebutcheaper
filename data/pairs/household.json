@@ -1,0 +1,217 @@
+[
+  {
+    "slug": "tide-original-liquid-vs-kirkland-ultra-clean-liquid",
+    "category": "household",
+    "subcategory": "Laundry detergent",
+    "title": "Tide Original Liquid vs Kirkland Signature Ultra Clean Liquid",
+    "brand": {
+      "brand": "Tide",
+      "product": "Tide Original Liquid Laundry Detergent, 132 fl oz (100 loads)",
+      "size": 100, "unit": "load",
+      "price_usd": 23.99,
+      "retailer": "walmart", "asin": null,
+      "url": "https://www.walmart.com/ip/Tide-Liquid-Laundry-Detergent-Original-100-Loads-132-fl-oz/5033448584",
+      "key_ingredients": [{"name": "Surfactant/enzyme liquid detergent (full formula proprietary)", "amount": "1 dose per load"}]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature Ultra Clean HE Liquid Laundry Detergent, 194 fl oz (146 loads)",
+      "size": 146, "unit": "load",
+      "price_usd": 17.89,
+      "retailer": "costco", "asin": null,
+      "url": "https://www.costco.com/kirkland-signature-ultra-clean-he-liquid-laundry-detergent%2c-146-loads%2c-194-fl-oz.product.100525846.html",
+      "key_ingredients": [{"name": "Surfactant/enzyme liquid detergent (full formula proprietary)", "amount": "1 dose per load"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Consumer Reports names Kirkland Ultra Clean its best-value liquid detergent, placing just behind Tide in its tests at roughly half the cost per load.",
+    "evidence": "Consumer Reports' liquid detergent tests (reported 2022 and again in Aug 2026) rank Kirkland Signature Ultra Clean in the top five of 49 liquids, directly behind four Tide products. It matched Tide on body oil and salad dressing stains and in hard water. Tide prices were taken from Walmart; the Kirkland price is Costco's online price as reported in an April 2026 deal post.",
+    "differences": "Not identical formulas. Tide scored better on tough stains such as grass and blood, so Tide still wins if those are your main problem. Kirkland is sold mainly at Costco (membership needed; third-party Walmart sellers charge about $32).",
+    "sources": [
+      "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/",
+      "https://www.yahoo.com/news/best-worst-laundry-detergents-consumer-143456003.html",
+      "https://www.walmart.com/ip/Tide-Liquid-Laundry-Detergent-Original-100-Loads-132-fl-oz/5033448584",
+      "https://slickdeals.net/f/19444995-kirkland-signature-ultra-clean-he-liquid-laundry-detergent-146-loads-194-fl-oz-3-60-off"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "cascade-platinum-vs-kirkland-ultrashine-dishwasher-pacs",
+    "category": "household",
+    "subcategory": "Dishwasher detergent",
+    "title": "Cascade Platinum ActionPacs vs Kirkland Signature UltraShine Pacs",
+    "brand": {
+      "brand": "Cascade",
+      "product": "Cascade Platinum ActionPacs Dishwasher Detergent, Lemon, 62 count",
+      "size": 62, "unit": "pac",
+      "price_usd": 19.94,
+      "retailer": "walmart", "asin": null,
+      "url": "https://www.walmart.com/ip/Cascade-Platinum-ActionPacs-Dishwasher-Detergent-Lemon-Scent-62-Ct/669992839",
+      "key_ingredients": [{"name": "Enzyme dishwasher detergent pac (full formula proprietary)", "amount": "1 pac per load"}]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature Platinum Performance UltraShine Dishwasher Detergent Pacs, 115 count",
+      "size": 115, "unit": "pac",
+      "price_usd": 11.59,
+      "retailer": "costco", "asin": null,
+      "url": "https://www.costco.com/p/-/1452518",
+      "key_ingredients": [{"name": "Enzyme dishwasher detergent pac (full formula proprietary)", "amount": "1 pac per load"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Consumer Reports rates Kirkland UltraShine pacs Excellent at cleaning and film resistance, the same top tier as Cascade, for about a third of the price per load.",
+    "evidence": "Consumer Reports' dishwasher detergent tests rated Kirkland Signature Platinum Performance UltraShine Excellent on food removal and film resistance and named it a Best Buy; Cascade ActionPacs were also rated Excellent and recommended. CR's model page confirms the 115-count pac with enzymes. Kirkland price is the typical Costco warehouse price from a price tracker (range $11.59-$12.99); CR lists it online from $20.99 delivered.",
+    "differences": "Different proprietary formulas; CR tested Cascade ActionPacs and Platinum lines, not a direct like-for-like lab comparison of this exact Cascade SKU. Kirkland needs a Costco membership; the online price is higher than in-warehouse.",
+    "sources": [
+      "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html",
+      "https://www.consumerreports.org/appliances/dishwasher-detergents/kirkland-signature-costco-platinum-performance-ultrashine/m403607/",
+      "https://www.chowhound.com/1879474/costco-dishwashing-pacs-underrated-bargain",
+      "https://app.warehouserunner.com/costco/1452518",
+      "https://www.walmart.com/ip/Cascade-Platinum-ActionPacs-Dishwasher-Detergent-Lemon-Scent-62-Ct/669992839"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "finish-quantum-vs-kirkland-ultrashine-dishwasher-pacs",
+    "category": "household",
+    "subcategory": "Dishwasher detergent",
+    "title": "Finish Quantum vs Kirkland Signature UltraShine Pacs",
+    "brand": {
+      "brand": "Finish",
+      "product": "Finish Powerball Quantum Dishwasher Detergent Tablets, 82 count",
+      "size": 82, "unit": "pac",
+      "price_usd": 19.00,
+      "retailer": "amazon", "asin": null,
+      "url": "https://www.amazon.com/s?k=finish+quantum+82+count",
+      "key_ingredients": [{"name": "Enzyme dishwasher detergent tablet (full formula proprietary)", "amount": "1 tablet per load"}]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature Platinum Performance UltraShine Dishwasher Detergent Pacs, 115 count",
+      "size": 115, "unit": "pac",
+      "price_usd": 11.59,
+      "retailer": "costco", "asin": null,
+      "url": "https://www.costco.com/p/-/1452518",
+      "key_ingredients": [{"name": "Enzyme dishwasher detergent pac (full formula proprietary)", "amount": "1 pac per load"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Consumer Reports rates both Finish Quantum and Kirkland UltraShine Excellent overall, and the Kirkland pac costs less than half as much per load.",
+    "evidence": "In Consumer Reports' dishwasher detergent tests, Finish Powerball Quantum was rated Excellent overall (Finish's only recommended formula) and Kirkland UltraShine was rated Excellent on food removal and film resistance and named a Best Buy. Finish price is Amazon's typical non-sale price shown on a deal listing; Kirkland price is the typical Costco warehouse price.",
+    "differences": "Different proprietary formulas. The Finish price comes from a 2024 deal listing's struck-through price, and Amazon sale prices are often around $14, which narrows the gap. Kirkland needs a Costco membership.",
+    "sources": [
+      "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html",
+      "https://www.consumerreports.org/appliances/dishwasher-detergents/kirkland-signature-costco-platinum-performance-ultrashine/m403607/",
+      "https://slickdeals.net/f/17778747-s-s-13-93-82-count-finish-quantum-powerball-dishwasher-pods-at-amazon-17-each",
+      "https://app.warehouserunner.com/costco/1452518"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "clorox-disinfecting-bleach-vs-up-up-regular-bleach-121oz",
+    "category": "household",
+    "subcategory": "Bleach",
+    "title": "Clorox Disinfecting Bleach vs up&up Regular Bleach",
+    "brand": {
+      "brand": "Clorox",
+      "product": "Clorox Disinfecting Bleach, Regular, 121 fl oz",
+      "size": 121, "unit": "fl oz",
+      "price_usd": 7.99,
+      "retailer": "target", "asin": null,
+      "url": "https://www.target.com/p/clorox-disinfecting-bleach-regular-121oz/-/A-77787193",
+      "key_ingredients": [{"name": "Sodium hypochlorite", "amount": "7.5%"}]
+    },
+    "alternative": {
+      "brand": "up&up (Target)",
+      "product": "up&up Regular Bleach with Fabric Protection, 121 fl oz",
+      "size": 121, "unit": "fl oz",
+      "price_usd": 6.99,
+      "retailer": "target", "asin": null,
+      "url": "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909",
+      "key_ingredients": [{"name": "Sodium hypochlorite", "amount": "7.5%"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "high",
+    "summary": "Both are 7.5% sodium hypochlorite regular bleach in the same 121 oz size, so they bleach and disinfect the same way when diluted per label.",
+    "evidence": "Target's product pages list sodium hypochlorite at 7.5% for both Clorox Disinfecting Bleach (Regular) and up&up Regular Bleach with Fabric Protection. Both are sold in 121 fl oz jugs at Target.",
+    "differences": "Savings are modest (about 12%). Neither Target page shows the EPA registration number, so check the up&up jug for an EPA Reg. No. before relying on it for disinfection claims. The up&up product adds a fabric-protection claim; the additives are not disclosed.",
+    "sources": [
+      "https://www.target.com/p/clorox-disinfecting-bleach-regular-121oz/-/A-77787193",
+      "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "oxiclean-versatile-vs-up-up-powder-stain-remover",
+    "category": "household",
+    "subcategory": "Oxygen bleach / stain remover",
+    "title": "OxiClean Versatile vs up&up Powder Stain Remover",
+    "brand": {
+      "brand": "OxiClean",
+      "product": "OxiClean Versatile Stain Remover Powder, 3 lb (48 oz)",
+      "size": 48, "unit": "oz",
+      "price_usd": 9.38,
+      "retailer": "walmart", "asin": null,
+      "url": "https://www.walmart.com/ip/seort/19406203",
+      "key_ingredients": [{"name": "Sodium carbonate", "amount": "listed 1st (% not disclosed)"}, {"name": "Sodium percarbonate (sodium carbonate peroxide)", "amount": "listed 2nd (% not disclosed)"}, {"name": "C10-16 alcohol ethoxylate surfactant", "amount": "listed 3rd"}]
+    },
+    "alternative": {
+      "brand": "up&up (Target)",
+      "product": "up&up Powder Stain Remover, Unscented, 56 oz",
+      "size": 56, "unit": "oz",
+      "price_usd": 9.29,
+      "retailer": "target", "asin": null,
+      "url": "https://www.target.com/p/-/A-81069446",
+      "key_ingredients": [{"name": "Sodium carbonate", "amount": "listed 1st (% not disclosed)"}, {"name": "Sodium percarbonate", "amount": "listed 2nd (% not disclosed)"}, {"name": "Laureth-7 surfactant", "amount": "listed 3rd"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are sodium carbonate plus sodium percarbonate oxygen-bleach powders with a nonionic ethoxylate surfactant, listed in the same order.",
+    "evidence": "Church & Dwight's ingredient disclosure for OxiClean Versatile lists sodium carbonate, sodium carbonate peroxide (sodium percarbonate), C10-16 alketh surfactant, fragrance, sodium chloride and colorant. Target lists up&up Powder Stain Remover as sodium carbonate, sodium percarbonate, laureth-7, sodium silicate and colorant. Same active oxygen-bleach chemistry in the same order, but neither discloses percentages.",
+    "differences": "Percentages are not disclosed, so active oxygen content may differ. up&up is unscented and uses sodium silicate instead of sodium chloride; OxiClean contains fragrance. Savings are modest (about 15% per oz); Target sometimes prices it lower (Shipt showed $6.79).",
+    "sources": [
+      "https://churchdwight.com/ingredient-disclosure/laundry-fabric-care/42015066-oxiclean-versatile-stain-remover.aspx",
+      "https://www.target.com/p/-/A-81069446",
+      "https://www.shipt.com/shop/products/945e4f30-a1cc-11eb-b7e5-13f1fbffeed8?zip=43230",
+      "https://www.walmart.com/ip/seort/19406203"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mr-clean-magic-eraser-extra-durable-vs-amazon-basics-cleaning-eraser",
+    "category": "household",
+    "subcategory": "Sponges and scrubbers",
+    "title": "Mr. Clean Magic Eraser Extra Durable vs Amazon Basics Extra Durable Cleaning Eraser",
+    "brand": {
+      "brand": "Mr. Clean",
+      "product": "Mr. Clean Magic Eraser Extra Durable, 10 count",
+      "size": 10, "unit": "count",
+      "price_usd": 13.00,
+      "retailer": "amazon", "asin": null,
+      "url": "https://www.amazon.com/s?k=mr+clean+magic+eraser+extra+durable+10+count",
+      "key_ingredients": [{"name": "Melamine foam", "amount": "100% of pad"}]
+    },
+    "alternative": {
+      "brand": "Amazon Basics",
+      "product": "Amazon Basics Extra Durable Cleaning Erasers, 14 count",
+      "size": 14, "unit": "count",
+      "price_usd": 12.98,
+      "retailer": "amazon", "asin": null,
+      "url": "https://www.amazon.com/s?k=amazon+basics+extra+durable+cleaning+erasers+14+count",
+      "key_ingredients": [{"name": "Melamine foam", "amount": "100% of pad"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "A Magic Eraser is a block of melamine foam, and Amazon's cleaning erasers are the same kind of melamine foam pad for less per pad.",
+    "evidence": "P&G Professional distributor listings describe the Magic Eraser as a melamine foam pad, and Apartment Therapy explains it works because melamine foam acts like very fine sandpaper. Amazon Basics Extra Durable Cleaning Erasers are the same product type, and buyers report similar results on tubs and scuffs. Prices are the usual non-sale Amazon prices shown on deal listings.",
+    "differences": "Reviewers say the Amazon pads are slightly thinner, so each may wear out sooner, and density is not published for either. Mr. Clean's version is branded Durafoam. Both are frequently discounted with coupons and Subscribe & Save.",
+    "sources": [
+      "https://www.apartmenttherapy.com/how-do-magic-erasers-work-267321",
+      "https://www.imperialdade.com/catalog/product-detail/mr-clean-magic-eraser-erasing-pad-melamine-foam-white-5x-extra-durable-2-case?id=519964",
+      "https://hip2save.com/deals/amazon-basics-cleaning-erasers/",
+      "https://slickdeals.net/f/19031248-10-count-mr-clean-extra-durable-magic-eraser-10-13-w-s-s-free-shipping-w-prime-or-on-35"
+    ],
+    "price_checked": "2026-11"
+  }
+]

@@ -1,0 +1,571 @@
+[
+  {
+    "slug": "differin-vs-glenmark-adapalene-gel-0-1",
+    "category": "skincare-personal-care",
+    "subcategory": "Acne treatment",
+    "title": "Differin Gel vs Glenmark Adapalene Gel 0.1%",
+    "brand": {
+      "brand": "Differin",
+      "product": "Differin Acne Treatment Gel 0.1% Adapalene, 45 g pump",
+      "size": 45,
+      "unit": "g",
+      "price_usd": 23.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Differin-Acne-Treatment-Gel-Retinoid-Treatment-with-0-1-Adapalene-1-6oz-45g-Pump/725073812",
+      "key_ingredients": [
+        {
+          "name": "Adapalene",
+          "amount": "0.1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Glenmark Therapeutics",
+      "product": "Glenmark Adapalene Gel 0.1% Acne Treatment, 45 g tube",
+      "size": 45,
+      "unit": "g",
+      "price_usd": 17.49,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Glenmark-Therapeutics-Adapalene-Gel-0-1-Acne-Treatment-Paraben-Free-Topical-Retinoid-Cream-For-Face-Helps-Clear-Prevent-Clogged-Pores-45g-Tube/12283361218",
+      "key_ingredients": [
+        {
+          "name": "Adapalene",
+          "amount": "0.1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are OTC adapalene 0.1% gel, the same FDA-approved retinoid at the same strength, in the same 45 g size.",
+    "evidence": "Differin's FDA OTC label (NDA 020380) lists adapalene 0.1% gel. Walmart lists Glenmark Therapeutics' product as Adapalene Gel USP 0.1%, 45 g. Glenmark is an established generic drug manufacturer, not a marketplace reseller.",
+    "differences": "Differin comes in a pump and Glenmark in a tube. Differin's inactive ingredients include methylparaben, and Glenmark markets its gel as paraben-free, so the inactive ingredients differ. We could not see Glenmark's full inactive list.",
+    "sources": [
+      "https://www.walmart.com/ip/Differin-Acne-Treatment-Gel-Retinoid-Treatment-with-0-1-Adapalene-1-6oz-45g-Pump/725073812",
+      "https://www.walmart.com/ip/Glenmark-Therapeutics-Adapalene-Gel-0-1-Acne-Treatment-Paraben-Free-Topical-Retinoid-Cream-For-Face-Helps-Clear-Prevent-Clogged-Pores-45g-Tube/12283361218",
+      "https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/020380Orig1s011lbl.pdf"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "head-and-shoulders-classic-clean-vs-equate-everyday-clean-dandruff-shampoo",
+    "category": "beauty-hair",
+    "subcategory": "Dandruff shampoo",
+    "title": "Head & Shoulders Classic Clean vs Equate Everyday Clean Dandruff Shampoo",
+    "brand": {
+      "brand": "Head & Shoulders",
+      "product": "Head & Shoulders Dandruff Shampoo, Classic Clean, 28.2 fl oz",
+      "size": 28.2,
+      "unit": "fl oz",
+      "price_usd": 12.47,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Head-and-Shoulders-Dandruff-Shampoo-Classic-Clean-28-2-fl-Oz/408353826",
+      "key_ingredients": [
+        {
+          "name": "Pyrithione zinc",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Everyday Clean Nourishing Dandruff Shampoo, 28.2 fl oz",
+      "size": 28.2,
+      "unit": "fl oz",
+      "price_usd": 5.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/seort/14964719959",
+      "key_ingredients": [
+        {
+          "name": "Pyrithione zinc",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 1% pyrithione zinc dandruff shampoos in the same 28.2 fl oz size, and Equate is labelled 'Compare to Head & Shoulders Active Ingredient'.",
+    "evidence": "Head & Shoulders Classic Clean Drug Facts list pyrithione zinc 1%. The Walmart listing for Equate Everyday Clean Nourishing lists 'Pyrithione Zinc 1% w/w', and Equate's Everyday Clean label on file says 'Compare to Head & Shoulders'. The Equate label is distributed by Walmart and registered by Garcoa, Inc.",
+    "differences": "Only the active ingredient matches. The bases differ: for example, Equate uses cocamide MEA and H&S uses cocamidopropyl betaine and zinc carbonate. Scent also differs. When checked, Walmart showed the Equate 28.2 oz as out of stock; the 23.7 oz size was listed at $4.64.",
+    "sources": [
+      "https://www.walmart.com/c/kp/dandruff-shampoo",
+      "https://www.walmart.com/ip/seort/14964719959",
+      "https://otclabels.com/lib/otc/otc-meds/head-and-shoulders-classic-clean/",
+      "https://otclabels.com/lib/otc/otc-meds/equate-everyday-clean-dandruff-anti-dandruff/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "head-and-shoulders-2-in-1-classic-clean-vs-equate-2-in-1-dandruff",
+    "category": "beauty-hair",
+    "subcategory": "Dandruff shampoo",
+    "title": "Head & Shoulders 2-in-1 vs Equate 2-in-1 Dandruff Shampoo & Conditioner",
+    "brand": {
+      "brand": "Head & Shoulders",
+      "product": "Head & Shoulders 2 in 1 Dandruff Shampoo + Conditioner, Classic Clean, 20.7 fl oz",
+      "size": 20.7,
+      "unit": "fl oz",
+      "price_usd": 9.12,
+      "retailer": "heb",
+      "asin": null,
+      "url": "https://www.heb.com/product-detail/head-shoulders-2-in-1-dandruff-shampoo-conditioner-classic-clean/8438069",
+      "key_ingredients": [
+        {
+          "name": "Pyrithione zinc",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate 2-in-1 Everyday Clean Dandruff Shampoo and Conditioner with Pyrithione Zinc, 20.7 fl oz",
+      "size": 20.7,
+      "unit": "fl oz",
+      "price_usd": 4.64,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/5265054509",
+      "key_ingredients": [
+        {
+          "name": "Pyrithione zinc",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 2-in-1 shampoo-plus-conditioners with 1% pyrithione zinc, and Equate's label compares itself to Head & Shoulders' active ingredient.",
+    "evidence": "HEB lists H&S 2-in-1 Classic Clean with pyrithione zinc 1%. Equate's 2-in-1 Everyday Clean Drug Facts list pyrithione zinc 1% with 'Compare to Head & Shoulders', and Walmart's 32.1 oz listing of the same product states 'Pyrithione Zinc, 1%' and 'Compare to Head & Shoulders active ingredient'.",
+    "differences": "The H&S price is from HEB, not Walmart. Conditioning agents and fragrance differ. The 20.7 oz Walmart page does not print the percentage; it is confirmed by the Equate 2-in-1 label and the 32.1 oz listing.",
+    "sources": [
+      "https://www.heb.com/product-detail/head-shoulders-2-in-1-dandruff-shampoo-conditioner-classic-clean/8438069",
+      "https://www.walmart.com/ip/5265054509",
+      "https://otclabels.com/lib/otc/otc-meds/equate-everyday-clean-2-in-1-dandruff-anti-dandruff/",
+      "https://www.walmart.com/ip/402613470"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "selsun-blue-medicated-vs-equate-medicated-dandruff-shampoo",
+    "category": "beauty-hair",
+    "subcategory": "Dandruff shampoo",
+    "title": "Selsun Blue Medicated vs Equate Medicated Dandruff Shampoo (Selenium Sulfide 1%)",
+    "brand": {
+      "brand": "Selsun Blue",
+      "product": "Selsun Blue Medicated Antidandruff Shampoo (with menthol), 11 fl oz",
+      "size": 11,
+      "unit": "fl oz",
+      "price_usd": 7.92,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10307723",
+      "key_ingredients": [
+        {
+          "name": "Selenium sulfide",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Medicated Dandruff Shampoo, Selenium Sulfide 1%, 11 fl oz",
+      "size": 11,
+      "unit": "fl oz",
+      "price_usd": 4.84,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/615874681",
+      "key_ingredients": [
+        {
+          "name": "Selenium sulfide",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 11 fl oz shampoos with 1% selenium sulfide, and Equate's label says 'Compare to Selsun Blue Medicated Dandruff Shampoo'.",
+    "evidence": "Walmart lists Selsun Blue Medicated with selenium sulfide 1%. The Equate Medicated Dandruff Drug Facts list selenium sulfide 1% (10 mg/mL) and 'Compare to Selsun Blue Medicated Dandruff Shampoo'. Like Selsun Blue Medicated, Equate's inactive ingredients include menthol.",
+    "differences": "The base surfactants may differ, and we did not compare Selsun Blue's full inactive list.",
+    "sources": [
+      "https://www.walmart.com/ip/10307723",
+      "https://www.walmart.com/ip/615874681",
+      "https://otclabels.com/lib/otc/otc-meds/equate-medicated-dandruff-anti-dandruff/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "head-and-shoulders-clinical-strength-vs-equate-selenium-sulfide-shampoo",
+    "category": "beauty-hair",
+    "subcategory": "Dandruff shampoo",
+    "title": "Head & Shoulders Clinical Strength vs Equate Medicated Dandruff Shampoo (Selenium Sulfide 1%)",
+    "brand": {
+      "brand": "Head & Shoulders",
+      "product": "Head & Shoulders Clinical Strength Dry Scalp Rescue Dandruff Shampoo, 13.5 fl oz",
+      "size": 13.5,
+      "unit": "fl oz",
+      "price_usd": 11.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Head-Shoulders-CLINICAL-STRENGTH-Shampoo-Dry-Scalp-Care-Anti-Dandruff/10666321088",
+      "key_ingredients": [
+        {
+          "name": "Selenium sulfide",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Medicated Dandruff Shampoo, Selenium Sulfide 1%, 11 fl oz",
+      "size": 11,
+      "unit": "fl oz",
+      "price_usd": 4.84,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/615874681",
+      "key_ingredients": [
+        {
+          "name": "Selenium sulfide",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Head & Shoulders Clinical Strength's active ingredient is 1% selenium sulfide, the same active at the same strength as Equate Medicated.",
+    "evidence": "Walmart's listing gives H&S Clinical Strength's active ingredient as selenium sulfide 1%. Equate's Drug Facts list selenium sulfide 1%.",
+    "differences": "Equate does not claim to be a copy of H&S Clinical; it compares itself to Selsun Blue. The bases differ: H&S has its own conditioning system, and Equate contains menthol. Price per oz is compared across different bottle sizes (13.5 vs 11 fl oz). Walmart showed the H&S price in its similar-items listing.",
+    "sources": [
+      "https://www.walmart.com/ip/Head-Shoulders-CLINICAL-STRENGTH-Shampoo-Dry-Scalp-Care-Anti-Dandruff/10666321088",
+      "https://www.walmart.com/ip/615874681",
+      "https://otclabels.com/lib/otc/otc-meds/equate-medicated-dandruff-anti-dandruff/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "aquaphor-healing-ointment-vs-equate-advanced-healing-ointment",
+    "category": "skincare-personal-care",
+    "subcategory": "Ointments and petroleum jelly",
+    "title": "Aquaphor Healing Ointment vs Equate Advanced Healing Ointment",
+    "brand": {
+      "brand": "Aquaphor",
+      "product": "Aquaphor Healing Ointment Advanced Therapy Skin Protectant, 14 oz",
+      "size": 14,
+      "unit": "oz",
+      "price_usd": 21.88,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/770285760",
+      "key_ingredients": [
+        {
+          "name": "Petrolatum",
+          "amount": "41%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Beauty Advanced Healing Ointment, 14 oz",
+      "size": 14,
+      "unit": "oz",
+      "price_usd": 10.52,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/14520420",
+      "key_ingredients": [
+        {
+          "name": "Petrolatum",
+          "amount": "41%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Same active (petrolatum 41%) and the same inactive ingredients in the same order, in the same 14 oz size.",
+    "evidence": "Aquaphor's Drug Facts list petrolatum 41%, then inactive mineral oil, ceresin, lanolin alcohol, panthenol, glycerin and bisabolol. Equate's Drug Facts (Walmart) list petrolatum 41% and exactly the same six inactives in the same order, with 'Compare to Aquaphor Healing Ointment's Active Ingredient'. Strictly, the published labels also meet the identical_formula test.",
+    "differences": "Ingredient percentages beyond the active are not published, so texture may differ slightly. Walmart's Aquaphor listing also mentions panthenol 5%, which the Drug Facts do not list as an active.",
+    "sources": [
+      "https://www.walmart.com/ip/770285760",
+      "https://www.walmart.com/ip/14520420",
+      "https://otclabels.com/lib/otc/otc-meds/advanced-healing-7/",
+      "https://shoprite.com/sm/pickup/rsid/326/product/aquaphor-advanced-therapy-healing-ointment-14-oz-id-00072140636081"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "vaseline-original-vs-equate-petroleum-jelly-13oz",
+    "category": "skincare-personal-care",
+    "subcategory": "Ointments and petroleum jelly",
+    "title": "Vaseline Original Healing Jelly vs Equate Petroleum Jelly",
+    "brand": {
+      "brand": "Vaseline",
+      "product": "Vaseline Original Healing Jelly, 100% Pure Petroleum Jelly, 13 oz",
+      "size": 13,
+      "unit": "oz",
+      "price_usd": 5.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10898766",
+      "key_ingredients": [
+        {
+          "name": "White petrolatum USP",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Petroleum Jelly Skin Protectant, 13 oz (Compare to Vaseline)",
+      "size": 13,
+      "unit": "oz",
+      "price_usd": 2.78,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/13374461277",
+      "key_ingredients": [
+        {
+          "name": "White petrolatum USP",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are single-ingredient 100% white petrolatum USP skin protectants, so the product is literally the same substance.",
+    "evidence": "Vaseline's Drug Facts list White Petrolatum USP (100%) as the only ingredient. Walmart lists Equate Petroleum Jelly's primary ingredient as 'White Petrolatum, USP (100%)', with 'Compare to Vaseline' in the product name.",
+    "differences": "Vaseline claims a triple-purification process. Both are USP grade, so purity standards are the same, but refining and odour can vary slightly. The Equate price is the single-jar price shown on the 3-pack listing ($8.34 for 3).",
+    "sources": [
+      "https://www.walmart.com/ip/10898766",
+      "https://www.walmart.com/ip/13374461277",
+      "https://www.vitacost.com/products/vaseline-healing-jelly-original-13-oz-368-g-83595"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "cerave-moisturizing-cream-vs-equate-moisturizing-cream-ceramides",
+    "category": "skincare-personal-care",
+    "subcategory": "Moisturiser",
+    "title": "CeraVe Moisturizing Cream vs Equate Moisturizing Cream with Ceramides",
+    "brand": {
+      "brand": "CeraVe",
+      "product": "CeraVe Moisturizing Cream, Normal to Very Dry Skin, 16 oz",
+      "size": 16,
+      "unit": "oz",
+      "price_usd": 15.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/681955595",
+      "key_ingredients": [
+        {
+          "name": "Ceramide NP, AP, EOP",
+          "amount": "not disclosed"
+        },
+        {
+          "name": "Sodium hyaluronate",
+          "amount": "not disclosed"
+        },
+        {
+          "name": "Petrolatum",
+          "amount": "not disclosed"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Moisturizing Cream with Ceramides and Hyaluronic Acid, 16 oz",
+      "size": 16,
+      "unit": "oz",
+      "price_usd": 9.44,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/335192813",
+      "key_ingredients": [
+        {
+          "name": "Ceramide NP, AP, EOP",
+          "amount": "not disclosed"
+        },
+        {
+          "name": "Sodium hyaluronate",
+          "amount": "not disclosed"
+        },
+        {
+          "name": "Petrolatum",
+          "amount": "not disclosed"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Equate's ingredient list contains 22 of CeraVe's 24 ingredients in the same order, including the same three ceramides, cholesterol, phytosphingosine and hyaluronate. It is a near copy, not an exact one.",
+    "evidence": "We compared the ordered ingredient lists published on Skinsort. CeraVe: Water, Glycerin, Cetearyl Alcohol, Caprylic/Capric Triglyceride, Cetyl Alcohol, Ceteareth-20, Petrolatum, Potassium Phosphate, Ceramide NP, AP, EOP, Carbomer, Dimethicone, ... Ethylhexylglycerin. Equate has the identical sequence, except that it has no Cetyl Alcohol and lists Ceteareth-2 where CeraVe has Ceteareth-20 (possibly a transcription difference).",
+    "differences": "This is NOT identical_formula: Equate lacks cetyl alcohol (and possibly differs in the ceteareth emulsifier), so texture and richness may differ slightly. CeraVe's MVE controlled-release technology claim is not stated for Equate. The ingredient lists come from a third-party database, not from the packaging.",
+    "sources": [
+      "https://www.walmart.com/ip/681955595",
+      "https://www.walmart.com/ip/335192813",
+      "https://skinsort.com/products/cerave/moisturizing-cream",
+      "https://skinsort.com/products/equate/beauty-moisturizing-cream",
+      "https://skinsort.com/compare/equate-beauty-moisturizing-cream-vs-cerave-moisturizing-cream"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "sensodyne-extra-whitening-vs-equate-extra-whitening-sensitive-toothpaste",
+    "category": "skincare-personal-care",
+    "subcategory": "Toothpaste",
+    "title": "Sensodyne Extra Whitening vs Equate Advanced Extra Whitening Sensitive Toothpaste",
+    "brand": {
+      "brand": "Sensodyne",
+      "product": "Sensodyne Extra Whitening Sensitive Toothpaste, Mint, 4 oz",
+      "size": 4,
+      "unit": "oz",
+      "price_usd": 6.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Sensodyne-Extra-Whitening-Sensitive-Toothpaste-Mint-4-Oz-for-Adults/3392",
+      "key_ingredients": [
+        {
+          "name": "Potassium nitrate",
+          "amount": "5%"
+        },
+        {
+          "name": "Sodium fluoride",
+          "amount": "0.24% (0.15% w/v fluoride ion)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Advanced Extra Whitening Sensitive Toothpaste, 4 oz",
+      "size": 4,
+      "unit": "oz",
+      "price_usd": 3.94,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz-2-Pack/999612374",
+      "key_ingredients": [
+        {
+          "name": "Potassium nitrate",
+          "amount": "5%"
+        },
+        {
+          "name": "Sodium fluoride",
+          "amount": "0.24% (0.15% w/v fluoride ion)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are potassium nitrate plus sodium fluoride sensitivity toothpastes, and Equate's label reads 'Compare to Sensodyne Active Ingredients'.",
+    "evidence": "Sensodyne Extra Whitening's DailyMed label lists potassium nitrate 5% and sodium fluoride 0.24% (0.15% w/v fluoride ion). Walmart's Equate listing names potassium nitrate and sodium fluoride as the actives, and the 3-pack listing carries 'Compare to Sensodyne Active Ingredients'. We could not see Equate's printed percentages; 5% potassium nitrate is the standard OTC strength for sensitivity toothpaste.",
+    "differences": "We did not view Equate's Drug Facts percentages directly, which is why this pair is medium. The flavour and the whitening abrasive system may differ. The Equate price is the single-tube option ($6.94 for a 2-pack).",
+    "sources": [
+      "https://www.walmart.com/ip/Sensodyne-Extra-Whitening-Sensitive-Toothpaste-Mint-4-Oz-for-Adults/3392",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1ed4a62b-f1d3-4740-8150-b94e02398740",
+      "https://www.walmart.com/ip/Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz-2-Pack/999612374",
+      "https://www.walmart.com/ip/3-pack-Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz/15365855306"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "sensodyne-repair-protect-whitening-vs-equate-restore-defend-sensitive",
+    "category": "skincare-personal-care",
+    "subcategory": "Toothpaste",
+    "title": "Sensodyne Repair & Protect Whitening vs Equate Restore and Defend Sensitive Whitening",
+    "brand": {
+      "brand": "Sensodyne",
+      "product": "Sensodyne Repair and Protect Whitening Sensitive Toothpaste, Mint, 3.4 oz",
+      "size": 3.4,
+      "unit": "oz",
+      "price_usd": 7.47,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Sensodyne-Repair-and-Protect-Whitening-Sensitive-Toothpaste-Unflavored-3-4-Oz/42417998",
+      "key_ingredients": [
+        {
+          "name": "Stannous fluoride",
+          "amount": "0.454% (0.15% w/v fluoride ion)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Restore and Defend Sensitive Whitening Toothpaste, 3.4 oz",
+      "size": 3.4,
+      "unit": "oz",
+      "price_usd": 4.44,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Restore-and-Defend-Sensitive-Toothpaste-3-4-oz/330017722",
+      "key_ingredients": [
+        {
+          "name": "Stannous fluoride",
+          "amount": "0.454% (0.15% w/v fluoride ion)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are sensitive-teeth whitening toothpastes with 0.454% stannous fluoride (0.15% w/v fluoride ion), in the same 3.4 oz size.",
+    "evidence": "Sensodyne Repair and Protect (including the Whitening version) is listed on DailyMed with stannous fluoride 0.454% (0.15% w/v fluoride ion). Walmart's Equate Restore and Defend listing states 'Stannous Fluoride 0.454% W/W (0.15% W/v Fluoride Ion)'.",
+    "differences": "The Equate page carries no explicit 'compare to Sensodyne' statement; the match rests on the identical active and strength. Inactive ingredients and flavour were not compared. Sensodyne's NovaMin is not in US Repair & Protect, so it is not a factor here.",
+    "sources": [
+      "https://www.walmart.com/ip/Sensodyne-Repair-and-Protect-Whitening-Sensitive-Toothpaste-Unflavored-3-4-Oz/42417998",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=34260c69-d829-46c0-b12a-5136ee073ba1",
+      "https://www.walmart.com/ip/Equate-Restore-and-Defend-Sensitive-Toothpaste-3-4-oz/330017722"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "crest-pro-health-advanced-deep-clean-vs-equate-pro-advanced-toothpaste",
+    "category": "skincare-personal-care",
+    "subcategory": "Toothpaste",
+    "title": "Crest Pro-Health Advanced Deep Clean vs Equate Pro-Advanced Whole Mouth Protection",
+    "brand": {
+      "brand": "Crest",
+      "product": "Crest Pro-Health Advanced Deep Clean Mint Fluoride Toothpaste, 5.1 oz",
+      "size": 5.1,
+      "unit": "oz",
+      "price_usd": 4.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Crest-Pro-Health-Advanced-Deep-Clean-Mint-Toothpaste-5-1-oz/196878437",
+      "key_ingredients": [
+        {
+          "name": "Stannous fluoride",
+          "amount": "not shown on retailer page"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Pro-Advanced Whole Mouth Protection Toothpaste, Deep Clean Mint, 5.1 oz",
+      "size": 5.1,
+      "unit": "oz",
+      "price_usd": 3.64,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Pro-Advanced-Toothpaste-Deep-Clean-Mint-5-1-oz/13625959089",
+      "key_ingredients": [
+        {
+          "name": "Stannous fluoride",
+          "amount": "not shown on retailer page"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are stannous fluoride 'whole mouth' toothpastes, and Equate is labelled 'Compare to Crest Pro-Health Advanced Deep Clean Mint active ingredient'.",
+    "evidence": "Walmart's Equate listing says it is formulated with stannous fluoride and carries the explicit compare-to statement naming Crest Pro-Health Advanced Deep Clean Mint. The same page lists the Crest 5.1 oz at $4.97.",
+    "differences": "We could not confirm the stannous fluoride percentage on either label, which is why this pair is medium. The savings are modest (about 27%). Flavour and inactive ingredients may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Equate-Pro-Advanced-Toothpaste-Deep-Clean-Mint-5-1-oz/13625959089",
+      "https://www.walmart.com/ip/Crest-Pro-Health-Advanced-Deep-Clean-Mint-Toothpaste-5-1-oz/196878437",
+      "https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=crest+pro-health+advanced"
+    ],
+    "price_checked": "2026-11"
+  }
+]

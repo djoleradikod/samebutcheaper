@@ -1,0 +1,342 @@
+[
+  {
+    "slug": "duracell-coppertop-aa-vs-kirkland-signature-aa",
+    "category": "tech-tools",
+    "subcategory": "Batteries",
+    "title": "Duracell Coppertop AA vs Kirkland Signature AA Alkaline",
+    "brand": {
+      "brand": "Duracell",
+      "product": "Duracell Coppertop AA Alkaline Batteries, 24-count",
+      "size": 24,
+      "unit": "battery",
+      "price_usd": 19.79,
+      "retailer": "amazon",
+      "asin": "B0035LCFNQ",
+      "url": "https://www.amazon.com/dp/B0035LCFNQ",
+      "key_ingredients": [
+        {
+          "name": "Chemistry",
+          "amount": "Alkaline, 1.5 V, AA"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature Alkaline AA Batteries, 48-count",
+      "size": 48,
+      "unit": "battery",
+      "price_usd": 16.49,
+      "retailer": "costco",
+      "asin": null,
+      "url": "https://www.costco.com/kirkland-signature-alkaline-aa-batteries%2C-48-count.product.100796702.html",
+      "key_ingredients": [
+        {
+          "name": "Chemistry",
+          "amount": "Alkaline, 1.5 V, AA"
+        }
+      ]
+    },
+    "match_type": "same_manufacturer",
+    "confidence": "medium",
+    "summary": "Costco's Kirkland AA alkalines are made by Duracell, according to Costco's own former CEO, and cost well under half as much per cell.",
+    "evidence": "In a 2016 WSB-TV interview, then-Costco CEO Craig Jelinek said Duracell produces the Kirkland batteries and Costco only adds its own packaging, as reported by SlashGear and Hunker. In Project Farm's alkaline testing, as summarized by SlashGear, Kirkland ranked just behind Duracell and Energizer Max and tied for first in a 0°F cold test. That is consistent with a Duracell-made cell but not proof that it is identical to Coppertop.",
+    "differences": "The evidence is a 2016 statement, and Costco could have changed suppliers since then. Kirkland cells don't have Coppertop's 'Power Boost' marketing or copper-top styling, and Project Farm ranked them slightly below Duracell-branded alkalines. You need a Costco membership. The Duracell price is the Amazon regular price recorded by Slickdeals in Feb 2024, and the Kirkland price is the Costco regular price reported by Hip2Save. Both should be rechecked.",
+    "sources": [
+      "https://www.slashgear.com/2091912/who-makes-costco-batteries-where-manufactured",
+      "https://www.hunker.com/2040072/are-costco-kirkland-batteries-made-by-duracell",
+      "https://www.slashgear.com/2149811/amazon-basics-aa-batteries-vs-costco-kirkland-test-data-results/",
+      "https://slickdeals.net/f/17277946-11-92-w-s-s-24-count-duracell-coppertop-aa-batteries",
+      "https://hip2save.com/?p=11156746"
+    ],
+    "price_checked": "2024-02"
+  },
+  {
+    "slug": "duracell-coppertop-aaa-vs-kirkland-signature-aaa",
+    "category": "tech-tools",
+    "subcategory": "Batteries",
+    "title": "Duracell Coppertop AAA vs Kirkland Signature AAA Alkaline",
+    "brand": {
+      "brand": "Duracell",
+      "product": "Duracell Coppertop AAA Alkaline Batteries, 40-count (Costco)",
+      "size": 40,
+      "unit": "battery",
+      "price_usd": 19.99,
+      "retailer": "costco",
+      "asin": null,
+      "url": "https://www.amazon.com/s?k=duracell+coppertop+aaa",
+      "key_ingredients": [
+        {
+          "name": "Chemistry",
+          "amount": "Alkaline, 1.5 V, AAA"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature Alkaline AAA Batteries, 48-count",
+      "size": 48,
+      "unit": "battery",
+      "price_usd": 15.99,
+      "retailer": "costco",
+      "asin": null,
+      "url": "https://www.costco.com/kirkland-signature-alkaline-aaa-batteries-48-count.product.100796711.html",
+      "key_ingredients": [
+        {
+          "name": "Chemistry",
+          "amount": "Alkaline, 1.5 V, AAA"
+        }
+      ]
+    },
+    "match_type": "same_manufacturer",
+    "confidence": "medium",
+    "summary": "Kirkland AAA alkalines come from Duracell, according to Costco's former CEO, and cost about a third less per cell than Duracell's own AAA pack at Costco.",
+    "evidence": "Former Costco CEO Craig Jelinek told WSB-TV in 2016 that Duracell produces Kirkland batteries. Hunker notes that Duracell and Kirkland are the only two battery brands Costco carries, and that both AAA packs are alkaline with a 12-year shelf life. Hunker gives the non-sale Costco prices as $15.99 for 48 Kirkland AAA (about $0.33 each) and $19.99 for 40 Duracell Coppertop AAA (about $0.50 each).",
+    "differences": "Kirkland AAA isn't independently confirmed to be a cell identical to Coppertop, and the supplier evidence dates from 2016. It has no copper-top branding, and you need a Costco membership.",
+    "sources": [
+      "https://www.hunker.com/2040072/are-costco-kirkland-batteries-made-by-duracell",
+      "https://www.slashgear.com/2091912/who-makes-costco-batteries-where-manufactured",
+      "https://www.costco.com/kirkland-signature-alkaline-aaa-batteries-48-count.product.100796711.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-35w-dual-usb-c-vs-anker-nano-47w-2-port",
+    "category": "tech-tools",
+    "subcategory": "Chargers",
+    "title": "Apple 35W Dual USB-C Adapter vs Anker Nano 47W 2-Port Charger",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 35W Dual USB-C Port Compact Power Adapter (MNWM3AM/A)",
+      "size": 1,
+      "unit": "charger",
+      "price_usd": 59.0,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.amazon.com/s?k=apple+35w+dual+usb-c+port+compact+power+adapter",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "2x USB-C"
+        },
+        {
+          "name": "Total output",
+          "amount": "35 W"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker Nano Charger 47W, 2-Port USB-C GaN (A2039)",
+      "size": 1,
+      "unit": "charger",
+      "price_usd": 29.99,
+      "retailer": "amazon",
+      "asin": "B0BDKCBJ95",
+      "url": "https://www.amazon.com/dp/B0BDKCBJ95",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "2x USB-C"
+        },
+        {
+          "name": "Output",
+          "amount": "Up to 45 W from a single port; 27 W + 20 W with two devices (47 W total)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are compact two-port USB-C chargers, and Anker's has more total power than Apple's 35W for about half the price.",
+    "evidence": "AppleInsider confirms the Apple 35W dual adapter's $59 price and two USB-C ports. Apple's own list price is also $59, as shown by iClarified's Apple price tracker. Anker's product page lists 27 W + 20 W when two devices charge, and up to 45 W from either port alone, enough to fast-charge a MacBook Air. Slickdeals shows Anker's $30 Amazon list price and the ASIN.",
+    "differences": "Anker gives an 18-month warranty and Apple gives 1 year. With two phones connected, Apple's 35 W is split between them, while Anker caps the second port at 20 W. We didn't find an independent test (such as ChargerLAB) of this exact Anker model. Anker's price often drops to about $18 to $25.",
+    "sources": [
+      "https://appleinsider.com/articles/22/06/27/best-alternatives-to-apples-35w-dual-output-usb-c-power-adapter",
+      "https://ca.anker.com/products/a2039-nano-47w-charger",
+      "https://slickdeals.net/f/18837445-17-99-anker-nano-47w-usb-c-charger-2-port-compact-foldable-gan-charger-for-iphone-17-16-galaxy-pixel-compatible-with-magsafe-3-colors",
+      "https://www.iclarified.com/i9156/apple-magsafe-charger-1m"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-magsafe-charger-vs-amazon-basics-qi2-2-25w-pad",
+    "category": "tech-tools",
+    "subcategory": "Wireless chargers",
+    "title": "Apple MagSafe Charger (25W) vs Amazon Basics Qi2.2 25W Charging Pad",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple MagSafe Charger, 1 m (25W, MGD74LL/A)",
+      "size": 1,
+      "unit": "charger",
+      "price_usd": 39.0,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.amazon.com/s?k=apple+magsafe+charger+1m",
+      "key_ingredients": [
+        {
+          "name": "Standard",
+          "amount": "Qi2.2 certified, up to 25 W"
+        },
+        {
+          "name": "Cable",
+          "amount": "1 m, USB-C, adapter not included (30 W needed for 25 W)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Amazon Basics",
+      "product": "Amazon Basics 25W Qi2.2 Wireless Charging Pad with 5-foot cable",
+      "size": 1,
+      "unit": "charger",
+      "price_usd": 19.99,
+      "retailer": "amazon",
+      "asin": "B0FPDWY9QD",
+      "url": "https://www.amazon.com/dp/B0FPDWY9QD",
+      "key_ingredients": [
+        {
+          "name": "Standard",
+          "amount": "Qi2.2 certified, up to 25 W"
+        },
+        {
+          "name": "Cable",
+          "amount": "5 ft, adapter not included (30 W+ PD recommended)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Apple's current MagSafe charger is itself Qi2.2-certified, so a Qi2.2-certified 25W magnetic pad charges iPhones at the same top speed for about half the price.",
+    "evidence": "9to5Toys reports that Apple's current 25W MagSafe charger is certified for Qi2.2 and needs a 30W adapter for full speed. Apple's list price is $39 for the 1 m model and $49 for the 2 m model (iClarified). 9to5Toys lists the Amazon Basics pad as Qi2.2-certified, up to 25 W, with a 5 ft cable, sold without an adapter, at a $20 regular price. Macworld says Qi2.2 at 25 W matches MagSafe's 25 W on supported iPhones, and both are capped at about 22 W on the iPhone 16 and 16 Pro.",
+    "differences": "The Amazon Basics pad hasn't been independently speed-tested. Galaxus found wide variation among Qi2 chargers in practice. Apple's charger also works with MagSafe AirPods cases and has Apple's 1-year warranty. Full speed needs iOS 26 or later and a 30 W+ adapter, which neither includes. The Amazon cable is longer (5 ft vs 1 m).",
+    "sources": [
+      "https://9to5toys.com/2026/07/21/amazon-basics-25w-qi22-wireless-charging-pad-with-5-foot-cable-2/",
+      "https://9to5toys.com/2026/01/19/apple-2-meter-25w-qi2-magsafe-charger-sale/",
+      "https://www.macworld.com/article/2128673/is-qi-2-2-wireless-charging-better-than-magsafe.html",
+      "https://www.iclarified.com/i9156/apple-magsafe-charger-1m",
+      "https://www.galaxus.de/en/page/qi2-test-revelations-iphone-charges-faster-with-the-competition-40668"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-60w-usb-c-woven-cable-vs-anker-60w-usb-c-cable-2-pack",
+    "category": "tech-tools",
+    "subcategory": "Cables",
+    "title": "Apple 60W USB-C Woven Charge Cable vs Anker 60W USB-C Cable (2-pack)",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 60W USB-C Woven Charge Cable, 1 m (MW493AM/A)",
+      "size": 1,
+      "unit": "cable",
+      "price_usd": 19.0,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.amazon.com/s?k=apple+60w+usb-c+woven+charge+cable+1m",
+      "key_ingredients": [
+        {
+          "name": "Power",
+          "amount": "Up to 60 W"
+        },
+        {
+          "name": "Data",
+          "amount": "USB 2.0 (480 Mbps)"
+        },
+        {
+          "name": "Length",
+          "amount": "1 m"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker USB-C to USB-C Cable 60W, 6 ft, nylon braided, 2-pack (A8753)",
+      "size": 2,
+      "unit": "cable",
+      "price_usd": 8.99,
+      "retailer": "amazon",
+      "asin": "B088NRLMPV",
+      "url": "https://www.amazon.com/dp/B088NRLMPV",
+      "key_ingredients": [
+        {
+          "name": "Power",
+          "amount": "Up to 60 W"
+        },
+        {
+          "name": "Data",
+          "amount": "USB 2.0 (480 Mbps)"
+        },
+        {
+          "name": "Length",
+          "amount": "6 ft (1.8 m)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are 60W, USB 2.0-speed braided USB-C cables, and Anker's two-pack of longer cables costs less than half the price of one Apple cable.",
+    "evidence": "Abt's listing for Apple's MW493AM/A gives up to 60 W, USB 2 data rates, 1 m length and a woven jacket, with a $19 list price that iClarified's Apple price tracker confirms. Gizmodo's comparison describes the Anker 2-pack as 6 ft, braided nylon, PD up to 60 W, 480 Mbps and rated for 5,000 bends, at a regular price of about $9. The product listing confirms the ASIN B088NRLMPV and model A8753.",
+    "differences": "We didn't verify USB-IF certification for either cable. Anker's cables are longer, which is useful but bulkier. Anker gives an 18-month warranty and Apple gives 1 year. One Anker listing shows conflicting data-speed figures, but treat it as a 480 Mbps cable. Neither suits fast file transfer or video.",
+    "sources": [
+      "https://www.abt.com/Apple-1-Meter-60W-USB-C-Woven-Charge-Cable-MW493AMA/p/221954.html",
+      "https://gizmodo.com/apple-sells-a-usb-c-cable-for-29-anker-does-the-same-for-4-on-amazon-and-it-has-80000-reviews-2000757980",
+      "https://www.desertcart.com.cy/products/214290734-anker-usb-c-to-usb-c-cable-type-c-60w",
+      "https://www.iclarified.com/i9156/apple-magsafe-charger-1m"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-usb-c-to-lightning-vs-amazon-basics-mfi-usb-c-to-lightning",
+    "category": "tech-tools",
+    "subcategory": "Cables",
+    "title": "Apple USB-C to Lightning Cable vs Amazon Basics MFi USB-C to Lightning",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple USB-C to Lightning Cable, 1 m (MUQ93AM/A)",
+      "size": 1,
+      "unit": "cable",
+      "price_usd": 19.0,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.amazon.com/s?k=apple+usb-c+to+lightning+cable+1m",
+      "key_ingredients": [
+        {
+          "name": "Certification",
+          "amount": "Apple original (Lightning)"
+        },
+        {
+          "name": "Length",
+          "amount": "1 m"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Amazon Basics",
+      "product": "Amazon Basics USB-C to Lightning ABS Cable, MFi Certified, 6 ft",
+      "size": 1,
+      "unit": "cable",
+      "price_usd": 13.0,
+      "retailer": "amazon",
+      "asin": "B07XS5CTRJ",
+      "url": "https://www.amazon.com/dp/B07XS5CTRJ",
+      "key_ingredients": [
+        {
+          "name": "Certification",
+          "amount": "Apple MFi certified"
+        },
+        {
+          "name": "Length",
+          "amount": "6 ft"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Amazon Basics' USB-C to Lightning cable is Apple MFi-certified, so it uses Apple-approved Lightning hardware, for less than Apple's own cable.",
+    "evidence": "Apple's MUQ93AM/A is a 1 m USB-C to Lightning cable that works with Apple's USB-C adapters for fast charging. A campus Apple reseller lists it at $19.99, against Apple's $19 list price. The Amazon Basics cable (B07XS5CTRJ) is listed as MFi certified, 6 ft, with a $13 regular price. Reviewed.com also picks an MFi-certified Amazon Basics Lightning cable as its best overall.",
+    "differences": "We didn't check this model in Apple's MFi database ourselves, so check the MFi logo on the package. The Amazon cable is longer (6 ft vs 1 m) with an ABS/PVC jacket. Lightning is a legacy port, needed only for iPhone 14 and earlier and older iPads. Savings per cable are modest, but the Amazon cable is often on sale for about $5.",
+    "sources": [
+      "https://computer.store.mnsu.edu/copy-of-usb-c-to-lightning-cable-1m.html",
+      "https://slickdeals.net/f/18755344-4-53-amazon-basics-usb-c-to-lightning-abs-charger-cable-mfi-certified-charger-for-apple-iphone-14-13-12-11-x-xs-pro-pro-max-plus-ipad-6-foot-white",
+      "https://reviewed.com/smartphones/best-right-now/the-best-lightning-cables"
+    ],
+    "price_checked": "2026-11"
+  }
+]

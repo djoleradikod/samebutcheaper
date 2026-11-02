@@ -1,0 +1,503 @@
+[
+  {
+    "slug": "similac-advance-vs-parents-choice-advantage-formula",
+    "category": "baby",
+    "subcategory": "Infant formula",
+    "title": "Similac Advance vs Parent's Choice Advantage Infant Formula",
+    "brand": {
+      "brand": "Similac",
+      "product": "Similac Advance Infant Formula with Iron, Powder, 30.8 oz value can",
+      "size": 30.8,
+      "unit": "oz powder",
+      "price_usd": 48.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/24412490",
+      "key_ingredients": [
+        {
+          "name": "Milk-based formula with iron",
+          "amount": "meets FDA infant formula nutrient requirements"
+        },
+        {
+          "name": "DHA, lutein, vitamin E",
+          "amount": "added"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Parent's Choice",
+      "product": "Parent's Choice Advantage Infant Formula Powder with Iron, DHA, Lutein & Vitamin E, 33.2 oz",
+      "size": 33.2,
+      "unit": "oz powder",
+      "price_usd": 24.28,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/1231795077",
+      "key_ingredients": [
+        {
+          "name": "Milk-based formula with iron",
+          "amount": "meets FDA infant formula nutrient requirements"
+        },
+        {
+          "name": "DHA, lutein, vitamin E",
+          "amount": "added"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Walmart's Parent's Choice Advantage is formulated to match the nutrition of Similac Advance, including the same headline add-ins (DHA, lutein, vitamin E), and all US infant formula must meet the same FDA nutrient standards.",
+    "evidence": "The Walmart listing for Parent's Choice Advantage states 'Compare to the nutrition of Similac Advance Infant Formula'; the Similac Advance listing names the same DHA, lutein and vitamin E blend. US infant formula must meet the same FDA nutrient requirements (Perrigo, the maker of most US store-brand formula, says so), and Reuters and Axios report that Perrigo makes Walmart's store-brand formula. We could not get full ingredient lists for either product from the retailer pages, so this is a nutrition-standard match, not a verified identical ingredient list.",
+    "differences": "Not made by Abbott; the oil blend and some minor ingredients may differ from Similac's. Switching formula can cause temporary fussiness, so check with your pediatrician first, especially for preterm or medically fragile babies.",
+    "sources": [
+      "https://www.walmart.com/ip/1231795077",
+      "https://www.walmart.com/ip/24412490",
+      "https://perrigo.com/node/1701",
+      "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html",
+      "https://www.axios.com/2022/05/13/baby-formula-perrigo-expects-delays-through-2022"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "similac-sensitive-vs-parents-choice-sensitivity-formula",
+    "category": "baby",
+    "subcategory": "Infant formula",
+    "title": "Similac Sensitive vs Parent's Choice Sensitivity Infant Formula",
+    "brand": {
+      "brand": "Similac",
+      "product": "Similac Sensitive Infant Formula Powder, 29.8 oz value can",
+      "size": 29.8,
+      "unit": "oz powder",
+      "price_usd": 48.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/24412489",
+      "key_ingredients": [
+        {
+          "name": "Reduced-lactose milk-based formula (corn syrup carbohydrate)",
+          "amount": "meets FDA infant formula nutrient requirements"
+        },
+        {
+          "name": "DHA, lutein",
+          "amount": "added"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Parent's Choice",
+      "product": "Parent's Choice Sensitivity Premium Infant Formula with Iron, Dual HMOs, 22.5 oz tub",
+      "size": 22.5,
+      "unit": "oz powder",
+      "price_usd": 24.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/730014869",
+      "key_ingredients": [
+        {
+          "name": "Milk-based formula with 99% less lactose (corn syrup carbohydrate)",
+          "amount": "meets FDA infant formula nutrient requirements"
+        },
+        {
+          "name": "DHA, lutein, vitamin E, choline",
+          "amount": "added"
+        },
+        {
+          "name": "HMOs 2'-FL and LNnT",
+          "amount": "added"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are reduced-lactose, corn-syrup-based formulas for lactose sensitivity that meet the same FDA nutrient standards, and the store brand also adds two HMOs.",
+    "evidence": "Walmart lists corn syrup as the primary ingredient for both; Parent's Choice states 99% less lactose than standard milk-based formula and adds DHA, lutein, 2'-FL and LNnT HMOs. Its label says 'compare to Similac Pro-Sensitive' (Similac's HMO version of Sensitive). All US formula must meet the same FDA nutrient standards, and Reuters and Axios report that Perrigo makes Walmart's store-brand formula.",
+    "differences": "The store brand's stated comparison is to Similac Pro-Sensitive, the HMO version, so it has more add-ins than plain Similac Sensitive (which does not list HMOs). Different tub size. Not made by Abbott; ask your pediatrician before switching.",
+    "sources": [
+      "https://www.walmart.com/ip/730014869",
+      "https://www.walmart.com/ip/24412489",
+      "https://perrigo.com/node/1701",
+      "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "enfamil-gentlease-vs-parents-choice-gentle-formula",
+    "category": "baby",
+    "subcategory": "Infant formula",
+    "title": "Enfamil NeuroPro Gentlease vs Parent's Choice Gentle Premium Formula",
+    "brand": {
+      "brand": "Enfamil",
+      "product": "Enfamil NeuroPro Gentlease Infant Formula Powder, 27.4 oz can",
+      "size": 27.4,
+      "unit": "oz powder",
+      "price_usd": 57.48,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/13379506191",
+      "key_ingredients": [
+        {
+          "name": "Partially hydrolyzed milk protein, reduced lactose",
+          "amount": "meets FDA infant formula nutrient requirements"
+        },
+        {
+          "name": "MFGM, DHA",
+          "amount": "added"
+        },
+        {
+          "name": "HMO 2'-FL",
+          "amount": "added"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Parent's Choice",
+      "product": "Parent's Choice Gentle Premium Infant Formula for Fussiness, Gas and Crying, 34 oz",
+      "size": 34,
+      "unit": "oz powder",
+      "price_usd": 31.93,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/1452252458",
+      "key_ingredients": [
+        {
+          "name": "Partially hydrolyzed whey and milk protein",
+          "amount": "meets FDA infant formula nutrient requirements"
+        },
+        {
+          "name": "MFGM (from whey protein concentrate), DHA",
+          "amount": "added"
+        },
+        {
+          "name": "HMOs",
+          "amount": "added"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Parent's Choice Gentle Premium is Walmart's compare-to version of Enfamil NeuroPro Gentlease, with the same key features (partially hydrolyzed protein, MFGM, DHA, HMOs) and the same FDA nutrient standards.",
+    "evidence": "The Walmart listing names Enfamil NeuroPro Gentlease as the comparison brand and lists partially hydrolyzed whey and milk protein, MFGM, DHA and HMOs. The Enfamil listing lists partially hydrolyzed protein, MFGM, DHA and 2'-FL HMO. All US formula must meet FDA nutrient requirements; Reuters and Axios report that Perrigo makes Walmart's store-brand formula.",
+    "differences": "Enfamil also lists a PDX/GOS prebiotic blend and its 'HuMO6' immune blend; the store brand's exact HMO set and prebiotics may differ. Not made by Mead Johnson. Ask your pediatrician before switching.",
+    "sources": [
+      "https://www.walmart.com/ip/1452252458",
+      "https://www.walmart.com/ip/13379506191",
+      "https://perrigo.com/node/1701",
+      "https://www.axios.com/2022/05/13/baby-formula-perrigo-expects-delays-through-2022"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "childrens-tylenol-vs-equate-childrens-acetaminophen",
+    "category": "baby",
+    "subcategory": "Children's pain and fever",
+    "title": "Children's Tylenol vs Equate Children's Acetaminophen 160mg/5mL",
+    "brand": {
+      "brand": "Tylenol",
+      "product": "Children's Tylenol Pain + Fever Oral Suspension, Dye-Free Cherry, 4 fl oz",
+      "size": 4,
+      "unit": "fl oz",
+      "price_usd": 7.68,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10801483",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "160 mg per 5 mL"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Children's Pain & Fever Acetaminophen Oral Suspension, Bubble Gum, 4 fl oz",
+      "size": 4,
+      "unit": "fl oz",
+      "price_usd": 3.17,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10324463",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "160 mg per 5 mL"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are children's acetaminophen liquids at the same 160 mg per 5 mL strength, so the dose is the same.",
+    "evidence": "The Walmart listing and the Drug Facts label for Equate Children's Pain & Fever show acetaminophen 160 mg per 5 mL and 'Compare to Children's Tylenol Oral Suspension active ingredient'. The Children's Tylenol listing shows acetaminophen 160 mg per 5 mL.",
+    "differences": "Different flavor and inactive ingredients: the Equate bubble gum version contains dyes (D&C Red 33, FD&C Red 40) and high fructose corn syrup, while the Tylenol listing priced here is dye-free. Equate also sells a dye-free cherry version. Dose by weight using the included syringe.",
+    "sources": [
+      "https://www.walmart.com/ip/10324463",
+      "https://www.walmart.com/ip/10801483",
+      "https://otclabels.com/lib/otc/otc-meds/equate-childrens-pain-and-fever/",
+      "https://www.walmart.com/ip/20551430"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "childrens-motrin-vs-equate-childrens-ibuprofen",
+    "category": "baby",
+    "subcategory": "Children's pain and fever",
+    "title": "Children's Motrin vs Equate Children's Ibuprofen 100mg/5mL",
+    "brand": {
+      "brand": "Motrin",
+      "product": "Children's Motrin Ibuprofen Oral Suspension, Berry, 4 fl oz",
+      "size": 4,
+      "unit": "fl oz",
+      "price_usd": 7.69,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/-/A-14238143",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "100 mg per 5 mL"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Children's Ibuprofen Oral Suspension, Grape, 4 fl oz",
+      "size": 4,
+      "unit": "fl oz",
+      "price_usd": 4.58,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/16935940",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "100 mg per 5 mL"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are children's ibuprofen suspensions at the same 100 mg per 5 mL strength.",
+    "evidence": "Target's Children's Motrin listing shows ibuprofen 100 mg per 5 mL. Walmart's Equate listing shows ibuprofen 100 mg and 'Compares to the active ingredient in Children's Motrin', and the Equate Drug Facts label confirms 100 mg per 5 mL.",
+    "differences": "Different flavor and inactive ingredients (the Equate suspension uses high fructose corn syrup and FD&C Red 40). Prices come from different retailers.",
+    "sources": [
+      "https://www.target.com/p/-/A-14238143",
+      "https://www.walmart.com/ip/16935940",
+      "https://otclabels.com/lib/otc/otc-meds/equate-ibuprofen-childrens/page/2/",
+      "https://www.walmart.com/ip/49220366"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "desitin-maximum-strength-vs-parents-choice-diaper-rash-40-zinc",
+    "category": "baby",
+    "subcategory": "Diaper rash",
+    "title": "Desitin Maximum Strength vs Parent's Choice Max Strength Diaper Rash Ointment (40% Zinc Oxide)",
+    "brand": {
+      "brand": "Desitin",
+      "product": "Desitin Maximum Strength Diaper Rash Paste, 40% Zinc Oxide, 4.8 oz",
+      "size": 4.8,
+      "unit": "oz",
+      "price_usd": 7.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/16480956226",
+      "key_ingredients": [
+        {
+          "name": "Zinc oxide",
+          "amount": "40%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Parent's Choice",
+      "product": "Parent's Choice Diaper Rash Ointment, Max Strength, 4 oz",
+      "size": 4,
+      "unit": "oz",
+      "price_usd": 2.08,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/53975866",
+      "key_ingredients": [
+        {
+          "name": "Zinc oxide",
+          "amount": "40%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are maximum-strength diaper rash pastes with 40% zinc oxide, the highest level the FDA allows.",
+    "evidence": "Walmart's Desitin Maximum Strength listing states 40% zinc oxide. The Parent's Choice Max Strength listing states 40% zinc oxide and is marketed as comparable to Desitin Maximum Strength Diaper Rash Paste.",
+    "differences": "We could not confirm the inactive ingredients of the Parent's Choice version (the listing says it is free of parabens, phthalates and Quaternium-15), so its texture and smell may differ. Tube sizes differ (4 oz vs 4.8 oz).",
+    "sources": [
+      "https://www.walmart.com/ip/53975866",
+      "https://www.walmart.com/ip/16480956226",
+      "https://www.walmart.com/ip/284389604"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "aquaphor-baby-vs-equate-advanced-healing-ointment",
+    "category": "baby",
+    "subcategory": "Baby skin care",
+    "title": "Aquaphor Baby Healing Ointment vs Equate Advanced Healing Ointment",
+    "brand": {
+      "brand": "Aquaphor",
+      "product": "Aquaphor Baby Healing Ointment, 14 oz jar",
+      "size": 14,
+      "unit": "oz",
+      "price_usd": 18.37,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/44997847",
+      "key_ingredients": [
+        {
+          "name": "Petrolatum",
+          "amount": "41%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Advanced Healing Ointment, 14 oz jar",
+      "size": 14,
+      "unit": "oz",
+      "price_usd": 10.52,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/14520420",
+      "key_ingredients": [
+        {
+          "name": "Petrolatum",
+          "amount": "41%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "high",
+    "summary": "Equate Advanced Healing has the same 41% petrolatum and the same six inactive ingredients, in the same order, as Aquaphor Baby.",
+    "evidence": "Aquaphor Baby's label lists petrolatum 41% plus mineral oil, ceresin, lanolin alcohol, panthenol, glycerin and bisabolol. The Walmart Drug Facts label for Equate Advanced Healing Ointment lists petrolatum 41% with mineral oil, ceresin, lanolin alcohol, panthenol, glycerin and bisabolol (levomenol in the FDA listing), and says 'Compare to Aquaphor Healing Ointment's Active Ingredient'. Walmart also sells an 'Equate Baby Advanced Healing' version with the same active (NDC 49035-055-14).",
+    "differences": "The Equate product is labeled for adult skin care rather than 'baby', but the formula matches. Aquaphor Baby carries the extra diaper rash claim on its label.",
+    "sources": [
+      "https://www.walmart.com/ip/14520420",
+      "https://www.walmart.com/ip/44997847",
+      "https://hannaford.com/groceries/baby/baby-bath-skin-care/aquaphor-baby-advanced-therapy-healing-ointment-14-oz-jar.html",
+      "https://otclabels.com/lib/otc/otc-meds/advanced-healing-7/",
+      "https://otclabels.com/lib/otc/otc-meds/equate-baby-advanced-healing/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "pedialyte-vs-parents-choice-electrolyte-solution-unflavored",
+    "category": "baby",
+    "subcategory": "Rehydration",
+    "title": "Pedialyte Unflavored vs Parent's Choice Pediatric Electrolyte Solution",
+    "brand": {
+      "brand": "Pedialyte",
+      "product": "Pedialyte Electrolyte Solution, Unflavored, 1 liter",
+      "size": 33.8,
+      "unit": "fl oz",
+      "price_usd": 5.44,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/17619770",
+      "key_ingredients": [
+        {
+          "name": "Sodium",
+          "amount": "45 mEq/L"
+        },
+        {
+          "name": "Potassium",
+          "amount": "20 mEq/L"
+        },
+        {
+          "name": "Chloride",
+          "amount": "35 mEq/L"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Parent's Choice",
+      "product": "Parent's Choice Pediatric Electrolyte Oral Solution, Unflavored, 33.8 fl oz",
+      "size": 33.8,
+      "unit": "fl oz",
+      "price_usd": 3.94,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/19863396",
+      "key_ingredients": [
+        {
+          "name": "Sodium",
+          "amount": "45 mEq/L"
+        },
+        {
+          "name": "Potassium",
+          "amount": "20 mEq/L"
+        },
+        {
+          "name": "Chloride",
+          "amount": "35 mEq/L"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "medium",
+    "summary": "Both unflavored solutions provide exactly 45 mEq sodium, 20 mEq potassium and 35 mEq chloride per liter.",
+    "evidence": "Pedialyte Unflavored's label (via the Stop & Shop listing) gives water, dextrose, potassium citrate, salt, sodium citrate, citric acid and zinc gluconate, with 45/20/35 mEq per liter of sodium, potassium and chloride. Walmart's Parent's Choice listing states 'One liter provides sodium, 45 mEq; potassium, 20 mEq; chloride, 35 mEq' and 'Compare to Pedialyte'.",
+    "differences": "We could not see the full Parent's Choice ingredient list, so it is rated medium. Abbott has rebranded Pedialyte versions over time, so check that you are comparing unflavored to unflavored.",
+    "sources": [
+      "https://www.walmart.com/ip/19863396",
+      "https://www.walmart.com/ip/17619770",
+      "https://stopandshop.com/groceries/baby/pedialyte-unflavored-electrolyte-solution-338-oz-btl.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mylicon-vs-equate-infant-gas-relief-drops-simethicone",
+    "category": "baby",
+    "subcategory": "Infant gas relief",
+    "title": "Mylicon vs Equate Infants' Gas Relief Drops (Simethicone 20mg)",
+    "brand": {
+      "brand": "Mylicon",
+      "product": "Mylicon Infants' Gas Relief Drops, Dye Free, 1 fl oz",
+      "size": 1,
+      "unit": "fl oz",
+      "price_usd": 16.32,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/46770354",
+      "key_ingredients": [
+        {
+          "name": "Simethicone",
+          "amount": "20 mg per 0.3 mL"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Infants' Dye-Free Simethicone Gas Relief Drops, 1 fl oz (100 doses)",
+      "size": 1,
+      "unit": "fl oz",
+      "price_usd": 3.78,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10324604",
+      "key_ingredients": [
+        {
+          "name": "Simethicone",
+          "amount": "20 mg per 0.3 mL"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are dye-free infant simethicone drops at 20 mg per 0.3 mL dose, 100 doses per 1 fl oz bottle.",
+    "evidence": "Walmart lists Mylicon Dye Free at simethicone 20 mg per dose in a 1 fl oz/100-dose bottle. The Equate listing shows simethicone 20 mg and 'Compares to the active ingredient in Infants' Mylicon Drops', and the FDA label for Walmart's Infants' Gas Relief Drops (NDC 49035-709) gives simethicone 20 mg per 0.3 mL in a 30 mL bottle.",
+    "differences": "Inactive ingredients and dropper/syringe design may differ slightly.",
+    "sources": [
+      "https://www.walmart.com/ip/10324604",
+      "https://www.walmart.com/ip/46770354",
+      "https://ndclist.com/ndc/49035-709/label"
+    ],
+    "price_checked": "2026-11"
+  }
+]

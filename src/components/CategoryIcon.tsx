@@ -1,0 +1,30 @@
+import {
+  Baby,
+  Droplet,
+  Leaf,
+  PawPrint,
+  Pill,
+  Plug,
+  Sparkles,
+  SprayCan,
+  Wheat,
+  type LucideProps,
+} from "lucide-react";
+import type { CategoryMeta } from "@/lib/categories";
+
+const ICONS = {
+  pill: Pill,
+  leaf: Leaf,
+  droplet: Droplet,
+  sparkles: Sparkles,
+  spray: SprayCan,
+  baby: Baby,
+  paw: PawPrint,
+  wheat: Wheat,
+  plug: Plug,
+} as const;
+
+export function CategoryIcon({ icon, ...props }: { icon: CategoryMeta["icon"] } & LucideProps) {
+  const Icon = ICONS[icon];
+  return <Icon aria-hidden="true" {...props} />;
+}
