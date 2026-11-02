@@ -1,0 +1,808 @@
+[
+  {
+    "slug": "lemsip-max-all-in-one-vs-tesco-health-max-strength-all-in-one-capsules-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Cold & flu",
+    "title": "Lemsip Max All in One vs Tesco Health Max Strength All-In-One Capsules",
+    "brand": {
+      "brand": "Lemsip",
+      "product": "Lemsip Max All in One Capsules Cold, Flu, Sore Throat Relief 16s",
+      "size": 16,
+      "unit": "capsule",
+      "price": 7.3,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/265327225",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        },
+        {
+          "name": "Guaifenesin",
+          "amount": "100 mg"
+        },
+        {
+          "name": "Phenylephrine hydrochloride",
+          "amount": "6.1 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Max Strength All-In-One Cold & Flu Relief Capsules 16s",
+      "size": 16,
+      "unit": "capsule",
+      "price": 1.15,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/280319760",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        },
+        {
+          "name": "Guaifenesin",
+          "amount": "100 mg"
+        },
+        {
+          "name": "Phenylephrine hydrochloride",
+          "amount": "6.1 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both capsules contain 500mg paracetamol, 100mg guaifenesin and 6.1mg phenylephrine, so the Tesco version is the same all-in-one formula at about a sixth of the price.",
+    "evidence": "Tesco's Lemsip Max All in One listing states 'Paracetamol 500mg, Phenylephrine Hydrochloride 6.1mg, Guaifenesin 100mg' per capsule, 16 capsules, £7.30. Tesco Health Max Strength All-In-One states 'Each capsule contains the active ingredients: Paracetamol 500mg, Guaifenesin 100mg and Phenylephrine Hydrochloride 6.1mg', 16 capsules, £1.15.",
+    "differences": "Inactive ingredients and capsule colour may differ. Both rely on oral phenylephrine as the decongestant, whose effectiveness at this dose has been questioned (FDA advisory committee, 2023).",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/265327225",
+      "https://www.tesco.com/groceries/en-GB/products/280319760"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "panadol-advance-vs-tesco-health-paracetamol-500mg-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Panadol Advance vs Tesco Health Paracetamol 500mg Tablets",
+    "brand": {
+      "brand": "Panadol",
+      "product": "Panadol Advance 500mg Pain Relief Paracetamol Tablets 16s",
+      "size": 16,
+      "unit": "tablet",
+      "price": 2.15,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/259538693",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Pain Relief Tablets Paracetamol 500mg 16s",
+      "size": 16,
+      "unit": "tablet",
+      "price": 0.35,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/257107498",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 500mg paracetamol tablets taken at the same dose, so the Tesco pack costs about a sixth of the price.",
+    "evidence": "Tesco's Panadol Advance listing states 'Each Film-Coated Tablet contains Paracetamol 500mg' (16 tablets, £2.15). Tesco Health Paracetamol 500mg is a 16-tablet pack at £0.35 with excipients listed as water, maize starch, pregelatinised starch, povidone, sodium starch glycollate and magnesium stearate.",
+    "differences": "Panadol Advance is a film-coated tablet that Panadol markets as a faster-dissolving ('Optizorb') formulation; the Tesco listing does not describe a coating. The dose and active are the same.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/259538693",
+      "https://www.tesco.com/groceries/en-GB/products/257107498",
+      "https://www.tesco.com/shop/en-GB/products/256426409"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nurofen-vs-tesco-health-ibuprofen-200mg-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Nurofen vs Tesco Health Ibuprofen 200mg Tablets",
+    "brand": {
+      "brand": "Nurofen",
+      "product": "Nurofen Targeted Pain Relief Tablets Ibuprofen 200mg 16s",
+      "size": 16,
+      "unit": "tablet",
+      "price": 1.9,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/256352409",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Ibuprofen 200mg Pain Relief Tablets 16s",
+      "size": 16,
+      "unit": "tablet",
+      "price": 0.35,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/254434587",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 200mg ibuprofen tablets for pain and fever, so you get the same medicine for a fraction of the price.",
+    "evidence": "Tesco's Nurofen listing states ibuprofen 200mg per tablet (16 tablets, £1.90). Tesco's own-brand listing is 'Ibuprofen 200mg Tablets' in a 16-tablet pack at £0.35, with an Aldi price-match badge. Same active, same strength, same tablet form and same pack size.",
+    "differences": "Inactive ingredients differ: the Tesco tablet lists sucrose, talc, titanium dioxide and carnauba wax among its other ingredients, and Nurofen states about 12.7mg sodium per tablet and contains sucrose. Neither difference changes the dose.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/256352409",
+      "https://www.tesco.com/groceries/en-GB/products/254434587",
+      "https://boots.com/boots-ibuprofen-200mg-tablets---16-tablets-10270179p"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "lemsip-max-cold-flu-capsules-vs-tesco-max-strength-cold-flu-capsules-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Cold & flu",
+    "title": "Lemsip Max Cold & Flu Capsules vs Tesco Maximum Strength Cold and Flu Capsules",
+    "brand": {
+      "brand": "Lemsip",
+      "product": "Lemsip Max Cold & Flu Capsules 16s",
+      "size": 16,
+      "unit": "capsule",
+      "price": 5.45,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/257048481",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "25 mg"
+        },
+        {
+          "name": "Phenylephrine hydrochloride",
+          "amount": "6.1 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco",
+      "product": "Tesco Maximum Strength Cold And Flu Capsules 16s",
+      "size": 16,
+      "unit": "capsule",
+      "price": 1.15,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/258606349",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "25 mg"
+        },
+        {
+          "name": "Phenylephrine hydrochloride",
+          "amount": "6.1 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both capsules contain 500mg paracetamol, 25mg caffeine and 6.1mg phenylephrine, so they are the same cold and flu formula for about a fifth of the price.",
+    "evidence": "Tesco's Lemsip Max Cold & Flu listing states 'Paracetamol 500mg, Caffeine 25mg, Phenylephrine Hydrochloride 6.1mg' per capsule, 16 capsules, £5.45. Tesco Maximum Strength Cold And Flu Caps states 'Paracetamol 500mg, caffeine 25mg and phenylephrine hydrochloride 6.1mg', 16 capsules, £1.15.",
+    "differences": "Inactive ingredients and capsule colour may differ. Both rely on oral phenylephrine as the decongestant, whose effectiveness at this dose has been questioned (FDA advisory committee, 2023).",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/257048481",
+      "https://www.tesco.com/groceries/en-GB/products/258606349"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "panadol-extra-advance-vs-tesco-paracetamol-extra-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Panadol Extra Advance vs Tesco Paracetamol Extra",
+    "brand": {
+      "brand": "Panadol",
+      "product": "Panadol Extra Advance 500mg Paracetamol and 65mg Caffeine Tablets 16s",
+      "size": 16,
+      "unit": "tablet",
+      "price": 3.75,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/317420352",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "65 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco",
+      "product": "Tesco Paracetamol Extra 16s (Paracetamol & Caffeine 500mg/65mg Tablets)",
+      "size": 16,
+      "unit": "tablet",
+      "price": 0.85,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/shop/en-GB/products/255488642",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "65 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both tablets combine 500mg paracetamol with 65mg caffeine, so they are the same headache formula at under a quarter of the price.",
+    "evidence": "Tesco's Panadol Extra Advance listing states paracetamol 500mg and caffeine 65mg per tablet, 16 tablets, £3.75. Tesco Paracetamol Extra is described as 'Paracetamol & Caffeine 500mg/65mg Tablets', 16 tablets, £0.85.",
+    "differences": "Panadol markets its Extra Advance tablet as a faster-dissolving ('Optizorb') formulation; the Tesco tablet is a standard formulation. Same actives and strengths.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/317420352",
+      "https://www.tesco.com/shop/en-GB/products/255488642"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "clarityn-vs-tesco-health-loratadine-10mg-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Clarityn Allergy vs Tesco Health One-a-Day Loratadine 10mg",
+    "brand": {
+      "brand": "Clarityn",
+      "product": "Clarityn Allergy 10mg Tablets Loratadine 30s",
+      "size": 30,
+      "unit": "tablet",
+      "price": 11.5,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/277493043",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health One-a-Day Hayfever & Allergy Relief Tablets 30s (loratadine 10mg)",
+      "size": 30,
+      "unit": "tablet",
+      "price": 2.95,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/shop/en-GB/products/282027376",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are once-a-day 10mg loratadine antihistamine tablets, so a month of hayfever relief costs about a quarter as much from Tesco.",
+    "evidence": "Tesco's Clarityn Allergy listing names loratadine 10mg per tablet, 30 tablets, £11.50. Tesco Health One-a-Day Hayfever & Allergy Relief is sold as loratadine 10mg tablets, 30 tablets, £2.95; the 14-tablet version (Tesco product 265630384, £1.95) also names loratadine 10mg.",
+    "differences": "The Clarityn listing notes lactose; the Tesco page does not list inactive ingredients, so these may differ. The Tesco 30-pack under a second product code (258736523) was out of stock when checked.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/277493043",
+      "https://www.tesco.com/shop/en-GB/products/282027376",
+      "https://www.tesco.com/groceries/en-GB/products/265630384"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "piriteze-vs-tesco-health-cetirizine-10mg-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Piriteze vs Tesco Health Cetirizine 10mg",
+    "brand": {
+      "brand": "Piriteze",
+      "product": "Piriteze Hayfever & Allergy Relief Film Coated Tablets 30s",
+      "size": 30,
+      "unit": "tablet",
+      "price": 11.0,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/287809486",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine hydrochloride",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Cetirizine Hydrochloride 10mg Film Coated Tablets 30s",
+      "size": 30,
+      "unit": "tablet",
+      "price": 3.0,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/shop/en-GB/products/322651537",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine hydrochloride",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 10mg cetirizine hydrochloride film-coated tablets taken once a day, so the Tesco pack does the same job for about a quarter of the price.",
+    "evidence": "Tesco's Piriteze listing is 'Piriteze Hayfever & Allergy 10mg Film Coated Tablets' (cetirizine hydrochloride), 30 tablets, £11.00. Tesco Health's listing is 'Cetirizine Hydrochloride 10mg Film coated Tablets', 30 tablets, £3.00. Same active, strength and form.",
+    "differences": "The Tesco page names the salt as 'cetirizine dihydrochloride' in its ingredients list, which is the same compound under its full chemical name. Inactive ingredients may differ.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/287809486",
+      "https://www.tesco.com/shop/en-GB/products/322651537",
+      "https://www.tesco.com/groceries/en-GB/products/286266691"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "imodium-original-vs-tesco-health-loperamide-2mg-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Digestive",
+    "title": "Imodium Original vs Tesco Health Loperamide 2mg Capsules",
+    "brand": {
+      "brand": "Imodium",
+      "product": "Imodium Original Diarrhoea Relief Capsules 2mg 6s",
+      "size": 6,
+      "unit": "capsule",
+      "price": 3.35,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/shop/en-GB/products/253797452",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Diarrhoea Relief Loperamide 2mg Capsules 6s",
+      "size": 6,
+      "unit": "capsule",
+      "price": 1.0,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/256483801",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 2mg loperamide capsules for diarrhoea, so the Tesco pack is the same treatment at under a third of the price.",
+    "evidence": "Tesco's Imodium Original listing names loperamide hydrochloride 2mg capsules (6 capsules, £3.35; the 12-pack is listed at £6.60). Tesco Health Diarrhoea Relief is sold as loperamide 2mg capsules, 6 capsules, £1.00. Same active, strength and capsule form, and the same 2-capsule starting dose.",
+    "differences": "Inactive ingredients and capsule colour may differ.",
+    "sources": [
+      "https://www.tesco.com/shop/en-GB/products/253797452",
+      "https://www.tesco.com/groceries/en-GB/products/256483801",
+      "https://www.tesco.com/groceries/en-GB/products/301340062"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nurofen-soft-capsules-vs-tesco-health-ibuprofen-liquid-capsules-200mg-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Nurofen Soft Capsules vs Tesco Health Ibuprofen 200mg Liquid Capsules",
+    "brand": {
+      "brand": "Nurofen",
+      "product": "Nurofen Pain Relief Soft Capsules 200mg 16s",
+      "size": 16,
+      "unit": "capsule",
+      "price": 4.5,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/shop/en-GB/products/290920280",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Ibuprofen 200mg Liquid Capsules 16s",
+      "size": 16,
+      "unit": "capsule",
+      "price": 2.0,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/254857985",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are soft gelatin capsules containing 200mg ibuprofen, so the liquid-capsule format costs less than half as much from Tesco's own brand.",
+    "evidence": "Tesco's Nurofen Soft Capsules listing states ibuprofen 200mg per soft capsule, 16 capsules, £4.50. Tesco Health's listing says 'Each soft gelatin capsule contains: Ibuprofen 200mg', 16 capsules, £2.00. Same active, same dose, same soft-capsule form.",
+    "differences": "Tesco showed the Nurofen capsules as out of stock when checked, so the brand price is the listed shelf price. The Tesco capsule contains the colour Ponceau 4R (E124) and sorbitol.",
+    "sources": [
+      "https://www.tesco.com/shop/en-GB/products/290920280",
+      "https://www.tesco.com/groceries/en-GB/products/254857985"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "gaviscon-original-vs-tesco-health-heartburn-indigestion-liquid-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Digestive",
+    "title": "Gaviscon Heartburn & Indigestion Liquid vs Tesco Health Heartburn & Indigestion Oral Suspension",
+    "brand": {
+      "brand": "Gaviscon",
+      "product": "Gaviscon Heartburn & Indigestion Liquid Peppermint 500ml",
+      "size": 500,
+      "unit": "ml",
+      "price": 14.0,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/320967075",
+      "key_ingredients": [
+        {
+          "name": "Sodium alginate",
+          "amount": "500 mg per 10 ml"
+        },
+        {
+          "name": "Sodium bicarbonate",
+          "amount": "267 mg per 10 ml"
+        },
+        {
+          "name": "Calcium carbonate",
+          "amount": "160 mg per 10 ml"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Heartburn & Indigestion Oral Suspension Aniseed Flavour 500ml",
+      "size": 500,
+      "unit": "ml",
+      "price": 6.5,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/253026467",
+      "key_ingredients": [
+        {
+          "name": "Sodium alginate",
+          "amount": "500 mg per 10 ml"
+        },
+        {
+          "name": "Sodium bicarbonate",
+          "amount": "267 mg per 10 ml"
+        },
+        {
+          "name": "Calcium carbonate",
+          "amount": "160 mg per 10 ml"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are alginate raft liquids with the same three actives (sodium alginate, sodium bicarbonate and calcium carbonate), and the Tesco formula's licence gives the same amounts as Gaviscon's original liquid, at under half the price.",
+    "evidence": "Tesco's Gaviscon Peppermint 500ml listing states 500mg sodium alginate, 267mg sodium bicarbonate and 160mg calcium carbonate per 10ml (£14.00; Clubcard £12.60 until 10 November 2026). Tesco Health's 500ml aniseed suspension lists sodium bicarbonate, sodium alginate and calcium carbonate (£6.50) but no amounts. The eMC SmPC for Acidex Oral Suspension (Pinewood Laboratories, PL 4917/0027), which names 'Tesco Heartburn & Indigestion relief' among its brand names, gives 250mg sodium alginate, 133.5mg sodium bicarbonate and 80mg calcium carbonate per 5ml, which is the same as Gaviscon per 10ml.",
+    "differences": "Confidence is medium because the Tesco product page does not print the amounts and the eMC licence that names the Tesco product describes a peppermint suspension, while the Tesco listing checked is aniseed flavour. The flavours differ (peppermint vs aniseed).",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/320967075",
+      "https://www.tesco.com/groceries/en-GB/products/253026467",
+      "https://www.medicines.org.uk/emc/product/15319/smpc/print"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nuromol-vs-galpharm-ibuprofen-paracetamol-200-500mg-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Nuromol vs Galpharm Ibuprofen & Paracetamol 200mg/500mg",
+    "brand": {
+      "brand": "Nuromol",
+      "product": "Nuromol Dual Action Pain Relief Tablets Ibuprofen, Paracetamol 16s",
+      "size": 16,
+      "unit": "tablet",
+      "price": 5.8,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/310097537",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        },
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Galpharm",
+      "product": "Galpharm Ibuprofen & Paracetamol 200mg/500mg Tablets 16s",
+      "size": 16,
+      "unit": "tablet",
+      "price": 2.75,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/shop/en-GB/products/322252094",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "200 mg"
+        },
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both tablets combine 200mg ibuprofen with 500mg paracetamol, so the Galpharm pack is the same dual-action painkiller at under half the price.",
+    "evidence": "Tesco's Nuromol listing states 'Each tablet contains: Ibuprofen 200 mg and Paracetamol 500 mg', 16 tablets, £5.80 (Clubcard £5.20 until 10 November 2026). Tesco's Galpharm listing states 'Each Tablet contains 200mg Ibuprofen and 500mg Paracetamol', 16 tablets, £2.75. Both are sold at Tesco.",
+    "differences": "Galpharm is a value medicines brand rather than Tesco's own label. Inactive ingredients and tablet coating may differ.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/310097537",
+      "https://www.tesco.com/shop/en-GB/products/322252094"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nurofen-for-children-vs-tesco-health-ibuprofen-100mg-5ml-suspension-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Children's medicine",
+    "title": "Nurofen for Children vs Tesco Health Ibuprofen Orange Suspension 100mg/5ml",
+    "brand": {
+      "brand": "Nurofen",
+      "product": "Nurofen For Children 100mg/5ml Orange Liquid 100ml",
+      "size": 100,
+      "unit": "ml",
+      "price": 4.5,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/260773988",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "100 mg per 5 ml"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Ibuprofen Orange Suspension 100ml (sugar & colour free)",
+      "size": 100,
+      "unit": "ml",
+      "price": 2.2,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/260115933",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "100 mg per 5 ml"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are sugar-free orange ibuprofen suspensions at 100mg per 5ml for children from 3 months, so the Tesco bottle is the same medicine at under half the price.",
+    "evidence": "Tesco's Nurofen for Children listing says 'Each 5ml of oral suspension contains 100mg ibuprofen', sugar and colour free, 3 months to 9 years, 100ml, £4.50. Tesco Health Ibuprofen Orange Suspension lists ibuprofen 100mg per 5ml, sugar and colour free, from 3 months, 100ml, £2.20.",
+    "differences": "Tesco showed its own-brand suspension as out of stock when checked, so the price is the listed shelf price. Inactive ingredients and the dosing device may differ.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/260773988",
+      "https://www.tesco.com/groceries/en-GB/products/260115933"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "zovirax-vs-tesco-health-aciclovir-cold-sore-cream-5-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Skin treatment",
+    "title": "Zovirax vs Tesco Health Aciclovir 5% Cold Sore Cream",
+    "brand": {
+      "brand": "Zovirax",
+      "product": "Zovirax Cold Sore Treatment Cream Aciclovir Tube 2g",
+      "size": 2,
+      "unit": "g",
+      "price": 7.25,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/258071871",
+      "key_ingredients": [
+        {
+          "name": "Aciclovir",
+          "amount": "5% w/w"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Aciclovir Antiviral Cold Sore Relief Cream 2g",
+      "size": 2,
+      "unit": "g",
+      "price": 3.7,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/258386176",
+      "key_ingredients": [
+        {
+          "name": "Aciclovir",
+          "amount": "5% w/w"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 2g tubes of 5% aciclovir cream for cold sores, so the Tesco tube is the same antiviral at about half the price.",
+    "evidence": "Tesco's Zovirax listing states 'Contains 5% w/w Aciclovir', 2g tube, £7.25 (Clubcard price £6.25 until 10 November 2026). Tesco Health Aciclovir Antiviral Cold Sore Relief Cream lists aciclovir 5% w/w in a 2g tube at £3.70.",
+    "differences": "Tesco showed its own-brand cream as out of stock when checked, so the price is the listed shelf price. The cream base (inactive ingredients) may differ.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/258071871",
+      "https://www.tesco.com/groceries/en-GB/products/258386176"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "beconase-vs-tesco-health-hayfever-relief-beclometasone-nasal-spray-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Beconase vs Tesco Health Hayfever Relief Nasal Spray (Beclometasone 50mcg)",
+    "brand": {
+      "brand": "Beconase",
+      "product": "Beconase Allergy Nasal Spray for Hayfever Relief 100 Dose",
+      "size": 100,
+      "unit": "spray",
+      "price": 6.5,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/255211728",
+      "key_ingredients": [
+        {
+          "name": "Beclometasone dipropionate",
+          "amount": "50 micrograms per spray"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Hayfever & Allergy Relief 100 Dose (Hayfever Relief Nasal Spray for Adults 50 micrograms/dose)",
+      "size": 100,
+      "unit": "spray",
+      "price": 4.2,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/272598935",
+      "key_ingredients": [
+        {
+          "name": "Beclometasone dipropionate",
+          "amount": "50 micrograms per spray"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 100-dose steroid nasal sprays delivering 50 micrograms of beclometasone dipropionate per spray for adults, so the Tesco spray is the same hayfever treatment for about a third less.",
+    "evidence": "Tesco's Beconase listing states beclometasone dipropionate 50 micrograms per spray, 100 sprays, adults 18 and over, £6.50. Tesco's own-brand listing is described as 'Tesco Health Hayfever Relief Nasal Spray for Adults 50 Micrograms/Dose' with beclometasone dipropionate, 100 doses, adults 18 and over, £4.20.",
+    "differences": "Tesco showed its own-brand spray as out of stock when checked, so the price is the listed shelf price. Pump design and inactive ingredients (preservative, thickener) may differ.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/255211728",
+      "https://www.tesco.com/groceries/en-GB/products/272598935"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "calpol-infant-vs-tesco-health-paracetamol-120mg-5ml-suspension-gb",
+    "market": "GB",
+    "category": "otc-medicine",
+    "subcategory": "Children's medicine",
+    "title": "Calpol Infant vs Tesco Health Paracetamol 120mg/5ml Suspension",
+    "brand": {
+      "brand": "Calpol",
+      "product": "Calpol Infant Paracetamol Oral Suspension 120mg/5ml Strawberry 100ml",
+      "size": 100,
+      "unit": "ml",
+      "price": 3.45,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/261038389",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "120 mg per 5 ml"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Tesco Health",
+      "product": "Tesco Health Paracetamol 120mg/5ml Oral Suspension Strawberry 100ml (sugar free)",
+      "size": 100,
+      "unit": "ml",
+      "price": 2.65,
+      "retailer": "tesco",
+      "asin": null,
+      "url": "https://www.tesco.com/groceries/en-GB/products/309474265",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "120 mg per 5 ml"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are strawberry-flavoured infant paracetamol suspensions at 120mg per 5ml, so the same dose in ml gives the same medicine for less.",
+    "evidence": "Tesco's Calpol Infant listing is 'Paracetamol Oral Suspension 120mg/5ml', 100ml, £3.45 (the sugar-free Calpol Infant 100ml is also £3.45, Tesco product 256725735). Tesco Health's listing is 'Paracetamol 120mg/5ml Oral Suspension', 100ml, sugar free, £2.65. Same active at the same concentration, so doses in ml are interchangeable.",
+    "differences": "Calpol Infant is labelled from 2 months; the Tesco Health dosing table starts at 3 months, so check the age on the pack for babies under 3 months. The Tesco version is sugar free; the Calpol Strawberry page does not say whether it is.",
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/261038389",
+      "https://www.tesco.com/groceries/en-GB/products/309474265",
+      "https://www.tesco.com/groceries/en-GB/products/256725735"
+    ],
+    "price_checked": "2026-11"
+  }
+]

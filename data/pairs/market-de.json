@@ -1,0 +1,828 @@
+[
+  {
+    "slug": "zyrtec-vs-cetirizin-adgc-10mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Zyrtec vs Cetirizin ADGC 10mg",
+    "brand": {
+      "brand": "Zyrtec",
+      "product": "Zyrtec 10 mg Filmtabletten (cetirizine), 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 59.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/03738203-zyrtec-10-mg-filmtabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine dihydrochloride",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ADGC (Zentiva)",
+      "product": "Cetirizin ADGC 10 mg Filmtabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 10.04,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/02663704-cetirizin-adgc-filmtabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine dihydrochloride",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 10 mg cetirizine dihydrochloride film-coated tablets, the same pharmacy-only antihistamine.",
+    "evidence": "Online pharmacy Aponeo (retailer: other) lists Zyrtec 10 mg film-coated tablets by UCB Pharma (PZN 03738203) and Cetirizin ADGC film-coated tablets by Zentiva (PZN 02663704). Both pages state 10 mg cetirizine dihydrochloride per film-coated tablet and mark both as apothekenpflichtig (no prescription needed). Prices are from the same shop, 100-tablet packs.",
+    "differences": "Inactive ingredients and tablet appearance may differ. Zyrtec also comes in 20 and 50 packs (15.79 and 33.49 EUR), and the ADGC version in 20 and 50 packs (2.30 and 5.42 EUR).",
+    "sources": [
+      "https://www.aponeo.de/03738203-zyrtec-10-mg-filmtabletten.html",
+      "https://www.aponeo.de/02663704-cetirizin-adgc-filmtabletten.html",
+      "https://www.shop-apotheke.com/arzneimittel/2663704/cetirizin-adgc-filmtabletten.htm"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Cetirizine dihydrochloride 10 mg film-coated tablets"
+  },
+  {
+    "slug": "aspirin-vs-ass-500-1a-pharma-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Aspirin 500 mg vs ASS 500 1 A Pharma",
+    "brand": {
+      "brand": "Aspirin",
+      "product": "Aspirin 500 mg überzogene Tabletten, 80 tablets",
+      "size": 80,
+      "unit": "tablet",
+      "price": 20.69,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/10203632/aspirin-500-mg-ueberzogene-tabletten.htm",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "1 A Pharma",
+      "product": "ASS 500 - 1 A Pharma Tabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 4.99,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both tablets contain 500 mg acetylsalicylic acid, the active ingredient in Aspirin.",
+    "evidence": "Shop Apotheke (retailer: other) lists Aspirin 500 mg by Bayer Vital (PZN 10203632) and ASS 500 by 1 A Pharma (PZN 08612435). The pharmacy pages state 500 mg acetylsalicylic acid per tablet for both, and both are apothekenpflichtig without a prescription. Prices are from the same shop.",
+    "differences": "Aspirin 500 mg is a coated tablet (überzogene Tablette); ASS 500 1 A Pharma is a plain uncoated tablet. Inactive ingredients differ. A 30-tablet pack of the 1 A Pharma tablets is 1.89 EUR.",
+    "sources": [
+      "https://www.shop-apotheke.com/arzneimittel/10203632/aspirin-500-mg-ueberzogene-tabletten.htm",
+      "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm",
+      "https://www.shop-apotheke.com/marken/ass/ass-500/"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Aspirin (acetylsalicylic acid) 500 mg tablets"
+  },
+  {
+    "slug": "imodium-akut-vs-loperamid-abz-akut-2mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Imodium akut vs Loperamid AbZ akut 2mg",
+    "brand": {
+      "brand": "Imodium",
+      "product": "Imodium akut Hartkapseln, 12 capsules",
+      "size": 12,
+      "unit": "capsule",
+      "price": 8.79,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/4940757/imodium-akut-bei-akutem-durchfall.htm",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "AbZ-Pharma",
+      "product": "Loperamid AbZ akut 2 mg Hartkapseln, 10 capsules",
+      "size": 10,
+      "unit": "capsule",
+      "price": 1.89,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are hard capsules with 2 mg loperamide hydrochloride for acute diarrhoea.",
+    "evidence": "Shop Apotheke (retailer: other) lists Imodium akut hard capsules by Kenvue Germany (PZN 04940757) and Loperamid AbZ akut 2 mg hard capsules by AbZ-Pharma (PZN 16754333). Both pages state 2 mg loperamide hydrochloride per hard capsule and both are apothekenpflichtig without a prescription. Prices are from the same shop.",
+    "differences": "Inactive ingredients and capsule colour may differ. Pack counts differ (12 vs 10); a 2x10 pack of the AbZ capsules is 3.69 EUR.",
+    "sources": [
+      "https://www.shop-apotheke.com/arzneimittel/4940757/imodium-akut-bei-akutem-durchfall.htm",
+      "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm",
+      "https://www.shop-apotheke.com/marken/loperamid/"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Loperamide hydrochloride 2 mg capsules"
+  },
+  {
+    "slug": "ben-u-ron-vs-paracetamol-adgc-500mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "ben-u-ron 500 mg vs Paracetamol ADGC 500 mg",
+    "brand": {
+      "brand": "ben-u-ron",
+      "product": "ben-u-ron 500 mg Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 3.5,
+      "retailer": "medikamente-per-klick",
+      "asin": null,
+      "url": "https://www.medikamente-per-klick.de/ben-u-ron-500-mg-tabletten-20st-00116694",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ADGC (Zentiva)",
+      "product": "Paracetamol ADGC 500 mg Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 0.99,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 500 mg paracetamol tablets in the 20-tablet pack sold without prescription.",
+    "evidence": "medikamente-per-klick (retailer: other) lists ben-u-ron 500 mg tablets by bene Arzneimittel (PZN 00116694), 20 tablets. Shop Apotheke (retailer: other) lists Paracetamol ADGC 500 mg tablets by Zentiva (PZN 17502496) with 500 mg paracetamol per tablet, apothekenpflichtig. In Germany only packs up to 10 g paracetamol (20 x 500 mg) are non-prescription; Shop Apotheke marks the 50-tablet ben-u-ron pack as prescription-only.",
+    "differences": "Prices come from two different online pharmacies. Inactive ingredients may differ. Paracetamol-ratiopharm 500 mg (20 tablets, 2.59 EUR at Shop Apotheke) is another verified option.",
+    "sources": [
+      "https://www.medikamente-per-klick.de/ben-u-ron-500-mg-tabletten-20st-00116694",
+      "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm",
+      "https://www.shop-apotheke.com/arzneimittel/2622929/ben-u-ron-500-mg.htm",
+      "https://www.shop-apotheke.com/wirkstoff-paracetamol/"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Paracetamol 500 mg tablets, 20-pack"
+  },
+  {
+    "slug": "mucosolvan-vs-ambroxol-al-30mg-5ml-saft-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "Mucosolvan Hustensaft vs Ambroxolhydrochlorid AL 30 mg/5 ml",
+    "brand": {
+      "brand": "Mucosolvan",
+      "product": "Mucosolvan Hustensaft 30 mg/5 ml, 250 ml",
+      "size": 250,
+      "unit": "ml",
+      "price": 16.8,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00743445-mucosolvan-saft-30-mg-5-ml.html",
+      "key_ingredients": [
+        {
+          "name": "Ambroxol hydrochloride",
+          "amount": "30 mg per 5 ml"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "Ambroxolhydrochlorid AL 30 mg/5 ml Sirup, 250 ml",
+      "size": 250,
+      "unit": "ml",
+      "price": 4.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/15235631-ambroxolhydrochlorid-al-30-mg-5-ml-sirup.html",
+      "key_ingredients": [
+        {
+          "name": "Ambroxol hydrochloride",
+          "amount": "30 mg per 5 ml"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both cough syrups contain 30 mg ambroxol hydrochloride per 5 ml, so the dose per spoon is the same.",
+    "evidence": "Shop Apotheke (retailer: other) lists Mucosolvan Hustensaft by A. Nattermann/Sanofi (PZN 00743445) with 30 mg ambroxol hydrochloride per 5 ml, apothekenpflichtig. Online pharmacy Aponeo lists Ambroxolhydrochlorid AL 30 mg/5 ml syrup by ALIUD Pharma (PZN 15235631) with 30 mg per 5 ml, and on the same page lists Mucosolvan Hustensaft 250 ml at 16.80 EUR, so both prices are from Aponeo.",
+    "differences": "Mucosolvan is sugar-free and sweetened with sucralose; the AL syrup's sweeteners were not checked. Flavour differs. Do not confuse with Ambroxol-ratiopharm Hustensaft, which is only 15 mg per 5 ml.",
+    "sources": [
+      "https://www.shop-apotheke.com/arzneimittel/743445/mucosolvan-hustensaft-schleimloeser-bei-husten-hustenloeser.htm",
+      "https://www.aponeo.de/15235631-ambroxolhydrochlorid-al-30-mg-5-ml-sirup.html",
+      "https://www.aponeo.de/00743445-mucosolvan-saft-30-mg-5-ml.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Ambroxol hydrochloride 30 mg/5 ml cough syrup"
+  },
+  {
+    "slug": "vomex-a-vs-dimenhydrinat-al-50mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Travel sickness",
+    "title": "Vomex A vs Dimenhydrinat AL 50mg",
+    "brand": {
+      "brand": "Vomex A",
+      "product": "Vomex A Dragees 50 mg, 20 coated tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 7.95,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04274616-vomex-a-dragees-50-mg-ueberzogene-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Dimenhydrinate",
+          "amount": "50 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "Dimenhydrinat AL 50 mg Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 2.49,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/06938658-dimenhydrinat-al-50-mg-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Dimenhydrinate",
+          "amount": "50 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both contain 50 mg dimenhydrinate per tablet for nausea and travel sickness.",
+    "evidence": "Online pharmacy Aponeo (retailer: other) lists Vomex A Dragees 50 mg by Klinge Pharma (PZN 04274616) and Dimenhydrinat AL 50 mg tablets by ALIUD Pharma (PZN 06938658). Both pages state 50 mg dimenhydrinate per tablet and both are apothekenpflichtig without a prescription. Prices are from the same shop, 20-tablet packs.",
+    "differences": "Vomex A is a sugar-coated tablet (Dragee); Dimenhydrinat AL is a plain tablet. Inactive ingredients differ.",
+    "sources": [
+      "https://www.aponeo.de/04274616-vomex-a-dragees-50-mg-ueberzogene-tabletten.html",
+      "https://www.aponeo.de/06938658-dimenhydrinat-al-50-mg-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Dimenhydrinate 50 mg tablets"
+  },
+  {
+    "slug": "pantozol-control-vs-panto-aristo-20mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Heartburn",
+    "title": "Pantozol Control vs Panto Aristo 20mg",
+    "brand": {
+      "brand": "Pantozol Control",
+      "product": "Pantozol Control 20 mg magensaftresistente Tabletten, 14 tablets",
+      "size": 14,
+      "unit": "tablet",
+      "price": 12.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/05124445-pantozol-control-20-mg-magensaftres-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Pantoprazole",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Aristo Pharma",
+      "product": "Panto Aristo bei Sodbrennen 20 mg magensaftresistente Tabletten, 14 tablets",
+      "size": 14,
+      "unit": "tablet",
+      "price": 4.49,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/07021927-panto-aristo-bei-sodbrennen-20-mg-magensaftr-tabl.html",
+      "key_ingredients": [
+        {
+          "name": "Pantoprazole",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 20 mg pantoprazole gastro-resistant tablets sold without prescription for heartburn.",
+    "evidence": "Online pharmacy Aponeo (retailer: other) lists Pantozol Control 20 mg by Dr. Kade (PZN 05124445) and Panto Aristo bei Sodbrennen 20 mg by Aristo Pharma (PZN 07021927). Both are 20 mg pantoprazole gastro-resistant (magensaftresistent) tablets, apothekenpflichtig, in 14-tablet packs. Prices are from the same shop.",
+    "differences": "Inactive ingredients and tablet colour may differ. Neither page states the salt form; both are the standard 20 mg non-prescription strength.",
+    "sources": [
+      "https://www.aponeo.de/05124445-pantozol-control-20-mg-magensaftres-tabletten.html",
+      "https://www.aponeo.de/07021927-panto-aristo-bei-sodbrennen-20-mg-magensaftr-tabl.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Pantoprazole 20 mg gastro-resistant tablets (for heartburn)"
+  },
+  {
+    "slug": "nurofen-vs-ibu-ratiopharm-400mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Nurofen 400 mg vs Ibu-ratiopharm 400 akut",
+    "brand": {
+      "brand": "Nurofen",
+      "product": "Nurofen Ibuprofen 400 mg überzogene Tabletten, 24 tablets",
+      "size": 24,
+      "unit": "tablet",
+      "price": 5.49,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/8794436/nurofen-ibuprofen-400-mg-bei-kopfschmerzen.htm",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "400 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Ibu-ratiopharm 400 mg akut Schmerztabletten, 50 film-coated tablets",
+      "size": 50,
+      "unit": "tablet",
+      "price": 3.99,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "400 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both tablets contain 400 mg ibuprofen, the highest non-prescription single dose in Germany.",
+    "evidence": "Shop Apotheke (retailer: other) lists Nurofen Ibuprofen 400 mg by Reckitt Benckiser (PZN 08794436) and Ibu-ratiopharm 400 mg akut by ratiopharm (PZN 10019621). Both pages state 400 mg ibuprofen per tablet and both are apothekenpflichtig without a prescription. Prices are from the same shop.",
+    "differences": "Nurofen is a sugar-coated tablet (überzogene Tablette); Ibu-ratiopharm is a film-coated tablet. Inactive ingredients differ. Pack sizes differ (24 vs 50); a 20-pack of Ibu-ratiopharm is 2.29 EUR.",
+    "sources": [
+      "https://www.shop-apotheke.com/arzneimittel/8794436/nurofen-ibuprofen-400-mg-bei-kopfschmerzen.htm",
+      "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm",
+      "https://www.shop-apotheke.com/marken/nurofen/nurofen-ibuprofen/"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Ibuprofen 400 mg tablets"
+  },
+  {
+    "slug": "zovirax-vs-acic-lippenherpescreme-5-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold sores",
+    "title": "Zovirax Lippenherpescreme vs Acic Creme 5%",
+    "brand": {
+      "brand": "Zovirax",
+      "product": "Zovirax Lippenherpescreme 5% aciclovir, 2 g",
+      "size": 2,
+      "unit": "g",
+      "price": 9.59,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/2799289/zovirax-lippenherpescreme-mit-aciclovir.htm",
+      "key_ingredients": [
+        {
+          "name": "Aciclovir",
+          "amount": "50 mg/g (5%)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Hexal",
+      "product": "Acic Creme bei Lippenherpes 5% aciclovir, 2 g",
+      "size": 2,
+      "unit": "g",
+      "price": 3.89,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm",
+      "key_ingredients": [
+        {
+          "name": "Aciclovir",
+          "amount": "50 mg/g (5%)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 5% aciclovir creams (50 mg per gram) in a 2 g tube for cold sores.",
+    "evidence": "Shop Apotheke (retailer: other) lists Zovirax Lippenherpescreme by Haleon (PZN 02799289) and Acic Creme bei Lippenherpes by Hexal (PZN 08654310). Both pages state 5% aciclovir, 50 mg per gram, as a cream, apothekenpflichtig without a prescription. Prices are from the same shop, 2 g tubes.",
+    "differences": "Cream base and inactive ingredients may differ. Other 5% aciclovir lip creams (ratiopharm, AbZ) were listed as out of stock when checked.",
+    "sources": [
+      "https://www.shop-apotheke.com/arzneimittel/2799289/zovirax-lippenherpescreme-mit-aciclovir.htm",
+      "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm",
+      "https://www.aponeo.de/02286360-aciclovir-ratiopharm-lippenherpescreme.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Aciclovir 5% cold sore cream"
+  },
+  {
+    "slug": "lorano-akut-vs-loratadin-axicur-10mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Lorano akut vs Loratadin axicur 10mg",
+    "brand": {
+      "brand": "Lorano",
+      "product": "Lorano akut 10 mg Tabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 22.9,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/07224435-lorano-akut-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "axicur (axicorp)",
+      "product": "Loratadin axicur 10 mg Tabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 9.44,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/14293796-loratadin-axicur-10-mg-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Loratadine",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 10 mg loratadine once-daily allergy tablets.",
+    "evidence": "Online pharmacy Aponeo (retailer: other) lists Lorano akut 10 mg by Hexal (PZN 07224435) and Loratadin axicur 10 mg by axicorp Pharma (PZN 14293796). Both pages state 10 mg loratadine per tablet and both are apothekenpflichtig without a prescription. Prices are from the same shop, 100-tablet packs.",
+    "differences": "Inactive ingredients may differ. Lorano is Hexal's advertised brand rather than an originator product, but it is the best-known loratadine brand in German pharmacies.",
+    "sources": [
+      "https://www.aponeo.de/07224435-lorano-akut-tabletten.html",
+      "https://www.aponeo.de/14293796-loratadin-axicur-10-mg-tabletten.html",
+      "https://www.aponeo.de/arzneimittel/antiallergikum/loratadin/"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Loratadine 10 mg tablets"
+  },
+  {
+    "slug": "hoggar-night-vs-schlaftabs-ratiopharm-25mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Sleep",
+    "title": "Hoggar Night vs SchlafTabs-ratiopharm 25mg",
+    "brand": {
+      "brand": "Hoggar Night",
+      "product": "Hoggar Night 25 mg Doxylamin Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 12.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04402066-hoggar-night-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Doxylamine succinate",
+          "amount": "25 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "SchlafTabs-ratiopharm 25 mg Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 5.66,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/07707524-schlaf-tabs-ratiopharm-25-mg-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Doxylamine succinate",
+          "amount": "25 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 25 mg doxylamine succinate sleep tablets sold without prescription in pharmacies.",
+    "evidence": "Online pharmacy Aponeo (retailer: other) lists Hoggar Night tablets by STADA (PZN 04402066) and SchlafTabs-ratiopharm 25 mg by ratiopharm (PZN 07707524). Both pages state 25 mg doxylamine succinate per tablet and both are apothekenpflichtig. Prices are from the same shop, 20-tablet packs.",
+    "differences": "Inactive ingredients may differ. Doxylamine is for short-term use only; follow the leaflet.",
+    "sources": [
+      "https://www.aponeo.de/04402066-hoggar-night-tabletten.html",
+      "https://www.aponeo.de/07707524-schlaf-tabs-ratiopharm-25-mg-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Doxylamine succinate 25 mg tablets"
+  },
+  {
+    "slug": "talcid-vs-hydrotalcit-ratiopharm-500mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Heartburn",
+    "title": "Talcid vs Hydrotalcit-ratiopharm 500mg",
+    "brand": {
+      "brand": "Talcid",
+      "product": "Talcid Kautabletten 500 mg, 100 chewable tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 28.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/01921682-talcid-kautabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Hydrotalcite",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Hydrotalcit-ratiopharm 500 mg Kautabletten, 100 chewable tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 15.31,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Hydrotalcite",
+          "amount": "500 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are chewable antacid tablets with 500 mg hydrotalcite for heartburn and acid stomach.",
+    "evidence": "Online pharmacy Aponeo (retailer: other) lists Talcid chewable tablets by Bayer Vital (PZN 01921682) and Hydrotalcit-ratiopharm 500 mg chewable tablets (PZN 07106003). Both pages state 500 mg hydrotalcite per chewable tablet and both are apothekenpflichtig. Prices are from the same shop, 100-tablet packs.",
+    "differences": "Flavour and inactive ingredients may differ. At 50 tablets the gap is smaller (13.99 vs 9.14 EUR).",
+    "sources": [
+      "https://www.aponeo.de/01921682-talcid-kautabletten.html",
+      "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Hydrotalcite 500 mg chewable tablets"
+  },
+  {
+    "slug": "otriven-vs-nasenspray-sine-al-0-1-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "Otriven 0.1% vs Nasenspray sine AL 1 mg/ml",
+    "brand": {
+      "brand": "Otriven",
+      "product": "Otriven gegen Schnupfen 0.1% Dosierspray ohne Konservierungsstoffe, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 4.69,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/8444541/otriven-gegen-schnupfen-0-1-nasenspray-dosierspray-ohne-konservierungsstoffe.htm",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml (0.1%)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "Nasenspray sine AL 1 mg/ml, preservative-free, 15 ml",
+      "size": 15,
+      "unit": "ml",
+      "price": 3.79,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml (0.1%)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are preservative-free adult nasal sprays with 1 mg/ml (0.1%) xylometazoline hydrochloride.",
+    "evidence": "Shop Apotheke (retailer: other) lists Otriven 0.1% preservative-free spray by Haleon (PZN 08444541) and Nasenspray sine AL 1 mg/ml by ALIUD Pharma (PZN 12464124). Both pages state 1 mg xylometazoline hydrochloride per ml, no preservatives, apothekenpflichtig. Prices are from the same shop.",
+    "differences": "The base solution differs: Otriven uses a saline phosphate buffer with disodium edetate, the AL spray uses seawater and potassium phosphate. Bottle sizes differ (10 ml vs 15 ml); a 10 ml AL bottle is 3.29 EUR.",
+    "sources": [
+      "https://www.shop-apotheke.com/arzneimittel/8444541/otriven-gegen-schnupfen-0-1-nasenspray-dosierspray-ohne-konservierungsstoffe.htm",
+      "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Xylometazoline 0.1% preservative-free nasal spray"
+  },
+  {
+    "slug": "thomapyrin-classic-vs-dolopyrin-al-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Thomapyrin Classic vs Dolopyrin AL",
+    "brand": {
+      "brand": "Thomapyrin",
+      "product": "Thomapyrin Classic Schmerztabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 5.59,
+      "retailer": "docmorris",
+      "asin": null,
+      "url": "https://www.docmorris.de/thomapyrin-classic/03046735",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Paracetamol",
+          "amount": "200 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "50 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "Dolopyrin AL Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 3.19,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Paracetamol",
+          "amount": "200 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "50 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are the same three-part headache tablet: 250 mg ASS, 200 mg paracetamol and 50 mg caffeine.",
+    "evidence": "DocMorris (retailer: other) lists Thomapyrin Classic by A. Nattermann (PZN 03046735) at 250 mg acetylsalicylic acid, 200 mg paracetamol and 50 mg caffeine per tablet. Shop Apotheke (retailer: other) lists Dolopyrin AL by ALIUD Pharma (PZN 00190791) with the same three actives at the same amounts. Both are apothekenpflichtig.",
+    "differences": "Prices come from two different online pharmacies (DocMorris and Shop Apotheke). Inactive ingredients may differ.",
+    "sources": [
+      "https://www.docmorris.de/thomapyrin-classic/03046735",
+      "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm",
+      "https://www.shop-apotheke.com/marken/ass/ass-500/"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Aspirin 250 mg + paracetamol 200 mg + caffeine 50 mg tablets"
+  },
+  {
+    "slug": "dolormin-extra-vs-ibu-lysin-1a-pharma-400mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Dolormin Extra vs Ibu-Lysin 1 A Pharma 400mg",
+    "brand": {
+      "brand": "Dolormin",
+      "product": "Dolormin Extra 400 mg Filmtabletten, 50 tablets",
+      "size": 50,
+      "unit": "tablet",
+      "price": 17.79,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/1094724/dolormin-extra.htm",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen DL-lysine",
+          "amount": "683.47 mg (= 400 mg ibuprofen)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "1 A Pharma",
+      "product": "Ibu-Lysin - 1 A Pharma 400 mg Filmtabletten, 50 tablets",
+      "size": 50,
+      "unit": "tablet",
+      "price": 11.79,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen DL-lysine",
+          "amount": "683.47 mg (= 400 mg ibuprofen)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are film-coated tablets with 683.47 mg ibuprofen lysine (400 mg ibuprofen), the fast-absorbed salt used in Dolormin Extra.",
+    "evidence": "Shop Apotheke (retailer: other) lists Dolormin Extra by Kenvue Germany (PZN 01094724) and Ibu-Lysin 1 A Pharma 400 mg (PZN 15743793). Both pages state 683.47 mg ibuprofen DL-lysine per film-coated tablet, equal to 400 mg ibuprofen, and both are apothekenpflichtig. Prices are from the same shop, 50-tablet packs.",
+    "differences": "Inactive ingredients may differ.",
+    "sources": [
+      "https://www.shop-apotheke.com/arzneimittel/1094724/dolormin-extra.htm",
+      "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Ibuprofen lysine 684 mg (400 mg ibuprofen) tablets"
+  },
+  {
+    "slug": "voltaren-forte-vs-diclox-forte-gel-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Voltaren Schmerzgel forte vs Diclox forte",
+    "brand": {
+      "brand": "Voltaren",
+      "product": "Voltaren Schmerzgel forte 23.2 mg/g, 150 g",
+      "size": 150,
+      "unit": "g",
+      "price": 18.47,
+      "retailer": "medikamente-per-klick",
+      "asin": null,
+      "url": "https://www.medikamente-per-klick.de/voltaren-schmerzgel-forte-23-2-mg-g-150g-08628270?sps=abp",
+      "key_ingredients": [
+        {
+          "name": "Diclofenac diethylamine",
+          "amount": "23.2 mg/g (2.32%)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Diclox forte Schmerzgel 2% (ratiopharm), 150 g",
+      "size": 150,
+      "unit": "g",
+      "price": 15.69,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm",
+      "key_ingredients": [
+        {
+          "name": "Diclofenac diethylamine",
+          "amount": "23.2 mg/g (2.32%)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both gels contain 23.2 mg diclofenac diethylamine per gram (equal to 20 mg/g diclofenac) and are used twice daily.",
+    "evidence": "medikamente-per-klick (retailer: other) lists Voltaren Schmerzgel forte by Haleon (PZN 08628270) with 23.2 mg/g diclofenac diethylamine, applied twice daily. Shop Apotheke (retailer: other) lists Diclox forte by ratiopharm (PZN 16705010) with 23.2 mg diclofenac diethylamine per gram (stated as 20 mg/g diclofenac), also twice daily. Both are apothekenpflichtig.",
+    "differences": "The saving is small at current discount prices. Prices come from two different online pharmacies. Gel base and inactive ingredients may differ. Do not confuse with the 1% gels (Voltaren Schmerzgel 1.16% or Diclo-ratiopharm Schmerzgel, which uses diclofenac sodium).",
+    "sources": [
+      "https://www.medikamente-per-klick.de/voltaren-schmerzgel-forte-23-2-mg-g-150g-08628270?sps=abp",
+      "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Diclofenac diethylamine 2.32% gel (twice daily)"
+  }
+]
