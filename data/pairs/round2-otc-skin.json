@@ -1,0 +1,944 @@
+[
+  {
+    "slug": "prevacid-24hr-vs-equate-lansoprazole-15mg",
+    "category": "otc-medicine",
+    "subcategory": "Heartburn & acid",
+    "title": "Prevacid 24HR vs Equate Lansoprazole 15mg",
+    "brand": {
+      "brand": "Prevacid 24HR",
+      "product": "Prevacid 24HR Lansoprazole Delayed-Release Capsules 15 mg, 42 count",
+      "size": 42,
+      "unit": "capsule",
+      "price_usd": 23.42,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://walmart.com/ip/seort/594995460",
+      "key_ingredients": [
+        {
+          "name": "Lansoprazole",
+          "amount": "15 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Lansoprazole Delayed Release Capsules 15 mg, Acid Reducer, 42 count",
+      "size": 42,
+      "unit": "capsule",
+      "price_usd": 9.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/907145156",
+      "key_ingredients": [
+        {
+          "name": "Lansoprazole",
+          "amount": "15 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 15 mg lansoprazole delayed-release capsules sold as the same 14-day OTC heartburn treatment.",
+    "evidence": "Walmart's Prevacid 24HR listing shows lansoprazole 15 mg, 42 capsules. The Equate listing shows lansoprazole 15 mg delayed-release capsules, 42 count, and says 'Compare to the active ingredient of Prevacid 24 HR'.",
+    "differences": "Inactive ingredients and capsule colour may differ. One Equate listing's spec table wrongly says 20 mg; the product title and ingredient panel say 15 mg.",
+    "sources": [
+      "https://walmart.com/ip/seort/594995460",
+      "https://www.walmart.com/ip/907145156",
+      "https://otclabels.com/lib/otc/otc-meds/equate-lansoprazole-delayed-release/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "pataday-once-daily-vs-equate-olopatadine-0-2",
+    "category": "otc-medicine",
+    "subcategory": "Eye allergy",
+    "title": "Pataday Once Daily vs Equate Olopatadine 0.2% Eye Drops",
+    "brand": {
+      "brand": "Pataday",
+      "product": "Pataday Once Daily Relief Eye Allergy Itch Relief Drops, Olopatadine 0.2%, 2.5 mL",
+      "size": 2.5,
+      "unit": "mL",
+      "price_usd": 20.84,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/753496797",
+      "key_ingredients": [
+        {
+          "name": "Olopatadine (as hydrochloride)",
+          "amount": "0.2%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Eye Allergy Itch Relief, Olopatadine HCl 0.2%, 3.5 mL Twin Pack (7 mL total)",
+      "size": 7,
+      "unit": "mL",
+      "price_usd": 17.88,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/seort/16238900515",
+      "key_ingredients": [
+        {
+          "name": "Olopatadine (as hydrochloride)",
+          "amount": "0.2%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are once-daily 0.2% olopatadine antihistamine eye drops, the strength Pataday Once Daily uses.",
+    "evidence": "Walmart's Pataday Once Daily listing shows olopatadine 0.2%, 2.5 mL, $20.84 ($231.56/fl oz). The Equate Eye Allergy Itch Relief twin pack lists olopatadine HCl 0.2%, 2 x 3.5 mL, at $17.88 ($74.50/fl oz). Walmart's Pataday search page also lists the Equate 3.5 mL drops as 'compare to Pataday Once Daily'.",
+    "differences": "The Equate product page itself carries no 'compare to' line; that wording appears on Walmart's Pataday listing page. Preservative and inactive ingredients were not compared. Each Equate bottle is 3.5 mL against Pataday's 2.5 mL.",
+    "sources": [
+      "https://www.walmart.com/ip/753496797",
+      "https://www.walmart.com/ip/seort/16238900515",
+      "https://www.walmart.com/c/kp/pataday"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "zaditor-vs-equate-ketotifen-eye-drops",
+    "category": "otc-medicine",
+    "subcategory": "Eye allergy",
+    "title": "Zaditor vs Equate Eye Itch Relief (Ketotifen)",
+    "brand": {
+      "brand": "Zaditor",
+      "product": "Zaditor Antihistamine Eye Drops, Ketotifen 0.025% (as fumarate 0.035%), 5 mL",
+      "size": 5,
+      "unit": "mL",
+      "price_usd": 20.85,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/367792578",
+      "key_ingredients": [
+        {
+          "name": "Ketotifen (as ketotifen fumarate 0.035%)",
+          "amount": "0.025%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Eye Itch Relief Antihistamine Eye Drops, 2 count (Compare to Zaditor)",
+      "size": 10,
+      "unit": "mL",
+      "price_usd": 19.47,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/687215643",
+      "key_ingredients": [
+        {
+          "name": "Ketotifen (as ketotifen fumarate 0.035%)",
+          "amount": "0.025%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both contain ketotifen 0.025% (as 0.035% ketotifen fumarate), the 12-hour antihistamine in Zaditor.",
+    "evidence": "Walmart's Zaditor listing shows ketotifen 0.025% (equivalent to ketotifen fumarate 0.035%), 5 mL. The FDA label for Equate Eye Itch Relief (NDC 49035-231, Wal-Mart Stores) shows the same active ingredient and strength and says 'Compare to Zaditor active ingredient'. Prices come from Walmart's Pataday/Zaditor listing page (Zaditor 5 mL $20.85; Equate 2 ct $19.47).",
+    "differences": "Pack size is unclear. Walmart's title reads '2 Count, 0.34 fl oz (10 mL)', but the FDA label lists 2 x 10 mL bottles (20 mL). We used the conservative 10 mL total, so the real savings may be higher. Check the package size on the box.",
+    "sources": [
+      "https://www.walmart.com/ip/367792578",
+      "https://ndclist.com/ndc/49035-231/label",
+      "https://www.walmart.com/ip/687215643",
+      "https://www.walmart.com/c/kp/pataday"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nicoderm-cq-step-1-vs-equate-nicotine-patch-21mg",
+    "category": "otc-medicine",
+    "subcategory": "Quit smoking",
+    "title": "NicoDerm CQ Step 1 vs Equate Nicotine Patch 21mg",
+    "brand": {
+      "brand": "NicoDerm CQ",
+      "product": "NicoDerm CQ Step 1 Clear Nicotine Patch, 21 mg, 7 count",
+      "size": 7,
+      "unit": "patch",
+      "price_usd": 31.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/c/kp/nicoderm",
+      "key_ingredients": [
+        {
+          "name": "Nicotine",
+          "amount": "21 mg / 24 hr"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Nicotine Transdermal Patch Step 1, 21 mg, 14 count, Clear Patch",
+      "size": 14,
+      "unit": "patch",
+      "price_usd": 27.72,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/12556780",
+      "key_ingredients": [
+        {
+          "name": "Nicotine",
+          "amount": "21 mg / 24 hr"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 21 mg Step 1 clear nicotine transdermal patches, worn one per day.",
+    "evidence": "The Equate listing shows nicotine 21 mg per patch, Step 1, 14 clear patches, $27.72 ($1.98/patch), 'Compare to Nicoderm CQ'. Walmart's NicoDerm listing page shows NicoDerm CQ Step 1, 21 mg, 7 count from $31.97. Sam's Club's Member's Mark Step 1 21 mg patch also says 'Compare to NicoDerm CQ active ingredient', which confirms that the store-brand versions match.",
+    "differences": "NicoDerm CQ uses its own SmartControl patch technology. The patch adhesive and size may differ. The NicoDerm price is a 'from' price on a listing page, not a product page.",
+    "sources": [
+      "https://www.walmart.com/ip/12556780",
+      "https://www.walmart.com/c/kp/nicoderm",
+      "https://www.samsclub.com/sams/mm-nicotine-patch-step-1-21ct/prod19544360.ip"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "zzzquil-liquid-vs-equate-nighttime-sleep-aid-liquid",
+    "category": "otc-medicine",
+    "subcategory": "Sleep",
+    "title": "ZzzQuil Liquid vs Equate Nighttime Sleep Aid Liquid",
+    "brand": {
+      "brand": "ZzzQuil",
+      "product": "ZzzQuil Liquid Sleep Aid, Diphenhydramine HCl 50 mg per 30 mL, Calming Vanilla Cherry, 12 fl oz",
+      "size": 12,
+      "unit": "fl oz",
+      "price_usd": 10.44,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/49196067",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine HCl",
+          "amount": "50 mg per 30 mL"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Alcohol-Free Nighttime Sleep Aid Liquid, Diphenhydramine HCl 50 mg per 30 mL, 12 fl oz",
+      "size": 12,
+      "unit": "fl oz",
+      "price_usd": 6.22,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Alcohol-Free-Berry-Flavor-Nighttime-Sleep-Aid-12-fl-oz/512108714",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine HCl",
+          "amount": "50 mg per 30 mL"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both deliver 50 mg diphenhydramine HCl per 30 mL dose, ZzzQuil's only active ingredient.",
+    "evidence": "Walmart's ZzzQuil listing states that each 30 mL dose cup contains 50 mg diphenhydramine HCl. The Equate listing gives diphenhydramine HCl 50 mg per 30 mL (2 Tbsp), and says 'Compare to VICKS ZzzQuil Nighttime Sleep-Aid Active Ingredient'.",
+    "differences": "The flavour differs (the Equate listing calls it both berry and cherry vanilla). The Equate version is alcohol-free. Other inactive ingredients were not compared.",
+    "sources": [
+      "https://www.walmart.com/ip/49196067",
+      "https://www.walmart.com/ip/Equate-Alcohol-Free-Berry-Flavor-Nighttime-Sleep-Aid-12-fl-oz/512108714"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "dulcolax-vs-equate-gentle-laxative-bisacodyl-5mg",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Dulcolax vs Equate Gentle Laxative Bisacodyl 5mg",
+    "brand": {
+      "brand": "Dulcolax",
+      "product": "Dulcolax Stimulant Laxative Tablets, Bisacodyl 5 mg, 25 count",
+      "size": 25,
+      "unit": "tablet",
+      "price_usd": 5.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/c/kp/laxative-tablets",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Gentle Laxative Tablets, Bisacodyl USP 5 mg, 100 count",
+      "size": 100,
+      "unit": "tablet",
+      "price_usd": 5.62,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/447004921",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl USP",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 5 mg bisacodyl enteric-coated stimulant laxative tablets.",
+    "evidence": "The Equate listing shows bisacodyl USP 5 mg, 100 tablets, $5.62, 'Compare to Dulcolax Pink active ingredient'. Walmart's laxative tablets page lists Dulcolax Stimulant Laxative Tablets, bisacodyl 5 mg, 25 count, from $5.98.",
+    "differences": "The Dulcolax price is a 'from' price on a listing page. Equate compares itself to Dulcolax Pink, the women's version, which has the same 5 mg bisacodyl active. Coating and inactive ingredients may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/447004921",
+      "https://www.walmart.com/c/kp/laxative-tablets",
+      "https://otclabels.com/lib/otc/otc-meds/gentle-laxative-14/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "lotrimin-af-vs-equate-clotrimazole-1-cream",
+    "category": "otc-medicine",
+    "subcategory": "Antifungal",
+    "title": "Lotrimin AF vs Equate Clotrimazole 1% Cream",
+    "brand": {
+      "brand": "Lotrimin AF",
+      "product": "Lotrimin AF Athlete's Foot Antifungal Cream, Clotrimazole 1%, 30 g",
+      "size": 30,
+      "unit": "g",
+      "price_usd": 15.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/p/1706360729",
+      "key_ingredients": [
+        {
+          "name": "Clotrimazole",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Athlete's Foot Antifungal Cream, Clotrimazole USP 1%, 2 oz (56.7 g)",
+      "size": 56.7,
+      "unit": "g",
+      "price_usd": 7.84,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10324685",
+      "key_ingredients": [
+        {
+          "name": "Clotrimazole USP",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 1% clotrimazole antifungal creams for athlete's foot, jock itch and ringworm.",
+    "evidence": "Walmart's Lotrimin AF listing states 1% clotrimazole, 30 g tube, $15.97. The Equate listing shows clotrimazole USP 1%, 2 oz tube, $7.84, 'Compare to Lotrimin AF active ingredient'.",
+    "differences": "The cream base and inactive ingredients may differ. The Equate tube is almost twice as large. Don't confuse this with Lotrimin Ultra (butenafine), a different drug.",
+    "sources": [
+      "https://www.walmart.com/ip/p/1706360729",
+      "https://www.walmart.com/ip/10324685"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "zyrtec-vs-kirkland-aller-tec-cetirizine-10mg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Zyrtec vs Kirkland Signature Aller-Tec Cetirizine 10mg",
+    "brand": {
+      "brand": "Zyrtec",
+      "product": "Zyrtec 24 Hour Allergy Tablets, Cetirizine HCl 10 mg, 90 count",
+      "size": 90,
+      "unit": "tablet",
+      "price_usd": 39.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine HCl",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature Aller-Tec Cetirizine HCl 10 mg, 365 tablets",
+      "size": 365,
+      "unit": "tablet",
+      "price_usd": 13.49,
+      "retailer": "costco",
+      "asin": null,
+      "url": "https://app.warehouserunner.com/costco/311676-kirkland-signature-aller-tec-10mg-365-tablets",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine HCl",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Aller-Tec is Costco's 10 mg cetirizine HCl tablet, the same active and dose as Zyrtec.",
+    "evidence": "Walmart's Zyrtec listing shows cetirizine HCl 10 mg, 90 tablets, $39.97. Costco item #311676, Kirkland Signature Aller-Tec 10 mg, 365 tablets, is tracked at $13.49 in warehouse (Warehouse Runner), and Costco Business Delivery and deal listings describe it as cetirizine HCl 10 mg.",
+    "differences": "Costco membership is required. The price comes from a third-party warehouse tracker, not Costco.com, because Costco.com did not load. We did not read the Kirkland label first-hand.",
+    "sources": [
+      "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
+      "https://app.warehouserunner.com/costco/311676-kirkland-signature-aller-tec-10mg-365-tablets",
+      "https://costcobusinessdelivery.com/Kirkland-Signature-Aller-Tec,-365-ct.product.100181913.html",
+      "https://slickdeals.net/f/15583159-10-99-kirkland-signature-aller-tec-cetirizine-hcl-10mg-365-tablets-online-at-costco-com-till-1-30-22"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "zyrtec-vs-members-mark-cetirizine-10mg-400ct",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Zyrtec vs Member's Mark Cetirizine 10mg (400 ct)",
+    "brand": {
+      "brand": "Zyrtec",
+      "product": "Zyrtec 24 Hour Allergy Tablets, Cetirizine HCl 10 mg, 90 count",
+      "size": 90,
+      "unit": "tablet",
+      "price_usd": 39.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine HCl",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Member's Mark",
+      "product": "Member's Mark Allergy Relief Cetirizine Hydrochloride Tablets 10 mg, 400 count",
+      "size": 400,
+      "unit": "tablet",
+      "price_usd": 14.78,
+      "retailer": "samsclub",
+      "asin": null,
+      "url": "https://www.samsclub.com/b/allergy-sinus/1614?rootDimension=Brand:Member's+Mark",
+      "key_ingredients": [
+        {
+          "name": "Cetirizine HCl",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Member's Mark cetirizine is the same 10 mg cetirizine HCl tablet as Zyrtec, in a 400-count bottle.",
+    "evidence": "Walmart's Zyrtec listing shows cetirizine HCl 10 mg, 90 count, $39.97. Sam's Club's Member's Mark allergy page lists Member's Mark Allergy Relief Cetirizine Hydrochloride Tablets 10 mg, 400 ct, at a regular price of $14.78 ($11.78 with a $3 instant saving ending Nov 29).",
+    "differences": "Sam's Club membership is required. We used the regular price, not the sale price. Our source is the brand listing page rather than the product's own label.",
+    "sources": [
+      "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
+      "https://www.samsclub.com/b/allergy-sinus/1614?rootDimension=Brand:Member's+Mark"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "aleve-vs-members-mark-naproxen-sodium-220mg",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Aleve vs Member's Mark Naproxen Sodium 220mg",
+    "brand": {
+      "brand": "Aleve",
+      "product": "Aleve Naproxen Sodium Caplets 220 mg, 200 count",
+      "size": 200,
+      "unit": "caplet",
+      "price_usd": 18.42,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Aleve-Pain-Relief-Naproxen-Sodium-Caplets-200-Count/938759653",
+      "key_ingredients": [
+        {
+          "name": "Naproxen sodium",
+          "amount": "220 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Member's Mark",
+      "product": "Member's Mark Naproxen Sodium 220 mg, 400 count",
+      "size": 400,
+      "unit": "caplet",
+      "price_usd": 12.98,
+      "retailer": "samsclub",
+      "asin": null,
+      "url": "https://www.samsclub.com/ip/Member-s-Mark-Naproxen-Sodium-Tablets-NSAID-220-mg-400-ct/13604911242",
+      "key_ingredients": [
+        {
+          "name": "Naproxen sodium",
+          "amount": "220 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 220 mg naproxen sodium, the single active ingredient in Aleve.",
+    "evidence": "Walmart's Aleve listing shows naproxen sodium 220 mg, 200 caplets, $18.42. Sam's Club's Member's Mark listing shows naproxen sodium 220 mg, 400 count, $12.98 (3.2 cents each), compared to 'the active ingredient in Aleve Caplets'.",
+    "differences": "Sam's Club membership is required. The Member's Mark title says 'tablets' but its label text says caplets. Coating and inactive ingredients may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Aleve-Pain-Relief-Naproxen-Sodium-Caplets-200-Count/938759653",
+      "https://www.samsclub.com/ip/Member-s-Mark-Naproxen-Sodium-Tablets-NSAID-220-mg-400-ct/13604911242"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mens-rogaine-foam-vs-kirkland-minoxidil-5-foam",
+    "category": "otc-medicine",
+    "subcategory": "Hair regrowth",
+    "title": "Men's Rogaine 5% Foam vs Kirkland Signature 5% Minoxidil Foam",
+    "brand": {
+      "brand": "Rogaine",
+      "product": "Men's Rogaine 5% Minoxidil Foam, 3 x 2.11 oz (3-month supply)",
+      "size": 6.33,
+      "unit": "oz",
+      "price_usd": 49.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Men-s-Rogaine-5-Minoxidil-Foam-Treatment-3-Month-Supply/11081994",
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "5%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature 5% Minoxidil Foam for Men, 6 x 2.11 oz (6-month supply)",
+      "size": 12.66,
+      "unit": "oz",
+      "price_usd": 49.99,
+      "retailer": "costco",
+      "asin": null,
+      "url": "https://app.warehouserunner.com/costco/778152-kirkland-signature-5-minoxidil-foam-for-men-6-mo-supply",
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "5%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 5% minoxidil topical foam for men. Kirkland's pack gives six months for roughly the price of Rogaine's three.",
+    "evidence": "Walmart's Men's Rogaine listing shows 5% minoxidil foam, 3 x 2.11 oz, $49.97. Costco's Kirkland Signature 5% Minoxidil Foam for Men, 6 x 2.11 oz, is tracked at $49.99 to $50.99 in warehouse (Warehouse Runner). Hair-loss communities discuss Costco's foam at that price too.",
+    "differences": "Costco membership is required. The price comes from a third-party warehouse tracker. We did not read the Kirkland label first-hand. The Rogaine listing's pack-quantity options were ambiguous, so we treated $49.97 as the price for 3 cans.",
+    "sources": [
+      "https://www.walmart.com/ip/Men-s-Rogaine-5-Minoxidil-Foam-Treatment-3-Month-Supply/11081994",
+      "https://app.warehouserunner.com/costco/778152-kirkland-signature-5-minoxidil-foam-for-men-6-mo-supply",
+      "https://tressless.com/community/undefined-LWax"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "miralax-vs-members-mark-clearlax-peg-3350",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "MiraLAX vs Member's Mark ClearLAX PEG 3350",
+    "brand": {
+      "brand": "MiraLAX",
+      "product": "MiraLAX Laxative Powder, Polyethylene Glycol 3350, 26.9 oz",
+      "size": 26.9,
+      "unit": "oz",
+      "price_usd": 31.47,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/MiraLAX-Laxative-Powder-26-90-oz/36483385",
+      "key_ingredients": [
+        {
+          "name": "Polyethylene glycol 3350",
+          "amount": "17 g per dose"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Member's Mark",
+      "product": "Member's Mark ClearLAX Polyethylene Glycol 3350 Powder, 3 x 17.9 oz",
+      "size": 53.7,
+      "unit": "oz",
+      "price_usd": 21.12,
+      "retailer": "samsclub",
+      "asin": null,
+      "url": "https://www.samsclub.com/p/mm-clearlax-3-x-17-9-oz/prod17040152",
+      "key_ingredients": [
+        {
+          "name": "Polyethylene glycol 3350",
+          "amount": "17 g per dose"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are unflavoured polyethylene glycol 3350 powder, dosed at 17 g, with PEG 3350 as the only ingredient.",
+    "evidence": "Walmart's MiraLAX listing shows PEG 3350, 17 g per dose, 26.9 oz, $31.47. Sam's Club's Member's Mark ClearLAX listing shows PEG 3350, 17 g per dose, 3 x 17.9 oz, at a regular price of $21.12 ($18.12 on sale until Nov 29), and says 'Compare to MiraLAX active ingredient'.",
+    "differences": "Sam's Club membership is required. We used the regular price. Bottle sizes differ.",
+    "sources": [
+      "https://www.walmart.com/ip/MiraLAX-Laxative-Powder-26-90-oz/36483385",
+      "https://www.samsclub.com/p/mm-clearlax-3-x-17-9-oz/prod17040152"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "voltaren-vs-members-mark-diclofenac-gel-1",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Voltaren Arthritis Gel vs Member's Mark Diclofenac Gel 1%",
+    "brand": {
+      "brand": "Voltaren",
+      "product": "Voltaren Arthritis Pain Gel, Diclofenac Sodium 1%, 100 g",
+      "size": 100,
+      "unit": "g",
+      "price_usd": 19.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Voltaren-Arthritis-Pain-Gel-Diclofenac-Sodium-Topical-Gel-1-Nsaid-100-G/556463039",
+      "key_ingredients": [
+        {
+          "name": "Diclofenac sodium",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Member's Mark",
+      "product": "Member's Mark Arthritis Pain Reliever Topical Gel, Diclofenac Sodium 1%, 3 x 150 g",
+      "size": 450,
+      "unit": "g",
+      "price_usd": 29.98,
+      "retailer": "samsclub",
+      "asin": null,
+      "url": "https://www.samsclub.com/ip/Member-s-Mark-Arthritis-Pain-Reliever-Topical-Gel-1-NSAID-150-mg-Diclofenac-Sodium-3-pk/13910060529",
+      "key_ingredients": [
+        {
+          "name": "Diclofenac sodium",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 1% diclofenac sodium topical NSAID gel for arthritis pain.",
+    "evidence": "Walmart's Voltaren listing shows diclofenac sodium 1%, 100 g, $19.98. Sam's Club's Member's Mark gel shows diclofenac sodium 1% (equivalent to 0.93% diclofenac), 3 x 150 g tubes, $29.98, and is compared to Voltaren Arthritis Pain.",
+    "differences": "Sam's Club membership is required. Inactive gel ingredients and the dosing card may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Voltaren-Arthritis-Pain-Gel-Diclofenac-Sodium-Topical-Gel-1-Nsaid-100-G/556463039",
+      "https://www.samsclub.com/ip/Member-s-Mark-Arthritis-Pain-Reliever-Topical-Gel-1-NSAID-150-mg-Diclofenac-Sodium-3-pk/13910060529"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "excedrin-extra-strength-vs-equate-extra-strength-headache-relief",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Excedrin Extra Strength vs Equate Extra Strength Headache Relief",
+    "brand": {
+      "brand": "Excedrin",
+      "product": "Excedrin Extra Strength Caplets, 200 count",
+      "size": 200,
+      "unit": "caplet",
+      "price_usd": 19.73,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/17060172600",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Aspirin",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "65 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Extra Strength Headache Relief Caplets, 200 count",
+      "size": 200,
+      "unit": "caplet",
+      "price_usd": 4.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/c/kp/stop-headache",
+      "key_ingredients": [
+        {
+          "name": "Acetaminophen",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Aspirin",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "65 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both contain acetaminophen 250 mg, aspirin 250 mg and caffeine 65 mg per caplet, Excedrin's exact formula.",
+    "evidence": "The DailyMed label for Excedrin Extra Strength (Haleon) lists acetaminophen 250 mg, aspirin 250 mg and caffeine 65 mg. Walmart's Excedrin listing shows the same amounts, 200 count, $19.73, and names the Equate Extra Strength Headache Relief 200 count ($4.97) as 'Compare to Excedrin Extra Strength Caplets Active Ingredients'. A UPC database lists the Equate product at the same three strengths.",
+    "differences": "We could not open the Equate product page itself, so its amounts come from a UPC database and Walmart's comparison text. Coating and inactive ingredients may differ. This pair is separate from the existing Excedrin Migraine pair.",
+    "sources": [
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=691b754c-bafc-47e2-a322-cf56245c01f6",
+      "https://www.walmart.com/ip/17060172600",
+      "https://www.walmart.com/c/kp/stop-headache",
+      "https://products.withsilver.app/upc/194346263646-equate-extra-strength-headache-relief-caplets-250mg-200-count"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "allegra-vs-members-mark-fexofenadine-180mg",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Allegra vs Member's Mark Fexofenadine 180mg",
+    "brand": {
+      "brand": "Allegra",
+      "product": "Allegra Adult 24 Hour Allergy Tablets, Fexofenadine HCl 180 mg, 70 count",
+      "size": 70,
+      "unit": "tablet",
+      "price_usd": 36.96,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Allegra-24-Hour-Non-Drowsy-Antihistamine-Medicine-Tablets-for-Adult-Allergy-Relief-Fexofenadine-180-mg-70-Pills/20530894",
+      "key_ingredients": [
+        {
+          "name": "Fexofenadine HCl",
+          "amount": "180 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Member's Mark",
+      "product": "Member's Mark Allergy Relief Fexofenadine HCl Tablets USP 180 mg, 150 count",
+      "size": 150,
+      "unit": "tablet",
+      "price_usd": 28.43,
+      "retailer": "samsclub",
+      "asin": null,
+      "url": "https://www.samsclub.com/p/members-mark-allergy-relief-fexofenadine-hcl-tablets-180-mg-150-ct/P03018333",
+      "key_ingredients": [
+        {
+          "name": "Fexofenadine HCl",
+          "amount": "180 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 180 mg fexofenadine HCl, the 24-hour non-drowsy antihistamine in Allegra.",
+    "evidence": "Sam's Club's Member's Mark listing shows fexofenadine HCl 180 mg, 150 tablets, at a regular price of $28.43 ($25.43 on sale until Nov 29), and says it matches the active ingredient in Allegra Allergy 24 Hour tablets. The Allegra 70 count price ($36.96) and 180 mg strength come from the Walmart listing that another research round verified.",
+    "differences": "Sam's Club membership is required. We could not re-check the Allegra price this round because the fetch budget ran out. Equate's 300 count is cheaper per tablet than Member's Mark.",
+    "sources": [
+      "https://www.samsclub.com/p/members-mark-allergy-relief-fexofenadine-hcl-tablets-180-mg-150-ct/P03018333",
+      "https://www.walmart.com/ip/Allegra-24-Hour-Non-Drowsy-Antihistamine-Medicine-Tablets-for-Adult-Allergy-Relief-Fexofenadine-180-mg-70-Pills/20530894"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "prilosec-otc-vs-members-mark-omeprazole-20mg",
+    "category": "otc-medicine",
+    "subcategory": "Heartburn & acid",
+    "title": "Prilosec OTC vs Member's Mark Omeprazole 20mg",
+    "brand": {
+      "brand": "Prilosec OTC",
+      "product": "Prilosec OTC Omeprazole Delayed-Release Tablets 20 mg, 42 count",
+      "size": 42,
+      "unit": "tablet",
+      "price_usd": 29.95,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353",
+      "key_ingredients": [
+        {
+          "name": "Omeprazole (as magnesium)",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Member's Mark",
+      "product": "Member's Mark Omeprazole Delayed Release Tablets 20 mg, 42 count",
+      "size": 42,
+      "unit": "tablet",
+      "price_usd": 9.98,
+      "retailer": "samsclub",
+      "asin": null,
+      "url": "https://www.samsclub.com/ip/members-mark-omeprazole-dr-tablets-20-mg-42-count/13887904038",
+      "key_ingredients": [
+        {
+          "name": "Omeprazole",
+          "amount": "20 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 20 mg omeprazole delayed-release tablets, packed as three 14-day courses.",
+    "evidence": "Sam's Club's Member's Mark listing shows omeprazole 20 mg delayed-release tablets, 42 count (3 x 14), at a regular price of $9.98 ($6.98 on sale until Nov 29), compared to Prilosec OTC. The Prilosec OTC 42 count price ($29.95) comes from the Walmart listing that another research round verified.",
+    "differences": "Sam's Club membership is required. We could not re-check the Prilosec price this round because the fetch budget ran out. Prilosec OTC is omeprazole magnesium (20.6 mg, equal to 20 mg omeprazole); check the Member's Mark salt form on the box.",
+    "sources": [
+      "https://www.samsclub.com/ip/members-mark-omeprazole-dr-tablets-20-mg-42-count/13887904038",
+      "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "panoxyl-10-vs-equate-max-strength-acne-foaming-wash",
+    "category": "skincare-personal-care",
+    "subcategory": "Acne",
+    "title": "PanOxyl 10% vs Equate Maximum Strength Acne Foaming Wash",
+    "brand": {
+      "brand": "PanOxyl",
+      "product": "PanOxyl Acne Foaming Wash, 10% Benzoyl Peroxide, 5.5 oz",
+      "size": 5.5,
+      "unit": "oz",
+      "price_usd": 10.67,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/803154651",
+      "key_ingredients": [
+        {
+          "name": "Benzoyl peroxide",
+          "amount": "10%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Maximum Strength Acne Foaming Wash, 10% Benzoyl Peroxide, 5.5 oz",
+      "size": 5.5,
+      "unit": "oz",
+      "price_usd": 8.12,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/689947843",
+      "key_ingredients": [
+        {
+          "name": "Benzoyl peroxide",
+          "amount": "10%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 10% benzoyl peroxide foaming face and body washes in the same 5.5 oz size.",
+    "evidence": "Walmart's PanOxyl listing shows benzoyl peroxide 10%, 5.5 oz, $10.67. The Equate listing shows benzoyl peroxide 10%, 5.5 oz, $8.12, 'Compare to PanOxyl Acne Foaming Wash'.",
+    "differences": "The savings are modest (about 24%). The Equate listing showed as out of stock online when we checked. The cleanser base and inactive ingredients may differ, so it may feel different on the skin.",
+    "sources": [
+      "https://www.walmart.com/ip/803154651",
+      "https://www.walmart.com/ip/689947843",
+      "https://skinsort.com/compare/panoxyl-acne-foaming-wash-benzoyl-peroxide-10-maximum-strength-vs-equate-10-benzoyl-peroxide-acne-treatment"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "neutrogena-t-gel-extra-strength-vs-equate-extra-strength-coal-tar",
+    "category": "beauty-hair",
+    "subcategory": "Dandruff & scalp",
+    "title": "Neutrogena T/Gel Extra Strength vs Equate Extra Strength Coal Tar Shampoo",
+    "brand": {
+      "brand": "Neutrogena",
+      "product": "Neutrogena T/Gel Extra Strength Therapeutic Dandruff Shampoo, 1% Coal Tar, 6 fl oz",
+      "size": 6,
+      "unit": "fl oz",
+      "price_usd": 24.17,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Neutrogena-T-Gel-Extra-Strength-Therapeutic-Dandruff-Shampoo-6-fl-oz/24511841",
+      "key_ingredients": [
+        {
+          "name": "Coal tar (from 4% Neutar solubilized coal tar extract)",
+          "amount": "1%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Extra Strength Anti-Dandruff Shampoo, 1% Coal Tar, 6 fl oz",
+      "size": 6,
+      "unit": "fl oz",
+      "price_usd": 5.77,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/135087374",
+      "key_ingredients": [
+        {
+          "name": "Coal tar (from 4% Neutar solubilized coal tar extract)",
+          "amount": "1%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both deliver 1% coal tar from 4% Neutar solubilized coal tar extract, the same coal-tar source T/Gel Extra Strength uses.",
+    "evidence": "Walmart's T/Gel Extra Strength listing states 1% coal tar (Neutar technology), 6 fl oz. The Equate Extra Strength listing states 'Coal Tar 1% (4% Neutar Solubilized Coal Tar Extract)', 6 fl oz, $5.77, 'Compare to Neutrogena T/Gel'.",
+    "differences": "T/Gel was listed at $24.17 (marked down from $39) and out of stock online, so its usual shelf price may be lower. The Equate meta description wrongly says 4.0% coal tar. Original-strength T/Gel is 0.5% coal tar, a different product.",
+    "sources": [
+      "https://www.walmart.com/ip/Neutrogena-T-Gel-Extra-Strength-Therapeutic-Dandruff-Shampoo-6-fl-oz/24511841",
+      "https://www.walmart.com/ip/135087374",
+      "https://www.walmart.com/ip/104778618"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "gold-bond-extra-strength-powder-vs-equate-extra-strength-body-powder",
+    "category": "skincare-personal-care",
+    "subcategory": "Body care",
+    "title": "Gold Bond Extra Strength Body Powder vs Equate Extra Strength Medicated Body Powder",
+    "brand": {
+      "brand": "Gold Bond",
+      "product": "Gold Bond Medicated Extra Strength Body Powder, Talc-Free, Menthol 0.8%, 10 oz",
+      "size": 10,
+      "unit": "oz",
+      "price_usd": 9.58,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/787469306",
+      "key_ingredients": [
+        {
+          "name": "Menthol",
+          "amount": "0.8%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Extra Strength Medicated Body Powder, Menthol 0.8%, 10 oz",
+      "size": 10,
+      "unit": "oz",
+      "price_usd": 4.76,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/787469306",
+      "key_ingredients": [
+        {
+          "name": "Menthol",
+          "amount": "0.8%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 10 oz medicated body powders whose only active ingredient is 0.8% menthol for itch relief.",
+    "evidence": "Gold Bond's talc-free Extra Strength drug facts list menthol 0.8% as the only active (HEB and Hannaford listings, Walmart listing). Walmart's NDC listing for Equate Medicated Body Extra Strength powder (NDC 49035-0822-01, 283 g) lists menthol 0.80%. Walmart shows the Equate Extra Strength 10 oz at $4.76 as comparable to Gold Bond Extra Strength.",
+    "differences": "The Equate price comes from the 'similar items' section of the Gold Bond page, not its own product page. We did not confirm whether the Equate powder base is talc-free; check the box if that matters to you. The NDC page also has a stray '0.15%' comparison line, which is the original-strength figure.",
+    "sources": [
+      "https://www.walmart.com/ip/787469306",
+      "https://www.heb.com/product-detail/gold-bond-medicated-talc-free-extra-strength-body-powderfor-cooling-absorbing-itch-relief/4904001",
+      "https://hellopharmacist.com/ndc/49035-0822-01"
+    ],
+    "price_checked": "2026-11"
+  }
+]

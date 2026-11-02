@@ -1,0 +1,376 @@
+[
+  {
+    "slug": "benefiber-vs-up-up-clear-dissolving-fiber-17-6oz",
+    "category": "supplements",
+    "subcategory": "Fiber",
+    "title": "Benefiber vs up&up Clear Dissolving Fiber (Wheat Dextrin)",
+    "brand": {
+      "brand": "Benefiber",
+      "product": "Benefiber Daily Prebiotic Fiber Supplement Powder, Unflavored, 17.6 oz (125 servings)",
+      "size": 17.6,
+      "unit": "oz",
+      "price_usd": 24.13,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Benefiber-Daily-Prebiotic-Fiber-Supplement-Powder-for-Digestive-Health-Unflavored-125-Servings-17-6-Ounces/50259010",
+      "key_ingredients": [
+        {
+          "name": "Wheat dextrin (soluble fiber)",
+          "amount": "3 g fiber per 2 tsp (4 g)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "up&up (Target)",
+      "product": "up&up Clear Dissolving Fiber Supplement Powder, 17.6 oz (125 servings)",
+      "size": 17.6,
+      "unit": "oz",
+      "price_usd": 12.89,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/-/A-11303415",
+      "key_ingredients": [
+        {
+          "name": "Wheat dextrin (soluble fiber)",
+          "amount": "3 g fiber per 2 tsp"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "medium",
+    "summary": "Both are a single-ingredient powder of wheat dextrin giving 3 g of soluble fiber per 2-teaspoon serving, 125 servings per 17.6 oz tub.",
+    "evidence": "The NIH DSLD label for Benefiber powder (GSK, 500 g/17.6 oz) lists 3 g soluble fiber per 4 g (2 tsp) serving and 'Other ingredients: Wheat dextrin' only. Target's up&up listing lists wheat dextrin as the only ingredient, 3 g soluble fiber per 2 tsp, 15 calories, 125 servings per 17.6 oz.",
+    "differences": "Some older up&up reviews and Q&A mention a corn dextrin formula; the current listing says wheat dextrin, so check the label on the tub you buy. Several reviewers report clumping after a formula change. up&up is labeled gluten-free (<10 ppm).",
+    "sources": [
+      "https://api.ods.od.nih.gov/dsld/v9/label/276689",
+      "https://www.target.com/p/-/A-11303415",
+      "https://www.walmart.com/ip/Benefiber-Daily-Prebiotic-Fiber-Supplement-Powder-for-Digestive-Health-Unflavored-125-Servings-17-6-Ounces/50259010"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "citracal-petites-vs-equate-calcium-citrate-d3-petites",
+    "category": "supplements",
+    "subcategory": "Calcium",
+    "title": "Citracal Petites vs Equate Calcium Citrate + D3 Petites",
+    "brand": {
+      "brand": "Citracal",
+      "product": "Citracal Petites Calcium Citrate with Vitamin D3, 200 coated caplets",
+      "size": 200,
+      "unit": "caplet",
+      "price_usd": 10.99,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/s/citracal+citrate+petites",
+      "key_ingredients": [
+        {
+          "name": "Calcium (as calcium citrate)",
+          "amount": "400 mg per 2 caplets"
+        },
+        {
+          "name": "Vitamin D3",
+          "amount": "12.5 mcg (500 IU) per 2 caplets"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Calcium Citrate + D3 Petites Tablets, 200 count (Compare to Citracal Petites with Vitamin D3)",
+      "size": 200,
+      "unit": "caplet",
+      "price_usd": 7.78,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Calcium-Citrate-D3-Petites-Tablets-Dietary-Supplement-200-Count/24681635",
+      "key_ingredients": [
+        {
+          "name": "Calcium (as calcium citrate)",
+          "amount": "400 mg per 2 tablets"
+        },
+        {
+          "name": "Vitamin D3",
+          "amount": "12.5 mcg (500 IU) per 2 tablets"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both give 400 mg of calcium as calcium citrate plus 500 IU vitamin D3 per 2-tablet serving, in small 'petite' tablets.",
+    "evidence": "NIH DSLD label for Citracal Petites (Bayer) shows calcium 400 mg and vitamin D 12.5 mcg per 2-caplet serving. Walmart's Equate listing shows 400 mg calcium citrate and 12.5 mcg (500 IU) D3 per serving, 2 tablets twice daily, and carries the claim 'Compare to Citracal Petites with Vitamin D3 formula'.",
+    "differences": "Inactive ingredients and coating may differ. Both bottles are 200 count (50-day supply at 4 per day).",
+    "sources": [
+      "https://api.ods.od.nih.gov/dsld/v9/label/256931",
+      "https://www.walmart.com/ip/Equate-Calcium-Citrate-D3-Petites-Tablets-Dietary-Supplement-200-Count/24681635",
+      "https://www.target.com/s/citracal+citrate+petites",
+      "https://www.walmart.com/ip/Citracal-Petites-Calcium-with-Vitamin-D3-Bone-Health-Support-Coated-Caplets-200-Count/13448581"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "emergen-c-immune-plus-vs-equate-vitamin-c-d-zinc-packets",
+    "category": "supplements",
+    "subcategory": "Immune support",
+    "title": "Emergen-C Immune+ vs Equate Vitamin C Plus Vitamin D & Zinc Packets",
+    "brand": {
+      "brand": "Emergen-C",
+      "product": "Emergen-C Immune+ Vitamin C Drink Mix, Super Orange, 30 packets",
+      "size": 30,
+      "unit": "packet",
+      "price_usd": 23.95,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Emergen-C-Immune-Plus-Vitamin-C-Supplement-for-Immune-Support-Super-Orange-30-Ct/48806150",
+      "key_ingredients": [
+        {
+          "name": "Vitamin C",
+          "amount": "1000 mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "amount": "25 mcg (1000 IU)"
+        },
+        {
+          "name": "Zinc",
+          "amount": "10 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate 1000 mg Vitamin C Plus Vitamin D & Zinc Powder Packets, Orange, 30 count (Compare to Emergen-C Immunity+)",
+      "size": 30,
+      "unit": "packet",
+      "price_usd": 9.23,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-1000mg-Vitamin-C-Plus-Vitamin-D-and-Zinc-Dietary-Supplement-Fizzy-Drink-Mix-30-Count/559594568",
+      "key_ingredients": [
+        {
+          "name": "Vitamin C",
+          "amount": "1000 mg"
+        },
+        {
+          "name": "Vitamin D",
+          "amount": "amount not shown on listing"
+        },
+        {
+          "name": "Zinc",
+          "amount": "amount not shown on listing"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Equate's packet is sold as a direct 'Compare to Emergen-C Immune+' copy: 1000 mg vitamin C with vitamin D, zinc and B vitamins per packet.",
+    "evidence": "NIH DSLD shows Emergen-C Immune+ (30 packets) at 1000 mg vitamin C, 25 mcg D3, 10 mg zinc, B6 10 mg and B12 25 mcg per packet. Walmart's Equate listing confirms 1000 mg vitamin C plus vitamin D, zinc and 7 B vitamins and the 'Compare to Emergen-C Immunity+ Ingredients' claim, but its supplement panel was not readable, so D and zinc amounts are not independently confirmed.",
+    "differences": "Emergen-C Immune+ includes a 500 mg proprietary complex (larch arabinogalactan, yeast beta-glucan); we could not confirm whether Equate includes it. Flavor differs. Check the Equate panel for D and zinc amounts.",
+    "sources": [
+      "https://api.ods.od.nih.gov/dsld/v9/label/250047",
+      "https://www.walmart.com/ip/Emergen-C-Immune-Plus-Vitamin-C-Supplement-for-Immune-Support-Super-Orange-30-Ct/48806150",
+      "https://www.walmart.com/ip/Equate-1000mg-Vitamin-C-Plus-Vitamin-D-and-Zinc-Dietary-Supplement-Fizzy-Drink-Mix-30-Count/559594568"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nature-made-d3-2000iu-vs-spring-valley-d3-2000iu",
+    "category": "supplements",
+    "subcategory": "Vitamin D",
+    "title": "Nature Made Vitamin D3 2000 IU vs Spring Valley Vitamin D3 2000 IU",
+    "brand": {
+      "brand": "Nature Made",
+      "product": "Nature Made Vitamin D3 2000 IU (50 mcg) Softgels, 250 count",
+      "size": 250,
+      "unit": "softgel",
+      "price_usd": 14.52,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/558324711",
+      "key_ingredients": [
+        {
+          "name": "Vitamin D3 (cholecalciferol)",
+          "amount": "50 mcg (2000 IU)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Spring Valley",
+      "product": "Spring Valley Vitamin D3 Softgels, 50 mcg (2,000 IU), 400 count",
+      "size": 400,
+      "unit": "softgel",
+      "price_usd": 9.38,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Spring-Valley-Vitamin-D3-Supplement-Softgels-50-Mcg-2-000-IU-400-Count/1728703957",
+      "key_ingredients": [
+        {
+          "name": "Vitamin D3 (cholecalciferol)",
+          "amount": "50 mcg (2000 IU)"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are one-a-day softgels with 50 mcg (2000 IU) of vitamin D3.",
+    "evidence": "Walmart listings for both products state 50 mcg (2000 IU) vitamin D3 per softgel. Nature Made 250 ct is $14.52 (5.8 cents each) and Spring Valley 400 ct is $9.38 (2.3 cents each).",
+    "differences": "Carrier oil and softgel ingredients were not listed on either page. Nature Made is USP Verified; we did not confirm third-party verification for Spring Valley.",
+    "sources": [
+      "https://www.walmart.com/ip/558324711",
+      "https://www.walmart.com/ip/Spring-Valley-Vitamin-D3-Supplement-Softgels-50-Mcg-2-000-IU-400-Count/1728703957"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nature-made-melatonin-5mg-vs-spring-valley-melatonin-5mg",
+    "category": "supplements",
+    "subcategory": "Sleep",
+    "title": "Nature Made Melatonin 5 mg vs Spring Valley Melatonin 5 mg",
+    "brand": {
+      "brand": "Nature Made",
+      "product": "Nature Made Melatonin 5 mg Extra Strength Tablets, 90 count",
+      "size": 90,
+      "unit": "tablet",
+      "price_usd": 8.99,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/nature-made-melatonin-5mg-100-drug-free-sleep-aid-for-adults-tablets-90ct/-/A-14161827",
+      "key_ingredients": [
+        {
+          "name": "Melatonin",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Spring Valley",
+      "product": "Spring Valley Melatonin Tablets, 5 mg, 120 count",
+      "size": 120,
+      "unit": "tablet",
+      "price_usd": 6.24,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/11047659",
+      "key_ingredients": [
+        {
+          "name": "Melatonin",
+          "amount": "5 mg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are plain 5 mg melatonin tablets, one at bedtime.",
+    "evidence": "Target's Nature Made listing shows 5 mg melatonin per tablet (other ingredients croscarmellose sodium, magnesium stearate), $8.99 for 90. Walmart's Spring Valley listing states 5 mg melatonin per tablet, 120 servings, $6.24.",
+    "differences": "Inactive ingredients for Spring Valley were not listed. Nature Made is USP Verified. Note: Target's up&up 5 mg melatonin also adds 500 mcg lemon balm extract, so it is not a pure match.",
+    "sources": [
+      "https://www.target.com/p/nature-made-melatonin-5mg-100-drug-free-sleep-aid-for-adults-tablets-90ct/-/A-14161827",
+      "https://www.walmart.com/ip/11047659",
+      "https://www.walmart.com/ip/3602593789"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nature-made-b12-1000mcg-time-release-vs-spring-valley-b12-1000mcg",
+    "category": "supplements",
+    "subcategory": "B vitamins",
+    "title": "Nature Made B12 1000 mcg Time Release vs Spring Valley B12 1000 mcg Timed-Release",
+    "brand": {
+      "brand": "Nature Made",
+      "product": "Nature Made Vitamin B12 1000 mcg Time Release Tablets, 160 count",
+      "size": 160,
+      "unit": "tablet",
+      "price_usd": 18.2,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Nature-Made-Vitamin-B12-1000-mcg-Time-Release-Tablets-160-Count-Value-Size/5176462694",
+      "key_ingredients": [
+        {
+          "name": "Vitamin B12",
+          "amount": "1000 mcg"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Spring Valley",
+      "product": "Spring Valley Vitamin B12 Timed-Release Tablets, 1000 mcg, 2 x 150 count (300)",
+      "size": 300,
+      "unit": "tablet",
+      "price_usd": 9.88,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Spring-Valley-Vitamin-B12-Timed-Release-Tablets-1000-mcg-150-Ct-2-Pk/22027168",
+      "key_ingredients": [
+        {
+          "name": "Vitamin B12 (cyanocobalamin)",
+          "amount": "1000 mcg"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 1000 mcg vitamin B12 time-release tablets taken once a day.",
+    "evidence": "Walmart lists Nature Made B12 at 1000 mcg per time-release tablet ($18.20/160) and Spring Valley at 1000 mcg cyanocobalamin per timed-release tablet ($9.88/300).",
+    "differences": "The Nature Made listing did not state the B12 form, so cyanocobalamin is unconfirmed for it from our sources. Release technology and binders may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/Nature-Made-Vitamin-B12-1000-mcg-Time-Release-Tablets-160-Count-Value-Size/5176462694",
+      "https://www.walmart.com/ip/Spring-Valley-Vitamin-B12-Timed-Release-Tablets-1000-mcg-150-Ct-2-Pk/22027168"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "glad-forceflex-vs-kirkland-flex-tech-13-gallon",
+    "category": "household",
+    "subcategory": "Trash bags",
+    "title": "Glad ForceFlex vs Kirkland Signature Flex-Tech 13-Gallon Trash Bags",
+    "brand": {
+      "brand": "Glad",
+      "product": "Glad ForceFlex 13-Gallon Drawstring Tall Kitchen Trash Bags, 110 count",
+      "size": 110,
+      "unit": "bag",
+      "price_usd": 19.27,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Glad-ForceFlex-Tall-Kitchen-Drawstring-Trash-Bags-13-Gallon-Trash-Bag-Fresh-Clean-scent-with-Febreze-Freshness-110-Count/24553273",
+      "key_ingredients": [
+        {
+          "name": "Thickness",
+          "amount": "0.72 mil (per Today.com)"
+        },
+        {
+          "name": "Reviewed.com dumbbell test",
+          "amount": "held 30 lb"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Kirkland Signature",
+      "product": "Kirkland Signature Flex-Tech 13-Gallon Kitchen Trash Bags, 200 count",
+      "size": 200,
+      "unit": "bag",
+      "price_usd": 22.49,
+      "retailer": "costco",
+      "asin": null,
+      "url": "https://www.costco.com/kirkland-signature-flex-tech-13-gallon-kitchen-trash-bag%2C-200-count.product.100342484.html",
+      "key_ingredients": [
+        {
+          "name": "Thickness",
+          "amount": "0.9 mil (per Today.com)"
+        },
+        {
+          "name": "Reviewed.com dumbbell test",
+          "amount": "held 35 lb"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Kirkland Flex-Tech bags are thicker and held more weight than Glad ForceFlex in Reviewed's load test, at about a third less per bag.",
+    "evidence": "Reviewed.com loaded bags with dumbbells in 5-lb steps: Kirkland Flex-Tech held 35 lb versus 30 lb for Glad ForceFlex 13-gal. Today.com's two-month hands-on test lists Kirkland at 0.9 mil versus Glad at 0.72 mil, but scored Glad higher overall (4.5 vs 3.3), with Kirkland feeling slightly damp after a milk-leak test.",
+    "differences": "Mixed results: Kirkland won on load strength and thickness, Glad won on leak resistance, snug fit and odor control in Today's test, and Kirkland's drawstring cinches less tightly. Kirkland needs a Costco membership. Glad's Febreze scent version is priced here.",
+    "sources": [
+      "https://reviewed.com/home-outdoors/best-right-now/the-best-trash-bags",
+      "https://www.today.com/shop/ranked-best-kitchen-trash-bags-rcna344153",
+      "https://www.walmart.com/ip/Glad-ForceFlex-Tall-Kitchen-Drawstring-Trash-Bags-13-Gallon-Trash-Bag-Fresh-Clean-scent-with-Febreze-Freshness-110-Count/24553273"
+    ],
+    "price_checked": "2026-11"
+  }
+]

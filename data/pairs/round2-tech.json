@@ -1,0 +1,109 @@
+[
+  {
+    "slug": "le-creuset-signature-5-5-qt-vs-lodge-6-qt-enameled-dutch-oven",
+    "category": "tech-tools",
+    "subcategory": "Kitchen - Cookware",
+    "title": "Le Creuset Signature 5.5 qt vs Lodge 6 qt Enameled Cast Iron Dutch Oven",
+    "brand": {
+      "brand": "Le Creuset",
+      "product": "Le Creuset Signature Enameled Cast Iron Round Dutch Oven, 5.5 qt",
+      "size": 1, "unit": "pot",
+      "price_usd": 454.95,
+      "retailer": "surlatable", "asin": null,
+      "url": "https://www.surlatable.com/product/le-creuset-signature-round-dutch-oven-5-5-qt/6825079",
+      "key_ingredients": [{"name": "Material", "amount": "Enameled cast iron"}, {"name": "Capacity", "amount": "5.5 qt"}, {"name": "Warranty", "amount": "Limited lifetime"}]
+    },
+    "alternative": {
+      "brand": "Lodge",
+      "product": "Lodge 6 qt Enameled Cast Iron Dutch Oven with Loop Handles",
+      "size": 1, "unit": "pot",
+      "price_usd": 89.90,
+      "retailer": "walmart", "asin": null,
+      "url": "https://www.walmart.com/ip/469078414",
+      "key_ingredients": [{"name": "Material", "amount": "Enameled cast iron"}, {"name": "Capacity", "amount": "6 qt"}, {"name": "Oven safe", "amount": "500 F (knob)"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are enameled cast-iron round Dutch ovens, and in side-by-side tests the Lodge cooked about as well as the Le Creuset for about a fifth of the price, with a slightly larger capacity.",
+    "evidence": "CNN Underscored tested the Lodge 6 qt enameled Dutch oven head to head with Le Creuset's round Dutch oven and found the Lodge 'stood toe to toe', with good braising, bread and rice results and no chipping or staining. Le Creuset was slightly ahead on boiling speed, heat evenness and release. Consumer Reports names Lodge enameled cast iron one of the best it has tested, with very good evenness and heating speed, and says Le Creuset 'didn't beat out' its recommended models. Capacity and material come from the Sur La Table and Walmart product pages.",
+    "differences": "Le Creuset heated more evenly and boiled water faster in CNN's test, released rice better, is about 1 lb lighter for its size, has a lighter interior enamel, and has a lifetime warranty plus more colours. The Lodge is enameled in China, and any enamel can chip. Capacities differ: 5.5 qt vs 6 qt. Consumer Reports tested Lodge's 'Essential Enamel' line, which is not exactly this model.",
+    "sources": [
+      "https://amp.cnn.com/cnn/cnn-underscored/home/le-creuset-vs-lodge-dutch-oven",
+      "https://www.consumerreports.org/home-garden/cookware/best-dutch-ovens-from-consumer-reports-tests-a5129912707",
+      "https://www.surlatable.com/product/le-creuset-signature-round-dutch-oven-5-5-qt/6825079",
+      "https://www.walmart.com/ip/469078414",
+      "https://www.lecreuset.com/round-dutch-oven/21177US.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "filtrete-1000-mpr-merv-11-vs-simply-merv-11-16x25x1",
+    "category": "tech-tools",
+    "subcategory": "Home - HVAC filters",
+    "title": "Filtrete 1000 MPR (MERV 11) vs Simply MERV 11 16x25x1 Furnace Filter",
+    "brand": {
+      "brand": "Filtrete (3M)",
+      "product": "Filtrete 16x25x1 HVAC Furnace Air Filter, MPR 1000, MERV 11, Allergen Defense, 6-pack",
+      "size": 6, "unit": "filter",
+      "price_usd": 70.39,
+      "retailer": "walmart", "asin": null,
+      "url": "https://www.walmart.com/ip/20388236",
+      "key_ingredients": [{"name": "MERV rating", "amount": "11"}, {"name": "Size", "amount": "16 x 25 x 1 in"}, {"name": "Type", "amount": "Pleated"}]
+    },
+    "alternative": {
+      "brand": "Simply",
+      "product": "Simply 16 in. x 25 in. x 1 in. MERV 11 FPR 7 Pleated Furnace Air Filter, 6-pack",
+      "size": 6, "unit": "filter",
+      "price_usd": 39.97,
+      "retailer": "homedepot", "asin": null,
+      "url": "https://www.homedepot.com/p/p/337106315",
+      "key_ingredients": [{"name": "MERV rating", "amount": "11"}, {"name": "Size", "amount": "16 x 25 x 1 in"}, {"name": "Type", "amount": "Pleated"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "high",
+    "summary": "Both are 16x25x1 pleated furnace filters rated MERV 11, the standard industry measure of how well a filter traps particles, so the rated filtration is the same.",
+    "evidence": "MERV is a standardized ASHRAE 52.2 rating that lets filters from different brands be compared directly. MPR and FPR are each brand's own scale. The Walmart listing states Filtrete MPR 1000 = MERV 11, and the Home Depot listing states Simply = MERV 11 (FPR 7). Both are 1-inch pleated filters in the same nominal size. Prices are from the retailer pages: Filtrete 6-pack $70.39 ($11.73 per filter), Simply 6-pack $39.97 ($6.66 per filter).",
+    "differences": "Filtrete uses an electrostatically charged media; the Simply listing does not say whether its media is charged. Airflow resistance and how long each filter lasts were not compared. Filtrete's actual size is 15.68 x 24.68 x 0.81 in, and both should fit a standard 16x25x1 slot. The Simply filter is sold at Home Depot, not Amazon.",
+    "sources": [
+      "https://www.walmart.com/ip/20388236",
+      "https://www.homedepot.com/p/p/337106315",
+      "https://www.homedepot.com/p/p/338984447"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "snap-on-fll80-vs-icon-g2-3-8-20-in-extra-long-ratchet",
+    "category": "tech-tools",
+    "subcategory": "Tools - Ratchets",
+    "title": "Snap-on 3/8\" Extra-Long Ratchet (FLL80) vs ICON G2 3/8\" 20 in. Extra-Long Ratchet",
+    "brand": {
+      "brand": "Snap-on",
+      "product": "Snap-on 3/8\" Drive Dual 80 Technology Extra Long Handle Ratchet (FLL80), 17-1/2 in.",
+      "size": 1, "unit": "ratchet",
+      "price_usd": 189.00,
+      "retailer": "snapon", "asin": null,
+      "url": "https://shop.snapon.com/product/Dual-80-Technology%2C-Chrome-%283-8%22%29/3-8%22-Drive-Dual-80-Technology-Extra-Long-Handle-Ratchet/FLL80",
+      "key_ingredients": [{"name": "Drive", "amount": "3/8 in"}, {"name": "Teeth", "amount": "80 (Dual 80)"}, {"name": "Length", "amount": "17.5 in"}]
+    },
+    "alternative": {
+      "brand": "ICON (Harbor Freight)",
+      "product": "ICON G2 3/8 in. Drive 20 in. Extra-Long Ratchet (SKU 70431, model R2XL)",
+      "size": 1, "unit": "ratchet",
+      "price_usd": 59.99,
+      "retailer": "harborfreight", "asin": null,
+      "url": "https://www.harborfreight.com/g2-38-in-drive-20-in-extra-long-ratchet-70431.html",
+      "key_ingredients": [{"name": "Drive", "amount": "3/8 in"}, {"name": "Teeth", "amount": "80"}, {"name": "Swing arc", "amount": "4.5 degrees"}, {"name": "Length", "amount": "20 in"}, {"name": "Warranty", "amount": "Lifetime"}]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "In Torque Test Channel's lab test, the ICON G2 3/8\" extra-long ratchet broke at a higher torque than its Snap-on counterpart and needed about the same number of swings, at about a third of the price.",
+    "evidence": "SlashGear reports Torque Test Channel's results: the ICON G2 failed at 310 ft-lbs vs 280 ft-lbs for the Snap-on, and in a restricted-swing test the Snap-on averaged 26.25 swings vs ICON's 27. The Harbor Freight page lists 80 teeth, a 4.5-degree arc, 20 in. length and a lifetime warranty. The Snap-on price of $189 for the 17-1/2 in. FLL80 comes from SlashGear, because the Snap-on page would not render for us.",
+    "differences": "The ICON is 2.5 in. longer than the FLL80. Reviewers still prefer the Snap-on's feel and finish, and Snap-on offers truck-dealer service and warranty swaps. SlashGear does not say which exact Snap-on part was used in the torque test. The Snap-on price is secondary and was not confirmed on snapon.com. The ICON is sold only at Harbor Freight, not Amazon.",
+    "sources": [
+      "https://www.slashgear.com/2087160/snap-on-ratchets-harbor-freight-icon-g2-which-wins",
+      "https://www.harborfreight.com/g2-38-in-drive-20-in-extra-long-ratchet-70431.html",
+      "https://www.youtube.com/watch?v=MBItmykqu0I"
+    ],
+    "price_checked": "2026-11"
+  }
+]

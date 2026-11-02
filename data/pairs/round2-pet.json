@@ -1,0 +1,419 @@
+[
+  {
+    "slug": "frontline-plus-vs-petarmor-plus-dogs-45-88-lbs",
+    "category": "pet",
+    "subcategory": "Flea & tick",
+    "title": "Frontline Plus vs PetArmor Plus for Dogs 45-88 lbs",
+    "brand": {
+      "brand": "Frontline",
+      "product": "FRONTLINE Plus for Dogs Flea & Tick Spot Treatment, 45-88 lbs, 6 doses",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 74.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/FRONTLINE-Plus-for-Large-Dogs-45-88-lbs-Flea-and-Tick-Treatment-6-Doses/106488223",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "PetArmor",
+      "product": "PetArmor Plus Flea & Tick Spot Treatment for Dogs, 45-88 lbs, 6 doses",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 39.99,
+      "retailer": "chewy",
+      "asin": null,
+      "url": "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181538",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "PetArmor Plus for Dogs uses the same two actives as Frontline Plus for Dogs, fipronil 9.8% and (S)-methoprene 8.8%, in the same per-weight-band applicator volumes.",
+    "evidence": "The Frontline Plus for Dogs label (EPA Reg. No. 65331-5, Boehringer Ingelheim/Merial) lists fipronil 9.8% and (S)-methoprene 8.8%. The PetArmor Plus for Dogs label (EPA Reg. No. 2517-134, Sergeant's/PetIQ) lists fipronil 9.80% and (S)-methoprene 8.80%, with the same 2.68 mL applicator for the 45-88 lb band that Frontline uses. Walmart's PetArmor Plus listing also says it has the same active ingredients as Frontline Plus for Dogs.",
+    "differences": "A different registrant makes it (Sergeant's/PetIQ, EPA Reg. No. 2517-134, not Merial's 65331-5), so inert ingredients and applicator design may differ. Match the dog's weight band. Prices compare a Frontline pack with a PetArmor 6-pack on a per-dose basis.",
+    "sources": [
+      "https://www.drugs.com/vet/frontline-plus-for-dogs-puppies.html",
+      "https://www.drugs.com/vet/petarmor-plus-for-dogs-45-88-lbs.html",
+      "https://www.walmart.com/ip/FRONTLINE-Plus-for-Large-Dogs-45-88-lbs-Flea-and-Tick-Treatment-6-Doses/106488223",
+      "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181538",
+      "https://www.walmart.com/ip/42425085"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "frontline-plus-vs-petarmor-plus-dogs-23-44-lbs",
+    "category": "pet",
+    "subcategory": "Flea & tick",
+    "title": "Frontline Plus vs PetArmor Plus for Dogs 23-44 lbs",
+    "brand": {
+      "brand": "Frontline",
+      "product": "FRONTLINE Plus for Dogs Flea & Tick Spot Treatment, 23-44 lbs, 3 doses",
+      "size": 3,
+      "unit": "dose",
+      "price_usd": 41.16,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/browse/pets/dog-flea-tick-supplies/frontline/5440_202072_1245962/YnJhbmQ6RlJPTlRMSU5F",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "PetArmor",
+      "product": "PetArmor Plus Flea & Tick Spot Treatment for Dogs, 23-44 lbs, 6 doses",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 39.93,
+      "retailer": "chewy",
+      "asin": null,
+      "url": "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181540",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "PetArmor Plus for Dogs uses the same two actives as Frontline Plus for Dogs, fipronil 9.8% and (S)-methoprene 8.8%.",
+    "evidence": "The Frontline Plus for Dogs label (EPA Reg. No. 65331-5, Boehringer Ingelheim/Merial) lists fipronil 9.8% and (S)-methoprene 8.8%. The PetArmor Plus for Dogs label (EPA Reg. No. 2517-134, Sergeant's/PetIQ) lists fipronil 9.80% and (S)-methoprene 8.80%. Walmart's PetArmor Plus listing also says it has the same active ingredients as Frontline Plus for Dogs.",
+    "differences": "A different registrant makes it (Sergeant's/PetIQ, EPA Reg. No. 2517-134, not Merial's 65331-5), so inert ingredients and applicator design may differ. Match the dog's weight band. Prices compare a Frontline pack with a PetArmor 6-pack on a per-dose basis. The Frontline price comes from Walmart's Frontline brand listing page (3-dose pack). Confirm it on the product page before publishing.",
+    "sources": [
+      "https://www.drugs.com/vet/frontline-plus-for-dogs-puppies.html",
+      "https://www.drugs.com/vet/petarmor-plus-for-dogs-45-88-lbs.html",
+      "https://www.walmart.com/browse/pets/dog-flea-tick-supplies/frontline/5440_202072_1245962/YnJhbmQ6RlJPTlRMSU5F",
+      "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181540",
+      "https://www.drugs.com/vet/petarmor-plus-for-dogs-23-44-lbs.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "frontline-plus-vs-petarmor-plus-dogs-5-22-lbs",
+    "category": "pet",
+    "subcategory": "Flea & tick",
+    "title": "Frontline Plus vs PetArmor Plus for Dogs 5-22 lbs",
+    "brand": {
+      "brand": "Frontline",
+      "product": "FRONTLINE Plus for Dogs Flea & Tick Spot Treatment, 5-22 lbs, 3 doses",
+      "size": 3,
+      "unit": "dose",
+      "price_usd": 41.16,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/browse/pets/dog-flea-tick-supplies/frontline/5440_202072_1245962/YnJhbmQ6RlJPTlRMSU5F",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "PetArmor",
+      "product": "PetArmor Plus Flea & Tick Spot Treatment for Dogs, 5-22 lbs, 6 doses",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 39.93,
+      "retailer": "chewy",
+      "asin": null,
+      "url": "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181529",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "PetArmor Plus for Dogs uses the same two actives as Frontline Plus for Dogs, fipronil 9.8% and (S)-methoprene 8.8%.",
+    "evidence": "The Frontline Plus for Dogs label (EPA Reg. No. 65331-5, Boehringer Ingelheim/Merial) lists fipronil 9.8% and (S)-methoprene 8.8%. The PetArmor Plus for Dogs label (EPA Reg. No. 2517-134, Sergeant's/PetIQ) lists fipronil 9.80% and (S)-methoprene 8.80%. Walmart's PetArmor Plus listing also says it has the same active ingredients as Frontline Plus for Dogs.",
+    "differences": "A different registrant makes it (Sergeant's/PetIQ, EPA Reg. No. 2517-134, not Merial's 65331-5), so inert ingredients and applicator design may differ. Match the dog's weight band. Prices compare a Frontline pack with a PetArmor 6-pack on a per-dose basis. The Frontline price comes from Walmart's Frontline brand listing page (3-dose pack). Confirm it on the product page before publishing. PetArmor labels this band as 4-22 lb on some packs and Frontline as 5-22 lb.",
+    "sources": [
+      "https://www.drugs.com/vet/frontline-plus-for-dogs-puppies.html",
+      "https://www.drugs.com/vet/petarmor-plus-for-dogs-45-88-lbs.html",
+      "https://www.walmart.com/browse/pets/dog-flea-tick-supplies/frontline/5440_202072_1245962/YnJhbmQ6RlJPTlRMSU5F",
+      "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181529",
+      "https://drugs.com/vet/petarmor-plus-for-dogs-4-22-lbs.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "frontline-plus-vs-petarmor-plus-dogs-89-132-lbs",
+    "category": "pet",
+    "subcategory": "Flea & tick",
+    "title": "Frontline Plus vs PetArmor Plus for Dogs 89-132 lbs",
+    "brand": {
+      "brand": "Frontline",
+      "product": "FRONTLINE Plus for Dogs Flea & Tick Spot Treatment, 89-132 lbs, 3 doses",
+      "size": 3,
+      "unit": "dose",
+      "price_usd": 41.16,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/browse/pets/dog-flea-tick-supplies/frontline/5440_202072_1245962/YnJhbmQ6RlJPTlRMSU5F",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "PetArmor",
+      "product": "PetArmor Plus Flea & Tick Spot Treatment for Dogs, 89-132 lbs, 6 doses",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 39.93,
+      "retailer": "chewy",
+      "asin": null,
+      "url": "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/116595",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "PetArmor Plus for Dogs uses the same two actives as Frontline Plus for Dogs, fipronil 9.8% and (S)-methoprene 8.8%.",
+    "evidence": "The Frontline Plus for Dogs label (EPA Reg. No. 65331-5, Boehringer Ingelheim/Merial) lists fipronil 9.8% and (S)-methoprene 8.8%. The PetArmor Plus for Dogs label (EPA Reg. No. 2517-134, Sergeant's/PetIQ) lists fipronil 9.80% and (S)-methoprene 8.80%. Walmart's PetArmor Plus listing also says it has the same active ingredients as Frontline Plus for Dogs.",
+    "differences": "A different registrant makes it (Sergeant's/PetIQ, EPA Reg. No. 2517-134, not Merial's 65331-5), so inert ingredients and applicator design may differ. Match the dog's weight band. Prices compare a Frontline pack with a PetArmor 6-pack on a per-dose basis. The Frontline price comes from Walmart's Frontline brand listing page (3-dose pack). Confirm it on the product page before publishing.",
+    "sources": [
+      "https://www.drugs.com/vet/frontline-plus-for-dogs-puppies.html",
+      "https://www.drugs.com/vet/petarmor-plus-for-dogs-45-88-lbs.html",
+      "https://www.walmart.com/browse/pets/dog-flea-tick-supplies/frontline/5440_202072_1245962/YnJhbmQ6RlJPTlRMSU5F",
+      "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/116595"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "frontline-plus-vs-sentry-fiproguard-plus-dogs-45-88-lbs",
+    "category": "pet",
+    "subcategory": "Flea & tick",
+    "title": "Frontline Plus vs Sentry FiproGuard Plus for Dogs 45-88 lbs",
+    "brand": {
+      "brand": "Frontline",
+      "product": "FRONTLINE Plus for Dogs Flea & Tick Spot Treatment, 45-88 lbs, 6 doses",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 74.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/FRONTLINE-Plus-for-Large-Dogs-45-88-lbs-Flea-and-Tick-Treatment-6-Doses/106488223",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Sentry",
+      "product": "Sentry FiproGuard Plus Squeeze-On Dog Flea & Tick Treatment, 45-88 lbs, 6 treatments",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 37.72,
+      "retailer": "chewy",
+      "asin": null,
+      "url": "https://www.chewy.com/sentry-fiproguard-plus-squeeze-on-dog/dp/290455",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "8.8%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Sentry FiproGuard Plus for Dogs has the same actives at the same strengths as Frontline Plus for Dogs: fipronil 9.8% and (S)-methoprene 8.8%.",
+    "evidence": "The Frontline Plus for Dogs label (EPA Reg. No. 65331-5) lists fipronil 9.8% and (S)-methoprene 8.8%. A retailer listing of Sentry FiproGuard Plus for Dogs (Revival Animal) gives fipronil 9.8% and (S)-methoprene 8.8% and says it is not made by Merial. The Chewy page confirms the 45-88 lb, 6-treatment pack and its price. I did not see the Sentry dog label PDF itself, so this is rated medium.",
+    "differences": "Sentry/PetIQ makes it, not Merial, so inert ingredients and applicator design may differ. I did not confirm the applicator volume from a label.",
+    "sources": [
+      "https://www.drugs.com/vet/frontline-plus-for-dogs-puppies.html",
+      "https://www.revivalanimal.com/product/sentry-fiproguard-plus-for-dogs",
+      "https://www.chewy.com/sentry-fiproguard-plus-squeeze-on-dog/dp/290455",
+      "https://www.walmart.com/ip/FRONTLINE-Plus-for-Large-Dogs-45-88-lbs-Flea-and-Tick-Treatment-6-Doses/106488223"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "frontline-plus-cats-vs-petarmor-plus-cats",
+    "category": "pet",
+    "subcategory": "Flea & tick",
+    "title": "Frontline Plus for Cats vs PetArmor Plus for Cats",
+    "brand": {
+      "brand": "Frontline",
+      "product": "Frontline Plus Flea & Tick Spot Treatment for Cats, 1.5 lbs and over, 6 count",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 74.98,
+      "retailer": "petsmart",
+      "asin": null,
+      "url": "https://www.petsmart.com/5156120.html",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "11.8%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "PetArmor",
+      "product": "PETARMOR Plus for Cats Over 1.5 lbs, Flea & Tick Prevention, 3 count",
+      "size": 3,
+      "unit": "dose",
+      "price_usd": 26.14,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/42425087",
+      "key_ingredients": [
+        {
+          "name": "Fipronil",
+          "amount": "9.8%"
+        },
+        {
+          "name": "(S)-methoprene",
+          "amount": "11.8%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "PetArmor Plus for Cats has the same actives as Frontline Plus for Cats, fipronil 9.8% and (S)-methoprene 11.8%, in the same 0.50 mL applicator.",
+    "evidence": "The Frontline Plus for Cats label lists fipronil 9.8% and (S)-methoprene 11.8% in a 0.50 mL applicator. A PetArmor Plus for Cats label lists fipronil 9.8% and (S)-methoprene 11.8% in a 0.50 mL (0.017 fl oz) pipette, and Walmart's listing says it contains the same active ingredients as Frontline Plus for Cats. The PetArmor label I found is an older FidoPharm-era version, so this is rated medium.",
+    "differences": "The PetArmor label I found was the older FidoPharm version (EPA Reg. No. 86230-3-85495, made in India). Today PetIQ sells PetArmor, and the current registrant may differ. Inert ingredients may also differ. The prices compare a PetSmart 6-pack with a Walmart 3-pack on a per-dose basis.",
+    "sources": [
+      "https://www.domyown.com/msds/Product-Label-for-Merial-Frontline-Plus-for-Cats.pdf",
+      "https://fleascience.com/wp-content/uploads/2017/12/Product-Label-for-PetArmor-Plus-for-Cats.pdf",
+      "https://www.walmart.com/ip/42425087",
+      "https://www.petsmart.com/5156120.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "k9-advantix-ii-vs-advecta-3-dogs-over-55-lbs",
+    "category": "pet",
+    "subcategory": "Flea & tick",
+    "title": "K9 Advantix II vs Advecta 3 for Dogs over 55 lbs",
+    "brand": {
+      "brand": "K9 Advantix II",
+      "product": "K9 Advantix II Flea & Tick Spot Treatment for Dogs, over 55 lbs, 6 doses",
+      "size": 6,
+      "unit": "dose",
+      "price_usd": 79.97,
+      "retailer": "chewy",
+      "asin": null,
+      "url": "https://www.chewy.com/dp/102309",
+      "key_ingredients": [
+        {
+          "name": "Imidacloprid",
+          "amount": "8.8%"
+        },
+        {
+          "name": "Permethrin",
+          "amount": "44.0%"
+        },
+        {
+          "name": "Pyriproxyfen",
+          "amount": "0.44%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Advecta",
+      "product": "Advecta 3 Tick, Flea, and Mosquito Repellent and Treatment for Extra Large Dogs, 4 monthly doses",
+      "size": 4,
+      "unit": "dose",
+      "price_usd": 24.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/127708435",
+      "key_ingredients": [
+        {
+          "name": "Imidacloprid",
+          "amount": "8.80%"
+        },
+        {
+          "name": "Permethrin",
+          "amount": "44.00%"
+        },
+        {
+          "name": "Pyriproxyfen",
+          "amount": "0.44%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Advecta 3 uses the same three actives at the same concentrations as K9 Advantix II: imidacloprid 8.8%, permethrin 44% and pyriproxyfen 0.44%.",
+    "evidence": "K9 Advantix II contains imidacloprid 8.80%, permethrin 44.00% and pyriproxyfen 0.44% (FleaScience summary of the label). The Advecta 3 Large Dog label (EPA Reg. No. 91384-3, TruRx/CAP IM Supply) lists imidacloprid 8.80%, permethrin 44.00% and pyriproxyfen 0.44%, in a 2.5 mL tube that matches Advantix Large. Walmart's Advecta 3 XL listing says it contains the same active ingredients as K9 Advantix II. I verified the label for the Large size only, and the XL pack is assumed to use the same formula at a larger tube volume, so this is rated medium.",
+    "differences": "I checked the Advecta 3 label for the 21-55 lb size, not the XL pack. A different registrant makes it (TruRx, EPA Reg. No. 91384-3). Both contain permethrin, which is TOXIC TO CATS, so never use either on cats. Walmart warned that its price may be out of date, and the 4-dose Advecta pack is compared with the 6-dose Advantix pack per dose.",
+    "sources": [
+      "https://www.drugs.com/vet/advecta-3-large-dog.html",
+      "https://fleascience.com/flea-control/flea-control-for-dogs/spot-on-flea-drops-for-dogs/generic-alternatives-to-k9-advantix-2",
+      "https://www.walmart.com/ip/127708435",
+      "https://www.chewy.com/dp/102309"
+    ],
+    "price_checked": "2026-11"
+  }
+]

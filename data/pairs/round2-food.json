@@ -1,0 +1,461 @@
+[
+  {
+    "slug": "splenda-vs-great-value-sucralose-packets",
+    "category": "food-pantry",
+    "subcategory": "Sweeteners",
+    "title": "Splenda Packets vs Great Value No Calorie Sweetener (Sucralose)",
+    "brand": {
+      "brand": "Splenda",
+      "product": "Splenda Zero Calorie Sweetener Packets, 200 count (7 oz)",
+      "size": 7,
+      "unit": "oz",
+      "price_usd": 7.89,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/splenda-zero-calorie-sweetener-packets-7oz-200pk/-/A-13330984",
+      "key_ingredients": [
+        {
+          "name": "Dextrose",
+          "amount": "not stated"
+        },
+        {
+          "name": "Maltodextrin",
+          "amount": "not stated"
+        },
+        {
+          "name": "Sucralose",
+          "amount": "not stated"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Great Value",
+      "product": "Great Value No Calorie Sweetener with Sucralose, 200 count (7 oz)",
+      "size": 7,
+      "unit": "oz",
+      "price_usd": 3.28,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10533727",
+      "key_ingredients": [
+        {
+          "name": "Dextrose",
+          "amount": "not stated"
+        },
+        {
+          "name": "Maltodextrin",
+          "amount": "not stated"
+        },
+        {
+          "name": "Sucralose",
+          "amount": "not stated"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "medium",
+    "summary": "Both are 1 g packets of dextrose, maltodextrin and sucralose, the same three ingredients in the same order.",
+    "evidence": "Target's Splenda listing gives the ingredients as dextrose, maltodextrin, Splenda sucralose. Walmart's Great Value page confirms 200 packets, 7 oz, made with sucralose, but its ingredient panel was empty. A grocery listing of the same Great Value product shows 'Dextrose with maltodextrin, sucralose'. Other store brands (H-E-B, Stop & Shop) use the same statement.",
+    "differences": "The Great Value ingredient list comes from a third-party grocery listing, not Walmart's own page. The $3.28 price is a Walmart rollback (it was listed at $6.14, and $3.50 in the multi-pack listing). Even at $6.14 it is cheaper per oz than Splenda.",
+    "sources": [
+      "https://www.target.com/p/splenda-zero-calorie-sweetener-packets-7oz-200pk/-/A-13330984",
+      "https://www.walmart.com/ip/10533727",
+      "https://food.mv.unitheme.net/pantry-en/baking-en/great-value-no-calorie-sweetener-200-count-7-oz/?sl=ar",
+      "https://www.heb.com/product-detail/h-e-b-sucralose-sweetener-packets/1169359"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "argo-vs-good-and-gather-corn-starch",
+    "category": "food-pantry",
+    "subcategory": "Baking",
+    "title": "Argo Corn Starch vs Good & Gather Corn Starch",
+    "brand": {
+      "brand": "Argo",
+      "product": "Argo 100% Pure Corn Starch, 16 oz",
+      "size": 16,
+      "unit": "oz",
+      "price_usd": 2.59,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426",
+      "key_ingredients": [
+        {
+          "name": "Corn starch",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Good & Gather (Target)",
+      "product": "Good & Gather Corn Starch, 16 oz",
+      "size": 16,
+      "unit": "oz",
+      "price_usd": 1.99,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320",
+      "key_ingredients": [
+        {
+          "name": "Corn starch",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "high",
+    "summary": "Both are a single ingredient: corn starch.",
+    "evidence": "Target's product pages list the only ingredient as corn starch for both Argo and Good & Gather, each 16 oz net weight.",
+    "differences": "Argo comes in a cardboard box. The store brand's packaging may differ. Otherwise none.",
+    "sources": [
+      "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426",
+      "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "domino-vs-great-value-granulated-sugar-4lb",
+    "category": "food-pantry",
+    "subcategory": "Baking",
+    "title": "Domino Granulated Sugar vs Great Value Pure Granulated Sugar",
+    "brand": {
+      "brand": "Domino",
+      "product": "Domino Premium Pure Cane Granulated Sugar, 4 lb",
+      "size": 64,
+      "unit": "oz",
+      "price_usd": 4.74,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/19500189",
+      "key_ingredients": [
+        {
+          "name": "Sugar (cane)",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Great Value",
+      "product": "Great Value Pure Granulated Sugar, 4 lb",
+      "size": 64,
+      "unit": "oz",
+      "price_usd": 2.5,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10315162",
+      "key_ingredients": [
+        {
+          "name": "Sugar",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "medium",
+    "summary": "Both are a single ingredient, granulated white sugar (sucrose), in the same 4 lb size.",
+    "evidence": "Walmart's Great Value page lists 'Ingredients: sugar' for the 4 lb bag. Walmart's Domino page describes it as pure cane sugar, and the same Domino product is sold elsewhere as 'Premium Pure Cane Granulated Sugar'. Refined white sugar from either source is essentially pure sucrose.",
+    "differences": "Domino is 100% cane sugar. Great Value does not say whether it is cane or beet, and store-brand sugar is often beet or a mix of the two. Some bakers and people who avoid GMO beets care about this. Choose the Domino-equivalent cane option if that matters to you.",
+    "sources": [
+      "https://www.walmart.com/ip/19500189",
+      "https://www.walmart.com/ip/10315162",
+      "https://www.priceritemarketplace.com/product/domino-premium-pure-cane-granulated-sugar-4-lb-id-00049200045503"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "c-and-h-vs-good-and-gather-granulated-sugar-4lb",
+    "category": "food-pantry",
+    "subcategory": "Baking",
+    "title": "C&H Pure Cane Sugar vs Good & Gather Granulated Sugar",
+    "brand": {
+      "brand": "C&H",
+      "product": "C&H Premium Pure Cane Granulated Sugar, 4 lb",
+      "size": 64,
+      "unit": "oz",
+      "price_usd": 4.99,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/c-38-h-premium-pure-cane-granulated-sugar-4lbs/-/A-13379070",
+      "key_ingredients": [
+        {
+          "name": "Sugar (cane)",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Good & Gather (Target)",
+      "product": "Good & Gather Granulated Sugar, 4 lb",
+      "size": 64,
+      "unit": "oz",
+      "price_usd": 3.19,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310",
+      "key_ingredients": [
+        {
+          "name": "Sugar",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "medium",
+    "summary": "Both list one ingredient, sugar, in a 4 lb bag.",
+    "evidence": "Target's pages list the ingredient as 'sugar' for both C&H and Good & Gather. Target's spec for Good & Gather says the sweetener source is sugar beet, and a brand rep on the page says it can be beet or cane depending on the bag.",
+    "differences": "C&H is cane sugar. Good & Gather is usually beet sugar. Both are refined sucrose, but people who want cane sugar specifically should know this.",
+    "sources": [
+      "https://www.target.com/p/c-38-h-premium-pure-cane-granulated-sugar-4lbs/-/A-13379070",
+      "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "heinz-vs-great-value-distilled-white-vinegar-gallon",
+    "category": "food-pantry",
+    "subcategory": "Vinegar",
+    "title": "Heinz Distilled White Vinegar vs Great Value Distilled White Vinegar (1 gal)",
+    "brand": {
+      "brand": "Heinz",
+      "product": "Heinz All Natural Distilled White Vinegar 5% Acidity, 1 gal",
+      "size": 128,
+      "unit": "fl oz",
+      "price_usd": 8.73,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/13908042",
+      "key_ingredients": [
+        {
+          "name": "Distilled white vinegar, diluted with water",
+          "amount": "5% acidity"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Great Value",
+      "product": "Great Value Distilled White Vinegar, 128 fl oz",
+      "size": 128,
+      "unit": "fl oz",
+      "price_usd": 3.94,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10450998",
+      "key_ingredients": [
+        {
+          "name": "White distilled vinegar, diluted with water",
+          "amount": "5% acidity"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "high",
+    "summary": "Both are distilled white vinegar diluted with water to 5% acidity, the standard strength for cooking, pickling and cleaning.",
+    "evidence": "Walmart lists the Great Value ingredients as 'White distilled vinegar, diluted with water to 5% acidity'. Heinz's label (on Target and Shipt listings) reads 'Distilled white vinegar diluted with water to 5% (50 grains) acidity'. The strength and ingredients are the same.",
+    "differences": "Heinz says its vinegar is made from American-grown corn. Great Value does not name its grain source. The Heinz $8.73 price is from Walmart's white vinegar category page. Its single product page showed a marketplace price of $19.96.",
+    "sources": [
+      "https://www.walmart.com/ip/10450998",
+      "https://www.walmart.com/ip/13908042",
+      "https://www.walmart.com/browse/food/white-vinegar/976759_976794_4649724_9616656_3944693",
+      "https://www.target.com/p/-/A-90209724",
+      "https://www.shipt.com/shop/products/f07c298b-64ef-30f3-a7b1-0642e3c44cd2?zip=08817"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "quaker-old-fashioned-vs-great-value-old-fashioned-oats-42oz",
+    "category": "food-pantry",
+    "subcategory": "Breakfast",
+    "title": "Quaker Old Fashioned Oats vs Great Value Old Fashioned Oats (42 oz)",
+    "brand": {
+      "brand": "Quaker",
+      "product": "Quaker Old Fashioned Oats, 42 oz",
+      "size": 42,
+      "unit": "oz",
+      "price_usd": 5.49,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/quaker-oats-old-fashioned-oats-42oz/-/A-13331320",
+      "key_ingredients": [
+        {
+          "name": "Whole grain rolled oats",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Great Value",
+      "product": "Great Value 100% Whole Grain Old Fashioned Oats, 42 oz",
+      "size": 42,
+      "unit": "oz",
+      "price_usd": 4.38,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10314925",
+      "key_ingredients": [
+        {
+          "name": "Whole grain rolled oats",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "high",
+    "summary": "Both are a single ingredient, whole grain rolled oats, in a 42 oz canister.",
+    "evidence": "Target lists Quaker Old Fashioned's ingredients as 'Whole grain rolled oats'. Walmart describes the Great Value 42 oz as 100% whole grain rolled oats with 'one simple ingredient', and the Open Food Facts label record for the same product (UPC 0078742371047) reads 'WHOLE GRAIN ROLLED OATS'.",
+    "differences": "Flake thickness and cooking time may differ a little. Neither product is certified gluten-free.",
+    "sources": [
+      "https://www.target.com/p/quaker-oats-old-fashioned-oats-42oz/-/A-13331320",
+      "https://www.walmart.com/ip/10314925",
+      "https://world.openfoodfacts.org/product/0078742371047"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mccormick-vs-good-and-gather-ground-black-pepper-3oz",
+    "category": "food-pantry",
+    "subcategory": "Spices",
+    "title": "McCormick Pure Ground Black Pepper vs Good & Gather Ground Black Pepper (3 oz)",
+    "brand": {
+      "brand": "McCormick",
+      "product": "McCormick Pure Ground Black Pepper, 3 oz",
+      "size": 3,
+      "unit": "oz",
+      "price_usd": 4.69,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/-/A-13479028",
+      "key_ingredients": [
+        {
+          "name": "Ground black pepper",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Good & Gather (Target)",
+      "product": "Good & Gather Ground Black Pepper, 3 oz",
+      "size": 3,
+      "unit": "oz",
+      "price_usd": 2.89,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121",
+      "key_ingredients": [
+        {
+          "name": "Black pepper",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "high",
+    "summary": "Both contain only ground black pepper, in the same 3 oz size.",
+    "evidence": "McCormick's own product page gives the ingredient as pure ground black pepper, and the Hannaford listing for the 3 oz tin reads 'Pure Ground Black Pepper'. Target lists Good & Gather Ground Black Pepper 3 oz with black pepper as its only ingredient.",
+    "differences": "Grind size and pepper origin may differ, so the flavor strength can vary a little.",
+    "sources": [
+      "https://www.target.com/p/-/A-13479028",
+      "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121",
+      "https://mccormick.com/spices-and-flavors/herbs-and-spices/spices/black-pepper-ground",
+      "https://hannaford.com/groceries/product/mccormick-pure-ground-black-pepper-3-oz-tin/321216"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mccormick-vs-good-and-gather-garlic-powder-3-12oz",
+    "category": "food-pantry",
+    "subcategory": "Spices",
+    "title": "McCormick Garlic Powder vs Good & Gather Garlic Powder (3.12 oz)",
+    "brand": {
+      "brand": "McCormick",
+      "product": "McCormick Garlic Powder, 3.12 oz",
+      "size": 3.12,
+      "unit": "oz",
+      "price_usd": 3.23,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10535033",
+      "key_ingredients": [
+        {
+          "name": "Garlic powder",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Good & Gather (Target)",
+      "product": "Good & Gather Garlic Powder, 3.12 oz",
+      "size": 3.12,
+      "unit": "oz",
+      "price_usd": 1.19,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/garlic-powder-3-12oz-good-38-gather-8482/-/A-77585075",
+      "key_ingredients": [
+        {
+          "name": "Garlic powder",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "high",
+    "summary": "Both are single-ingredient garlic powder in the same 3.12 oz bottle size.",
+    "evidence": "Stop & Shop's listing for McCormick Garlic Powder 3.12 oz gives the ingredients as 'Garlic Powder'. Walmart describes it as dried ground garlic cloves. Target lists Good & Gather Garlic Powder 3.12 oz with garlic powder as its only ingredient.",
+    "differences": "The prices come from two retailers (Walmart for McCormick, Target for Good & Gather). The particle size and garlic origin may differ.",
+    "sources": [
+      "https://www.walmart.com/ip/10535033",
+      "https://www.target.com/p/garlic-powder-3-12oz-good-38-gather-8482/-/A-77585075",
+      "https://stopandshop.com/groceries/baking-cooking/spices-seasonings/mccormick-garlic-powder-312-oz-btl.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "mccormick-vs-good-and-gather-ground-cinnamon-2-37oz",
+    "category": "food-pantry",
+    "subcategory": "Spices",
+    "title": "McCormick Ground Cinnamon vs Good & Gather Ground Cinnamon (2.37 oz)",
+    "brand": {
+      "brand": "McCormick",
+      "product": "McCormick Ground Cinnamon, 2.37 oz",
+      "size": 2.37,
+      "unit": "oz",
+      "price_usd": 2.82,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/10535029",
+      "key_ingredients": [
+        {
+          "name": "Ground cinnamon",
+          "amount": "100%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Good & Gather (Target)",
+      "product": "Good & Gather Ground Cinnamon, 2.37 oz",
+      "size": 2.37,
+      "unit": "oz",
+      "price_usd": 1.19,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/ground-cinnamon-2-37oz-good-38-gather-8482/-/A-77586373",
+      "key_ingredients": [
+        {
+          "name": "Cinnamon",
+          "amount": "100%"
+        }
+      ]
+    },
+    "match_type": "identical_formula",
+    "confidence": "medium",
+    "summary": "Both are single-ingredient ground cinnamon in the same 2.37 oz size.",
+    "evidence": "Brookshire's listing for McCormick Ground Cinnamon 2.37 oz gives the ingredients as 'Ground Cinnamon'. Target lists Good & Gather Ground Cinnamon 2.37 oz with cinnamon as its only ingredient.",
+    "differences": "Neither label names the cinnamon species. Both are most likely cassia, but that is not confirmed, and cassia and Ceylon differ in flavor and coumarin content. The prices come from two retailers.",
+    "sources": [
+      "https://www.walmart.com/ip/10535029",
+      "https://www.target.com/p/ground-cinnamon-2-37oz-good-38-gather-8482/-/A-77586373",
+      "https://www.brookshires.com/sm/planning/rsid/97/product/mccormick-cinnamon-ground-seasoning-237-ounce-id-00052100004389"
+    ],
+    "price_checked": "2026-11"
+  }
+]
