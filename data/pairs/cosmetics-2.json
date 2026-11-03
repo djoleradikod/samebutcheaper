@@ -1,0 +1,620 @@
+[
+  {
+    "slug": "mens-rogaine-5-solution-vs-equate-minoxidil-5-solution",
+    "market": "US",
+    "category": "beauty-hair",
+    "subcategory": "Hair regrowth",
+    "title": "Men's Rogaine 5% Solution vs Equate Minoxidil 5% Solution (3-month)",
+    "brand": {
+      "brand": "Rogaine",
+      "product": "Men's Rogaine Extra Strength 5% Minoxidil Topical Solution, Unscented, 3 x 2 fl oz (3-month supply)",
+      "size": 6,
+      "unit": "fl oz",
+      "price": 49.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Rogaine-for-Men-Hair-Regrowth-Treatment-2oz-3ct/10801421",
+      "image": null,
+      "rating": {
+        "stars": 4,
+        "count": 1253,
+        "source": "https://www.walmart.com/ip/Rogaine-for-Men-Hair-Regrowth-Treatment-2oz-3ct/10801421"
+      },
+      "gtin": null,
+      "license_id": "NDC 69968-0089-3",
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "5% w/v"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Minoxidil Topical Solution USP 5%, Extra Strength Hair Regrowth Treatment for Men, 3 x 2 fl oz (90-day)",
+      "size": 6,
+      "unit": "fl oz",
+      "price": 21.94,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-USP-5-Percent-Extra-Strength-90-Day-Liquid-6-oz/563865032",
+      "image": null,
+      "rating": {
+        "stars": 4.4,
+        "count": 2753,
+        "source": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-USP-5-Percent-Extra-Strength-90-Day-Liquid-6-oz/563865032"
+      },
+      "gtin": null,
+      "license_id": "NDC 49035-746-30",
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "5% w/v"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 5% minoxidil topical solutions in three 2 fl oz dropper bottles, and their FDA labels list the same three inactive ingredients.",
+    "evidence": "DailyMed's label for Men's Rogaine Extra Strength Unscented lists Minoxidil 5% w/v with alcohol, propylene glycol and purified water, and a 3-bottle carton (NDC 69968-0089-3). DailyMed's Equate Hair Regrowth Treatment (minoxidil solution) label, labeled by Wal-Mart, lists Minoxidil 5% w/v with alcohol, propylene glycol and purified water, a 3 x 60 mL carton (NDC 49035-746-30) and 'Compare to Men's Rogaine Extra Strength Active Ingredient'. Walmart sells both, at $49.97 ($8.33/fl oz) and $21.94 ($3.66/fl oz).",
+    "differences": "We found no formula difference on the labels, only in packaging and branding. Both labels say the product is for men only, as for all 5% minoxidil solutions. Another Equate 5% 3-pack listing (item 16627518) was out of stock, but the one used here was available.",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Alcohol, propylene glycol, purified water",
+        "alternative": "Alcohol, propylene glycol, purified water",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ccaecec5-5348-4b24-9190-5464c50f6d80"
+      },
+      {
+        "aspect": "Pack",
+        "brand": "3 x 2 fl oz (60 mL) bottles, 3-month supply",
+        "alternative": "3 x 2 fl oz (60 mL) dropper bottles, 90-day",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.0/5 from 1,253 ratings",
+        "alternative": "4.4/5 from 2,753 ratings",
+        "verdict": "alt_better",
+        "source": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-USP-5-Percent-Extra-Strength-90-Day-Liquid-6-oz/563865032"
+      },
+      {
+        "aspect": "Drug label",
+        "brand": "FDA drug label on DailyMed, NDC 69968-0089",
+        "alternative": "FDA drug label on DailyMed, NDC 49035-746",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=98f780ad-dc07-4d37-a05d-fc7b45b0c474"
+      }
+    ],
+    "sources": [
+      "https://www.walmart.com/ip/Rogaine-for-Men-Hair-Regrowth-Treatment-2oz-3ct/10801421",
+      "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-USP-5-Percent-Extra-Strength-90-Day-Liquid-6-oz/563865032",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ccaecec5-5348-4b24-9190-5464c50f6d80",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=98f780ad-dc07-4d37-a05d-fc7b45b0c474"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "womens-rogaine-2-solution-vs-equate-minoxidil-2-solution",
+    "market": "US",
+    "category": "beauty-hair",
+    "subcategory": "Hair regrowth",
+    "title": "Women's Rogaine 2% Solution vs Equate Minoxidil 2% for Women (3-month)",
+    "brand": {
+      "brand": "Rogaine",
+      "product": "Women's Rogaine 2% Minoxidil Hair Regrowth Solution, Unscented, 3 x 2 fl oz (3-month supply)",
+      "size": 6,
+      "unit": "fl oz",
+      "price": 49.99,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Women-s-Rogaine-2-Minoxidil-Hair-Regrowth-Solution-3-x-2-fl-oz/10801423",
+      "image": null,
+      "rating": {
+        "stars": 4,
+        "count": 614,
+        "source": "https://www.walmart.com/ip/Women-s-Rogaine-2-Minoxidil-Hair-Regrowth-Solution-3-x-2-fl-oz/10801423"
+      },
+      "gtin": null,
+      "license_id": "NDC 69968-0090-3",
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "2% w/v"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Minoxidil Topical Solution 2%, Hair Regrowth Treatment for Women, 3 x 2 fl oz (3-month)",
+      "size": 6,
+      "unit": "fl oz",
+      "price": 22.94,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-2-Percent-Hair-Regrowth-Treatment-for-Women-3-Month-Supply/856243185",
+      "image": null,
+      "rating": {
+        "stars": 4.5,
+        "count": 1619,
+        "source": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-2-Percent-Hair-Regrowth-Treatment-for-Women-3-Month-Supply/856243185"
+      },
+      "gtin": null,
+      "license_id": null,
+      "key_ingredients": [
+        {
+          "name": "Minoxidil",
+          "amount": "2% w/v"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Both are 2% minoxidil topical solutions for women, sold as three 2 fl oz bottles for a three-month supply.",
+    "evidence": "DailyMed's Women's Rogaine Unscented solution label lists Minoxidil 2% w/v (alcohol, propylene glycol, purified water) and a 3-bottle carton (NDC 69968-0090-3). Walmart's Equate listing states Minoxidil 2%, twice-daily use with an enclosed dropper, and says it 'can be compared to the active ingredient in Women's Rogaine'. At $3.82 per fl oz, Walmart's price works out to the full 6 fl oz 3-pack at $22.94, against $49.99 for Rogaine's 3-pack.",
+    "differences": "We could not see Equate's printed Drug Facts or inactive ingredients, so we have not confirmed that its base is the same alcohol, propylene glycol and water mix as Rogaine's. That is why confidence is medium. This pair covers only the 2% twice-daily liquid, not Women's Rogaine 5% once-daily foam.",
+    "aspects": [
+      {
+        "aspect": "Pack",
+        "brand": "3 x 2 fl oz bottles, 3-month supply",
+        "alternative": "3 x 2 fl oz bottles, 3-month supply",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Applicator",
+        "brand": "Dropper bottle",
+        "alternative": "Enclosed child-resistant dropper",
+        "verdict": "same",
+        "source": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-2-Percent-Hair-Regrowth-Treatment-for-Women-3-Month-Supply/856243185"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.0/5 from 614 ratings",
+        "alternative": "4.5/5 from 1,619 ratings",
+        "verdict": "alt_better",
+        "source": "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-2-Percent-Hair-Regrowth-Treatment-for-Women-3-Month-Supply/856243185"
+      },
+      {
+        "aspect": "Published label",
+        "brand": "Full Drug Facts on DailyMed, incl. inactives",
+        "alternative": "Online listing shows only active and strength",
+        "verdict": "brand_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf0000c-95f3-4a4d-830b-f5ac1539823d"
+      }
+    ],
+    "sources": [
+      "https://www.walmart.com/ip/Women-s-Rogaine-2-Minoxidil-Hair-Regrowth-Solution-3-x-2-fl-oz/10801423",
+      "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Solution-2-Percent-Hair-Regrowth-Treatment-for-Women-3-Month-Supply/856243185",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf0000c-95f3-4a4d-830b-f5ac1539823d"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "listerine-cool-mint-vs-equate-antiseptic-blue-mint-1-5l",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "subcategory": "Oral care",
+    "title": "Listerine Cool Mint vs Equate Antiseptic Mouthwash Blue Mint 1.5 L",
+    "brand": {
+      "brand": "Listerine",
+      "product": "Listerine Cool Mint Antiseptic Mouthwash, 1.5 L (50.7 fl oz)",
+      "size": 50.7,
+      "unit": "fl oz",
+      "price": 8.38,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Listerine-Cool-Mint-Antiseptic-Mouthwash-For-Bad-Breath-Plaque-Oral-Care-1-5-L/871623",
+      "image": null,
+      "rating": {
+        "stars": 4.8,
+        "count": 10600,
+        "source": "https://www.walmart.com/ip/Listerine-Cool-Mint-Antiseptic-Mouthwash-For-Bad-Breath-Plaque-Oral-Care-1-5-L/871623"
+      },
+      "gtin": null,
+      "license_id": "NDC 69968-0550",
+      "key_ingredients": [
+        {
+          "name": "Eucalyptol",
+          "amount": "0.092%"
+        },
+        {
+          "name": "Menthol",
+          "amount": "0.042%"
+        },
+        {
+          "name": "Methyl salicylate",
+          "amount": "0.060%"
+        },
+        {
+          "name": "Thymol",
+          "amount": "0.064%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Antiseptic Mouthwash, Blue Mint, 1.5 L (50.7 fl oz)",
+      "size": 50.7,
+      "unit": "fl oz",
+      "price": 3.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Blue-Mint-50-7-fl-oz/2906382718",
+      "image": null,
+      "rating": {
+        "stars": 4.7,
+        "count": 18300,
+        "source": "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Blue-Mint-50-7-fl-oz/2906382718"
+      },
+      "gtin": null,
+      "license_id": "NDC 49035-664",
+      "key_ingredients": [
+        {
+          "name": "Eucalyptol",
+          "amount": "0.092%"
+        },
+        {
+          "name": "Menthol",
+          "amount": "0.042%"
+        },
+        {
+          "name": "Methyl salicylate",
+          "amount": "0.060%"
+        },
+        {
+          "name": "Thymol",
+          "amount": "0.064%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Equate Blue Mint has the same four essential-oil actives at the same strengths as Listerine Cool Mint, and the same inactive ingredients, for under half the price.",
+    "evidence": "DailyMed's Listerine Cool Mint Antiseptic label lists eucalyptol 0.092%, menthol 0.042%, methyl salicylate 0.060% and thymol 0.064%. Its inactives are water, alcohol (21.6%), sorbitol, poloxamer 407, benzoic acid, sodium saccharin, sodium benzoate, flavor and green 3. The FDA label for Equate Antiseptic Mouthwash Blue Mint (NDC 49035-664, distributed by Wal-Mart, 1.5 L) lists the same actives at the same percentages and the same inactives with 21.6% alcohol, and says 'Compare to Cool Mint Listerine'. Walmart's Equate page also says it is accepted by the American Dental Association.",
+    "differences": "The flavor is called Blue Mint rather than Cool Mint, and the flavoring blend isn't disclosed, so the taste may differ slightly. The inactive list is printed in a slightly different order. Listerine averages 0.1 star higher at Walmart. For bulk buyers, Walmart's 6-bottle Listerine quantity option was $25.18 (8.3¢/fl oz) when we checked, close to Equate's 7.9¢, so the saving mostly applies to single bottles.",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Water, 21.6% alcohol, sorbitol, poloxamer 407, benzoates, saccharin, flavor, green 3",
+        "alternative": "Same list, 21.6% alcohol",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e97e4f8-80c2-44e0-862c-0dfca392a436"
+      },
+      {
+        "aspect": "Flavor",
+        "brand": "Cool Mint",
+        "alternative": "Blue Mint (sold as compare to Cool Mint)",
+        "verdict": "different"
+      },
+      {
+        "aspect": "Bottle",
+        "brand": "1.5 L",
+        "alternative": "1.5 L",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.8/5 from about 10,600 ratings",
+        "alternative": "4.7/5 from about 18,300 ratings",
+        "verdict": "brand_better",
+        "source": "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Blue-Mint-50-7-fl-oz/2906382718"
+      }
+    ],
+    "sources": [
+      "https://www.walmart.com/ip/Listerine-Cool-Mint-Antiseptic-Mouthwash-For-Bad-Breath-Plaque-Oral-Care-1-5-L/871623",
+      "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Blue-Mint-50-7-fl-oz/2906382718",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e97e4f8-80c2-44e0-862c-0dfca392a436",
+      "https://ndclist.com/ndc/49035-664/label"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "listerine-original-vs-equate-antiseptic-original-1-5l",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "subcategory": "Oral care",
+    "title": "Listerine Original vs Equate Antiseptic Mouthwash Original 1.5 L",
+    "brand": {
+      "brand": "Listerine",
+      "product": "Listerine Original Antiseptic Mouthwash, 1.5 L (50.7 fl oz)",
+      "size": 50.7,
+      "unit": "fl oz",
+      "price": 7.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Listerine-Original-Antiseptic-Mouthwash-Mouth-Rinse-for-Bad-Breath-Plaque-1-5-L/1120731",
+      "image": null,
+      "rating": {
+        "stars": 4.8,
+        "count": 6975,
+        "source": "https://www.walmart.com/ip/Listerine-Original-Antiseptic-Mouthwash-Mouth-Rinse-for-Bad-Breath-Plaque-1-5-L/1120731"
+      },
+      "gtin": null,
+      "license_id": "NDC 69968-0400-1",
+      "key_ingredients": [
+        {
+          "name": "Eucalyptol",
+          "amount": "0.092%"
+        },
+        {
+          "name": "Menthol",
+          "amount": "0.042%"
+        },
+        {
+          "name": "Methyl salicylate",
+          "amount": "0.060%"
+        },
+        {
+          "name": "Thymol",
+          "amount": "0.064%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Equate",
+      "product": "Equate Antiseptic Mouthwash, Original, 1.5 L (50.7 fl oz)",
+      "size": 50.7,
+      "unit": "fl oz",
+      "price": 3.98,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Original-1-5-Liters-50-7-fl-oz/2840432443",
+      "image": null,
+      "rating": {
+        "stars": 4.8,
+        "count": 5592,
+        "source": "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Original-1-5-Liters-50-7-fl-oz/2840432443"
+      },
+      "gtin": null,
+      "license_id": "NDC 79903-153",
+      "key_ingredients": [
+        {
+          "name": "Eucalyptol",
+          "amount": "0.092%"
+        },
+        {
+          "name": "Menthol",
+          "amount": "0.042%"
+        },
+        {
+          "name": "Methyl salicylate",
+          "amount": "0.060%"
+        },
+        {
+          "name": "Thymol",
+          "amount": "0.064%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Equate Original has the same four essential-oil actives at the same strengths, and the same six inactive ingredients, as Listerine Original, for half the price.",
+    "evidence": "DailyMed's Listerine Original Antiseptic label lists eucalyptol 0.092%, menthol 0.042%, methyl salicylate 0.060% and thymol 0.064%. The inactives are water, alcohol (26.9% v/v), benzoic acid, poloxamer 407, sodium benzoate and caramel, and the 1.5 L size is NDC 69968-0400-1. The FDA label for Equate Antiseptic Mouthwash Original (distributed by Walmart Inc., NDC 79903-153) lists the same actives and percentages, and water, alcohol (26.9% v/v), poloxamer 407, sodium benzoate, benzoic acid and caramel. It says 'Compare to Listerine active ingredients'. Walmart sells both 1.5 L bottles, at $7.98 and $3.98.",
+    "differences": "No ingredient differences, only the order of the inactive list. Both contain 26.9% alcohol and have the same medicinal taste. Packaging differs.",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Water, 26.9% alcohol, benzoic acid, poloxamer 407, sodium benzoate, caramel",
+        "alternative": "Same six ingredients, 26.9% alcohol",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=78e2e172-09a4-4bf1-9871-d099c49087be"
+      },
+      {
+        "aspect": "Bottle",
+        "brand": "1.5 L",
+        "alternative": "1.5 L",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.8/5 from 6,975 ratings",
+        "alternative": "4.8/5 from 5,592 ratings",
+        "verdict": "same",
+        "source": "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Original-1-5-Liters-50-7-fl-oz/2840432443"
+      }
+    ],
+    "sources": [
+      "https://www.walmart.com/ip/Listerine-Original-Antiseptic-Mouthwash-Mouth-Rinse-for-Bad-Breath-Plaque-1-5-L/1120731",
+      "https://www.walmart.com/ip/Equate-Antiseptic-Mouthwash-Original-1-5-Liters-50-7-fl-oz/2840432443",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=78e2e172-09a4-4bf1-9871-d099c49087be",
+      "https://ndclist.com/ndc/79903-153/label"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "cerave-acne-control-cleanser-vs-up-and-up-salicylic-acid-acne-wash",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "subcategory": "Acne",
+    "title": "CeraVe Acne Control Cleanser vs up&up Oil Free Acne Wash 2% Salicylic Acid",
+    "brand": {
+      "brand": "CeraVe",
+      "product": "CeraVe Acne Control Face Cleanser with 2% Salicylic Acid, 8 fl oz",
+      "size": 8,
+      "unit": "fl oz",
+      "price": 14.24,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/CeraVe-Skin-Care-Acne-Control-Face-Cleanser-with-2-Salicylic-Acid-Clears-Acne-Blackheads-Pores/206652170",
+      "image": null,
+      "rating": {
+        "stars": 4.6,
+        "count": 3750,
+        "source": "https://www.walmart.com/ip/CeraVe-Skin-Care-Acne-Control-Face-Cleanser-with-2-Salicylic-Acid-Clears-Acne-Blackheads-Pores/206652170"
+      },
+      "gtin": null,
+      "license_id": null,
+      "key_ingredients": [
+        {
+          "name": "Salicylic acid",
+          "amount": "2%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "up&up (Target)",
+      "product": "up&up Oil Free Acne Wash with Salicylic Acid, 8 fl oz",
+      "size": 8,
+      "unit": "fl oz",
+      "price": 5.99,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186",
+      "image": null,
+      "rating": {
+        "stars": 4.2,
+        "count": 177,
+        "source": "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186"
+      },
+      "gtin": "371661820499",
+      "license_id": null,
+      "key_ingredients": [
+        {
+          "name": "Salicylic acid",
+          "amount": "2%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 2% salicylic acid acne washes with the same ceramide, niacinamide and hectorite-clay base, and Target's up&up costs less than half as much per ounce.",
+    "evidence": "CeraVe's own product page lists Salicylic Acid 2% with water, sodium lauroyl sarcosinate, cocamidopropyl hydroxysultaine, glycerin, niacinamide, gluconolactone, ceramides NP/AP/EOP, cholesterol, hectorite, phytosphingosine and other ingredients. Target's up&up label lists salicylic acid 2.0% with ceramides AP/EOP/NP, cholesterol, cocamidopropyl hydroxysultaine, gluconolactone, hectorite, niacinamide, phytosphingosine, sodium lauroyl sarcosinate and sodium methyl cocoyl taurate. Walmart sells CeraVe's 8 fl oz for $14.24 ($1.78/fl oz). Target sells up&up's 8 fl oz for $5.99 ($0.75/fl oz).",
+    "differences": "The inactive lists overlap heavily but aren't identical. CeraVe's current formula adds calcium gluconate, triethyl citrate, tetrasodium EDTA, hydrolyzed hyaluronic acid and trisodium ethylenediamine disuccinate. up&up instead has PEG-6 caprylic/capric glycerides, sodium citrate, sodium chloride, tetrasodium glutamate diacetate and hyaluronic acid. up&up doesn't claim to copy CeraVe, is sold only at Target, and has fewer and lower reviews.",
+    "aspects": [
+      {
+        "aspect": "Barrier ingredients",
+        "brand": "Ceramides NP/AP/EOP, cholesterol, niacinamide, hectorite clay",
+        "alternative": "Ceramides NP/AP/EOP, cholesterol, niacinamide, hectorite clay",
+        "verdict": "same",
+        "source": "https://www.cerave.com/skincare/cleansers/acne-salicylic-acid-cleanser"
+      },
+      {
+        "aspect": "Full inactive list",
+        "brand": "Adds calcium gluconate, triethyl citrate, EDTA, hydrolyzed HA",
+        "alternative": "Adds PEG-6 glycerides, sodium citrate, salt, hyaluronic acid",
+        "verdict": "different"
+      },
+      {
+        "aspect": "Pack",
+        "brand": "8 fl oz",
+        "alternative": "8 fl oz",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.6/5 from 3,750 ratings (Walmart)",
+        "alternative": "4.2/5 from 177 reviews (Target)",
+        "verdict": "brand_better",
+        "source": "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186"
+      },
+      {
+        "aspect": "Where to buy",
+        "brand": "Walmart, Target and other stores",
+        "alternative": "Target only (store brand)",
+        "verdict": "brand_better"
+      }
+    ],
+    "sources": [
+      "https://www.walmart.com/ip/CeraVe-Skin-Care-Acne-Control-Face-Cleanser-with-2-Salicylic-Acid-Clears-Acne-Blackheads-Pores/206652170",
+      "https://www.cerave.com/skincare/cleansers/acne-salicylic-acid-cleanser",
+      "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "cerave-acne-foaming-cream-cleanser-vs-up-and-up-benzoyl-peroxide-4-cleanser",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "subcategory": "Acne",
+    "title": "CeraVe Acne Foaming Cream Cleanser 4% BP vs up&up Benzoyl Peroxide Acne Cleanser",
+    "brand": {
+      "brand": "CeraVe",
+      "product": "CeraVe Acne Foaming Cream Cleanser with 4% Benzoyl Peroxide, Hyaluronic Acid, Niacinamide, 5 fl oz",
+      "size": 5,
+      "unit": "fl oz",
+      "price": 14.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Cerave-Acne-Foaming-Cream-Cleanser-5-fl-oz/963608583",
+      "image": null,
+      "rating": {
+        "stars": 4.6,
+        "count": 2681,
+        "source": "https://www.walmart.com/ip/Cerave-Acne-Foaming-Cream-Cleanser-5-fl-oz/963608583"
+      },
+      "gtin": null,
+      "license_id": null,
+      "key_ingredients": [
+        {
+          "name": "Benzoyl peroxide",
+          "amount": "4%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "up&up (Target)",
+      "product": "up&up Benzoyl Peroxide Acne Cleanser 4%, 5 fl oz",
+      "size": 5,
+      "unit": "fl oz",
+      "price": 7.99,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/-/A-91551181",
+      "image": null,
+      "rating": {
+        "stars": 4.3,
+        "count": 89,
+        "source": "https://www.target.com/p/-/A-91551181"
+      },
+      "gtin": "371661820598",
+      "license_id": null,
+      "key_ingredients": [
+        {
+          "name": "Benzoyl peroxide",
+          "amount": "4%"
+        }
+      ]
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 4% benzoyl peroxide acne cleansers built on ceramides, niacinamide and hyaluronic acid, and up&up costs about half as much per ounce.",
+    "evidence": "Walmart's and Target's CeraVe listings state 4% benzoyl peroxide, and Walmart's title names hyaluronic acid and niacinamide. Walmart's search listing priced the 5 fl oz at $14.97 ($2.99/fl oz). Target's up&up label lists benzoyl peroxide 4.0% with ceramides AP/EOP/NP, cholesterol, niacinamide, phytosphingosine, sodium hyaluronate, glycerin and glycolic acid, at $7.99 ($1.60/fl oz).",
+    "differences": "We did not see CeraVe's full inactive list on the pages we checked, so the formulas are matched on the active and the headline skin-barrier ingredients, not line by line. Target's title says 5.5 oz but its specs and unit price indicate 5 fl oz. up&up is Target-only, has far fewer reviews, and makes no 'compare to CeraVe' claim. Benzoyl peroxide can bleach fabrics with either product.",
+    "aspects": [
+      {
+        "aspect": "Barrier ingredients",
+        "brand": "Ceramides, hyaluronic acid, niacinamide (per listing)",
+        "alternative": "Ceramides AP/EOP/NP, sodium hyaluronate, niacinamide",
+        "verdict": "same",
+        "source": "https://www.target.com/p/-/A-91551181"
+      },
+      {
+        "aspect": "Pack",
+        "brand": "5 fl oz",
+        "alternative": "5 fl oz",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.6/5 from 2,681 ratings (Walmart)",
+        "alternative": "4.3/5 from 89 reviews (Target)",
+        "verdict": "brand_better",
+        "source": "https://www.target.com/p/-/A-91551181"
+      },
+      {
+        "aspect": "Where to buy",
+        "brand": "Walmart, Target and other stores",
+        "alternative": "Target only (store brand)",
+        "verdict": "brand_better"
+      }
+    ],
+    "sources": [
+      "https://www.walmart.com/c/kp/cerave-wash-acne",
+      "https://www.walmart.com/ip/Cerave-Acne-Foaming-Cream-Cleanser-5-fl-oz/963608583",
+      "https://target.com/p/cerave-acne-foaming-cream-cleanser-5-fl-oz/-/A-76545878",
+      "https://www.target.com/p/-/A-91551181"
+    ],
+    "price_checked": "2026-11"
+  }
+]

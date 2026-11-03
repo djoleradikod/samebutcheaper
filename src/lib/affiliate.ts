@@ -71,6 +71,8 @@ export const RETAILER_LABEL: Record<string, string> = {
   walmart: "Walmart",
   target: "Target",
   costco: "Costco",
+  bestbuy: "Best Buy",
+  apple: "Apple",
   cvs: "CVS",
   walgreens: "Walgreens",
   boots: "Boots",

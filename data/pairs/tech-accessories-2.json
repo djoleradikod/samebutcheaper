@@ -1,0 +1,463 @@
+[
+  {
+    "slug": "belkin-8k-ultra-high-speed-hdmi-2-1-2m-vs-best-buy-essentials-6ft-8k-hdmi-2-1",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "HDMI cables",
+    "title": "Belkin 8K Ultra High Speed HDMI 2.1 Cable (2 m) vs Best Buy essentials 6' 8K Ultra High Speed HDMI 2.1 Cable",
+    "brand": {
+      "brand": "Belkin",
+      "product": "Belkin 8K Ultra High Speed HDMI 2.1 Cable, 2 m, Black (AV10175bt2MBKV2)",
+      "size": 1,
+      "unit": "cable",
+      "price": 37.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.belkin.com/4k-ultra-high-speed-hdmi-2.1-cable/P-AV10175.html",
+      "image": null,
+      "rating": {
+        "stars": 4.61,
+        "count": 1261,
+        "source": "https://bestbuy.com/site/6511450.p"
+      },
+      "key_ingredients": [
+        {
+          "name": "Cable class",
+          "amount": "Ultra High Speed HDMI, sold as HDMI 2.1 Certified"
+        },
+        {
+          "name": "Video",
+          "amount": "8K60 / 4K120, HDR10, Dolby Vision, VRR, eARC"
+        },
+        {
+          "name": "Length",
+          "amount": "2 m (6.6 ft)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Best Buy essentials",
+      "product": "Best Buy essentials 6' 8K Ultra High Speed HDMI 2.1 Certified Cable, Black (BE-HG06N21)",
+      "size": 1,
+      "unit": "cable",
+      "price": 14.99,
+      "retailer": "bestbuy",
+      "asin": null,
+      "url": "https://www.bestbuy.com/product/best-buy-essentials-6-8k-ultra-high-speed-hdmi-2-1-certified-cable-black/J2FPJKSK7Q",
+      "image": null,
+      "rating": null,
+      "key_ingredients": [
+        {
+          "name": "Cable class",
+          "amount": "Ultra High Speed HDMI, sold as HDMI 2.1 Certified"
+        },
+        {
+          "name": "Video",
+          "amount": "eARC listed; reviewers report 4K at 120 Hz"
+        },
+        {
+          "name": "Length",
+          "amount": "6 ft (1.8 m)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are sold as certified Ultra High Speed HDMI 2.1 cables, a class HDMI Licensing only allows on certified, labelled cables, so the Best Buy essentials cable does the same 48 Gbps job for about 60% less.",
+    "evidence": "HDMI.org says Ultra High Speed HDMI Cable certification is mandatory and that every certified cable must carry the certification label on its package. Belkin's product page calls the AV10175bt2MBKV2 'HDMI 2.1 Certified' and lists 8K60/4K120, Dolby Vision, HDR10, VRR and eARC at $37.99. Best Buy lists the BE-HG06N21 as an '8K Ultra High Speed HDMI 2.1 Certified Cable' with cable type 'Ultra High Speed HDMI Cable' and eARC support, at $14.99. Reviewers on that listing (586 reviews, 96% would recommend) report 4K at 120 Hz.",
+    "differences": "Neither retailer page shows the certification label or its QR code, so check the pack for the Ultra High Speed HDMI label. The Belkin is 2 m against 6 ft (1.8 m). Belkin gives a 2-year limited warranty, and the Best Buy page states none. Belkin.com showed the cable out of stock until early December 2026, and Best Buy sells it for $62.99, so we used Belkin's lower list price. The Best Buy essentials page doesn't list 8K60 or VRR, which certified Ultra High Speed cables are tested for.",
+    "aspects": [
+      {
+        "aspect": "Certification",
+        "brand": "Ultra High Speed HDMI, 'HDMI 2.1 Certified'",
+        "alternative": "Ultra High Speed HDMI, 'HDMI 2.1 Certified'",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Video features",
+        "brand": "8K60, 4K120, HDR, VRR, eARC listed",
+        "alternative": "eARC listed; 4K120 reported by reviewers",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Length",
+        "brand": "2 m (6.6 ft)",
+        "alternative": "6 ft (1.8 m)",
+        "verdict": "different"
+      },
+      {
+        "aspect": "Warranty",
+        "brand": "2-year limited (Belkin)",
+        "alternative": "Not stated on Best Buy page",
+        "verdict": "brand_better"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.61 stars, 1,261 reviews (Best Buy)",
+        "alternative": "586 reviews, 96% recommend (Best Buy)",
+        "verdict": "different"
+      },
+      {
+        "aspect": "Availability",
+        "brand": "Out of stock at Belkin; $62.99 at Best Buy",
+        "alternative": "$14.99 at Best Buy",
+        "verdict": "alt_better"
+      }
+    ],
+    "sources": [
+      "https://www.belkin.com/4k-ultra-high-speed-hdmi-2.1-cable/P-AV10175.html",
+      "https://www.belkin.com/uk/p/8k-ultra-high-speed-hdmi-2.1-cable/AV10175bt2MBKV2.html",
+      "https://bestbuy.com/site/6511450.p",
+      "https://www.bestbuy.com/product/best-buy-essentials-6-8k-ultra-high-speed-hdmi-2-1-certified-cable-black/J2FPJKSK7Q",
+      "https://www.bestbuy.com/site/reviews/-/6489491?page=8",
+      "https://www.hdmi.org/spec21sub/ultrahighspeedcable"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-96w-usb-c-power-adapter-vs-onn-100w-gan-laptop-charger",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Laptop chargers",
+    "title": "Apple 96W USB-C Power Adapter vs onn GaN 100W USB-C Laptop Charger",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 96W USB-C Power Adapter (A2166)",
+      "size": 1,
+      "unit": "charger",
+      "price": 79,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Apple-96W-USB-C-Power-Adapter/5728963701",
+      "image": null,
+      "rating": {
+        "stars": 4.8,
+        "count": 39,
+        "source": "https://www.walmart.com/ip/Apple-96W-USB-C-Power-Adapter/5728963701"
+      },
+      "key_ingredients": [
+        {
+          "name": "USB PD levels",
+          "amount": "5.2V/3A, 9V/3A, 15V/3A, 20.5V/4.7A"
+        },
+        {
+          "name": "Max output",
+          "amount": "96 W, 1 USB-C port"
+        },
+        {
+          "name": "Cable",
+          "amount": "Not included"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "onn",
+      "product": "onn GaN 100W USB-C Laptop Charger with 6 ft USB-C cable, White",
+      "size": 1,
+      "unit": "charger",
+      "price": 39.97,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/Onn-GAN-100W-Laptop-Charger-Compatible-for-Apple-Dell-HP-Asus-Acer-Lenovo-Samsung-White/1559025270",
+      "image": null,
+      "rating": {
+        "stars": 4.4,
+        "count": 170,
+        "source": "https://www.walmart.com/ip/Onn-GAN-100W-Laptop-Charger-Compatible-for-Apple-Dell-HP-Asus-Acer-Lenovo-Samsung-White/1559025270"
+      },
+      "key_ingredients": [
+        {
+          "name": "USB PD levels",
+          "amount": "5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/5A"
+        },
+        {
+          "name": "Max output",
+          "amount": "100 W, GaN"
+        },
+        {
+          "name": "Cable",
+          "amount": "6 ft USB-C to USB-C included (current rating not stated)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "The onn 100W GaN charger covers every USB-C Power Delivery level of Apple's 96W adapter at equal or higher current and adds a 6 ft cable, for about half the price.",
+    "evidence": "Walmart (sold and shipped by Walmart.com) lists the Apple 96W USB-C Power Adapter, model A2166, at $79.00, with a 1-year warranty and the cable sold separately. Mac Otakara lists the A2166's Power Delivery levels as 5.2V/3A, 9V/3A, 15V/3A and 20.5V/4.7A. Walmart (also sold and shipped by Walmart.com) lists the onn GaN 100W charger at $39.97 with outputs of 5V/3A, 9V/3A, 12V/3A, 15V/3A and 20V/5A (100 W max), plus a 6 ft USB-C to USB-C cable. Apple's 5.2 V and 20.5 V are its slightly raised versions of the standard 5 V and 20 V levels, and the onn matches or exceeds the current at each one.",
+    "differences": "Walmart doesn't state the current rating of the included onn cable. 100 W needs a 5A e-marked cable, and a 3A cable would cap the kit at 60 W. We found no independent test (such as ChargerLAB) of the onn, and its listing gives no manufacturer warranty or safety certification. Apple's adapter has a 1-year warranty. Walmart shoppers rate the Apple 4.8 (39 ratings) and the onn 4.4 (170 ratings).",
+    "aspects": [
+      {
+        "aspect": "Power Delivery levels",
+        "brand": "5.2V/3A, 9V/3A, 15V/3A, 20.5V/4.7A",
+        "alternative": "5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/5A",
+        "verdict": "alt_better"
+      },
+      {
+        "aspect": "Max output",
+        "brand": "96 W",
+        "alternative": "100 W, GaN",
+        "verdict": "alt_better"
+      },
+      {
+        "aspect": "Cable in the box",
+        "brand": "None, sold separately",
+        "alternative": "6 ft USB-C cable (rating not stated)",
+        "verdict": "alt_better"
+      },
+      {
+        "aspect": "Warranty",
+        "brand": "1 year (Apple)",
+        "alternative": "None listed on Walmart page",
+        "verdict": "brand_better"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.8 stars, 39 ratings (Walmart)",
+        "alternative": "4.4 stars, 170 ratings (Walmart)",
+        "verdict": "brand_better"
+      },
+      {
+        "aspect": "Independent testing",
+        "brand": "Teardown-documented profiles (Mac Otakara)",
+        "alternative": "None found",
+        "verdict": "brand_better"
+      }
+    ],
+    "sources": [
+      "https://www.walmart.com/ip/Apple-96W-USB-C-Power-Adapter/5728963701",
+      "https://www.macotakara.jp/accessories/entry-38789.html",
+      "https://www.walmart.com/ip/Onn-GAN-100W-Laptop-Charger-Compatible-for-Apple-Dell-HP-Asus-Acer-Lenovo-Samsung-White/1559025270"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "belkin-boostcharge-20w-lightning-kit-vs-onn-20w-lightning-kit",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Charger kits",
+    "title": "Belkin BoostCharge 20W Charger + USB-C to Lightning Cable vs onn 20W Charger with MFi Lightning Cable",
+    "brand": {
+      "brand": "Belkin",
+      "product": "Belkin BoostCharge USB-C Wall Charger 20W + USB-C Cable with Lightning Connector, 1 m (WCA006dq1MWH-B5)",
+      "size": 1,
+      "unit": "kit",
+      "price": 34.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.belkin.com/p/usb-c-wall-charger-20w-usb-c-cable-with-lightning-connector/WCA006dq1MWH-B5.html",
+      "image": null,
+      "rating": null,
+      "key_ingredients": [
+        {
+          "name": "Charger",
+          "amount": "20 W USB-C, 'USB-C PD 3.1 certified with PPS'"
+        },
+        {
+          "name": "Cable",
+          "amount": "1 m (3.3 ft) PVC USB-C to Lightning"
+        },
+        {
+          "name": "Warranty",
+          "amount": "2 years + $2,500 connected-equipment cover"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "onn",
+      "product": "onn 20W Single USB-C Port Wall Charger with 3 ft USB-C to Lightning Cable, White",
+      "size": 1,
+      "unit": "kit",
+      "price": 13.26,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/onn-20W-Single-USB-C-Port-Wall-Charger-with-3ft-Lighting-to-C-Cable-Fast-Charging-MFI-USB-IF-Certified-Foldable-Plug-White/18972467630",
+      "image": null,
+      "rating": {
+        "stars": 4.4,
+        "count": 80,
+        "source": "https://www.walmart.com/ip/onn-20W-Single-USB-C-Port-Wall-Charger-with-3ft-Lighting-to-C-Cable-Fast-Charging-MFI-USB-IF-Certified-Foldable-Plug-White/18972467630"
+      },
+      "key_ingredients": [
+        {
+          "name": "Charger",
+          "amount": "20 W USB-C Power Delivery"
+        },
+        {
+          "name": "Cable",
+          "amount": "3 ft USB-C to Lightning"
+        },
+        {
+          "name": "Certification",
+          "amount": "Listed as MFi certified and USB-IF certified"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both kits pair a 20W USB-C Power Delivery charger with a USB-C to Lightning cable for iPhone fast charging, and the onn kit, listed as MFi and USB-IF certified, costs about 62% less.",
+    "evidence": "Belkin's US page lists the WCA006dq1MWH-B5 kit at $34.99: a 20W charger described as 'USB-C PD 3.1 certified with PPS', a 3.3 ft/1 m PVC USB-C to Lightning cable, and a 2-year warranty with $2,500 connected-equipment cover. Walmart lists the onn kit at $13.26 with a 20W USB-C Power Delivery port and a 3 ft USB-C to Lightning cable, and lists it as 'MFi certified' and 'USB-IF certified'. Lightning iPhones fast-charge over USB Power Delivery, which both chargers support at the same 20 W.",
+    "differences": "Walmart doesn't say which part carries which certification, and it notes that it hasn't verified manufacturer information. Belkin's page doesn't mention MFi for its cable. Belkin's spec table lists 2 USB-C ports, while the onn has one. Belkin also offers PPS, which iPhones don't use. Belkin's warranty is 2 years plus connected-equipment cover, and Walmart's page states no onn warranty. The onn cable is 3 ft against Belkin's 1 m.",
+    "aspects": [
+      {
+        "aspect": "Charger output",
+        "brand": "20 W USB-C PD 3.1 with PPS",
+        "alternative": "20 W USB-C Power Delivery",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Ports",
+        "brand": "Spec table lists 2 USB-C ports",
+        "alternative": "1 USB-C port",
+        "verdict": "brand_better"
+      },
+      {
+        "aspect": "Cable",
+        "brand": "1 m USB-C to Lightning, PVC",
+        "alternative": "3 ft USB-C to Lightning",
+        "verdict": "same"
+      },
+      {
+        "aspect": "Certification claims",
+        "brand": "PD 3.1 certified; MFi not mentioned",
+        "alternative": "Listed as MFi and USB-IF certified",
+        "verdict": "different"
+      },
+      {
+        "aspect": "Warranty",
+        "brand": "2 years + $2,500 equipment cover",
+        "alternative": "Not stated on Walmart page",
+        "verdict": "brand_better"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "5/5 shown on Belkin.com, no review count",
+        "alternative": "4.4 stars, 80 ratings (Walmart)",
+        "verdict": "different"
+      }
+    ],
+    "sources": [
+      "https://www.belkin.com/p/usb-c-wall-charger-20w-usb-c-cable-with-lightning-connector/WCA006dq1MWH-B5.html",
+      "https://www.walmart.com/ip/onn-20W-Single-USB-C-Port-Wall-Charger-with-3ft-Lighting-to-C-Cable-Fast-Charging-MFI-USB-IF-Certified-Foldable-Plug-White/18972467630"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-30w-usb-c-power-adapter-vs-anker-nano-charger-30w",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Wall chargers",
+    "title": "Apple 30W USB-C Power Adapter vs Anker Nano Charger 30W (511 Nano 3, A2147)",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 30W USB-C Power Adapter",
+      "size": 1,
+      "unit": "charger",
+      "price": 39.99,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/apple-30w-usb-c-power-adapter/-/A-91119771",
+      "image": null,
+      "rating": {
+        "stars": 4.5,
+        "count": 21,
+        "source": "https://www.target.com/p/apple-30w-usb-c-power-adapter/-/A-91119771"
+      },
+      "gtin": "195949376351",
+      "key_ingredients": [
+        {
+          "name": "USB PD levels",
+          "amount": "5V/3A, 9V/3A, 15V/2A, 20V/1.5A"
+        },
+        {
+          "name": "PPS",
+          "amount": "Not listed"
+        },
+        {
+          "name": "Ports",
+          "amount": "1 USB-C, cable not included"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker Nano Charger 30W / 511 Charger (Nano 3), A2147",
+      "size": 1,
+      "unit": "charger",
+      "price": 15.99,
+      "retailer": "walmart",
+      "asin": null,
+      "url": "https://www.walmart.com/ip/1648862095",
+      "image": null,
+      "rating": {
+        "stars": 4.8,
+        "count": 298,
+        "source": "https://www.walmart.com/ip/1648862095"
+      },
+      "key_ingredients": [
+        {
+          "name": "USB PD levels",
+          "amount": "5V/3A, 9V/3A, 15V/2A, 20V/1.5A"
+        },
+        {
+          "name": "PPS",
+          "amount": "3.3-11V/3A, 3.3-16V/2A"
+        },
+        {
+          "name": "Ports",
+          "amount": "1 USB-C, GaN, foldable plug, cable not included"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Anker's Nano 30W offers the same four USB-C Power Delivery levels as Apple's 30W adapter, plus PPS for Samsung and Pixel phones, for 60% less.",
+    "evidence": "Target lists the Apple 30W USB-C Power Adapter at $39.99 (UPC 195949376351, 1-year limited warranty, 4.5 stars from 21 reviews). An Apple Support Communities user guide gives the 30W adapter's outputs as 5V/3A, 9V/3A, 15V/2A and 20V/1.5A. Anker's A2147 page lists the Nano Charger (30W) at 5V/3A, 9V/3A, 15V/2A and 20V/1.5A, plus PPS at 3.3-11V/3A and 3.3-16V/2A. Techtest.org measured the same profiles on the 511 Nano 3 and found 84-91% efficiency and no problems in a 6-hour full-load run. Walmart lists the Anker 511 Nano 3 30W at $15.99 in black or white (4.8 stars from 298 ratings).",
+    "differences": "The Apple figures come from a user-written Apple Support Communities guide, not an Apple spec sheet. Anker's US store showed the A2147 sold out, and Walmart's Anker listing doesn't name its seller (other colours cost $16.99). Techtest measured a surface temperature of about 71 °C at a constant 30 W. Walmart's page gives both 18-month and 24-month warranty terms, and Apple's is 1 year. Neither charger includes a cable.",
+    "aspects": [
+      {
+        "aspect": "Power Delivery levels",
+        "brand": "5V/3A, 9V/3A, 15V/2A, 20V/1.5A",
+        "alternative": "5V/3A, 9V/3A, 15V/2A, 20V/1.5A",
+        "verdict": "same"
+      },
+      {
+        "aspect": "PPS (Samsung/Pixel fast charge)",
+        "brand": "Not listed",
+        "alternative": "3.3-11V/3A, 3.3-16V/2A",
+        "verdict": "alt_better"
+      },
+      {
+        "aspect": "Build",
+        "brand": "Apple adapter",
+        "alternative": "GaN, 1.12 in thick, foldable plug",
+        "verdict": "different"
+      },
+      {
+        "aspect": "Warranty",
+        "brand": "1-year limited",
+        "alternative": "18 or 24 months (Walmart page conflicts)",
+        "verdict": "alt_better"
+      },
+      {
+        "aspect": "Shopper rating",
+        "brand": "4.5 stars, 21 reviews (Target)",
+        "alternative": "4.8 stars, 298 ratings (Walmart)",
+        "verdict": "different"
+      },
+      {
+        "aspect": "Independent testing",
+        "brand": "None found",
+        "alternative": "Techtest.org: profiles and 6 h load test",
+        "verdict": "alt_better"
+      }
+    ],
+    "sources": [
+      "https://www.target.com/p/apple-30w-usb-c-power-adapter/-/A-91119771",
+      "https://discussions.apple.com/docs/DOC-250005817",
+      "https://www.anker.com/products/a2147",
+      "https://techtest.org/das-anker-511-nano-3-im-test-das-perfekte-ladegeraet-fuers-iphone-14-s22-und-co/",
+      "https://www.walmart.com/ip/1648862095"
+    ],
+    "price_checked": "2026-11"
+  }
+]

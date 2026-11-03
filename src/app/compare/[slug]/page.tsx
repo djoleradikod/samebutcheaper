@@ -190,13 +190,24 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <SavingsCalculator
-            currency={pair.currency}
-            brandPpu={pair.brand.ppu}
-            altPpu={pair.alternative.ppu}
-            unit={pair.brand.unit}
-            defaultMonthly={defaultMonthly(pair)}
-          />
+          {isDurable(pair) ? (
+            <div className="card p-5">
+              <p className="text-sm text-muted">You save, once</p>
+              <p className="num mt-1 text-3xl font-semibold text-accent">{money(pair.savingsPerPack, pair.currency)}</p>
+              <p className="mt-2 text-sm text-ink-2">
+                {money(pair.alternative.price, pair.currency)} instead of {money(pair.brand.price, pair.currency)} for
+                the same amount. It&apos;s a one-off buy, so there&apos;s no monthly saving to add up.
+              </p>
+            </div>
+          ) : (
+            <SavingsCalculator
+              currency={pair.currency}
+              brandPpu={pair.brand.ppu}
+              altPpu={pair.alternative.ppu}
+              unit={pair.brand.unit}
+              defaultMonthly={defaultMonthly(pair)}
+            />
+          )}
           <a
             href={`/go/${pair.slug}/alternative`}
             rel="sponsored nofollow noopener"
@@ -252,6 +263,11 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </article>
   );
+}
+
+/** Things you buy once (chargers, pans, tools), where a monthly saving makes no sense. */
+function isDurable(pair: Pair) {
+  return pair.category === "tech-tools" && !/filter|batter|bulb|cartridge|refill/i.test(pair.brand.unit);
 }
 
 /** A sensible starting point for the calculator: about one brand pack a month, capped. */

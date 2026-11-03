@@ -155,13 +155,21 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
   });
 
   // Researched rows win over generated ones with the same name.
-  const researched: CompareRow[] = pair.aspects ?? [];
+  let researched: CompareRow[] = pair.aspects ?? [];
   const taken = new Set(researched.map((r) => norm(r.aspect)));
-  const ingredients = ingredientRows(pair, slugFor).filter((r) => !taken.has(norm(r.aspect)));
+  let ingredients = ingredientRows(pair, slugFor).filter((r) => !taken.has(norm(r.aspect)));
+  // A researched row that repeats an ingredient or spec row word for word only
+  // adds its verdict to that row (e.g. "Cheaper one wins" on higher output).
+  const sameText = (x: CompareRow, y: CompareRow) => norm(x.brand) === norm(y.brand) && norm(x.alternative) === norm(y.alternative);
+  ingredients = ingredients.map((row) => {
+    const dup = researched.find((r) => sameText(r, row));
+    return dup ? { ...row, verdict: dup.verdict, source: dup.source ?? row.source } : row;
+  });
+  researched = researched.filter((r) => !ingredients.some((row) => sameText(r, row)));
   const generated = rows.filter((r) => !taken.has(norm(r.aspect)));
   // The formula or inactive-ingredients row first, then researched detail, then the practical rows.
   const [first, ...rest] = generated;
-  const leadsWithFormula = first && first.aspect !== "Pack";
+  const leadsWithFormula = first && ["Full formula", "Inactive ingredients", "Who makes it"].includes(first.aspect);
   return {
     label: pair.match_type === "equivalent_spec" ? "Specs" : "Active ingredients",
     ingredients,

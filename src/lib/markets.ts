@@ -139,6 +139,8 @@ export const RETAILERS = [
   "walmart",
   "target",
   "costco",
+  "bestbuy",
+  "apple",
   "cvs",
   "walgreens",
   "boots",

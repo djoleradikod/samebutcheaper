@@ -1,0 +1,116 @@
+[
+  {
+    "slug": "belkin-boostcharge-30w-pps-charger-with-cable-vs-anker-nano-30w-plus-onn-usb-if-cable",
+    "market": "US",
+    "category": "tech-tools",
+    "title": "Belkin BoostCharge 30W PPS Charger + USB-C Cable kit vs Anker Nano 30W + onn USB-IF certified cable",
+    "bundle": {
+      "brand": "Belkin",
+      "name": "Belkin BoostCharge USB-C PD 3.0 PPS Wall Charger 30W + USB-C to USB-C Cable, 1 m (WCA005dq1MWH-B6)",
+      "price": 34.99,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.belkin.com/p/usb-c-wall-charger-30w-usb-c-cable/WCA005dq1MWH-B6.html",
+      "image": null,
+      "items": [
+        {
+          "name": "Belkin 30W USB-C PD 3.0 PPS wall charger",
+          "size": 1,
+          "unit": "charger",
+          "key_ingredients": [
+            {
+              "name": "Output",
+              "amount": "30 W, USB-C PD 3.0 with PPS, 1 USB-C port"
+            }
+          ]
+        },
+        {
+          "name": "Belkin USB-C to USB-C cable, 1 m",
+          "size": 1,
+          "unit": "cable",
+          "key_ingredients": [
+            {
+              "name": "Cable",
+              "amount": "USB-C to USB-C, 1 m (3.3 ft)"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "brand": "Anker",
+        "product": "Anker Nano Charger 30W / 511 Charger (Nano 3), A2147",
+        "size": 1,
+        "unit": "charger",
+        "price": 15.99,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/1648862095",
+        "image": null,
+        "rating": {
+          "stars": 4.8,
+          "count": 298,
+          "source": "https://www.walmart.com/ip/1648862095"
+        },
+        "key_ingredients": [
+          {
+            "name": "USB PD levels",
+            "amount": "5V/3A, 9V/3A, 15V/2A, 20V/1.5A"
+          },
+          {
+            "name": "PPS",
+            "amount": "3.3-11V/3A, 3.3-16V/2A"
+          }
+        ],
+        "replaces": 0,
+        "match_type": "equivalent_spec"
+      },
+      {
+        "brand": "onn",
+        "product": "onn 6 ft USB-C to USB-C Charging Cable, USB-IF Certified, Black",
+        "size": 1,
+        "unit": "cable",
+        "price": 9.88,
+        "retailer": "walmart",
+        "asin": null,
+        "url": "https://www.walmart.com/ip/14658166453",
+        "image": null,
+        "rating": {
+          "stars": 4.5,
+          "count": 559,
+          "source": "https://www.walmart.com/ip/14658166453"
+        },
+        "key_ingredients": [
+          {
+            "name": "Cable",
+            "amount": "6 ft USB-C to USB-C, 60 W, USB 2.0 (480 Mbps)"
+          },
+          {
+            "name": "Certification",
+            "amount": "Listed as USB-IF certified"
+          }
+        ],
+        "replaces": 1,
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Anker's Nano 30W covers the standard 30W USB-C Power Delivery levels and adds PPS, and a USB-IF certified onn cable replaces Belkin's, rebuilding Belkin's $34.99 kit for $25.87.",
+    "evidence": "Belkin's US page lists the WCA005dq1MWH-B6 kit at $34.99: a single-port 30W charger described as 'USB-C PD 3.0 certified' with PPS (and USB-IF certified in the page description), plus a 1 m USB-C to USB-C cable, with a 2-year warranty and $2,500 connected-equipment cover. Belkin doesn't publish its PD levels. Anker's A2147 page and Techtest.org both list the Nano 30W at 5V/3A, 9V/3A, 15V/2A and 20V/1.5A with PPS of 3.3-11V/3A and 3.3-16V/2A. Walmart sells the Anker for $15.99, and the onn 6 ft USB-C cable, listed as USB-IF certified and rated 60 W, for $9.88.",
+    "differences": "Belkin doesn't publish its PPS ranges, so we can't confirm that Anker's match them exactly. Belkin's 2-year warranty and $2,500 connected-equipment cover beat Anker's 18 to 24 months and the onn cable's unstated warranty. The onn cable is 6 ft against Belkin's 1 m, and you buy two items instead of one kit. Best Buy sells the same Belkin kit for $69 (3.97 stars from 39 reviews), so the saving is far larger against Best Buy's price.",
+    "sources": [
+      "https://www.belkin.com/p/usb-c-wall-charger-30w-usb-c-cable/WCA005dq1MWH-B6.html",
+      "https://www.bestbuy.com/product/belkin-boostcharge-usb-c-pd-3-0-pps-wall-charger-30w-with-usb-c-to-usb-c-cable-white/JX5329QQJL",
+      "https://www.anker.com/products/a2147",
+      "https://techtest.org/das-anker-511-nano-3-im-test-das-perfekte-ladegeraet-fuers-iphone-14-s22-und-co/",
+      "https://www.walmart.com/ip/1648862095",
+      "https://www.walmart.com/ip/14658166453"
+    ],
+    "price_checked": "2026-11"
+  }
+]
