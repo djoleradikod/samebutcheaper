@@ -341,6 +341,7 @@ const OPEN_FACTS: Record<string, string> = {
 function photoCredit(image?: string | null) {
   if (!image) return null;
   const host = hostname(image);
+  if (host === "dailymed.nlm.nih.gov") return "Label image: DailyMed (NLM)";
   const key = Object.keys(OPEN_FACTS).find((k) => host.includes(k));
   return key ? `Photo: ${OPEN_FACTS[key]} contributors, CC BY-SA` : null;
 }

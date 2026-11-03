@@ -19,6 +19,7 @@ import { MATCH_TYPE_META } from "@/lib/categories";
 import { MARKET_CODES } from "@/lib/markets";
 import { money, ppu } from "@/lib/format";
 import type { MatchType } from "@/lib/types";
+import { ProofStrip } from "@/components/ProofStrip";
 
 const FAQ = [
   {
@@ -134,6 +135,8 @@ export default function Home() {
           {hero && <HeroReceipt pair={hero} />}
         </div>
       </section>
+
+      <ProofStrip />
 
       {/* ---------- Biggest savings ---------- */}
       <section className="container-page py-16">

@@ -1,0 +1,540 @@
+[
+  {
+    "slug": "apple-20w-usb-c-power-adapter-vs-anker-nano-20w",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Chargers",
+    "title": "Apple 20W USB-C Power Adapter vs Anker Nano Charger (20W)",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 20W USB-C Power Adapter (MWVV3AM/A)",
+      "size": 1,
+      "unit": "charger",
+      "price": 19.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/MWVV3AM/A/20w-usb-c-power-adapter",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "1x USB-C"
+        },
+        {
+          "name": "Output",
+          "amount": "20 W USB Power Delivery"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker Nano Charger (20W), model A2637",
+      "size": 1,
+      "unit": "charger",
+      "price": 11.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.anker.com/products/a2637-nano-20w-charger",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "1x USB-C"
+        },
+        {
+          "name": "Output",
+          "amount": "20 W USB PD (5V 3A / 9V 2.22A)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "high",
+    "summary": "Both are single-port 20W USB-C Power Delivery chargers, the wattage Apple sells for fast-charging an iPhone, and Anker's costs about $7 less.",
+    "evidence": "Apple's US store lists the 20W USB-C Power Adapter at $19, the price it has held since it went on sale alone in October 2020 (MacRumors). Anker's US store lists the Nano Charger (20W) at $11.99 with one USB-C port and outputs of 5V 3A and 9V 2.22A, which is the standard 20W PD profile, and Anker quotes 0 to 50% on an iPhone 14 in about 27 minutes.",
+    "differences": "Neither box includes a cable. Anker notes the Nano 20W doesn't support Samsung Super Fast Charging on Galaxy S20/S21/Note models. We found no independent lab test of this exact Anker model.",
+    "sources": [
+      "https://www.apple.com/shop/product/MWVV3AM/A/20w-usb-c-power-adapter",
+      "https://www.anker.com/products/a2637-nano-20w-charger",
+      "https://www.macrumors.com/2020/10/13/apple-selling-20w-usb-c-power-adapter/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-40w-dynamic-power-adapter-vs-anker-nano-45w",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Chargers",
+    "title": "Apple 40W Dynamic Power Adapter vs Anker Nano Charger (45W) with Cable",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 40W Dynamic Power Adapter with 60W Max (MGKN4AM/A)",
+      "size": 1,
+      "unit": "charger",
+      "price": 39.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mgkn4am/a/40w-dynamic-power-adapter-with-60w-max",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "1x USB-C"
+        },
+        {
+          "name": "Output",
+          "amount": "40 W sustained, up to 60 W in short bursts (USB PD)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker Nano Charger (45W) with USB-C to USB-C Cable, model A2692",
+      "size": 1,
+      "unit": "charger",
+      "price": 25.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.anker.com/products/a2692-45w-usb-c-fast-charger",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "1x USB-C"
+        },
+        {
+          "name": "Output",
+          "amount": "45 W max USB PD and PPS (5V 3A, 9V 3A, 15V 3A, 20V 2.25A)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are compact single-port USB-C PD chargers that fast-charge an iPhone 17 and can top up a MacBook Air; Anker's is a steady 45W, includes a cable and costs $13 less.",
+    "evidence": "Apple lists the 40W Dynamic Power Adapter with 60W Max at $39. ChargerLAB's teardown (model A3365) measured fixed PD profiles of 5V 3A, 9V 3A, 15V 2.67A and 20V 2A (40W) plus adjustable ranges, and MacRumors reports the 60W figure is only reached in short bursts. Anker's store lists the Nano Charger (45W) with a USB-C cable at $25.99, with 15V 3A and 20V 2.25A (45W) PD profiles and PPS.",
+    "differences": "Apple's adapter can briefly boost to 60W, which helps a MacBook Air more than an iPhone; the Anker holds 45W. Apple's is about 80 g and nearly the size of its 20W brick; check Anker's dimensions (1.3 x 1.26 x 1.45 in) if size matters. Apple's box has no cable, Anker's includes one.",
+    "sources": [
+      "https://www.apple.com/shop/product/mgkn4am/a/40w-dynamic-power-adapter-with-60w-max",
+      "https://www.chargerlab.com/teardown-of-apple-40w-dynamic-power-adapter-with-60w-max-a3365/",
+      "https://www.macrumors.com/2025/09/17/apple-40w-to-60w-charger-key-advantage/",
+      "https://www.anker.com/products/a2692-45w-usb-c-fast-charger"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-70w-power-adapter-vs-anker-nano-70w-3-port",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Chargers",
+    "title": "Apple 70W Power Adapter vs Anker Nano Charger (70W, 3 Ports)",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 70W Power Adapter (MKFP4AM/A)",
+      "size": 1,
+      "unit": "charger",
+      "price": 59.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mkfp4am/a/70w-power-adapter",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "1x USB-C"
+        },
+        {
+          "name": "Output",
+          "amount": "70 W USB PD"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker Nano Charger (70W, 3 Ports), model A121A",
+      "size": 1,
+      "unit": "charger",
+      "price": 39.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.anker.com/products/a121a-70w-3-ports-charger",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "2x USB-C, 1x USB-A"
+        },
+        {
+          "name": "Output",
+          "amount": "70 W max from either USB-C port alone (20V 3.5A)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both deliver 70W from a single USB-C port, enough for a MacBook Air or 14-inch MacBook Pro, and Anker's adds two more ports and a cable for $19 less.",
+    "evidence": "Apple's US store lists the 70W Power Adapter at $59 and recommends it for the 14-inch MacBook Pro and 13- and 15-inch MacBook Air. Anker's spec sheet lists 20V 3.5A (70W max) on each USB-C port, and the US store price is $39.99. 9to5Mac's review confirms up to 70W from a single port and uses it as the main charger for a 14-inch M4 MacBook Pro.",
+    "differences": "With more than one device plugged in, the Anker splits its power (for example 45W + 22.5W), so a laptop gets less than 70W. Anker includes a USB-C cable, Apple doesn't.",
+    "sources": [
+      "https://www.apple.com/shop/product/mkfp4am/a/70w-power-adapter",
+      "https://www.anker.com/products/a121a-70w-3-ports-charger",
+      "https://9to5mac.com/2025/10/21/anker-nano-charger-35w-and-70w-review-for-iphone-17/",
+      "https://www.digitalreviews.net/reviews/lifestyle/the-power-of-three-anker-charger-70w-3-port-reviewed/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-140w-power-adapter-vs-anker-140w-4-port-pd-3-1",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Chargers",
+    "title": "Apple 140W Power Adapter vs Anker Charger (140W, 4-Port, PD 3.1)",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 140W Power Adapter (MKFQ4AM/A)",
+      "size": 1,
+      "unit": "charger",
+      "price": 99.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mkfq4am/a/140w-power-adapter",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "1x USB-C"
+        },
+        {
+          "name": "Output",
+          "amount": "140 W, USB PD 3.1 (28V 5A)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker Charger (140W, 4-Port, PD 3.1) with USB-C Cable, model A2697",
+      "size": 1,
+      "unit": "charger",
+      "price": 89.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.anker.com/products/a2697-anker-charger-140w-4-port",
+      "key_ingredients": [
+        {
+          "name": "Ports",
+          "amount": "3x USB-C, 1x USB-A"
+        },
+        {
+          "name": "Output",
+          "amount": "140 W from USB-C1 or C2 alone, USB PD 3.1 (28V 5A)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both reach 140W over USB PD 3.1's 28V 5A profile, the fast-charging mode of the 16-inch MacBook Pro, and Anker's adds three ports and a cable for $9 less.",
+    "evidence": "Apple's US store lists the 140W Power Adapter at $99, without a cable. ChargerLAB's teardown of the current Apple 140W (A3607) lists fixed PD profiles up to 28V 5A. Anker's spec sheet lists 28V 5A (140W max) on USB-C1 and USB-C2 when one port is used, and the US store price is $89.99 including a USB-C cable. Techtest.org measured 140W from the Anker, with up to 92.5% efficiency at full load.",
+    "differences": "The saving is small (about 9%). In techtest.org's test the Anker held 140W for about half an hour, then throttled to about 120W; Apple's single-port design has no splitting. Anker's total drops to 134W with four devices. Full 140W on either needs a 240W (EPR) e-marked cable. Apple's adapter works with its AC Connector 2 accessories (extension cable, World Travel Adapter Kit).",
+    "sources": [
+      "https://www.apple.com/shop/product/mkfq4am/a/140w-power-adapter",
+      "https://www.anker.com/products/a2697-anker-charger-140w-4-port",
+      "https://techtest.org/der-anker-charger-140w-4-port-pd3-1-a2697-im-test-sehr-gut-aber-mit-schoenheitsfehlern/",
+      "https://chargerlab.com/teardown-of-apple-140w-usb-c-power-adapter-a3607"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-240w-usb-c-charge-cable-2m-vs-anker-240w-usb-c-cable-6ft",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Cables",
+    "title": "Apple 240W USB-C Charge Cable (2 m) vs Anker 240W USB-C Cable (6 ft)",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple 240W USB-C Charge Cable, 2 m, woven (MYQT3AM/A)",
+      "size": 1,
+      "unit": "cable",
+      "price": 29.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/myqt3am/a/240w-usb-c-charge-cable-2-m",
+      "key_ingredients": [
+        {
+          "name": "Rating",
+          "amount": "240 W USB PD"
+        },
+        {
+          "name": "Length",
+          "amount": "2 m (6.6 ft)"
+        },
+        {
+          "name": "Data",
+          "amount": "USB 2 (480 Mb/s)"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Anker",
+      "product": "Anker USB-C to USB-C Cable (6 ft, 240W, Upcycled-Braided), model A82E2",
+      "size": 1,
+      "unit": "cable",
+      "price": 21.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.anker.com/products/a82e2-240w-usb-c-to-usb-c-cable",
+      "key_ingredients": [
+        {
+          "name": "Rating",
+          "amount": "240 W, USB-IF certified"
+        },
+        {
+          "name": "Length",
+          "amount": "6 ft (1.8 m)"
+        },
+        {
+          "name": "Data",
+          "amount": "USB 2 (480 Mb/s)"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "high",
+    "summary": "Both are braided 240W USB-C cables with USB 2 data, about 2 m long, the cable a MacBook Pro needs for 140W charging, and Anker's costs $7 less.",
+    "evidence": "Apple's US store lists the 240W USB-C Charge Cable (2 m) at $29 and says it supports up to 240W charging with USB 2 data. Anker's US store lists the 6 ft black A82E2 at $21.99, rated 240W and USB-IF certified. Notebookcheck's launch report confirms the USB-IF certification and Anker's claim of 50% on a 16-inch MacBook Pro in 28 minutes.",
+    "differences": "Anker's is about 20 cm shorter (1.8 m vs 2 m). Anker's support article notes slower charging on some 2021-2023 16-inch MacBook Pro models. Neither carries video. Anker's page lists 24-month coverage.",
+    "sources": [
+      "https://www.apple.com/shop/product/myqt3am/a/240w-usb-c-charge-cable-2-m",
+      "https://www.anker.com/products/a82e2-240w-usb-c-to-usb-c-cable",
+      "https://www.notebookcheck.net/Anker-s-new-USB-C-to-USB-C-Cable-240W-Upcycled-Braided-now-on-sale.851869.0.html",
+      "https://service.anker.com/article-description/Introduction-to-Anker-240W-USB-C-to-USB-C-Cable-3-ft-6-ft-10-ft-240W-Braided"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-usb-c-digital-av-multiport-adapter-vs-ugreen-7-in-1-usb-c-hub",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Hubs and adapters",
+    "title": "Apple USB-C Digital AV Multiport Adapter vs UGREEN 7-in-1 USB-C Hub",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple USB-C Digital AV Multiport Adapter (MW5M3AM/A)",
+      "size": 1,
+      "unit": "adapter",
+      "price": 69.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter",
+      "key_ingredients": [
+        {
+          "name": "Video",
+          "amount": "HDMI, up to 4K 60Hz"
+        },
+        {
+          "name": "Ports",
+          "amount": "1x USB-A, 1x USB-C charging pass-through"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "UGREEN",
+      "product": "UGREEN Revodok 107 7-in-1 USB-C Hub with 4K HDMI (60515)",
+      "size": 1,
+      "unit": "adapter",
+      "price": 39.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://us.ugreen.com/products/7-in-1-multiport-adapter-with-4k-60hz",
+      "key_ingredients": [
+        {
+          "name": "Video",
+          "amount": "HDMI 2.0, up to 4K 60Hz"
+        },
+        {
+          "name": "Ports",
+          "amount": "2x USB-A 5 Gb/s, 100W PD pass-through, Gigabit Ethernet, SD/TF"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both turn one USB-C port into 4K60 HDMI, USB-A and a charging pass-through, and UGREEN's hub adds Ethernet, a second USB-A and card slots for $29 less.",
+    "evidence": "Apple's US store lists the USB-C Digital AV Multiport Adapter at $69, with HDMI at 3840x2160 60Hz on supported Macs, iPads and iPhones, one standard USB port and a USB-C charging port. UGREEN's US store spec sheet for SKU 60515 lists HDMI 2.0 at up to 4K 60Hz, two USB-A 3.0 ports at 5 Gb/s, a 100W PD input passing up to 95W to the laptop, Gigabit Ethernet and SD/TF slots, at $39.99 (shown on sale at $29.99 during Black Friday).",
+    "differences": "Apple tests its adapter against a long list of Apple devices; UGREEN says 4K 60Hz needs a host with DisplayPort 1.4 Alt Mode. UGREEN's hub is larger and uses 5W of the 100W input. We found no independent lab review of this UGREEN model. UGREEN's US store advertises a 2-year warranty.",
+    "sources": [
+      "https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter",
+      "https://us.ugreen.com/products/7-in-1-multiport-adapter-with-4k-60hz"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-pencil-usb-c-vs-logitech-crayon-usb-c",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Styluses",
+    "title": "Apple Pencil (USB-C) vs Logitech Crayon (USB-C)",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple Pencil (USB-C) (MUWA3AM/A)",
+      "size": 1,
+      "unit": "stylus",
+      "price": 79.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/MUWA3AM/A/apple-pencil-usb-c",
+      "key_ingredients": [
+        {
+          "name": "Technology",
+          "amount": "Apple Pencil"
+        },
+        {
+          "name": "Features",
+          "amount": "Tilt, palm rejection, no pressure sensitivity"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Logitech",
+      "product": "Logitech Crayon (USB-C), 914-000070",
+      "size": 1,
+      "unit": "stylus",
+      "price": 69.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.logitech.com/en-us/shop/p/ipad-digital-pencil-crayon",
+      "key_ingredients": [
+        {
+          "name": "Technology",
+          "amount": "Apple Pencil technology (licensed)"
+        },
+        {
+          "name": "Features",
+          "amount": "Tilt, palm rejection, no pressure sensitivity"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Logitech's Crayon is built on Apple Pencil technology and, like the Apple Pencil (USB-C), has tilt but no pressure sensitivity, for $9 less.",
+    "evidence": "Apple's US store lists the Apple Pencil (USB-C) at $79 with tilt sensitivity, low latency and magnetic storage on the side of the iPad. Logitech's US store lists the Crayon (USB-C) at $69.99, 'made with Apple Pencil technology', with a tilt-sensing smart tip, for iPads from 2018 on. iDownloadBlog's comparison notes neither has pressure sensitivity, both have tilt and palm rejection, and the Crayon has no magnetic attachment.",
+    "differences": "The saving is small (about 11%). The Crayon doesn't attach magnetically, doesn't support Apple Pencil hover on M-series iPads, and iDownloadBlog found it didn't seem to match the Apple Pencil's low-latency input. The Crayon has a thicker aluminium body and connects to the iPad without Bluetooth pairing. Older iPads that only work with the Crayon or the Pencil may differ: check each compatibility list.",
+    "sources": [
+      "https://www.apple.com/shop/product/MUWA3AM/A/apple-pencil-usb-c",
+      "https://www.logitech.com/en-us/shop/p/ipad-digital-pencil-crayon",
+      "https://www.idownloadblog.com/2023/11/01/apple-pencil-usb-c-vs-zagg-pro-stylus-2-logitech-crayon/",
+      "https://www.notebookcheck.com/Logitech-Crayon-Der-guenstigere-Apple-Pencil-erhaelt-USB-C-und-ein-modernisiertes-Design.662838.0.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-airtag-4-pack-vs-chipolo-one-spot-4-pack",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Trackers",
+    "title": "Apple AirTag (2nd generation) 4-pack vs Chipolo ONE Spot 4-pack",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple AirTag (2nd generation), 4 pack",
+      "size": 4,
+      "unit": "tracker",
+      "price": 99.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/MFE94LL/A/airtag",
+      "key_ingredients": [
+        {
+          "name": "Network",
+          "amount": "Apple Find My"
+        },
+        {
+          "name": "Finding",
+          "amount": "Ultra Wideband Precision Finding"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Chipolo",
+      "product": "Chipolo ONE Spot, 4 pack",
+      "size": 4,
+      "unit": "tracker",
+      "price": 43.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://chipolo.net/en-us/products/chipolo-one-spot-4-pack",
+      "key_ingredients": [
+        {
+          "name": "Network",
+          "amount": "Apple Find My"
+        },
+        {
+          "name": "Finding",
+          "amount": "Bluetooth and loud ring (about 120 dB); no Ultra Wideband"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Chipolo ONE Spot is an Apple-certified Find My tracker, so it shows up in the same Find My app and network as an AirTag, at less than half the price per tag.",
+    "evidence": "Apple's US store lists AirTag (2nd generation) at $29 for one or $99 for four, with an expanded Precision Finding range over Ultra Wideband (iClarified's Apple price tracker shows the same list price). Chipolo's US store lists the ONE Spot 4-pack at $43, and its FAQ says the tags locate items in the Find My app on iPhone with left-behind alerts. 9to5Mac's and iMore's reviews confirm Find My support and note the lack of Ultra Wideband.",
+    "differences": "No Precision Finding: the Chipolo has no Ultra Wideband chip, so you find it by its louder ring rather than an on-screen arrow, and it has no NFC tap-to-identify. ONE Spot works only with iPhone (Find My). Reviewers note AirTag is more water resistant. Chipolo has a built-in keyring hole (AirTag needs a holder) and a user-replaceable battery.",
+    "sources": [
+      "https://www.apple.com/shop/product/MFE94LL/A/airtag",
+      "https://chipolo.net/en-us/products/chipolo-one-spot-4-pack",
+      "https://www.iclarified.com/p998/airtag-2nd-generation-4-pack",
+      "https://9to5mac.com/2021/05/19/chipolo-one-spot-review/",
+      "https://www.imore.com/chipolo-one-spot-review"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-magic-keyboard-usb-c-vs-logitech-pebble-keys-2-k380s",
+    "market": "US",
+    "category": "tech-tools",
+    "subcategory": "Keyboards",
+    "title": "Apple Magic Keyboard (USB-C) vs Logitech Pebble Keys 2 K380s",
+    "brand": {
+      "brand": "Apple",
+      "product": "Apple Magic Keyboard (USB-C), US English (MJLX4LL/A)",
+      "size": 1,
+      "unit": "keyboard",
+      "price": 99.0,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mjlx4ll/a/magic-keyboard-usb-c-us-english",
+      "key_ingredients": [
+        {
+          "name": "Connection",
+          "amount": "Bluetooth, USB-C to charge"
+        },
+        {
+          "name": "Layout",
+          "amount": "Compact, no number pad, Mac keys"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Logitech",
+      "product": "Logitech Pebble Keys 2 K380s Bluetooth Keyboard",
+      "size": 1,
+      "unit": "keyboard",
+      "price": 39.99,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.logitech.com/en-us/shop/p/pebble-keys-2",
+      "key_ingredients": [
+        {
+          "name": "Connection",
+          "amount": "Bluetooth, 3-device Easy-Switch"
+        },
+        {
+          "name": "Layout",
+          "amount": "Compact, no number pad, Mac and Windows keys"
+        }
+      ]
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are compact, number-pad-less Bluetooth keyboards with Mac key labels and low-profile keys, and Logitech's costs $59 less and switches between three devices.",
+    "evidence": "Apple's US store lists the Magic Keyboard (USB-C) at $99, and Apple's tech specs page describes Bluetooth, a USB-C port for pairing and charging, and a rechargeable battery that lasts about a month. Logitech's US store lists the Pebble Keys 2 K380s at $39.99 with three-device Easy-Switch for macOS, iPadOS, iOS, Windows and Android. Trusted Reviews and Tech Advisor confirm it runs on AAA batteries and works on a Mac without software.",
+    "differences": "The K380s uses replaceable AAA batteries (no recharging) and round, quieter keys that feel different from Apple's. iMore found it better for travel than for a desk. No Touch ID: Apple's $149 Touch ID model has no Logitech equivalent. Apple pairs automatically over its USB-C cable; Logitech pairs over Bluetooth.",
+    "sources": [
+      "https://www.apple.com/shop/product/mjlx4ll/a/magic-keyboard-usb-c-us-english",
+      "https://support.apple.com/en-us/121955",
+      "https://www.logitech.com/en-us/shop/p/pebble-keys-2",
+      "https://www.trustedreviews.com/reviews/logitech-pebble-keys-2-k380s",
+      "https://www.techadvisor.com/article/2077147/logitech-pebble-keys-2-k380s-review.html"
+    ],
+    "price_checked": "2026-11"
+  }
+]
