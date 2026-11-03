@@ -48,7 +48,30 @@
       "https://www.shop-apotheke.com/arzneimittel/2663704/cetirizin-adgc-filmtabletten.htm"
     ],
     "price_checked": "2026-11",
-    "look_for": "Cetirizine dihydrochloride 10 mg film-coated tablets"
+    "look_for": "Cetirizine dihydrochloride 10 mg film-coated tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "UCB Pharma GmbH, Monheim",
+        "alternative": "Zentiva Pharma GmbH (ADGC line), Frankfurt/Berlin",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/02663704-cetirizin-adgc-filmtabletten.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Lactose monohydrate, MCC, silica, Mg stearate; coating hypromellose, TiO2, macrogol 400",
+        "alternative": "Lactose monohydrate, MCC, silica, maize starch, talc, Mg stearate; coating hypromellose, TiO2 (E171), macrogol 4000, sodium citrate",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/03738203-zyrtec-10-mg-filmtabletten.html"
+      },
+      {
+        "aspect": "Lactose and dyes",
+        "brand": "Contains lactose; no dye beyond white titanium dioxide",
+        "alternative": "Contains lactose; no dye beyond white titanium dioxide (E171)",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/02663704-cetirizin-adgc-filmtabletten.html"
+      }
+    ]
   },
   {
     "slug": "aspirin-vs-ass-500-1a-pharma-de",
@@ -86,7 +109,8 @@
           "name": "Acetylsalicylic acid",
           "amount": "500 mg"
         }
-      ]
+      ],
+      "rating": { "stars": 4.7, "count": 16, "source": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -99,7 +123,23 @@
       "https://www.shop-apotheke.com/marken/ass/ass-500/"
     ],
     "price_checked": "2026-11",
-    "look_for": "Aspirin (acetylsalicylic acid) 500 mg tablets"
+    "look_for": "Aspirin (acetylsalicylic acid) 500 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Bayer Vital GmbH, Leverkusen",
+        "alternative": "1 A Pharma GmbH (Sandoz group generic line)",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Core: sodium carbonate, silica. Coating: hypromellose, zinc stearate, carnauba wax (coated tablet)",
+        "alternative": "Cellulose powder, microcrystalline cellulose, maize starch (plain tablet, no coating listed)",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/10203632/aspirin-500-mg-ueberzogene-tabletten.htm"
+      }
+    ]
   },
   {
     "slug": "imodium-akut-vs-loperamid-abz-akut-2mg-de",
@@ -137,7 +177,8 @@
           "name": "Loperamide hydrochloride",
           "amount": "2 mg"
         }
-      ]
+      ],
+      "rating": { "stars": 5, "count": 4, "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -150,7 +191,30 @@
       "https://www.shop-apotheke.com/marken/loperamid/"
     ],
     "price_checked": "2026-11",
-    "look_for": "Loperamide hydrochloride 2 mg capsules"
+    "look_for": "Loperamide hydrochloride 2 mg capsules",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Kenvue Germany GmbH, Neuss",
+        "alternative": "AbZ-Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Hard capsules: lactose monohydrate, maize starch, talc, Mg stearate, gelatin; dyes iron oxides, erythrosine, indigo carmine, TiO2",
+        "alternative": "Hard capsules: 92 mg lactose monohydrate, pregelatinised maize starch, talc, Mg stearate, gelatin; iron oxides, TiO2, indigo carmine",
+        "verdict": "same",
+        "source": "https://www.shop-apotheke.com/arzneimittel/4940757/imodium-akut-bei-akutem-durchfall.htm"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose",
+        "alternative": "Contains lactose (92 mg per capsule)",
+        "verdict": "same",
+        "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm"
+      }
+    ]
   },
   {
     "slug": "ben-u-ron-vs-paracetamol-adgc-500mg-de",
@@ -188,7 +252,8 @@
           "name": "Paracetamol",
           "amount": "500 mg"
         }
-      ]
+      ],
+      "rating": { "stars": 4.9, "count": 27, "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -202,7 +267,30 @@
       "https://www.shop-apotheke.com/wirkstoff-paracetamol/"
     ],
     "price_checked": "2026-11",
-    "look_for": "Paracetamol 500 mg tablets, 20-pack"
+    "look_for": "Paracetamol 500 mg tablets, 20-pack",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "bene Arzneimittel GmbH, Munich",
+        "alternative": "Zentiva Pharma GmbH (ADGC line)",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Sodium carboxymethyl starch type A, povidone, stearic acid, talc, maize starch, precipitated silica",
+        "alternative": "Stearic acid, pregelatinised maize starch, povidone K30, sodium carboxymethyl starch, maize starch, ethyl and propyl parahydroxybenzoate (parabens)",
+        "verdict": "different",
+        "source": "https://www.apotheken-umschau.de/medikamente/beipackzettel/ben-u-ron-500-mg-tabletten-116694.html"
+      },
+      {
+        "aspect": "Parabens",
+        "brand": "None in the excipient list",
+        "alternative": "Contains ethyl and propyl 4-hydroxybenzoate preservatives (brand lists none)",
+        "verdict": "brand_better",
+        "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm"
+      }
+    ]
   },
   {
     "slug": "mucosolvan-vs-ambroxol-al-30mg-5ml-saft-de",
@@ -253,7 +341,37 @@
       "https://www.aponeo.de/00743445-mucosolvan-saft-30-mg-5-ml.html"
     ],
     "price_checked": "2026-11",
-    "look_for": "Ambroxol hydrochloride 30 mg/5 ml cough syrup"
+    "look_for": "Ambroxol hydrochloride 30 mg/5 ml cough syrup",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "A. Nattermann & Cie GmbH",
+        "alternative": "ALIUD Pharma GmbH, Laichingen",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/15235631-ambroxolhydrochlorid-al-30-mg-5-ml-sirup.html"
+      },
+      {
+        "aspect": "Sweetener and sugar alcohols",
+        "brand": "Sucralose; page states free of sugar, alcohol, lactose, gluten and dyes",
+        "alternative": "Acesulfame K plus sorbitol 70 (flagged on label)",
+        "verdict": "brand_better",
+        "source": "https://www.aponeo.de/00743445-mucosolvan-saft-30-mg-5-ml.html"
+      },
+      {
+        "aspect": "Colouring",
+        "brand": "No dyes",
+        "alternative": "Contains ammonia-sulphite caramel colour",
+        "verdict": "brand_better",
+        "source": "https://www.aponeo.de/15235631-ambroxolhydrochlorid-al-30-mg-5-ml-sirup.html"
+      },
+      {
+        "aspect": "Preservative",
+        "brand": "Benzoic acid, propylene glycol",
+        "alternative": "Benzoic acid, propylene glycol",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/15235631-ambroxolhydrochlorid-al-30-mg-5-ml-sirup.html"
+      }
+    ]
   },
   {
     "slug": "vomex-a-vs-dimenhydrinat-al-50mg-de",
@@ -303,7 +421,30 @@
       "https://www.aponeo.de/06938658-dimenhydrinat-al-50-mg-tabletten.html"
     ],
     "price_checked": "2026-11",
-    "look_for": "Dimenhydrinate 50 mg tablets"
+    "look_for": "Dimenhydrinate 50 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Klinge Pharma GmbH",
+        "alternative": "ALIUD Pharma GmbH, Laichingen",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/06938658-dimenhydrinat-al-50-mg-tabletten.html"
+      },
+      {
+        "aspect": "Dosage form",
+        "brand": "Coated tablets (Dragees); contains lactose and sucrose",
+        "alternative": "Plain tablets; contains lactose, no sucrose listed",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/04274616-vomex-a-dragees-50-mg-ueberzogene-tabletten.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Lactose and sucrose per page warning; full list not on page",
+        "alternative": "Calcium hydrogen phosphate, sodium carboxymethyl starch, cellulose powder, lactose monohydrate, Mg stearate, silica; no dyes",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/06938658-dimenhydrinat-al-50-mg-tabletten.html"
+      }
+    ]
   },
   {
     "slug": "pantozol-control-vs-panto-aristo-20mg-de",
@@ -353,7 +494,30 @@
       "https://www.aponeo.de/07021927-panto-aristo-bei-sodbrennen-20-mg-magensaftr-tabl.html"
     ],
     "price_checked": "2026-11",
-    "look_for": "Pantoprazole 20 mg gastro-resistant tablets (for heartburn)"
+    "look_for": "Pantoprazole 20 mg gastro-resistant tablets (for heartburn)",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Dr. Kade Pharmazeutische Fabrik GmbH, Berlin",
+        "alternative": "Aristo Pharma GmbH, Berlin",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/07021927-panto-aristo-bei-sodbrennen-20-mg-magensaftr-tabl.html"
+      },
+      {
+        "aspect": "Soy",
+        "brand": "Contains de-oiled soy phospholipids",
+        "alternative": "Coating includes soy-derived phospholipids",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/05124445-pantozol-control-20-mg-magensaftres-tabletten.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Full list not on shop page; no lactose or dyes mentioned",
+        "alternative": "Core: maltitol, crospovidone, carmellose sodium, sodium carbonate, Ca stearate; coating with TiO2 (E171) and iron oxide (E172); lactose-free",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/07021927-panto-aristo-bei-sodbrennen-20-mg-magensaftr-tabl.html"
+      }
+    ]
   },
   {
     "slug": "nurofen-vs-ibu-ratiopharm-400mg-de",
@@ -404,7 +568,30 @@
       "https://www.shop-apotheke.com/marken/nurofen/nurofen-ibuprofen/"
     ],
     "price_checked": "2026-11",
-    "look_for": "Ibuprofen 400 mg tablets"
+    "look_for": "Ibuprofen 400 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Reckitt Benckiser Deutschland GmbH, Heidelberg",
+        "alternative": "ratiopharm GmbH, Ulm",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm"
+      },
+      {
+        "aspect": "Sucrose",
+        "brand": "Coated tablet containing 232 mg sucrose",
+        "alternative": "Film-coated tablet; no sucrose listed",
+        "verdict": "alt_better",
+        "source": "https://www.shop-apotheke.com/arzneimittel/8794436/nurofen-ibuprofen-400-mg-bei-kopfschmerzen.htm"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Stearic acid, croscarmellose, silica, sodium citrate, SLS, carmellose, sucrose, macrogol 6000, TiO2, gum arabic, talc",
+        "alternative": "Stearic acid, croscarmellose, hypromellose, silica, pregelatinised maize starch, macrogol 8000, TiO2",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm"
+      }
+    ]
   },
   {
     "slug": "zovirax-vs-acic-lippenherpescreme-5-de",
@@ -455,7 +642,30 @@
       "https://www.aponeo.de/02286360-aciclovir-ratiopharm-lippenherpescreme.html"
     ],
     "price_checked": "2026-11",
-    "look_for": "Aciclovir 5% cold sore cream"
+    "look_for": "Aciclovir 5% cold sore cream",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Haleon Germany GmbH",
+        "alternative": "Hexal AG",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm"
+      },
+      {
+        "aspect": "Cream base",
+        "brand": "Cetostearyl alcohol, PEG-100 stearyl ether, dimethicone, glyceryl monostearate, poloxamer 407, sodium lauryl sulfate, paraffins",
+        "alternative": "Cetyl alcohol, macrogol glycerol stearate, dimethicone 350, paraffins; no sodium lauryl sulfate",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/2799289/zovirax-lippenherpescreme-mit-aciclovir.htm"
+      },
+      {
+        "aspect": "Propylene glycol",
+        "brand": "400 mg per tube",
+        "alternative": "150 mg per tube",
+        "verdict": "alt_better",
+        "source": "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm"
+      }
+    ]
   },
   {
     "slug": "lorano-akut-vs-loratadin-axicur-10mg-de",
@@ -477,7 +687,8 @@
           "name": "Loratadine",
           "amount": "10 mg"
         }
-      ]
+      ],
+      "rating": { "stars": 4, "count": 11, "source": "https://www.aponeo.de/07224435-lorano-akut-tabletten.html" }
     },
     "alternative": {
       "brand": "axicur (axicorp)",
@@ -506,7 +717,30 @@
       "https://www.aponeo.de/arzneimittel/antiallergikum/loratadin/"
     ],
     "price_checked": "2026-11",
-    "look_for": "Loratadine 10 mg tablets"
+    "look_for": "Loratadine 10 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Hexal AG, Holzkirchen",
+        "alternative": "axicorp Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/14293796-loratadin-axicur-10-mg-tabletten.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Lactose monohydrate, Mg stearate, maize starch, silica",
+        "alternative": "Lactose monohydrate, Mg stearate, maize starch",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/07224435-lorano-akut-tabletten.html"
+      },
+      {
+        "aspect": "Lactose and dyes",
+        "brand": "Contains lactose; no dyes listed",
+        "alternative": "Contains lactose; no dyes listed",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/14293796-loratadin-axicur-10-mg-tabletten.html"
+      }
+    ]
   },
   {
     "slug": "hoggar-night-vs-schlaftabs-ratiopharm-25mg-de",
@@ -556,7 +790,30 @@
       "https://www.aponeo.de/07707524-schlaf-tabs-ratiopharm-25-mg-tabletten.html"
     ],
     "price_checked": "2026-11",
-    "look_for": "Doxylamine succinate 25 mg tablets"
+    "look_for": "Doxylamine succinate 25 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "STADA Consumer Health Deutschland GmbH",
+        "alternative": "ratiopharm GmbH, Ulm",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/07707524-schlaf-tabs-ratiopharm-25-mg-tabletten.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Gelatin, potato and maize starch, lactose monohydrate, silica, talc, Mg stearate",
+        "alternative": "Maize starch, lactose, MCC, silica, Mg stearate, ethylcellulose",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/04402066-hoggar-night-tabletten.html"
+      },
+      {
+        "aspect": "Lactose and dyes",
+        "brand": "Contains lactose; no dyes listed",
+        "alternative": "Contains lactose",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/07707524-schlaf-tabs-ratiopharm-25-mg-tabletten.html"
+      }
+    ]
   },
   {
     "slug": "talcid-vs-hydrotalcit-ratiopharm-500mg-de",
@@ -606,7 +863,30 @@
       "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html"
     ],
     "price_checked": "2026-11",
-    "look_for": "Hydrotalcite 500 mg chewable tablets"
+    "look_for": "Hydrotalcite 500 mg chewable tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Bayer Vital GmbH",
+        "alternative": "ratiopharm GmbH, Ulm",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html"
+      },
+      {
+        "aspect": "Flavour and sweetener",
+        "brand": "Mint and menthol flavour; sodium saccharin, mannitol",
+        "alternative": "Blackcurrant flavour; sodium saccharin, mannitol and sorbitol",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/01921682-talcid-kautabletten.html"
+      },
+      {
+        "aspect": "Other excipients",
+        "brand": "Maize starch, magnesium stearate",
+        "alternative": "Maize starch, silica, magnesium stearate",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html"
+      }
+    ]
   },
   {
     "slug": "otriven-vs-nasenspray-sine-al-0-1-de",
@@ -644,7 +924,8 @@
           "name": "Xylometazoline hydrochloride",
           "amount": "1 mg/ml (0.1%)"
         }
-      ]
+      ],
+      "rating": { "stars": 4.7, "count": 25, "source": "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -656,7 +937,30 @@
       "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm"
     ],
     "price_checked": "2026-11",
-    "look_for": "Xylometazoline 0.1% preservative-free nasal spray"
+    "look_for": "Xylometazoline 0.1% preservative-free nasal spray",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Haleon Germany GmbH",
+        "alternative": "ALIUD Pharma GmbH (AL)",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm"
+      },
+      {
+        "aspect": "Preservatives",
+        "brand": "Preservative-free; contains disodium edetate and phosphate buffer",
+        "alternative": "Page also says preservative-free",
+        "verdict": "same",
+        "source": "https://www.shop-apotheke.com/arzneimittel/8444541/otriven-gegen-schnupfen-0-1-nasenspray-dosierspray-ohne-konservierungsstoffe.htm"
+      },
+      {
+        "aspect": "Excipients",
+        "brand": "Disodium edetate, sodium chloride, phosphate buffer, purified water",
+        "alternative": "Water for injection, potassium dihydrogen phosphate, sea water (as listed on the page)",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm"
+      }
+    ]
   },
   {
     "slug": "thomapyrin-classic-vs-dolopyrin-al-de",
@@ -710,7 +1014,8 @@
           "name": "Caffeine",
           "amount": "50 mg"
         }
-      ]
+      ],
+      "rating": { "stars": 4.9, "count": 12, "source": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -723,7 +1028,30 @@
       "https://www.shop-apotheke.com/marken/ass/ass-500/"
     ],
     "price_checked": "2026-11",
-    "look_for": "Aspirin 250 mg + paracetamol 200 mg + caffeine 50 mg tablets"
+    "look_for": "Aspirin 250 mg + paracetamol 200 mg + caffeine 50 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "A. Nattermann & Cie GmbH (Opella), Frankfurt",
+        "alternative": "ALIUD Pharma GmbH, Laichingen",
+        "verdict": "different",
+        "source": "https://www.apotheken-umschau.de/medikamente/beipackzettel/thomapyrin-classic-schmerztabletten-3046735.html"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose monohydrate (not for lactose intolerance)",
+        "alternative": "No lactose: stearic acid, pregelatinised maize starch, talc",
+        "verdict": "alt_better",
+        "source": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Lactose monohydrate, stearic acid, maize starch",
+        "alternative": "Stearic acid, pregelatinised maize starch, talc",
+        "verdict": "different",
+        "source": "https://www.apotheken-umschau.de/medikamente/beipackzettel/thomapyrin-classic-schmerztabletten-3046735.html"
+      }
+    ]
   },
   {
     "slug": "dolormin-extra-vs-ibu-lysin-1a-pharma-400mg-de",
@@ -761,7 +1089,8 @@
           "name": "Ibuprofen DL-lysine",
           "amount": "683.47 mg (= 400 mg ibuprofen)"
         }
-      ]
+      ],
+      "rating": { "stars": 5, "count": 5, "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -773,7 +1102,23 @@
       "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
     ],
     "price_checked": "2026-11",
-    "look_for": "Ibuprofen lysine 684 mg (400 mg ibuprofen) tablets"
+    "look_for": "Ibuprofen lysine 684 mg (400 mg ibuprofen) tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Kenvue Germany GmbH, Neuss",
+        "alternative": "1 A Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Hyprolose, hypromellose, MCC, povidone K30, Mg stearate, TiO2",
+        "alternative": "Copovidone, carboxymethyl starch, methacrylate copolymer, MCC, PVA, Mg stearate, NaHCO3, macrogol 4000, TiO2, talc",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
+      }
+    ]
   },
   {
     "slug": "voltaren-forte-vs-diclox-forte-gel-de",
@@ -811,7 +1156,8 @@
           "name": "Diclofenac diethylamine",
           "amount": "23.2 mg/g (2.32%)"
         }
-      ]
+      ],
+      "rating": { "stars": 4.8, "count": 60, "source": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -823,6 +1169,22 @@
       "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm"
     ],
     "price_checked": "2026-11",
-    "look_for": "Diclofenac diethylamine 2.32% gel (twice daily)"
+    "look_for": "Diclofenac diethylamine 2.32% gel (twice daily)",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Haleon Germany GmbH",
+        "alternative": "ratiopharm GmbH, Ulm",
+        "verdict": "different",
+        "source": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm"
+      },
+      {
+        "aspect": "Propylene glycol, BHT, fragrance",
+        "brand": "Contains propylene glycol, butylhydroxytoluene and fragrance (eucalyptus, linalool, limonene etc.)",
+        "alternative": "Contains propylene glycol (54 mg), isopropanol, BHT and perfume oil with linalool, geraniol",
+        "verdict": "same",
+        "source": "https://www.medikamente-per-klick.de/voltaren-schmerzgel-forte-23-2-mg-g-150g-08628270?sps=abp"
+      }
+    ]
   }
 ]

@@ -34,7 +34,8 @@
           "name": "Wheat dextrin (soluble fiber)",
           "amount": "3 g fiber per 2 tsp"
         }
-      ]
+      ],
+      "rating": { "stars": 4.18, "count": 207, "source": "https://www.target.com/p/-/A-11303415" }
     },
     "match_type": "identical_formula",
     "confidence": "medium",
@@ -46,7 +47,23 @@
       "https://www.target.com/p/-/A-11303415",
       "https://www.walmart.com/ip/Benefiber-Daily-Prebiotic-Fiber-Supplement-Powder-for-Digestive-Health-Unflavored-125-Servings-17-6-Ounces/50259010"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Gluten",
+        "brand": "Wheat dextrin only; label says gluten-free and non-GMO",
+        "alternative": "Wheat dextrin only; Target says wheat processed to meet FDA gluten-free rules",
+        "verdict": "same",
+        "source": "https://api.ods.od.nih.gov/dsld/v9/label/276689"
+      },
+      {
+        "aspect": "Formula consistency",
+        "brand": "Single stated formula",
+        "alternative": "Older listings and reviewers mention corn dextrin and a formula change; reviews report clumping",
+        "verdict": "brand_better",
+        "source": "https://www.target.com/p/-/A-11303415"
+      }
+    ]
   },
   {
     "slug": "citracal-petites-vs-equate-calcium-citrate-d3-petites",
@@ -217,7 +234,23 @@
       "https://www.walmart.com/ip/558324711",
       "https://www.walmart.com/ip/Spring-Valley-Vitamin-D3-Supplement-Softgels-50-Mcg-2-000-IU-400-Count/1728703957"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Third-party verification",
+        "brand": "USP Dietary Supplement Verified (stated on DSLD label)",
+        "alternative": "No USP seal on the Spring Valley D3 labels found; independent verification not confirmed",
+        "verdict": "brand_better",
+        "source": "https://api.ods.od.nih.gov/dsld/v9/label/179704"
+      },
+      {
+        "aspect": "Softgel carrier",
+        "brand": "Soybean oil, gelatin, glycerin, water",
+        "alternative": "Soybean oil, gelatin, glycerin, corn oil (found label is the 1000 IU version, 2018)",
+        "verdict": "same",
+        "source": "https://api.ods.od.nih.gov/dsld/v9/label/178388"
+      }
+    ]
   },
   {
     "slug": "nature-made-melatonin-5mg-vs-spring-valley-melatonin-5mg",
@@ -238,7 +271,8 @@
           "name": "Melatonin",
           "amount": "5 mg"
         }
-      ]
+      ],
+      "rating": { "stars": 4.51, "count": 167, "source": "https://www.target.com/p/nature-made-melatonin-5mg-100-drug-free-sleep-aid-for-adults-tablets-90ct/-/A-14161827" }
     },
     "alternative": {
       "brand": "Spring Valley",
@@ -266,7 +300,30 @@
       "https://www.walmart.com/ip/11047659",
       "https://www.walmart.com/ip/3602593789"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Third-party verification",
+        "brand": "USP Verified (Target listing and DSLD label)",
+        "alternative": "No USP seal on the Spring Valley label found",
+        "verdict": "brand_better",
+        "source": "https://www.target.com/p/nature-made-melatonin-5mg-100-drug-free-sleep-aid-for-adults-tablets-90ct/-/A-14161827"
+      },
+      {
+        "aspect": "Other ingredients",
+        "brand": "Cellulose gel, maltodextrin, croscarmellose sodium, stearic acid, magnesium stearate",
+        "alternative": "Dibasic calcium phosphate, sodium starch glycolate, magnesium stearate (2012 label)",
+        "verdict": "different",
+        "source": "https://api.ods.od.nih.gov/dsld/v9/label/12210"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Pharmavite LLC (Nature Made)",
+        "alternative": "Spring Valley melatonin 2012 DSLD label names Pharmavite LLC as the maker",
+        "verdict": "same",
+        "source": "https://api.ods.od.nih.gov/dsld/v9/label/12210"
+      }
+    ]
   },
   {
     "slug": "nature-made-b12-1000mcg-time-release-vs-spring-valley-b12-1000mcg",
@@ -314,7 +371,23 @@
       "https://www.walmart.com/ip/Nature-Made-Vitamin-B12-1000-mcg-Time-Release-Tablets-160-Count-Value-Size/5176462694",
       "https://www.walmart.com/ip/Spring-Valley-Vitamin-B12-Timed-Release-Tablets-1000-mcg-150-Ct-2-Pk/22027168"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Other ingredients",
+        "brand": "Cellulose gel, hypromellose, stearic acid, silicon dioxide, magnesium stearate, croscarmellose sodium",
+        "alternative": "Dextrose, hypromellose, magnesium stearate (2013 label, may have changed)",
+        "verdict": "different",
+        "source": "https://api.ods.od.nih.gov/dsld/v9/label/26898"
+      },
+      {
+        "aspect": "Label quality claim",
+        "brand": "'Quality tested in the USA', no USP seal on this label",
+        "alternative": "Walmart Spring Valley (made by Schiff in 2013 label), no third-party seal listed",
+        "verdict": "same",
+        "source": "https://api.ods.od.nih.gov/dsld/v9/label/302757"
+      }
+    ]
   },
   {
     "slug": "glad-forceflex-vs-kirkland-flex-tech-13-gallon",
@@ -371,6 +444,36 @@
       "https://www.today.com/shop/ranked-best-kitchen-trash-bags-rcna344153",
       "https://www.walmart.com/ip/Glad-ForceFlex-Tall-Kitchen-Drawstring-Trash-Bags-13-Gallon-Trash-Bag-Fresh-Clean-scent-with-Febreze-Freshness-110-Count/24553273"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Load test",
+        "brand": "Held 30 lb of dumbbells (Reviewed.com)",
+        "alternative": "Held 35 lb of dumbbells (Reviewed.com)",
+        "verdict": "alt_better",
+        "source": "https://reviewed.com/home-outdoors/best-right-now/the-best-trash-bags"
+      },
+      {
+        "aspect": "Thickness",
+        "brand": "0.72 mil",
+        "alternative": "0.9 mil",
+        "verdict": "alt_better",
+        "source": "https://www.today.com/shop/ranked-best-kitchen-trash-bags-rcna344153"
+      },
+      {
+        "aspect": "Leaks and odor (Today.com)",
+        "brand": "Leak 5/5, odor 4.5/5, overall 4.5/5; no wetness after milk test",
+        "alternative": "Leak 3/5, odor 4/5, overall 3.3/5; bag 'a tad moist' after milk test",
+        "verdict": "brand_better",
+        "source": "https://www.today.com/shop/ranked-best-kitchen-trash-bags-rcna344153"
+      },
+      {
+        "aspect": "Drawstring (Reviewed.com)",
+        "brand": "Cinched up tight",
+        "alternative": "Drawstrings could not cinch as tightly as other bags",
+        "verdict": "brand_better",
+        "source": "https://reviewed.com/home-outdoors/best-right-now/the-best-trash-bags"
+      }
+    ]
   }
 ]

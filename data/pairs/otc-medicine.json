@@ -45,7 +45,30 @@
       "https://www.walmart.com/ip/Advil-Pain-Relievers-and-Fever-Reducer-Coated-Tablets-200Mg-Ibuprofen-300-Count/17325054",
       "https://www.walmart.com/ip/Equate-Ibuprofen-Tablets-200-mg-Pain-Reliever-and-Fever-Reducer-500-Count/39661525"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Sucrose, shellac, white wax, red iron oxide, methylparaben, propylparaben, sodium benzoate, TiO2.",
+        "alternative": "Red and yellow iron oxide, PEG, polysorbate 80, HPMC, stearic acid, TiO2. No parabens or sugar listed.",
+        "verdict": "alt_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b29034a6-657b-426f-a41a-5e64c4bc759d"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Advil: NDA018989 (Haleon).",
+        "alternative": "Equate ibuprofen: ANDA072096, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b29034a6-657b-426f-a41a-5e64c4bc759d"
+      },
+      {
+        "aspect": "Dyes",
+        "brand": "Red iron oxide only (no synthetic dyes) in the coated tablet.",
+        "alternative": "Red and yellow iron oxide only (no synthetic dyes).",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1a665e64-9f30-be37-4a83-38789f1f1e89"
+      }
+    ]
   },
   {
     "slug": "tylenol-extra-strength-vs-equate-acetaminophen-500mg",
@@ -93,7 +116,30 @@
       "https://www.walmart.com/ip/Tylenol-Extra-Strength-Caplets-225-ct/10294196",
       "https://www.walmart.com/ip/Equate-Extra-Strength-Acetaminophen-Caplets-500-mg-500-Count/509037085"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes and coating",
+        "brand": "Label lists FD&C Red No. 40, shellac, carnauba wax, titanium dioxide, powdered cellulose.",
+        "alternative": "Label lists castor oil, HPMC, povidone, stearic acid, starch. No dye and no titanium dioxide listed.",
+        "verdict": "alt_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=78874258-16cc-40b5-9e15-5943eddfce94"
+      },
+      {
+        "aspect": "FDA status",
+        "brand": "OTC monograph drug (M013).",
+        "alternative": "OTC monograph drug (M013), same category.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=103d109d-f520-409c-8da2-eb6b0fbec891"
+      },
+      {
+        "aspect": "Recalls (last 3 years)",
+        "brand": "FDA Class II recall, Oct 2025: Tylenol Extra Strength 24-count caplets, defective container (Kenvue).",
+        "alternative": "No FDA enforcement report found for Equate acetaminophen tablets since Nov 2023 (openFDA product search).",
+        "verdict": "different",
+        "source": "https://api.fda.gov/drug/enforcement.json?search=recall_number:%22D-0121-2026%22"
+      }
+    ]
   },
   {
     "slug": "aleve-vs-equate-naproxen-sodium-220mg",
@@ -141,7 +187,30 @@
       "https://www.walmart.com/ip/Aleve-Pain-Relief-Naproxen-Sodium-Caplets-200-Count/938759653",
       "https://www.walmart.com/ip/Equate-Naproxen-Sodium-All-Day-Pain-Relief-Caplets-220-mg-270-Count/5316226532"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Aleve: NDA020204 (Bayer).",
+        "alternative": "Equate All Day Pain Relief: ANDA204872, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c4909e43-57ba-44bc-a234-a02cc884891c"
+      },
+      {
+        "aspect": "Dyes",
+        "brand": "FD&C Blue No. 2 (blue caplet), titanium dioxide.",
+        "alternative": "FD&C Blue No. 2 aluminum lake, titanium dioxide.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=00ef5b30-71d0-4cb4-84a3-48c67d1cea2a"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "MCC, PEG, povidone, talc, HPMC, magnesium stearate.",
+        "alternative": "Adds croscarmellose, polyvinyl alcohol, silicon dioxide; no povidone-only coat.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c4909e43-57ba-44bc-a234-a02cc884891c"
+      }
+    ]
   },
   {
     "slug": "excedrin-migraine-vs-equate-migraine",
@@ -255,7 +324,30 @@
       "https://www.walmart.com/ip/Equate-Allergy-Relief-Loratadine-Tablets-10-mg-Antihistamine-300-Count/2691499737",
       "https://www.costco.com/p/-/kirkland-signature-nondrowsy-allerclear-antihistamine-10-mg-365-tablets/11602332"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Corn starch, lactose monohydrate, magnesium stearate.",
+        "alternative": "Lactose monohydrate, microcrystalline cellulose, sodium starch glycolate, magnesium stearate. Both uncoated, no dyes listed.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=db815af2-4193-4fd9-a028-4a9d54325ca8"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Claritin tablets: NDA019658 (Bayer).",
+        "alternative": "Equate loratadine label cites ANDA075209, a generic approved as equivalent to the brand.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=db815af2-4193-4fd9-a028-4a9d54325ca8"
+      },
+      {
+        "aspect": "Dyes",
+        "brand": "None listed on the Claritin tablet label.",
+        "alternative": "None listed on the Equate label.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=660ac9df-f1b1-4c89-94dd-9fae0a013f3c"
+      }
+    ]
   },
   {
     "slug": "zyrtec-vs-equate-cetirizine-10mg",
@@ -303,7 +395,30 @@
       "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
       "https://business.walmart.com/ip/Equate-24-Hour-Allergy-Cetirizine-Hydrochloride-Tablets-10-mg-90-Count/10898797"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "No dye listed on the Zyrtec Allergy tablet label.",
+        "alternative": "Equate cetirizine label lists FD&C Blue No. 1.",
+        "verdict": "brand_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b33eb97f-5ac3-4eb7-b23a-cf550ce46287"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Silicon dioxide, croscarmellose, HPMC, lactose, magnesium stearate, MCC, PEG, TiO2.",
+        "alternative": "Corn starch, HPMC, lactose, magnesium stearate, polydextrose, PEG, povidone, TiO2, triacetin. Both contain lactose.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b165db38-b302-4220-8627-77cb07bb078c"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Zyrtec Allergy: NDA019835.",
+        "alternative": "Equate cetirizine: ANDA078336, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b33eb97f-5ac3-4eb7-b23a-cf550ce46287"
+      }
+    ]
   },
   {
     "slug": "allegra-vs-equate-fexofenadine-180mg",
@@ -352,7 +467,23 @@
       "https://business.walmart.com/ip/Equate-Fexofenadine-180mg-300-Count/16417012021",
       "https://www.walmart.com/ip/Equate-Fexofenadine-180mg-2-x-90-Count/16380319834"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Allegra Allergy: NDA020872 (Chattem).",
+        "alternative": "Equate fexofenadine: ANDA204097, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=852c8ad2-fc7d-4728-b2c6-f64b960fe2ab"
+      },
+      {
+        "aspect": "Inactive ingredients / dyes",
+        "brand": "Silicon dioxide, croscarmellose, HPMC, magnesium stearate, MCC, PEG, povidone, corn starch, TiO2, brown iron oxide.",
+        "alternative": "Light mineral oil, polysorbate 80, talc, sodium starch glycolate, red and yellow iron oxide, TiO2. Both use only iron-oxide colour.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=81c1dcbb-28b3-4ad5-9f3d-9ccc16ddd173"
+      }
+    ]
   },
   {
     "slug": "xyzal-vs-equate-levocetirizine-5mg",
@@ -400,7 +531,23 @@
       "https://www.walmart.com/ip/Xyzal-24-Hour-Allergy-Relief-Medicine-Original-Prescription-Strength-Antihistamine-Levocetirizine-Dihydrochloride-Tablets-5-mg-60-Count/17896511625",
       "https://www.walmart.com/ip/Equate-Levocetirizine-Dihydrochloride-USP-Allergy-Relief-Tablets-5-mg-35-Count/952178038"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Silicon dioxide, HPMC, lactose, magnesium stearate, MCC, PEG 400, titanium dioxide. No dyes.",
+        "alternative": "Same list (MCC, lactose, silicon dioxide, magnesium stearate, HPMC, TiO2, PEG). No dyes.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=82da5fa1-3633-2c48-32b9-d15482f308a1"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Xyzal Allergy 24HR: NDA209089 (Chattem).",
+        "alternative": "Equate levocetirizine: ANDA210375, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=82da5fa1-3633-2c48-32b9-d15482f308a1"
+      }
+    ]
   },
   {
     "slug": "flonase-vs-equate-fluticasone-50mcg",
@@ -449,7 +596,23 @@
       "https://www.walmart.com/ip/Equate-Fluticasone-Propionate-Nasal-Allergy-Relief-Spray-50-mcg-Non-Drowsy-72-Metered-Sprays/11616557275",
       "https://business.walmart.com/ip/Equate-Non-Drowsy-Allergy-Relief-Spray-Fluticasone-Propionate-Glucocorticoid-50-mcg-Per-Spray-144-Sprays/251773357"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Benzalkonium chloride, dextrose, MCC, phenylethyl alcohol, polysorbate 80, carboxymethylcellulose sodium, water.",
+        "alternative": "Identical list on the Equate label.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bc824143-b876-4c3d-86fd-81fb58673851"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Flonase Allergy Relief: NDA205434.",
+        "alternative": "Equate fluticasone: ANDA207957, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b6134ba0-b70a-4eac-9a82-cef64b242c1d"
+      }
+    ]
   },
   {
     "slug": "benadryl-vs-equate-diphenhydramine-25mg",
@@ -497,7 +660,30 @@
       "https://www.walmart.com/ip/Benadryl-Ultratabs-Antihistamine-Cold-Allergy-Relief-Tablets-100-Ct/31956102",
       "https://business.walmart.com/ip/Equate-Allergy-Relief-Diphenhydramine-Tablets-25mg-365-Count/40816795"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "Benadryl Ultratabs: D&C Red No. 27 (pink coating), titanium dioxide.",
+        "alternative": "Equate allergy tablet label: D&C Red No. 27 (aluminum lake), titanium dioxide.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c0fa4e00-2bd1-4d16-810d-b55f3b827418"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Carnauba wax, croscarmellose, dibasic calcium phosphate, HPMC, magnesium stearate, MCC, PEG, polysorbate 80.",
+        "alternative": "Adds BHA, citric acid, PVA, stearic acid, talc, triacetin, PEG 3350, silicon dioxide. Same pink film-coat idea, different recipe.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c0fa4e00-2bd1-4d16-810d-b55f3b827418"
+      },
+      {
+        "aspect": "FDA status",
+        "brand": "OTC monograph drug (M012). No brand-only patent or NDA applies.",
+        "alternative": "OTC monograph drug (M012), same category. No generic application needed.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=76433e3c-142c-4704-8b2b-d602f008c377"
+      }
+    ]
   },
   {
     "slug": "prilosec-otc-vs-equate-omeprazole-20mg",
@@ -546,7 +732,23 @@
       "https://www.walmart.com/ip/Equate-Omeprazole-Delayed-Release-Tablets-20-mg-Acid-Reducer-Frequent-Heartburn-42-Count/10324782",
       "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=equate+omeprazole"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA application",
+        "brand": "Prilosec OTC tablets cite ANDA206582 (Procter & Gamble).",
+        "alternative": "Equate omeprazole tablet label cites NDA022032, a separate OTC application.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=dcfe8e94-9c88-464e-9a80-3baa9c4755d9"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Sucrose, red iron oxide, TiO2, PEG, talc, methacrylic acid copolymer. No synthetic dyes.",
+        "alternative": "Lactose, FD&C Blue No. 1, menthol, sucralose, TiO2, talc, sodium lauryl sulfate. Has a dye and lactose.",
+        "verdict": "brand_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=37291cab-e350-d8e3-e063-6294a90a9cb1"
+      }
+    ]
   },
   {
     "slug": "nexium-24hr-vs-equate-esomeprazole-20mg",
@@ -595,7 +797,23 @@
       "https://www.walmart.com/ip/3-Pack-Equate-Esomeprazole-Magnesium-Delayed-Release-Capsules-20mg-42-Ct/8457196",
       "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=equate+esomeprazole"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Capsule colour and dyes",
+        "brand": "Capsule: D&C Red 28, FD&C Blue 1, Red 40, red iron oxide, gelatin, sucrose.",
+        "alternative": "Capsule: D&C Yellow 10, FD&C Blue 1, FD&C Red 3, gelatin, sucralose, menthol, mint oils.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=ce5f2915-327d-4a91-b7fd-e399664a250f"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Nexium 24HR: NDA204655 (Haleon). Brand now sells a tablet; the capsule label is from 2024.",
+        "alternative": "Equate esomeprazole capsule: ANDA207193, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d56b330a-4355-4636-9d26-c592f67cea56"
+      }
+    ]
   },
   {
     "slug": "pepcid-ac-maximum-strength-vs-equate-famotidine-20mg",
@@ -643,7 +861,23 @@
       "https://www.walmart.com/ip/Pepcid-AC-Maximum-Strength-Heartburn-Medicine-20-mg-Famotidine-50-Ct/10309599",
       "https://www.walmart.com/ip/Equate-Maximum-Strength-Famotidine-Tablets-20-mg-200-Count/850734185"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Pepcid AC: NDA020325 (Kenvue).",
+        "alternative": "Equate famotidine: ANDA077351, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=8ac94821-aa78-4e57-bc9a-f1f2a0e47b07"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Carnauba wax, hydroxypropyl cellulose, HPMC, magnesium stearate, MCC, talc, titanium dioxide. No dyes, no lactose.",
+        "alternative": "Adds lactose, silicon dioxide, croscarmellose, PEG, PVA. No dyes in the April 2026 label (an older Equate label had FD&C Blue 1).",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=2854047f-c5c4-43c3-8ef2-5c0a84a307f2"
+      }
+    ]
   },
   {
     "slug": "tums-smoothies-extra-strength-vs-equate-smooth-antacid-750mg",
@@ -692,7 +926,30 @@
       "https://www.walmart.com/ip/Equate-Extra-Strength-Smooth-Chews-Antacid-Tablets-Assorted-Fruit-over-the-Counter-140-Count/683480261",
       "https://www.walmart.com/c/kp/tums-extra-strength"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "Tums Smoothies label: FD&C Blue 1, Red 40, Yellow 5 and Yellow 6 aluminum lakes depending on flavour.",
+        "alternative": "Equate chews label: carmine, FD&C Blue 1, Red 40, Yellow 5 (tartrazine), Yellow 6.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=77ce0a54-6656-37b1-e053-2991aa0a334a"
+      },
+      {
+        "aspect": "Texture / base",
+        "brand": "Compressed tablet: dextrose, guar gum, MCC, sorbitol, adipic acid, calcium stearate.",
+        "alternative": "Wax and syrup chew: beeswax, corn syrup, hydrogenated coconut oil, methylparaben.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=77ce0a54-6656-37b1-e053-2991aa0a334a"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Haleon (Tums).",
+        "alternative": "Label names Bestco Inc. with Walmart.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=77ce0a54-6656-37b1-e053-2991aa0a334a"
+      }
+    ]
   },
   {
     "slug": "imodium-ad-vs-equate-loperamide-2mg",
@@ -740,7 +997,30 @@
       "https://www.walmart.com/ip/Imodium-A-D-Diarrhea-Relief-Caplets-Loperamide-Hydrochloride-24-ct/45809353",
       "https://www.walmart.com/ip/Equate-Loperamide-Tablets-for-Diarrhea-2-mg-24-Count/1120328"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "No dye listed on the Imodium A-D caplet label.",
+        "alternative": "Equate loperamide label lists D&C Yellow No. 10 and FD&C Blue No. 1 aluminum lakes.",
+        "verdict": "brand_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b480916e-6383-468d-9e3e-499efea92522"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Imodium caplets list anhydrous lactose.",
+        "alternative": "Equate tablet label lists no lactose (dibasic calcium phosphate, corn starch, MCC).",
+        "verdict": "alt_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=01da76d0-1979-4c45-9d39-c72ae4e4ffe2"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Imodium A-D caplets: ANDA075232 (Kenvue), itself a generic-route approval.",
+        "alternative": "Equate loperamide: ANDA076497, also a generic approval.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b480916e-6383-468d-9e3e-499efea92522"
+      }
+    ]
   },
   {
     "slug": "miralax-vs-equate-clearlax-peg-3350",
@@ -790,7 +1070,23 @@
       "https://www.walmart.com/c/kp/miralax-laxative-powder",
       "https://business.walmart.com/ip/Equate-ClearLax-Polyethylene-Glycol-3350-Powder-for-Solution-Unflavored-30-Doses/14122821"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "MiraLAX: NDA022015 (Bayer).",
+        "alternative": "Equate ClearLax: ANDA090685, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=56a507f3-0cd1-4f02-9dfd-de297ba4bc1f"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "No inactive ingredients listed on the MiraLAX label.",
+        "alternative": "No inactive ingredients listed on the ClearLax label.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d69ce3d4-7ca4-4fe3-b49e-6655e48d6963"
+      }
+    ]
   },
   {
     "slug": "colace-vs-equate-stool-softener-docusate-100mg",
@@ -839,7 +1135,30 @@
       "https://www.walmart.com/ip/Equate-Stool-Softener-Laxative-Softgels-for-Constipation-100-mg-140-Count/377095128",
       "https://www.walmart.com/c/kp/colace-stool-softener"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "Capsule coloured with D&C Red 33, FD&C Red 40, Blue 1, Yellow 6 and titanium dioxide.",
+        "alternative": "Equate softgel label lists the same colours: D&C Red 33, FD&C Blue 1, Red 40, Yellow 6, titanium dioxide.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=cb2698b1-6c58-417f-ae86-74fbe3814626"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Gelatin, glycerin, PEG 400, propylene glycol, sorbitol.",
+        "alternative": "Gelatin, glycerin, PEG, propylene glycol, sorbitol, plus water and sorbitan, and print-ink ingredients.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=7793fced-e8ee-44e2-b212-dd2a59a5f462"
+      },
+      {
+        "aspect": "FDA status",
+        "brand": "OTC monograph drug (M007).",
+        "alternative": "OTC monograph drug (M007), same category.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=cb2698b1-6c58-417f-ae86-74fbe3814626"
+      }
+    ]
   },
   {
     "slug": "unisom-sleeptabs-vs-equate-doxylamine-25mg",
@@ -888,7 +1207,23 @@
       "https://www.walmart.com/ip/Equate-Doxylamine-Succinate-25mg-Tablets-for-Nighttime-Sleep-Support-32-Count/1120313",
       "https://www.walmart.com/c/kp/doxylamine-succinate"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Unisom SleepTabs: ANDA040564 (Chattem).",
+        "alternative": "Equate doxylamine label cites the same ANDA040564, so the same application.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=71e0cef1-6195-4b67-9c1f-b4e5fbeae53c"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Dibasic calcium phosphate, FD&C Blue 1, magnesium stearate, MCC, sodium starch glycolate.",
+        "alternative": "Same five, with FD&C Blue 1 as an aluminum lake and potato-source sodium starch glycolate.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=7ae32d74-76a0-47e2-9e5c-812426413c4e"
+      }
+    ]
   },
   {
     "slug": "mucinex-vs-equate-mucus-relief-guaifenesin-600mg",
@@ -937,7 +1272,23 @@
       "https://www.walmart.com/ip/Mucus-and-Chest-Congestion-Relief-Guaifenesin-Extended-Release-Tablets-600-mg-12-Hour-Expectorant-40-Count/19605912794",
       "https://www.walmart.com/c/kp/mucinex-12-hour"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Carbomer, FD&C Blue 1 (with aluminum oxide), HPMC, magnesium stearate, MCC, sodium starch glycolate.",
+        "alternative": "Same set: carbomer, FD&C Blue 1 aluminum lake, HPMC, magnesium stearate, MCC, sodium starch glycolate.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a2cc6dec-388a-46bd-9cbc-1ffb6fd1aea3"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Mucinex: NDA021282 (Reckitt).",
+        "alternative": "Equate Mucus-ER: ANDA078912, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=dd379cdd-90ab-42e0-ad89-f50d3220f611"
+      }
+    ]
   },
   {
     "slug": "cortizone-10-vs-equate-hydrocortisone-1-percent",
@@ -987,7 +1338,23 @@
       "https://www.walmart.com/c/kp/hydrocortisone-cream",
       "https://www.walmart.com/browse/health/itching-rash-treatments/976760_2571007_9291959?facet=brand%3AEquate"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Water, glycerin, petrolatum, aloe, niacinamide, chamomile, dimethicone, jojoba, tocopheryl acetate.",
+        "alternative": "Water, mineral oil, petrolatum, methylparaben, propylparaben, vitamin A, D3 and E, chamomile oil. Different cream base.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=635b49c4-54d2-4b6d-bee8-851fc2c7ca9c"
+      },
+      {
+        "aspect": "FDA status",
+        "brand": "OTC monograph drug (M017).",
+        "alternative": "OTC monograph drug (M017), same category.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=cdbeb825-3152-4f74-9fd1-93bccfc0e31a"
+      }
+    ]
   },
   {
     "slug": "monistat-7-vs-equate-miconazole-7",
@@ -1037,7 +1404,23 @@
       "https://www.walmart.com/c/kp/monistat-7",
       "https://www.walmart.com/c/kp/miconazole-nitrate"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Cream base (inactive ingredients)",
+        "brand": "Benzoic acid, cetyl alcohol, isopropyl myristate, polysorbate 60, KOH, propylene glycol, stearyl alcohol, water.",
+        "alternative": "Benzoic acid, BHA, mineral oil, apricot kernel oil PEG-6 esters, pegoxol 7 stearate, water. Different base, same 2% miconazole.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0cef9212-201d-4fd2-8afb-ae06ea6b6ee4"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Monistat 7: NDA017450.",
+        "alternative": "Equate miconazole 7: ANDA074164, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c4b68aff-e95f-47ae-b190-6a671bef1877"
+      }
+    ]
   },
   {
     "slug": "nicorette-gum-vs-equate-coated-nicotine-gum-2mg",
@@ -1086,7 +1469,16 @@
       "https://www.walmart.com/ip/Equate-Coated-Nicotine-Gum-2-mg-Fruit-Flavor-200-Count-Stop-Smoking-Aid/16674313113",
       "https://www.walmart.com/c/kp/nicotine-gum"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Nicorette gum labels cite NDA018612 and NDA020066 (Haleon).",
+        "alternative": "Equate nicotine gum labels cite ANDA206393 and ANDA091354, generic approvals.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bfa8273c-5af8-4074-b6d4-a99a0d0ff712"
+      }
+    ]
   },
   {
     "slug": "mens-rogaine-foam-vs-equate-minoxidil-5-foam",
@@ -1134,7 +1526,23 @@
       "https://www.walmart.com/ip/Men-s-Rogaine-5-Minoxidil-Foam-Treatment-3-Month-Supply/11081994",
       "https://www.walmart.com/ip/Equate-Minoxidil-Topical-Aerosol-Hair-Regrowth-Treatment-for-Men-3-Month-Supply-2-11-oz-3-Piece/20648073"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Butane, BHT, cetyl alcohol, citric acid, glycerin, isobutane, lactic acid, polysorbate 60, propane, stearyl alcohol.",
+        "alternative": "Same list except no glycerin.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=aa3eb73f-f5bc-4743-8596-ae87cf133a1b"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Rogaine foam: NDA021812 (Kenvue).",
+        "alternative": "Equate minoxidil foam: ANDA091344, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1b5e2860-6855-4a65-8bbc-e064172a1adf"
+      }
+    ]
   },
   {
     "slug": "plan-b-one-step-vs-my-way-levonorgestrel-1-5mg",
@@ -1184,7 +1592,30 @@
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6ce6b40e-14ac-47bd-a648-ddf9e452e559",
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3efec61d-e0a6-49c5-9b88-834db6d171fd"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Plan B One-Step: NDA021998.",
+        "alternative": "My Way: ANDA201446, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3efec61d-e0a6-49c5-9b88-834db6d171fd"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Silicon dioxide, potato and corn starch, magnesium stearate, talc, lactose. No dyes.",
+        "alternative": "Lactose, magnesium stearate, povidone, silicon dioxide, corn starch. No dyes. Both contain lactose.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6ce6b40e-14ac-47bd-a648-ddf9e452e559"
+      },
+      {
+        "aspect": "Who markets it",
+        "brand": "Labeler on DailyMed: Foundation Consumer Healthcare.",
+        "alternative": "Labeler on DailyMed: Lupin Pharmaceuticals.",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3efec61d-e0a6-49c5-9b88-834db6d171fd"
+      }
+    ]
   },
   {
     "slug": "voltaren-vs-equate-diclofenac-gel-1-percent",
@@ -1234,6 +1665,22 @@
       "https://www.walmart.com/c/kp/voltaren-gel",
       "https://www.walmart.com/c/kp/diclofenac-gel"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Ammonia, carbomer, cocoyl caprylocaprate, isopropyl alcohol, mineral oil, polyoxyl 20 cetostearyl ether, propylene glycol, water.",
+        "alternative": "Identical list on the Equate label.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d05b5f82-8772-4e01-8eb3-6fa6042f5661"
+      },
+      {
+        "aspect": "FDA approval (NDA / ANDA)",
+        "brand": "Voltaren Arthritis Pain: NDA022122 (Haleon).",
+        "alternative": "Equate diclofenac gel: ANDA211253, a generic approved as equivalent.",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=30a94282-0892-442a-aa10-6525cbd4fe88"
+      }
+    ]
   }
 ]

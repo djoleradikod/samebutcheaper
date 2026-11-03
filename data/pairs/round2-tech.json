@@ -34,7 +34,12 @@
       "https://www.walmart.com/ip/469078414",
       "https://www.lecreuset.com/round-dutch-oven/21177US.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Warranty", "brand": "Lifetime guarantee", "alternative": "Limited lifetime warranty; can be voided by misuse such as stacking pots unprotected", "verdict": "same", "source": "https://www.tastingtable.com/2219871/le-creuset-vs-lodge-actual-difference/"},
+      {"aspect": "Test results (Consumer Reports)", "brand": "Tested, did not beat the top picks; score is members-only", "alternative": "6 qt Lodge Essential Enamel recommended under $100: very good evenness and heating speed; over 13 lb", "verdict": "alt_better", "source": "https://www.consumerreports.org/home-garden/cookware/best-dutch-ovens-from-consumer-reports-tests-a5129912707"},
+      {"aspect": "Enamel durability", "brand": "Needs careful looking after, but no chipping data given", "alternative": "Enamel can scratch and chip over time; Tasting Table says chipped pieces should be discarded", "verdict": "brand_better", "source": "https://www.tastingtable.com/2219871/le-creuset-vs-lodge-actual-difference/"}
+    ]
   },
   {
     "slug": "filtrete-1000-mpr-merv-11-vs-simply-merv-11-16x25x1",
@@ -104,6 +109,11 @@
       "https://www.harborfreight.com/g2-38-in-drive-20-in-extra-long-ratchet-70431.html",
       "https://www.youtube.com/watch?v=MBItmykqu0I"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Warranty", "brand": "Lifetime warranty on most hand tools; replaced or rebuilt free per a franchisee account", "alternative": "Harbor Freight guarantees hand tools against defects for the life of the product, for the original purchaser", "verdict": "same", "source": "https://www.slashgear.com/1471413/ultimate-guide-harbor-freight-icon-series-tools"},
+      {"aspect": "Test results (Torque Test Channel)", "brand": "Snap-on equivalent (model unnamed) failed at 280 ft-lbs; 26.25 swings per full turn", "alternative": "ICON G2 3/8 in. 20 in. failed at 310 ft-lbs; 27 swings per full turn", "verdict": "alt_better", "source": "https://www.slashgear.com/2087160/snap-on-ratchets-harbor-freight-icon-g2-which-wins"},
+      {"aspect": "Feel", "brand": "Price Kustoms rated Snap-on a step above Icon and Cornwell flex ratchets", "alternative": "Icon flex ratchet felt better than Cornwell's, below Snap-on", "verdict": "brand_better", "source": "https://www.slashgear.com/2087160/snap-on-ratchets-harbor-freight-icon-g2-which-wins"}
+    ]
   }
 ]

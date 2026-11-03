@@ -62,7 +62,23 @@
       "https://www.tesco.com/groceries/en-GB/products/265327225",
       "https://www.tesco.com/groceries/en-GB/products/280319760"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Capsule shell dyes",
+        "brand": "Lemsip shell: gelatin, E171, iron oxides E172, brilliant blue E133. Fill: maize starch, croscarmellose, SLS, Mg stearate, talc",
+        "alternative": "Tesco page lists no excipients. A same-strength Boots own-brand capsule uses dyes E104, E132, E127 with the same fill",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/8391/xpil/print"
+      },
+      {
+        "aspect": "Licence holder",
+        "brand": "Reckitt Benckiser Healthcare (UK), PL 00063/0551",
+        "alternative": "Tesco's own-brand capsule: holder and PL not published on the Tesco page; the Boots equivalent is Wrafton Laboratories, PL 12063/0105",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/4285/smpc/print"
+      }
+    ]
   },
   {
     "slug": "panadol-advance-vs-tesco-health-paracetamol-500mg-gb",
@@ -112,7 +128,23 @@
       "https://www.tesco.com/groceries/en-GB/products/257107498",
       "https://www.tesco.com/shop/en-GB/products/256426409"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Core: pregelatinised starch, calcium carbonate, alginic acid, crospovidone, povidone, Mg stearate, silica. Opadry white film coat, carnauba wax",
+        "alternative": "Purified water, maize starch, pregelatinised starch, povidone, sodium starch glycollate, magnesium stearate",
+        "verdict": "different",
+        "source": "https://www.tesco.com/groceries/en-GB/products/257107498"
+      },
+      {
+        "aspect": "Dissolution",
+        "brand": "SmPC says a disintegrant system dissolves the tablet faster than standard paracetamol tablets",
+        "alternative": "Standard tablet; no fast-dissolve claim on the Tesco page",
+        "verdict": "brand_better",
+        "source": "https://www.medicines.org.uk/emc/product/6512/smpc/print"
+      }
+    ]
   },
   {
     "slug": "nurofen-vs-tesco-health-ibuprofen-200mg-gb",
@@ -162,7 +194,23 @@
       "https://www.tesco.com/groceries/en-GB/products/254434587",
       "https://boots.com/boots-ibuprofen-200mg-tablets---16-tablets-10270179p"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Coating",
+        "brand": "Sugar coat: sucrose 116.1 mg/tablet, talc, acacia, carmellose, titanium dioxide, macrogol 6000; black printed ink",
+        "alternative": "Sugar-coated too: Tesco lists sucrose, talc, titanium dioxide and carnauba wax",
+        "verdict": "same",
+        "source": "https://www.medicines.org.uk/emc/product/5936/smpc/print"
+      },
+      {
+        "aspect": "Sodium",
+        "brand": "13.71 mg sodium per tablet (croscarmellose, sodium citrate, SLS)",
+        "alternative": "Sodium per tablet not published on the Tesco page",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/5936/smpc/print"
+      }
+    ]
   },
   {
     "slug": "lemsip-max-cold-flu-capsules-vs-tesco-max-strength-cold-flu-capsules-gb",
@@ -227,7 +275,23 @@
       "https://www.tesco.com/groceries/en-GB/products/257048481",
       "https://www.tesco.com/groceries/en-GB/products/258606349"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Capsule dyes",
+        "brand": "Gelatin shell with E171, quinoline yellow E104, patent blue E131, erythrosine E127; fill has starch, talc, Mg stearate",
+        "alternative": "Tesco capsule's dyes not published on its page",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/5617/smpc/print"
+      },
+      {
+        "aspect": "Licence holder",
+        "brand": "Reckitt Benckiser Healthcare (UK), PL 00063/0104",
+        "alternative": "Tesco capsule carries Wrafton Laboratories licence PL 12063/0066 (a UK contract maker)",
+        "verdict": "different",
+        "source": "https://www.tesco.com/groceries/en-GB/products/258606349"
+      }
+    ]
   },
   {
     "slug": "panadol-extra-advance-vs-tesco-paracetamol-extra-gb",
@@ -334,7 +398,23 @@
       "https://www.tesco.com/shop/en-GB/products/282027376",
       "https://www.tesco.com/groceries/en-GB/products/265630384"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose monohydrate (71.3 mg per tablet), maize starch, magnesium stearate",
+        "alternative": "Tesco page does not print the excipients, so lactose content is unconfirmed; check the leaflet",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/3506/smpc/print"
+      },
+      {
+        "aspect": "Licence holder",
+        "brand": "Bayer plc, PL 00010/0657",
+        "alternative": "Own-brand holder not published on the Tesco page",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/3506/smpc/print"
+      }
+    ]
   },
   {
     "slug": "piriteze-vs-tesco-health-cetirizine-10mg-gb",
@@ -384,7 +464,23 @@
       "https://www.tesco.com/shop/en-GB/products/322651537",
       "https://www.tesco.com/groceries/en-GB/products/286266691"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Core: microcrystalline cellulose, lactose monohydrate, silica, Mg stearate. Coat: hypromellose, macrogol 4000, E171, polydextrose",
+        "alternative": "Lactose monohydrate, maize starch, microcrystalline cellulose PH102; Opadry II coat (hypromellose, lactose, E171, polyethylene glycol)",
+        "verdict": "different",
+        "source": "https://www.tesco.com/shop/en-GB/products/322651537"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose monohydrate",
+        "alternative": "Contains lactose monohydrate (core and coat)",
+        "verdict": "same",
+        "source": "https://www.medicines.org.uk/emc/product/341/smpc/print"
+      }
+    ]
   },
   {
     "slug": "imodium-original-vs-tesco-health-loperamide-2mg-gb",
@@ -483,7 +579,23 @@
       "https://www.tesco.com/shop/en-GB/products/290920280",
       "https://www.tesco.com/groceries/en-GB/products/254857985"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "Shell colour is only white titanium dioxide (E171) in the white print",
+        "alternative": "Tesco capsule contains Ponceau 4R (E124), a red azo dye",
+        "verdict": "brand_better",
+        "source": "https://www.tesco.com/shop/en-GB/products/254857985"
+      },
+      {
+        "aspect": "Sorbitol",
+        "brand": "Gelatin shell contains sorbitol (E420); avoid with hereditary fructose intolerance",
+        "alternative": "Also contains sorbitol",
+        "verdict": "same",
+        "source": "https://www.medicines.org.uk/emc/product/5089/smpc/print"
+      }
+    ]
   },
   {
     "slug": "gaviscon-original-vs-tesco-health-heartburn-indigestion-liquid-gb",
@@ -549,7 +661,23 @@
       "https://www.tesco.com/groceries/en-GB/products/253026467",
       "https://www.medicines.org.uk/emc/product/15319/smpc/print"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Reckitt Benckiser Healthcare (UK), PL 00063/0127",
+        "alternative": "The licence naming 'Tesco Heartburn & Indigestion relief' is Pinewood Laboratories, PL 4917/0027 (same maker as Acidex)",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/15319/smpc/print"
+      },
+      {
+        "aspect": "Preservatives",
+        "brand": "Methyl and propyl parahydroxybenzoate",
+        "alternative": "Ethyl, propyl and butyl parahydroxybenzoate (E214, E216) plus isopropyl alcohol",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/113/smpc/print"
+      }
+    ]
   },
   {
     "slug": "nuromol-vs-galpharm-ibuprofen-paracetamol-200-500mg-gb",
@@ -606,7 +734,23 @@
       "https://www.tesco.com/groceries/en-GB/products/310097537",
       "https://www.tesco.com/shop/en-GB/products/322252094"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Film coat",
+        "brand": "Polyvinyl alcohol, titanium dioxide, talc, macrogol, potassium aluminium silicate (E555), polysorbate",
+        "alternative": "Same coat ingredients listed in a retailer spec: PVA, titanium dioxide, talc, macrogol, E555, polysorbate",
+        "verdict": "same",
+        "source": "https://savers.co.uk/p/817927"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Reckitt Benckiser Healthcare (UK), PL 00063/0649",
+        "alternative": "Galpharm Healthcare Ltd, Wrafton, Devon (marketing authorisation holder per Tesco)",
+        "verdict": "different",
+        "source": "https://www.medicines.org.uk/emc/product/4967/smpc/print"
+      }
+    ]
   },
   {
     "slug": "nurofen-for-children-vs-tesco-health-ibuprofen-100mg-5ml-suspension-gb",
@@ -655,7 +799,16 @@
       "https://www.tesco.com/groceries/en-GB/products/260773988",
       "https://www.tesco.com/groceries/en-GB/products/260115933"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Sugar and colour",
+        "brand": "No colourant listed; sweetened with maltitol liquid (2.2 g per 5 ml) rather than sugar",
+        "alternative": "Sold as sugar and colour free; orange flavour",
+        "verdict": "same",
+        "source": "https://www.tesco.com/groceries/en-GB/products/260115933"
+      }
+    ]
   },
   {
     "slug": "zovirax-vs-tesco-health-aciclovir-cold-sore-cream-5-gb",
@@ -704,7 +857,16 @@
       "https://www.tesco.com/groceries/en-GB/products/258071871",
       "https://www.tesco.com/groceries/en-GB/products/258386176"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Cream base",
+        "brand": "Poloxamer 407, cetostearyl alcohol, SLS, white soft paraffin, liquid paraffin, dimeticone, propylene glycol, purified water",
+        "alternative": "Tesco lists propylene glycol, paraffin bases, emulsifiers and dimeticone, a very similar base",
+        "verdict": "same",
+        "source": "https://www.medicines.org.uk/emc/product/27/smpc/print"
+      }
+    ]
   },
   {
     "slug": "beconase-vs-tesco-health-hayfever-relief-beclometasone-nasal-spray-gb",
@@ -803,6 +965,22 @@
       "https://www.tesco.com/groceries/en-GB/products/309474265",
       "https://www.tesco.com/groceries/en-GB/products/256725735"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Sugar",
+        "brand": "Calpol Infant Original has 2.2 g sucrose and 0.45 g sorbitol per 5 ml dose (a sugar-free Calpol is sold separately)",
+        "alternative": "Tesco Health version is sugar free",
+        "verdict": "alt_better",
+        "source": "https://www.medicines.org.uk/emc/product/260/smpc/print"
+      },
+      {
+        "aspect": "Minimum age",
+        "brand": "From 2 months (4 kg+, born after 37 weeks for 2 to 3 months)",
+        "alternative": "Tesco dosing starts at 3 months",
+        "verdict": "brand_better",
+        "source": "https://www.tesco.com/shop/en-GB/products/309474265"
+      }
+    ]
   }
 ]

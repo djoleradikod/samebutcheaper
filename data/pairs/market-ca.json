@@ -249,7 +249,23 @@
       "https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json&id=76583",
       "https://www.walmart.ca/en/c/kp/loratadine"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Who makes it (Health Canada DPD)",
+        "brand": "Claritin Allergy, DIN 00782696, Bayer Inc",
+        "alternative": "24 Hour Allergy Remedy, DIN 02280159, Vita Health Products Inc (the only product with that name in the DPD)",
+        "verdict": "different",
+        "source": "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=24%20hour%20allergy%20remedy"
+      },
+      {
+        "aspect": "Approval",
+        "brand": "Authorised by Health Canada with a DIN (loratadine 10 mg)",
+        "alternative": "Also holds its own DIN, so it passed the same Health Canada authorisation",
+        "verdict": "same",
+        "source": "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=claritin"
+      }
+    ]
   },
   {
     "slug": "tylenol-extra-strength-vs-life-brand-acetaminophen-500mg-ca",
@@ -502,7 +518,23 @@
       "https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json&id=80366",
       "https://www.walmart.ca/en/ip/restoralax-powder-stool-softener-laxative-effective-constipation-relief-for-adults-no-taste-no-grit-no-gas-no-bloat-no-cramps-no-sudden-urge/6000195567503"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Who makes it (Health Canada DPD)",
+        "brand": "RestoraLAX, DIN 02318164, Bayer Inc",
+        "alternative": "The DPD lists a product named ClearLax, DIN 02324989, held by Perrigo International; check the Life Brand box for that DIN",
+        "verdict": "different",
+        "source": "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=clearlax"
+      },
+      {
+        "aspect": "Approval",
+        "brand": "Authorised by Health Canada with a DIN, polyethylene glycol 3350 as sole active",
+        "alternative": "ClearLax also holds a DIN, so it passed the same authorisation",
+        "verdict": "same",
+        "source": "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=restoralax"
+      }
+    ]
   },
   {
     "slug": "nicorette-vs-equate-nicotine-gum-4mg-ca",

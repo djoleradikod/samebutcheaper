@@ -48,7 +48,11 @@
       "https://slickdeals.net/f/17277946-11-92-w-s-s-24-count-duracell-coppertop-aa-batteries",
       "https://hip2save.com/?p=11156746"
     ],
-    "price_checked": "2024-02"
+    "price_checked": "2024-02",
+    "aspects": [
+      {"aspect": "Who makes it", "brand": "Duracell", "alternative": "Duracell, per Costco's then-CEO Craig Jelinek in a 2016 WSB-TV interview; Costco has not republished it since", "verdict": "same", "source": "https://www.hunker.com/2040072/are-costco-kirkland-batteries-made-by-duracell"},
+      {"aspect": "Features", "brand": "Marketed with Duracell's POWER BOOST ingredient blend", "alternative": "No POWER BOOST claim; packs differ mainly in labelling, per SlashGear", "verdict": "different", "source": "https://www.hunker.com/2040072/are-costco-kirkland-batteries-made-by-duracell"}
+    ]
   },
   {
     "slug": "duracell-coppertop-aaa-vs-kirkland-signature-aaa",
@@ -97,7 +101,11 @@
       "https://www.slashgear.com/2091912/who-makes-costco-batteries-where-manufactured",
       "https://www.costco.com/kirkland-signature-alkaline-aaa-batteries-48-count.product.100796711.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Who makes it", "brand": "Duracell", "alternative": "Duracell, per Costco's then-CEO in 2016; US Duracell AA/AAA plants are in Georgia and Tennessee (link to Kirkland is inferred)", "verdict": "same", "source": "https://www.slashgear.com/2091912/who-makes-costco-batteries-where-manufactured"},
+      {"aspect": "Features", "brand": "Marketed with Duracell's POWER BOOST ingredient blend", "alternative": "No POWER BOOST claim listed for Kirkland", "verdict": "different", "source": "https://www.hunker.com/2040072/are-costco-kirkland-batteries-made-by-duracell"}
+    ]
   },
   {
     "slug": "apple-35w-dual-usb-c-vs-anker-nano-47w-2-port",
@@ -142,7 +150,8 @@
           "name": "Output",
           "amount": "Up to 45 W from a single port; 27 W + 20 W with two devices (47 W total)"
         }
-      ]
+      ],
+      "rating": { "stars": 4.8, "count": 132, "source": "https://www.anker.com/products/a2039" }
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
@@ -155,7 +164,11 @@
       "https://slickdeals.net/f/18837445-17-99-anker-nano-47w-usb-c-charger-2-port-compact-foldable-gan-charger-for-iphone-17-16-galaxy-pixel-compatible-with-magsafe-3-colors",
       "https://www.iclarified.com/i9156/apple-magsafe-charger-1m"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Warranty", "brand": "Apple One (1) Year Limited Warranty (accessories)", "alternative": "Anker lists a 'Hassle-Free Warranty' on the product page but states no term there", "verdict": "different", "source": "https://www.apple.com/ie/legal/warranty/products/accessory-warranty-english.html"},
+      {"aspect": "Features", "brand": "35W adapter (rating from the product name; port split not confirmed)", "alternative": "45W max from one port, 47W combined across both (27W + 20W)", "verdict": "alt_better", "source": "https://www.anker.com/products/a2039"}
+    ]
   },
   {
     "slug": "apple-magsafe-charger-vs-amazon-basics-qi2-2-25w-pad",
@@ -214,7 +227,10 @@
       "https://www.iclarified.com/i9156/apple-magsafe-charger-1m",
       "https://www.galaxus.de/en/page/qi2-test-revelations-iphone-charges-faster-with-the-competition-40668"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Power adapter", "brand": "Apple notes fast wired charging needs a 60W USB-C cable and a USB PD adapter", "alternative": "Listing is titled Qi2.2 certified, MagSafe compatible; power adapter sold separately", "verdict": "same", "source": "https://www.amazon.com/dp/B0FPDWY9QD"}
+    ]
   },
   {
     "slug": "apple-60w-usb-c-woven-cable-vs-anker-60w-usb-c-cable-2-pack",
@@ -280,7 +296,11 @@
       "https://www.desertcart.com.cy/products/214290734-anker-usb-c-to-usb-c-cable-type-c-60w",
       "https://www.iclarified.com/i9156/apple-magsafe-charger-1m"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Warranty", "brand": "Apple One (1) Year Limited Warranty (accessories)", "alternative": "Anker's cable warranty page lists New Nylon USB-C to USB-C at 18 months (A8753 is the New Nylon 2-pack; some Anker regional pages say lifetime)", "verdict": "alt_better", "source": "https://service.anker.com/article-description/Warranty-of-Anker-cables"},
+      {"aspect": "Features", "brand": "Woven cable, up to 60W", "alternative": "Double-braided nylon, up to 60W, lab-tested to 12,000 bends", "verdict": "same", "source": "https://anker.com/products/a8753"}
+    ]
   },
   {
     "slug": "apple-usb-c-to-lightning-vs-amazon-basics-mfi-usb-c-to-lightning",
@@ -337,6 +357,10 @@
       "https://slickdeals.net/f/18755344-4-53-amazon-basics-usb-c-to-lightning-abs-charger-cable-mfi-certified-charger-for-apple-iphone-14-13-12-11-x-xs-pro-pro-max-plus-ipad-6-foot-white",
       "https://reviewed.com/smartphones/best-right-now/the-best-lightning-cables"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Warranty", "brand": "Apple One (1) Year Limited Warranty (accessories)", "alternative": "Amazon markets Amazon Basics Lightning cables with a lifetime warranty (2020 report; term not defined)", "verdict": "alt_better", "source": "https://www.iphone-ticker.de/lebenslange-garantie-amazonbasics-startet-usb-c-auf-lightning-157329/"},
+      {"aspect": "MFi certification", "brand": "Apple original", "alternative": "Described as Apple-certified (MFi) USB-C to Lightning cables", "verdict": "same", "source": "https://www.iphone-ticker.de/lebenslange-garantie-amazonbasics-startet-usb-c-auf-lightning-157329/"}
+    ]
   }
 ]

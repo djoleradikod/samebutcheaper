@@ -46,7 +46,23 @@
       "https://www.walmart.com/ip/Glenmark-Therapeutics-Adapalene-Gel-0-1-Acne-Treatment-Paraben-Free-Topical-Retinoid-Cream-For-Face-Helps-Clear-Prevent-Clogged-Pores-45g-Tube/12283361218",
       "https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/020380Orig1s011lbl.pdf"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Preservative",
+        "brand": "Differin gel (OTC label): methylparaben",
+        "alternative": "Glenmark adapalene gel: phenoxyethanol, no parabens",
+        "verdict": "alt_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=42c1c354-2c00-4bc2-bbd3-a5dd5ff9a208"
+      },
+      {
+        "aspect": "Other inactives",
+        "brand": "Carbomer, edetate disodium, poloxamer 182, propylene glycol, water, sodium hydroxide, HCl",
+        "alternative": "Carbomer, edetate disodium, poloxamer 182, propylene glycol, water, sodium hydroxide",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0739d631-171b-42a8-bd55-0022b8df2d8a"
+      }
+    ]
   },
   {
     "slug": "head-and-shoulders-classic-clean-vs-equate-everyday-clean-dandruff-shampoo",
@@ -96,7 +112,30 @@
       "https://otclabels.com/lib/otc/otc-meds/head-and-shoulders-classic-clean/",
       "https://otclabels.com/lib/otc/otc-meds/equate-everyday-clean-dandruff-anti-dandruff/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Preservatives",
+        "brand": "H&S Classic Clean label: sodium benzoate (no isothiazolinones)",
+        "alternative": "Equate: sodium benzoate, benzyl alcohol plus methylchloroisothiazolinone and methylisothiazolinone",
+        "verdict": "brand_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3064a5f4-0dd1-4f61-953d-9d71388b4d7a"
+      },
+      {
+        "aspect": "Dyes",
+        "brand": "H&S: FD&C Blue 1 and D&C Red 33",
+        "alternative": "Equate: FD&C Blue 1 and FD&C Red 4",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3064a5f4-0dd1-4f61-953d-9d71388b4d7a"
+      },
+      {
+        "aspect": "Cleansing base",
+        "brand": "H&S: sodium lauryl + laureth sulfate, cocamidopropyl betaine, dimethicone, zinc carbonate",
+        "alternative": "Equate: sodium laureth-3, lauryl and ammonium laureth-5 sulfates, coco MEA, cetyl alcohol, dimethicone",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f28a55cf-eb42-4a0d-a4a3-2bae72b58ac8"
+      }
+    ]
   },
   {
     "slug": "head-and-shoulders-2-in-1-classic-clean-vs-equate-2-in-1-dandruff",
@@ -146,7 +185,23 @@
       "https://otclabels.com/lib/otc/otc-meds/equate-everyday-clean-2-in-1-dandruff-anti-dandruff/",
       "https://www.walmart.com/ip/402613470"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Preservatives",
+        "brand": "H&S 2in1 Classic Clean: sodium benzoate (no isothiazolinones)",
+        "alternative": "Equate Everyday Clean 2-in-1: sodium benzoate, benzyl alcohol, methylchloroisothiazolinone and methylisothiazolinone",
+        "verdict": "brand_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c85095f2-5dbd-4822-a83a-dc3641c4a330"
+      },
+      {
+        "aspect": "Conditioning agents",
+        "brand": "H&S: dimethicone, guar hydroxypropyltrimonium chloride",
+        "alternative": "Equate: dimethicone, cetyl alcohol, guar derivative and polyquaternium-10",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=65a4082f-227b-49bf-b88c-b1c651ed13a0"
+      }
+    ]
   },
   {
     "slug": "selsun-blue-medicated-vs-equate-medicated-dandruff-shampoo",
@@ -195,7 +250,30 @@
       "https://www.walmart.com/ip/615874681",
       "https://otclabels.com/lib/otc/otc-meds/equate-medicated-dandruff-anti-dandruff/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Preservative system",
+        "brand": "Selsun Blue Medicated: hydroxyacetophenone + glyceryl caprylate/caprate",
+        "alternative": "Equate Medicated (Nov 2024 label): chlorphenesin and phenoxyethanol",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3afbdc09-622d-4681-a6fb-8429a0a3df39"
+      },
+      {
+        "aspect": "Dyes and menthol",
+        "brand": "Menthol, FD&C Blue 1 and D&C Red 33 (Selsun Blue Medicated label)",
+        "alternative": "Menthol, FD&C Blue 1 and D&C Red 33",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f97e458c-cce3-498f-81fc-1b96a4e8f50a"
+      },
+      {
+        "aspect": "Cleansing base",
+        "brand": "Ammonium lauryl sulfate, glycol distearate, cocamidopropyl betaine",
+        "alternative": "Ammonium laureth-5 and lauryl sulfate, coco MEA, cocamidopropyl betaine, hypromellose",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3afbdc09-622d-4681-a6fb-8429a0a3df39"
+      }
+    ]
   },
   {
     "slug": "head-and-shoulders-clinical-strength-vs-equate-selenium-sulfide-shampoo",
@@ -244,7 +322,23 @@
       "https://www.walmart.com/ip/615874681",
       "https://otclabels.com/lib/otc/otc-meds/equate-medicated-dandruff-anti-dandruff/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "H&S Clinical Dry Scalp Rescue label lists no dye; menthol and peppermint scent",
+        "alternative": "Equate Medicated: FD&C Blue 1 and D&C Red 33",
+        "verdict": "brand_better",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3afbdc09-622d-4681-a6fb-8429a0a3df39"
+      },
+      {
+        "aspect": "Preservatives",
+        "brand": "Sodium benzoate, EDTA",
+        "alternative": "Chlorphenesin and phenoxyethanol",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3272a482-3813-63e4-e063-6394a90a43eb"
+      }
+    ]
   },
   {
     "slug": "aquaphor-healing-ointment-vs-equate-advanced-healing-ointment",
@@ -294,7 +388,23 @@
       "https://otclabels.com/lib/otc/otc-meds/advanced-healing-7/",
       "https://shoprite.com/sm/pickup/rsid/326/product/aquaphor-advanced-therapy-healing-ointment-14-oz-id-00072140636081"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Aquaphor Healing: mineral oil, ceresin, lanolin alcohols, glycerin, panthenol, levomenol; 41% petrolatum",
+        "alternative": "Equate Advanced Healing family label: the same six inactives; 41% petrolatum",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=4f5cda8c-d657-4877-83ac-6ea86751618a"
+      },
+      {
+        "aspect": "Lanolin",
+        "brand": "Lanolin alcohols (wool-derived) present",
+        "alternative": "Lanolin alcohols present: the same allergen caution",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0a17bf6f-6114-4647-a509-65999255c37b"
+      }
+    ]
   },
   {
     "slug": "vaseline-original-vs-equate-petroleum-jelly-13oz",
@@ -343,7 +453,16 @@
       "https://www.walmart.com/ip/13374461277",
       "https://www.vitacost.com/products/vaseline-healing-jelly-original-13-oz-368-g-83595"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Vaseline Healing Jelly label lists water as the only inactive (2026 label)",
+        "alternative": "Equate label lists no inactive ingredients",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bd4418b7-c6aa-5e71-e053-2995a90a4cc4"
+      }
+    ]
   },
   {
     "slug": "cerave-moisturizing-cream-vs-equate-moisturizing-cream-ceramides",
@@ -410,7 +529,30 @@
       "https://skinsort.com/products/equate/beauty-moisturizing-cream",
       "https://skinsort.com/compare/equate-beauty-moisturizing-cream-vs-cerave-moisturizing-cream"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Ceramide system",
+        "brand": "Ceramides NP, AP, EOP, phytosphingosine, cholesterol, hyaluronic acid (INCIDecoder, 2020 listing)",
+        "alternative": "Same three ceramides, phytosphingosine, cholesterol, sodium hyaluronate (INCIDecoder, 2023 listing)",
+        "verdict": "same",
+        "source": "https://incidecoder.com/products/equate-beauty-moisturizing-cream-with-ceramides-and-hyaluronic-acid-2"
+      },
+      {
+        "aspect": "Preservatives",
+        "brand": "2020 CeraVe listing: phenoxyethanol, methylparaben, propylparaben (formula may have changed since)",
+        "alternative": "Phenoxyethanol and ethylhexylglycerin (no parabens)",
+        "verdict": "different",
+        "source": "https://incidecoder.com/products/cerave-moisturizing-cream-6"
+      },
+      {
+        "aspect": "Base and fragrance",
+        "brand": "Glycerin, cetearyl alcohol, petrolatum, dimethicone; fragrance-free",
+        "alternative": "Glycerin, cetearyl alcohol, petrolatum, dimethicone; fragrance-free",
+        "verdict": "same",
+        "source": "https://incidecoder.com/products/equate-beauty-moisturizing-cream-with-ceramides-and-hyaluronic-acid-2"
+      }
+    ]
   },
   {
     "slug": "sensodyne-extra-whitening-vs-equate-extra-whitening-sensitive-toothpaste",
@@ -468,7 +610,16 @@
       "https://www.walmart.com/ip/Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz-2-Pack/999612374",
       "https://www.walmart.com/ip/3-pack-Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz/15365855306"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Sensodyne Extra Whitening: hydrated silica, sorbitol, glycerin, STPP, PEG 400, titanium dioxide, sodium methyl cocoyl taurate, CAPB, xanthan, saccharin, sucralose",
+        "alternative": "Equate Sensitive (Jan 2026 label): the same set without sucralose",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=79899b59-3a16-6504-e053-2991aa0a895a"
+      }
+    ]
   },
   {
     "slug": "sensodyne-repair-protect-whitening-vs-equate-restore-defend-sensitive",
@@ -517,7 +668,16 @@
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=34260c69-d829-46c0-b12a-5136ee073ba1",
       "https://www.walmart.com/ip/Equate-Restore-and-Defend-Sensitive-Toothpaste-3-4-oz/330017722"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Sensodyne Repair and Protect: glycerin, PEG 400, hydrated silica, STPP, sodium lauryl sulfate, titanium dioxide, silicon dioxide, CAPB, saccharin",
+        "alternative": "Equate Repair and Protect (Nov 2025): SLS, glycerin, STPP, hydrated silica, titanium dioxide, CAPB, saccharin, carboxymethylcellulose",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c4807b2b-7ea9-cc28-e053-2995a90a348e"
+      }
+    ]
   },
   {
     "slug": "crest-pro-health-advanced-deep-clean-vs-equate-pro-advanced-toothpaste",
@@ -566,6 +726,22 @@
       "https://www.walmart.com/ip/Crest-Pro-Health-Advanced-Deep-Clean-Mint-Toothpaste-5-1-oz/196878437",
       "https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=crest+pro-health+advanced"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Crest Pro-Health Advanced Deep Clean: zinc lactate, silica, glycerin, SLS, CAPB, sodium polymetaphosphate, carrageenan, propylene glycol, PEG 300, povidone",
+        "alternative": "Equate Pro-Advanced (Apr 2026): zinc lactate, silica, glycerin, SLS, CAPB, polymetaphosphate, carrageenan, propylene glycol, PEG-8; no povidone",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1e6561fb-4e3b-40ba-e063-6294a90a2690"
+      },
+      {
+        "aspect": "Dye",
+        "brand": "FD&C Blue No. 1",
+        "alternative": "FD&C Blue No. 1",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d774295f-8ebd-9877-e053-2a95a90a9a0e"
+      }
+    ]
   }
 ]

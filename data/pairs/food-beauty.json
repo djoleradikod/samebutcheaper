@@ -46,7 +46,23 @@
       "https://app.warehouserunner.com/costco/1726089-kirkland-signature-house-blend-whole-bean-2-5-lb",
       "https://www.bjs.com/product/starbucks-house-blend-bean-medium-roast-coffee/3000000000000140350"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Who roasts it",
+        "brand": "Starbucks",
+        "alternative": "'Custom Roasted by Starbucks' on the bag until about early 2024; Starbucks name and logo since removed, no official explanation",
+        "verdict": "brand_better",
+        "source": "https://tastingtable.com/1600480/brand-behind-costco-kirkland-coffee"
+      },
+      {
+        "aspect": "Current supplier",
+        "brand": "Starbucks",
+        "alternative": "Not confirmed by Costco or Starbucks; the tasting piece (June 2024) calls it a mystery",
+        "verdict": "different",
+        "source": "https://tastingtable.com/1600480/brand-behind-costco-kirkland-coffee"
+      }
+    ]
   },
   {
     "slug": "arm-and-hammer-baking-soda-vs-great-value-baking-soda",

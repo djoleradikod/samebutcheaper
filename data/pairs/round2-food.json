@@ -84,7 +84,8 @@
           "name": "Corn starch",
           "amount": "100%"
         }
-      ]
+      ],
+      "rating": { "stars": 4.7, "count": 986, "source": "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426" }
     },
     "alternative": {
       "brand": "Good & Gather (Target)",
@@ -100,7 +101,8 @@
           "name": "Corn starch",
           "amount": "100%"
         }
-      ]
+      ],
+      "rating": { "stars": 4.69, "count": 653, "source": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320" }
     },
     "match_type": "identical_formula",
     "confidence": "high",
@@ -111,7 +113,30 @@
       "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426",
       "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Gluten-free label",
+        "brand": "'Certified Gluten-Free' on Target listing",
+        "alternative": "Gluten-free not stated on Target listing",
+        "verdict": "brand_better",
+        "source": "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426"
+      },
+      {
+        "aspect": "Packaging",
+        "brand": "Screw-top plastic container",
+        "alternative": "Cardboard box, per a Target reviewer",
+        "verdict": "different",
+        "source": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320"
+      },
+      {
+        "aspect": "GMO",
+        "brand": "Not non-GMO; Argo says its corn is genetically modified",
+        "alternative": "Not stated non-GMO; reviewers mention a Bioengineered Food label on the box",
+        "verdict": "same",
+        "source": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320"
+      }
+    ]
   },
   {
     "slug": "domino-vs-great-value-granulated-sugar-4lb",
@@ -181,7 +206,8 @@
           "name": "Sugar (cane)",
           "amount": "100%"
         }
-      ]
+      ],
+      "rating": { "stars": 4.69, "count": 586, "source": "https://www.target.com/p/c-38-h-premium-pure-cane-granulated-sugar-4lbs/-/A-13379070" }
     },
     "alternative": {
       "brand": "Good & Gather (Target)",
@@ -197,7 +223,8 @@
           "name": "Sugar",
           "amount": "100%"
         }
-      ]
+      ],
+      "rating": { "stars": 4.75, "count": 5834, "source": "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310" }
     },
     "match_type": "identical_formula",
     "confidence": "medium",
@@ -208,7 +235,16 @@
       "https://www.target.com/p/c-38-h-premium-pure-cane-granulated-sugar-4lbs/-/A-13379070",
       "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Sugar source",
+        "brand": "Sugar cane (Target specs)",
+        "alternative": "Sugar beet (Target specs); brand rep says bags may be beet or cane, check the code on the bag",
+        "verdict": "brand_better",
+        "source": "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310"
+      }
+    ]
   },
   {
     "slug": "heinz-vs-great-value-distilled-white-vinegar-gallon",
@@ -329,7 +365,8 @@
           "name": "Ground black pepper",
           "amount": "100%"
         }
-      ]
+      ],
+      "rating": { "stars": 4.79, "count": 286, "source": "https://www.target.com/p/-/A-13479028" }
     },
     "alternative": {
       "brand": "Good & Gather (Target)",
@@ -345,7 +382,8 @@
           "name": "Black pepper",
           "amount": "100%"
         }
-      ]
+      ],
+      "rating": { "stars": 4.7, "count": 1162, "source": "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121" }
     },
     "match_type": "identical_formula",
     "confidence": "high",
@@ -358,7 +396,23 @@
       "https://mccormick.com/spices-and-flavors/herbs-and-spices/spices/black-pepper-ground",
       "https://hannaford.com/groceries/product/mccormick-pure-ground-black-pepper-3-oz-tin/321216"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Claims",
+        "brand": "Vegan, labelled non-GMO, no added sugar or oils",
+        "alternative": "Kosher; no non-GMO claim on Target page",
+        "verdict": "brand_better",
+        "source": "https://www.target.com/p/-/A-13479028"
+      },
+      {
+        "aspect": "Origin",
+        "brand": "'Made in the USA or Imported'; hand-harvested whole peppercorns",
+        "alternative": "'Imported' only",
+        "verdict": "different",
+        "source": "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121"
+      }
+    ]
   },
   {
     "slug": "mccormick-vs-good-and-gather-garlic-powder-3-12oz",

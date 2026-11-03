@@ -26,7 +26,12 @@
     "evidence": "The NIH DSLD label for Caltrate 600+D3 (200 count) lists 600 mg calcium as calcium carbonate and 800 IU D3 per tablet. The DSLD label for Spring Valley Calcium 600 mg Plus Vitamin D3 800 IU lists the same: 600 mg calcium as calcium carbonate and 800 IU D3 per tablet. The current Walmart listing for the 500-count Spring Valley bottle confirms 600 mg calcium and 20 mcg (800 IU) D3 per tablet. Both Walmart pages give the prices. Neither product carries a USP or NSF seal on the label.",
     "differences": "The Spring Valley calcium form comes from a 2018 DSLD label for the 250-count bottle. The current 500-count Walmart page does not name the calcium form. Inactive ingredients differ: Caltrate uses colour lakes and Spring Valley uses titanium dioxide and talc coatings. Neither has third-party verification.",
     "sources": ["https://api.ods.od.nih.gov/dsld/v9/label/202235", "https://api.ods.od.nih.gov/dsld/v9/label/83004", "https://www.walmart.com/ip/5304499192", "https://www.walmart.com/ip/Spring-Valley-Calcium-Plus-Vitamin-D-Bone-Health-Dietary-Supplement-Tablets-Value-Size-600-mg-500-Count/655254775"],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Inactive ingredients / colours", "brand": "Calcium carbonate, maltodextrin, colour lakes (Blue 2, Red 40, Yellow 6), talc, titanium dioxide", "alternative": "Magnesium stearate, maltodextrin, talc, titanium dioxide; no colour lakes listed", "verdict": "alt_better", "source": "https://api.ods.od.nih.gov/dsld/v9/label/83004"},
+      {"aspect": "Label claims", "brand": "Caltrate DSLD entry (2019): no gluten or flavour claim; Pfizer marketed", "alternative": "Spring Valley DSLD entry (2018) states 'No gluten, artificial flavors'; Walmart distributed", "verdict": "same", "source": "https://api.ods.od.nih.gov/dsld/v9/label/83004"},
+      {"aspect": "Third-party verification", "brand": "No USP or NSF seal on the DSLD label", "alternative": "No USP or NSF seal on the DSLD label", "verdict": "same", "source": "https://api.ods.od.nih.gov/dsld/v9/label/202235"}
+    ]
   },
   {
     "slug": "centrum-silver-adults-50-vs-equate-complete-multivitamin-adults-50",
@@ -55,7 +60,11 @@
     "evidence": "I compared the NIH DSLD labels line by line: Centrum Silver Adults 50+ (GSK, 2023 entry) and Equate Complete Multivitamin Adults 50+ (2022 entry). Every listed nutrient matches: A 750 mcg, C 60 mg, D3 25 mcg, E 22.5 mg, K 30 mcg, B6 3 mg, B12 25 mcg, calcium 220 mg, selenium 19 mcg, chromium 50 mcg, zinc 11 mg, lutein 250 mcg, lycopene 300 mcg and the rest. Both are iron-free. The Equate label says 'Compare to Centrum Silver Adults 50+'. Prices come from Walmart listings.",
     "differences": "The Equate label lists folate as 680 mcg DFE and Centrum lists 667 mcg DFE. Both state 400 mcg folic acid, so this is a rounding difference. The Equate label also lists silicon (2 mg) and vanadium (10 mcg), which the DSLD Centrum record does not show. Coatings and colourings differ. Neither carries a USP seal. The Equate label was checked on the 125-count bottle, and the price is for the 450-count bottle of the same product.",
     "sources": ["https://api.ods.od.nih.gov/dsld/v9/label/304931", "https://api.ods.od.nih.gov/dsld/v9/label/272954", "https://walmart.com/ip/seort/966068429", "https://www.walmart.com/ip/40775783"],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Colours", "brand": "Blue 2 Lake, Red 40 Lake, Yellow 6 Lake", "alternative": "FD&C Blue 2 Lake, Red 40, Yellow 6 (same three dyes)", "verdict": "same", "source": "https://api.ods.od.nih.gov/dsld/v9/label/304931"},
+      {"aspect": "Other ingredients", "brand": "Gelatin, hypromellose, corn starch, medium-chain triglycerides, titanium dioxide", "alternative": "Adds sugar, glucose, gum arabic, sunflower oil, carboxymethylcellulose, sodium aluminum silicate", "verdict": "different", "source": "https://api.ods.od.nih.gov/dsld/v9/label/272954"}
+    ]
   },
   {
     "slug": "thorne-creatine-vs-nutricost-creatine-monohydrate",
@@ -76,7 +85,8 @@
       "size": 100, "unit": "serving (5 g)",
       "price_usd": 23.50,
       "retailer": "target", "asin": null, "url": "https://www.target.com/p/nutricost-creatine-monohydrate-powder-500-grams/-/A-89144833",
-      "key_ingredients": [{"name": "Creatine monohydrate (micronized)", "amount": "5 g"}]
+      "key_ingredients": [{"name": "Creatine monohydrate (micronized)", "amount": "5 g"}],
+      "rating": { "stars": 4.29, "count": 28, "source": "https://www.target.com/p/nutricost-creatine-monohydrate-powder-500-grams/-/A-89144833" }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -84,7 +94,12 @@
     "evidence": "The Vitacost listing for Thorne Creatine shows 5 g creatine monohydrate per scoop and 90 servings per 450 g tub, and it is NSF Certified for Sport. The Target listing for Nutricost shows 5 g micronized creatine monohydrate per serving and 100 servings per 500 g. Nutricost's own product page says the product is third-party tested by an independent accredited lab and made in a GMP-compliant facility. Fitnessvolt's list of NSF Certified for Sport creatine records the Thorne certification.",
     "differences": "Thorne is NSF Certified for Sport, which matters to drug-tested athletes. Nutricost says 'third-party tested' but names no lab and has no NSF or Informed Choice seal. Nutricost's page also carries a California Prop 65 lead warning. Thorne's per-serving price is the Vitacost list price. Nutricost's is the Target price, which shows a discount, and nutricost.com lists it at about $17 to $19. Amazon ASINs were not verified.",
     "sources": ["https://www.vitacost.com/products/thorne-creatine-16-oz-450-g-70006", "https://www.target.com/p/nutricost-creatine-monohydrate-powder-500-grams/-/A-89144833", "https://nutricost.com/collections/bundles/products/nutricost-creatine-monohydrate-powder-500-grams", "https://fitnessvolt.com/best-nsf-certified-creatine/"],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Third-party certification", "brand": "NSF Certified for Sport (directory entry covers the 450 g and 900 g powder)", "alternative": "Nutricost says 'third-party tested' and 'NSF certified facility', but the product is not in the NSF directory per this list", "verdict": "brand_better", "source": "https://fitnessvolt.com/best-nsf-certified-creatine/"},
+      {"aspect": "Other ingredients", "brand": "Creatine monohydrate 5 g plus silicon dioxide (anti-caking)", "alternative": "Micronized creatine monohydrate 5 g, no other ingredients listed", "verdict": "alt_better", "source": "https://api.ods.od.nih.gov/dsld/v9/label/336362"},
+      {"aspect": "Testing claim on label", "brand": "Label states 'NSF Certified for Sport'", "alternative": "Label states 'Third-party tested' with no lab named", "verdict": "brand_better", "source": "https://api.ods.od.nih.gov/dsld/v9/label/306203"}
+    ]
   },
   {
     "slug": "metamucil-sugar-free-orange-vs-equate-psyllium-sugar-free-orange",
@@ -113,6 +128,11 @@
     "evidence": "Metamucil's sugar-free orange DailyMed label (Procter & Gamble) states about 3.4 g psyllium husk per 5.8 g dose. The Walmart Metamucil page states 2.4 g soluble fibre per serving. The Walmart Equate page describes the product as 100% psyllium husk with 2.4 g soluble fibre per serving, and 114 servings in 23.3 oz, which also works out to about 5.8 g per serving. The 180-serving sizes of both products weigh about 36.8 oz, by Walmart's unit pricing.",
     "differences": "I could not read the full Equate Supplement Facts panel, so the exact psyllium gram weight and the sweetener used are not confirmed. Metamucil sugar-free uses aspartame. Metamucil is sold under an OTC drug label (bulk-forming laxative) and the Equate product is sold as a dietary supplement. The Equate page lists no 'compare to Metamucil' claim.",
     "sources": ["https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a9824f73-5ea2-4a65-a926-3a57561441b8", "https://www.walmart.com/ip/13314273", "https://www.walmart.com/ip/seort/2410070778"],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {"aspect": "Sweetener and colour", "brand": "Metamucil: aspartame, FD&C Yellow No. 6, natural and artificial orange flavour, citric acid, maltodextrin", "alternative": "Equate: aspartame, FD&C Yellow No. 6, natural and artificial flavour, citric acid, maltodextrin, silicon dioxide", "verdict": "same", "source": "https://api.ods.od.nih.gov/dsld/v9/label/178615"},
+      {"aspect": "Phenylketonurics warning", "brand": "Contains phenylalanine (25 mg per packet) from aspartame", "alternative": "Label also carries a phenylketonurics warning", "verdict": "same", "source": "https://api.ods.od.nih.gov/dsld/v9/label/178615"},
+      {"aspect": "Regulatory status", "brand": "Sold as an OTC fiber laxative drug label (Procter & Gamble, DailyMed)", "alternative": "Sold as a dietary supplement; label says not made by P&G, 'Compare to Metamucil MultiHealth Fiber'", "verdict": "different", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a9824f73-5ea2-4a65-a926-3a57561441b8"}
+    ]
   }
 ]
