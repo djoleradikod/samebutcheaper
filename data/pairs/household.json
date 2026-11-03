@@ -146,10 +146,10 @@
       "rating": { "stars": 4.61, "count": 6145, "source": "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909" }
     },
     "match_type": "equivalent_spec",
-    "confidence": "high",
+    "confidence": "medium",
     "summary": "Both are 7.5% sodium hypochlorite regular bleach in the same 121 oz size, so they bleach and disinfect the same way when diluted per label.",
     "evidence": "Target's product pages list sodium hypochlorite at 7.5% for both Clorox Disinfecting Bleach (Regular) and up&up Regular Bleach with Fabric Protection. Both are sold in 121 fl oz jugs at Target.",
-    "differences": "Savings are modest (about 12%). Neither Target page shows the EPA registration number, so check the up&up jug for an EPA Reg. No. before relying on it for disinfection claims. The up&up product adds a fabric-protection claim; the additives are not disclosed.",
+    "differences": "Savings are modest (about 12%). Neither Target page shows the EPA registration number, so check the up&up jug for an EPA Reg. No. before relying on it for disinfection claims. The up&up product adds a fabric-protection claim; the additives are not disclosed. The up&up page shows no EPA registration number, so its disinfecting claim isn't verified.",
     "sources": [
       "https://www.target.com/p/clorox-disinfecting-bleach-regular-121oz/-/A-77787193",
       "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909"
