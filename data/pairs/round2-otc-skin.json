@@ -34,7 +34,8 @@
           "name": "Lansoprazole",
           "amount": "15 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=3a7aadbd-0a70-444f-95e1-cbde82781892&name=3t3-2e-lansoprazole-1.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -214,7 +215,8 @@
           "name": "Nicotine",
           "amount": "21 mg / 24 hr"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=93b2d1b9-83c1-40b5-b6af-90c38c8d6cef&name=200697+Nicoderm+CQ+21mg+clear+patch+14+count.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -343,7 +345,8 @@
           "name": "Bisacodyl",
           "amount": "5 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=f1e4b28a-ed74-4eff-bd10-b2bfaf7483b0&name=dulcolax-stimulant-laxative-01.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -602,7 +605,8 @@
           "name": "Naproxen sodium",
           "amount": "220 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=02941928-128a-2c88-e063-6294a90ac6ba&name=Aleve+Caplets+-+50+Count+Soft+Grip+Arthritis+Cap+Carton.jpg"
     },
     "alternative": {
       "brand": "Member's Mark",
@@ -745,7 +749,8 @@
           "name": "Polyethylene glycol 3350",
           "amount": "17 g per dose"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=d69ce3d4-7ca4-4fe3-b49e-6655e48d6963&name=C00011253_MIRALAX_RESTORALAX_MiralaxPowder_10ct_Carton_r1_clean.jpg"
     },
     "alternative": {
       "brand": "Member's Mark",
@@ -761,7 +766,8 @@
           "name": "Polyethylene glycol 3350",
           "amount": "17 g per dose"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=5bc34a90-adc2-4031-b8a6-725829881550&name=306-zy-clearlax.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -809,7 +815,8 @@
           "name": "Diclofenac sodium",
           "amount": "1%"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=30a94282-0892-442a-aa10-6525cbd4fe88&name=Voltaren+Kit+100+g+plus+20+g.jpg"
     },
     "alternative": {
       "brand": "Member's Mark",
@@ -825,7 +832,8 @@
           "name": "Diclofenac sodium",
           "amount": "1%"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=d339aaa2-ae7e-4a79-b687-cf0a3106fad0&name=members-mark-arthritis-pain-reliever-carton-image.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -888,7 +896,8 @@
           "name": "Caffeine",
           "amount": "65 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=7f0f8b3c-c226-4a3a-af46-a708f345e4f5&name=64102+BSX+Excedrin+4ct_paint.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -912,7 +921,8 @@
           "name": "Caffeine",
           "amount": "65 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=1557bd9b-3e7c-4769-e063-6394a90a9d91&name=370r-headache-200-label.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -1042,7 +1052,8 @@
           "name": "Omeprazole",
           "amount": "20 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9&name=AA793ZYC3+915+Carton+Image+1.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",

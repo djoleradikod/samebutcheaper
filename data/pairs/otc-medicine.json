@@ -18,7 +18,8 @@
           "name": "Ibuprofen",
           "amount": "200 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=3ca752d8-957c-21b4-e063-6294a90a5285&name=2501786061+-+Advil+-+1786-6.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -34,7 +35,8 @@
           "name": "Ibuprofen",
           "amount": "200 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=2b04d255-a1df-4698-9b5a-ad7a12205e1b&name=equate-44-438-1.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -89,7 +91,8 @@
           "name": "Acetaminophen",
           "amount": "500 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=103d109d-f520-409c-8da2-eb6b0fbec891&name=tylenol-1.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -105,7 +108,8 @@
           "name": "Acetaminophen",
           "amount": "500 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=152bb455-da5b-ae13-e063-6394a90acab0&name=342R-apap-red-.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -151,7 +155,7 @@
       "product": "Aleve Naproxen Sodium Caplets 220 mg, 200 count",
       "size": 200,
       "unit": "caplet",
-      "price_usd": 16.0,
+      "price_usd": 16,
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/Aleve-Pain-Relief-Naproxen-Sodium-Caplets-200-Count/938759653",
@@ -160,7 +164,8 @@
           "name": "Naproxen sodium",
           "amount": "220 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=02941928-128a-2c88-e063-6294a90ac6ba&name=Aleve+Caplets+-+50+Count+Soft+Grip+Arthritis+Cap+Carton.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -176,7 +181,8 @@
           "name": "Naproxen sodium",
           "amount": "220 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=32df7378-4dd1-4f7e-e063-6394a90ad948&name=608R-Walmart-NaproxenSodium-50s-Carton.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -239,7 +245,8 @@
           "name": "Caffeine",
           "amount": "65 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=40aeb2c5-a37b-446d-9918-8378a75ff327&name=64492+BSX+Excedrin+Migraine_paint.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -296,7 +303,8 @@
           "name": "Loratadine",
           "amount": "10 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=f85b0527-107c-4a4a-aad7-61d2f52bad63&name=64322+BSX+Claritin.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -568,7 +576,8 @@
           "name": "Fluticasone propionate",
           "amount": "50 mcg per spray"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=b6134ba0-b70a-4eac-9a82-cef64b242c1d&name=Flonase+Allergy+144+sprays.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -584,7 +593,8 @@
           "name": "Fluticasone propionate",
           "amount": "50 mcg per spray"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=bc824143-b876-4c3d-86fd-81fb58673851&name=image-01.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -704,7 +714,8 @@
           "name": "Omeprazole magnesium",
           "amount": "20.6 mg (equal to 20 mg omeprazole)"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=37291cab-e350-d8e3-e063-6294a90a9cb1&name=300.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -720,7 +731,8 @@
           "name": "Omeprazole",
           "amount": "20 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=dcfe8e94-9c88-464e-9a80-3baa9c4755d9&name=47k-2e-omeprazole-1.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -785,7 +797,8 @@
           "name": "Esomeprazole (as esomeprazole magnesium)",
           "amount": "20 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=ce5f2915-327d-4a91-b7fd-e399664a250f&name=equate-esomeprazole-magnesium-mint-carton-image-1.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -825,7 +838,7 @@
       "product": "Pepcid AC Maximum Strength, Famotidine 20 mg, 50 count",
       "size": 50,
       "unit": "tablet",
-      "price_usd": 15.0,
+      "price_usd": 15,
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/Pepcid-AC-Maximum-Strength-Heartburn-Medicine-20-mg-Famotidine-50-Ct/10309599",
@@ -834,7 +847,8 @@
           "name": "Famotidine",
           "amount": "20 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=2854047f-c5c4-43c3-8ef2-5c0a84a307f2&name=pepcid-01.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -850,7 +864,8 @@
           "name": "Famotidine",
           "amount": "20 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=f38f8a8f-3292-4fe5-b83f-ffd634196d42&name=equate-famotidine-mint-carton-image.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -898,7 +913,8 @@
           "name": "Calcium carbonate",
           "amount": "750 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=11078d7c-373b-4c7b-b33b-f1deba613fc1&name=image-01.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -914,7 +930,8 @@
           "name": "Calcium carbonate",
           "amount": "750 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=77ce0a54-6656-37b1-e053-2991aa0a334a&name=77ce3b3a-0003-37ac-e053-2991aa0a6af6.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -1041,7 +1058,8 @@
           "name": "Polyethylene glycol 3350",
           "amount": "17 g per dose"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=d69ce3d4-7ca4-4fe3-b49e-6655e48d6963&name=C00011253_MIRALAX_RESTORALAX_MiralaxPowder_10ct_Carton_r1_clean.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -1057,7 +1075,8 @@
           "name": "Polyethylene glycol 3350",
           "amount": "17 g per dose"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=c5c13378-3c08-415f-8ab4-8a18d6300ca8&name=image-01.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -1179,7 +1198,8 @@
           "name": "Doxylamine succinate",
           "amount": "25 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=7ae32d74-76a0-47e2-9e5c-812426413c4e&name=unisom-sleep-tabs-2-01.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -1244,7 +1264,8 @@
           "name": "Guaifenesin (extended-release)",
           "amount": "600 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=a898b584-e17e-45c4-8a28-9f686b95dca0&name=lbl636297115.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -1260,7 +1281,8 @@
           "name": "Guaifenesin (extended-release)",
           "amount": "600 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=154602ca-91c4-4030-ae77-9bf179cc95e8&name=4s1-2e-mucus-relief.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -1309,7 +1331,8 @@
           "name": "Hydrocortisone",
           "amount": "1%"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=1a841bf0-9d7b-4566-b442-aa9bcc827846&name=cortizone-10-soothing-aloe-creme-01.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -1325,7 +1348,8 @@
           "name": "Hydrocortisone",
           "amount": "1%"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=f5c32b4a-1159-4b7a-b8ac-256d53020dc2&name=hydrocortisone-01.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -1375,7 +1399,8 @@
           "name": "Miconazole nitrate",
           "amount": "2% (100 mg per applicator)"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=c4b68aff-e95f-47ae-b190-6a671bef1877&name=monistat-7-simply---7-dispos-apps-cream-01.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -1432,7 +1457,7 @@
       "product": "Nicorette Nicotine Gum 2 mg, White Ice Mint, 160 count",
       "size": 160,
       "unit": "piece",
-      "price_usd": 65.0,
+      "price_usd": 65,
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/Nicorette-Nicotine-Gum-Stop-Smoking-Aids-2-Mg-White-Ice-Mint-160-Count/37062040",
@@ -1563,7 +1588,8 @@
           "name": "Levonorgestrel",
           "amount": "1.5 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=fcc7ba8e-ad54-4efe-87e4-5eb0fbf4f064&name=lbl500905978.jpg"
     },
     "alternative": {
       "brand": "My Way",
@@ -1579,7 +1605,8 @@
           "name": "Levonorgestrel",
           "amount": "1.5 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=f2354b0c-dda4-4eb4-93f3-b2d57856a948&name=image-01.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -1636,7 +1663,8 @@
           "name": "Diclofenac sodium",
           "amount": "1% topical gel"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=30a94282-0892-442a-aa10-6525cbd4fe88&name=Voltaren+Kit+100+g+plus+20+g.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -1652,7 +1680,8 @@
           "name": "Diclofenac sodium",
           "amount": "1% topical gel"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=d05b5f82-8772-4e01-8eb3-6fa6042f5661&name=equate-arthritis-pain-carton-image.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",

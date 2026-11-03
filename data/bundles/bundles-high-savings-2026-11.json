@@ -56,7 +56,8 @@
             "amount": "200 mg"
           }
         ],
-        "match_type": "identical_active"
+        "match_type": "identical_active",
+        "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=2919fe8b-9c76-4ef6-851e-3247782cef44&name=image-01.jpg"
       },
       {
         "replaces": 1,
@@ -74,7 +75,8 @@
             "amount": "200 mg"
           }
         ],
-        "match_type": "identical_active"
+        "match_type": "identical_active",
+        "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=2919fe8b-9c76-4ef6-851e-3247782cef44&name=image-01.jpg"
       }
     ],
     "match_type": "identical_active",
@@ -154,7 +156,8 @@
             "amount": "200 mg"
           }
         ],
-        "match_type": "identical_active"
+        "match_type": "identical_active",
+        "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=2919fe8b-9c76-4ef6-851e-3247782cef44&name=image-01.jpg"
       },
       {
         "replaces": 1,
@@ -252,7 +255,8 @@
             "amount": "750 mg"
           }
         ],
-        "match_type": "identical_active"
+        "match_type": "identical_active",
+        "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=40cd0ff8-c745-3b99-e054-00144ff88e88&name=40cd59c2-59f9-5894-e054-00144ff8d46c.jpg"
       },
       {
         "replaces": 1,
@@ -345,7 +349,8 @@
             "amount": "750 mg"
           }
         ],
-        "match_type": "identical_active"
+        "match_type": "identical_active",
+        "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=40cd0ff8-c745-3b99-e054-00144ff88e88&name=40cd59c2-59f9-5894-e054-00144ff8d46c.jpg"
       },
       {
         "replaces": 1,
