@@ -45,6 +45,9 @@ export const IMAGE_HOSTS = [
   "images.openpetfoodfacts.org",
   "images.openproductsfacts.org",
   "static.openfoodfacts.org",
+  // DailyMed (U.S. National Library of Medicine): label and carton images from the
+  // official drug label (SPL), in the public domain.
+  "dailymed.nlm.nih.gov",
 ] as const;
 
 const imageUrl = z
