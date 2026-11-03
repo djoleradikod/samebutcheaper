@@ -2,55 +2,67 @@
 
 /* ---------- Design tokens ---------- */
 :root {
-  --paper: #fbfaf6;
+  /* Bright, clean light theme. Dark mode is opt-in via data-theme="dark". */
+  --paper: #ffffff;
   --surface: #ffffff;
-  --surface-2: #f3f1ea;
-  --ink: #111a15;
-  --ink-2: #3d4a42;
-  --muted: #6b766f;
-  --line: #e4e1d7;
-  --line-strong: #cfcbbd;
-  --accent: #0b7a4b; /* money green */
+  --surface-2: #f3f8f5;
+  --tint: #ecfbf3; /* mint wash behind heroes and highlighted rows */
+  --ink: #0f1a14;
+  --ink-2: #374740;
+  --muted: #64736b;
+  --line: #e3ebe6;
+  --line-strong: #c9d6ce;
+  --accent: #0a8a52; /* money green, 4.6:1 on white */
   --accent-ink: #ffffff;
-  --accent-soft: #e3f3ea;
-  --accent-strong: #075c38;
-  --highlight: #d9f26a; /* savings highlighter */
+  --accent-soft: #dcf7e8;
+  --accent-strong: #066a3e;
+  --pop: #1fd17f; /* bright green for decoration only, never text */
+  --sky: #38bdf8;
+  --highlight: #d8f75a; /* savings highlighter */
   --highlight-ink: #1b2a05;
-  --brand-tone: #8b5d4a; /* brand-name side, warm "expensive" tone */
-  --brand-soft: #f6ece6;
+  --brand-tone: #c2410c; /* brand-name side, warm "expensive" tone */
+  --brand-soft: #fff1e8;
   --warn: #9a5b00;
-  --warn-soft: #fdf1dc;
-  --ring: #0b7a4b55;
+  --warn-soft: #fff6e0;
+  --ring: #0a8a5255;
+  --shadow: 0 1px 2px rgba(15, 26, 20, 0.04), 0 8px 24px -12px rgba(15, 26, 20, 0.12);
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #0d120f;
-    --surface: #141b17;
-    --surface-2: #1a231e;
-    --ink: #eef3ef;
-    --ink-2: #c3cdc6;
-    --muted: #8e9a93;
-    --line: #26322b;
-    --line-strong: #364439;
-    --accent: #3fcf8e;
-    --accent-ink: #062014;
-    --accent-soft: #143324;
-    --accent-strong: #6be0a9;
-    --highlight: #c8e44f;
-    --highlight-ink: #13200a;
-    --brand-tone: #e0a58c;
-    --brand-soft: #2a1d17;
-    --warn: #f0b75a;
-    --warn-soft: #2c2210;
-    --ring: #3fcf8e55;
-  }
+:root[data-theme="dark"] {
+  --paper: #0d120f;
+  --surface: #141b17;
+  --surface-2: #1a231e;
+  --tint: #11251a;
+  --ink: #eef3ef;
+  --ink-2: #c3cdc6;
+  --muted: #8e9a93;
+  --line: #26322b;
+  --line-strong: #364439;
+  --accent: #3fcf8e;
+  --accent-ink: #062014;
+  --accent-soft: #143324;
+  --accent-strong: #6be0a9;
+  --pop: #3fcf8e;
+  --sky: #38bdf8;
+  --highlight: #c8e44f;
+  --highlight-ink: #13200a;
+  --brand-tone: #f0a37a;
+  --brand-soft: #2a1d17;
+  --warn: #f0b75a;
+  --warn-soft: #2c2210;
+  --ring: #3fcf8e55;
+  --shadow: none;
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-paper: var(--paper);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-tint: var(--tint);
+  --color-pop: var(--pop);
+  --color-sky: var(--sky);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
@@ -117,6 +129,15 @@ body {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 1rem;
+    box-shadow: var(--shadow);
+  }
+  /* Soft colour wash for hero sections. */
+  .hero-wash {
+    background:
+      radial-gradient(60rem 30rem at 85% -10%, color-mix(in srgb, var(--sky) 22%, transparent), transparent 60%),
+      radial-gradient(50rem 28rem at -10% 10%, color-mix(in srgb, var(--pop) 22%, transparent), transparent 60%),
+      radial-gradient(40rem 20rem at 50% 110%, color-mix(in srgb, var(--highlight) 30%, transparent), transparent 70%),
+      var(--paper);
   }
   .btn {
     display: inline-flex;

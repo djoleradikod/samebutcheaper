@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -34,10 +35,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbfaf6" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d120f" },
-  ],
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -64,6 +63,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <div className="bg-[#0f1a14] text-[12px] text-white/85">
+          <p className="container-page flex items-center justify-center gap-1.5 py-1.5 text-center">
+            <span className="sm:hidden">Independent. No paid rankings.</span>
+            <span className="hidden sm:inline">
+              Independent: no brand pays to be listed or ranked. Some links earn us a commission.
+            </span>{" "}
+            <Link href="/how-we-verify" className="font-semibold text-white underline-offset-2 hover:underline">
+              How we check
+            </Link>
+          </p>
+        </div>
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

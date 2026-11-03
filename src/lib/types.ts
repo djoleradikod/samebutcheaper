@@ -62,6 +62,8 @@ export type PairSummary = {
   brandProduct: string;
   altName: string;
   altProduct: string;
+  brandImage: string | null;
+  altImage: string | null;
   unit: string;
   brandPpu: number;
   altPpu: number;

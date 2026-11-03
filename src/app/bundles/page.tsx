@@ -16,7 +16,7 @@ export default function BundlesPage() {
   const total = moneyTotals(bundles.map((b) => ({ amount: b.savings, currency: b.currency })));
   return (
     <>
-      <section className="border-b border-line bg-surface">
+      <section className="hero-wash border-b border-line">
         <div className="container-page py-10 md:py-14">
           <p className="text-sm font-medium text-accent">Bundles</p>
           <h1 className="display mt-1 text-4xl font-medium sm:text-5xl">Same kit. Built for less.</h1>

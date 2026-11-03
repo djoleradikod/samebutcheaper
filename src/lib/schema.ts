@@ -33,6 +33,58 @@ const ingredient = z.object({
   amount: z.string().default(""),
 });
 
+/**
+ * Photo hosts we may show. Open Facts photos are CC BY-SA and credited on the
+ * page. Brand and retailer photos are copyrighted, so they only get added here
+ * once they come through an affiliate API that licenses them (Amazon PA-API,
+ * Walmart via Impact). Any other host is dropped to null and the page draws a tile.
+ */
+export const IMAGE_HOSTS = [
+  "images.openfoodfacts.org",
+  "images.openbeautyfacts.org",
+  "images.openpetfoodfacts.org",
+  "images.openproductsfacts.org",
+  "static.openfoodfacts.org",
+] as const;
+
+const imageUrl = z
+  .string()
+  .url()
+  .refine((u) => {
+    try {
+      const url = new URL(u);
+      return url.protocol === "https:" && (IMAGE_HOSTS as readonly string[]).includes(url.hostname);
+    } catch {
+      return false;
+    }
+  }, "image must be an https photo from an allowed host")
+  .nullable()
+  .optional()
+  .catch(null);
+
+/** Shopper rating from a named retailer page, e.g. 4.6 stars from 12,400 reviews at Walmart. */
+const rating = z
+  .object({
+    stars: z.number().min(0).max(5),
+    count: z.number().int().min(0),
+    source: z.string().url(),
+  })
+  .nullable()
+  .optional()
+  .catch(null);
+
+/** One row of the "same or different" table on a swap page. */
+export const ASPECT_VERDICTS = ["same", "alt_better", "brand_better", "different"] as const;
+const aspect = z.object({
+  /** "Inactive ingredients", "Coating", "Rating", "Returns", "Third-party tested"... */
+  aspect: z.string().min(2),
+  brand: z.string().min(1),
+  alternative: z.string().min(1),
+  verdict: z.enum(ASPECT_VERDICTS),
+  /** Where this row was checked. */
+  source: z.string().url().optional().catch(undefined),
+});
+
 const product = z.object({
   brand: z.string().min(1),
   product: z.string().min(1),
@@ -51,6 +103,18 @@ const product = z.object({
     .optional()
     .catch(null),
   url: z.string().url(),
+  /** Product photo (https). Missing or invalid falls back to a drawn pack tile. */
+  image: imageUrl,
+  rating,
+  /** UPC/EAN barcode digits, used to fetch openly licensed photos and match affiliate feeds. */
+  gtin: z
+    .string()
+    .regex(/^\d{8,14}$/)
+    .nullable()
+    .optional()
+    .catch(null),
+  /** Regulatory licence number: NDC (US), PL (UK), DIN (Canada), PZN (Germany). */
+  license_id: z.string().min(3).max(40).nullable().optional().catch(null),
   key_ingredients: z.array(ingredient).default([]),
 });
 
@@ -71,6 +135,8 @@ export const pairSchema = z
     summary: z.string().min(10),
     evidence: z.string().min(10),
     differences: z.string().default(""),
+    /** Researched rows for the same-or-different table (quality, form, testing, service...). */
+    aspects: z.array(aspect).default([]),
     sources: z.array(z.string().url()).min(2),
     price_checked: z.string().min(4),
     /** What to search for in other countries. Derived from the actives when absent. */
@@ -130,6 +196,7 @@ export const bundleSchema = z
       retailer: product.shape.retailer,
       asin: product.shape.asin,
       url: z.string().url(),
+      image: imageUrl,
       items: z.array(bundleItem).min(2),
       extras: z.array(z.string()).default([]),
     }),

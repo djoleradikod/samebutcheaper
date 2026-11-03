@@ -32,7 +32,7 @@ export default async function BrandPage({ params }: PageProps<"/brand/[slug]">) 
 
   return (
     <>
-      <section className="border-b border-line bg-surface">
+      <section className="hero-wash border-b border-line">
         <div className="container-page py-10 md:py-14">
           <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-sm text-muted">
             <Link href="/" className="hover:text-ink">Home</Link>

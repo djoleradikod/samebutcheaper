@@ -23,15 +23,15 @@ import type { MatchType } from "@/lib/types";
 const FAQ = [
   {
     q: "If they're the same, why is the brand so much more expensive?",
-    a: "Mostly advertising, packaging and shelf placement. A store-brand OTC medicine has to contain the same active ingredient at the same strength as the brand it is compared to. That is an FDA rule. The lower price comes from skipping the TV ads, not from cutting the formula.",
+    a: "Mostly advertising, packaging and shelf placement. In the US, UK, Canada and Germany, an over-the-counter medicine has to meet the same regulator's rules for its active ingredient whatever name is on the box, and every medicine swap here has the same active ingredient at the same strength. The lower price comes from skipping the TV ads, not from cutting the active ingredient.",
   },
   {
     q: "How do you decide two products are “the same”?",
-    a: "We only list a swap when the evidence fits one of four standards: an identical active ingredient, an identical formula, the same manufacturer, or an equivalent spec. Every swap shows which standard it meets, the ingredients side by side, and links to the sources we used.",
+    a: "We only list a swap when the evidence fits one of four standards: the same active ingredient at the same strength, the same formula per the label, the same manufacturer, or an equivalent spec. Every swap says which standard it meets, shows what is the same and what is different point by point, and links to at least two sources.",
   },
   {
     q: "How do you make money?",
-    a: "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you. We earn the same whether you buy the cheap option or the brand, so we have no reason to push one or the other.",
+    a: "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you. No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.",
   },
   {
     q: "Are the prices current?",
@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <>
       {/* ---------- Hero ---------- */}
-      <section className="relative overflow-hidden border-b border-line">
+      <section className="hero-wash relative overflow-hidden border-b border-line">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(var(--line)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
@@ -82,13 +82,14 @@ export default function Home() {
             <h1 className="display mt-5 text-[2.6rem] leading-[1.05] font-medium sm:text-6xl">
               Same ingredients.
               <br />
-              Same results.
+              Same job.
               <br />
               <span className="highlight">Less money.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
               Big brands spend billions telling you they&apos;re different. We read the labels. These are the
-              cheaper products that are <em>actually the same</em>, with the receipts to prove it.
+              cheaper products with the <em>same active ingredients or formula</em>, with the sources to prove
+              it and an honest list of what differs.
             </p>
 
             <form action="/search" className="mt-8 flex max-w-xl flex-col gap-2 sm:flex-row">
@@ -189,7 +190,7 @@ export default function Home() {
       )}
 
       {/* ---------- Categories ---------- */}
-      <section className="border-y border-line bg-surface">
+      <section className="border-y border-line bg-tint">
         <div className="container-page py-16">
           <SectionHeading eyebrow="Browse" title="Every aisle, cheaper" />
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -259,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* ---------- Match standards ---------- */}
-      <section className="border-y border-line bg-surface">
+      <section className="border-y border-line bg-tint">
         <div className="container-page grid gap-10 py-16 lg:grid-cols-[1fr_1.4fr]">
           <div>
             <p className="text-sm font-medium text-accent">Our standard</p>
@@ -424,7 +425,7 @@ function HeroReceipt({ pair }: { pair: ReturnType<typeof getAllPairs>[number] })
             <p className="text-xs text-muted">per {pair.brand.unit}</p>
           </div>
           <div className="bg-accent-soft/50 p-5">
-            <p className="text-xs text-accent">Same thing</p>
+            <p className="text-xs text-accent">Cheaper match</p>
             <p className="mt-1 font-semibold">{pair.alternative.brand}</p>
             <p className="num mt-3 text-2xl font-semibold text-accent">{ppu(pair.alternative.ppu, pair.currency)}</p>
             <p className="text-xs text-muted">per {pair.alternative.unit}</p>

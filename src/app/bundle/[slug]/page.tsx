@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ProductThumb } from "@/components/ProductThumb";
 import { notFound } from "next/navigation";
 import { ArrowDown, ArrowRight, ChevronRight, ExternalLink, Package } from "lucide-react";
 import { getAllBundles, getBundle } from "@/lib/catalog";
@@ -59,7 +60,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
 
   return (
     <article>
-      <div className="border-b border-line bg-surface">
+      <div className="hero-wash border-b border-line">
         <div className="container-page py-8 md:py-12">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-muted">
             <Link href="/" className="hover:text-ink">Home</Link>
@@ -79,7 +80,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-2">{b.summary}</p>
 
-          <div className="num mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl border border-line bg-paper p-5">
+          <div className="num mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl border border-line bg-white/85 p-5 shadow-[var(--shadow)] backdrop-blur">
             <SavingsBadge pct={b.savingsPct} size="lg" />
             <div>
               <p className="text-xs text-muted">
@@ -104,8 +105,12 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
       <div className="container-page grid gap-8 py-10 lg:grid-cols-[1fr_22rem]">
         <div className="min-w-0 space-y-8">
           <section className="card overflow-hidden">
-            <div className="flex items-center gap-3 border-b border-line bg-brand-soft/60 px-5 py-4">
-              <Package className="h-5 w-5 text-brand-tone" />
+            <div className="flex items-center gap-4 border-b border-line bg-brand-soft/60 px-5 py-4">
+              {b.bundle.image ? (
+                <ProductThumb image={b.bundle.image} brand={b.bundle.brand} category={b.category} size="sm" />
+              ) : (
+                <Package className="h-5 w-5 text-brand-tone" />
+              )}
               <div>
                 <h2 className="font-semibold">What&apos;s in the {b.bundle.brand} bundle</h2>
                 <p className="text-sm text-muted">
@@ -147,7 +152,8 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
               {b.components.map((c, i) => {
                 const item = b.bundle.items[c.replaces];
                 return (
-                  <li key={i} className="grid gap-3 px-5 py-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                  <li key={i} className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 px-5 py-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+                    <ProductThumb image={c.image} brand={c.brand} category={b.category} unit={c.unit} size="sm" />
                     <div className="min-w-0">
                       <p className="text-xs text-muted">Replaces: {item.name}</p>
                       <p className="mt-0.5 font-semibold">{c.brand}</p>
@@ -160,7 +166,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                         </span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 sm:flex-col sm:items-end sm:gap-2">
+                    <div className="col-span-2 flex items-center gap-4 sm:col-span-1 sm:flex-col sm:items-end sm:gap-2">
                       <p className="num text-right">
                         <span className="block text-xs text-muted">Same amount</span>
                         <span className="font-semibold text-accent">{money(c.equivalentCost, b.currency)}</span>

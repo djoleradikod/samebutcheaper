@@ -39,7 +39,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Skincare & Personal Care",
     short: "Moisturisers, acne, dental, shave",
     description:
-      "Matching ingredient (INCI) lists and identical active percentages, without the department-store markup.",
+      "Matching ingredient (INCI) lists and the same active percentages, without the department-store markup.",
     icon: "droplet",
   },
   {
@@ -54,7 +54,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Household & Cleaning",
     short: "Laundry, disinfectant, filters",
     description:
-      "Identical EPA registration numbers, the same active chemistry, and independent test results.",
+      "The same EPA registration number, the same active chemistry, and independent test results.",
     icon: "spray",
   },
   {
@@ -91,6 +91,19 @@ export const CATEGORIES: CategoryMeta[] = [
   },
 ];
 
+/** Pastel tile colours per category, used for product tiles without a photo. */
+export const CATEGORY_TONE: Record<CategorySlug, { bg: string; fg: string }> = {
+  "otc-medicine": { bg: "#e0f2fe", fg: "#0369a1" },
+  supplements: { bg: "#ecfccb", fg: "#3f6212" },
+  "skincare-personal-care": { bg: "#fce7f3", fg: "#9d174d" },
+  "beauty-hair": { bg: "#ede9fe", fg: "#5b21b6" },
+  household: { bg: "#cffafe", fg: "#0e7490" },
+  baby: { bg: "#fef3c7", fg: "#92400e" },
+  pet: { bg: "#ffedd5", fg: "#9a3412" },
+  "food-pantry": { bg: "#fef9c3", fg: "#854d0e" },
+  "tech-tools": { bg: "#e0e7ff", fg: "#3730a3" },
+};
+
 export const CATEGORY_MAP = Object.fromEntries(CATEGORIES.map((c) => [c.slug, c])) as Record<
   CategorySlug,
   CategoryMeta
@@ -101,16 +114,16 @@ export const MATCH_TYPE_META: Record<
   { label: string; short: string; description: string; strength: number }
 > = {
   identical_active: {
-    label: "Identical active ingredient",
+    label: "Same active ingredient",
     short: "Same active",
     description:
       "Same active ingredient(s), same strength, same dosage form, confirmed from the official label.",
     strength: 4,
   },
   identical_formula: {
-    label: "Identical formula",
+    label: "Same formula per label",
     short: "Same formula",
-    description: "The full ingredient list matches in the same order, so it is the same formula.",
+    description: "The full ingredient list on the label matches, in the same order.",
     strength: 4,
   },
   same_manufacturer: {
@@ -124,7 +137,7 @@ export const MATCH_TYPE_META: Record<
     label: "Equivalent spec",
     short: "Same spec",
     description:
-      "Published specifications, certifications and independent tests show the same performance.",
+      "Published specs, certifications and independent tests show they do the same job to a comparable standard.",
     strength: 3,
   },
 };

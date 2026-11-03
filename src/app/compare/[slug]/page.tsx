@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AlertTriangle, Check, ChevronRight, ExternalLink, Info, Minus } from "lucide-react";
+import { AlertTriangle, BadgeCheck, ChevronRight, ExternalLink, Info, Star } from "lucide-react";
 import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
 import { SaveButton } from "@/components/SaveButton";
 import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
@@ -12,6 +12,9 @@ import { PairCard } from "@/components/PairCard";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import { SITE } from "@/lib/site";
 import { WhereToBuy } from "@/components/WhereToBuy";
+import { ProductThumb } from "@/components/ProductThumb";
+import { SameOrDifferent } from "@/components/SameOrDifferent";
+import { comparison, differencePoints } from "@/lib/compare";
 import type { Pair, ProductSide } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -34,37 +37,6 @@ export async function generateMetadata({ params }: PageProps<"/compare/[slug]">)
 
 const HEALTH_CATEGORIES = new Set(["otc-medicine", "supplements", "baby", "pet", "skincare-personal-care"]);
 
-function normalizeAmount(a: string) {
-  return a.toLowerCase().replace(/\s+/g, "").replace(/,/g, "");
-}
-function normalizeName(a: string) {
-  return a
-    .toLowerCase()
-    .replace(/\(.*?\)/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-function ingredientRows(pair: Pair) {
-  const rows = new Map<string, { name: string; brand?: string; alt?: string }>();
-  for (const i of pair.brand.key_ingredients) rows.set(normalizeName(i.name), { name: i.name, brand: i.amount });
-  for (const i of pair.alternative.key_ingredients) {
-    const key = normalizeName(i.name);
-    const row = rows.get(key);
-    if (row) row.alt = i.amount;
-    else rows.set(key, { name: i.name, alt: i.amount });
-  }
-  const chemistry = pair.match_type !== "equivalent_spec";
-  return [...rows.values()].map((r) => ({
-    ...r,
-    ingredientSlug: chemistry ? ingredientSlugFor(r.name) : undefined,
-    match:
-      r.brand !== undefined &&
-      r.alt !== undefined &&
-      (normalizeAmount(r.brand) === normalizeAmount(r.alt) || (!r.brand && !r.alt)),
-  }));
-}
-
 export default async function ComparePage({ params }: PageProps<"/compare/[slug]">) {
   const { slug } = await params;
   const pair = getPair(slug);
@@ -73,8 +45,10 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
   const cat = CATEGORY_MAP[pair.category];
   const related = getRelatedPairs(pair, 3).map(toSummary);
   const brandCount = getBrand(brandSlugFor(pair.brand.brand))?.pairs.length ?? 0;
-  const rows = ingredientRows(pair);
   const unitsPerPack = pair.brand.size;
+  const compared = comparison(pair, ingredientSlugFor);
+  const differences = pair.differences ? differencePoints(pair.differences) : [];
+  const sameLicence = sameLicenceNumber(pair);
 
   const jsonLd = [
     {
@@ -102,7 +76,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
 
   return (
     <article>
-      <div className="border-b border-line bg-surface">
+      <div className="hero-wash border-b border-line">
         <div className="container-page py-8 md:py-12">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-muted">
             <Link href="/" className="hover:text-ink">Home</Link>
@@ -115,6 +89,12 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
           <div className="mt-5 flex flex-wrap items-center gap-2">
             <MatchBadge type={pair.match_type} long />
             <ConfidenceBadge confidence={pair.confidence} />
+            {sameLicence && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-sky/15 px-2.5 py-0.5 text-xs font-semibold text-ink">
+                <BadgeCheck className="h-3.5 w-3.5 text-sky" aria-hidden="true" />
+                Same licensed medicine ({sameLicence})
+              </span>
+            )}
             <span className="text-xs text-muted">Prices checked {monthYear(pair.price_checked)}</span>
           </div>
           <h1 className="display mt-4 max-w-4xl text-4xl leading-tight font-medium sm:text-5xl">
@@ -123,7 +103,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-2">{pair.summary}</p>
 
           {/* Savings strip */}
-          <div className="num mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl border border-line bg-paper p-5">
+          <div className="num mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl border border-line bg-white/85 p-5 shadow-[var(--shadow)] backdrop-blur">
             <SavingsBadge pct={pair.savingsPct} size="lg" />
             <div>
               <p className="text-xs text-muted">Price per {pair.brand.unit}</p>
@@ -148,66 +128,28 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
             <ProductPanel side="alternative" pair={pair} product={pair.alternative} />
           </div>
 
-          {/* Ingredients */}
-          {rows.length > 0 && (
-            <section className="card overflow-hidden">
-              <div className="border-b border-line px-5 py-4">
-                <h2 className="text-lg font-semibold">
-                  {pair.match_type === "equivalent_spec" ? "Specs side by side" : "Key ingredients side by side"}
-                </h2>
-                <p className="text-sm text-muted">{MATCH_TYPE_META[pair.match_type].description}</p>
-              </div>
-              <div className="relative overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead className="bg-surface-2 text-left text-xs text-muted">
-                    <tr>
-                      <th className="px-3 py-2.5 sm:px-5 font-medium">
-                        {pair.match_type === "equivalent_spec" ? "Spec" : "Ingredient"}
-                      </th>
-                      <th className="px-3 py-2.5 sm:px-5 font-medium">{pair.brand.brand}</th>
-                      <th className="px-3 py-2.5 sm:px-5 font-medium">{pair.alternative.brand}</th>
-                      <th className="w-10 px-3 py-2.5 sm:px-5"><span className="sr-only">Match</span></th>
-                    </tr>
-                  </thead>
-                  <tbody className="num divide-y divide-line">
-                    {rows.map((r) => (
-                      <tr key={r.name}>
-                        <td className="px-3 py-3 font-medium sm:px-5">
-                          {r.ingredientSlug ? (
-                            <Link href={`/ingredient/${r.ingredientSlug}`} className="underline decoration-line-strong underline-offset-4 hover:text-accent hover:decoration-accent">
-                              {r.name}
-                            </Link>
-                          ) : (
-                            r.name
-                          )}
-                        </td>
-                        <td className="px-3 py-3 sm:px-5 text-ink-2">{r.brand ?? "—"}</td>
-                        <td className="px-3 py-3 sm:px-5 text-ink-2">{r.alt ?? "—"}</td>
-                        <td className="px-3 py-3 sm:px-5">
-                          {r.match ? (
-                            <Check className="h-4 w-4 text-accent" aria-label="Matches" />
-                          ) : (
-                            <Minus className="h-4 w-4 text-muted" aria-label="Differs or not listed" />
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-          )}
+          {/* What's the same, what's different */}
+          <SameOrDifferent
+            comparison={compared}
+            brandName={pair.brand.brand}
+            altName={pair.alternative.brand}
+            intro={`${MATCH_TYPE_META[pair.match_type].description} Here is every point, including where the brand is better.`}
+          />
 
           {/* Evidence */}
           <section className="prose-sbc">
             <h2>Why we say they&apos;re the same</h2>
             <p>{pair.evidence}</p>
-            {pair.differences && (
-              <div className="mt-5 flex gap-3 rounded-2xl border border-line bg-surface-2 p-5">
-                <Info className="mt-0.5 h-5 w-5 shrink-0 text-muted" />
+            {differences.length > 0 && (
+              <div className="mt-5 flex gap-3 rounded-2xl border border-brand-tone/20 bg-brand-soft p-5">
+                <Info className="mt-0.5 h-5 w-5 shrink-0 text-brand-tone" />
                 <div>
                   <p className="!my-0 font-semibold text-ink">Honest differences</p>
-                  <p className="!mt-1 !mb-0 text-sm leading-relaxed text-ink-2">{pair.differences}</p>
+                  <ul className="!mt-2 !mb-0 list-disc space-y-1 !pl-5 text-sm leading-relaxed text-ink-2">
+                    {differences.map((d) => (
+                      <li key={d} className="!my-0">{d}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             )}
@@ -321,17 +263,37 @@ function defaultMonthly(pair: Pair) {
 
 function ProductPanel({ side, pair, product }: { side: "brand" | "alternative"; pair: Pair; product: ProductSide }) {
   const isAlt = side === "alternative";
+  const credit = photoCredit(product.image);
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border p-5 ${
-        isAlt ? "border-accent/40 bg-accent-soft/40 ring-1 ring-accent/20" : "border-line bg-surface"
+      className={`relative flex flex-col rounded-2xl border p-5 shadow-[var(--shadow)] ${
+        isAlt ? "border-accent/40 bg-tint ring-1 ring-accent/20" : "border-line bg-white"
       }`}
     >
-      <p className={`text-xs font-semibold tracking-wide uppercase ${isAlt ? "text-accent" : "text-brand-tone"}`}>
+      <ProductThumb image={product.image} brand={product.brand} category={pair.category} unit={product.unit} size="lg" />
+      {credit && <p className="mt-1.5 text-[11px] text-muted">{credit}</p>}
+      <p className={`mt-4 text-xs font-semibold tracking-wide uppercase ${isAlt ? "text-accent" : "text-brand-tone"}`}>
         {isAlt ? "The cheaper one" : "The brand name"}
       </p>
-      <h2 className="mt-2 text-xl font-semibold">{product.brand}</h2>
+      <h2 className="mt-1.5 text-xl font-semibold">{product.brand}</h2>
       <p className="mt-1 text-sm text-ink-2">{product.product}</p>
+      {(product.rating || product.license_id) && (
+        <div className="num mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-ink-2">
+          {product.rating && (
+            <a
+              href={product.rating.source}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="inline-flex items-center gap-1 hover:text-ink"
+            >
+              <Star className="h-3.5 w-3.5 fill-highlight text-highlight-ink" aria-hidden="true" />
+              <span className="font-semibold text-ink">{product.rating.stars.toFixed(1)}</span>
+              <span>({product.rating.count.toLocaleString("en-US")} reviews at {hostname(product.rating.source)})</span>
+            </a>
+          )}
+          {product.license_id && <span>Licence {product.license_id}</span>}
+        </div>
+      )}
       <dl className="num mt-5 grid grid-cols-3 gap-2 text-sm">
         <div>
           <dt className="text-xs text-muted">Pack</dt>
@@ -359,6 +321,28 @@ function ProductPanel({ side, pair, product }: { side: "brand" | "alternative"; 
       </div>
     </div>
   );
+}
+
+/** The licence number both packs share, when they're the same licensed medicine (e.g. one UK PL number). */
+function sameLicenceNumber(pair: Pair) {
+  const b = pair.brand.license_id?.replace(/\s+/g, " ").trim().toUpperCase();
+  const a = pair.alternative.license_id?.replace(/\s+/g, " ").trim().toUpperCase();
+  return b && a && b === a ? b : null;
+}
+
+const OPEN_FACTS: Record<string, string> = {
+  openfoodfacts: "Open Food Facts",
+  openbeautyfacts: "Open Beauty Facts",
+  openpetfoodfacts: "Open Pet Food Facts",
+  openproductsfacts: "Open Products Facts",
+};
+
+/** Open Facts photos are CC BY-SA, so we credit them under the picture. */
+function photoCredit(image?: string | null) {
+  if (!image) return null;
+  const host = hostname(image);
+  const key = Object.keys(OPEN_FACTS).find((k) => host.includes(k));
+  return key ? `Photo: ${OPEN_FACTS[key]} contributors, CC BY-SA` : null;
 }
 
 function hostname(u: string) {

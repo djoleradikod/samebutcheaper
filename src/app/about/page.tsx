@@ -13,7 +13,7 @@ export default function AboutPage() {
     <ProsePage
       eyebrow="About"
       title="Pay for the product, not the commercial"
-      intro="Many of the most expensive things in your cart are identical to cheaper products on the same shelf. The difference is marketing. We built SameButCheaper to make that easy to see."
+      intro="Many of the most expensive things in your cart have the same active ingredients or formula as cheaper products on the same shelf. Most of the price difference is marketing. We built SameButCheaper to make that easy to see."
     >
       <p>
         Brand-name ibuprofen and store-brand ibuprofen contain the same drug at the same dose. A famous

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function CheckPage({ searchParams }: PageProps<"/check">) {
   return (
     <>
-      <section className="border-b border-line bg-surface">
+      <section className="hero-wash border-b border-line">
         <div className="container-page py-10 md:py-14">
           <p className="text-sm font-medium text-accent">Product check</p>
           <h1 className="display mt-1 max-w-3xl text-4xl font-medium sm:text-5xl">

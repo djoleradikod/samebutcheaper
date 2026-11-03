@@ -9,8 +9,8 @@ export function SiteFooter() {
         <div className="max-w-sm">
           <Logo />
           <p className="mt-3 text-sm leading-relaxed text-muted">
-            We find products that match famous brands ingredient for ingredient, then show you the proof. No
-            sponsored rankings, no paid placements.
+            We find cheaper products with the same active ingredients or formula as famous brands, show what
+            differs, and link the proof. No sponsored rankings, no paid placements.
           </p>
           <p className="mt-4 text-xs leading-relaxed text-muted">
             As an Amazon Associate we earn from qualifying purchases. That never changes which swaps we list or

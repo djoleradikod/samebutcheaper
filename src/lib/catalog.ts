@@ -95,6 +95,8 @@ export function toSummary(p: Pair): PairSummary {
     brandProduct: p.brand.product,
     altName: p.alternative.brand,
     altProduct: p.alternative.product,
+    brandImage: p.brand.image ?? null,
+    altImage: p.alternative.image ?? null,
     unit: p.brand.unit,
     brandPpu: p.brand.ppu,
     altPpu: p.alternative.ppu,

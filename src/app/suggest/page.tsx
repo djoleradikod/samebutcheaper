@@ -19,7 +19,7 @@ export default function SuggestPage() {
         </p>
         <ul className="mt-6 space-y-3 text-sm text-ink-2">
           <li>✓ Same active ingredients at the same strength</li>
-          <li>✓ Or an identical ingredient list</li>
+          <li>✓ Or the same ingredient list, in the same order</li>
           <li>✓ Or public proof that the same factory makes both</li>
           <li>✓ Or matching certified specs and independent test results</li>
         </ul>
