@@ -10,7 +10,7 @@
       "price": 67.0,
       "billing": "one-time",
       "supply_days": null,
-      "retailer": "other",
+      "retailer": "apple",
       "asin": null,
       "url": "https://www.apple.com/shop/product/MWVV3AM/A/20w-usb-c-power-adapter",
       "items": [
@@ -133,7 +133,7 @@
       "price": 197.0,
       "billing": "one-time",
       "supply_days": null,
-      "retailer": "other",
+      "retailer": "apple",
       "asin": null,
       "url": "https://www.apple.com/shop/product/mkfq4am/a/140w-power-adapter",
       "items": [
@@ -265,7 +265,7 @@
       "price": 157.0,
       "billing": "one-time",
       "supply_days": null,
-      "retailer": "other",
+      "retailer": "apple",
       "asin": null,
       "url": "https://www.apple.com/shop/product/mkfp4am/a/70w-power-adapter",
       "items": [
@@ -396,7 +396,7 @@
       "price": 178.0,
       "billing": "one-time",
       "supply_days": null,
-      "retailer": "other",
+      "retailer": "apple",
       "asin": null,
       "url": "https://www.apple.com/shop/product/mjlx4ll/a/magic-keyboard-usb-c-us-english",
       "items": [
@@ -490,7 +490,7 @@
       "price": 117.0,
       "billing": "one-time",
       "supply_days": null,
-      "retailer": "other",
+      "retailer": "apple",
       "asin": null,
       "url": "https://www.apple.com/shop/product/MUWA3AM/A/apple-pencil-usb-c",
       "items": [
@@ -613,7 +613,7 @@
       "price": 58.0,
       "billing": "one-time",
       "supply_days": null,
-      "retailer": "other",
+      "retailer": "apple",
       "asin": null,
       "url": "https://www.apple.com/shop/product/mgkn4am/a/40w-dynamic-power-adapter-with-60w-max",
       "items": [
