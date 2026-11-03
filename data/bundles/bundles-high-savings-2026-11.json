@@ -1,0 +1,472 @@
+[
+  {
+    "slug": "advil-20ct-300ct-value-bundle-vs-up-and-up-ibuprofen-200mg",
+    "market": "US",
+    "category": "otc-medicine",
+    "title": "Advil 20ct + 300ct Value Bundle vs up&up Ibuprofen 200 mg",
+    "bundle": {
+      "brand": "Advil",
+      "name": "Advil Pain Reliever/Fever Reducer Ibuprofen (NSAID) 20ct Tablets + 300ct Tablets (Target Value Bundle)",
+      "price": 26.11,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/advil-pain-reliever-fever-reducer-ibuprofen-nsaid-20ct-tablets-300ct-tablets/-/A-1011450385",
+      "items": [
+        {
+          "name": "Advil Coated Tablets, 300 count",
+          "size": 300,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Ibuprofen",
+              "amount": "200 mg"
+            }
+          ]
+        },
+        {
+          "name": "Advil Coated Tablets, 20 count",
+          "size": 20,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Ibuprofen",
+              "amount": "200 mg"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Ibuprofen 200 mg Tablets, Twin Pack 2 x 500 (1000 count)",
+        "size": 1000,
+        "unit": "tablet",
+        "price": 14.29,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/ibuprofen-nsaid-pain-reliever-fever-reducer-tablets-up-up/-/A-51218403",
+        "key_ingredients": [
+          {
+            "name": "Ibuprofen",
+            "amount": "200 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "up&up",
+        "product": "up&up Ibuprofen 200 mg Coated Caplets, 200 count",
+        "size": 200,
+        "unit": "tablet",
+        "price": 4.29,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/ibuprofen-nsaid-pain-reliever-38-fever-reducer-caplets-200ct-up-38-up-8482/-/A-14923389",
+        "key_ingredients": [
+          {
+            "name": "Ibuprofen",
+            "amount": "200 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Target's Advil value bundle is 320 plain ibuprofen 200 mg tablets, and Target's own up&up ibuprofen 200 mg, an FDA-approved generic of Advil, costs about a sixth as much per tablet.",
+    "evidence": "Target sells the bundle as one listing at $26.11 (Advil 300ct + Advil 20ct coated tablets). Advil's DailyMed label (Haleon) gives 'Ibuprofen 200 mg (NSAID)' per coated tablet and lists the 300-tablet bottle. The up&up ibuprofen tablet label on DailyMed (Target Corporation) gives 'Ibuprofen 200 mg (NSAID)' per film-coated tablet, says 'Compare to active ingredient in Advil' and is approved under ANDA072096, which means the FDA found it bioequivalent to the brand. Target's twin pack (2 x 500) is $14.29 (1.4 cents a tablet) and the up&up 200-count coated caplets are $4.29 and state 'Compare to the active ingredient in Advil Ibuprofen Caplets'. In the Chicago Booth / NBER study 'Do Pharmacists Buy Bayer?' (Bronnenberg, Dube, Gentzkow and Shapiro), pharmacists bought national-brand headache remedies only 9% of the time, against 26% for the average shopper.",
+    "differences": "Advil tablets have a sugar coating; up&up tablets are film coated and the 200-count is caplet shaped. Inactive ingredients differ. The saving is per tablet: the up&up packs hold 1,200 tablets for $18.58, so you pay less in total than the bundle but buy far more than 320 tablets. Ibuprofen keeps for years, but check the expiry date before buying the 1000 pack. Advil's 20-count was not sold on its own at Target, so its price comes only from the bundle.",
+    "sources": [
+      "https://www.target.com/p/advil-pain-reliever-fever-reducer-ibuprofen-nsaid-20ct-tablets-300ct-tablets/-/A-1011450385",
+      "https://www.target.com/p/advil-pain-reliever-fever-reducer-tablets-ibuprofen-nsaid/-/A-15772219",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a665e64-9f30-be37-4a83-38789f1f1e89",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2919fe8b-9c76-4ef6-851e-3247782cef44",
+      "https://www.target.com/p/ibuprofen-nsaid-pain-reliever-fever-reducer-tablets-up-up/-/A-51218403",
+      "https://www.target.com/p/ibuprofen-nsaid-pain-reliever-38-fever-reducer-caplets-200ct-up-38-up-8482/-/A-14923389",
+      "https://www.nber.org/papers/w20295"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "advil-300ct-sensodyne-pronamel-whitening-bundle-vs-up-and-up-ibuprofen-sensitive-toothpaste",
+    "market": "US",
+    "category": "otc-medicine",
+    "title": "Advil 300ct + Sensodyne Pronamel Whitening bundle vs up&up ibuprofen and sensitive whitening toothpaste",
+    "bundle": {
+      "brand": "Advil + Sensodyne",
+      "name": "Advil 300 Count Ibuprofen Tablets + Sensodyne Pronamel Intensive Enamel Repair Whitening Arctic Breeze Toothpaste 3.4 oz (Target Value Bundle)",
+      "price": 29.44,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/advil-300-count-pain-reliever-fever-reducer-ibuprofen-nsaid-tablets-sensodyne-3-4oz-pronamel-enamel-repair-whitening-artic-breeze-toothpaste/-/A-1010609243",
+      "items": [
+        {
+          "name": "Advil Coated Tablets, 300 count",
+          "size": 300,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Ibuprofen",
+              "amount": "200 mg"
+            }
+          ]
+        },
+        {
+          "name": "Sensodyne Pronamel Intensive Enamel Repair Whitening, 3.4 oz",
+          "size": 3.4,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Potassium nitrate",
+              "amount": "5%"
+            },
+            {
+              "name": "Sodium fluoride",
+              "amount": "0.25% (0.15% w/v fluoride ion)"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Ibuprofen 200 mg Tablets, Twin Pack 2 x 500 (1000 count)",
+        "size": 1000,
+        "unit": "tablet",
+        "price": 14.29,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/ibuprofen-nsaid-pain-reliever-fever-reducer-tablets-up-up/-/A-51218403",
+        "key_ingredients": [
+          {
+            "name": "Ibuprofen",
+            "amount": "200 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "up&up",
+        "product": "up&up Extra Sensitive Whitening Toothpaste, 4 oz",
+        "size": 4,
+        "unit": "oz",
+        "price": 3.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/extra-sensitive-whitening-toothpaste-up-up/-/A-93764550",
+        "key_ingredients": [
+          {
+            "name": "Potassium nitrate",
+            "amount": "5%"
+          },
+          {
+            "name": "Sodium fluoride",
+            "amount": "0.15% w/v fluoride ion"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "This Target bundle pairs Advil with Sensodyne Pronamel Whitening; up&up ibuprofen and up&up's sensitive whitening toothpaste carry the same actives at the same strengths for about a quarter of the price.",
+    "evidence": "Target sells the bundle as one listing at $29.44. Advil's DailyMed label (Haleon) gives ibuprofen 200 mg per coated tablet and lists the 300-tablet bottle; the up&up ibuprofen label on DailyMed gives ibuprofen 200 mg, 'Compare to active ingredient in Advil', under ANDA072096 (an FDA-approved generic). Haleon's DailyMed label for Pronamel Intensive Enamel Repair Whitening lists potassium nitrate 5% and sodium fluoride 0.25% (0.15% w/v fluoride ion) in a 3.4 oz (96.4 g) tube, and Target's Pronamel page shows the same. Target's up&up Extra Sensitive Whitening page lists potassium nitrate 5% and sodium fluoride at 0.15% w/v fluoride ion, the levels set by the FDA's OTC monographs for anticavity and antihypersensitivity toothpastes, at $3.99 for 4 oz.",
+    "differences": "The toothpaste half is the weaker match. The up&up paste has the same actives and fluoride-ion level, but Target's page prints the sodium fluoride as 0.24% (Sensodyne says 0.25%) and the Drug Facts text there is garbled; we could not find this exact up&up paste on DailyMed, so check the tube. Pronamel is marketed for enamel and has its own inactive formula (it contains sodium lactate), and up&up does not claim enamel repair. Advil tablets are sugar coated, up&up's are film coated. The 1000-tablet pack is far more ibuprofen than the bundle's 300.",
+    "sources": [
+      "https://www.target.com/p/advil-300-count-pain-reliever-fever-reducer-ibuprofen-nsaid-tablets-sensodyne-3-4oz-pronamel-enamel-repair-whitening-artic-breeze-toothpaste/-/A-1010609243",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a665e64-9f30-be37-4a83-38789f1f1e89",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2919fe8b-9c76-4ef6-851e-3247782cef44",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a2f9d58b-671b-4427-a971-1fceff5f2323",
+      "https://www.target.com/p/sensodyne-pronamel-intensive-enamel-repair-whitening-artic-breeze-3-4oz/-/A-87069510",
+      "https://www.target.com/p/extra-sensitive-whitening-toothpaste-up-up/-/A-93764550",
+      "https://www.target.com/p/ibuprofen-nsaid-pain-reliever-fever-reducer-tablets-up-up/-/A-51218403"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "tums-smoothies-12ct-140ct-bundle-vs-up-and-up-smooth-dissolving-antacid-750mg",
+    "market": "US",
+    "category": "otc-medicine",
+    "title": "Tums Smoothies 12ct + 140ct bundle vs up&up Smooth Dissolving Antacid 750 mg",
+    "bundle": {
+      "brand": "Tums",
+      "name": "Tums Extra Strength Antacid Smoothies Assorted Fruit Chewable 12 Count + 140 Count (Target Value Bundle)",
+      "price": 12.05,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/tums-extra-strength-antacid-smoothies-assorted-fruit-chewable-12-count-tablets-140-count-tablets/-/A-1013205448",
+      "items": [
+        {
+          "name": "Tums Extra Strength Smoothies Assorted Fruit, 12 count",
+          "size": 12,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Calcium carbonate",
+              "amount": "750 mg"
+            }
+          ]
+        },
+        {
+          "name": "Tums Extra Strength Smoothies Assorted Fruit, 140 count",
+          "size": 140,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Calcium carbonate",
+              "amount": "750 mg"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Antacid Smooth Chews, Assorted Fruit, 60 count",
+        "size": 60,
+        "unit": "tablet",
+        "price": 2.59,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/antacid-smooth-chews-assorted-fruit-flavor-60ct-up-38-up-8482/-/A-52175077",
+        "key_ingredients": [
+          {
+            "name": "Calcium carbonate",
+            "amount": "750 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "up&up",
+        "product": "up&up Antacid Smoothie Tablets, 140 count",
+        "size": 140,
+        "unit": "tablet",
+        "price": 4.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/antacid-smoothie-digestive-tablet-140ct-up-38-up-8482/-/A-76150114",
+        "key_ingredients": [
+          {
+            "name": "Calcium carbonate",
+            "amount": "750 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both Tums Smoothies bottles in this bundle are 750 mg calcium carbonate, and up&up's smooth-dissolving antacid, labelled 'compare to Tums Smoothies', has the same dose for under half the price.",
+    "evidence": "Target sells the bundle at $12.05 (12ct + 140ct Tums Extra Strength Smoothies Assorted Fruit). Haleon's DailyMed label for Tums Extra Strength Smoothies gives calcium carbonate 750 mg (300 mg elemental calcium) per chewable tablet, and Target's Tums 2 x 12 Smoothies listing shows the same 750 mg. Target Corporation's DailyMed label for up&up Extra Strength Smooth Dissolving Antacid Assorted Fruit gives 'Calcium Carbonate USP 750mg', says 'Compare to active ingredient in TUMS Smoothies' and lists 60- and 140-count bottles. Target's pages show $2.59 for the 60-count and $4.99 for the 140-count, both 750 mg. Calcium carbonate antacids are covered by the FDA's OTC antacid monograph (21 CFR 331), so the same dose of the same active is the same drug.",
+    "differences": "Flavours and texture may differ slightly. Haleon's label notes each Tums tablet also contains about 10 mg of magnesium from the inactive ingredients. Buying the two up&up bottles gets you 200 tablets for $7.58, more than the bundle's 152.",
+    "sources": [
+      "https://www.target.com/p/tums-extra-strength-antacid-smoothies-assorted-fruit-chewable-12-count-tablets-140-count-tablets/-/A-1013205448",
+      "https://www.target.com/p/tums-2-count-12-each-extra-strength-antacid-smoothies-assorted-fruit-chewable-tablets/-/A-1013265167",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=11078d7c-373b-4c7b-b33b-f1deba613fc1",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b97558c5-d836-42ae-bfa5-0f4c6bca7e4a",
+      "https://www.target.com/p/antacid-smooth-chews-assorted-fruit-flavor-60ct-up-38-up-8482/-/A-52175077",
+      "https://www.target.com/p/antacid-smoothie-digestive-tablet-140ct-up-38-up-8482/-/A-76150114"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "tums-smoothies-2x12-bundle-vs-up-and-up-smooth-dissolving-antacid-750mg",
+    "market": "US",
+    "category": "otc-medicine",
+    "title": "Tums Smoothies 2 x 12 bundle vs up&up Smooth Dissolving Antacid 750 mg",
+    "bundle": {
+      "brand": "Tums",
+      "name": "Tums 2 Count 12 Each Extra Strength Antacid Smoothies Assorted Fruit Chewable Tablets (Target Value Bundle)",
+      "price": 5.12,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/tums-2-count-12-each-extra-strength-antacid-smoothies-assorted-fruit-chewable-tablets/-/A-1013265167",
+      "items": [
+        {
+          "name": "Tums Extra Strength Smoothies Assorted Fruit, 12 count (pack 1)",
+          "size": 12,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Calcium carbonate",
+              "amount": "750 mg"
+            }
+          ]
+        },
+        {
+          "name": "Tums Extra Strength Smoothies Assorted Fruit, 12 count (pack 2)",
+          "size": 12,
+          "unit": "tablet",
+          "key_ingredients": [
+            {
+              "name": "Calcium carbonate",
+              "amount": "750 mg"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Antacid Smooth Chews, Assorted Fruit, 60 count",
+        "size": 60,
+        "unit": "tablet",
+        "price": 2.59,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/antacid-smooth-chews-assorted-fruit-flavor-60ct-up-38-up-8482/-/A-52175077",
+        "key_ingredients": [
+          {
+            "name": "Calcium carbonate",
+            "amount": "750 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "up&up",
+        "product": "up&up Antacid Smoothie Tablets, 140 count",
+        "size": 140,
+        "unit": "tablet",
+        "price": 4.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/antacid-smoothie-digestive-tablet-140ct-up-38-up-8482/-/A-76150114",
+        "key_ingredients": [
+          {
+            "name": "Calcium carbonate",
+            "amount": "750 mg"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "The two small Tums Smoothies packs cost about 21 cents a tablet; up&up's 750 mg smooth-dissolving antacid costs 4 cents or less, and one 60-count bottle alone is half the bundle's price.",
+    "evidence": "Target sells two 12-count packs of Tums Extra Strength Smoothies Assorted Fruit as a $5.12 bundle and lists calcium carbonate 750 mg (300 mg elemental calcium) per tablet. Haleon's DailyMed label for Tums Extra Strength Smoothies gives the same 750 mg. Target Corporation's DailyMed label for up&up Extra Strength Smooth Dissolving Antacid gives 'Calcium Carbonate USP 750mg' and 'Compare to active ingredient in TUMS Smoothies', in 60- and 140-count bottles, priced on Target at $2.59 and $4.99. The FDA's OTC antacid monograph (21 CFR 331) covers calcium carbonate, so the same dose is the same drug.",
+    "differences": "The bundle is only 24 tablets, so the per-tablet saving assumes you use the larger up&up bottles. If you only want about 24 tablets, one up&up 60-count bottle ($2.59) still costs half the bundle and holds 2.5 times as many. Flavour and texture may differ slightly.",
+    "sources": [
+      "https://www.target.com/p/tums-2-count-12-each-extra-strength-antacid-smoothies-assorted-fruit-chewable-tablets/-/A-1013265167",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=11078d7c-373b-4c7b-b33b-f1deba613fc1",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b97558c5-d836-42ae-bfa5-0f4c6bca7e4a",
+      "https://www.target.com/p/antacid-smooth-chews-assorted-fruit-flavor-60ct-up-38-up-8482/-/A-52175077",
+      "https://www.target.com/p/antacid-smoothie-digestive-tablet-140ct-up-38-up-8482/-/A-76150114"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "nature-made-magnesium-glycinate-200mg-2-pack-vs-up-and-up-magnesium-glycinate-200mg",
+    "market": "US",
+    "category": "supplements",
+    "title": "Nature Made Magnesium Glycinate 200 mg 2-pack vs up&up Magnesium Glycinate 200 mg",
+    "bundle": {
+      "brand": "Nature Made",
+      "name": "Nature Made 2 Pack/60ct Each High Absorption Magnesium Glycinate 200mg Capsules (Target Value Bundle)",
+      "price": 32.28,
+      "billing": "one-time",
+      "supply_days": 60,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/nature-made-2-pack-60ct-each-high-absorption-magnesium-glycinate-200mg-supplement-capsules/-/A-94482474",
+      "items": [
+        {
+          "name": "High Absorption Magnesium Glycinate 200 mg, 60 capsules (bottle 1)",
+          "size": 60,
+          "unit": "capsule",
+          "key_ingredients": [
+            {
+              "name": "Magnesium (as glycinate)",
+              "amount": "200 mg per 2 capsules"
+            }
+          ]
+        },
+        {
+          "name": "High Absorption Magnesium Glycinate 200 mg, 60 capsules (bottle 2)",
+          "size": 60,
+          "unit": "capsule",
+          "key_ingredients": [
+            {
+              "name": "Magnesium (as glycinate)",
+              "amount": "200 mg per 2 capsules"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Magnesium Glycinate 200 mg Capsules, 60 count",
+        "size": 60,
+        "unit": "capsule",
+        "price": 4.79,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/magnesium-glycinate-dietary-supplements-200mg-capsule-60ct-up-38-up-8482/-/A-90430364",
+        "key_ingredients": [
+          {
+            "name": "Magnesium (as glycinate)",
+            "amount": "200 mg per 2 capsules"
+          }
+        ],
+        "match_type": "identical_active"
+      },
+      {
+        "replaces": 1,
+        "brand": "up&up",
+        "product": "up&up Magnesium Glycinate 200 mg Capsules, 60 count",
+        "size": 60,
+        "unit": "capsule",
+        "price": 4.79,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/magnesium-glycinate-dietary-supplements-200mg-capsule-60ct-up-38-up-8482/-/A-90430364",
+        "key_ingredients": [
+          {
+            "name": "Magnesium (as glycinate)",
+            "amount": "200 mg per 2 capsules"
+          }
+        ],
+        "match_type": "identical_active"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "medium",
+    "summary": "Each Nature Made bottle and each up&up bottle gives 30 servings of 200 mg magnesium as magnesium glycinate, so two up&up bottles replace the 2-pack for about 70% less.",
+    "evidence": "Target's bundle page ($32.28) says it holds two 60-count bottles and shows Supplement Facts of 2 capsules per serving, 30 servings per container and 200 mg magnesium (48% DV) as magnesium glycinate; other ingredients are hypromellose, magnesium stearate, cellulose gel and silicon dioxide. Target's up&up magnesium glycinate page ($4.79 for 60) shows 'Magnesium 200mg 48%', 30 servings per 60-capsule container, with gelatin, magnesium stearate, silica and rice powder as other ingredients.",
+    "differences": "Supplements are not FDA-approved, so neither label has been checked against a reference product the way an OTC drug is; both are label claims. up&up uses a gelatin (bovine) capsule, Nature Made a vegetarian hypromellose capsule. up&up's description calls them '200-milligram capsules' while its label table shows 200 mg per 2-capsule serving; buyers report 2 capsules per serving, so check the bottle.",
+    "sources": [
+      "https://www.target.com/p/nature-made-2-pack-60ct-each-high-absorption-magnesium-glycinate-200mg-supplement-capsules/-/A-94482474",
+      "https://www.target.com/p/magnesium-glycinate-dietary-supplements-200mg-capsule-60ct-up-38-up-8482/-/A-90430364"
+    ],
+    "price_checked": "2026-11"
+  }
+]
