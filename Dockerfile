@@ -12,7 +12,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
+ARG NEXT_PUBLIC_AFFILIATE_SUBNETWORK=
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
+    NEXT_PUBLIC_AFFILIATE_SUBNETWORK=$NEXT_PUBLIC_AFFILIATE_SUBNETWORK \
     NEXT_TELEMETRY_DISABLED=1
 # The catalog is validated and compiled from data/pairs during `prebuild`.
 RUN npm run build

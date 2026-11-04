@@ -4,6 +4,7 @@ import { connection } from "next/server";
 import { and, desc, eq, gte, sql, count } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 import { getPair, getSiteStats } from "@/lib/catalog";
+import { Revenue } from "./Revenue";
 
 export const metadata: Metadata = { title: "Admin", robots: { index: false, follow: false } };
 
@@ -73,6 +74,8 @@ async function AdminData() {
         <Stat label="Unique clickers per day (30 days)" value={totals?.visitors ?? 0} />
         <Stat label="Subscribers" value={subCount?.n ?? 0} />
       </div>
+
+      <Revenue since={since} />
 
       <div>
         <h2 className="text-xl font-semibold">Top outbound clicks, last 30 days</h2>

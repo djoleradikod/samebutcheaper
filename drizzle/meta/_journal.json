@@ -15,6 +15,13 @@
       "when": 1793628250303,
       "tag": "0001_lookups",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793787300659,
+      "tag": "0002_affiliate_tracking",
+      "breakpoints": true
     }
   ]
 }

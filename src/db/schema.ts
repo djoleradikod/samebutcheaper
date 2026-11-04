@@ -8,6 +8,8 @@ import {
   uniqueIndex,
   pgEnum,
   boolean,
+  numeric,
+  jsonb,
 } from "drizzle-orm/pg-core";
 
 /** Outbound affiliate clicks, used to see which swaps people actually buy. */
@@ -16,13 +18,54 @@ export const clicks = pgTable(
   {
     id: serial("id").primaryKey(),
     pairSlug: varchar("pair_slug", { length: 160 }).notNull(),
-    side: varchar("side", { length: 16 }).notNull(), // "alternative" | "brand"
+    side: varchar("side", { length: 16 }).notNull(), // "alternative" | "brand" | "item-N" | "search"
     retailer: varchar("retailer", { length: 32 }).notNull(),
     referrer: text("referrer"),
     visitorHash: varchar("visitor_hash", { length: 64 }),
+    /** Our ID for this click, sent to the network as the sub-ID and returned on a sale. */
+    clickId: varchar("click_id", { length: 24 }),
+    /** Affiliate program that tagged the link ("walmart-us", "skimlinks"), null when untagged. */
+    program: varchar("program", { length: 40 }),
+    /** Shopper's country (from the country cookie). */
+    country: varchar("country", { length: 2 }),
+    /** Store host we sent them to, for spotting stores we have no program for. */
+    host: varchar("host", { length: 80 }),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   },
-  (t) => [index("clicks_pair_idx").on(t.pairSlug), index("clicks_created_idx").on(t.createdAt)],
+  (t) => [
+    index("clicks_pair_idx").on(t.pairSlug),
+    index("clicks_created_idx").on(t.createdAt),
+    uniqueIndex("clicks_click_id_idx").on(t.clickId),
+  ],
+);
+
+/**
+ * Sales reported by affiliate networks (server-to-server postbacks to
+ * /api/postback, or imported reports). One row per network order; a later
+ * report for the same order updates its status and commission.
+ */
+export const conversions = pgTable(
+  "conversions",
+  {
+    id: serial("id").primaryKey(),
+    network: varchar("network", { length: 24 }).notNull(),
+    orderId: varchar("order_id", { length: 120 }).notNull(),
+    clickId: varchar("click_id", { length: 24 }),
+    program: varchar("program", { length: 40 }),
+    sale: numeric("sale", { precision: 12, scale: 2 }),
+    commission: numeric("commission", { precision: 12, scale: 2 }).notNull(),
+    currency: varchar("currency", { length: 3 }).default("USD").notNull(),
+    /** "pending" | "approved" | "reversed" */
+    status: varchar("status", { length: 16 }).default("pending").notNull(),
+    raw: jsonb("raw"),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => [
+    uniqueIndex("conversions_order_idx").on(t.network, t.orderId),
+    index("conversions_click_idx").on(t.clickId),
+    index("conversions_created_idx").on(t.createdAt),
+  ],
 );
 
 export const submissionStatus = pgEnum("submission_status", [
