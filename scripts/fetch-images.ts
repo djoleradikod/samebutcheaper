@@ -116,7 +116,10 @@ function strictMatch(side: Side, p: OffProduct) {
 }
 
 async function bySearch(side: Side, dbs: Db[]) {
-  const terms = `${side.brand} ${side.product}`.replace(/\s+/g, " ").slice(0, 120);
+  // Every word must match, so sizes and counts in the name would find nothing.
+  const brandWords = new Set(tokens(side.brand));
+  const words = tokens(side.product).filter((t) => !brandWords.has(t) && !/\d/.test(t)).slice(0, 3);
+  const terms = [side.brand, ...words].join(" ");
   let best: { score: number; p: OffProduct; db: Db } | null = null;
   for (const db of dbs) {
     const wait = 6500 - (Date.now() - lastSearch);
