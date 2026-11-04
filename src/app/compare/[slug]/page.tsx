@@ -220,7 +220,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
           </a>
           <p className="text-center text-xs text-muted">
             {mayEarn(pair.alternative)
-              ? "Affiliate link. We may earn a commission at no cost to you."
+              ? "Ad: affiliate link. We may earn a commission at no cost to you."
               : "We don't earn anything from this link."}{" "}
             <Link href="/disclosure" className="underline underline-offset-2">Details</Link>
           </p>

@@ -30,8 +30,38 @@ export async function POST(request: Request) {
     return new Response("Bad body", { status: 400 });
   }
   const merged: Record<string, string> = { ...query };
-  for (const [k, v] of Object.entries(body)) if (typeof v === "string" || typeof v === "number") merged[k] = String(v);
+  flatten(body, "", merged);
   return handle(request, merged);
+}
+
+/** {commissionAmount: {amount: 1}} -> {"commissionAmount.amount": "1"}, so nested JSON reports work too. */
+function flatten(o: unknown, prefix: string, out: Record<string, string>, depth = 0) {
+  if (depth > 3 || !o || typeof o !== "object") return;
+  for (const [k, v] of Object.entries(o as Record<string, unknown>)) {
+    const key = prefix ? `${prefix}.${k}` : k;
+    if (typeof v === "string" || typeof v === "number" || typeof v === "boolean") out[key] = String(v);
+    else flatten(v, key, out, depth + 1);
+  }
+}
+
+/**
+ * Field names differ by network, so each of ours accepts the common ones
+ * (case-insensitive). Our own names (click, order, ...) always win.
+ */
+const ALIASES: Record<string, string[]> = {
+  click: ["click", "subid1", "subid", "clickref", "clickref1", "u1", "sid", "xcust", "cuid", "pubref", "fobs"],
+  order: ["order", "orderid", "order_id", "transactionid", "transaction_id", "actionid", "action_id", "id"],
+  commission: ["commission", "payout", "commissionamount", "commissionamount.amount", "commission_amount", "earnings"],
+  sale: ["sale", "saleamount", "saleamount.amount", "sale_amount", "amount", "ordervalue"],
+  currency: ["currency", "commissionamount.currency", "saleamount.currency"],
+  status: ["status", "actionstatus", "commissionstatus", "state"],
+};
+
+function pick(p: Record<string, string>) {
+  const lower = Object.fromEntries(Object.entries(p).map(([k, v]) => [k.toLowerCase(), v]));
+  const out: Record<string, string | undefined> = { key: p.key, network: p.network };
+  for (const [field, names] of Object.entries(ALIASES)) out[field] = names.map((n) => lower[n]).find((v) => v != null && v !== "");
+  return out;
 }
 
 const STATUS: Record<string, "pending" | "approved" | "reversed"> = {
@@ -47,7 +77,8 @@ const STATUS: Record<string, "pending" | "approved" | "reversed"> = {
   canceled: "reversed",
 };
 
-async function handle(_request: Request, p: Record<string, string>) {
+async function handle(_request: Request, all: Record<string, string>) {
+  const p = pick(all);
   const secret = process.env.POSTBACK_SECRET;
   if (!secret || !safeEqual(p.key ?? "", secret)) return new Response("Forbidden", { status: 403 });
   const db = getDb();
@@ -59,11 +90,11 @@ async function handle(_request: Request, p: Record<string, string>) {
   if (!network || !orderId || commission === null) {
     return new Response("network, order and commission are required", { status: 400 });
   }
-  const clickId = /^[a-z0-9]{6,24}$/.test(p.click ?? "") ? p.click : null;
+  const clickId = /^[a-z0-9]{6,24}$/.test(p.click ?? "") ? p.click! : null;
   const sale = money(p.sale);
-  const currency = /^[A-Za-z]{3}$/.test(p.currency ?? "") ? p.currency.toUpperCase() : "USD";
+  const currency = /^[A-Za-z]{3}$/.test(p.currency ?? "") ? p.currency!.toUpperCase() : "USD";
   const status = STATUS[(p.status ?? "pending").toLowerCase()] ?? "pending";
-  const raw = Object.fromEntries(Object.entries(p).filter(([k]) => k !== "key"));
+  const raw = Object.fromEntries(Object.entries(all).filter(([k]) => k !== "key"));
 
   let program: string | null = null;
   if (clickId) {

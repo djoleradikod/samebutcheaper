@@ -42,13 +42,13 @@ test("Awin program needs the publisher ID too", () => {
 });
 
 test("Rakuten, CJ, Partnerize formats", () => {
-  const rk = new URL(tagLink("https://www.dermstore.com/p", "c3", { RAKUTEN_SITE_ID: "SITE", AFF_DERMSTORE: "12345" }).url);
+  const rk = new URL(tagLink("https://www.samsclub.com/p", "c3", { RAKUTEN_SITE_ID: "SITE", AFF_SAMSCLUB: "12345" }).url);
   assert.equal(rk.hostname, "click.linksynergy.com");
   assert.equal(rk.searchParams.get("mid"), "12345");
   assert.equal(rk.searchParams.get("u1"), "c3");
-  const cj = tagLink("https://www.cvs.com/shop/x", "c4", { CJ_PID: "777", AFF_CVS: "1" });
-  assert.equal(cj.url, "https://www.anrdoezrs.net/links/777/type/dlg/sid/c4/https://www.cvs.com/shop/x");
-  const pz = tagLink("https://www.chewy.com/p", "c5", { AFF_CHEWY: "1100lABC" });
+  const cj = tagLink("https://www.walgreens.com/store/x", "c4", { CJ_PID: "777", AFF_WALGREENS: "1" });
+  assert.equal(cj.url, "https://www.anrdoezrs.net/links/777/type/dlg/sid/c4/https://www.walgreens.com/store/x");
+  const pz = tagLink("https://www.hollandandbarrett.com/p", "c5", { AFF_HOLLANDBARRETT: "1100lABC" });
   assert.ok(pz.url.startsWith("https://prf.hn/click/camref:1100lABC/pubref:c5/destination:https%3A%2F%2F"));
 });
 
@@ -100,4 +100,9 @@ test("click IDs are short and URL-safe", () => {
   const id = newClickId();
   assert.match(id, /^[a-z0-9]{9}$/);
   assert.notEqual(id, newClickId());
+});
+
+test("Awin program with a known merchant ID turns on with AFF_<ID>=1", () => {
+  const r = tagLink("https://www.shop-apotheke.com/arzneimittel/x", "c9", { AWIN_PUBLISHER_ID: "1", AFF_SHOPAPOTHEKE: "1" });
+  assert.equal(new URL(r.url).searchParams.get("awinmid"), "13808");
 });

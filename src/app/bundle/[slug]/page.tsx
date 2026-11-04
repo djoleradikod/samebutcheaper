@@ -245,7 +245,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
           </div>
           <p className="text-center text-xs text-muted">
             {b.components.some((c) => mayEarn(c)) || mayEarn(b.bundle)
-              ? "Affiliate links. We may earn a commission at no cost to you."
+              ? "Ad: affiliate links. We may earn a commission at no cost to you."
               : "We don't earn anything from these links."}{" "}
             <Link href="/disclosure" className="underline underline-offset-2">Details</Link>
           </p>

@@ -68,6 +68,9 @@ function fillTemplate(template: string, url: string, clickId: string) {
 /** Builds the direct-program link, or null when the program isn't configured. */
 function directLink(p: Program, url: string, clickId: string, env: Env): string | null {
   const own = env[programEnvKey(p.id)]?.trim();
+  // "1" (or "on"/"true") just switches the program on; any other number is a merchant ID.
+  const merchantOverride = own && /^\d{2,}$/.test(own) ? own : undefined;
+  const enabled = Boolean(own) && own !== "0" && own !== "false";
   // A full template always wins: "https://...{url}...{click}".
   if (own?.includes("{url}") || own?.includes("{raw_url}")) return fillTemplate(own, url, clickId);
 
@@ -90,20 +93,20 @@ function directLink(p: Program, url: string, clickId: string, env: Env): string 
     }
     case "awin": {
       const publisher = env.AWIN_PUBLISHER_ID?.trim();
-      const merchant = own && /^\d+$/.test(own) ? own : own ? p.merchantId : undefined;
+      const merchant = merchantOverride ?? (enabled ? p.merchantId : undefined);
       if (!publisher || !merchant) return null;
       return `https://www.awin1.com/cread.php?awinmid=${merchant}&awinaffid=${enc(publisher)}&clickref=${enc(clickId)}&ued=${enc(url)}`;
     }
     case "rakuten": {
       const site = env.RAKUTEN_SITE_ID?.trim();
-      const mid = own && /^\d+$/.test(own) ? own : own ? p.merchantId : undefined;
+      const mid = merchantOverride ?? (enabled ? p.merchantId : undefined);
       if (!site || !mid) return null;
       return `https://click.linksynergy.com/deeplink?id=${enc(site)}&mid=${mid}&u1=${enc(clickId)}&murl=${enc(url)}`;
     }
     case "cj": {
       // CJ's deep link generator works for any advertiser we're approved for.
       const pid = env.CJ_PID?.trim();
-      if (!pid || !own) return null;
+      if (!pid || !enabled) return null;
       return `https://www.anrdoezrs.net/links/${enc(pid)}/type/dlg/sid/${enc(clickId || "x")}/${url}`;
     }
     case "partnerize": {
