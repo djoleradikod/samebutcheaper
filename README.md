@@ -53,7 +53,18 @@ docker compose up -d --build             # site on http://<server-ip>:3000
 
 Database migrations run automatically on every start through the `migrate` service.
 
-**Production with HTTPS (Hetzner):** point your domain's DNS A record at the VPS, set `SITE_DOMAIN` and `NEXT_PUBLIC_SITE_URL=https://yourdomain` in `.env`, and open ports 80 and 443 in the Hetzner firewall. Then run:
+**One-command deploy (Hetzner or any Ubuntu VPS):** from a machine that can SSH into the server, run
+
+```bash
+ssh root@<server-ip> 'bash -s' < deploy/hetzner.sh              # HTTPS at https://<ip-with-dashes>.sslip.io
+ssh root@<server-ip> 'bash -s' < deploy/hetzner.sh example.com  # or your own domain
+```
+
+It installs Docker if needed, clones or updates the repo in `/opt/samebutcheaper`, creates `.env` with random
+passwords the first time, and starts the site behind Caddy. Run it again to update. The admin password is
+`ADMIN_PASSWORD` in `/opt/samebutcheaper/.env`.
+
+**Production with HTTPS by hand:** point your domain's DNS A record at the VPS, set `SITE_DOMAIN` and `NEXT_PUBLIC_SITE_URL=https://yourdomain` in `.env`, and open ports 80 and 443 in the Hetzner firewall. Then run:
 
 ```bash
 docker compose --profile proxy up -d --build
