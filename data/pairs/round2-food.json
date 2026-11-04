@@ -30,7 +30,7 @@
     },
     "alternative": {
       "brand": "Great Value",
-      "product": "Great Value No Calorie Sweetener with Sucralose, 200 count (7 oz)",
+      "product": "Great Value No Calorie Sweetener with Sucralose, 200 count (7 oz)", "image": "https://images.openfoodfacts.org/images/products/007/874/204/6181/front_en.6.400.jpg",
       "size": 7,
       "unit": "oz",
       "price_usd": 3.28,
@@ -145,7 +145,7 @@
     "title": "Domino Granulated Sugar vs Great Value Pure Granulated Sugar",
     "brand": {
       "brand": "Domino",
-      "product": "Domino Premium Pure Cane Granulated Sugar, 4 lb",
+      "product": "Domino Premium Pure Cane Granulated Sugar, 4 lb", "image": "https://images.openfoodfacts.org/images/products/004/920/004/5503/front_en.22.400.jpg",
       "size": 64,
       "unit": "oz",
       "price_usd": 4.74,
@@ -304,7 +304,7 @@
     "title": "Quaker Old Fashioned Oats vs Great Value Old Fashioned Oats (42 oz)",
     "brand": {
       "brand": "Quaker",
-      "product": "Quaker Old Fashioned Oats, 42 oz",
+      "product": "Quaker Old Fashioned Oats, 42 oz", "image": "https://images.openfoodfacts.org/images/products/003/000/001/0402/front_en.268.400.jpg",
       "size": 42,
       "unit": "oz",
       "price_usd": 5.49,
