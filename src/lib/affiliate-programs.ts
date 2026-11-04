@@ -1,0 +1,450 @@
+/**
+ * Affiliate programs for the stores our catalog links to.
+ *
+ * Joining a program is a config change, not a code change: set the program's
+ * env var (programEnvKey: "walmart-us" -> AFF_WALMART_US) once you're approved.
+ * What the value means depends on the network:
+ *   amazon      not used; set AMAZON_ASSOCIATE_TAG / AMAZON_TAGS instead
+ *   impact      the program's tracking link, e.g. https://goto.walmart.com/c/1234567/565706/9383
+ *   awin        "1" (uses merchantId below) or the Awin merchant ID; needs AWIN_PUBLISHER_ID
+ *   rakuten     "1" (uses merchantId below) or the Rakuten MID; needs RAKUTEN_SITE_ID
+ *   cj          "1" once approved for that advertiser; needs CJ_PID
+ *   template    a full link template (FlexOffers and other networks without a
+ *               self-built deep link format)
+ *   partnerize  the campaign reference (camref)
+ * Every program also accepts a full template with {url} (encoded), {raw_url}
+ * and {click} placeholders, for networks or deals not listed here.
+ *
+ * `terms` is for people (admin page and docs): rates change, so check the
+ * network dashboard before relying on them. Researched 2026-11-04, sources in
+ * docs/affiliate-playbook.md.
+ *
+ * This file is shared by server and client code: no secrets here.
+ */
+import type { MarketCode } from "./markets";
+
+export type Network = "amazon" | "impact" | "awin" | "rakuten" | "cj" | "partnerize" | "template";
+
+export type Program = {
+  id: string;
+  name: string;
+  /** Market the program pays in. Amazon covers several storefronts in one entry. */
+  country: MarketCode | "INTL";
+  /** Hosts (and their subdomains) that this program covers. */
+  hosts: readonly string[];
+  network: Network;
+  /** Public merchant ID on Awin/Rakuten, when known. */
+  merchantId?: string;
+  /** Commission and cookie, for people. */
+  terms: string;
+  /** Store bans sub-network (Skimlinks/Sovrn) traffic or it can't earn there. */
+  noSubNetwork?: boolean;
+  /** Where to apply. */
+  signup: string;
+};
+
+const AMAZON_HOSTS = [
+  "amazon.com",
+  "amazon.co.uk",
+  "amazon.ca",
+  "amazon.de",
+  "amazon.fr",
+  "amazon.it",
+  "amazon.es",
+  "amazon.nl",
+  "amazon.se",
+  "amazon.pl",
+  "amazon.com.be",
+  "amazon.com.au",
+  "amazon.co.jp",
+  "amazon.in",
+  "amazon.ae",
+  "amazon.sa",
+  "amazon.sg",
+  "amazon.com.mx",
+  "amazon.com.br",
+  "amazon.com.tr",
+] as const;
+
+export const PROGRAMS: readonly Program[] = [
+  {
+    id: "amazon",
+    name: "Amazon Associates",
+    country: "INTL",
+    hosts: AMAZON_HOSTS,
+    network: "amazon",
+    terms: "US: health 1%, grocery 1%, beauty/pet/baby 3%, most other 4%. CA: pet 9%, beauty 6%, health 3%. UK: consumables 3.5%. 24 h cookie (90 days for items added to cart), whole-cart credit; no per-click sub-ID",
+    noSubNetwork: true,
+    signup: "https://affiliate-program.amazon.com/",
+  },
+  // ---- US ----------------------------------------------------------------
+  {
+    id: "walmart-us",
+    name: "Walmart Affiliates",
+    country: "US",
+    hosts: ["walmart.com"],
+    network: "impact",
+    terms: "1-4% by category; 3-day cookie. Terms ban price-alert features and require Walmart-supplied prices refreshed within 24 h",
+    signup: "https://affiliates.walmart.com/",
+  },
+  {
+    id: "target",
+    name: "Target Partners",
+    country: "US",
+    hosts: ["target.com"],
+    network: "impact",
+    terms: "Health & beauty 1%; baby gear and home 5-8%; 0% on household, pet, pharmacy, electronics; 7-day cookie",
+    signup: "https://partners.target.com/",
+  },
+  {
+    id: "chewy",
+    name: "Chewy",
+    country: "US",
+    hosts: ["chewy.com"],
+    network: "impact",
+    terms: "4% on new and existing customers; ~15-day cookie (moved to Impact 2025)",
+    signup: "https://www.chewy.com/app/content/affiliate-program",
+  },
+  {
+    id: "cvs",
+    name: "CVS",
+    country: "US",
+    hosts: ["cvs.com"],
+    network: "impact",
+    terms: "~0.8% on health; 3-day cookie (Impact since Dec 2024)",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "ulta",
+    name: "Ulta Beauty",
+    country: "US",
+    hosts: ["ulta.com"],
+    network: "impact",
+    terms: "~2%; 30-day cookie",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "belkin",
+    name: "Belkin",
+    country: "US",
+    hosts: ["belkin.com"],
+    network: "impact",
+    terms: "up to 15%; 30-day cookie",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "logitech",
+    name: "Logitech",
+    country: "US",
+    hosts: ["logitech.com", "logitechg.com"],
+    network: "impact",
+    terms: "4-10% by brand; 30-day cookie",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "anker",
+    name: "Anker",
+    country: "US",
+    hosts: ["anker.com"],
+    network: "impact",
+    terms: "up to 7.5%; 14-30-day cookie (sources differ)",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "thorne",
+    name: "Thorne",
+    country: "US",
+    hosts: ["thorne.com"],
+    network: "impact",
+    terms: "rate not public (Impact exclusive)",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "petsmart",
+    name: "PetSmart",
+    country: "US",
+    hosts: ["petsmart.com"],
+    network: "impact",
+    terms: "~4.8%; 30-day cookie",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "bestbuy",
+    name: "Best Buy",
+    country: "US",
+    hosts: ["bestbuy.com"],
+    network: "impact",
+    terms: "mostly 0.5-1%; 1-day cookie",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "homedepot",
+    name: "The Home Depot",
+    country: "US",
+    hosts: ["homedepot.com"],
+    network: "impact",
+    terms: "1% default, some decor up to 8%; 1-day cookie (may have left Impact Aug 2026)",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "ugreen",
+    name: "UGREEN",
+    country: "US",
+    hosts: ["ugreen.com"],
+    network: "awin",
+    merchantId: "90851",
+    terms: "up to 15%; 60-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "momentous",
+    name: "Momentous",
+    country: "US",
+    hosts: ["livemomentous.com"],
+    network: "cj",
+    terms: "up to 15%; 45-day cookie",
+    signup: "https://www.cj.com/",
+  },
+  {
+    id: "walgreens",
+    name: "Walgreens",
+    country: "US",
+    hosts: ["walgreens.com"],
+    network: "cj",
+    terms: "~1.6-2%; 30-day cookie",
+    signup: "https://www.cj.com/",
+  },
+  {
+    id: "samsclub",
+    name: "Sam's Club",
+    country: "US",
+    hosts: ["samsclub.com"],
+    network: "rakuten",
+    terms: "~2% on products and memberships",
+    signup: "https://rakutenadvertising.com/",
+  },
+  {
+    id: "chipolo",
+    name: "Chipolo",
+    country: "US",
+    hosts: ["chipolo.net"],
+    network: "rakuten",
+    terms: "rate not public",
+    signup: "https://rakutenadvertising.com/",
+  },
+  {
+    id: "iherb",
+    name: "iHerb",
+    country: "INTL",
+    hosts: ["iherb.com"],
+    network: "awin",
+    merchantId: "76736",
+    terms: "5% (up to 25% on promos); 7-day cookie; ships to 180+ countries. Awin 76736 ROW, 76738 GBP, 76734 EUR",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "dermstore",
+    name: "Dermstore (FlexOffers)",
+    country: "US",
+    hosts: ["dermstore.com"],
+    network: "template",
+    terms: "rate not public; FlexOffers only since Apr 2026",
+    signup: "https://www.flexoffers.com/",
+  },
+  {
+    id: "vitacost",
+    name: "Vitacost (FlexOffers)",
+    country: "US",
+    hosts: ["vitacost.com"],
+    network: "template",
+    terms: "~1.6%; 7-day cookie; may have no active program",
+    signup: "https://www.flexoffers.com/",
+  },
+  {
+    id: "surlatable",
+    name: "Sur La Table (FlexOffers)",
+    country: "US",
+    hosts: ["surlatable.com"],
+    network: "template",
+    terms: "3.2%; 30-day cookie",
+    signup: "https://www.flexoffers.com/",
+  },
+  // ---- UK ----------------------------------------------------------------
+  {
+    id: "boots",
+    name: "Boots",
+    country: "GB",
+    hosts: ["boots.com"],
+    network: "awin",
+    merchantId: "2041",
+    terms: "2% on most health and beauty; 0% baby milk, prescriptions; 14-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "superdrug",
+    name: "Superdrug",
+    country: "GB",
+    hosts: ["superdrug.com"],
+    network: "awin",
+    merchantId: "127687",
+    terms: "rate not public; 30-day cookie (also on Rakuten)",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "pharmacy2u",
+    name: "Pharmacy2U",
+    country: "GB",
+    hosts: ["pharmacy2u.co.uk"],
+    network: "awin",
+    merchantId: "2102",
+    terms: "5% shop; 30-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "lookfantastic",
+    name: "LOOKFANTASTIC",
+    country: "GB",
+    hosts: ["lookfantastic.com"],
+    network: "awin",
+    merchantId: "2082",
+    terms: "content sites 10% new / 5% existing; The Ordinary SKUs 2%; 30-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "theordinary",
+    name: "The Ordinary (DECIEM)",
+    country: "INTL",
+    hosts: ["theordinary.com", "deciem.com"],
+    network: "awin",
+    merchantId: "29849",
+    terms: "rate not public; 30-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "hollandbarrett",
+    name: "Holland & Barrett",
+    country: "GB",
+    hosts: ["hollandandbarrett.com"],
+    network: "partnerize",
+    terms: "rate not public",
+    signup: "https://partnerize.com/",
+  },
+  {
+    id: "tesco",
+    name: "Tesco",
+    country: "GB",
+    hosts: ["tesco.com"],
+    network: "cj",
+    terms: "rate not public (CJ exclusive since Jan 2025)",
+    signup: "https://www.cj.com/",
+  },
+  {
+    id: "sainsburys",
+    name: "Sainsbury's",
+    country: "GB",
+    hosts: ["sainsburys.co.uk"],
+    network: "cj",
+    terms: "rate not public",
+    signup: "https://www.cj.com/",
+  },
+  // ---- Germany -----------------------------------------------------------
+  {
+    id: "shopapotheke",
+    name: "Shop Apotheke (Redcare)",
+    country: "DE",
+    hosts: ["shop-apotheke.com", "redcare-apotheke.de"],
+    network: "awin",
+    merchantId: "13808",
+    terms: "OTC 12% new / 3.5% existing customers; no Rx; 30-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "docmorris",
+    name: "DocMorris",
+    country: "DE",
+    hosts: ["docmorris.de"],
+    network: "awin",
+    terms: "OTC 12% new / 3.5% existing; merchant ID needed (Awin status unclear Aug 2026)",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "aponeo",
+    name: "APONEO",
+    country: "DE",
+    hosts: ["aponeo.de"],
+    network: "awin",
+    merchantId: "15521",
+    terms: "1%; 30-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "douglas",
+    name: "Douglas",
+    country: "DE",
+    hosts: ["douglas.de"],
+    network: "awin",
+    merchantId: "10076",
+    terms: "10%; 30-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  {
+    id: "flaconi",
+    name: "Flaconi",
+    country: "DE",
+    hosts: ["flaconi.de"],
+    network: "awin",
+    merchantId: "14598",
+    terms: "content sites 8%; 30-day cookie",
+    signup: "https://ui.awin.com/",
+  },
+  // ---- Canada ------------------------------------------------------------
+  {
+    id: "walmart-ca",
+    name: "Walmart Canada",
+    country: "CA",
+    hosts: ["walmart.ca"],
+    network: "rakuten",
+    terms: "rate not public",
+    signup: "https://rakutenadvertising.com/",
+  },
+  {
+    id: "loblaws",
+    name: "PC Express / Loblaws",
+    country: "CA",
+    hosts: ["pcexpress.ca", "loblaws.ca"],
+    network: "cj",
+    terms: "rate not public (CJ exclusive since Dec 2025)",
+    signup: "https://www.cj.com/",
+  },
+  {
+    id: "canadiantire",
+    name: "Canadian Tire",
+    country: "CA",
+    hosts: ["canadiantire.ca"],
+    network: "impact",
+    terms: "~1%",
+    signup: "https://app.impact.com/",
+  },
+  {
+    id: "shoppers",
+    name: "Shoppers Drug Mart",
+    country: "CA",
+    hosts: ["shoppersdrugmart.ca"],
+    network: "template",
+    terms: "~3%, 7 days (unverified marketplace listing)",
+    signup: "https://www.shoppersdrugmart.ca/",
+  },
+  {
+    id: "wellca",
+    name: "Well.ca (FlexOffers)",
+    country: "CA",
+    hosts: ["well.ca"],
+    network: "template",
+    terms: "rate not public",
+    signup: "https://www.flexoffers.com/",
+  },
+];
+
+export function programById(id: string) {
+  return PROGRAMS.find((p) => p.id === id);
+}
