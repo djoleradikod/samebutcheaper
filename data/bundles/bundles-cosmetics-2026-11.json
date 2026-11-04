@@ -1,0 +1,1539 @@
+[
+  {
+    "slug": "tula-clear-skin-starters-acne-kit-vs-salicylic-acid-rebuild",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "title": "TULA Clear Skin Starters Acne & Blemish Kit vs a 2% salicylic acid drugstore rebuild",
+    "bundle": {
+      "brand": "TULA Skincare",
+      "name": "Clear Skin Starters Travel-Size Acne & Blemish Fighting Kit, 4 pieces: Keep It Clear Acne Foam Cleanser 1.69 fl oz, Clear Up Pore Clearing Gel 0.5 fl oz, Breakout Star Lightweight Acne Moisturizer 0.5 fl oz, Detox in a Jar Exfoliating Treatment Mask 0.49 oz",
+      "price": 49,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/tula-skincare-clear-skin-starters-travel-size-acne-38-blemish-fighting-kit-6oz-4pc-beauty-studio/-/A-94633953",
+      "items": [
+        {
+          "name": "Keep It Clear Acne Foam Cleanser",
+          "size": 1.69,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Salicylic acid",
+              "amount": "2%"
+            },
+            {
+              "name": "Azelaic acid",
+              "amount": "not disclosed"
+            }
+          ]
+        },
+        {
+          "name": "Clear Up Pore Clearing Gel (cosmetic)",
+          "size": 0.5,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Salicylic acid",
+              "amount": "not disclosed (cosmetic, not a Drug Facts active)"
+            },
+            {
+              "name": "Niacinamide",
+              "amount": "not disclosed"
+            }
+          ]
+        },
+        {
+          "name": "Breakout Star Lightweight Acne Moisturizer",
+          "size": 0.5,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Salicylic acid",
+              "amount": "2%"
+            },
+            {
+              "name": "Niacinamide",
+              "amount": "not disclosed"
+            }
+          ]
+        },
+        {
+          "name": "Detox in a Jar Exfoliating Treatment Mask",
+          "size": 0.49,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Bentonite",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Kaolin",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Lactic acid",
+              "amount": "not disclosed"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Travel bag",
+        "Ulta lists a $61 value"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Oil Free Acne Wash with Salicylic Acid, 8 fl oz",
+        "size": 8,
+        "unit": "fl oz",
+        "price": 5.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186",
+        "key_ingredients": [
+          {
+            "name": "Salicylic acid",
+            "amount": "2%"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "2% salicylic acid acne face wash"
+      },
+      {
+        "replaces": 1,
+        "brand": "Minimalist",
+        "product": "Minimalist Salicylic Acid 2% Face Serum, 1 fl oz",
+        "size": 1,
+        "unit": "fl oz",
+        "price": 10,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/minimalist-salicylic-acid-2-face-serum-1-fl-oz/-/A-94858108",
+        "key_ingredients": [
+          {
+            "name": "Salicylic acid",
+            "amount": "2%"
+          },
+          {
+            "name": "Glycolic acid",
+            "amount": "not disclosed"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "2% salicylic acid leave-on serum"
+      },
+      {
+        "replaces": 2,
+        "brand": "CeraVe",
+        "product": "CeraVe Salicylic Acid Acne Treatment Control Gel, 1.35 fl oz",
+        "size": 1.35,
+        "unit": "fl oz",
+        "price": 15.79,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/cerave-salicylic-acid-acne-treatment-control-gel-1-35oz/-/A-82403939",
+        "key_ingredients": [
+          {
+            "name": "Salicylic acid",
+            "amount": "2%"
+          },
+          {
+            "name": "Niacinamide",
+            "amount": "not disclosed"
+          },
+          {
+            "name": "Ceramides",
+            "amount": "not disclosed"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "2% salicylic acid leave-on acne gel or lotion"
+      },
+      {
+        "replaces": 3,
+        "brand": "Que Bella",
+        "product": "Que Bella Cleansing Pink Clay Mud Mask, 0.5 oz",
+        "size": 0.5,
+        "unit": "oz",
+        "price": 1.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/que-bella-cleansing-pink-clay-mud-mask-0-5oz/-/A-83223567",
+        "key_ingredients": [
+          {
+            "name": "Bentonite",
+            "amount": "not disclosed"
+          },
+          {
+            "name": "Kaolin",
+            "amount": "not disclosed"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "bentonite and kaolin clay face mask"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "TULA's two medicated pieces are 2% salicylic acid, which a drugstore wash and CeraVe's leave-on gel match at the same strength; the cosmetic pore gel and clay mask are swapped for a 2% salicylic serum and a bentonite-kaolin mask.",
+    "evidence": "The DailyMed kit label (NDC 84126-239-01) lists Keep It Clear Acne Foam Cleanser 1.69 fl oz/50 mL and Breakout Star Lightweight Acne Moisturizer 0.5 fl oz/15 mL with salicylic acid 2%, Clear Up Pore Clearing Gel 0.5 fl oz/15 mL as a cosmetic, and Detox in a Jar mask 0.49 oz/14 g; Ulta's kit page gives the same sizes and $49.00 price, and Target shows $49.00 with Drug Facts salicylic acid 2.0%. up&up Oil Free Acne Wash and CeraVe Acne Treatment Control Gel both list Drug Facts salicylic acid 2.0%; Minimalist's serum lists 2% salicylic acid; the Que Bella mask label lists bentonite and kaolin, as Ulta lists for the TULA mask.",
+    "differences": "TULA's pieces use prebiotics, azelaic acid, tea tree and other extras that the rebuild lacks. The up&up wash is a liquid gel wash, not a foam. CeraVe's gel is sold as an acne treatment gel, not a moisturizer, though it is hydrating (glycerin, hyaluronic acid, ceramides). Minimalist's serum lists its 2% salicylic acid as a cosmetic ingredient, not a Drug Facts active, and adds glycolic and lactic acid; TULA's gel discloses no strength. The Que Bella mask is fragranced, has no lactic acid and is a single-use sachet. You buy full sizes ($33.77 up front for 8, 1 and 1.35 fl oz plus one mask) instead of travel minis.",
+    "sources": [
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4dc9e3eb-c4d0-b5e1-e063-6394a90a9b7e",
+      "https://www.ulta.com/p/clear-skin-starters-travel-size-acne-blemish-fighting-kit-pimprod2051853",
+      "https://www.target.com/p/tula-skincare-clear-skin-starters-travel-size-acne-38-blemish-fighting-kit-6oz-4pc-beauty-studio/-/A-94633953",
+      "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186",
+      "https://www.target.com/p/minimalist-salicylic-acid-2-face-serum-1-fl-oz/-/A-94858108",
+      "https://www.target.com/p/cerave-salicylic-acid-acne-treatment-control-gel-1-35oz/-/A-82403939",
+      "https://www.target.com/p/que-bella-cleansing-pink-clay-mud-mask-0-5oz/-/A-83223567"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "la-roche-posay-effaclar-acne-daily-essentials-kit-vs-up-and-up-salicylic-acid-routine",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "title": "La Roche-Posay Effaclar Acne Daily Essentials Kit vs an up&up 2% / 0.5% salicylic acid routine",
+    "bundle": {
+      "brand": "La Roche-Posay",
+      "name": "Effaclar Acne Daily Essential(s) Kit, 3 ct: Effaclar Medicated Gel Cleanser 3.4 fl oz, Effaclar Clarifying Solution 3.4 fl oz, Toleriane Double Repair Matte Moisturizer 3.4 fl oz",
+      "price": 29.99,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/la-roche-posay-effaclar-acne-daily-essential-kit-3ct/-/A-94581531",
+      "items": [
+        {
+          "name": "Effaclar Medicated Gel Cleanser",
+          "size": 3.4,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Salicylic acid (drug active)",
+              "amount": "2%"
+            },
+            {
+              "name": "LHA (capryloyl salicylic acid)",
+              "amount": "not stated"
+            }
+          ]
+        },
+        {
+          "name": "Effaclar Clarifying Solution (acne toner)",
+          "size": 3.4,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Salicylic acid (drug active)",
+              "amount": "0.5%"
+            },
+            {
+              "name": "Glycolic acid",
+              "amount": "not stated (inactive)"
+            }
+          ]
+        },
+        {
+          "name": "Toleriane Double Repair Matte Moisturizer",
+          "size": 3.4,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Niacinamide",
+              "amount": "not stated"
+            },
+            {
+              "name": "Ceramide NP",
+              "amount": "not stated"
+            },
+            {
+              "name": "Glycerin",
+              "amount": "not stated"
+            },
+            {
+              "name": "Silica / perlite (mattifying)",
+              "amount": "not stated"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Target price $29.99; Dermstore and LovelySkin list the same kit at $39.99"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Oil Free Acne Wash with Salicylic Acid, 8 fl oz",
+        "size": 8,
+        "unit": "fl oz",
+        "price": 5.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186",
+        "key_ingredients": [
+          {
+            "name": "Salicylic acid (drug active)",
+            "amount": "2.0%"
+          },
+          {
+            "name": "Ceramides AP/EOP/NP, niacinamide, hyaluronic acid",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "2% salicylic acid acne face wash"
+      },
+      {
+        "replaces": 1,
+        "brand": "up&up",
+        "product": "up&up Deep Cleaning Pore Treatment (compare to Clean & Clear Deep Cleaning Toner), 8 fl oz",
+        "size": 8,
+        "unit": "fl oz",
+        "price": 3.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/deep-cleaning-pore-treatment-8-fl-oz-up-38-up-8482/-/A-15742228",
+        "key_ingredients": [
+          {
+            "name": "Salicylic acid (drug active)",
+            "amount": "0.5%"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "0.5% salicylic acid acne toner / astringent"
+      },
+      {
+        "replaces": 2,
+        "brand": "up&up",
+        "product": "up&up PM Facial Moisturizing Lotion, 3 fl oz",
+        "size": 3,
+        "unit": "fl oz",
+        "price": 11.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/pm-facial-moisturizing-lotion-3-fl-oz-up-38-up-8482/-/A-80113694",
+        "key_ingredients": [
+          {
+            "name": "Niacinamide",
+            "amount": "not stated"
+          },
+          {
+            "name": "Ceramides NP/AP/EOP",
+            "amount": "not stated"
+          },
+          {
+            "name": "Sodium hyaluronate",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "oil-free niacinamide + ceramide face lotion"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "The two medicated steps of La Roche-Posay's Effaclar kit are 2% and 0.5% salicylic acid, the same drug actives and strengths as Target's up&up acne wash and pore toner; the matte moisturizer swaps for a ceramide + niacinamide lotion.",
+    "evidence": "Target's kit listing gives Drug Facts salicylic acid 2% and 0.5%; Dermstore's kit page names 2% salicylic acid for the gel cleanser and LovelySkin/Dermstore confirm all three items are 3.4 fl oz. Target's standalone Effaclar Clarifying Solution Drug Facts show salicylic acid 0.5% (with glycolic acid as an inactive), and the Effaclar gel cleanser listing shows 2.0%. up&up Oil Free Acne Wash Drug Facts: salicylic acid 2.0%; up&up Deep Cleaning Pore Treatment Drug Facts: salicylic acid 0.5%. Toleriane Double Repair Matte ingredients (water, glycerin, silica, betaine, niacinamide, ... ceramide NP, sodium hyaluronate, perlite) were read on Target; up&up PM lotion lists niacinamide, three ceramides and sodium hyaluronate.",
+    "differences": "The LRP toner adds glycolic acid and LHA is in the LRP cleanser; the up&up toner has neither and contains alcohol denat. and fragrance (the LRP toner also has alcohol denat.). The up&up PM lotion is a richer night-style lotion without the silica/perlite oil absorbers, so it is not mattifying; reviewers report a scent in newer bottles. You buy full 8 fl oz and 3 fl oz bottles instead of three 3.4 fl oz kit bottles. Kit price is Target's $29.99; elsewhere it is $39.99, which would make the swap even cheaper.",
+    "sources": [
+      "https://www.target.com/p/la-roche-posay-effaclar-acne-daily-essential-kit-3ct/-/A-94581531",
+      "https://www.dermstore.com/p/la-roche-posay-effaclar-acne-daily-essentials-kit/16677186/",
+      "https://www.target.com/p/la-roche-posay-effaclar-face-salicylic-acid-toner-clarifying-solution-with-medicated-formula-6-76oz/-/A-16601218",
+      "https://www.target.com/p/la-roche-posay-effaclar-acne-face-cleanser-medicated-gel-face-cleanser-with-salicylic-acid-for-acne-prone-skin/-/A-94567225",
+      "https://www.target.com/p/la-roche-posay-toleriane-double-repair-matte-face-moisturizer-daily-gel-face-moisturizer-with-ceramide-and-niacinamide-for-oily-skin-2-5-fl-oz/-/A-83614227",
+      "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186",
+      "https://www.target.com/p/deep-cleaning-pore-treatment-8-fl-oz-up-38-up-8482/-/A-15742228",
+      "https://www.target.com/p/pm-facial-moisturizing-lotion-3-fl-oz-up-38-up-8482/-/A-80113694"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "supergoop-supergoopies-spf-bestsellers-set-vs-elf-cerave-up-and-up-sunscreens",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "title": "Supergoop! Supergoopies SPF Bestsellers Set vs e.l.f., CeraVe and up&up sunscreens with near-identical filters",
+    "bundle": {
+      "brand": "Supergoop!",
+      "name": "Supergoopies SPF Bestsellers Set, 4 minis: Unseen Sunscreen SPF 50 0.5 fl oz, Glowscreen SPF 40 (Sunrise) 0.5 fl oz, Mineral Mattescreen SPF 40 (untinted) 0.5 fl oz, PLAY Everyday Lotion SPF 50 1 fl oz",
+      "price": 38,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/supergoop-supergoopies-spf-bestsellers-gift-set-4ct-beauty-studio/-/A-1011061478",
+      "items": [
+        {
+          "name": "Unseen Sunscreen SPF 50 (mini)",
+          "size": 0.5,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Avobenzone",
+              "amount": "3%"
+            },
+            {
+              "name": "Homosalate",
+              "amount": "7%"
+            },
+            {
+              "name": "Octisalate",
+              "amount": "5%"
+            },
+            {
+              "name": "Octocrylene",
+              "amount": "9%"
+            }
+          ]
+        },
+        {
+          "name": "Glowscreen SPF 40 Sunrise (mini)",
+          "size": 0.5,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Avobenzone",
+              "amount": "3%"
+            },
+            {
+              "name": "Octisalate",
+              "amount": "5%"
+            },
+            {
+              "name": "Octocrylene",
+              "amount": "8-10% (listings differ)"
+            },
+            {
+              "name": "Homosalate",
+              "amount": "0-4% (listings differ)"
+            }
+          ]
+        },
+        {
+          "name": "Mineral Mattescreen SPF 40 untinted (mini)",
+          "size": 0.5,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Zinc oxide",
+              "amount": "17.68%"
+            },
+            {
+              "name": "Titanium dioxide",
+              "amount": "1.33%"
+            }
+          ]
+        },
+        {
+          "name": "PLAY Everyday Lotion SPF 50 (mini)",
+          "size": 1,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Avobenzone",
+              "amount": "3%"
+            },
+            {
+              "name": "Homosalate",
+              "amount": "10%"
+            },
+            {
+              "name": "Octisalate",
+              "amount": "5%"
+            },
+            {
+              "name": "Octocrylene",
+              "amount": "7.5%"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Listed as a $66 value (Ulta)",
+        "Same $38 price at Target and Ulta"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "e.l.f. SKIN",
+        "product": "e.l.f. SKIN Suntouchable Invisible Sunscreen SPF 35, 1.7 fl oz",
+        "size": 1.7,
+        "unit": "fl oz",
+        "price": 15,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/e-l-f-skin-suntouchable-invisible-sunscreen-spf-35-1-7-fl-oz/-/A-88301548",
+        "key_ingredients": [
+          {
+            "name": "Avobenzone",
+            "amount": "3.0%"
+          },
+          {
+            "name": "Homosalate",
+            "amount": "7.0%"
+          },
+          {
+            "name": "Octisalate",
+            "amount": "5.0%"
+          },
+          {
+            "name": "Octocrylene",
+            "amount": "8.0%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "clear invisible gel face sunscreen, isododecane/dimethicone base"
+      },
+      {
+        "replaces": 1,
+        "brand": "e.l.f. SKIN",
+        "product": "e.l.f. SKIN Suntouchable Whoa Glow Sunscreen & Primer SPF 30, 1.69 fl oz",
+        "size": 1.69,
+        "unit": "fl oz",
+        "price": 15,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/e-l-f-skin-suntouchable-whoa-glow-sunscreen-primer-spf-30-1-69-fl-oz/-/A-91210251",
+        "key_ingredients": [
+          {
+            "name": "Avobenzone",
+            "amount": "3.0%"
+          },
+          {
+            "name": "Homosalate",
+            "amount": "9.0%"
+          },
+          {
+            "name": "Octisalate",
+            "amount": "5.0%"
+          },
+          {
+            "name": "Octocrylene",
+            "amount": "7.0%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "glowy tinted primer sunscreen SPF 30-40"
+      },
+      {
+        "replaces": 2,
+        "brand": "CeraVe",
+        "product": "CeraVe Invisible Mineral Face Sunscreen SPF 50, 1.62 fl oz",
+        "size": 1.62,
+        "unit": "fl oz",
+        "price": 13.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/cerave-invisible-mineral-face-sunscreen-spf-50-1-75-fl-oz/-/A-94796929",
+        "key_ingredients": [
+          {
+            "name": "Zinc oxide",
+            "amount": "15.35%"
+          },
+          {
+            "name": "Titanium dioxide",
+            "amount": "2.66%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "zinc oxide + titanium dioxide face sunscreen SPF 40-50"
+      },
+      {
+        "replaces": 3,
+        "brand": "up&up",
+        "product": "up&up Clear Face Oil Free Sunscreen Lotion SPF 50, 3 fl oz",
+        "size": 3,
+        "unit": "fl oz",
+        "price": 7.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/clear-face-oil-free-sunscreen-lotion-spf-50-3-fl-oz-up-38-up-8482/-/A-94711205",
+        "key_ingredients": [
+          {
+            "name": "Avobenzone",
+            "amount": "3.0%"
+          },
+          {
+            "name": "Homosalate",
+            "amount": "10.0%"
+          },
+          {
+            "name": "Octisalate",
+            "amount": "5.0%"
+          },
+          {
+            "name": "Octocrylene",
+            "amount": "10.0%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "SPF 50 lotion with avobenzone 3%, homosalate 10%, octisalate 5%, octocrylene"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Supergoop's four-mini set uses the same avobenzone/homosalate/octisalate/octocrylene filters (and a zinc/titanium mineral) found in e.l.f., CeraVe and up&up sunscreens, which cost far less per ounce in full sizes.",
+    "evidence": "Ulta's set page lists sizes (three 0.5 oz minis and a 1 oz PLAY lotion) and per-item actives; Target's set page lists the same four products at $38. Target's standalone Supergoop pages confirm Unseen SPF 50 = avobenzone 3%, homosalate 7%, octisalate 5%, octocrylene 9% (isododecane/dimethicone base), PLAY Everyday SPF 50 = avobenzone 3%, homosalate 10%, octisalate 5%, octocrylene 7.5%, and Mineral Mattescreen = zinc oxide 17.68%, titanium dioxide 1.33%. Rebuild Drug Facts read on Target: e.l.f. Suntouchable Invisible SPF 35 = avobenzone 3/homosalate 7/octisalate 5/octocrylene 8 with an isododecane/dimethicone base (closest to Unseen); up&up Clear Face SPF 50 = avobenzone 3/homosalate 10/octisalate 5/octocrylene 10 (PLAY differs only in octocrylene 7.5%); e.l.f. Whoa Glow SPF 30 = avobenzone 3/homosalate 9/octisalate 5/octocrylene 7; CeraVe Invisible Mineral SPF 50 = zinc oxide 15.35%, titanium dioxide 2.66%.",
+    "differences": "No component is an identical drug-facts match: filter percentages differ slightly and two swaps have a lower SPF (e.l.f. Invisible SPF 35 vs Unseen SPF 50; Whoa Glow SPF 30 vs Glowscreen SPF 40). Glowscreen's actives are listed differently across Target and Ulta pages (homosalate 0-7%, octocrylene 8-10%), so treat that line as approximate. Whoa Glow is a shimmer tint in three shades vs Glowscreen's Sunrise tint; CeraVe's mineral is a hydrating, not matte, finish; up&up Clear Face is a face lotion, PLAY is a body-and-face lotion. You buy four full-size products (about 8 fl oz total) instead of 2.5 fl oz of minis, so the upfront cost is higher (about $52) even though the per-ounce cost is far lower.",
+    "sources": [
+      "https://www.target.com/p/supergoop-supergoopies-spf-bestsellers-gift-set-4ct-beauty-studio/-/A-1011061478",
+      "https://www.ulta.com/p/supergoopies-spf-bestsellers-set-pimprod2057373",
+      "https://www.target.com/p/supergoop-unseen-clear-38-invisible-face-sunscreen-spf-50-1-7-fl-oz/-/A-94819020",
+      "https://www.target.com/p/supergoop-play-everyday-hydrating-body-face-sunscreen-lotion-spf-50/-/A-95202600",
+      "https://www.target.com/p/supergoop-mineral-mattescreen-sunscreen-non-comedogenic-mattifying-tinted-primer-sunrise-spf-40-1-5-fl-oz/-/A-94819027",
+      "https://www.target.com/p/supergoop-glowscreen-hydrating-glowy-tinted-primer-sunscreen-with-hyaluronic-acid-niacinamide-spf-40/-/A-95202597",
+      "https://www.target.com/p/e-l-f-skin-suntouchable-invisible-sunscreen-spf-35-1-7-fl-oz/-/A-88301548",
+      "https://www.target.com/p/e-l-f-skin-suntouchable-whoa-glow-sunscreen-primer-spf-30-1-69-fl-oz/-/A-91210251",
+      "https://www.target.com/p/cerave-invisible-mineral-face-sunscreen-spf-50-1-75-fl-oz/-/A-94796929",
+      "https://www.target.com/p/clear-face-oil-free-sunscreen-lotion-spf-50-3-fl-oz-up-38-up-8482/-/A-94711205"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "paulas-choice-pore-perfector-duo-vs-jumiso-niacinamide-20-and-up-and-up-ceramide-toner",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "title": "Paula's Choice Pore Perfector Duo vs Jumiso Niacinamide 20 Serum + up&up ceramide toner",
+    "bundle": {
+      "brand": "Paula's Choice",
+      "name": "Pore Perfector Duo ($91 value): SKIN BALANCING Pore-Reducing Toner 6.4 fl oz + CLINICAL Niacinamide 20% Treatment 0.67 fl oz",
+      "price": 73,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.dermstore.com/p/paula-s-choice-pore-perfector-duo/15959466/",
+      "items": [
+        {
+          "name": "SKIN BALANCING Pore-Reducing Toner",
+          "size": 6.4,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Niacinamide",
+              "amount": "not stated"
+            },
+            {
+              "name": "Ceramides, cholesterol",
+              "amount": "not stated"
+            },
+            {
+              "name": "Sodium hyaluronate",
+              "amount": "not stated"
+            },
+            {
+              "name": "Panthenol, adenosine",
+              "amount": "not stated"
+            }
+          ]
+        },
+        {
+          "name": "CLINICAL Niacinamide 20% Treatment",
+          "size": 0.67,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Niacinamide",
+              "amount": "20%"
+            },
+            {
+              "name": "Licorice root extract, ascorbyl glucoside, acetyl glucosamine",
+              "amount": "not stated"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Dermstore price, 20% off the $91 RRP; auto-replenish $62.05"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "up&up",
+        "product": "up&up Hydrating Toner with Ceramides, Normal to Dry Skin, 8 fl oz",
+        "size": 8,
+        "unit": "fl oz",
+        "price": 6.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/hydrating-toner-with-ceramides-normal-to-dry-skin-8oz-up-38-up-8482/-/A-91551183",
+        "key_ingredients": [
+          {
+            "name": "Ceramides AP/NP/EOP, cholesterol",
+            "amount": "not stated"
+          },
+          {
+            "name": "Niacinamide",
+            "amount": "not stated"
+          },
+          {
+            "name": "Glycerin",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "alcohol-free ceramide + niacinamide toner"
+      },
+      {
+        "replaces": 1,
+        "brand": "Jumiso",
+        "product": "Jumiso Niacinamide 20 Serum, 1.35 fl oz",
+        "size": 1.35,
+        "unit": "fl oz",
+        "price": 25.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/jumiso-niacinamide-20-serum-1-35-oz-20-niacinamide-poreless-glow-zero-dark-spots/-/A-1007187884",
+        "key_ingredients": [
+          {
+            "name": "Niacinamide",
+            "amount": "20%"
+          },
+          {
+            "name": "Tranexamic acid, glutathione, hyaluronic acid",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "20% niacinamide serum"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Paula's Choice's pore duo is a ceramide + niacinamide toner and a 20% niacinamide treatment; Target sells a ceramide + niacinamide toner and a 20% niacinamide serum for a fraction of the per-ounce price.",
+    "evidence": "Dermstore's duo page gives the price ($73, $91 RRP), sizes (toner 6.4 fl oz, treatment 0.67 fl oz) and key ingredients (toner: niacinamide, glycerin, sodium hyaluronate, adenosine, panthenol, ceramides, cholesterol; treatment: 20% niacinamide with licorice, ascorbyl glucoside, acetyl glucosamine). Target lists Jumiso Niacinamide 20 Serum at 20% niacinamide, 1.35 fl oz, and up&up Hydrating Toner with ceramides AP/NP/EOP, cholesterol and niacinamide, 8 fl oz, unscented.",
+    "differences": "Same headline niacinamide strength (20%) in the serum, but the supporting ingredients differ (Jumiso adds tranexamic acid and glutathione; Paula's Choice has licorice, ascorbyl glucoside and acetyl glucosamine). The full Jumiso ingredient list was not shown on Target. The up&up toner is for normal-to-dry skin and its niacinamide level is not stated; some reviewers note a chemical smell. Jumiso is on sale at $25.99 (regular $30.00; the rebuild still saves about 72% at full price). The bundle is priced at Dermstore ('other'), not Target.",
+    "sources": [
+      "https://www.dermstore.com/p/paula-s-choice-pore-perfector-duo/15959466/",
+      "https://www.dermstore.com/c/brands/paulas-choice/bundles/",
+      "https://www.target.com/p/jumiso-niacinamide-20-serum-1-35-oz-20-niacinamide-poreless-glow-zero-dark-spots/-/A-1007187884",
+      "https://www.target.com/p/hydrating-toner-with-ceramides-normal-to-dry-skin-8oz-up-38-up-8482/-/A-91551183"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "too-faced-better-than-sex-mascara-duo-vs-essence-lash-princess-duo",
+    "market": "US",
+    "category": "beauty-hair",
+    "title": "Too Faced Better Than Sex Volumizing Mascara Duo vs the essence Lash Princess Mascara Duo Pack",
+    "bundle": {
+      "brand": "Too Faced",
+      "name": "Too Faced Better Than Sex Volumizing Mascara Duo (2 full-size Better Than Sex mascaras, 0.27 oz each)",
+      "price": 39,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.ulta.com/p/better-than-sex-volumizing-mascara-duo-pimprod2061930?sku=2661550",
+      "items": [
+        {
+          "name": "Better Than Sex Volumizing & Lengthening Mascara, full size, tube 1",
+          "size": 0.27,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Waxes (synthetic beeswax, carnauba, rice bran wax)",
+              "amount": "not stated"
+            },
+            {
+              "name": "Film formers (PVP, acacia gum, hydroxyethylcellulose)",
+              "amount": "not stated"
+            }
+          ]
+        },
+        {
+          "name": "Better Than Sex Volumizing & Lengthening Mascara, full size, tube 2",
+          "size": 0.27,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Waxes (synthetic beeswax, carnauba, rice bran wax)",
+              "amount": "not stated"
+            },
+            {
+              "name": "Film formers (PVP, acacia gum, hydroxyethylcellulose)",
+              "amount": "not stated"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Hourglass-shaped brush",
+        "Gift packaging"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "essence",
+        "product": "essence Lash Princess Mascara Duo Pack (2 full-size Lash Princess False Lash Effect mascaras, Black + Waterproof Black, 0.8 oz total)",
+        "size": 0.8,
+        "unit": "oz",
+        "price": 8.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.ulta.com/p/lash-princess-duo-pack-pimprod2015443",
+        "key_ingredients": [
+          {
+            "name": "Waxes (rice bran wax, paraffin or beeswax/carnauba depending on formula)",
+            "amount": "not stated"
+          },
+          {
+            "name": "Film formers (acacia gum, hydroxyethylcellulose, VP/eicosene copolymer)",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "essence Lash Princess False Lash Effect Mascara, also $4.99 per 0.4 fl oz tube at Target"
+      },
+      {
+        "replaces": 1,
+        "brand": "essence",
+        "product": "essence Lash Princess Mascara Duo Pack (2 full-size Lash Princess False Lash Effect mascaras, Black + Waterproof Black, 0.8 oz total)",
+        "size": 0.8,
+        "unit": "oz",
+        "price": 8.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.ulta.com/p/lash-princess-duo-pack-pimprod2015443",
+        "key_ingredients": [
+          {
+            "name": "Waxes (rice bran wax, paraffin or beeswax/carnauba depending on formula)",
+            "amount": "not stated"
+          },
+          {
+            "name": "Film formers (acacia gum, hydroxyethylcellulose, VP/eicosene copolymer)",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Two full-size volumizing, lengthening black mascaras for $39 versus essence's two full-size Lash Princess mascaras for $8.99, which also hold more product per tube.",
+    "evidence": "Ulta's duo page gives $39 for two full sizes; Ulta's single Better Than Sex page gives the full size as 0.27 oz ($29). Ulta's essence Lash Princess Duo Pack is $8.99 for two full-size tubes, 0.8 oz total (Target lists one tube at 0.4 fl oz, $4.99). Both are wax and film-former mascaras marketed for volume and length, ophthalmologist tested; Too Faced's ingredients come from the Ulta duo page and essence's from the Target label.",
+    "differences": "Function match, not the same formula. Too Faced claims peptides and has an hourglass brush; essence has a conical fiber wand and is fragrance-free. The essence duo is one regular and one waterproof tube, while the Too Faced duo is two of the same (black). Essence tubes are larger (0.4 vs 0.27 oz), so savings are pro-rated by size. Ulta lists both sizes as oz, though they are liquid volumes. Ulta reviewers report some flaking and smudging with essence; the Too Faced duo is a limited holiday set.",
+    "sources": [
+      "https://www.ulta.com/p/better-than-sex-volumizing-mascara-duo-pimprod2061930?sku=2661550",
+      "https://www.ulta.com/p/better-than-sex-volumizing-lengthening-mascara-xlsImpprod5530007?sku=2603635",
+      "https://www.ulta.com/p/lash-princess-duo-pack-pimprod2015443",
+      "https://www.target.com/p/essence-lash-princess-false-lash-effect-mascara-cruelty-free-0-4-fl-oz/-/A-81867824"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "maybelline-sky-high-primer-mascara-duo-kit-vs-essence-primer-and-lash-princess",
+    "market": "US",
+    "category": "beauty-hair",
+    "title": "Maybelline Sky High Tinted Primer + Sky High Mascara Duo Kit vs essence Lash Princess primer and mascara",
+    "bundle": {
+      "brand": "Maybelline",
+      "name": "Maybelline Sky High Lashes Holiday Sky High Tinted Primer + Sky High Mascara Duo Kit, 2pc (Tinted Primer 0.26 fl oz + Sky High Mascara 0.24 fl oz)",
+      "price": 19.99,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "target",
+      "asin": null,
+      "url": "https://www.target.com/p/maybelline-sky-high-lashes-holiday-sky-high-tinted-primer-sky-high-mascara-duo-kit-2pc/-/A-95254454",
+      "items": [
+        {
+          "name": "Lash Sensational Sky High Tinted Primer (810 Soft Black)",
+          "size": 0.26,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Panthenol (vitamin B5)",
+              "amount": "not stated"
+            },
+            {
+              "name": "Ceramide (claimed)",
+              "amount": "not stated"
+            }
+          ]
+        },
+        {
+          "name": "Lash Sensational Sky High Mascara",
+          "size": 0.24,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Bamboo extract",
+              "amount": "not stated"
+            },
+            {
+              "name": "Panthenol",
+              "amount": "not stated"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Holiday gift packaging"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "essence",
+        "product": "essence Lash Princess Mascara Primer Extra Length & Volume, 0.3 fl oz",
+        "size": 0.3,
+        "unit": "fl oz",
+        "price": 4.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/essence-lash-princess-mascara-primer-extra-length-38-volume-0-3-fl-oz/-/A-92173505",
+        "key_ingredients": [
+          {
+            "name": "Panthenol",
+            "amount": "not stated"
+          },
+          {
+            "name": "Synthetic beeswax, carnauba wax",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "essence",
+        "product": "essence Lash Princess False Lash Effect Mascara, 0.4 fl oz",
+        "size": 0.4,
+        "unit": "fl oz",
+        "price": 4.99,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/essence-lash-princess-false-lash-effect-mascara-cruelty-free-0-4-fl-oz/-/A-81867824",
+        "key_ingredients": [
+          {
+            "name": "Waxes (rice bran wax, paraffin)",
+            "amount": "not stated"
+          },
+          {
+            "name": "Acacia senegal gum",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "A lash primer plus lengthening mascara pair for $19.99, rebuilt with essence's Lash Princess primer and mascara at $4.99 each (larger tubes).",
+    "evidence": "Target kit page: $19.99, Sky High Tinted Primer + Sky High Mascara; Target's search listing shows the kit's image text sizes 0.26 fl oz and 0.24 fl oz, matching the single Sky High Tinted Primer (0.26 fl oz) and Sky High Mascara (0.24 fl oz) listings. essence Lash Princess Mascara Primer (0.3 fl oz, $4.99) and Lash Princess False Lash Effect Mascara (0.4 fl oz, $4.99) on Target. Both pairs are a conditioning primer (panthenol in both) worn under a lengthening/volumizing mascara.",
+    "differences": "Maybelline's primer is black-tinted (wearable alone); the essence primer is a light green/translucent base and lists fragrance (parfum, linalool), while the Maybelline kit is fragrance-free. Sky High is a lengthening mascara with a flexible brush; Lash Princess is a volume/false-lash mascara with a conical fiber wand. Maybelline's 1.5x volume claim is for its own pairing. Single Sky High items at Target show 'see price in cart', so the kit price is the only Maybelline price seen.",
+    "sources": [
+      "https://www.target.com/p/maybelline-sky-high-lashes-holiday-sky-high-tinted-primer-sky-high-mascara-duo-kit-2pc/-/A-95254454",
+      "https://www.target.com/s?searchTerm=mascara+set",
+      "https://www.target.com/p/maybelline-lash-sensational-sky-high-tinted-primer-mascara-810-soft-black-0-26-fl-oz/-/A-86750575",
+      "https://www.target.com/p/essence-lash-princess-mascara-primer-extra-length-38-volume-0-3-fl-oz/-/A-92173505",
+      "https://www.target.com/p/essence-lash-princess-false-lash-effect-mascara-cruelty-free-0-4-fl-oz/-/A-81867824"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "kylie-cosmetics-matte-lip-kit-vs-maybelline-matte-ink-and-elf-lip-liner",
+    "market": "US",
+    "category": "beauty-hair",
+    "title": "Kylie Cosmetics Matte Lip Kit vs Maybelline SuperStay Matte Ink + e.l.f. Cream Glide Lip Liner",
+    "bundle": {
+      "brand": "Kylie Cosmetics",
+      "name": "Kylie Cosmetics Matte Lip Kit (Matte Liquid Lipstick 0.1 fl oz / 3 ml + Pencil Lip Liner 0.039 oz / 1.1 g)",
+      "price": 35,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.ulta.com/p/matte-lip-kit-pimprod2026503",
+      "items": [
+        {
+          "name": "Matte Liquid Lipstick",
+          "size": 0.1,
+          "unit": "fl oz",
+          "key_ingredients": [
+            {
+              "name": "Isododecane (volatile carrier)",
+              "amount": "not stated"
+            },
+            {
+              "name": "Hydrogenated styrene/isoprene copolymer (film former)",
+              "amount": "not stated"
+            }
+          ]
+        },
+        {
+          "name": "Pencil Lip Liner",
+          "size": 0.039,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Dimethicone, trimethylsiloxysilicate",
+              "amount": "not stated"
+            },
+            {
+              "name": "Synthetic wax",
+              "amount": "not stated"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Shade-matched pair (about 20 shades)"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Maybelline",
+        "product": "Maybelline Super Stay Matte Ink Liquid Lipstick, 0.17 fl oz",
+        "size": 0.17,
+        "unit": "fl oz",
+        "price": 12.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.maybelline.com/lip-makeup/lipstick/superstay-matte-ink-liquid-lipstick",
+        "key_ingredients": [
+          {
+            "name": "Dimethicone and silicone film formers",
+            "amount": "not stated"
+          },
+          {
+            "name": "Iron oxides, titanium dioxide, lakes",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "Also at Target (A-82163948, price shown in cart)"
+      },
+      {
+        "replaces": 1,
+        "brand": "e.l.f.",
+        "product": "e.l.f. Cream Glide Lip Liner, 0.03 oz",
+        "size": 0.03,
+        "unit": "oz",
+        "price": 2,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/e-l-f-cream-glide-lip-liner-0-03oz/-/A-91114994",
+        "key_ingredients": [
+          {
+            "name": "Candelilla and carnauba wax",
+            "amount": "not stated"
+          },
+          {
+            "name": "Castor oil, mango seed butter",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "A matte liquid lipstick plus matching liner for $35, rebuilt with Maybelline's long-wear Matte Ink and a $2 e.l.f. liner, choosing shades yourself.",
+    "evidence": "Kylie Cosmetics product data (read from kyliecosmetics.com in this check; the site now rate-limits, so it is not cited): $35 for every shade, Matte Liquid Lipstick 0.1 fl oz and lip liner 0.039 oz with full ingredient lists (isododecane-based liquid; dimethicone/trimethylsiloxysilicate/synthetic wax liner). Ulta lists the same kit at $35; LookFantastic gives 3 ml + 1.1 g. Maybelline.com: Super Stay Matte Ink 0.17 fl oz, $12.99, 30 shades; Target lists its 16-hour transfer-resistant matte claim and silicone-based label. Target: e.l.f. Cream Glide Lip Liner 0.03 oz, $2.00.",
+    "differences": "Shades are not matched for you: you pick a Matte Ink shade and an e.l.f. liner shade separately, and e.l.f. has only about 8 to 12 liner shades. Kylie's liner is silicone-based and sold as waterproof and transfer-proof; e.l.f.'s is an oil-and-wax semi-matte pencil that will not wear as long. Matte Ink is a bigger tube (0.17 vs 0.1 fl oz), claims 16-hour wear, contains fragrance and may contain carmine (not vegan); Kylie's kit is labelled vegan. Savings are pro-rated by size.",
+    "sources": [
+      "https://www.ulta.com/p/matte-lip-kit-pimprod2026503",
+      "https://www.lookfantastic.com/p/kylie-cosmetics-matte-lip-kit-various-shades/15395622/",
+      "https://www.maybelline.com/lip-makeup/lipstick/superstay-matte-ink-liquid-lipstick",
+      "https://www.target.com/p/maybelline-superstay-matte-ink-liquid-lipstick-0-17-fl-oz/-/A-82163948",
+      "https://www.target.com/p/e-l-f-cream-glide-lip-liner-0-03oz/-/A-91114994"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "clinique-cleansing-edit-set-vs-garnier-balm-neutrogena-remover-cetaphil",
+    "market": "US",
+    "category": "skincare-personal-care",
+    "title": "Clinique The Cleansing Edit set vs Garnier cleansing balm + Neutrogena eye makeup remover + Cetaphil cleanser",
+    "bundle": {
+      "brand": "Clinique",
+      "name": "Clinique 3 Piece The Cleansing Edit Holiday Gift Set (Take The Day Off Cleansing Balm 3.8 oz, Take The Day Off Makeup Remover For Lids, Lashes & Lips 1.7 oz, All About Clean Liquid Facial Soap Mild 1.0 oz)",
+      "price": 50,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.ulta.com/p/3-pc-cleansing-edit-face-cleanser-makeup-remover-holiday-gift-set-pimprod2060677?sku=2657037",
+      "items": [
+        {
+          "name": "Take The Day Off Cleansing Balm Makeup Remover, full size",
+          "size": 3.8,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Ethylhexyl palmitate",
+              "amount": "not stated"
+            },
+            {
+              "name": "Safflower seed oil",
+              "amount": "not stated"
+            },
+            {
+              "name": "PEG-5 glyceryl triisostearate, polyethylene",
+              "amount": "not stated"
+            }
+          ]
+        },
+        {
+          "name": "Take The Day Off Makeup Remover For Lids, Lashes & Lips, travel size",
+          "size": 1.7,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Isohexadecane",
+              "amount": "not stated"
+            },
+            {
+              "name": "Dimethicone, cyclopentasiloxane",
+              "amount": "not stated"
+            }
+          ]
+        },
+        {
+          "name": "All About Clean Liquid Facial Soap Mild, travel size",
+          "size": 1,
+          "unit": "oz",
+          "key_ingredients": [
+            {
+              "name": "Mild facial cleanser",
+              "amount": "not stated"
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Holiday gift box",
+        "$59 stated value"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Garnier",
+        "product": "Garnier SkinActive Makeup Cleansing Balm Vitamin C, 4.2 oz",
+        "size": 4.2,
+        "unit": "oz",
+        "price": 10.49,
+        "retailer": "target",
+        "asin": null,
+        "url": "https://www.target.com/p/garnier-makeup-cleansing-balm-vitamin-c/-/A-91376907",
+        "key_ingredients": [
+          {
+            "name": "Ethylhexyl palmitate",
+            "amount": "not stated"
+          },
+          {
+            "name": "Polyethylene, PEG-20 glyceryl triisostearate",
+            "amount": "not stated"
+          },
+          {
+            "name": "Shea butter, jojoba oil",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "Neutrogena",
+        "product": "Neutrogena Oil-Free Eye Makeup Remover, 5.5 oz",
+        "size": 5.5,
+        "unit": "oz",
+        "price": 9.74,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.ulta.com/p/oil-free-eye-makeup-remover-prod2109669?sku=2109669",
+        "key_ingredients": [
+          {
+            "name": "Cyclomethicone (volatile silicones)",
+            "amount": "not stated"
+          },
+          {
+            "name": "Aloe, cucumber extract",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "Sale price; regular $12.99"
+      },
+      {
+        "replaces": 2,
+        "brand": "Cetaphil",
+        "product": "Cetaphil Gentle Skin Cleanser, 16.0 oz",
+        "size": 16,
+        "unit": "oz",
+        "price": 17.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.ulta.com/p/gentle-skin-cleanser-face-wash-sensitive-skin-pimprod2028662?sku=2586969",
+        "key_ingredients": [
+          {
+            "name": "Glycerin",
+            "amount": "not stated"
+          },
+          {
+            "name": "Panthenol, niacinamide",
+            "amount": "not stated"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Clinique's balm, shake-to-mix eye and lip remover and mild cleanser trio for $50, rebuilt from a Garnier balm with a very similar base, Neutrogena's dual-phase eye remover and Cetaphil.",
+    "evidence": "Ulta set page: $50 kit price ($59 value), balm 3.8 oz, remover 1.7 oz, soap 1.0 oz, in stock. Ulta single pages give Clinique's ingredients: balm = ethylhexyl palmitate, safflower oil, caprylic/capric triglyceride, sorbeth-30 tetraoleate, polyethylene, PEG-5 glyceryl triisostearate; remover = water, isohexadecane, dimethicone, cyclopentasiloxane, shake before use. Target's Garnier balm label: ethylhexyl palmitate, polyethylene, PEG-20 glyceryl triisostearate, shea, jojoba (4.2 oz, $10.49). Ulta: Neutrogena Oil-Free Eye Makeup Remover is dual-phase, water + cyclomethicone, removes waterproof mascara (5.5 oz, $9.74 sale); Cetaphil Gentle Skin Cleanser 16 oz $17.99.",
+    "differences": "Function match. The Garnier balm shares Clinique's emollient-ester-plus-polyethylene base but adds vitamin C (ascorbyl palmitate), shea and a yellow colorant, and its label says to avoid the eyes, whereas Clinique's balm is ophthalmologist tested for eyes. Neutrogena's remover uses cyclomethicone rather than isohexadecane/dimethicone. Cetaphil Gentle Skin Cleanser is a creamy non-foaming cleanser, unlike Clinique's liquid facial soap. You buy full-size bottles (much more product), so savings are pro-rated by size; the Neutrogena price is a sale price ($12.99 regular). Ulta lists liquids in oz.",
+    "sources": [
+      "https://www.ulta.com/p/3-pc-cleansing-edit-face-cleanser-makeup-remover-holiday-gift-set-pimprod2060677?sku=2657037",
+      "https://www.ulta.com/p/take-day-off-cleansing-balm-makeup-remover-xlsImpprod11771009?sku=2590281",
+      "https://www.ulta.com/p/take-day-off-makeup-remover-lids-lashes-lips-xlsImpprod10791749",
+      "https://www.target.com/p/garnier-makeup-cleansing-balm-vitamin-c/-/A-91376907",
+      "https://www.ulta.com/p/oil-free-eye-makeup-remover-prod2109669?sku=2109669",
+      "https://www.ulta.com/p/gentle-skin-cleanser-face-wash-sensitive-skin-pimprod2028662?sku=2586969"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "la-roche-posay-effaclar-breakout-fighting-set-vs-cerave-foaming-cleanser-the-ordinary-gb",
+    "market": "GB",
+    "category": "skincare-personal-care",
+    "title": "La Roche-Posay Effaclar Breakout-Fighting Set vs CeraVe Foaming Cleanser + The Ordinary salicylic acid and niacinamide",
+    "bundle": {
+      "brand": "La Roche-Posay",
+      "name": "Breakout-Fighting Set - High Strength: Effaclar Purifying Foaming Gel Cleanser 400ml, Effaclar Ultra Concentrated Serum 30ml, Effaclar Duo+M Anti-Blemish Corrective Gel Moisturiser 40ml",
+      "price": 63.68,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "other",
+      "asin": null,
+      "url": "https://www.lookfantastic.com/p/la-roche-posay-breakout-fighting-set-high-strength-effaclar-cleanser-serum-and-corrective-care/15448467/",
+      "items": [
+        {
+          "name": "Effaclar Purifying Foaming Gel Cleanser 400ml",
+          "size": 400,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Zinc PCA",
+              "amount": ""
+            }
+          ]
+        },
+        {
+          "name": "Effaclar Ultra Concentrated Serum 30ml",
+          "size": 30,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Salicylic acid",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Glycolic acid",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Capryloyl salicylic acid (LHA)",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Niacinamide",
+              "amount": "not disclosed"
+            }
+          ]
+        },
+        {
+          "name": "Effaclar Duo+M Anti-Blemish Corrective Gel Moisturiser 40ml",
+          "size": 40,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Niacinamide",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Salicylic acid",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Capryloyl salicylic acid (LHA)",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Zinc PCA",
+              "amount": ""
+            },
+            {
+              "name": "Piroctone olamine",
+              "amount": ""
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Sold at LOOKFANTASTIC (RRP £84.90, shown at £63.68, 25% off, in Nov 2026)"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "CeraVe",
+        "product": "Foaming Cleanser with Niacinamide for Normal to Oily Skin 473ml",
+        "size": 473,
+        "unit": "ml",
+        "price": 14.8,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.lookfantastic.com/p/cerave-foaming-cleanser-with-niacinamide-for-normal-to-oily-skin-473ml/11798697/",
+        "key_ingredients": [
+          {
+            "name": "Niacinamide",
+            "amount": ""
+          },
+          {
+            "name": "Ceramides NP, AP, EOP",
+            "amount": ""
+          },
+          {
+            "name": "Sodium hyaluronate",
+            "amount": ""
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "foaming gel cleanser for oily or blemish-prone skin"
+      },
+      {
+        "replaces": 1,
+        "brand": "The Ordinary",
+        "product": "Salicylic Acid 2% Solution, 30ml",
+        "size": 30,
+        "unit": "ml",
+        "price": 6.1,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://theordinary.com/en-gb/salicylic-acid-2-solution-exfoliator-100619.html",
+        "key_ingredients": [
+          {
+            "name": "Salicylic acid",
+            "amount": "2%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "2% salicylic acid serum"
+      },
+      {
+        "replaces": 2,
+        "brand": "The Ordinary",
+        "product": "Niacinamide 10% + Zinc 1%, 30ml",
+        "size": 30,
+        "unit": "ml",
+        "price": 5,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://theordinary.com/en-gb/niacinamide-10-zinc-1-serum-100436.html",
+        "key_ingredients": [
+          {
+            "name": "Niacinamide",
+            "amount": "10%"
+          },
+          {
+            "name": "Zinc PCA",
+            "amount": "1%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "10% niacinamide + zinc serum"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "The Effaclar trio is a zinc foaming cleanser, an acid serum and a niacinamide gel-cream. CeraVe's oily-skin foaming cleanser plus The Ordinary's 2% salicylic acid and 10% niacinamide + zinc serums cover the same three jobs for about 60% less.",
+    "evidence": "Set contents, sizes, price and key ingredients (zinc PCA in the cleanser; salicylic acid, glycolic acid, capryloyl salicylic acid and niacinamide in the serum; niacinamide, salicylic acid, LHA, zinc PCA in Duo+M) from the LOOKFANTASTIC set page. CeraVe Foaming Cleanser 473ml INCI (niacinamide, ceramides NP/AP/EOP, sodium hyaluronate) and £14.80 price from LOOKFANTASTIC. The Ordinary Salicylic Acid 2% Solution 30ml £6.10 and Niacinamide 10% + Zinc 1% 30ml £5.00, with full INCI, from theordinary.com/en-gb.",
+    "differences": "La Roche-Posay does not publish percentages, so strengths cannot be matched. The Effaclar Ultra Concentrated Serum combines salicylic, glycolic and lipo-hydroxy acid with niacinamide; The Ordinary's serum is salicylic acid alone (2%), with no glycolic acid or LHA. Duo+M is a gel-cream moisturiser with salicylic acid, LHA, piroctone olamine and its Procerad/Phylobioma complex; The Ordinary Niacinamide 10% + Zinc 1% is a watery serum with no exfoliating acid, so you may still want a plain moisturiser on top. The Effaclar cleanser is a zinc PCA foaming gel; CeraVe's foaming cleanser has niacinamide and ceramides but no zinc. Three separate bottles instead of one boxed set, and the CeraVe cleanser is a bigger 473ml bottle (priced pro rata). LOOKFANTASTIC's £14.80 CeraVe price is 20% off its £18.50 RRP (site-wide SAVE20 offer); at RRP the rebuild is still about 55% cheaper.",
+    "sources": [
+      "https://www.lookfantastic.com/p/la-roche-posay-breakout-fighting-set-high-strength-effaclar-cleanser-serum-and-corrective-care/15448467/",
+      "https://www.lookfantastic.com/p/cerave-foaming-cleanser-with-niacinamide-for-normal-to-oily-skin-473ml/11798697/",
+      "https://theordinary.com/en-gb/salicylic-acid-2-solution-exfoliator-100619.html",
+      "https://theordinary.com/en-gb/niacinamide-10-zinc-1-serum-100436.html"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "la-roche-posay-effaclar-set-cleanser-serum-duo-m-vs-cerave-the-ordinary-de",
+    "market": "DE",
+    "category": "skincare-personal-care",
+    "title": "La Roche-Posay Effaclar set (Reinigungsgel, Serum, Duo+M) vs CeraVe Schäumendes Reinigungsgel + The Ordinary salicylic acid and niacinamide",
+    "bundle": {
+      "brand": "La Roche-Posay",
+      "name": "La Roche-Posay Effaclar Set: Effaclar Schäumendes Reinigungsgel 400ml, Effaclar Hochkonzentriertes Serum 30ml, Effaclar Duo+M 40ml (PZN 08112728)",
+      "price": 67.69,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "shopapotheke",
+      "asin": null,
+      "url": "https://www.shop-apotheke.com/beauty/8112728/la-roche-posay-effaclar-duo-m-la-roche-posay-effaclar-hochkonzentriertes-serum-fuer-das-gesicht-la-roche-posay-effaclar-schaeumendes-reinigungsgel.htm",
+      "items": [
+        {
+          "name": "Effaclar Schäumendes Reinigungsgel 400ml",
+          "size": 400,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Zinc PCA",
+              "amount": ""
+            }
+          ]
+        },
+        {
+          "name": "Effaclar Hochkonzentriertes Serum 30ml",
+          "size": 30,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Salicylic acid",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Glycolic acid",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Capryloyl salicylic acid (LHA)",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Niacinamide",
+              "amount": "not disclosed"
+            }
+          ]
+        },
+        {
+          "name": "Effaclar Duo+M 40ml",
+          "size": 40,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Niacinamide",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Salicylic acid",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Capryloyl salicylic acid (LHA)",
+              "amount": "not disclosed"
+            },
+            {
+              "name": "Zinc PCA",
+              "amount": ""
+            },
+            {
+              "name": "Piroctone olamine",
+              "amount": ""
+            }
+          ]
+        }
+      ],
+      "extras": [
+        "Shop Apotheke price €67.69 (UVP €85.90, 21% off) in Nov 2026"
+      ]
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "CeraVe",
+        "product": "Schäumendes Reinigungsgel für normale bis fettige Haut 473ml",
+        "size": 473,
+        "unit": "ml",
+        "price": 14.69,
+        "retailer": "shopapotheke",
+        "asin": null,
+        "url": "https://www.shop-apotheke.com/beauty/14017524/cerave-schaeumendes-reinigungsgel-pflegender-reinigungsschaum-fuer-normale-bis-fettige-haut.htm",
+        "key_ingredients": [
+          {
+            "name": "Niacinamide",
+            "amount": ""
+          },
+          {
+            "name": "Ceramides NP, AP, EOP",
+            "amount": ""
+          },
+          {
+            "name": "Sodium hyaluronate",
+            "amount": ""
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "foaming gel cleanser for oily or blemish-prone skin"
+      },
+      {
+        "replaces": 1,
+        "brand": "The Ordinary",
+        "product": "Salicylic Acid 2% Solution, 30ml",
+        "size": 30,
+        "unit": "ml",
+        "price": 7.5,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://theordinary.com/de-de/salicylic-acid-2-solution-exfoliator-100619.html",
+        "key_ingredients": [
+          {
+            "name": "Salicylic acid",
+            "amount": "2%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "2% salicylic acid serum"
+      },
+      {
+        "replaces": 2,
+        "brand": "The Ordinary",
+        "product": "Niacinamide 10% + Zinc 1%, 30ml",
+        "size": 30,
+        "unit": "ml",
+        "price": 6,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://theordinary.com/de-de/niacinamide-10-zinc-1-serum-100436.html",
+        "key_ingredients": [
+          {
+            "name": "Niacinamide",
+            "amount": "10%"
+          },
+          {
+            "name": "Zinc PCA",
+            "amount": "1%"
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "10% niacinamide + zinc serum"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Shop Apotheke's Effaclar set is a zinc foaming gel, an acid serum and Duo+M. CeraVe's foaming gel plus The Ordinary's 2% salicylic acid and 10% niacinamide + zinc serums do the same three jobs for close to 60% less.",
+    "evidence": "Set contents (400ml cleanser, 30ml serum, 40ml Duo+M), €67.69 price and INCI (serum: salicylic acid, glycolic acid, niacinamide, capryloyl salicylic acid; Duo+M: niacinamide, zinc PCA, salicylic acid, capryloyl salicylic acid, piroctone olamine; cleanser: zinc PCA) from the Shop Apotheke listing PZN 08112728. CeraVe Schäumendes Reinigungsgel 473ml €14.69 with niacinamide and ceramides from Shop Apotheke PZN 14017524. The Ordinary Salicylic Acid 2% Solution 30ml €7.50 and Niacinamide 10% + Zinc 1% 30ml €6.00 from theordinary.com/de-de.",
+    "differences": "La Roche-Posay does not publish percentages, so strengths cannot be matched. The Effaclar Ultra Concentrated Serum combines salicylic, glycolic and lipo-hydroxy acid with niacinamide; The Ordinary's serum is salicylic acid alone (2%), with no glycolic acid or LHA. Duo+M is a gel-cream moisturiser with salicylic acid, LHA, piroctone olamine and its Procerad/Phylobioma complex; The Ordinary Niacinamide 10% + Zinc 1% is a watery serum with no exfoliating acid, so you may still want a plain moisturiser on top. The Effaclar cleanser is a zinc PCA foaming gel; CeraVe's foaming cleanser has niacinamide and ceramides but no zinc. Three separate bottles instead of one boxed set, and the CeraVe cleanser is a bigger 473ml bottle (priced pro rata). The Ordinary is bought from its own shop (shipping may apply under its free-shipping threshold).",
+    "sources": [
+      "https://www.shop-apotheke.com/beauty/8112728/la-roche-posay-effaclar-duo-m-la-roche-posay-effaclar-hochkonzentriertes-serum-fuer-das-gesicht-la-roche-posay-effaclar-schaeumendes-reinigungsgel.htm",
+      "https://www.shop-apotheke.com/beauty/14017524/cerave-schaeumendes-reinigungsgel-pflegender-reinigungsschaum-fuer-normale-bis-fettige-haut.htm",
+      "https://theordinary.com/de-de/salicylic-acid-2-solution-exfoliator-100619.html",
+      "https://theordinary.com/de-de/niacinamide-10-zinc-1-serum-100436.html"
+    ],
+    "price_checked": "2026-11"
+  }
+]

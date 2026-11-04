@@ -6,7 +6,7 @@ export function SavingsBadge({ pct, size = "md" }: { pct: number; size?: "md" | 
   const big = size === "lg";
   return (
     <span
-      className={`num inline-flex items-baseline gap-1 rounded-full bg-highlight font-semibold text-highlight-ink ${
+      className={`num inline-flex shrink-0 items-baseline gap-1 rounded-full whitespace-nowrap bg-highlight font-semibold text-highlight-ink ${
         big ? "px-4 py-1.5 text-lg" : "px-2.5 py-0.5 text-sm"
       }`}
     >

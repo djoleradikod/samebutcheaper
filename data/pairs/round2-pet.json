@@ -56,7 +56,23 @@
       "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181538",
       "https://www.walmart.com/ip/42425085"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Registrant and EPA number",
+        "brand": "Boehringer Ingelheim Animal Health USA, EPA Reg. 65331-5 (Frontline Plus for Dogs)",
+        "alternative": "Sergeant's Pet Care Products, EPA Reg. 2517-134 (PetArmor Plus for Dogs)",
+        "verdict": "different",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      },
+      {
+        "aspect": "Registered target pests",
+        "brand": "EPA record: fleas (all stages), 4 tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "alternative": "EPA record: fleas, same tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "verdict": "same",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      }
+    ]
   },
   {
     "slug": "frontline-plus-vs-petarmor-plus-dogs-23-44-lbs",
@@ -115,7 +131,23 @@
       "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181540",
       "https://www.drugs.com/vet/petarmor-plus-for-dogs-23-44-lbs.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Registrant and EPA number",
+        "brand": "Boehringer Ingelheim Animal Health USA, EPA Reg. 65331-5 (Frontline Plus for Dogs)",
+        "alternative": "Sergeant's Pet Care Products, EPA Reg. 2517-134 (PetArmor Plus for Dogs)",
+        "verdict": "different",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      },
+      {
+        "aspect": "Registered target pests",
+        "brand": "EPA record: fleas (all stages), 4 tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "alternative": "EPA record: fleas, same tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "verdict": "same",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      }
+    ]
   },
   {
     "slug": "frontline-plus-vs-petarmor-plus-dogs-5-22-lbs",
@@ -174,7 +206,23 @@
       "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181529",
       "https://drugs.com/vet/petarmor-plus-for-dogs-4-22-lbs.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Registrant and EPA number",
+        "brand": "Boehringer Ingelheim Animal Health USA, EPA Reg. 65331-5 (Frontline Plus for Dogs)",
+        "alternative": "Sergeant's Pet Care Products, EPA Reg. 2517-134 (PetArmor Plus for Dogs)",
+        "verdict": "different",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      },
+      {
+        "aspect": "Registered target pests",
+        "brand": "EPA record: fleas (all stages), 4 tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "alternative": "EPA record: fleas, same tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "verdict": "same",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      }
+    ]
   },
   {
     "slug": "frontline-plus-vs-petarmor-plus-dogs-89-132-lbs",
@@ -232,7 +280,23 @@
       "https://www.walmart.com/browse/pets/dog-flea-tick-supplies/frontline/5440_202072_1245962/YnJhbmQ6RlJPTlRMSU5F",
       "https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/116595"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Registrant and EPA number",
+        "brand": "Boehringer Ingelheim Animal Health USA, EPA Reg. 65331-5 (Frontline Plus for Dogs)",
+        "alternative": "Sergeant's Pet Care Products, EPA Reg. 2517-134 (PetArmor Plus for Dogs)",
+        "verdict": "different",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      },
+      {
+        "aspect": "Registered target pests",
+        "brand": "EPA record: fleas (all stages), 4 tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "alternative": "EPA record: fleas, same tick species incl. deer tick, chewing lice, mites, mosquitoes",
+        "verdict": "same",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
+      }
+    ]
   },
   {
     "slug": "frontline-plus-vs-sentry-fiproguard-plus-dogs-45-88-lbs",
@@ -290,7 +354,23 @@
       "https://www.chewy.com/sentry-fiproguard-plus-squeeze-on-dog/dp/290455",
       "https://www.walmart.com/ip/FRONTLINE-Plus-for-Large-Dogs-45-88-lbs-Flea-and-Tick-Treatment-6-Doses/106488223"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Registrant and EPA number",
+        "brand": "Boehringer Ingelheim Animal Health USA, EPA Reg. 65331-5",
+        "alternative": "Sergeant's Pet Care Products, EPA Reg. 2517-134 (the same registration as PetArmor Plus)",
+        "verdict": "different",
+        "source": "https://www.pomerix.com/pesticides/sentry-fiproguard-plus-for-dogs"
+      },
+      {
+        "aspect": "Registered target pests",
+        "brand": "EPA record lists 15 pest groups incl. flea eggs, larvae and pupae",
+        "alternative": "EPA record lists 10 groups: fleas, ticks incl. deer tick, chewing lice, mites, mosquitoes",
+        "verdict": "same",
+        "source": "https://www.pomerix.com/pesticides/sentry-fiproguard-plus-for-dogs"
+      }
+    ]
   },
   {
     "slug": "frontline-plus-cats-vs-petarmor-plus-cats",
@@ -348,7 +428,23 @@
       "https://www.walmart.com/ip/42425087",
       "https://www.petsmart.com/5156120.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Registrant and EPA number",
+        "brand": "Boehringer Ingelheim Animal Health USA, EPA Reg. 65331-4 (Frontline Plus for Cats)",
+        "alternative": "Sergeant's Pet Care Products, EPA Reg. 2517-135 (PetArmor Plus for Cats)",
+        "verdict": "different",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-cats"
+      },
+      {
+        "aspect": "Registered target pests",
+        "brand": "EPA record: fleas (eggs, larvae), 4 tick species incl. deer tick, chewing lice, mosquitoes",
+        "alternative": "EPA record: fleas (all stages), same tick species incl. deer tick, chewing lice, mosquitoes",
+        "verdict": "same",
+        "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-cats"
+      }
+    ]
   },
   {
     "slug": "k9-advantix-ii-vs-advecta-3-dogs-over-55-lbs",
@@ -414,6 +510,22 @@
       "https://www.walmart.com/ip/127708435",
       "https://www.chewy.com/dp/102309"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Registrant and EPA number",
+        "brand": "Elanco US, EPA Reg. 11556-144 (K9 Advantix II Extra Large Dog)",
+        "alternative": "CAP IM Supply, EPA Reg. 91384-3 (Advecta 3 for Dogs)",
+        "verdict": "different",
+        "source": "https://www.pomerix.com/pesticides/advecta-3-for-dogs"
+      },
+      {
+        "aspect": "Registered target pests",
+        "brand": "EPA record: fleas, ticks incl. deer tick, mosquitoes, biting flies, chewing lice",
+        "alternative": "EPA record: 15 pest groups, same list (fleas, ticks incl. deer tick, mosquitoes, biting flies and lice)",
+        "verdict": "same",
+        "source": "https://www.pomerix.com/pesticides/advecta-3-for-dogs"
+      }
+    ]
   }
 ]

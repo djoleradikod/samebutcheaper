@@ -34,7 +34,8 @@
           "name": "Lansoprazole",
           "amount": "15 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=3a7aadbd-0a70-444f-95e1-cbde82781892&name=3t3-2e-lansoprazole-1.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -46,7 +47,23 @@
       "https://www.walmart.com/ip/907145156",
       "https://otclabels.com/lib/otc/otc-meds/equate-lansoprazole-delayed-release/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval",
+        "brand": "Prevacid 24HR (L. Perrigo) label lists ANDA 202319",
+        "alternative": "Equate lansoprazole (Walmart) lists the same ANDA 202319: both are the same approved product",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3a7aadbd-0a70-444f-95e1-cbde82781892"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Prevacid 24HR: gelatin, hypromellose, mannitol, meglumine, polysorbate 80, SLS, talc, titanium dioxide, D&C Red 28, Yellow 10, FD&C Blue 1, Red 40",
+        "alternative": "Equate: the same list (both print methacrylic acid copolymer, sugar spheres and pharmaceutical ink in the text)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=205c9c1e-b422-4e86-a4b0-714b608adc19"
+      }
+    ]
   },
   {
     "slug": "pataday-once-daily-vs-equate-olopatadine-0-2",
@@ -95,7 +112,23 @@
       "https://www.walmart.com/ip/seort/16238900515",
       "https://www.walmart.com/c/kp/pataday"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Pataday Once Daily: benzalkonium chloride 0.01%, dibasic sodium phosphate, edetate disodium, HCl/NaOH, povidone, purified water, sodium chloride",
+        "alternative": "Equate olopatadine 0.2%: the same seven ingredients, including 0.01% benzalkonium chloride",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3ffd2bec-c5d1-47ff-ae5f-bc20e9c1de84"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Pataday Once Daily Relief (Alcon) is marketed under NDA 021545",
+        "alternative": "Equate olopatadine 0.2% is marketed under ANDA 206087, an FDA-approved generic",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3ffd2bec-c5d1-47ff-ae5f-bc20e9c1de84"
+      }
+    ]
   },
   {
     "slug": "zaditor-vs-equate-ketotifen-eye-drops",
@@ -145,7 +178,23 @@
       "https://www.walmart.com/ip/687215643",
       "https://www.walmart.com/c/kp/pataday"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Zaditor: benzalkonium chloride 0.01%, glycerin, sodium hydroxide/hydrochloric acid, purified water",
+        "alternative": "Equate Eye Itch Relief: benzalkonium chloride 0.01%, glycerin, HCl/NaOH, water for injection",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=accb5fe9-b3d0-4e2e-a3f0-e7d16873bbb9"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Zaditor (Alcon) label lists ANDA 077200",
+        "alternative": "Equate label lists NDA 021996 (ketotifen OTC approval)",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=accb5fe9-b3d0-4e2e-a3f0-e7d16873bbb9"
+      }
+    ]
   },
   {
     "slug": "nicoderm-cq-step-1-vs-equate-nicotine-patch-21mg",
@@ -166,7 +215,8 @@
           "name": "Nicotine",
           "amount": "21 mg / 24 hr"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=93b2d1b9-83c1-40b5-b6af-90c38c8d6cef&name=200697+Nicoderm+CQ+21mg+clear+patch+14+count.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -194,7 +244,23 @@
       "https://www.walmart.com/c/kp/nicoderm",
       "https://www.samsclub.com/sams/mm-nicotine-patch-step-1-21ct/prod19544360.ip"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "FDA approval",
+        "brand": "NicoDerm CQ is marketed under NDA 020165 (Haleon)",
+        "alternative": "Equate patch is listed as 'NDA authorized generic' of NDA 020165: the brand's own approval, relabelled",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=aefd30c4-35d5-425e-855c-327a7c436188"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "NicoDerm CQ: ethylene vinyl acetate copolymer, polyisobutylene, HDPE between clear polyester backings",
+        "alternative": "Equate: the identical list",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=aefd30c4-35d5-425e-855c-327a7c436188"
+      }
+    ]
   },
   {
     "slug": "zzzquil-liquid-vs-equate-nighttime-sleep-aid-liquid",
@@ -242,7 +308,23 @@
       "https://www.walmart.com/ip/49196067",
       "https://www.walmart.com/ip/Equate-Alcohol-Free-Berry-Flavor-Nighttime-Sleep-Aid-12-fl-oz/512108714"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "ZzzQuil: alcohol, sorbitol, saccharin, sucralose, sodium benzoate, xanthan gum, FD&C Blue 1 and Red 40, no sugar",
+        "alternative": "Equate alcohol-free: sucrose and high-fructose corn syrup, propylene glycol, sucralose, sodium benzoate, xanthan gum, same two dyes, no alcohol or sorbitol",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6e398d21-6cfa-4f9b-9219-0cd949e88266"
+      },
+      {
+        "aspect": "Regulatory status",
+        "brand": "ZzzQuil is an OTC monograph drug (M010)",
+        "alternative": "Equate liquid is an OTC monograph drug (M010), same 50 mg diphenhydramine per 30 mL",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=5ef35ab9-b6e8-4c88-a623-35ac9d6bd359"
+      }
+    ]
   },
   {
     "slug": "dulcolax-vs-equate-gentle-laxative-bisacodyl-5mg",
@@ -263,7 +345,8 @@
           "name": "Bisacodyl",
           "amount": "5 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=f1e4b28a-ed74-4eff-bd10-b2bfaf7483b0&name=dulcolax-stimulant-laxative-01.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -291,7 +374,23 @@
       "https://www.walmart.com/c/kp/laxative-tablets",
       "https://otclabels.com/lib/otc/otc-meds/gentle-laxative-14/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Dulcolax: glycerol monostearate, hypromellose, iron oxides, lactose, macrogol 6000, magnesium stearate, polysorbate 80, corn starch, water (no parabens, no synthetic dyes)",
+        "alternative": "Equate: longer list with D&C Red 27, FD&C Blue 2 and Yellow 6 lakes, methylparaben, propylparaben, sodium benzoate, sucrose, shellac, simethicone, lactose",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1c27244f-f0e9-43bf-a5fa-f594952914ca"
+      },
+      {
+        "aspect": "Regulatory status",
+        "brand": "Dulcolax 5 mg is listed as an OTC monograph drug (no individual NDA)",
+        "alternative": "Equate is listed as an OTC monograph drug too: same active, same dose rules, made to the monograph",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d285651b-7ccc-4ae5-a862-7a38dffefa28"
+      }
+    ]
   },
   {
     "slug": "lotrimin-af-vs-equate-clotrimazole-1-cream",
@@ -339,7 +438,23 @@
       "https://www.walmart.com/ip/p/1706360729",
       "https://www.walmart.com/ip/10324685"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Lotrimin clotrimazole 1% cream: benzyl alcohol, cetyl alcohol, cetyl esters wax, octyldodecanol, polysorbate 60, sorbitan monostearate, stearyl alcohol, water",
+        "alternative": "Equate: benzyl alcohol (1%), cetostearyl alcohol, cetyl esters wax, 2-octyldodecanol, polysorbate 60, sorbitan monostearate, purified water",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1440cf4d-e075-4137-a8ee-f41bd449c998"
+      },
+      {
+        "aspect": "Regulatory status",
+        "brand": "Lotrimin cream (Bayer) is an OTC monograph drug (M005)",
+        "alternative": "Equate clotrimazole cream (Walmart) is an OTC monograph drug (M005)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b584e17f-ed43-43bd-b643-dfa48edd78c6"
+      }
+    ]
   },
   {
     "slug": "zyrtec-vs-kirkland-aller-tec-cetirizine-10mg",
@@ -389,7 +504,23 @@
       "https://costcobusinessdelivery.com/Kirkland-Signature-Aller-Tec,-365-ct.product.100181913.html",
       "https://slickdeals.net/f/15583159-10-99-kirkland-signature-aller-tec-cetirizine-hcl-10mg-365-tablets-online-at-costco-com-till-1-30-22"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Zyrtec: colloidal silicon dioxide, croscarmellose sodium, hypromellose, lactose, magnesium stearate, microcrystalline cellulose, PEG, titanium dioxide",
+        "alternative": "Aller-Tec: corn starch, FD&C Blue 1 lake, hypromellose, lactose, magnesium stearate, polydextrose, PEG, povidone, titanium dioxide, triacetin (adds a blue dye lake)",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d4a688aa-02d4-4af6-9a91-ed31679cfaf8"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Zyrtec tablets are marketed under NDA 019835 (Kenvue)",
+        "alternative": "Aller-Tec is marketed under ANDA 078336, an FDA-approved generic",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d4a688aa-02d4-4af6-9a91-ed31679cfaf8"
+      }
+    ]
   },
   {
     "slug": "zyrtec-vs-members-mark-cetirizine-10mg-400ct",
@@ -437,7 +568,23 @@
       "https://www.walmart.com/ip/Zyrtec-24-Hour-Allergy-Relief-Tablets-with-10-mg-Cetirizine-HCl-90-Ct/224749468",
       "https://www.samsclub.com/b/allergy-sinus/1614?rootDimension=Brand:Member's+Mark"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Zyrtec: colloidal silicon dioxide, croscarmellose sodium, hypromellose, lactose, magnesium stearate, microcrystalline cellulose, PEG, titanium dioxide",
+        "alternative": "Member's Mark: corn starch, FD&C Blue 1 lake, hypromellose, lactose, magnesium stearate, polydextrose, PEG, povidone, titanium dioxide, triacetin",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=379756fd-f92d-4773-94fd-2682fcbdfba2"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Zyrtec is marketed under NDA 019835",
+        "alternative": "Member's Mark label lists ANDA 078336, the same generic application as Kirkland Aller-Tec and Equate",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=379756fd-f92d-4773-94fd-2682fcbdfba2"
+      }
+    ]
   },
   {
     "slug": "aleve-vs-members-mark-naproxen-sodium-220mg",
@@ -458,7 +605,8 @@
           "name": "Naproxen sodium",
           "amount": "220 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=02941928-128a-2c88-e063-6294a90ac6ba&name=Aleve+Caplets+-+50+Count+Soft+Grip+Arthritis+Cap+Carton.jpg"
     },
     "alternative": {
       "brand": "Member's Mark",
@@ -485,7 +633,30 @@
       "https://www.walmart.com/ip/Aleve-Pain-Relief-Naproxen-Sodium-Caplets-200-Count/938759653",
       "https://www.samsclub.com/ip/Member-s-Mark-Naproxen-Sodium-Tablets-NSAID-220-mg-400-ct/13604911242"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Aleve: FD&C Blue 2 lake, hypromellose, magnesium stearate, microcrystalline cellulose, PEG, povidone, talc, titanium dioxide",
+        "alternative": "Member's Mark: the same list plus polysorbate 80",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=7a87a339-4482-ec9e-3c77-7ccb9cea2c4c"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Aleve is marketed under NDA 020204 (Bayer)",
+        "alternative": "Member's Mark naproxen sodium is marketed under ANDA 075168, an FDA-approved generic",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=7a87a339-4482-ec9e-3c77-7ccb9cea2c4c"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Bayer",
+        "alternative": "Label says 'Distributed by Dr. Reddy's Laboratories, Princeton NJ; Made in India'",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=7a87a339-4482-ec9e-3c77-7ccb9cea2c4c"
+      }
+    ]
   },
   {
     "slug": "mens-rogaine-foam-vs-kirkland-minoxidil-5-foam",
@@ -534,7 +705,30 @@
       "https://app.warehouserunner.com/costco/778152-kirkland-signature-5-minoxidil-foam-for-men-6-mo-supply",
       "https://tressless.com/community/undefined-LWax"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Men's Rogaine foam: butane, BHT, cetyl alcohol, citric acid, glycerin, isobutane, lactic acid, polysorbate 60, propane, water, SD alcohol 40-B, stearyl alcohol",
+        "alternative": "Kirkland: the same list without glycerin",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=90137bb7-f0e3-4c3c-9cfb-d4d5eed13a9c"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Men's Rogaine foam is marketed under NDA 021812",
+        "alternative": "Kirkland Signature foam is marketed under ANDA 091344, an FDA-approved generic",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=90137bb7-f0e3-4c3c-9cfb-d4d5eed13a9c"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Label says Johnson & Johnson Consumer Inc.",
+        "alternative": "Costco label says 'Distributed by Perrigo, Allegan, MI'",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=90137bb7-f0e3-4c3c-9cfb-d4d5eed13a9c"
+      }
+    ]
   },
   {
     "slug": "miralax-vs-members-mark-clearlax-peg-3350",
@@ -555,7 +749,8 @@
           "name": "Polyethylene glycol 3350",
           "amount": "17 g per dose"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=d69ce3d4-7ca4-4fe3-b49e-6655e48d6963&name=C00011253_MIRALAX_RESTORALAX_MiralaxPowder_10ct_Carton_r1_clean.jpg"
     },
     "alternative": {
       "brand": "Member's Mark",
@@ -571,7 +766,8 @@
           "name": "Polyethylene glycol 3350",
           "amount": "17 g per dose"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=5bc34a90-adc2-4031-b8a6-725829881550&name=306-zy-clearlax.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -582,7 +778,23 @@
       "https://www.walmart.com/ip/MiraLAX-Laxative-Powder-26-90-oz/36483385",
       "https://www.samsclub.com/p/mm-clearlax-3-x-17-9-oz/prod17040152"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "MiraLAX label: 'Inactive ingredients: none'",
+        "alternative": "Member's Mark ClearLAX label: 'none'",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=5bc34a90-adc2-4031-b8a6-725829881550"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "MiraLAX is marketed under NDA 022015 (Bayer)",
+        "alternative": "ClearLAX (Sam's West) is marketed under ANDA 090685, an FDA-approved generic",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=5bc34a90-adc2-4031-b8a6-725829881550"
+      }
+    ]
   },
   {
     "slug": "voltaren-vs-members-mark-diclofenac-gel-1",
@@ -603,7 +815,8 @@
           "name": "Diclofenac sodium",
           "amount": "1%"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=30a94282-0892-442a-aa10-6525cbd4fe88&name=Voltaren+Kit+100+g+plus+20+g.jpg"
     },
     "alternative": {
       "brand": "Member's Mark",
@@ -619,7 +832,8 @@
           "name": "Diclofenac sodium",
           "amount": "1%"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=d339aaa2-ae7e-4a79-b687-cf0a3106fad0&name=members-mark-arthritis-pain-reliever-carton-image.jpg"
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -630,7 +844,30 @@
       "https://www.walmart.com/ip/Voltaren-Arthritis-Pain-Gel-Diclofenac-Sodium-Topical-Gel-1-Nsaid-100-G/556463039",
       "https://www.samsclub.com/ip/Member-s-Mark-Arthritis-Pain-Reliever-Topical-Gel-1-NSAID-150-mg-Diclofenac-Sodium-3-pk/13910060529"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Voltaren Arthritis Pain: carbomer, cocoyl caprylocaprate, fragrance, isopropyl alcohol, mineral oil, polyoxyl 20 cetostearyl ether, propylene glycol, water, ammonia",
+        "alternative": "Member's Mark: the identical list, word for word",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d339aaa2-ae7e-4a79-b687-cf0a3106fad0"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Voltaren Arthritis Pain gel is marketed under NDA 022122",
+        "alternative": "Member's Mark gel is marketed under ANDA 211253, an FDA-approved generic",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d339aaa2-ae7e-4a79-b687-cf0a3106fad0"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Voltaren label (Haleon), NDA 022122",
+        "alternative": "Member's Mark label says 'Distributed by Perrigo, Allegan, MI'",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d339aaa2-ae7e-4a79-b687-cf0a3106fad0"
+      }
+    ]
   },
   {
     "slug": "excedrin-extra-strength-vs-equate-extra-strength-headache-relief",
@@ -659,7 +896,8 @@
           "name": "Caffeine",
           "amount": "65 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=7f0f8b3c-c226-4a3a-af46-a708f345e4f5&name=64102+BSX+Excedrin+4ct_paint.jpg"
     },
     "alternative": {
       "brand": "Equate",
@@ -683,7 +921,8 @@
           "name": "Caffeine",
           "amount": "65 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=1557bd9b-3e7c-4769-e063-6394a90a9d91&name=370r-headache-200-label.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -696,7 +935,23 @@
       "https://www.walmart.com/c/kp/stop-headache",
       "https://products.withsilver.app/upc/194346263646-equate-extra-strength-headache-relief-caplets-250mg-200-count"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Excedrin: benzoic acid, carnauba wax, FD&C Blue 1, hypromellose, light mineral oil, simethicone, sorbitan monolaurate, stearic acid, titanium dioxide and others",
+        "alternative": "Equate: corn starch, crospovidone, hypromellose, microcrystalline cellulose, povidone, propylene glycol, sodium lauryl sulfate, stearic acid, titanium dioxide (no dye listed)",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=9b1201af-c802-4e19-b192-bbbf34367db4"
+      },
+      {
+        "aspect": "Regulatory status",
+        "brand": "Excedrin Extra Strength is an OTC monograph drug (M013)",
+        "alternative": "Equate acetaminophen, aspirin and caffeine is an OTC monograph drug (M013), same three actives and amounts",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f7e572e9-82a7-2127-e053-6394a90ab01a"
+      }
+    ]
   },
   {
     "slug": "allegra-vs-members-mark-fexofenadine-180mg",
@@ -744,7 +999,23 @@
       "https://www.samsclub.com/p/members-mark-allergy-relief-fexofenadine-hcl-tablets-180-mg-150-ct/P03018333",
       "https://www.walmart.com/ip/Allegra-24-Hour-Non-Drowsy-Antihistamine-Medicine-Tablets-for-Adult-Allergy-Relief-Fexofenadine-180-mg-70-Pills/20530894"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Allegra Allergy: colloidal silicon dioxide, croscarmellose sodium, hypromellose, iron oxide blends, magnesium stearate, MCC, PEG, povidone, pregelatinized starch, titanium dioxide",
+        "alternative": "Member's Mark 150 ct: anhydrous and monohydrate lactose, corn starch, croscarmellose, PEG 400, pregelatinized starch, stearic acid, iron oxides, titanium dioxide (contains lactose)",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=53d6c830-060b-4427-8acc-51a6c50f8a11"
+      },
+      {
+        "aspect": "FDA approval",
+        "brand": "Allegra Allergy is marketed under NDA 020872",
+        "alternative": "Member's Mark 180 mg label lists ANDA 202039, an FDA-approved generic",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=53d6c830-060b-4427-8acc-51a6c50f8a11"
+      }
+    ]
   },
   {
     "slug": "prilosec-otc-vs-members-mark-omeprazole-20mg",
@@ -781,7 +1052,8 @@
           "name": "Omeprazole",
           "amount": "20 mg"
         }
-      ]
+      ],
+      "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9&name=AA793ZYC3+915+Carton+Image+1.jpg"
     },
     "match_type": "identical_active",
     "confidence": "medium",
@@ -792,7 +1064,23 @@
       "https://www.samsclub.com/ip/members-mark-omeprazole-dr-tablets-20-mg-42-count/13887904038",
       "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Salt form and approval",
+        "brand": "Prilosec OTC contains omeprazole magnesium (P&G, NDA 021229)",
+        "alternative": "Member's Mark contains omeprazole base, approved under its own NDA 022032, not an ANDA copy of Prilosec",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Prilosec OTC: sucrose, paraffin, starch, microcrystalline cellulose, PVP, no lactose listed",
+        "alternative": "Member's Mark: lactose monohydrate, hypromellose acetate succinate, monoethanolamine, sodium starch glycolate, iron oxide red/yellow",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9"
+      }
+    ]
   },
   {
     "slug": "panoxyl-10-vs-equate-max-strength-acne-foaming-wash",
@@ -841,7 +1129,30 @@
       "https://www.walmart.com/ip/689947843",
       "https://skinsort.com/compare/panoxyl-acne-foaming-wash-benzoyl-peroxide-10-maximum-strength-vs-equate-10-benzoyl-peroxide-acne-treatment"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "PanOxyl foaming wash: water, decyl glucoside, carbomers, dimethicone, silica, sorbitol, glycerin, propanediol, xanthan gum and others",
+        "alternative": "Equate acne wash: water, glycerin, decyl glucoside, PEG-40 stearate, carbomer, dimethicone, silica, xanthan gum, similar surfactant base",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3c108488-dfaf-447c-ba26-15fd7cf67761"
+      },
+      {
+        "aspect": "Regulatory status",
+        "brand": "PanOxyl 10% wash (Crown Labs) is an OTC monograph drug (M006)",
+        "alternative": "Equate 10% wash (Walmart) is an OTC monograph drug (M006)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1660f219-e789-91f1-e063-6294a90a7664"
+      },
+      {
+        "aspect": "Benzene testing",
+        "brand": "PanOxyl BPO products were named with detectable benzene in Valisure's March 2024 FDA petition",
+        "alternative": "Equate BPO products were named in the same petition (no FDA recall confirmed for either here)",
+        "verdict": "same",
+        "source": "https://dermatologytimes.com/view/breaking-news-benzene-found-in-various-acne-products-valisure-files-petition-with-fda-to-recall-treatments"
+      }
+    ]
   },
   {
     "slug": "neutrogena-t-gel-extra-strength-vs-equate-extra-strength-coal-tar",

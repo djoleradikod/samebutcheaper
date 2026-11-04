@@ -1,0 +1,698 @@
+[
+  {
+    "slug": "apple-iphone-essentials-kit-vs-anker-chipolo",
+    "market": "US",
+    "category": "tech-tools",
+    "title": "Apple iPhone essentials (20W adapter, USB-C cable, AirTag) vs Anker and Chipolo",
+    "bundle": {
+      "brand": "Apple",
+      "name": "iPhone essentials bought from Apple: 20W USB-C Power Adapter, 60W USB-C Charge Cable (1 m) and one AirTag (2nd generation)",
+      "price": 67.0,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/MWVV3AM/A/20w-usb-c-power-adapter",
+      "items": [
+        {
+          "name": "Apple 20W USB-C Power Adapter (MWVV3AM/A)",
+          "size": 1,
+          "unit": "charger",
+          "key_ingredients": [
+            {
+              "name": "Output",
+              "amount": "20 W USB-C PD"
+            }
+          ]
+        },
+        {
+          "name": "Apple 60W USB-C Charge Cable, 1 m (MW493AM/A)",
+          "size": 1,
+          "unit": "cable",
+          "key_ingredients": [
+            {
+              "name": "Rating",
+              "amount": "60 W USB-C to USB-C"
+            }
+          ]
+        },
+        {
+          "name": "Apple AirTag (2nd generation)",
+          "size": 1,
+          "unit": "tracker",
+          "key_ingredients": [
+            {
+              "name": "Network",
+              "amount": "Apple Find My, Ultra Wideband"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Anker",
+        "product": "Anker Nano Charger (20W), A2637",
+        "size": 1,
+        "unit": "charger",
+        "price": 11.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a2637-nano-20w-charger",
+        "key_ingredients": [
+          {
+            "name": "Output",
+            "amount": "20 W USB-C PD (9V 2.22A)"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "Anker",
+        "product": "Anker New Nylon USB-C to USB-C Cable, 60W, 3.3 ft, 2-pack (A8752)",
+        "size": 2,
+        "unit": "cable",
+        "price": 9.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a8752",
+        "key_ingredients": [
+          {
+            "name": "Rating",
+            "amount": "60 W USB-C to USB-C"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 2,
+        "brand": "Chipolo",
+        "product": "Chipolo ONE Spot",
+        "size": 1,
+        "unit": "tracker",
+        "price": 15.0,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://chipolo.net/en-us/products/chipolo-one-spot",
+        "key_ingredients": [
+          {
+            "name": "Network",
+            "amount": "Apple Find My, Bluetooth only"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "The three accessories most iPhone owners buy from Apple cost $67; the same wattage charger, a 60W cable and a Find My tracker from Anker and Chipolo cost about $32.",
+    "evidence": "Apple's US store prices: 20W USB-C Power Adapter $19, 60W USB-C Charge Cable (1 m) $19, AirTag (2nd generation) $29. Anker's US store lists the Nano Charger (20W) at $11.99 (5V 3A / 9V 2.22A, the standard 20W PD profile) and a two-pack of 3.3 ft 60W USB-C cables at $9.99. Chipolo's US store lists the ONE Spot at $15; it works in Apple's Find My app and network, as 9to5Mac's review confirms.",
+    "differences": "Apple doesn't sell these as a kit, so the bundle price is the sum of the three apple.com prices. The Chipolo has no Ultra Wideband, so no Precision Finding arrow, and reviewers note AirTag is more water resistant. Anker's cables come as a two-pack, so you get a spare (the cost here counts one). Apple's cable is 1 m, Anker's 3.3 ft (1 m).",
+    "sources": [
+      "https://www.apple.com/shop/product/MWVV3AM/A/20w-usb-c-power-adapter",
+      "https://www.apple.com/shop/product/MW493AM/A/60w-usb-c-charge-cable-1-m",
+      "https://www.apple.com/shop/product/MFE94LL/A/airtag",
+      "https://www.anker.com/products/a2637-nano-20w-charger",
+      "https://www.anker.com/products/a8752",
+      "https://chipolo.net/en-us/products/chipolo-one-spot",
+      "https://9to5mac.com/2021/05/19/chipolo-one-spot-review/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-macbook-pro-16-travel-kit-vs-anker-ugreen",
+    "market": "US",
+    "category": "tech-tools",
+    "title": "Apple MacBook Pro 16-inch travel kit (140W, 240W cable, AV adapter) vs Anker and UGREEN",
+    "bundle": {
+      "brand": "Apple",
+      "name": "MacBook Pro 16-inch travel kit bought from Apple: 140W Power Adapter, 240W USB-C Charge Cable (2 m) and USB-C Digital AV Multiport Adapter",
+      "price": 197.0,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mkfq4am/a/140w-power-adapter",
+      "items": [
+        {
+          "name": "Apple 140W Power Adapter (MKFQ4AM/A)",
+          "size": 1,
+          "unit": "charger",
+          "key_ingredients": [
+            {
+              "name": "Output",
+              "amount": "140 W, USB PD 3.1 28V 5A"
+            }
+          ]
+        },
+        {
+          "name": "Apple 240W USB-C Charge Cable, 2 m (MYQT3AM/A)",
+          "size": 1,
+          "unit": "cable",
+          "key_ingredients": [
+            {
+              "name": "Rating",
+              "amount": "240 W, USB 2 data"
+            },
+            {
+              "name": "Length",
+              "amount": "2 m"
+            }
+          ]
+        },
+        {
+          "name": "Apple USB-C Digital AV Multiport Adapter (MW5M3AM/A)",
+          "size": 1,
+          "unit": "adapter",
+          "key_ingredients": [
+            {
+              "name": "Ports",
+              "amount": "HDMI 4K60, USB-A, USB-C charging"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Anker",
+        "product": "Anker Charger (140W, 4-Port, PD 3.1) with USB-C Cable, A2697",
+        "size": 1,
+        "unit": "charger",
+        "price": 89.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a2697-anker-charger-140w-4-port",
+        "key_ingredients": [
+          {
+            "name": "Output",
+            "amount": "140 W from one USB-C port, USB PD 3.1 28V 5A"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "Anker",
+        "product": "Anker USB-C to USB-C Cable, 240W, 6 ft, Upcycled-Braided (A82E2)",
+        "size": 1,
+        "unit": "cable",
+        "price": 21.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a82e2-240w-usb-c-to-usb-c-cable",
+        "key_ingredients": [
+          {
+            "name": "Rating",
+            "amount": "240 W, USB-IF certified, USB 2 data"
+          },
+          {
+            "name": "Length",
+            "amount": "6 ft"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 2,
+        "brand": "UGREEN",
+        "product": "UGREEN Revodok 107 7-in-1 USB-C Hub with 4K HDMI (60515)",
+        "size": 1,
+        "unit": "adapter",
+        "price": 39.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://us.ugreen.com/products/7-in-1-multiport-adapter-with-4k-60hz",
+        "key_ingredients": [
+          {
+            "name": "Ports",
+            "amount": "HDMI 4K60, 2x USB-A 5 Gb/s, 100W PD, Ethernet, SD/TF"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Apple's 140W adapter, 2 m 240W cable and HDMI multiport adapter cost $197; Anker's 140W PD 3.1 charger, a 240W cable and UGREEN's 4K60 hub do the same jobs for about $152.",
+    "evidence": "Apple's US store prices: 140W Power Adapter $99, 240W USB-C Charge Cable (2 m) $29, USB-C Digital AV Multiport Adapter $69. Anker's spec sheet lists 28V 5A (140W) on USB-C1 or C2 at $89.99; techtest.org measured 140W from it. ChargerLAB's teardown of Apple's 140W (A3607) shows the same 28V 5A top profile. Anker's 6 ft 240W cable is USB-IF certified and costs $21.99. UGREEN's SKU 60515 lists HDMI at 4K 60Hz, two USB-A ports and 100W PD pass-through at $39.99.",
+    "differences": "Apple doesn't sell these as a kit, so the bundle price is the sum of the three apple.com prices. In techtest.org's test the Anker throttled to about 120W after half an hour at 140W. Anker's charger already includes a USB-C cable, so you may not need the extra 240W one; the separate 6 ft cable matches Apple's 2 m length. UGREEN's hub is bigger than Apple's adapter and needs a DisplayPort 1.4 host for 4K 60Hz; we found no independent review of it.",
+    "sources": [
+      "https://www.apple.com/shop/product/mkfq4am/a/140w-power-adapter",
+      "https://www.apple.com/shop/product/myqt3am/a/240w-usb-c-charge-cable-2-m",
+      "https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter",
+      "https://www.anker.com/products/a2697-anker-charger-140w-4-port",
+      "https://techtest.org/der-anker-charger-140w-4-port-pd3-1-a2697-im-test-sehr-gut-aber-mit-schoenheitsfehlern/",
+      "https://chargerlab.com/teardown-of-apple-140w-usb-c-power-adapter-a3607",
+      "https://www.anker.com/products/a82e2-240w-usb-c-to-usb-c-cable",
+      "https://us.ugreen.com/products/7-in-1-multiport-adapter-with-4k-60hz"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-macbook-air-travel-kit-vs-anker-ugreen",
+    "market": "US",
+    "category": "tech-tools",
+    "title": "Apple MacBook Air travel kit (70W, 240W cable, AV adapter) vs Anker and UGREEN",
+    "bundle": {
+      "brand": "Apple",
+      "name": "MacBook Air travel kit bought from Apple: 70W Power Adapter, 240W USB-C Charge Cable (2 m) and USB-C Digital AV Multiport Adapter",
+      "price": 157.0,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mkfp4am/a/70w-power-adapter",
+      "items": [
+        {
+          "name": "Apple 70W Power Adapter (MKFP4AM/A)",
+          "size": 1,
+          "unit": "charger",
+          "key_ingredients": [
+            {
+              "name": "Output",
+              "amount": "70 W USB-C PD"
+            }
+          ]
+        },
+        {
+          "name": "Apple 240W USB-C Charge Cable, 2 m (MYQT3AM/A)",
+          "size": 1,
+          "unit": "cable",
+          "key_ingredients": [
+            {
+              "name": "Rating",
+              "amount": "240 W, USB 2 data"
+            },
+            {
+              "name": "Length",
+              "amount": "2 m"
+            }
+          ]
+        },
+        {
+          "name": "Apple USB-C Digital AV Multiport Adapter (MW5M3AM/A)",
+          "size": 1,
+          "unit": "adapter",
+          "key_ingredients": [
+            {
+              "name": "Ports",
+              "amount": "HDMI 4K60, USB-A, USB-C charging"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Anker",
+        "product": "Anker Nano Charger (70W, 3 Ports), A121A",
+        "size": 1,
+        "unit": "charger",
+        "price": 39.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a121a-70w-3-ports-charger",
+        "key_ingredients": [
+          {
+            "name": "Output",
+            "amount": "70 W from one USB-C port (20V 3.5A)"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "Anker",
+        "product": "Anker USB-C to USB-C Cable, 240W, 6 ft, Upcycled-Braided (A82E2)",
+        "size": 1,
+        "unit": "cable",
+        "price": 21.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a82e2-240w-usb-c-to-usb-c-cable",
+        "key_ingredients": [
+          {
+            "name": "Rating",
+            "amount": "240 W, USB-IF certified, USB 2 data"
+          },
+          {
+            "name": "Length",
+            "amount": "6 ft"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 2,
+        "brand": "UGREEN",
+        "product": "UGREEN Revodok 107 7-in-1 USB-C Hub with 4K HDMI (60515)",
+        "size": 1,
+        "unit": "adapter",
+        "price": 39.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://us.ugreen.com/products/7-in-1-multiport-adapter-with-4k-60hz",
+        "key_ingredients": [
+          {
+            "name": "Ports",
+            "amount": "HDMI 4K60, 2x USB-A 5 Gb/s, 100W PD, Ethernet, SD/TF"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Apple's 70W adapter, 2 m cable and HDMI multiport adapter cost $157; Anker's 70W Nano, a 240W cable and UGREEN's 4K60 hub cost about $102.",
+    "evidence": "Apple's US store prices: 70W Power Adapter $59, 240W USB-C Charge Cable (2 m) $29, USB-C Digital AV Multiport Adapter $69. Anker's spec sheet lists 20V 3.5A (70W max) on each USB-C port at $39.99, and 9to5Mac's review confirms a full 70W from one port. Anker's 6 ft 240W cable is USB-IF certified and costs $21.99. UGREEN's SKU 60515 lists HDMI at 4K 60Hz, two USB-A ports and 100W PD pass-through at $39.99.",
+    "differences": "Apple doesn't sell these as a kit, so the bundle price is the sum of the three apple.com prices. The Anker splits its 70W when two or three devices charge. It also includes a USB-C cable, so the separate 240W cable is optional. A 70W charger doesn't need a 240W cable; we matched Apple's cable for a like-for-like comparison. UGREEN's hub is bigger than Apple's adapter and we found no independent review of it.",
+    "sources": [
+      "https://www.apple.com/shop/product/mkfp4am/a/70w-power-adapter",
+      "https://www.apple.com/shop/product/myqt3am/a/240w-usb-c-charge-cable-2-m",
+      "https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter",
+      "https://www.anker.com/products/a121a-70w-3-ports-charger",
+      "https://9to5mac.com/2025/10/21/anker-nano-charger-35w-and-70w-review-for-iphone-17/",
+      "https://www.anker.com/products/a82e2-240w-usb-c-to-usb-c-cable",
+      "https://us.ugreen.com/products/7-in-1-multiport-adapter-with-4k-60hz"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-magic-keyboard-and-mouse-vs-logitech-pebble-2-for-mac",
+    "market": "US",
+    "category": "tech-tools",
+    "title": "Apple Magic Keyboard + Magic Mouse vs Logitech Pebble Keys 2 + Pebble Mouse 2",
+    "bundle": {
+      "brand": "Apple",
+      "name": "Mac desk set bought from Apple: Magic Keyboard (USB-C) and Magic Mouse (USB-C)",
+      "price": 178.0,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mjlx4ll/a/magic-keyboard-usb-c-us-english",
+      "items": [
+        {
+          "name": "Apple Magic Keyboard (USB-C), US English (MJLX4LL/A)",
+          "size": 1,
+          "unit": "keyboard",
+          "key_ingredients": [
+            {
+              "name": "Connection",
+              "amount": "Bluetooth, rechargeable"
+            }
+          ]
+        },
+        {
+          "name": "Apple Magic Mouse (USB-C), white (MXK53AM/A)",
+          "size": 1,
+          "unit": "mouse",
+          "key_ingredients": [
+            {
+              "name": "Connection",
+              "amount": "Bluetooth, rechargeable, Multi-Touch surface"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Logitech",
+        "product": "Logitech Pebble Keys 2 K380s",
+        "size": 1,
+        "unit": "keyboard",
+        "price": 39.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.logitech.com/en-us/shop/p/pebble-keys-2",
+        "key_ingredients": [
+          {
+            "name": "Connection",
+            "amount": "Bluetooth, 3-device Easy-Switch, AAA batteries"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "Logitech",
+        "product": "Logitech Pebble Mouse 2 M350s",
+        "size": 1,
+        "unit": "mouse",
+        "price": 24.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.logitech.com/en-us/shop/p/pebble-2-m350s-wireless-mouse",
+        "key_ingredients": [
+          {
+            "name": "Connection",
+            "amount": "Bluetooth, 3-device Easy-Switch, AA battery"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Apple's compact Bluetooth keyboard and mouse cost $178 together; Logitech's Pebble 2 keyboard and mouse, which work on a Mac and switch between three devices, cost about $65.",
+    "evidence": "Apple's US store lists the Magic Keyboard (USB-C) at $99 and the Magic Mouse (USB-C) at $79. Logitech's US store lists the Pebble Keys 2 K380s at $39.99 and the Pebble Mouse 2 M350s at $24.99 (shown on sale at $19.99), both Bluetooth with three-device switching and macOS support. Trusted Reviews confirms the K380s runs on AAA batteries and works without software, and RTINGS rates the M350s 7.2 for office work.",
+    "differences": "This is the biggest trade-off of these kits. The Magic Mouse's Multi-Touch surface does swipe and scroll gestures; the M350s has a plain scroll wheel and one programmable button, and iMore found it uncomfortable for long use. Both Logitech pieces use disposable batteries instead of USB-C recharging. The keys are round and feel different from Apple's. Logitech also sells both as the Pebble 2 Combo for Mac, often for less.",
+    "sources": [
+      "https://www.apple.com/shop/product/mjlx4ll/a/magic-keyboard-usb-c-us-english",
+      "https://www.apple.com/shop/product/MXK53AM/A/magic-mouse-usb-c-white-multi-touch-surface",
+      "https://www.logitech.com/en-us/shop/p/pebble-keys-2",
+      "https://www.logitech.com/en-us/shop/p/pebble-2-m350s-wireless-mouse",
+      "https://www.trustedreviews.com/reviews/logitech-pebble-keys-2-k380s",
+      "https://www.rtings.com/mouse/reviews/logitech/pebble-mouse-2-m350s",
+      "https://www.imore.com/mac/logitech-pebble-mouse-2-m350s-review-low-profile-low-comfort"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-ipad-notes-kit-vs-logitech-crayon-anker",
+    "market": "US",
+    "category": "tech-tools",
+    "title": "Apple iPad note-taking kit (Apple Pencil, 20W adapter, cable) vs Logitech Crayon and Anker",
+    "bundle": {
+      "brand": "Apple",
+      "name": "iPad note-taking kit bought from Apple: Apple Pencil (USB-C), 20W USB-C Power Adapter and 60W USB-C Charge Cable (1 m)",
+      "price": 117.0,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/MUWA3AM/A/apple-pencil-usb-c",
+      "items": [
+        {
+          "name": "Apple Pencil (USB-C) (MUWA3AM/A)",
+          "size": 1,
+          "unit": "stylus",
+          "key_ingredients": [
+            {
+              "name": "Features",
+              "amount": "Tilt, palm rejection, no pressure sensitivity"
+            }
+          ]
+        },
+        {
+          "name": "Apple 20W USB-C Power Adapter (MWVV3AM/A)",
+          "size": 1,
+          "unit": "charger",
+          "key_ingredients": [
+            {
+              "name": "Output",
+              "amount": "20 W USB-C PD"
+            }
+          ]
+        },
+        {
+          "name": "Apple 60W USB-C Charge Cable, 1 m (MW493AM/A)",
+          "size": 1,
+          "unit": "cable",
+          "key_ingredients": [
+            {
+              "name": "Rating",
+              "amount": "60 W USB-C to USB-C"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Logitech",
+        "product": "Logitech Crayon (USB-C), 914-000070",
+        "size": 1,
+        "unit": "stylus",
+        "price": 69.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.logitech.com/en-us/shop/p/ipad-digital-pencil-crayon",
+        "key_ingredients": [
+          {
+            "name": "Features",
+            "amount": "Apple Pencil technology, tilt, palm rejection, no pressure sensitivity"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "Anker",
+        "product": "Anker Nano Charger (20W), A2637",
+        "size": 1,
+        "unit": "charger",
+        "price": 11.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a2637-nano-20w-charger",
+        "key_ingredients": [
+          {
+            "name": "Output",
+            "amount": "20 W USB-C PD (9V 2.22A)"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 2,
+        "brand": "Anker",
+        "product": "Anker New Nylon USB-C to USB-C Cable, 60W, 3.3 ft, 2-pack (A8752)",
+        "size": 2,
+        "unit": "cable",
+        "price": 9.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a8752",
+        "key_ingredients": [
+          {
+            "name": "Rating",
+            "amount": "60 W USB-C to USB-C"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "An Apple Pencil (USB-C) with Apple's 20W adapter and cable costs $117; Logitech's Crayon, built on Apple Pencil technology, with Anker's 20W charger and cable costs about $87.",
+    "evidence": "Apple's US store prices: Apple Pencil (USB-C) $79, 20W USB-C Power Adapter $19, 60W USB-C Charge Cable (1 m) $19. Logitech's US store lists the Crayon (USB-C) at $69.99, made with Apple Pencil technology, with tilt and palm rejection; iDownloadBlog's comparison confirms neither stylus has pressure sensitivity. Anker's store lists the Nano Charger (20W) at $11.99 and a two-pack of 3.3 ft 60W USB-C cables at $9.99.",
+    "differences": "Apple doesn't sell these as a kit, so the bundle price is the sum of the three apple.com prices. Most of the saving comes from the charger and cable; the Crayon itself is only $9 cheaper. The Crayon doesn't attach magnetically to the iPad, has no hover support, and iDownloadBlog found its input latency less snappy than the Apple Pencil's.",
+    "sources": [
+      "https://www.apple.com/shop/product/MUWA3AM/A/apple-pencil-usb-c",
+      "https://www.apple.com/shop/product/MWVV3AM/A/20w-usb-c-power-adapter",
+      "https://www.apple.com/shop/product/MW493AM/A/60w-usb-c-charge-cable-1-m",
+      "https://www.logitech.com/en-us/shop/p/ipad-digital-pencil-crayon",
+      "https://www.idownloadblog.com/2023/11/01/apple-pencil-usb-c-vs-zagg-pro-stylus-2-logitech-crayon/",
+      "https://www.anker.com/products/a2637-nano-20w-charger",
+      "https://www.anker.com/products/a8752"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "apple-iphone-17-fast-charge-kit-vs-anker-nano-45w",
+    "market": "US",
+    "category": "tech-tools",
+    "title": "Apple iPhone 17 fast-charge kit (40W Dynamic adapter, USB-C cable) vs Anker Nano 45W",
+    "bundle": {
+      "brand": "Apple",
+      "name": "iPhone fast-charge kit bought from Apple: 40W Dynamic Power Adapter with 60W Max and 60W USB-C Charge Cable (1 m)",
+      "price": 58.0,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "apple",
+      "asin": null,
+      "url": "https://www.apple.com/shop/product/mgkn4am/a/40w-dynamic-power-adapter-with-60w-max",
+      "items": [
+        {
+          "name": "Apple 40W Dynamic Power Adapter with 60W Max (MGKN4AM/A)",
+          "size": 1,
+          "unit": "charger",
+          "key_ingredients": [
+            {
+              "name": "Output",
+              "amount": "40 W sustained, up to 60 W bursts"
+            }
+          ]
+        },
+        {
+          "name": "Apple 60W USB-C Charge Cable, 1 m (MW493AM/A)",
+          "size": 1,
+          "unit": "cable",
+          "key_ingredients": [
+            {
+              "name": "Rating",
+              "amount": "60 W USB-C to USB-C"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Anker",
+        "product": "Anker Nano Charger (45W) with USB-C to USB-C Cable, A2692",
+        "size": 1,
+        "unit": "charger",
+        "price": 25.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a2692-45w-usb-c-fast-charger",
+        "key_ingredients": [
+          {
+            "name": "Output",
+            "amount": "45 W USB PD and PPS"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      },
+      {
+        "replaces": 1,
+        "brand": "Anker",
+        "product": "Anker New Nylon USB-C to USB-C Cable, 60W, 3.3 ft, 2-pack (A8752)",
+        "size": 2,
+        "unit": "cable",
+        "price": 9.99,
+        "retailer": "other",
+        "asin": null,
+        "url": "https://www.anker.com/products/a8752",
+        "key_ingredients": [
+          {
+            "name": "Rating",
+            "amount": "60 W USB-C to USB-C"
+          }
+        ],
+        "match_type": "equivalent_spec"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Apple's 40W Dynamic adapter and 60W cable cost $58; Anker's 45W Nano, which already comes with a USB-C cable, plus a spare 60W cable costs about $31.",
+    "evidence": "Apple's US store prices: 40W Dynamic Power Adapter with 60W Max $39, 60W USB-C Charge Cable (1 m) $19. ChargerLAB's teardown found 40W fixed PD profiles (up to 20V 2A) with short boosts toward 60W, which MacRumors describes as bursts. Anker's store lists the Nano Charger (45W) with a USB-C cable at $25.99, with 15V 3A and 20V 2.25A profiles and PPS, and a two-pack of 3.3 ft 60W cables at $9.99.",
+    "differences": "Apple doesn't sell these as a kit, so the bundle price is the sum of the two apple.com prices. Apple's adapter can briefly reach 60W, which matters for a MacBook Air more than an iPhone. Anker's 45W already includes a cable, so you could skip the extra cable and pay $25.99.",
+    "sources": [
+      "https://www.apple.com/shop/product/mgkn4am/a/40w-dynamic-power-adapter-with-60w-max",
+      "https://www.apple.com/shop/product/MW493AM/A/60w-usb-c-charge-cable-1-m",
+      "https://www.chargerlab.com/teardown-of-apple-40w-dynamic-power-adapter-with-60w-max-a3365/",
+      "https://www.macrumors.com/2025/09/17/apple-40w-to-60w-charger-key-advantage/",
+      "https://www.anker.com/products/a2692-45w-usb-c-fast-charger",
+      "https://www.anker.com/products/a8752"
+    ],
+    "price_checked": "2026-11"
+  }
+]

@@ -1,0 +1,402 @@
+{
+ "Kirkland Signature|Kirkland Signature House Blend Coffee, Medium Roast, Whole Bean, 2.5 lb (Custom Roasted by Starbucks)": {
+  "file": "kirkland-signature-kirkland-signature-house-blend-coffee-medium-roast-whole-bean-2-5-lb-cu.webp",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0196633828903",
+  "matched": "Kirkland Signature Whole Bean Coffee House Blend"
+ },
+ "Arm & Hammer|ARM & HAMMER Pure Baking Soda, 3 lb Resealable Bag": {
+  "file": "arm-hammer-arm-hammer-pure-baking-soda-3-lb-resealable-bag.webp",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0033200011101",
+  "matched": "ARM & HAMMER Pure baking soda"
+ },
+ "Great Value|Great Value Baking Soda, 4 lb": {
+  "file": "great-value-great-value-baking-soda-4-lb.webp",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0078742370361",
+  "matched": "Great Value Baking Soda"
+ },
+ "Cascade|Cascade Platinum ActionPacs Dishwasher Detergent, Lemon, 62 count": {
+  "file": "cascade-cascade-platinum-actionpacs-dishwasher-detergent-lemon-62-count.webp",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/0030772177532",
+  "matched": "Cascade, P&G, Proctor & Gamble Platinum Plus Actionpacs Dishwasher Detergent"
+ },
+ "Kirkland Signature|Kirkland Signature Platinum Performance UltraShine Dishwasher Detergent Pacs, 115 count": {
+  "file": "kirkland-signature-kirkland-signature-platinum-performance-ultrashine-dishwasher-detergent.webp",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/0196633808424",
+  "matched": "Kirkland Signature UltraShine Dishwasher Detergent Pags Platinum Performance"
+ },
+ "Finish|Finish Powerball Quantum Dishwasher Detergent Tablets, 82 count": {
+  "file": "finish-finish-powerball-quantum-dishwasher-detergent-tablets-82-count.webp",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/0051700987337",
+  "matched": "finish Powerball Quantum Infinity Shine Dishwasher Detergent"
+ },
+ "Domino|Domino Premium Pure Cane Granulated Sugar, 4 lb": {
+  "file": "domino-domino-premium-pure-cane-granulated-sugar-4-lb.webp",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0049200045503",
+  "matched": "Domino Premium Pure Cane Granulated Sugar"
+ },
+ "Head & Shoulders|Head & Shoulders 2 in 1 Dandruff Shampoo + Conditioner, Classic Clean, 20.7 fl oz": {
+  "file": "head-shoulders-head-shoulders-2-in-1-dandruff-shampoo-conditioner-classic-clean-20-7-fl-oz.webp",
+  "source": "openbeautyfacts",
+  "credit": "Open Beauty Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openbeautyfacts.org/product/4084500015012",
+  "matched": "Head & Shoulders 2 in 1 Anti Dandruff Shampoo & Conditioner"
+ },
+ "Aquaphor|Aquaphor Healing Ointment Advanced Therapy Skin Protectant, 14 oz": {
+  "file": "aquaphor-aquaphor-healing-ointment-advanced-therapy-skin-protectant-14-oz.webp",
+  "source": "openbeautyfacts",
+  "credit": "Open Beauty Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openbeautyfacts.org/product/0072140004019",
+  "matched": "Aquaphor Aquaphor Healing Ointment Advanced Therapy"
+ },
+ "Starbucks|Starbucks House Blend Medium Roast Whole Bean Coffee, 40 oz": {
+  "file": "starbucks-starbucks-house-blend-medium-roast-whole-bean-coffee-40-oz.webp",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0762111028693",
+  "matched": "Starbucks Starbucks House Blend Medium Roast Coffee"
+ },
+ "McCormick|McCormick Pure Ground Black Pepper, 3 oz": {
+  "file": "mccormick-mccormick-pure-ground-black-pepper-3-oz.webp",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0052100052311",
+  "matched": "Mccormick Pure ground black pepper"
+ },
+ "McCormick|McCormick Ground Cinnamon, 2.37 oz": {
+  "file": "mccormick-mccormick-ground-cinnamon-2-37-oz.webp",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0052100004389",
+  "matched": "McCormick CINNAMON GROUND"
+ },
+ "Advil|Advil Coated Tablets, Ibuprofen 200 mg, 300 count": {
+  "file": "advil-advil-coated-tablets-ibuprofen-200-mg-300-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3ca752d8-957c-21b4-e063-6294a90a5285",
+  "matched": "ADVIL (IBUPROFEN) TABLET, COATED [SELECT CONSUMER GROUP]"
+ },
+ "Equate|Equate Ibuprofen Tablets 200 mg, 500 count": {
+  "file": "equate-equate-ibuprofen-tablets-200-mg-500-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b04d255-a1df-4698-9b5a-ad7a12205e1b",
+  "matched": "IBUPROFEN DYE FREE (IBUPROFEN) TABLET, FILM COATED [WALMART INC.]"
+ },
+ "Tylenol|Tylenol Extra Strength Caplets, Acetaminophen 500 mg, 225 count": {
+  "file": "tylenol-tylenol-extra-strength-caplets-acetaminophen-500-mg-225-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=103d109d-f520-409c-8da2-eb6b0fbec891",
+  "matched": "TYLENOL EXTRA STRENGTH (ACETAMINOPHEN) TABLET, FILM COATED [KENVUE BRANDS LLC]"
+ },
+ "Equate|Equate Extra Strength Acetaminophen Caplets 500 mg, 500 count": {
+  "file": "equate-equate-extra-strength-acetaminophen-caplets-500-mg-500-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=152bb455-da5b-ae13-e063-6394a90acab0",
+  "matched": "EXTRA STRENGTH PAIN RELIEVER (ACETAMINOPHEN) TABLET, FILM COATED [WALMART INC.]"
+ },
+ "Aleve|Aleve Naproxen Sodium Caplets 220 mg, 200 count": {
+  "file": "aleve-aleve-naproxen-sodium-caplets-220-mg-200-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=02941928-128a-2c88-e063-6294a90ac6ba",
+  "matched": "ALEVE CAPLETS SOFT GRIP ARTHRITIS (NAPROXEN SODIUM) TABLET ALEVE CAPLETS EASY OPEN ARTHRITIS (NAPROXEN SODIUM) TABLET ALEVE CAPLETS (NAPROXEN SODIUM) TABLET [BAYER HEALTHCARE LLC.]"
+ },
+ "Equate|Equate All Day Pain Relief Naproxen Sodium Caplets 220 mg, 270 count": {
+  "file": "equate-equate-all-day-pain-relief-naproxen-sodium-caplets-220-mg-270-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=32df7378-4dd1-4f7e-e063-6394a90ad948",
+  "matched": "ALL DAY PAIN RELIEF (NAPROXEN SODIUM) TABLET [WALMART INC.]"
+ },
+ "Excedrin|Excedrin Migraine Caplets, 200 count": {
+  "file": "excedrin-excedrin-migraine-caplets-200-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=40aeb2c5-a37b-446d-9918-8378a75ff327",
+  "matched": "EXCEDRIN MIGRAINE, TRAVEL BASIX (ACETAMINOPHEN, ASPIRIN, AND CAFFEINE) TABLET, FILM COATED EXCEDRIN MIGRAINE, CVP HEALTH (ACETAMINOPHEN, ASPIRIN, AND CAFFEINE) TABLET, FILM COATED EXCEDRIN MIGRAINE (ACETAMINOPHEN, ASPIRIN, AND CAFFEINE) TABLET, FILM COATED [LIL' DRUG STORE PRODUCTS, INC.]"
+ },
+ "Claritin|Claritin 24 Hour Non-Drowsy Loratadine Tablets, 70 count": {
+  "file": "claritin-claritin-24-hour-non-drowsy-loratadine-tablets-70-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f85b0527-107c-4a4a-aad7-61d2f52bad63",
+  "matched": "LIL DRUG STORE CLARITIN NON-DROWSY, 24 HOUR (LORATADINE) TABLET CLARITIN, CVP NON-DROWSY, 24 HOUR (LORATADINE) TABLET CLARITIN, BSX NON-DROWSY, 24 HOUR (LORATADINE) TABLET [LIL' DRUG STORE PRODUCTS, INC]"
+ },
+ "Flonase|Flonase Allergy Relief Nasal Spray, 144 metered sprays": {
+  "file": "flonase-flonase-allergy-relief-nasal-spray-144-metered-sprays.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b6134ba0-b70a-4eac-9a82-cef64b242c1d",
+  "matched": "FLONASE ALLERGY RELIEF (FLUTICASONE PROPIONATE) SPRAY, METERED [HALEON US HOLDINGS LLC]"
+ },
+ "Equate|Equate 24 Hour Non-Drowsy Fluticasone Propionate Nasal Spray 50 mcg, 72 sprays": {
+  "file": "equate-equate-24-hour-non-drowsy-fluticasone-propionate-nasal-spray-50-mcg-72-sprays.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bc824143-b876-4c3d-86fd-81fb58673851",
+  "matched": "EQUATE ALLERGY RELIEF (FLUTICASONE PROPIONATE) SPRAY, METERED [WALMART INC.]"
+ },
+ "Prilosec OTC|Prilosec OTC Omeprazole Delayed-Release Tablets 20 mg, 42 count": {
+  "file": "prilosec-otc-prilosec-otc-omeprazole-delayed-release-tablets-20-mg-42-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=37291cab-e350-d8e3-e063-6294a90a9cb1",
+  "matched": "PRILOSEC OTC (OMEPRAZOLE MAGNESIUM) TABLET, DELAYED RELEASE [THE PROCTER & GAMBLE MANUFACTURING COMPANY]"
+ },
+ "Equate|Equate Omeprazole Delayed Release Tablets 20 mg, 42 count": {
+  "file": "equate-equate-omeprazole-delayed-release-tablets-20-mg-42-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dcfe8e94-9c88-464e-9a80-3baa9c4755d9",
+  "matched": "EQUATE OMEPRAZOLE (OMEPRAZOLE) TABLET, DELAYED RELEASE [WALMART INC.]"
+ },
+ "Equate|Equate Esomeprazole Magnesium Delayed Release Capsules 20 mg, 42 count": {
+  "file": "equate-equate-esomeprazole-magnesium-delayed-release-capsules-20-mg-42-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ce5f2915-327d-4a91-b7fd-e399664a250f",
+  "matched": "EQUATE ESOMEPRAZOLE MAGNESIUM (ESOMEPRAZOLE) CAPSULE, DELAYED RELEASE [WALMART INC.]"
+ },
+ "Pepcid AC|Pepcid AC Maximum Strength, Famotidine 20 mg, 50 count": {
+  "file": "pepcid-ac-pepcid-ac-maximum-strength-famotidine-20-mg-50-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2854047f-c5c4-43c3-8ef2-5c0a84a307f2",
+  "matched": "PEPCID AC MAXIMUM STRENGTH (FAMOTIDINE) TABLET, FILM COATED [KENVUE BRANDS LLC]"
+ },
+ "Equate|Equate Maximum Strength Famotidine 20 mg Tablets, 200 count": {
+  "file": "equate-equate-maximum-strength-famotidine-20-mg-tablets-200-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f38f8a8f-3292-4fe5-b83f-ffd634196d42",
+  "matched": "EQUATE FAMOTIDINE (FAMOTIDINE) TABLET, FILM COATED [WALMART INC.]"
+ },
+ "Tums|Tums Smoothies Extra Strength Chewable Antacid Tablets, Berry Fusion, 140 count": {
+  "file": "tums-tums-smoothies-extra-strength-chewable-antacid-tablets-berry-fusion-140-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=11078d7c-373b-4c7b-b33b-f1deba613fc1",
+  "matched": "TUMS EXTRA STRENGTH, SMOOTHIES (CALCIUM CARBONATE) TABLET, CHEWABLE [HALEON US HOLDINGS LLC]"
+ },
+ "Equate|Equate Extra Strength Smooth Chews Antacid Tablets, Assorted Fruit, 140 count": {
+  "file": "equate-equate-extra-strength-smooth-chews-antacid-tablets-assorted-fruit-140-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77ce0a54-6656-37b1-e053-2991aa0a334a",
+  "matched": "ASSORTED FRUIT ANTACID FLAVOR CHEWS (CALCIUM CARBONATE) TABLET, CHEWABLE [WALMART]"
+ },
+ "MiraLAX|MiraLAX Laxative Powder, 26.9 oz": {
+  "file": "miralax-miralax-laxative-powder-26-9-oz.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d69ce3d4-7ca4-4fe3-b49e-6655e48d6963",
+  "matched": "MIRALAX (POLYETHYLENE GLYCOL 3350) POWDER, FOR SOLUTION [BAYER HEALTHCARE LLC.]"
+ },
+ "Equate|Equate ClearLAX Polyethylene Glycol 3350 Powder, 26.9 oz, 45 doses": {
+  "file": "equate-equate-clearlax-polyethylene-glycol-3350-powder-26-9-oz-45-doses.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c5c13378-3c08-415f-8ab4-8a18d6300ca8",
+  "matched": "EQUATE CLEARLAX (POLYETHYLENE GLYCOL 3350) POWDER, FOR SOLUTION [WALMART INC.]"
+ },
+ "Unisom|Unisom SleepTabs, Doxylamine Succinate 25 mg, 32 count": {
+  "file": "unisom-unisom-sleeptabs-doxylamine-succinate-25-mg-32-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7ae32d74-76a0-47e2-9e5c-812426413c4e",
+  "matched": "UNISOM SLEEPTABS (DOXYLAMINE SUCCINATE) TABLET [CHATTEM, INC.]"
+ },
+ "Mucinex|Mucinex 12 Hour Chest Congestion Extended-Release Tablets 600 mg, 100 count": {
+  "file": "mucinex-mucinex-12-hour-chest-congestion-extended-release-tablets-600-mg-100-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a898b584-e17e-45c4-8a28-9f686b95dca0",
+  "matched": "MUCINEX (GUAIFENESIN) TABLET, EXTENDED RELEASE [BRYANT RANCH PREPACK]"
+ },
+ "Equate|Equate Mucus and Chest Congestion Relief Guaifenesin ER Tablets 600 mg, 40 count": {
+  "file": "equate-equate-mucus-and-chest-congestion-relief-guaifenesin-er-tablets-600-mg-40-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=154602ca-91c4-4030-ae77-9bf179cc95e8",
+  "matched": "EQUATE MUCUS RELIEF (GUAIFENESIN) TABLET, MULTILAYER, EXTENDED RELEASE [WALMART INC.]"
+ },
+ "Cortizone-10|Cortizone-10 Maximum Strength Intensive Healing Itch Relief Cream, 1% Hydrocortisone, 2 oz": {
+  "file": "cortizone-10-cortizone-10-maximum-strength-intensive-healing-itch-relief-cream-1-hydrocort.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a841bf0-9d7b-4566-b442-aa9bcc827846",
+  "matched": "CORTIZONE-10 SOOTHING ALOE CREME (HYDROCORTISONE) CREAM [CHATTEM, INC.]"
+ },
+ "Equate|Equate Anti-Itch Hydrocortisone 1% Cream, Intensive Healing Formula, 2 oz": {
+  "file": "equate-equate-anti-itch-hydrocortisone-1-cream-intensive-healing-formula-2-oz.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f5c32b4a-1159-4b7a-b8ac-256d53020dc2",
+  "matched": "EQUATE HYDROCORTISONE (HYDROCORTISONE) CREAM [WALMART]"
+ },
+ "Monistat|Monistat 7 Miconazole Cream 1.59 oz + 7 Disposable Applicators": {
+  "file": "monistat-monistat-7-miconazole-cream-1-59-oz-7-disposable-applicators.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c4b68aff-e95f-47ae-b190-6a671bef1877",
+  "matched": "MONISTAT 7 7-DAY DISPOSABLE APPLICATORS (MICONAZOLE NITRATE) CREAM [INSIGHT PHARMACEUTICALS LLC]"
+ },
+ "Plan B One-Step|Plan B One-Step Emergency Contraceptive, 1 tablet": {
+  "file": "plan-b-one-step-plan-b-one-step-emergency-contraceptive-1-tablet.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fcc7ba8e-ad54-4efe-87e4-5eb0fbf4f064",
+  "matched": "PLAN B ONE-STEP (LEVONORGESTREL) TABLET [A-S MEDICATION SOLUTIONS]"
+ },
+ "My Way|My Way Emergency Contraceptive, Levonorgestrel 1.5 mg, 1 tablet": {
+  "file": "my-way-my-way-emergency-contraceptive-levonorgestrel-1-5-mg-1-tablet.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f2354b0c-dda4-4eb4-93f3-b2d57856a948",
+  "matched": "MY WAY (LEVONORGESTREL) TABLET [PROFICIENT RX LP]"
+ },
+ "Voltaren|Voltaren Arthritis Pain Gel, Diclofenac Sodium 1%, 100 g": {
+  "file": "voltaren-voltaren-arthritis-pain-gel-diclofenac-sodium-1-100-g.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=30a94282-0892-442a-aa10-6525cbd4fe88",
+  "matched": "VOLTAREN ARTHRITIS PAIN (DICLOFENAC SODIUM) GEL VOLTAREN ARTHRITIS PAIN (DICLOFENAC SODIUM) KIT [HALEON US HOLDINGS LLC]"
+ },
+ "Equate|Equate Arthritis Pain Relieving Gel, Diclofenac Sodium Topical Gel 1%, 3.53 oz (100 g)": {
+  "file": "equate-equate-arthritis-pain-relieving-gel-diclofenac-sodium-topical-gel-1-3-53-oz-100-g.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d05b5f82-8772-4e01-8eb3-6fa6042f5661",
+  "matched": "EQUATE ARTHRITIS PAIN (DICLOFENAC SODIUM) GEL [WALMART INC.]"
+ },
+ "Equate|Equate Lansoprazole Delayed Release Capsules 15 mg, Acid Reducer, 42 count": {
+  "file": "equate-equate-lansoprazole-delayed-release-capsules-15-mg-acid-reducer-42-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3a7aadbd-0a70-444f-95e1-cbde82781892",
+  "matched": "EQUATE LANSOPRAZOLE (LANSOPRAZOLE) CAPSULE, DELAYED RELEASE [WALMART INC.]"
+ },
+ "NicoDerm CQ|NicoDerm CQ Step 1 Clear Nicotine Patch, 21 mg, 7 count": {
+  "file": "nicoderm-cq-nicoderm-cq-step-1-clear-nicotine-patch-21-mg-7-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=93b2d1b9-83c1-40b5-b6af-90c38c8d6cef",
+  "matched": "NICODERM CQ (NICOTINE) PATCH, EXTENDED RELEASE [HALEON US HOLDINGS LLC]"
+ },
+ "Dulcolax|Dulcolax Stimulant Laxative Tablets, Bisacodyl 5 mg, 25 count": {
+  "file": "dulcolax-dulcolax-stimulant-laxative-tablets-bisacodyl-5-mg-25-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f1e4b28a-ed74-4eff-bd10-b2bfaf7483b0",
+  "matched": "DULCOLAX STIMULANT LAXATIVE (BISACODYL) TABLET, COATED [CHATTEM, INC.]"
+ },
+ "MiraLAX|MiraLAX Laxative Powder, Polyethylene Glycol 3350, 26.9 oz": {
+  "file": "miralax-miralax-laxative-powder-polyethylene-glycol-3350-26-9-oz.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d69ce3d4-7ca4-4fe3-b49e-6655e48d6963",
+  "matched": "MIRALAX (POLYETHYLENE GLYCOL 3350) POWDER, FOR SOLUTION [BAYER HEALTHCARE LLC.]"
+ },
+ "Member's Mark|Member's Mark ClearLAX Polyethylene Glycol 3350 Powder, 3 x 17.9 oz": {
+  "file": "member-s-mark-member-s-mark-clearlax-polyethylene-glycol-3350-powder-3-x-17-9-oz.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5bc34a90-adc2-4031-b8a6-725829881550",
+  "matched": "MEMBERS MARK CLEARLAX (POLYETHYLENE GLYCOL 3350) POWDER, FOR SOLUTION [SAM'S WEST INC]"
+ },
+ "Member's Mark|Member's Mark Arthritis Pain Reliever Topical Gel, Diclofenac Sodium 1%, 3 x 150 g": {
+  "file": "member-s-mark-member-s-mark-arthritis-pain-reliever-topical-gel-diclofenac-sodium-1-3-x-15.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d339aaa2-ae7e-4a79-b687-cf0a3106fad0",
+  "matched": "MEMBERS MARK ARTHRITIS PAIN RELIEVER (DICLOFENAC SODIUM) GEL [SAM'S WEST INC]"
+ },
+ "Excedrin|Excedrin Extra Strength Caplets, 200 count": {
+  "file": "excedrin-excedrin-extra-strength-caplets-200-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7f0f8b3c-c226-4a3a-af46-a708f345e4f5",
+  "matched": "EXCEDRIN EXTRA STRENGTH (ACETAMINOPHEN, ASPIRIN, AND CAFFEINE) TABLET, FILM COATED EXCEDRIN EXTRA STRENGTH, TRAVEL BASIX (ACETAMINOPHEN, ASPIRIN, AND CAFFEINE) TABLET, FILM COATED EXCEDRIN EXTRA STRENGTH, CVP HEALTH (ACETAMINOPHEN, ASPIRIN, AND CAFFEINE) TABLET, FILM COATED [LIL DRUG STORE PRODUCTS, INC]"
+ },
+ "Equate|Equate Extra Strength Headache Relief Caplets, 200 count": {
+  "file": "equate-equate-extra-strength-headache-relief-caplets-200-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1557bd9b-3e7c-4769-e063-6394a90a9d91",
+  "matched": "HEADACHE RELIEF (ACETAMINOPHEN, ASPIRIN, CAFFEINE) TABLET [WALMART INC.]"
+ },
+ "Member's Mark|Member's Mark Omeprazole Delayed Release Tablets 20 mg, 42 count": {
+  "file": "member-s-mark-member-s-mark-omeprazole-delayed-release-tablets-20-mg-42-count.webp",
+  "source": "dailymed",
+  "credit": "DailyMed, U.S. National Library of Medicine",
+  "license": "Public domain",
+  "page": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9",
+  "matched": "MEMBERS MARK OMEPRAZOLE (OMEPRAZOLE) TABLET, DELAYED RELEASE [SAM'S WEST INC]"
+ }
+}

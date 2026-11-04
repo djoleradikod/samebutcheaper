@@ -56,7 +56,37 @@
       "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html",
       "https://www.axios.com/2022/05/13/baby-formula-perrigo-expects-delays-through-2022"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Nutrient profile per 100 kcal",
+        "brand": "Similac Advance: 2.07 g protein, 5.6 g fat, 10.7 g carb, 1.8 mg iron, 60 IU vitamin D",
+        "alternative": "Perrigo's store-brand Advantage: identical in every nutrient it tabulates (vitamins, minerals, linoleic acid)",
+        "verdict": "same",
+        "source": "https://perrigopediatrics.com/products/advantage"
+      },
+      {
+        "aspect": "Prebiotic",
+        "brand": "Similac Advance lists galactooligosaccharides (GOS); no palm olein oil",
+        "alternative": "Store-brand Advantage lists fructooligosaccharides (FOS); also no palm olein oil",
+        "verdict": "different",
+        "source": "https://www.similac.com/products/baby-formula/advance-powder/12-4oz-can-6ct.html"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Abbott (Sturgis, Michigan plant)",
+        "alternative": "Perrigo, which Reuters reports makes store-brand formula for Walmart and Target",
+        "verdict": "different",
+        "source": "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html"
+      },
+      {
+        "aspect": "Recall history",
+        "brand": "Abbott recalled Similac powder (Feb 2022, Sturgis plant, Cronobacter complaints)",
+        "alternative": "One Parent's Choice Advantage lot recalled in June 2019 (possible metal); FDA closed it",
+        "verdict": "different",
+        "source": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/abbott-voluntarily-recalls-powder-formulas-manufactured-one-plant"
+      }
+    ]
   },
   {
     "slug": "similac-sensitive-vs-parents-choice-sensitivity-formula",
@@ -118,7 +148,30 @@
       "https://perrigo.com/node/1701",
       "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Lactose and carbohydrate",
+        "brand": "Similac Sensitive: corn syrup based, reduced-lactose milk formula",
+        "alternative": "Sensitivity Premium: 99% reduced lactose; corn syrup, milk protein isolate, sucrose",
+        "verdict": "same",
+        "source": "https://perrigopediatrics.com/products/sensitivity-premium"
+      },
+      {
+        "aspect": "HMOs",
+        "brand": "Plain Similac Sensitive does not list HMOs",
+        "alternative": "Adds 2'-FL and LNnT HMOs (Perrigo benchmarks it to Similac 360 Total Care Sensitive)",
+        "verdict": "alt_better",
+        "source": "https://perrigopediatrics.com/products/sensitivity-premium"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Abbott",
+        "alternative": "Perrigo (Reuters: makes store-brand formula for Walmart)",
+        "verdict": "different",
+        "source": "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html"
+      }
+    ]
   },
   {
     "slug": "enfamil-gentlease-vs-parents-choice-gentle-formula",
@@ -184,7 +237,30 @@
       "https://perrigo.com/node/1701",
       "https://www.axios.com/2022/05/13/baby-formula-perrigo-expects-delays-through-2022"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Nutrient profile per 100 kcal",
+        "brand": "Enfamil NeuroPro Gentlease: 2.3 g protein, 5.3 g fat, 10.8 g carb, 780 mg linoleic acid",
+        "alternative": "Gentle Premium: identical figures in Perrigo's comparison table",
+        "verdict": "same",
+        "source": "https://perrigopediatrics.com/products/gentle-premium"
+      },
+      {
+        "aspect": "Protein and carbohydrate",
+        "brand": "Partially hydrolyzed whey + casein; reduced lactose (Enfamil)",
+        "alternative": "Whey:casein 60:40, partially hydrolyzed whey; 16% lactose, 84% corn syrup solids; 2'-FL HMO",
+        "verdict": "same",
+        "source": "https://perrigopediatrics.com/products/gentle-premium"
+      },
+      {
+        "aspect": "Who makes it",
+        "brand": "Mead Johnson (Reckitt)",
+        "alternative": "Perrigo (Reuters: makes store-brand formula for Walmart)",
+        "verdict": "different",
+        "source": "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html"
+      }
+    ]
   },
   {
     "slug": "childrens-tylenol-vs-equate-childrens-acetaminophen",
@@ -234,7 +310,30 @@
       "https://otclabels.com/lib/otc/otc-meds/equate-childrens-pain-and-fever/",
       "https://www.walmart.com/ip/20551430"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Dyes",
+        "brand": "Dye-Free Cherry: no colour additives on the label",
+        "alternative": "Bubble Gum: D&C Red 33 and FD&C Red 40 (Equate also sells a dye-free cherry version)",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=40eedfe9-54e1-40a2-b4a2-55ff708b89cd"
+      },
+      {
+        "aspect": "Sweeteners and inactives",
+        "brand": "Sucrose + sucralose, sorbitol, glycerin, potassium sorbate, xanthan gum, MCC, CMC",
+        "alternative": "High fructose corn syrup + sorbitol, propylene glycol, sodium benzoate, carrageenan, calcium sulfate",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=40eedfe9-54e1-40a2-b4a2-55ff708b89cd"
+      },
+      {
+        "aspect": "Equate dye-free option",
+        "brand": "Tylenol Dye-Free Cherry: sucrose and sucralose sweetened",
+        "alternative": "Equate dye-free cherry label: no dyes, sucralose and sorbitol, no corn syrup (the closest match to the Tylenol)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f15037a5-4e43-4dd6-93b8-b37a1cc22cd6"
+      }
+    ]
   },
   {
     "slug": "childrens-motrin-vs-equate-childrens-ibuprofen",
@@ -284,7 +383,23 @@
       "https://otclabels.com/lib/otc/otc-meds/equate-ibuprofen-childrens/page/2/",
       "https://www.walmart.com/ip/49220366"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Sweeteners and inactives",
+        "brand": "Berry: sucrose + acesulfame K, glycerin, polysorbate 80, xanthan gum, sodium benzoate, citric acid",
+        "alternative": "Grape: high fructose corn syrup, sorbitol, hypromellose, glycerin, polysorbate 80, xanthan gum, sodium benzoate",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=ed9ee7b5-2d9a-4aaf-a245-aa13fcc6365a"
+      },
+      {
+        "aspect": "Dyes",
+        "brand": "Berry label lists FD&C Red 40 (a dye-free berry version also exists)",
+        "alternative": "Grape label lists D&C Red 33, FD&C Blue 1 and FD&C Red 40",
+        "verdict": "different",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f2609308-17bf-4bcb-84b2-d17f3fd35958"
+      }
+    ]
   },
   {
     "slug": "desitin-maximum-strength-vs-parents-choice-diaper-rash-40-zinc",
@@ -333,7 +448,23 @@
       "https://www.walmart.com/ip/16480956226",
       "https://www.walmart.com/ip/284389604"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Desitin 4.8 oz tube: petrolatum, cod liver oil, lanolin, corn starch, glycerin, sorbitan sesquioleate, yellow wax, tocopherol acetate (+ antioxidant)",
+        "alternative": "Parent's Choice: same list (petrolatum, cod liver oil, lanolin, corn starch, glycerin, sorbitan sesquioleate, yellow wax, tocopherol acetate)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=320bcbd3-9e91-437f-99c5-066f880a4b32"
+      },
+      {
+        "aspect": "Talc, parabens, phthalates",
+        "brand": "Desitin: paraben-free; the 4.8 oz tube uses corn starch (older 4 oz tubes list talc)",
+        "alternative": "Parent's Choice label: no talc, free of parabens, phthalates and quaternium-15",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=320bcbd3-9e91-437f-99c5-066f880a4b32"
+      }
+    ]
   },
   {
     "slug": "aquaphor-baby-vs-equate-advanced-healing-ointment",
@@ -384,7 +515,23 @@
       "https://otclabels.com/lib/otc/otc-meds/advanced-healing-7/",
       "https://otclabels.com/lib/otc/otc-meds/equate-baby-advanced-healing/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Aquaphor Healing: mineral oil, ceresin, lanolin alcohols, glycerin, panthenol, levomenol (bisabolol); 41% petrolatum",
+        "alternative": "Equate Baby Advanced Healing: the same six inactives; 41% petrolatum (Walmart label dated 2017)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=4f5cda8c-d657-4877-83ac-6ea86751618a"
+      },
+      {
+        "aspect": "Lanolin",
+        "brand": "Contains lanolin alcohols (Aquaphor Healing label)",
+        "alternative": "Contains lanolin alcohols (same as the brand, so the same allergy caution)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0a17bf6f-6114-4647-a509-65999255c37b"
+      }
+    ]
   },
   {
     "slug": "pedialyte-vs-parents-choice-electrolyte-solution-unflavored",
@@ -449,7 +596,23 @@
       "https://www.walmart.com/ip/17619770",
       "https://stopandshop.com/groceries/baby/pedialyte-unflavored-electrolyte-solution-338-oz-btl.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Full ingredient list",
+        "brand": "Pedialyte Classic Unflavored: water, dextrose; zinc gluconate, potassium citrate, salt, sodium citrate, citric acid",
+        "alternative": "Parent's Choice: water, dextrose; potassium citrate, potassium chloride, NaCl, sodium citrate, zinc gluconate, sodium acid sulfate",
+        "verdict": "different",
+        "source": "https://foodisgood.com/product/parents-choice-unflavored-pediatric-electrolyte-oral-solution/"
+      },
+      {
+        "aspect": "Colours and sweeteners",
+        "brand": "Pedialyte Unflavored has no artificial colours or sweeteners",
+        "alternative": "No dye or sweetener on the unflavored ingredient list",
+        "verdict": "same",
+        "source": "https://www.similac.com/products/rehydration-drink/pedialyte/1l-bottle-8pack.html"
+      }
+    ]
   },
   {
     "slug": "mylicon-vs-equate-infant-gas-relief-drops-simethicone",
@@ -498,6 +661,22 @@
       "https://www.walmart.com/ip/46770354",
       "https://ndclist.com/ndc/49035-709/label"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "aspects": [
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Mylicon Dye Free: CMC sodium, citric acid, microcrystalline cellulose, polysorbate 60, potassium sorbate, sodium benzoate, sorbitan monostearate, sorbitol, xanthan gum",
+        "alternative": "Equate: the identical ten inactives (CMC sodium, citric acid, MCC, polysorbate 60, K sorbate, Na benzoate, sorbitan monostearate, sorbitol, xanthan gum, water)",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=966f0506-c2d2-4d3c-bd2d-c5a6b1e0a157"
+      },
+      {
+        "aspect": "Dyes",
+        "brand": "No dye listed on the Mylicon Dye Free label",
+        "alternative": "No dye listed on the Walmart label",
+        "verdict": "same",
+        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3324139a-ed22-43af-859d-e7af19a24ee9"
+      }
+    ]
   }
 ]
