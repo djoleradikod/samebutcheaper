@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllBundles, getAllPairs, getBrands, getIngredients } from "@/lib/catalog";
+import { getAllBundles, getAllPairs, getBrands, getDupes, getIngredients } from "@/lib/catalog";
 import { CATEGORIES } from "@/lib/categories";
 import { SITE } from "@/lib/site";
 
@@ -18,6 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...getAllPairs().map((p) => ({
       url: `${SITE.url}/compare/${p.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+    ...getDupes().map((d) => ({
+      url: `${SITE.url}/dupe/${d.slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),

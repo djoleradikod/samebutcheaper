@@ -17,6 +17,7 @@ import {
   type PairInput,
 } from "../src/lib/schema";
 import { APPROX_USD, MARKETS, type LookFor } from "../src/lib/markets";
+import { dupeSlugFor } from "../src/lib/dupes";
 import type { Bundle, Catalog, Pair } from "../src/lib/types";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -227,4 +228,13 @@ bundles.sort((a, b) => b.score - a.score);
 const catalog: Catalog = { generatedAt: new Date().toISOString(), pairs, bundles };
 mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(join(OUT_DIR, "catalog.json"), JSON.stringify(catalog));
+// Small list for the proxy, so a page that doesn't exist answers with a real 404.
+writeFileSync(
+  join(OUT_DIR, "known-slugs.json"),
+  JSON.stringify({
+    compare: catalog.pairs.map((p) => p.slug),
+    bundle: catalog.bundles.map((b) => b.slug),
+    dupe: [...new Set(catalog.pairs.map(dupeSlugFor))],
+  }),
+);
 console.log(`Catalog built: ${pairs.length} pairs from ${files.length} file(s), ${bundles.length} bundles from ${bundleFiles.length} file(s).`);

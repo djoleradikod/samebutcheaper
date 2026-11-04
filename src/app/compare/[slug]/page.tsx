@@ -10,6 +10,7 @@ import { atStore, mayEarn, RETAILER_LABEL } from "@/lib/affiliate";
 import { ConfidenceBadge, MatchBadge, SavingsBadge } from "@/components/Badges";
 import { PairCard } from "@/components/PairCard";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
+import { dupeSlugFor } from "@/lib/dupes";
 import { SITE } from "@/lib/site";
 import { WhereToBuy } from "@/components/WhereToBuy";
 import { ProductThumb } from "@/components/ProductThumb";
@@ -237,6 +238,13 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
             }
           />
           <SaveButton slug={pair.slug} />
+          <Link
+            href={`/dupe/${dupeSlugFor(pair)}`}
+            className="block rounded-xl border border-line bg-surface px-4 py-3 text-sm hover:border-accent"
+          >
+            <span className="font-medium">All cheaper matches for {pair.brand.brand}</span>{" "}
+            <span className="text-accent">→</span>
+          </Link>
           {brandCount > 1 && (
             <Link
               href={`/brand/${brandSlugFor(pair.brand.brand)}`}

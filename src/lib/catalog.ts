@@ -3,6 +3,7 @@ import catalogJson from "@/generated/catalog.json";
 import type { Bundle, Catalog, CategorySlug, Pair, PairSummary } from "./types";
 import { CATEGORIES } from "./categories";
 import { APPROX_USD, type MarketCode } from "./markets";
+import { dupeActives, dupeSlugFor } from "./dupes";
 
 const catalog = catalogJson as unknown as Catalog;
 
@@ -228,4 +229,51 @@ export function getBrand(slug: string) {
 
 export function brandSlugFor(name: string): string {
   return slugify(name);
+}
+
+/* ------------------------------------------------------------------ dupes */
+
+export type DupeEntry = {
+  slug: string;
+  brand: string;
+  /** Active ingredients, or null when the match is on specs. */
+  actives: string[] | null;
+  subcategory: string;
+  /** Biggest saving first. */
+  pairs: Pair[];
+};
+
+const dupeIndex: Map<string, DupeEntry> = (() => {
+  const map = new Map<string, DupeEntry>();
+  for (const p of catalog.pairs) {
+    const slug = dupeSlugFor(p);
+    const entry = map.get(slug) ?? {
+      slug,
+      brand: p.brand.brand,
+      actives: dupeActives(p),
+      subcategory: p.subcategory,
+      pairs: [],
+    };
+    entry.pairs.push(p);
+    map.set(slug, entry);
+  }
+  for (const e of map.values()) e.pairs.sort((a, b) => b.savingsPct - a.savingsPct);
+  return map;
+})();
+
+export function getDupes(): DupeEntry[] {
+  return [...dupeIndex.values()];
+}
+
+export function getDupe(slug: string) {
+  return dupeIndex.get(slug);
+}
+
+/** Other brands' pages for the same actives. */
+export function getRelatedDupes(entry: DupeEntry, limit = 6): DupeEntry[] {
+  if (!entry.actives) return [];
+  const key = entry.actives.join("|").toLowerCase();
+  return getDupes()
+    .filter((d) => d.slug !== entry.slug && d.actives?.join("|").toLowerCase() === key)
+    .slice(0, limit);
 }

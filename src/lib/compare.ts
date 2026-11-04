@@ -184,3 +184,17 @@ export function differencePoints(text: string) {
     .map((s) => s.trim())
     .filter((s) => s.length > 3);
 }
+
+/** Exact counts for a one-line summary: never a blended score. */
+export function matchParts(c: Comparison) {
+  const all = [...c.ingredients, ...c.rows];
+  const count = (v: Verdict) => all.filter((r) => r.verdict === v).length;
+  return {
+    /** Every active or spec row matches. Null when the label data lists none. */
+    labelMatches: c.ingredients.length ? c.ingredients.every((r) => r.verdict === "same") : null,
+    same: count("same"),
+    differ: count("different") + count("check"),
+    brandBetter: count("brand_better"),
+    altBetter: count("alt_better"),
+  };
+}

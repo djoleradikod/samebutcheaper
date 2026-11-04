@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isKnownCountry } from "@/lib/markets";
+import knownSlugs from "@/generated/known-slugs.json";
 
 const COUNTRY_COOKIE = "sbc_country";
 
@@ -12,6 +13,10 @@ const COUNTRY_COOKIE = "sbc_country";
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   if (pathname === "/admin" || pathname.startsWith("/admin/")) return adminAuth(request);
+  if (isMissingPage(pathname)) {
+    // These pages stream, so they can't set a 404 themselves once rendering starts.
+    return NextResponse.rewrite(new URL("/page-not-found", request.url), { status: 404 });
+  }
 
   const response = NextResponse.next();
   if (!request.cookies.has(COUNTRY_COOKIE)) {
@@ -40,6 +45,19 @@ export function detectCountry(headers: Headers): string | null {
     if (region && isKnownCountry(region)) return region;
   }
   return null;
+}
+
+const KNOWN: Record<string, Set<string>> = {
+  compare: new Set(knownSlugs.compare),
+  bundle: new Set(knownSlugs.bundle),
+  dupe: new Set(knownSlugs.dupe),
+};
+
+/** True for /compare/x, /bundle/x and /dupe/x when x isn't in the catalog. */
+export function isMissingPage(pathname: string) {
+  const [, section, slug, extra] = pathname.split("/");
+  const known = KNOWN[section];
+  return Boolean(known && slug && !extra && !known.has(slug));
 }
 
 function adminAuth(request: NextRequest) {
