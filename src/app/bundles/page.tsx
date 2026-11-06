@@ -1,92 +1,165 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllBundles } from "@/lib/catalog";
+import { BasketCard } from "@/components/BasketCard";
 import { BundleCard } from "@/components/BundleCard";
-import { moneyTotals } from "@/lib/format";
-import { CATEGORIES, CATEGORY_MAP } from "@/lib/categories";
-import { ProofStrip } from "@/components/ProofStrip";
-import type { Bundle, CategorySlug } from "@/lib/types";
+import { isMedicineBasket, toBasketSummary } from "@/lib/basket-view";
+import { getAllBundles, getAllPresets } from "@/lib/catalog";
+import { CATEGORIES } from "@/lib/categories";
+import { MARKET_CODES, MARKETS, type MarketCode } from "@/lib/markets";
+import type { Bundle, Preset } from "@/lib/types";
+import { MarketFirst } from "./MarketFirst";
 
 export const metadata: Metadata = {
-  title: "Bundles: build the same kit for less",
+  title: "Baskets and brand kits, priced both ways",
   description:
-    "Brand kits, regimens, stacks and gift sets rebuilt from cheaper products with the same ingredients, item by item.",
+    "Whole shopping baskets and brand kits rebuilt from cheaper products that do the same job. Totals buy the same amount on both sides, with every item linked to its evidence.",
   alternates: { canonical: "/bundles" },
 };
 
+const jump =
+  "inline-flex min-h-11 items-center gap-1.5 rounded-tile border border-line bg-paper px-3 text-sm font-medium hover:border-ink-2 md:min-h-9";
+
+/** Markets with the most baskets first. Everyday baskets first within each, medicine last. */
+function basketsByMarket(presets: Preset[]) {
+  const groups = new Map<MarketCode, Preset[]>();
+  for (const m of MARKET_CODES) {
+    const list = presets.filter((p) => p.market === m);
+    if (list.length) {
+      groups.set(
+        m,
+        [...list].sort((a, b) => Number(isMedicineBasket(a)) - Number(isMedicineBasket(b)) || b.score - a.score),
+      );
+    }
+  }
+  return [...groups].sort((a, b) => b[1].length - a[1].length);
+}
+
+/** Kits with real photos first, then the biggest saving. */
+function kitOrder(a: Bundle, b: Bundle) {
+  const photos = (x: Bundle) => x.components.filter((c) => c.photo).length + (x.photo ? 1 : 0);
+  return photos(b) - photos(a) || b.score - a.score;
+}
+
 export default function BundlesPage() {
+  const presets = getAllPresets();
   const bundles = getAllBundles();
-  const best = bundles
-    .filter((b) => b.savingsPct >= 50 && b.confidence === "high" && b.match_type !== "equivalent_spec")
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 6);
-  const byCat = new Map<CategorySlug, Bundle[]>();
-  for (const b of bundles) byCat.set(b.category, [...(byCat.get(b.category) ?? []), b]);
-  const groups = CATEGORIES.filter((c) => byCat.has(c.slug)).map((c) => [c.slug, byCat.get(c.slug)!] as const);
-  const total = moneyTotals(bundles.map((b) => ({ amount: b.savings, currency: b.currency })));
+  const markets = basketsByMarket(presets);
+  const aisles = CATEGORIES.map((c) => ({
+    ...c,
+    kits: bundles.filter((b) => b.category === c.slug).sort(kitOrder),
+  })).filter((c) => c.kits.length > 0);
+
+  if (!presets.length && !bundles.length) {
+    return (
+      <section className="container-page py-8 md:py-12">
+        <h1 className="display text-[1.75rem] md:text-[2.5rem]">Baskets and brand kits</h1>
+        <p className="mt-3 max-w-[62ch] text-[15px] text-ink-2">
+          None are listed yet. The single swaps are ready, and if a kit costs you too much you can tell us which one.
+        </p>
+        <p className="mt-4 flex flex-wrap gap-2">
+          <Link href="/biggest-savings" className="btn btn-primary">
+            See the biggest savings
+          </Link>
+          <Link href="/suggest" className="btn btn-ghost">
+            Suggest a kit
+          </Link>
+        </p>
+      </section>
+    );
+  }
+
   return (
     <>
-      <section className="hero-wash border-b border-line">
-        <div className="container-page py-10 md:py-14">
-          <p className="text-sm font-medium text-accent">Bundles</p>
-          <h1 className="display mt-1 text-4xl font-medium sm:text-5xl">Same kit. Built for less.</h1>
-          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">
-            Brands love selling regimens, stacks, kits and gift sets at a premium. We take them apart item by
-            item and rebuild each one from cheaper products with the same active ingredients at the same
-            strength.
+      <div className="border-b border-line bg-canvas">
+        <div className="container-page pt-4 pb-5 md:pt-6 md:pb-6">
+          <h1 className="display text-[1.75rem] md:text-[2.5rem]">{presets.length ? "Baskets and brand kits" : "Brand kits"}</h1>
+          <p className="mt-1.5 max-w-[68ch] text-[15px] text-ink-2 md:text-base">
+            {presets.length > 0 && (
+              <>
+                <span className="num">{presets.length}</span> basket{presets.length === 1 ? "" : "s"} for a moment in life, built from
+                swaps we&apos;ve checked. Both totals buy the same amount.{" "}
+              </>
+            )}
+            {bundles.length > 0 && (
+              <>
+                <span className="num">{bundles.length}</span> brand kit{bundles.length === 1 ? "" : "s"} taken apart and rebuilt from
+                cheaper items, one piece at a time.
+              </>
+            )}
           </p>
-          {bundles.length > 0 && (
-            <p className="num mt-4 text-sm text-muted">
-              {bundles.length} bundles · {total} saved if you rebuilt one of each
-            </p>
+          {(presets.length > 0 || aisles.length > 1) && (
+            <nav aria-label="On this page" className="mt-3 flex flex-wrap gap-1.5">
+              {presets.length > 0 && (
+                <a href="#baskets" className={jump}>
+                  Baskets <span className="num font-normal text-muted">{presets.length}</span>
+                </a>
+              )}
+              {aisles.map((a) => (
+                <a key={a.slug} href={`#${a.slug}`} className={jump}>
+                  {a.name} kits <span className="num font-normal text-muted">{a.kits.length}</span>
+                </a>
+              ))}
+            </nav>
           )}
         </div>
-      </section>
-      {bundles.length ? (
-        <>
-          {best.length > 0 && (
-            <section className="container-page pt-10">
-              <h2 className="display text-2xl font-medium sm:text-3xl">Highest confirmed savings</h2>
-              <p className="mt-1 text-sm text-muted">
-                Half price or better, and every item is the same active ingredient, the same formula or the same maker.
+      </div>
+
+      {presets.length > 0 && (
+        <div id="baskets" className="scroll-mt-24">
+          <MarketFirst
+            groups={markets.map(([market, list], g) => ({
+              market,
+              node: (
+                <section className="container-page pt-6 md:pt-8">
+                  <h2 className="display mb-3 text-xl md:text-2xl">Baskets priced in {MARKETS[market].short}</h2>
+                  <div className="grid gap-2 sm:gap-3 md:grid-cols-2 xl:grid-cols-3">
+                    {list.map((p, i) => (
+                      <BasketCard key={p.slug} basket={toBasketSummary(p)} eager={g === 0 && i === 0} />
+                    ))}
+                  </div>
+                </section>
+              ),
+            }))}
+          />
+        </div>
+      )}
+
+      {aisles.length > 0 && (
+        <div className={presets.length ? "mt-8 border-t border-line md:mt-10" : ""}>
+          {presets.length > 0 && (
+            <div className="container-page pt-6 md:pt-8">
+              <h2 className="display text-xl md:text-2xl">Brand kits, rebuilt from cheaper items</h2>
+              <p className="mt-1 max-w-[68ch] text-sm text-ink-2 md:text-[15px]">
+                Brands sell regimens, stacks and gift sets as one price. We match each piece with a cheaper product and add up the same
+                amount.
               </p>
-              <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {best.map((b) => (
-                  <BundleCard key={b.slug} bundle={b} />
-                ))}
-              </div>
-            </section>
+            </div>
           )}
-          <nav aria-label="Bundle categories" className="container-page mt-10 flex flex-wrap gap-2">
-            {groups.map(([slug, list]) => (
-              <a key={slug} href={`#${slug}`} className="rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent hover:text-accent">
-                {CATEGORY_MAP[slug].name} <span className="num text-muted">{list.length}</span>
-              </a>
-            ))}
-          </nav>
-          {groups.map(([slug, list]) => (
-            <section key={slug} id={slug} className="container-page scroll-mt-24 pt-10">
-              <h2 className="display text-2xl font-medium">{CATEGORY_MAP[slug].name}</h2>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {list.map((b) => (
+          {aisles.map((a) => (
+            <section key={a.slug} id={a.slug} className="container-page scroll-mt-24 pt-6">
+              {presets.length > 0 ? (
+                <h3 className="mb-3 text-lg">{a.name}</h3>
+              ) : (
+                <h2 className="display mb-3 text-xl md:text-2xl">{a.name}</h2>
+              )}
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
+                {a.kits.map((b) => (
                   <BundleCard key={b.slug} bundle={b} />
                 ))}
               </div>
             </section>
           ))}
-          <ProofStrip title="Why the cheaper kit is a safe bet" />
-        </>
-      ) : (
-        <section className="container-page py-10">
-          <div className="card p-10 text-center">
-            <p className="text-lg font-medium">We&apos;re taking the first bundles apart right now.</p>
-            <p className="mt-2 text-muted">
-              Paying too much for a kit or subscription box?{" "}
-              <Link href="/suggest" className="text-accent underline underline-offset-2">Tell us which one</Link>.
-            </p>
-          </div>
-        </section>
+        </div>
       )}
+
+      <p className="container-page flex gap-4 pt-6 text-sm font-medium">
+        <Link href="/how-we-verify" className="inline-flex min-h-11 items-center text-cobalt underline-offset-2 hover:underline md:min-h-0">
+          How we check
+        </Link>
+        <Link href="/credits" className="inline-flex min-h-11 items-center text-cobalt underline-offset-2 hover:underline md:min-h-0">
+          Photos
+        </Link>
+      </p>
     </>
   );
 }

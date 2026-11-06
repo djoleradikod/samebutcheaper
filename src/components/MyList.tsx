@@ -6,17 +6,27 @@ import { useState } from "react";
 import { Check, Copy, Trash2 } from "lucide-react";
 import { setSavedList, toggleSaved, useSavedList } from "@/lib/client/savedList";
 import { money, moneyTotals, type Currency } from "@/lib/format";
+import type { CategorySlug } from "@/lib/types";
+import { ProductThumb } from "./ProductThumb";
+import { Ticket } from "./Ticket";
+import { ToArrow } from "./UnitPrice";
 
 export type ListItem = {
   slug: string;
   href: string;
-  kind: "swap" | "bundle";
+  kind: "swap" | "kit";
   from: string;
   to: string;
   detail: string;
   savingsPct: number;
   savings: number;
   currency: Currency;
+  category: CategorySlug;
+  unit?: string;
+  fromPhoto: string | null;
+  fromAlt: string;
+  toPhoto: string | null;
+  toAlt: string;
 };
 
 export function MyList({ items }: { items: ListItem[] }) {
@@ -29,83 +39,100 @@ export function MyList({ items }: { items: ListItem[] }) {
   const byslug = new Map(items.map((i) => [i.slug, i]));
   const list = slugs.map((s) => byslug.get(s)).filter((x): x is ListItem => Boolean(x));
   const perRestock = moneyTotals(list.map((i) => ({ amount: i.savings, currency: i.currency })));
-  const perYear = moneyTotals(list.map((i) => ({ amount: i.savings * 12, currency: i.currency })));
 
   if (!list.length) {
     return (
-      <div className="card mt-8 p-10 text-center">
-        <p className="text-lg font-medium">Your savings list is empty.</p>
-        <p className="mt-2 text-muted">
-          Press <span className="font-medium text-ink">Add to my savings list</span> on any swap or bundle to
-          add up what switching saves you.
+      <div className="mt-4 max-w-[62ch]">
+        <p className="text-[15px] text-ink-2">
+          Nothing saved yet. Press <span className="font-medium text-ink">Add to my savings list</span> on a swap or kit, or save a whole
+          basket, and this page adds up what switching saves.
         </p>
-        <Link href="/biggest-savings" className="btn btn-primary mt-6">Browse the biggest savings</Link>
+        <p className="mt-4 flex flex-wrap gap-2">
+          <Link href="/bundles" className="btn btn-primary">
+            See the baskets
+          </Link>
+          <Link href="/biggest-savings" className="btn btn-ghost">
+            See the biggest savings
+          </Link>
+        </p>
       </div>
     );
   }
 
-  const shareUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/my-list?items=${list.map((i) => i.slug).join(",")}`
-      : "";
+  const copyLink = () => {
+    const url = `${window.location.origin}/my-list?items=${list.map((i) => i.slug).join(",")}`;
+    navigator.clipboard?.writeText(url).then(
+      () => setCopied(true),
+      () => setCopied(false),
+    );
+  };
 
   return (
-    <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_20rem]">
+    <div className="mt-4 grid gap-4 md:mt-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-8">
       <ul className="card divide-y divide-line">
         {list.map((i) => (
-          <li key={i.slug} className="flex items-center gap-4 p-4">
-            <Link href={i.href} className="min-w-0 flex-1">
-              <p className="text-xs text-muted uppercase">{i.kind}</p>
-              <p className="font-medium">
-                <span className="text-ink-2">{i.from}</span> <span className="text-muted">→</span>{" "}
-                <span className="text-accent">{i.to}</span>
-              </p>
-              <p className="truncate text-sm text-muted">{i.detail}</p>
-            </Link>
-            <div className="num text-right">
-              <p className="font-semibold">{money(i.savings, i.currency)}</p>
-              <p className="text-xs text-muted">{Math.round(i.savingsPct)}% less</p>
+          <li
+            key={i.slug}
+            className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-start gap-x-3 gap-y-1.5 p-3 md:grid-cols-[auto_minmax(0,1fr)_auto_auto] md:items-center md:gap-x-4"
+          >
+            <div className="flex gap-1">
+              <ProductThumb size="xs" image={i.fromPhoto} brand={i.from} alt={i.fromAlt} category={i.category} unit={i.unit} className="md:h-16 md:w-16" sizes="(min-width: 768px) 64px, 44px" />
+              <ProductThumb size="xs" image={i.toPhoto} brand={i.to} alt={i.toAlt} category={i.category} unit={i.unit} className="md:h-16 md:w-16" sizes="(min-width: 768px) 64px, 44px" />
             </div>
+            <div className="min-w-0">
+              <p className="text-[15px] leading-snug font-semibold">
+                <Link href={i.href} className="hover:underline">
+                  {i.from}
+                  <ToArrow />
+                  {i.to}
+                </Link>
+              </p>
+              <p className="text-[13px] leading-snug text-ink-2">
+                {i.kind === "kit" ? "Kit: " : ""}
+                {i.detail}
+              </p>
+            </div>
+            <p className="col-start-2 row-start-2 md:col-start-3 md:row-start-1 md:text-right">
+              <span className="price text-[1.375rem] text-ink">{money(i.savings, i.currency)}</span>
+              <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{Math.round(i.savingsPct)}% less</span>
+            </p>
             {!viewingShared && (
               <button
                 type="button"
                 onClick={() => toggleSaved(i.slug)}
-                aria-label={`Remove ${i.from}`}
-                className="rounded-lg p-2 text-muted hover:bg-surface-2 hover:text-warn"
+                aria-label={`Remove ${i.from} from my list`}
+                className="col-start-3 row-start-1 grid h-11 w-11 place-items-center rounded-tile text-muted transition-colors hover:bg-canvas hover:text-ink md:col-start-4"
               >
-                <Trash2 className="h-4 w-4" />
+                <Trash2 className="h-4 w-4" aria-hidden="true" />
               </button>
             )}
           </li>
         ))}
       </ul>
-      <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-        <div className="num rounded-2xl bg-ink p-6 text-paper">
-          <p className="text-sm text-paper/70">Every time you restock all {list.length}</p>
-          <p className="mt-1 text-4xl font-semibold text-highlight">{perRestock}</p>
-          <p className="mt-4 text-sm text-paper/70">If you restock monthly, that&apos;s</p>
-          <p className="text-2xl font-semibold">{perYear} a year</p>
+
+      <aside className="space-y-3 lg:sticky lg:top-24 lg:self-start">
+        <div className="card p-4">
+          <p className="text-sm font-medium text-ink-2">
+            Restocking {list.length === 1 ? "this one" : `all ${list.length}`} once
+          </p>
+          <Ticket size="lg" className="mt-2 whitespace-normal!">
+            Save {perRestock}
+          </Ticket>
+          <p className="mt-3 text-[13px] leading-snug text-ink-2">
+            Per brand-name pack for a swap and per kit for a kit, at the dated prices on each page.
+          </p>
         </div>
         {viewingShared ? (
           <button type="button" onClick={() => setSavedList([...saved, ...shared])} className="btn btn-primary w-full">
             Save these to my list
           </button>
         ) : (
-          <button
-            type="button"
-            onClick={() => {
-              navigator.clipboard?.writeText(shareUrl).then(() => setCopied(true), () => setCopied(false));
-            }}
-            className="btn btn-ghost w-full"
-          >
-            {copied ? <Check className="h-4 w-4 text-accent" /> : <Copy className="h-4 w-4" />}
-            {copied ? "Link copied" : "Copy a link to share this list"}
+          <button type="button" onClick={copyLink} className="btn btn-ghost w-full">
+            {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
+            {copied ? "Link copied" : "Copy a link to this list"}
           </button>
         )}
-        <p className="text-xs text-muted">
-          Savings are per pack (swaps) or per bundle, at the prices shown on each page. Your list is stored in
-          this browser only.
-        </p>
+        <p className="text-xs text-muted">Your list stays in this browser. We don&apos;t store it.</p>
       </aside>
     </div>
   );

@@ -1,49 +1,48 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getIngredients } from "@/lib/catalog";
+import { getIngredients, type IngredientEntry } from "@/lib/catalog";
+import { AzIndex, bestSaving, ListLinks, ShelfHead, type IndexEntry } from "@/components/ShelfParts";
 
 export const metadata: Metadata = {
   title: "Browse by ingredient",
-  description:
-    "Find the cheapest product with the exact active ingredient you need, from loratadine to minoxidil.",
+  description: "Find the cheapest product with the exact active ingredient you need, with the sources for each.",
   alternates: { canonical: "/ingredients" },
 };
 
+/** The cheaper product's photo where we have one, else the brand's. */
+function toEntry(i: IngredientEntry): IndexEntry {
+  const alt = i.pairs.find((p) => p.alternative.photo);
+  const own = i.pairs.find((p) => p.brand.photo);
+  const first = i.pairs[0];
+  return {
+    key: i.slug,
+    href: `/ingredient/${i.slug}`,
+    name: i.name,
+    count: i.pairs.length,
+    best: bestSaving(i.pairs),
+    category: first?.category,
+    unit: first?.alternative.unit,
+    photo: alt?.alternative.photo?.src ?? own?.brand.photo?.src ?? null,
+    photoName: alt?.alternative.product ?? own?.brand.product ?? i.name,
+  };
+}
+
 export default function IngredientsPage() {
-  const ings = [...getIngredients()].sort((a, b) => a.name.localeCompare(b.name));
-  const groups = new Map<string, typeof ings>();
-  for (const i of ings) {
-    const letter = /[a-z]/i.test(i.name[0]) ? i.name[0].toUpperCase() : "#";
-    groups.set(letter, [...(groups.get(letter) ?? []), i]);
-  }
+  const ingredients = getIngredients();
   return (
-    <section className="container-page py-10 md:py-14">
-      <p className="text-sm font-medium text-accent">A–Z</p>
-      <h1 className="display mt-1 text-4xl font-medium sm:text-5xl">Browse by ingredient</h1>
-      <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">
-        Know what&apos;s on the label? Pick the active ingredient and we&apos;ll show you every brand we&apos;ve
-        checked, and the cheapest product with the same thing inside.
-      </p>
-      <div className="mt-10 space-y-8">
-        {[...groups.entries()].map(([letter, list]) => (
-          <div key={letter} className="grid gap-3 sm:grid-cols-[3rem_1fr]">
-            <h2 className="display text-3xl text-muted">{letter}</h2>
-            <ul className="flex flex-wrap gap-2">
-              {list.map((i) => (
-                <li key={i.slug}>
-                  <Link
-                    href={`/ingredient/${i.slug}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-sm hover:border-accent hover:text-accent"
-                  >
-                    {i.name}
-                    <span className="num text-xs text-muted">{i.pairs.length}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+    <div className="bg-canvas pb-8 md:pb-10">
+      <ShelfHead
+        crumbs={[{ href: "/", label: "Home" }, { label: "Ingredients" }]}
+        title={`Cheaper swaps by ingredient: ${ingredients.length} ingredient${ingredients.length === 1 ? "" : "s"}`}
+        intro="Know what's on the label? Pick the ingredient to see every brand we've checked with it, and the cheaper product beside each."
+        facts={<ListLinks />}
+      />
+      <div className="container-page">
+        {ingredients.length ? (
+          <AzIndex entries={ingredients.map(toEntry)} />
+        ) : (
+          <p className="card p-5">No ingredients listed yet.</p>
+        )}
       </div>
-    </section>
+    </div>
   );
 }

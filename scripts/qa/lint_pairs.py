@@ -46,8 +46,11 @@ def check_side(p, label, side, market, problems):
             problems.append(f"{label}: price {side.get('price')} not among Open Prices records {sorted(set(r[0] for r in rows))[:6]}")
         elif not rows:
             problems.append(f"{label}: barcode {gtin} has no Open Prices record in {market}")
-        elif not any(r[1].startswith(p.get("price_checked", "?")) for r in rows):
-            problems.append(f"{label}: price_checked {p.get('price_checked')} doesn't match record dates {sorted(set(r[1][:7] for r in rows))[-3:]}")
+        else:
+            # price_checked is the older side's month, so a side's own record may be newer but not older.
+            months = sorted(set(r[1][:7] for r in rows))
+            if months and months[-1] < p.get("price_checked", "0000-00")[:7]:
+                problems.append(f"{label}: newest record {months[-1]} is older than price_checked {p.get('price_checked')}")
     if side.get("image") and facts:
         if not gtin:
             problems.append(f"{label}: photo without a barcode")

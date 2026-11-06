@@ -1,13 +1,16 @@
-"use client";
-
-import { useState } from "react";
-import { CATEGORY_TONE } from "@/lib/categories";
 import type { CategorySlug } from "@/lib/types";
 
+/**
+ * Fixed sizes for lists, fluid sizes for card grids. `tile` keeps itself square and
+ * `fill` takes the size of its parent, so nothing shifts when a photo loads.
+ */
 const SIZES = {
-  sm: "h-16 w-16 rounded-xl",
-  md: "h-24 w-24 rounded-2xl",
-  lg: "h-40 w-full rounded-2xl sm:h-44",
+  xs: { box: "h-11 w-11", pixels: 160, sizes: "44px" },
+  sm: { box: "h-16 w-16", pixels: 160, sizes: "64px" },
+  md: { box: "h-24 w-24", pixels: 160, sizes: "96px" },
+  lg: { box: "h-40 w-full sm:h-44", pixels: 480, sizes: "(min-width: 640px) 320px, 45vw" },
+  tile: { box: "aspect-square w-full", pixels: 480, sizes: "(min-width: 768px) 150px, 24vw" },
+  fill: { box: "h-full w-full", pixels: 480, sizes: "(min-width: 768px) 90px, 130px" },
 } as const;
 
 type Shape = "bottle" | "pump" | "jar" | "box" | "bag";
@@ -16,13 +19,11 @@ const DOSE_FORMS = /tablet|caplet|capsule|softgel|gelcap|gumm|lozenge|chewable|p
 const LIQUID = /fl ?oz|ml|litre|liter|^l$/i;
 
 /** Pick a pack shape that looks like what's on the shelf. */
-function shapeFor(category: CategorySlug, unit = ""): Shape {
+function shapeFor(category: CategorySlug | undefined, unit = ""): Shape {
   if (DOSE_FORMS.test(unit)) return "bottle";
   switch (category) {
     case "pet":
       return "bag";
-    case "tech-tools":
-      return "box";
     case "beauty-hair":
     case "household":
       return LIQUID.test(unit) ? "pump" : "box";
@@ -39,76 +40,55 @@ function shapeFor(category: CategorySlug, unit = ""): Shape {
   }
 }
 
-/** Label area of each drawing, in viewBox units (0-100), so the brand name sits on the pack. */
-const LABEL: Record<Shape, { x: number; y: number; w: number; h: number }> = {
-  bottle: { x: 24, y: 44, w: 52, h: 34 },
-  pump: { x: 28, y: 46, w: 44, h: 32 },
-  jar: { x: 16, y: 48, w: 68, h: 30 },
-  box: { x: 20, y: 38, w: 60, h: 32 },
-  bag: { x: 24, y: 40, w: 52, h: 32 },
-};
-
-function Pack({ shape, body, ink }: { shape: Shape; body: string; ink: string }) {
-  const stroke = { stroke: ink, strokeOpacity: 0.22, strokeWidth: 1.2 };
-  const l = LABEL[shape];
-  const label = <rect x={l.x} y={l.y} width={l.w} height={l.h} fill="#fff" fillOpacity={0.92} />;
+/** Outline only, with a dashed line: it has to read as a placeholder, never as a photo. */
+function PackOutline({ shape }: { shape: Shape }) {
   switch (shape) {
     case "bottle":
       return (
         <>
-          <rect x="30" y="8" width="40" height="16" rx="3" fill={ink} />
-          <rect x="33" y="24" width="34" height="5" fill={ink} fillOpacity={0.55} />
-          <rect x="24" y="29" width="52" height="64" rx="8" fill={body} {...stroke} />
-          {label}
+          <rect x="33" y="10" width="34" height="14" rx="2" />
+          <rect x="25" y="29" width="50" height="61" rx="6" />
+          <path d="M25 46h50M25 72h50" />
         </>
       );
     case "pump":
       return (
         <>
-          <rect x="44" y="5" width="22" height="5" rx="2" fill={ink} />
-          <rect x="46" y="10" width="7" height="11" fill={ink} fillOpacity={0.7} />
-          <rect x="38" y="21" width="24" height="8" rx="2" fill={ink} />
-          <rect x="28" y="29" width="44" height="64" rx="10" fill={body} {...stroke} />
-          {label}
+          <path d="M42 8h20M49 8v13" />
+          <rect x="39" y="21" width="22" height="8" rx="1" />
+          <rect x="29" y="29" width="42" height="61" rx="8" />
+          <path d="M29 48h42M29 74h42" />
         </>
       );
     case "jar":
       return (
         <>
-          <rect x="20" y="22" width="60" height="14" rx="4" fill={ink} />
-          <rect x="16" y="36" width="68" height="56" rx="12" fill={body} {...stroke} />
-          {label}
+          <rect x="21" y="24" width="58" height="12" rx="2" />
+          <rect x="17" y="36" width="66" height="54" rx="9" />
+          <path d="M17 52h66M17 76h66" />
         </>
       );
     case "bag":
       return (
         <>
-          <rect x="22" y="8" width="56" height="8" rx="2" fill={ink} />
-          <path d="M24 16 H76 L82 91 Q82 94 79 94 H21 Q18 94 18 91 Z" fill={body} {...stroke} />
-          {label}
+          <path d="M24 12h52l6 76q0 2-3 2H21q-3 0-3-2l6-76Z" />
+          <path d="M22 40h56M20 70h60" />
         </>
       );
     default:
       return (
         <>
-          <rect x="20" y="12" width="60" height="80" rx="4" fill={body} {...stroke} />
-          <rect x="20" y="12" width="60" height="13" rx="4" fill={ink} />
-          <rect x="20" y="20" width="60" height="5" fill={ink} />
-          {label}
+          <rect x="21" y="12" width="58" height="78" rx="2" />
+          <path d="M21 26h58M21 42h58M21 70h58" />
         </>
       );
   }
 }
 
-function initials(brand: string) {
-  const words = brand.replace(/[^\p{L}\p{N} ]/gu, " ").trim().split(/\s+/);
-  return (words.length > 1 ? words[0][0] + words[1][0] : brand.slice(0, 2)).toUpperCase();
-}
-
 /**
- * A product photo on a white tile. With no licensed photo (or when it fails to
- * load) it draws a simple pack in the category's colours with the brand on the
- * label, so cards look like products and never show a broken image.
+ * A real product photo on a white 4px tile with a 1px line. With no licensed photo it
+ * draws an honest outline of a pack and says so. Photos are checked to exist when the
+ * catalogue is built, so this needs no client code and works on the server.
  */
 export function ProductThumb({
   image,
@@ -119,6 +99,8 @@ export function ProductThumb({
   className = "",
   alt,
   eager = false,
+  sizes,
+  quiet = false,
 }: {
   image?: string | null;
   brand: string;
@@ -126,60 +108,55 @@ export function ProductThumb({
   alt?: string;
   /** Set for the largest image on the page so it isn't lazy-loaded. */
   eager?: boolean;
-  category: CategorySlug;
+  category?: CategorySlug;
   /** The pack unit (tablet, fl oz, oz...), used to pick the drawing. */
   unit?: string;
   size?: keyof typeof SIZES;
   className?: string;
+  /** Overrides the `sizes` attribute when the tile's width is known. */
+  sizes?: string;
+  /** Leaves the words off a drawn pack, for tiles too small to fit them. */
+  quiet?: boolean;
 }) {
-  const [failed, setFailed] = useState(false);
-  const tone = CATEGORY_TONE[category];
-  const box = `${SIZES[size]} shrink-0 overflow-hidden border border-line ${className}`;
+  const s = SIZES[size];
+  const box = `relative shrink-0 overflow-hidden rounded-tile border border-line bg-white ${s.box} ${className}`;
 
-  if (image && !failed) {
-    const local = image.startsWith("/products/");
+  if (image) {
     return (
-      <div className={`${box} grid place-items-center bg-white p-2`}>
+      <div className={box}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={local ? `${image}-160.webp` : image}
-          srcSet={local ? `${image}-160.webp 160w, ${image}-480.webp 480w` : undefined}
-          sizes={size === "lg" ? "(min-width: 640px) 320px, 45vw" : size === "md" ? "96px" : "64px"}
-          width={size === "lg" ? 480 : 160}
-          height={size === "lg" ? 480 : 160}
+          src={`${image}-${s.pixels}.webp`}
+          srcSet={`${image}-160.webp 160w, ${image}-480.webp 480w`}
+          sizes={sizes ?? s.sizes}
+          width={s.pixels}
+          height={s.pixels}
           alt={alt ?? brand}
           loading={eager ? "eager" : "lazy"}
           fetchPriority={eager ? "high" : undefined}
-          decoding="async"
-          referrerPolicy="no-referrer"
-          onError={() => setFailed(true)}
-          className="h-full w-full object-contain"
+          decoding={eager ? "sync" : "async"}
+          className="absolute inset-0 h-full w-full object-contain p-1"
         />
       </div>
     );
   }
 
-  const shape = shapeFor(category, unit);
-  const l = LABEL[shape];
-  const text = size === "lg" ? brand : size === "md" && brand.length <= 9 ? brand : initials(brand);
+  const showText = !quiet && size !== "xs" && size !== "sm";
   return (
-    <div
-      aria-hidden="true"
-      className={`${box} grid place-items-center`}
-      style={{ background: `radial-gradient(circle at 50% 70%, color-mix(in srgb, ${tone.bg} 55%, #fff), #fff 72%)` }}
-    >
-      <div className="relative aspect-square h-[86%]">
-        <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full drop-shadow-sm">
-          <Pack shape={shape} body={tone.bg} ink={tone.fg} />
-        </svg>
-        <span
-          className={`absolute grid place-items-center overflow-hidden px-0.5 text-center leading-tight font-bold tracking-tight ${
-            size === "lg" ? "text-sm sm:text-base" : size === "md" ? "text-[10px]" : "text-[9px]"
-          }`}
-          style={{ left: `${l.x}%`, top: `${l.y}%`, width: `${l.w}%`, height: `${l.h}%`, color: tone.fg }}
+    <div role="img" aria-label={`${alt ?? brand}: no photo yet`} className={`${box} grid place-items-center bg-canvas!`}>
+      <div className="flex h-full w-full flex-col items-center justify-center gap-0.5 p-1">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="var(--line-strong)"
+          strokeWidth="2"
+          strokeDasharray="5 4"
+          className="min-h-0 w-full flex-1"
         >
-          <span className="line-clamp-2 break-words">{text}</span>
-        </span>
+          <PackOutline shape={shapeFor(category, unit)} />
+        </svg>
+        {showText && <span className="shrink-0 text-center text-[10px] leading-tight text-muted">No photo yet</span>}
       </div>
     </div>
   );

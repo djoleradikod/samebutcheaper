@@ -1,65 +1,232 @@
 import Link from "next/link";
-import { ArrowRight, Camera, Check, Megaphone, ScanBarcode, Search, ShieldCheck, Scale } from "lucide-react";
 import {
-  getAllBundles,
   getAllPairs,
-  getIngredients,
-  getBiggestDollarSavings,
   getCategoryStats,
+  getClaims,
   getFeaturedPairs,
+  getPair,
+  getPairsByCategory,
+  getPresetsFor,
+  getShelfLife,
   getSiteStats,
   toSummary,
 } from "@/lib/catalog";
-import { FeaturedPairs } from "@/components/FeaturedPairs";
-import { BundleCard } from "@/components/BundleCard";
-import { CategoryIcon } from "@/components/CategoryIcon";
-import { MatchBadge, SavingsBadge } from "@/components/Badges";
+import type { BasketSummary } from "@/components/BasketCard";
+import { FeaturedBaskets, FeaturedPairs } from "@/components/FeaturedPairs";
+import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { MATCH_TYPE_META } from "@/lib/categories";
-import { MARKET_CODES } from "@/lib/markets";
-import { money, ppu } from "@/lib/format";
-import type { MatchType } from "@/lib/types";
-import { ProofStrip } from "@/components/ProofStrip";
+import { ProductThumb } from "@/components/ProductThumb";
+import { inSentence } from "@/lib/format";
+import { MARKET_CODES, type MarketCode } from "@/lib/markets";
+import type { CategorySlug, Claim, Pair, Preset, ShelfLife } from "@/lib/types";
 
-const FAQ = [
-  {
-    q: "If they're the same, why is the brand so much more expensive?",
-    a: "Mostly advertising, packaging and shelf placement. In the US, UK, Canada and Germany, an over-the-counter medicine has to meet the same regulator's rules for its active ingredient whatever name is on the box, and every medicine swap here has the same active ingredient at the same strength. The lower price comes from skipping the TV ads, not from cutting the active ingredient.",
-  },
-  {
-    q: "How do you decide two products are “the same”?",
-    a: "We only list a swap when the evidence fits one of four standards: the same active ingredient at the same strength, the same formula per the label, the same manufacturer, or an equivalent spec. Every swap says which standard it meets, shows what is the same and what is different point by point, and links to at least two sources.",
-  },
-  {
-    q: "How do you make money?",
-    a: "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you. No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.",
-  },
-  {
-    q: "Are the prices current?",
-    a: "Prices are typical shelf prices from the month shown on each swap, and they change often. Price per unit is what matters, and the gap is usually large enough that day-to-day price changes don't close it. Always check the price at the retailer.",
-  },
-  {
-    q: "Is this medical advice?",
-    a: "No. We compare labels and published evidence. Inactive ingredients can differ, which matters if you have allergies. Read the label, and talk to a pharmacist or doctor about medicines and supplements.",
-  },
+const MEDICINE: CategorySlug = "otc-medicine";
+
+/* ------------------------------------------------------------ what the page shows */
+
+function perMarket<T>(pick: (market: MarketCode) => T[]) {
+  const out: Partial<Record<MarketCode, T[]>> = {};
+  for (const m of MARKET_CODES) {
+    const list = pick(m);
+    if (list.length) out[m] = list;
+  }
+  return out;
+}
+
+function isMedicine(line: Preset["lines"][number]) {
+  return getPair(line.pair)?.category === MEDICINE;
+}
+
+/** Fewest missing photos first. */
+function photoGap(p: Pair) {
+  return (p.brand.photo ? 0 : 1) + (p.alternative.photo ? 0 : 1);
+}
+
+/** Medicine stays off the first screens, so its photos never go in a collage. */
+function toBasketSummary(p: Preset): BasketSummary {
+  const photos: BasketSummary["photos"] = [];
+  for (const l of p.lines) {
+    if (l.altPhoto && !isMedicine(l)) photos.push({ src: l.altPhoto, name: getPair(l.pair)?.alternative.product ?? l.altName });
+  }
+  return {
+    slug: p.slug,
+    market: p.market,
+    title: p.title,
+    audience: p.audience,
+    brandTotal: p.brandTotal,
+    altTotal: p.altTotal,
+    savings: p.savings,
+    savingsPct: p.savingsPct,
+    currency: p.currency,
+    itemCount: p.lines.length,
+    photos: photos.slice(0, 4),
+  };
+}
+
+/** The shopper's market first, then the baskets with enough photos for a full collage. */
+function basketsFor(market: MarketCode) {
+  const rank = (b: BasketSummary) => (b.market === market ? 0 : 2) + (b.photos.length >= 3 ? 0 : 1);
+  return getPresetsFor(market)
+    .filter((p) => p.icon !== "pill" && p.lines.filter(isMedicine).length * 2 <= p.lines.length)
+    .map(toBasketSummary)
+    .sort((a, b) => rank(a) - rank(b))
+    .slice(0, 6);
+}
+
+/**
+ * Never medicine, including remedies filed under another aisle such as infant gas relief.
+ * Real photos on both sides come first, with a cap per aisle and per shelf so the grid shows
+ * the range of the site, and it reads as a ranking: biggest saving first.
+ */
+function biggestSavings(market: MarketCode, limit = 12) {
+  const pool = getFeaturedPairs(48, market)
+    .filter((p) => !/relief|remed|fever|allerg|cough/i.test(p.subcategory))
+    .sort((a, b) => photoGap(a) - photoGap(b));
+  const picked: Pair[] = [];
+  const counts = new Map<string, number>();
+  for (const p of pool) {
+    if (picked.length >= limit) break;
+    const shelf = `${p.category}:${p.subcategory.toLowerCase()}`;
+    const aisleCap = p.category === "supplements" ? 2 : 6;
+    if ((counts.get(p.category) ?? 0) >= aisleCap || (counts.get(shelf) ?? 0) >= 2) continue;
+    counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
+    counts.set(shelf, (counts.get(shelf) ?? 0) + 1);
+    picked.push(p);
+  }
+  for (const p of pool) {
+    if (picked.length >= limit) break;
+    if (!picked.includes(p)) picked.push(p);
+  }
+  return picked.sort((a, b) => b.savingsPct - a.savingsPct).map(toSummary);
+}
+
+const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;
+const ABOUT_SWITCHING = /own[- ]label|own[- ]brand|store[- ]brand|cheap|beat/i;
+
+/** Findings about switching, newest first, spread across publishers and countries. */
+function pickFindings(limit = 3) {
+  const date = (c: Claim) => (/^\d/.test(c.sources[0].date) ? c.sources[0].date : "");
+  const ranked = getClaims()
+    .filter(
+      (c) =>
+        !c.categories.includes(MEDICINE) && !MENTIONS_MEDICINE.test(`${c.title} ${findingExcerpt(c.finding)}`),
+    )
+    .sort(
+      (a, b) =>
+        Number(ABOUT_SWITCHING.test(b.title)) - Number(ABOUT_SWITCHING.test(a.title)) ||
+        date(b).localeCompare(date(a)),
+    );
+  const picked: Claim[] = [];
+  const publishers = new Set<string>();
+  const markets = new Set<string>();
+  for (const c of ranked) {
+    if (picked.length >= limit) break;
+    if (publishers.has(c.sources[0].publisher) || c.markets.some((m) => markets.has(m))) continue;
+    picked.push(c);
+    publishers.add(c.sources[0].publisher);
+    c.markets.forEach((m) => markets.add(m));
+  }
+  for (const c of ranked) {
+    if (picked.length >= limit) break;
+    if (!picked.includes(c)) picked.push(c);
+  }
+  return picked;
+}
+
+const BULK_COLUMNS: { advice: ShelfLife["advice"]; title: string; body: string }[] = [
+  { advice: "stock_up", title: "Stock up", body: "Keeps for years, so a big pack is safe." },
+  { advice: "buy_to_use", title: "Buy to use", body: "Fine in bulk if you get through it in time." },
+  { advice: "buy_small", title: "Buy small", body: "Goes off or weakens, so skip the big pack." },
 ];
+
+/** The headline figure of a shelf-life record, before its citations and exceptions. */
+function keepsFor(unopened: string) {
+  const clause = unopened.split(/\s\(|\.\s|,\s/)[0].replace(/\.$/, "");
+  return clause.length > 60 ? clause.split(":")[0] : clause;
+}
+
+function bulkRows(advice: ShelfLife["advice"], limit = 5) {
+  const pairs = getAllPairs().filter((p) => p.category !== MEDICINE);
+  return getShelfLife()
+    .filter((r) => r.advice === advice)
+    .map((r) => {
+      const swaps = pairs.filter((p) => p.shelfLife?.id === r.id);
+      const withPhoto = swaps.find((p) => p.alternative.photo);
+      return {
+        id: r.id,
+        label: r.label,
+        keeps: keepsFor(r.unopened),
+        swaps: swaps.length,
+        href: swaps[0] ? `/compare/${(withPhoto ?? swaps[0]).slug}` : null,
+        photo: withPhoto?.alternative.photo?.src ?? null,
+        photoName: withPhoto?.alternative.product ?? r.label,
+      };
+    })
+    .sort((a, b) => b.swaps - a.swaps)
+    .slice(0, limit);
+}
+
+/** The aisle's top swap with a real photo: the cheaper product if we can, else the brand. */
+function aislePhoto(category: CategorySlug) {
+  const pairs = getPairsByCategory(category);
+  const alt = pairs.find((p) => p.alternative.photo);
+  if (alt) return { src: alt.alternative.photo?.src ?? null, name: alt.alternative.product };
+  const brand = pairs.find((p) => p.brand.photo);
+  if (brand) return { src: brand.brand.photo?.src ?? null, name: brand.brand.product };
+  return { src: null, name: "" };
+}
+
+function buildFaq(aisles: string[]) {
+  const names = aisles.map(inSentence);
+  const list = names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names.join("");
+  return [
+    {
+      q: "What do you compare?",
+      a: `Everyday products where you can pay less for the same job. Today that means ${list}. Prices are compared per unit, so a big pack and a small pack can be judged fairly.`,
+    },
+    {
+      q: "If two products do the same job, why does one cost more?",
+      a: "A brand's price also pays for advertising, packaging and its place on the shelf. Sometimes the brand does earn the extra, and we show where it's better.",
+    },
+    {
+      q: "How do you decide two products match?",
+      a: "We only list a swap when the evidence fits one of four standards: the same active ingredient at the same strength, the same formula per the label, the same manufacturer, or an equivalent spec. Every swap says which standard it meets, lists what differs and links to at least two sources.",
+    },
+    {
+      q: "Should I buy the biggest pack?",
+      a: "Only if it's cheaper per unit and you'll use it before it goes off. Bigger packs usually cost less per unit, but not always.",
+    },
+    {
+      q: "How do you make money?",
+      a: "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you. No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.",
+    },
+    {
+      q: "Are the prices current?",
+      a: "Prices are typical shelf prices from the month shown on each swap, and they change often. Check the price at the store before you buy.",
+    },
+    {
+      q: "Is any of this medical advice?",
+      a: "No. For medicines and supplements, read the label and ask a pharmacist or doctor.",
+    },
+  ];
+}
+
+/* --------------------------------------------------------------------- the page */
 
 export default function Home() {
   const stats = getSiteStats();
-  const featured = Object.fromEntries(
-    MARKET_CODES.map((m) => [m, getFeaturedPairs(12, m).map(toSummary)]).filter(([, list]) => list.length),
-  );
-  const dollar = getBiggestDollarSavings(6);
   const categories = getCategoryStats().filter((c) => c.count > 0);
-  const hero = getAllPairs()[0];
-  const bundles = getAllBundles().slice(0, 3);
-  const topIngredients = getIngredients().slice(0, 18);
-  const chips = Array.from(new Set(getAllPairs().slice(0, 40).map((p) => p.brand.brand))).slice(0, 7);
+  const baskets = perMarket(basketsFor);
+  const hasBaskets = Object.keys(baskets).length > 0;
+  const featured = perMarket(biggestSavings);
+  const findings = pickFindings();
+  const hasShelfLife = getShelfLife().length > 0;
+  const faq = buildFaq(categories.map((c) => c.name));
 
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: FAQ.map((f) => ({
+    mainEntity: faq.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -68,297 +235,166 @@ export default function Home() {
 
   return (
     <>
-      {/* ---------- Hero ---------- */}
-      <section className="hero-wash relative overflow-hidden border-b border-line">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(var(--line)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
-        />
-        <div className="container-page relative grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.15fr_1fr]">
-          <div>
-            <p className="num inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              {stats.pairs} verified swaps · on average {Math.round(stats.avgSavings)}% cheaper
-            </p>
-            <h1 className="display mt-5 text-[2.6rem] leading-[1.05] font-medium sm:text-6xl">
-              Same ingredients.
-              <br />
-              Same job.
-              <br />
-              <span className="highlight">Less money.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
-              Big brands spend billions telling you they&apos;re different. We read the labels. These are the
-              cheaper products with the <em>same active ingredients or formula</em>, with the sources to prove
-              it and an honest list of what differs.
-            </p>
-
-            <form action="/search" className="mt-8 flex max-w-xl flex-col gap-2 sm:flex-row">
-              <div className="relative flex-1">
-                <Search className="pointer-events-none absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted" />
-                <input
-                  name="q"
-                  type="search"
-                  aria-label="Search for a brand or product"
-                  placeholder="What do you usually buy?"
-                  className="h-14 w-full rounded-2xl border border-line-strong bg-surface pr-4 pl-12 text-base shadow-sm placeholder:text-muted focus:border-accent focus:outline-none"
-                />
-              </div>
-              <button type="submit" className="btn btn-primary h-14 rounded-2xl px-6">
-                Find it cheaper
-              </button>
-            </form>
-            {chips.length > 0 && (
-              <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
-                <span className="text-muted">Try:</span>
-                {chips.map((c) => (
-                  <Link
-                    key={c}
-                    href={`/search?q=${encodeURIComponent(c)}`}
-                    className="rounded-full border border-line bg-surface px-3 py-1 text-ink-2 hover:border-accent hover:text-accent"
-                  >
-                    {c}
-                  </Link>
-                ))}
-              </div>
-            )}
-            <Link
-              href="/check"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent underline-offset-4 hover:underline"
-            >
-              <ScanBarcode className="h-4 w-4" />
-              Not on our list? Check any product by name, barcode or photo
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          {hero && <HeroReceipt pair={hero} />}
-        </div>
-      </section>
-
-      <ProofStrip />
-
-      {/* ---------- Biggest savings ---------- */}
-      <section className="container-page py-16">
-        <SectionHeading
-          eyebrow="Ranked by savings"
-          title="The biggest savings right now"
-          body="The swaps that cut the most, ranked by price per unit and how much you save on every pack."
-          href="/biggest-savings"
-          cta="See all swaps"
-        />
-        <FeaturedPairs lists={featured} />
-      </section>
-
-      {/* ---------- Product check ---------- */}
-      <section className="container-page pb-16">
-        <div className="card flex flex-col gap-6 overflow-hidden p-6 sm:p-8 md:flex-row md:items-center">
-          <div className="flex shrink-0 gap-3 text-accent">
-            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-accent-soft">
-              <ScanBarcode className="h-7 w-7" />
-            </span>
-            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-accent-soft">
-              <Camera className="h-7 w-7" />
-            </span>
-          </div>
-          <div className="min-w-0 flex-1">
-            <h2 className="display text-2xl font-medium sm:text-3xl">Check what&apos;s in your cabinet</h2>
-            <p className="mt-2 max-w-2xl leading-relaxed text-ink-2">
-              Scan a barcode or snap a label. We read the official label, tell you what it&apos;s for and what&apos;s
-              really in it, and show cheaper products with the same ingredients from stores that deliver to you.
-            </p>
-          </div>
-          <Link href="/check" className="btn btn-primary shrink-0 px-6 py-3">
-            Check a product <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-
-      {/* ---------- Bundles ---------- */}
-      {bundles.length > 0 && (
-        <section className="container-page pb-16">
-          <SectionHeading
-            eyebrow="Kits, sets and stacks"
-            title="Brand bundles, rebuilt for less"
-            body="Regimens and kits taken apart item by item, then rebuilt from cheaper products with the same ingredients."
-            href="/bundles"
-            cta="All bundles"
-          />
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {bundles.map((b) => (
-              <BundleCard key={b.slug} bundle={b} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* ---------- Categories ---------- */}
-      <section className="border-y border-line bg-tint">
-        <div className="container-page py-16">
-          <SectionHeading eyebrow="Browse" title="Every aisle, cheaper" />
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/category/${c.slug}`}
-                className="group flex items-center gap-4 rounded-2xl border border-line bg-paper p-5 transition hover:border-accent"
-              >
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
-                  <CategoryIcon icon={c.icon} className="h-6 w-6" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block font-semibold">{c.name}</span>
-                  <span className="num block text-sm text-muted">
-                    {c.count} swaps · up to {Math.round(c.maxSavings)}% off
-                  </span>
-                </span>
-                <ArrowRight className="h-4 w-4 text-muted transition group-hover:translate-x-0.5 group-hover:text-accent" />
-              </Link>
-            ))}
-          </div>
-          {topIngredients.length > 0 && (
-            <div className="mt-10">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-semibold">Or start from the ingredient on the label</h3>
-                <Link href="/ingredients" className="text-sm font-semibold text-accent hover:underline">
-                  All ingredients →
+      <div className="bg-canvas">
+        <div className="container-page pt-4 pb-8 md:pt-5 md:pb-10">
+          {/* The first screen is the shop: one line, then the baskets. */}
+          <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between md:gap-8">
+            <h1 className="display text-[1.75rem] md:text-[2.5rem]">Same job. Lower price.</h1>
+            <div className="text-[13px] leading-snug text-ink-2 md:pb-1 md:text-right">
+              <p className="text-sm font-medium text-ink">
+                <span className="num">{stats.pairs}</span> swaps, each with at least two sources.
+              </p>
+              <p className="hidden md:block">
+                No brand pays to be listed. Some links earn us a commission.{" "}
+                <Link href="/how-we-verify" className="text-cobalt underline underline-offset-2">
+                  How we check
                 </Link>
-              </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {topIngredients.map((i) => (
-                  <Link
-                    key={i.slug}
-                    href={`/ingredient/${i.slug}`}
-                    className="rounded-full border border-line bg-paper px-3 py-1.5 text-sm text-ink-2 hover:border-accent hover:text-accent"
-                  >
-                    {i.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ---------- Why cheaper ---------- */}
-      <section className="container-page py-16">
-        <SectionHeading eyebrow="The short version" title="Why the same thing costs less" />
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          <Explainer
-            icon={<Megaphone className="h-5 w-5" />}
-            title="You're paying for the ads"
-            body="A big share of a famous brand's price goes to marketing, packaging and shelf placement. Store brands skip most of that."
-          />
-          <Explainer
-            icon={<Scale className="h-5 w-5" />}
-            title="The rules require it"
-            body="OTC medicines and infant formula must meet the same FDA standards, whoever's name is on the box. Disinfectants share EPA registrations."
-          />
-          <Explainer
-            icon={<ShieldCheck className="h-5 w-5" />}
-            title="We show the receipts"
-            body="Each swap lists the ingredients side by side, the standard it meets, any real differences, and the sources we checked."
-          />
-        </div>
-      </section>
-
-      {/* ---------- Match standards ---------- */}
-      <section className="border-y border-line bg-tint">
-        <div className="container-page grid gap-10 py-16 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <p className="text-sm font-medium text-accent">Our standard</p>
-            <h2 className="display mt-2 text-3xl font-medium sm:text-4xl">“Looks similar” doesn&apos;t count.</h2>
-            <p className="mt-4 leading-relaxed text-ink-2">
-              Smells alike, looks alike, has a similar name: none of that gets a product listed. Every swap has
-              to meet one of these four standards, and we tell you which one.
-            </p>
-            <Link href="/how-we-verify" className="btn btn-ghost mt-6">
-              How we verify <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {(Object.keys(MATCH_TYPE_META) as MatchType[]).map((t) => (
-              <div key={t} className="rounded-2xl border border-line bg-paper p-5">
-                <MatchBadge type={t} long />
-                <p className="mt-3 text-sm leading-relaxed text-ink-2">{MATCH_TYPE_META[t].description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Dollar savings ---------- */}
-      {dollar.length > 0 && (
-        <section className="container-page py-16">
-          <SectionHeading
-            eyebrow="Biggest in cash"
-            title="Where the switch saves the most cash"
-            body="Based on buying the same amount as one brand-name pack."
-          />
-          <ol className="card mt-8 divide-y divide-line">
-            {dollar.map((p, i) => (
-              <li key={p.slug}>
-                <Link
-                  href={`/compare/${p.slug}`}
-                  className="flex flex-wrap items-center gap-x-4 gap-y-1 p-4 hover:bg-surface-2 sm:flex-nowrap"
-                >
-                  <span className="num w-6 text-sm text-muted">{i + 1}</span>
-                  <span className="min-w-0 flex-1">
-                    <span className="font-medium">{p.brand.brand}</span>
-                    <span className="text-muted"> → </span>
-                    <span className="font-medium text-accent">{p.alternative.brand}</span>
-                    <span className="block truncate text-sm text-muted">{p.subcategory}</span>
-                  </span>
-                  <span className="num text-right">
-                    <span className="block font-semibold">{money(p.savingsPerPack, p.currency)} saved</span>
-                    <span className="block text-xs text-muted">{Math.round(p.savingsPct)}% cheaper</span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </section>
-      )}
-
-      {/* ---------- Newsletter ---------- */}
-      <section className="container-page">
-        <div className="relative overflow-hidden rounded-3xl bg-ink px-6 py-12 text-paper sm:px-12">
-          <div className="relative grid items-center gap-8 lg:grid-cols-2">
-            <div>
-              <h2 className="display text-3xl font-medium sm:text-4xl">
-                New swaps, the week we <span className="text-highlight">verify</span> them.
-              </h2>
-              <p className="mt-3 text-paper/70">
-                We add new swaps every week. Get them by email, along with the occasional big price drop.
               </p>
             </div>
-            <div className="[&_input]:border-white/20 [&_input]:bg-white/10 [&_input]:text-paper [&_p]:text-paper/70">
-              <NewsletterForm source="home" />
+          </div>
+
+          {hasBaskets && (
+            <section className="mt-4">
+              <SectionHeading title="Swap a whole basket" />
+              <FeaturedBaskets lists={baskets} />
+            </section>
+          )}
+
+          <section className={hasBaskets ? "mt-8 md:mt-10" : "mt-4"}>
+            <SectionHeading
+              title="Biggest savings"
+              links={[
+                { href: "/biggest-savings", label: "All swaps" },
+                { href: "/credits", label: "Photos" },
+              ]}
+            />
+            <FeaturedPairs lists={featured} eagerFirst={!hasBaskets} />
+          </section>
+        </div>
+      </div>
+
+      {findings.length > 0 && (
+        <section className="container-page py-8 md:py-10">
+          <SectionHeading title="Why it's worth switching" links={[{ href: "/why", label: "All findings" }]} />
+          <div className="grid gap-3 md:grid-cols-3">
+            {findings.map((c) => (
+              <Finding key={c.id} claim={c} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {hasShelfLife && (
+        <section className="border-t border-line">
+          <div className="container-page py-8 md:py-10">
+            <SectionHeading
+              title="Buying in bulk"
+              body="A bigger pack only saves money if it's cheaper per unit and you'll use it before it goes off. These are for unopened packs."
+              links={[{ href: "/why", label: "All shelf lives, with sources" }]}
+            />
+            <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+              {BULK_COLUMNS.map((col) => {
+                const rows = bulkRows(col.advice);
+                if (!rows.length) return null;
+                return (
+                  <div key={col.advice}>
+                    <h3 className="text-lg">{col.title}</h3>
+                    <p className="text-sm text-ink-2">{col.body}</p>
+                    <ul className="mt-2">
+                      {rows.map((r) => {
+                        const body = (
+                          <>
+                            <span className="min-w-0 flex-1">
+                              <span className="block text-sm font-semibold">{r.label}</span>
+                              <span className="block text-[13px] text-ink-2">{r.keeps}</span>
+                            </span>
+                            {r.photo && <ProductThumb size="xs" image={r.photo} brand={r.photoName} />}
+                          </>
+                        );
+                        return (
+                          <li key={r.id} className="border-t border-line">
+                            {r.href ? (
+                              <Link href={r.href} className="flex min-h-11 items-center gap-3 py-2 hover:underline">
+                                {body}
+                              </Link>
+                            ) : (
+                              <div className="flex min-h-11 items-center gap-3 py-2">{body}</div>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
+          </div>
+        </section>
+      )}
+
+      <section className="bg-canvas">
+        <div className="container-page py-8 md:py-10">
+          <SectionHeading title="All aisles" />
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5">
+            {categories.map((c) => {
+              const photo = aislePhoto(c.slug);
+              return (
+                <Link
+                  key={c.slug}
+                  href={`/category/${c.slug}`}
+                  className="card group flex flex-col p-2 transition-colors hover:border-ink-2"
+                >
+                  <div className="aspect-[4/3]">
+                    <ProductThumb
+                      size="fill"
+                      image={photo.src}
+                      brand={c.name}
+                      alt={photo.name || c.name}
+                      category={c.slug}
+                      className="border-0!"
+                      sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                    />
+                  </div>
+                  <p className="mt-1.5 text-sm leading-snug font-semibold group-hover:underline">{c.name}</p>
+                  <p className="text-xs font-medium text-muted">
+                    <span className="num">{c.count}</span> swap{c.count === 1 ? "" : "s"}, up to{" "}
+                    <span className="num">{Math.round(c.maxSavings)}%</span> cheaper
+                  </p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ---------- FAQ ---------- */}
-      <section className="container-page py-16">
-        <SectionHeading eyebrow="Questions" title="Fair questions" />
-        <div className="mt-8 grid gap-3 lg:grid-cols-2">
-          {FAQ.map((f) => (
-            <details key={f.q} className="card group p-5 open:border-line-strong">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-medium [&::-webkit-details-marker]:hidden">
+      <section className="border-b border-line">
+        <div className="container-page flex flex-col gap-3 py-8 md:flex-row md:items-start md:justify-between md:gap-8">
+          <h2 className="display text-xl md:text-2xl">Get new swaps by email</h2>
+          <NewsletterForm source="home" />
+        </div>
+      </section>
+
+      <section className="container-page pt-8 md:pt-10">
+        <SectionHeading title="Questions" />
+        <div className="grid gap-x-8 lg:grid-cols-2">
+          {faq.map((f) => (
+            <details key={f.q} className="group border-t border-line">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 py-2.5 font-medium [&::-webkit-details-marker]:hidden">
                 {f.q}
-                <span className="mt-0.5 text-muted transition group-open:rotate-45">+</span>
+                <span aria-hidden="true" className="text-lg leading-none text-muted group-open:rotate-45">
+                  +
+                </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-ink-2">{f.a}</p>
+              <p className="max-w-[68ch] pb-3 text-sm text-ink-2">{f.a}</p>
             </details>
           ))}
         </div>
-        <p className="mt-8 text-sm text-muted">
+        <p className="mt-6 text-sm text-ink-2">
           Know a swap we&apos;re missing?{" "}
-          <Link href="/suggest" className="font-medium text-accent underline underline-offset-2">
+          <Link href="/suggest" className="font-medium text-cobalt underline underline-offset-2">
             Suggest it
-          </Link>{" "}
-          and we&apos;ll check it out.
+          </Link>
+          .
         </p>
       </section>
 
@@ -368,90 +404,29 @@ export default function Home() {
 }
 
 function SectionHeading({
-  eyebrow,
   title,
   body,
-  href,
-  cta,
+  links = [],
 }: {
-  eyebrow: string;
   title: string;
   body?: string;
-  href?: string;
-  cta?: string;
+  links?: { href: string; label: string }[];
 }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-4">
+    <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
       <div className="max-w-2xl">
-        <p className="text-sm font-medium text-accent">{eyebrow}</p>
-        <h2 className="display mt-1 text-3xl font-medium sm:text-4xl">{title}</h2>
-        {body && <p className="mt-2 text-ink-2">{body}</p>}
+        <h2 className="display text-xl md:text-2xl">{title}</h2>
+        {body && <p className="mt-1 text-sm text-ink-2 md:text-[15px]">{body}</p>}
       </div>
-      {href && (
-        <Link href={href} className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
-          {cta} <ArrowRight className="h-4 w-4" />
-        </Link>
+      {links.length > 0 && (
+        <p className="flex gap-4 text-sm font-medium">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="text-cobalt underline-offset-2 hover:underline">
+              {l.label}
+            </Link>
+          ))}
+        </p>
       )}
     </div>
-  );
-}
-
-function Explainer({ icon, title, body }: { icon: React.ReactNode; title: string; body: string }) {
-  return (
-    <div className="card p-6">
-      <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-accent">{icon}</span>
-      <h3 className="mt-4 text-lg font-semibold">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-ink-2">{body}</p>
-    </div>
-  );
-}
-
-function HeroReceipt({ pair }: { pair: ReturnType<typeof getAllPairs>[number] }) {
-  const rows = pair.alternative.key_ingredients.slice(0, 4);
-  return (
-    <Link
-      href={`/compare/${pair.slug}`}
-      className="group relative mx-auto block w-full max-w-md rotate-[0.6deg] transition hover:rotate-0"
-    >
-      <div className="card overflow-hidden shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)]">
-        <div className="flex items-center justify-between border-b border-dashed border-line-strong bg-surface-2 px-5 py-3">
-          <span className="text-xs font-semibold tracking-widest text-muted uppercase">Swap #1</span>
-          <SavingsBadge pct={pair.savingsPct} />
-        </div>
-        <div className="grid grid-cols-2 divide-x divide-dashed divide-line-strong">
-          <div className="p-5">
-            <p className="text-xs text-brand-tone">Brand name</p>
-            <p className="mt-1 font-semibold">{pair.brand.brand}</p>
-            <p className="num mt-3 text-2xl text-muted line-through decoration-brand-tone/50">
-              {ppu(pair.brand.ppu, pair.currency)}
-            </p>
-            <p className="text-xs text-muted">per {pair.brand.unit}</p>
-          </div>
-          <div className="bg-accent-soft/50 p-5">
-            <p className="text-xs text-accent">Cheaper match</p>
-            <p className="mt-1 font-semibold">{pair.alternative.brand}</p>
-            <p className="num mt-3 text-2xl font-semibold text-accent">{ppu(pair.alternative.ppu, pair.currency)}</p>
-            <p className="text-xs text-muted">per {pair.alternative.unit}</p>
-          </div>
-        </div>
-        {rows.length > 0 && (
-          <ul className="space-y-2 border-t border-dashed border-line-strong px-5 py-4 text-sm">
-            {rows.map((r) => (
-              <li key={r.name} className="flex items-center gap-2">
-                <Check className="h-4 w-4 shrink-0 text-accent" />
-                <span className="flex-1 truncate">{r.name}</span>
-                <span className="num text-muted">{r.amount}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-        <div className="flex items-center justify-between border-t border-line px-5 py-3 text-sm">
-          <MatchBadge type={pair.match_type} />
-          <span className="inline-flex items-center gap-1 font-medium text-accent">
-            See the proof <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-          </span>
-        </div>
-      </div>
-    </Link>
   );
 }

@@ -1,0 +1,1263 @@
+[
+ {
+  "slug": "heinz-beanz-vs-aldi-bramwells-baked-beans-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Baked beans",
+  "title": "Heinz Beanz vs Aldi Bramwells Baked Beans",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Beanz, 415g can",
+   "size": 415,
+   "unit": "g",
+   "price": 1.4,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=heinz+beanz+415g",
+   "gtin": "5000157024671",
+   "image": "https://images.openfoodfacts.org/images/products/500/015/702/4671/front_en.459.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Bramwells (Aldi)",
+   "product": "Aldi Bramwells Beans in a Rich Tomato Sauce, 410g can",
+   "size": 410,
+   "unit": "g",
+   "price": 0.4,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=bramwells+baked+beans",
+   "gtin": "4088600072517",
+   "image": "https://images.openfoodfacts.org/images/products/408/860/007/2517/front_en.36.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Haricot beans",
+     "amount": "50%"
+    },
+    {
+     "name": "Tomato",
+     "amount": "35%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s blind test Aldi's beans scored 77% and Heinz 76%, at about 10p against 34p per 100g.",
+  "evidence": "Which? baked beans test, published 12 January 2026: 60 tasters, 12 cans. Aldi Bramwells 77%, 40p for 410g (10p per 100g). Heinz Beanz 76%, £1.40 for 415g (34p per 100g). Aldi's ingredients are from its Open Facts record. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Which? prints 'checked January 2025' on a page dated January 2026, so treat these prices as that old. Its October 2026 roundup has Bramwells at 39p and calls Heinz the priciest on test, without a Heinz price. The one point between them is small, and Heinz is also a Which? Best Buy.",
+  "why": "Tasters scored the two within a point of each other, and the Heinz can costs over three times as much per 100g.",
+  "claims": [
+   "which-2024-baked-beans-own-label-beat-heinz"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-baked-beans-azJLB3U3hLFV",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://world.openfoodfacts.org/product/4088600072517",
+   "https://world.openfoodfacts.org/product/5000157024671"
+  ],
+  "price_checked": "2025-01"
+ },
+ {
+  "slug": "heinz-tomato-ketchup-vs-waitrose-essential-ketchup-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Ketchup",
+  "title": "Heinz Tomato Ketchup vs Waitrose Essential Tomato Ketchup",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Tomato Ketchup, 460g",
+   "size": 460,
+   "unit": "g",
+   "price": 3.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=heinz+tomato+ketchup+460g",
+   "gtin": "5000157142061",
+   "image": "https://images.openfoodfacts.org/images/products/500/015/714/2061/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Essential Waitrose",
+   "product": "Waitrose Essential Tomato Ketchup, 470g",
+   "size": 470,
+   "unit": "g",
+   "price": 0.9,
+   "retailer": "waitrose",
+   "asin": null,
+   "url": "https://www.waitrose.com/ecom/shop/search?searchTerm=essential+tomato+ketchup",
+   "gtin": "5000169073353",
+   "image": "https://images.openfoodfacts.org/images/products/500/016/907/3353/front_en.4.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which?'s 60 tasters gave Waitrose Essential 77% and Heinz 76%, at 19p against 65p per 100g.",
+  "evidence": "Which? tomato ketchup test, published 6 August 2026, tasted in July 2026 by 60 people, prices correct as of August 2026. Waitrose Essential 77%, 90p for 470g (19p per 100g). Heinz 76%, £3 for 460g (65p per 100g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from August 2026. The photo's Open Facts record lists an older 450g pack of the Waitrose ketchup. A one-point gap is close to a tie.",
+  "why": "The scores are a point apart, and the Heinz bottle costs more than three times as much per 100g.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-tomato-ketchup-ab5K32t1ZIaO",
+   "https://world.openfoodfacts.org/product/5000157142061",
+   "https://world.openfoodfacts.org/product/5000169073353"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "heinz-tomato-ketchup-vs-co-op-on-the-side-ketchup-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Ketchup",
+  "title": "Heinz Tomato Ketchup vs Co-op On the Side Tomato Ketchup",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Tomato Ketchup, 460g",
+   "size": 460,
+   "unit": "g",
+   "price": 3.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=heinz+tomato+ketchup+460g",
+   "gtin": "5000157142061",
+   "image": "https://images.openfoodfacts.org/images/products/500/015/714/2061/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Co-op",
+   "product": "Co-op On the Side Tomato Ketchup, 550g",
+   "size": 550,
+   "unit": "g",
+   "price": 1.25,
+   "retailer": "coop",
+   "asin": null,
+   "url": "https://www.coop.co.uk/products?query=on+the+side+tomato+ketchup",
+   "gtin": "5000129302677",
+   "image": "https://images.openfoodfacts.org/images/products/500/012/930/2677/front_en.35.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato purée",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Spirit vinegar",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Co-op's ketchup tied with Heinz at 76% in Which?'s blind test, at 23p against 65p per 100g.",
+  "evidence": "Which? tomato ketchup test, published 6 August 2026, tasted in July 2026 by 60 people, prices correct as of August 2026. Co-op On the Side 76%, £1.25 for 550g (23p per 100g). Heinz 76%, £3 for 460g (65p per 100g). Co-op's ingredients are from its Open Facts record. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from August 2026. The Co-op pack is bigger, 550g against 460g. The scores are level, so the brand wasn't better here.",
+  "why": "Tasters scored them the same, so the extra paid for Heinz bought no higher score in this test.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-tomato-ketchup-ab5K32t1ZIaO",
+   "https://world.openfoodfacts.org/product/5000157142061",
+   "https://world.openfoodfacts.org/product/5000129302677"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "heinz-cream-of-tomato-soup-vs-sainsburys-cream-of-tomato-soup-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Tomato soup",
+  "title": "Heinz Cream of Tomato Soup vs Sainsbury's Cream of Tomato Soup",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Cream of Tomato Soup, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.7,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=heinz+cream+of+tomato+soup",
+   "gtin": "5000157150837",
+   "image": "https://images.openfoodfacts.org/images/products/500/015/715/0837/front_en.17.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Cream of Tomato Soup, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 0.59,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/cream+of+tomato+soup",
+   "gtin": "01228618",
+   "image": "https://images.openfoodfacts.org/images/products/000/000/122/8618/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Sainsbury's soup scored 78% against 68% for Heinz in Which?'s blind test, and cost 59p against £1.70.",
+  "evidence": "Which? tomato soup test, published 12 October 2026, rated by 77 people in August 2026, prices correct as of October 2026. Sainsbury's 78%, 59p for 400g (15p per 100g). Heinz 68%, £1.70 for 400g (43p per 100g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from October 2026. The brand didn't score better here. Scores are taste only and say nothing about recipe differences.",
+  "why": "Same size can, a higher taste score and about a third of the price in this test.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-tinned-tomato-soup-a81Qz2z4vPkP",
+   "https://world.openfoodfacts.org/product/5000157150837",
+   "https://world.openfoodfacts.org/product/01228618"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "baxters-cream-of-tomato-soup-vs-tesco-cream-of-tomato-soup-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Tomato soup",
+  "title": "Baxters Cream of Tomato Soup vs Tesco Cream of Tomato Soup",
+  "brand": {
+   "brand": "Baxters",
+   "product": "Baxters Cream of Tomato Soup, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 2.05,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=baxters+cream+of+tomato+soup",
+   "gtin": "5012427142701",
+   "image": "https://images.openfoodfacts.org/images/products/501/242/714/2701/front_en.12.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Tesco",
+   "product": "Tesco Cream of Tomato Soup, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 0.59,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=tesco+cream+of+tomato+soup",
+   "gtin": "5000436960065",
+   "image": "https://images.openfoodfacts.org/images/products/500/043/696/0065/front_en.5.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Tesco's soup scored 78% and Baxters 58% in Which?'s blind test, at 15p against 51p per 100g.",
+  "evidence": "Which? tomato soup test, published 12 October 2026, rated by 77 people in August 2026, prices correct as of October 2026. Tesco 78%, 59p for 400g (15p per 100g). Baxters 58%, £2.05 for 400g (51p per 100g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from October 2026. The brand didn't score better here. This is one panel's taste result.",
+  "why": "Baxters was the lowest scorer in this test and the dearest can of the 12.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-tinned-tomato-soup-a81Qz2z4vPkP",
+   "https://world.openfoodfacts.org/product/5012427142701",
+   "https://world.openfoodfacts.org/product/5000436960065"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "nutella-vs-tesco-hazelnut-chocolate-spread-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Chocolate spread",
+  "title": "Nutella vs Tesco Hazelnut Chocolate Spread",
+  "brand": {
+   "brand": "Nutella",
+   "product": "Nutella Hazelnut & Chocolate Spread, 350g",
+   "size": 350,
+   "unit": "g",
+   "price": 2.9,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=nutella+350g",
+   "gtin": "8000500150245",
+   "image": "https://images.openfoodfacts.org/images/products/800/050/015/0245/front_en.47.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Tesco",
+   "product": "Tesco Hazelnut Chocolate Spread, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.65,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=tesco+hazelnut+chocolate+spread",
+   "gtin": "5051898971137",
+   "image": "https://images.openfoodfacts.org/images/products/505/189/897/1137/front_en.31.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Hazelnut",
+     "amount": "13%"
+    },
+    {
+     "name": "Fat reduced cocoa powder",
+     "amount": "7%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Tesco's spread tied with Nutella at 81% in Which?'s test, at 41p against 83p per 100g.",
+  "evidence": "Which? chocolate hazelnut spread test, published 6 February 2026, a 60-strong panel, prices checked February 2026. Tesco 81%, a Best Buy and Great Value, £1.65 for 400g (41p per 100g). Nutella 81%, also a Best Buy, £2.90 for 350g (83p per 100g). Tesco's ingredients are from its Open Facts record. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from February 2026. The scores are level, so the brand wasn't better here. Waitrose Essential scored one point more than both at 63p per 100g.",
+  "why": "They scored the same, and Which? gave Tesco the Great Value badge at about half the price per 100g.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-chocolate-hazelnut-spreads-a7cZf8B1lW4a",
+   "https://world.openfoodfacts.org/product/8000500150245",
+   "https://world.openfoodfacts.org/product/5051898971137"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "pg-tips-original-vs-sainsburys-red-label-tea-bags-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Tea bags",
+  "title": "PG Tips Original vs Sainsbury's Red Label Tea Bags",
+  "brand": {
+   "brand": "PG Tips",
+   "product": "PG Tips Original, 80 tea bags (232g)",
+   "size": 80,
+   "unit": "bag",
+   "price": 3.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=pg+tips+original+80",
+   "gtin": "8712100712319",
+   "image": "https://images.openfoodfacts.org/images/products/871/210/071/2319/front_fr.14.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Red Label Tea Bags, 80 bags (250g)",
+   "size": 80,
+   "unit": "bag",
+   "price": 1.4,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/red+label+tea+bags",
+   "gtin": "00277570",
+   "image": "https://images.openfoodfacts.org/images/products/000/000/027/7570/front_en.7.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Sainsbury's Red Label scored 75% and PG Tips 70% in Which?'s blind test, at £1.40 against £3 for 80 bags.",
+  "evidence": "Which? tea bags test, published 5 October 2026, a panel of 67, prices correct as of 28 September 2026. Sainsbury's Red Label 75%, £1.40 for 80 bags (250g). PG Tips Original 70%, £3 for 80 bags (232g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from September 2026. PG Tips uses pyramid bags, and Red Label holds more tea by weight. The brand didn't score better here.",
+  "why": "Red Label topped this panel, and you get 18g more tea in the box for less than half the money.",
+  "claims": [
+   "which-2024-tea-asda-beat-pg-tips"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-tea-bags-an5Kg6V2vwGD",
+   "https://world.openfoodfacts.org/product/8712100712319",
+   "https://world.openfoodfacts.org/product/00277570"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "yorkshire-tea-vs-waitrose-essential-original-blend-tea-bags-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Tea bags",
+  "title": "Yorkshire Tea vs Waitrose Essential Original Blend Tea Bags",
+  "brand": {
+   "brand": "Yorkshire Tea",
+   "product": "Taylors of Harrogate Yorkshire Tea, 80 tea bags (250g)",
+   "size": 80,
+   "unit": "bag",
+   "price": 3.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=yorkshire+tea+80",
+   "gtin": "5010357112061",
+   "image": "https://images.openfoodfacts.org/images/products/501/035/711/2061/front_en.27.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Black tea",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Essential Waitrose",
+   "product": "Waitrose Essential Original Blend Tea Bags, 80 bags (250g)",
+   "size": 80,
+   "unit": "bag",
+   "price": 1.45,
+   "retailer": "waitrose",
+   "asin": null,
+   "url": "https://www.waitrose.com/ecom/shop/search?searchTerm=essential+original+blend+tea+bags",
+   "gtin": "5000169289587",
+   "image": "https://images.openfoodfacts.org/images/products/500/016/928/9587/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Waitrose Essential scored 75% and Yorkshire Tea 72% in Which?'s blind test, at £1.45 against £3.75 for 80 bags.",
+  "evidence": "Which? tea bags test, published 5 October 2026, a panel of 67, prices correct as of 28 September 2026. Waitrose Essential Original Blend 75%, £1.45 for 80 bags (250g). Yorkshire Tea 72%, £3.75 for 80 bags (250g). Yorkshire Tea was the top of the three big brands in this test. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from September 2026. The Waitrose photo on file shows a 160-bag box of the same tea. The brand didn't score better here.",
+  "why": "Both boxes hold 250g of tea, and tasters preferred the one costing well under half as much.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-tea-bags-an5Kg6V2vwGD",
+   "https://world.openfoodfacts.org/product/5010357112061",
+   "https://world.openfoodfacts.org/product/5000169289587"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "tetley-original-vs-morrisons-everyday-tea-bags-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Tea bags",
+  "title": "Tetley Original vs Morrisons Everyday Tea",
+  "brand": {
+   "brand": "Tetley",
+   "product": "Tetley Original, 80 tea bags (250g)",
+   "size": 80,
+   "unit": "bag",
+   "price": 3.15,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=tetley+original+80",
+   "gtin": "5000208025497",
+   "image": "https://images.openfoodfacts.org/images/products/500/020/802/5497/front_en.25.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Morrisons",
+   "product": "Morrisons Everyday Tea, 80 bags (232g)",
+   "size": 80,
+   "unit": "bag",
+   "price": 1.3,
+   "retailer": "morrisons",
+   "asin": null,
+   "url": "https://groceries.morrisons.com/search?q=everyday+tea",
+   "gtin": "5010525151816",
+   "image": "https://images.openfoodfacts.org/images/products/501/052/515/1816/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Morrisons Everyday scored 73% and Tetley 70% in Which?'s blind test, at £1.30 against £3.15 for 80 bags.",
+  "evidence": "Which? tea bags test, published 5 October 2026, a panel of 67, prices correct as of 28 September 2026. Morrisons Everyday 73%, £1.30 for 80 bags (232g). Tetley Original 70%, £3.15 for 80 bags (250g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from September 2026. Tetley has more tea by weight, 250g against 232g, so per gram the saving is a little smaller. The photos on file show other box sizes of the same teas (40 Tetley, 240 Morrisons).",
+  "why": "Tasters scored Morrisons three points higher, at well under half the price per bag.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-tea-bags-an5Kg6V2vwGD",
+   "https://world.openfoodfacts.org/product/5000208025497",
+   "https://world.openfoodfacts.org/product/5010525151816"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "nescafe-gold-blend-vs-aldi-alcafe-gold-roast-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Instant coffee",
+  "title": "Nescafé Gold Blend vs Aldi Alcafé Gold Roast",
+  "brand": {
+   "brand": "Nescafé",
+   "product": "Nescafé Gold Blend, 190g",
+   "size": 190,
+   "unit": "g",
+   "price": 8.35,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=nescafe+gold+blend+190g",
+   "gtin": "8445291846975",
+   "image": "https://images.openfoodfacts.org/images/products/844/529/184/6975/front_en.18.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Alcafé (Aldi)",
+   "product": "Aldi Alcafé Gold Roast Freeze Dried Coffee, 200g",
+   "size": 200,
+   "unit": "g",
+   "price": 2.65,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=alcafe+gold+roast",
+   "gtin": "25271706",
+   "image": "https://images.openfoodfacts.org/images/products/000/002/527/1706/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which?'s 68 coffee drinkers gave Nescafé 69% and Aldi 68%, at £4.39 against £1.33 per 100g.",
+  "evidence": "Which? instant coffee test, published 21 January 2026, a panel of 68, 12 coffees. Nescafé Gold Blend 69%, £8.35 for 190g (£4.39 per 100g). Aldi Alcafé Gold Roast 68%, Great Value, £2.65 for 200g (£1.33 per 100g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Which? prints 'checked January 2025' on a page dated January 2026, so treat these prices as that old. Its August 2025 roundup had the Aldi jar at £2.45. Nescafé scored one point higher. Which?'s product write-up calls the Aldi coffee Barissimo while its table says Alcafé, so check the label. The photo shows a refill pouch.",
+  "why": "Tasters gave Nescafé one point more, for a price per 100g over three times higher.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-instant-coffee-aOhpG1a1LpLR",
+   "https://www.which.co.uk/news/article/best-cheap-supermarket-food-and-drink-the-own-labels-that-beat-the-big-brands-aZyW11P2L9ul",
+   "https://world.openfoodfacts.org/product/8445291846975",
+   "https://world.openfoodfacts.org/product/25271706"
+  ],
+  "price_checked": "2025-01"
+ },
+ {
+  "slug": "hellmanns-real-mayonnaise-vs-sainsburys-real-mayo-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Mayonnaise",
+  "title": "Hellmann's Real Mayonnaise vs Sainsbury's Real Mayo",
+  "brand": {
+   "brand": "Hellmann's",
+   "product": "Hellmann's Real Mayonnaise, 430ml",
+   "size": 430,
+   "unit": "ml",
+   "price": 2.45,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=hellmanns+real+mayonnaise+430ml",
+   "gtin": "8720182422293",
+   "image": "https://images.openfoodfacts.org/images/products/872/018/242/2293/front_en.22.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Rapeseed oil",
+     "amount": "78%"
+    },
+    {
+     "name": "Egg and egg yolk",
+     "amount": "7.9%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Real Mayo, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.0,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/real+mayo",
+   "gtin": "01781182",
+   "image": "https://images.openfoodfacts.org/images/products/000/000/178/1182/front_en.40.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Rapeseed oil",
+     "amount": "78%"
+    },
+    {
+     "name": "Free range pasteurised egg",
+     "amount": "8%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Sainsbury's mayo scored 73% and Hellmann's 71% in Which?'s test, at 20p against 57p per 100ml.",
+  "evidence": "Which? mayonnaise test, published 5 June 2026, prices correct as of 28 May 2026. Sainsbury's Real Mayo 73%, £1 for 500ml (20p per 100ml). Hellmann's Real Mayonnaise 71%, £2.45 for 430ml (57p per 100ml). The Open Facts labels for both list 78% rapeseed oil and about 8% egg. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from May 2026. Lists beyond the oil and egg weren't compared in full. The brand didn't score better here.",
+  "why": "Labels show the same oil share and nearly the same egg share, and Sainsbury's scored two points higher at about a third of the price per 100ml.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-mayonnaise-ahglv7c98Tpy",
+   "https://world.openfoodfacts.org/product/8720182422293",
+   "https://world.openfoodfacts.org/product/01781182"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "tims-dairy-greek-yogurt-vs-aldi-brooklea-greek-style-yogurt-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Greek-style yogurt",
+  "title": "Tims Dairy Natural Greek Yoghurt vs Aldi Brooklea Greek Style Yogurt",
+  "brand": {
+   "brand": "Tims Dairy",
+   "product": "Tims Dairy Natural Greek Family Yoghurt, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 2.3,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=tims+dairy+greek+yoghurt",
+   "gtin": "5022463000156",
+   "image": "https://images.openfoodfacts.org/images/products/502/246/300/0156/front_en.5.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Brooklea (Aldi)",
+   "product": "Aldi Brooklea Greek Style Yogurt, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 0.95,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=brooklea+greek+style",
+   "gtin": "16319509",
+   "image": "https://images.openfoodfacts.org/images/products/000/001/631/9509/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Aldi's yogurt scored 77% and Tims Dairy 72% in Which?'s blind test, at 19p against 46p per 100g.",
+  "evidence": "Which? Greek-style yogurt test, published 10 July 2026, a panel of 64 in June 2026, prices correct as of July 2026. Aldi Brooklea 77%, 95p for 500g (19p per 100g), or £1.49 for 1kg (15p per 100g). Tims Dairy 72%, £2.30 for 500g (46p per 100g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from July 2026. Tims' Open Facts name says bio-live, and we didn't confirm the same for Aldi, nor compare fat content. We left out Yeo Valley, which scored 76%, because it is organic and Aldi's isn't.",
+  "why": "Same pack size, five points more from tasters and well under half the price.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-greek-style-yoghurt-aZnmj4B4un1R",
+   "https://world.openfoodfacts.org/product/5022463000156",
+   "https://world.openfoodfacts.org/product/16319509"
+  ],
+  "price_checked": "2026-07",
+  "bulk": {
+   "product": "Aldi Brooklea Greek Style Yogurt, 1kg",
+   "size": 1000,
+   "price": 1.49,
+   "retailer": "aldi",
+   "url": "https://www.which.co.uk/reviews/food-and-drink/article/best-greek-style-yoghurt-aZnmj4B4un1R"
+  }
+ },
+ {
+  "slug": "haagen-dazs-vanilla-vs-aldi-specially-selected-madagascan-vanilla-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Ice cream",
+  "title": "Häagen-Dazs Vanilla vs Aldi Specially Selected Madagascan Vanilla",
+  "brand": {
+   "brand": "Häagen-Dazs",
+   "product": "Häagen-Dazs Vanilla Ice Cream, 460ml",
+   "size": 460,
+   "unit": "ml",
+   "price": 5.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=haagen+dazs+vanilla",
+   "gtin": "3415581101928",
+   "image": "https://images.openfoodfacts.org/images/products/341/558/110/1928/front_en.27.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Fresh cream",
+     "amount": "39.2%"
+    },
+    {
+     "name": "Egg yolk",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Specially Selected (Aldi)",
+   "product": "Aldi Specially Selected Madagascan Vanilla Ice Cream, 480ml",
+   "size": 480,
+   "unit": "ml",
+   "price": 2.69,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=specially+selected+madagascan+vanilla+ice+cream",
+   "gtin": "4088600265148",
+   "image": "https://images.openfoodfacts.org/images/products/408/860/026/5148/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Double cream",
+     "amount": "23%"
+    },
+    {
+     "name": "Whole milk",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Aldi's vanilla scored 77% and Häagen-Dazs 67% in Which?'s blind test, at 56p against £1.25 per 100ml.",
+  "evidence": "Which? vanilla ice cream test, published 3 July 2026, 63 tasters, prices correct as of 26 June 2026. Aldi Specially Selected 77%, £2.69 for 480ml (56p per 100ml). Häagen-Dazs 67%, £5.75 for 460ml (£1.25 per 100ml). Ingredients are from the Open Facts records. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from June 2026. The recipes differ: Häagen-Dazs lists more cream, 39.2% against 23%, and Aldi's also lists skimmed milk powder and dextrose. The Open Facts record for Aldi's tub says 500ml, while Which? priced 480ml. Tasters still preferred Aldi's, but a shopper after the richest label may not.",
+  "why": "Tasters scored Aldi's ten points higher at less than half the price per 100ml, though the brand has the higher cream content.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-vanilla-ice-cream-aHN554n4zRhu",
+   "https://world.openfoodfacts.org/product/3415581101928",
+   "https://world.openfoodfacts.org/product/4088600265148"
+  ],
+  "price_checked": "2026-06"
+ },
+ {
+  "slug": "aunt-bessies-beef-dripping-yorkshires-vs-aldi-specially-selected-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Yorkshire puddings",
+  "title": "Aunt Bessie's Beef Dripping Yorkshire Puddings vs Aldi Specially Selected",
+  "brand": {
+   "brand": "Aunt Bessie's",
+   "product": "Aunt Bessie's Beef Dripping Yorkshire Puddings, 4 (180g)",
+   "size": 4,
+   "unit": "pudding",
+   "price": 3.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=aunt+bessies+beef+dripping+yorkshire+puddings",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Specially Selected (Aldi)",
+   "product": "Aldi Specially Selected Large Beef Dripping Yorkshire Puddings, 6 (290g)",
+   "size": 6,
+   "unit": "pudding",
+   "price": 1.99,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=specially+selected+beef+dripping+yorkshire+puddings",
+   "gtin": "4088600218236",
+   "image": "https://images.openfoodfacts.org/images/products/408/860/021/8236/front_en.23.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Aldi's puddings scored 76% and Aunt Bessie's 72% in Which?'s test, at 33p against 75p a pudding.",
+  "evidence": "Which? Yorkshire puddings test, published 4 November 2026, 69 testers, prices correct as of October 2026. Aldi Specially Selected Large 76%, £1.99 for 6 (290g). Aunt Bessie's Beef Dripping 72%, £3 for 4 (180g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from October 2026. Aldi's are larger, about 48g each against 45g. By weight the saving is 59%. The brand didn't score better here.",
+  "why": "Six bigger puddings cost less than four of the brand's, and tasters scored them four points higher.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-yorkshire-puddings-aUKRs6X1s0C2",
+   "https://world.openfoodfacts.org/product/4088600218236"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "lurpak-spreadable-vs-aldi-nordpak-spreadable-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Spreadable butter",
+  "title": "Lurpak Spreadable Slightly Salted vs Aldi Nordpak Spreadable",
+  "brand": {
+   "brand": "Lurpak",
+   "product": "Lurpak Spreadable Slightly Salted, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 4.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=lurpak+spreadable+slightly+salted+400g",
+   "gtin": "5740900402751",
+   "image": "https://images.openfoodfacts.org/images/products/574/090/040/2751/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Butter",
+     "amount": "64%"
+    },
+    {
+     "name": "Rapeseed oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Nordpak (Aldi)",
+   "product": "Aldi Nordpak Spreadable Slightly Salted, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 2.18,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=nordpak+spreadable",
+   "gtin": "4088600041445",
+   "image": "https://images.openfoodfacts.org/images/products/408/860/004/1445/front_en.28.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Butter",
+     "amount": "64%"
+    },
+    {
+     "name": "Rapeseed oil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Aldi's spreadable scored 75% and Lurpak 72% in Which?'s test, at 44p against £1.19 per 100g.",
+  "evidence": "Which? roundup of own labels that beat big brands, published 28 August 2025, prices correct as of August 2025 at typical price. Aldi Nordpak Spreadable Slightly Salted 75%, £2.18 for 500g (44p per 100g). Lurpak Spreadable Slightly Salted 72%, £4.75 for 400g (£1.19 per 100g). Both Open Facts labels list 64% butter and rapeseed oil. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from August 2025, so they are the oldest here. Both labels list the same main ingredients, with salt and culture in a different order. The brand didn't score better here.",
+  "why": "The labels show the same 64% butter with rapeseed oil, and Aldi scored three points higher at under half the price per 100g.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/news/article/best-cheap-supermarket-food-and-drink-the-own-labels-that-beat-the-big-brands-aZyW11P2L9ul",
+   "https://world.openfoodfacts.org/product/5740900402751",
+   "https://world.openfoodfacts.org/product/4088600041445"
+  ],
+  "price_checked": "2025-08"
+ },
+ {
+  "slug": "heineken-0-0-vs-lidl-perlenbacher-0-0-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Alcohol-free beer",
+  "title": "Heineken 0.0 vs Lidl Perlenbacher 0.0%",
+  "brand": {
+   "brand": "Heineken",
+   "product": "Heineken 0.0, 12 x 330ml bottles",
+   "size": 3960,
+   "unit": "ml",
+   "price": 12.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=heineken+0.0+12+pack",
+   "gtin": "8712000053116",
+   "image": "https://images.openfoodfacts.org/images/products/871/200/005/3116/front_en.10.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Perlenbacher (Lidl)",
+   "product": "Lidl Perlenbacher 0.0%, 6 x 330ml bottles",
+   "size": 1980,
+   "unit": "ml",
+   "price": 3.29,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/q/search?q=perlenbacher+0.0",
+   "gtin": "4304493265448",
+   "image": "https://images.openfoodfacts.org/images/products/430/449/326/5448/front_en.15.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Lidl's Perlenbacher scored 71% and Heineken 0.0 62% in Which?'s blind test, at about 17p against 32p per 100ml.",
+  "evidence": "Which? alcohol-free beer test, published 14 April 2026, 79 tasters in March 2026, prices checked April 2026. Lidl Perlenbacher 0.0% 71%, £3.29 for 6 x 330ml. Heineken 0.0 62%, £12.75 for 12 x 330ml. Per 100ml is our sum from those prices. Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from April 2026. Heineken comes in a bigger case here, so you spend more at once and need to buy two Lidl packs to match it. The brand didn't score better here.",
+  "why": "Lidl's beer was the top scorer of 12, and Heineken costs nearly twice as much per 100ml.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/alcohol-free-beer-taste-test-aqFpA5j6imk8",
+   "https://world.openfoodfacts.org/product/8712000053116",
+   "https://world.openfoodfacts.org/product/4304493265448"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "hotel-chocolat-classic-70-vs-tesco-finest-70-dark-hot-chocolate-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Hot chocolate",
+  "title": "Hotel Chocolat Classic 70% vs Tesco Finest 70% Dark Hot Chocolate Flakes",
+  "brand": {
+   "brand": "Hotel Chocolat",
+   "product": "Hotel Chocolat Classic 70% Hot Chocolate, 250g",
+   "size": 250,
+   "unit": "g",
+   "price": 10.95,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.hotelchocolat.com/uk/search?q=classic+70+hot+chocolate",
+   "gtin": "5056746802588",
+   "image": "https://images.openfoodfacts.org/images/products/505/674/680/2588/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Tesco Finest",
+   "product": "Tesco Finest Belgian 70% Dark Hot Chocolate Flakes, 200g",
+   "size": 200,
+   "unit": "g",
+   "price": 5.75,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=finest+dark+hot+chocolate+flakes",
+   "gtin": "5063446502540",
+   "image": "https://images.openfoodfacts.org/images/products/506/344/650/2540/front_en.12.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Tesco Finest scored 70% and Hotel Chocolat 60% in Which?'s blind test, at £2.88 against £4.38 per 100g.",
+  "evidence": "Which? hot chocolate test, published 5 January 2026, a panel of 78, prices checked November 2025. Tesco Finest Belgian 70% scored 70%, Great Value, £5.75 for 200g (£2.88 per 100g). Hotel Chocolat Classic 70% scored 60%, £10.95 for 250g (£4.38 per 100g). Which? priced each product at its own retailer, so the two prices may be from different chains.",
+  "differences": "Prices are from November 2025. Which?'s write-up also gives Tesco at £2.30 per 100g, but its table and the pack price make it £2.88, which we used. The brand didn't score better here.",
+  "why": "Both are 70% dark hot chocolates. Tasters scored Tesco's ten points higher at about a third less per 100g.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-luxury-hot-chocolate-aiVhs8r4gyP3",
+   "https://world.openfoodfacts.org/product/5056746802588",
+   "https://world.openfoodfacts.org/product/5063446502540"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "fairy-original-washing-up-liquid-vs-aldi-magnum-original-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Original Washing Up Liquid vs Aldi Magnum Original",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Original Washing Up Liquid, 320ml",
+   "size": 320,
+   "unit": "ml",
+   "price": 0.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fairy+original+washing+up+liquid+320ml",
+   "gtin": "8006540994511",
+   "image": "https://images.openfoodfacts.org/images/products/800/654/099/4511/front_en.7.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Magnum (Aldi)",
+   "product": "Aldi Magnum Original Washing Up Liquid, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.62,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=magnum+washing+up+liquid",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which? scored Aldi's liquid slightly above Fairy Original, at 12p against 31p per 100ml.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Aldi Magnum Original 62p for 500ml (12p per 100ml), in store only. Fairy Original 320ml at 31p per 100ml. Which? prints no shelf price for Fairy, so the 99p is our sum from 31p per 100ml. Which?'s 29 October 2026 roundup gives Aldi 78%, a Best Buy and Great Value, and says that beats Fairy Original slightly, without printing the Fairy score.",
+  "differences": "Prices are from July 2026, and Fairy's is worked out from the per-100ml figure, so it may be a penny or two off. Price per 100ml doesn't show how far each goes, and Which?'s plates-washed figures are members-only. The photo shows a 1015ml bottle of the Fairy Original.",
+  "why": "Which? rated the Aldi liquid slightly higher, and the Fairy bottle costs over twice as much per 100ml.",
+  "claims": [
+   "which-2026-own-label-beats-brands-several-categories"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-up-liquid/article/best-washing-up-liquids-a4eZl9w6HtO7",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://world.openfoodfacts.org/product/8006540994511"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "fairy-max-power-original-vs-aldi-magnum-original-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Max Power Original vs Aldi Magnum Original",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Max Power Original Washing Up Liquid, 730ml",
+   "size": 730,
+   "unit": "ml",
+   "price": 3.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fairy+max+power+original+730ml",
+   "gtin": "8700216671798",
+   "image": "https://images.openfoodfacts.org/images/products/870/021/667/1798/front_fr.3.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Magnum (Aldi)",
+   "product": "Aldi Magnum Original Washing Up Liquid, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.62,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=magnum+washing+up+liquid",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Fairy Max Power beat Aldi's liquid slightly in Which?'s test but cost 48p against 12p per 100ml.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Aldi Magnum Original 62p for 500ml (12p per 100ml), in store only. Fairy Max Power Original 730ml at 48p per 100ml. Which? prints no shelf price for Fairy, so the £3.50 is our sum from 48p per 100ml. Which?'s 29 October 2026 roundup gives Aldi 78%, a Best Buy and Great Value, and says it was slightly below the two Fairy Max Power Best Buys, without printing their scores.",
+  "differences": "Fairy Max Power scored higher, and we can't say by how much. It may go further per squirt, since Which?'s plates-washed figures are members-only, so the saving per wash-up may be smaller than per 100ml. Fairy's price is from July 2026 and worked out from the per-100ml figure.",
+  "why": "The brand won on the test, slightly. It costs four times as much per 100ml, so check that you need the extra cleaning power.",
+  "claims": [
+   "which-2026-own-label-beats-brands-several-categories"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-up-liquid/article/best-washing-up-liquids-a4eZl9w6HtO7",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://world.openproductsfacts.org/product/8700216671798"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "finish-powerball-ultimate-all-in-one-vs-aldi-magnum-premium-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Finish Powerball Ultimate All In One vs Aldi Magnum Premium All In One",
+  "brand": {
+   "brand": "Finish",
+   "product": "Finish Powerball Ultimate All In One Lemon, 55 tablets",
+   "size": 55,
+   "unit": "wash",
+   "price": 13.2,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=finish+powerball+ultimate+all+in+one+lemon",
+   "gtin": "5059001015297",
+   "image": "https://images.openproductsfacts.org/images/products/505/900/101/5297/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Magnum (Aldi)",
+   "product": "Aldi Magnum Premium All In One Lemon, 37 washes",
+   "size": 37,
+   "unit": "wash",
+   "price": 3.99,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=magnum+premium+all+in+one+dishwasher+tablets",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s April 2026 list these all-in-one lemon tablets cost 24p and 11p a wash. The scores are members-only.",
+  "evidence": "Which? dishwasher tablets test, tested April 2026, page checked April 2026: Aldi Magnum Premium All In One Lemon £3.99 for 37 washes (11p a wash), in store only. Finish Powerball Ultimate All In One Lemon 55 tablets at 24p a wash. Which? prints no shelf price for Finish, so the £13.20 is our sum from 24p a wash. Both scores are locked to members, so we saw neither.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Finish may have scored higher. Finish's price is worked out from a rounded per-wash figure and dates from April 2026.",
+  "why": "Both are all-in-one lemon tablets from the same test, and the Finish costs over twice as much a wash. If your dishes come out clean on Aldi's, the extra buys you nothing you need.",
+  "claims": [
+   "dishwasher-tablets-aldi-lidl-under-half-price-per-wash"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/dishwasher-tablets",
+   "https://world.openproductsfacts.org/product/5059001015297"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "plenty-original-kitchen-roll-vs-lidl-floralys-kitchen-towels-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Kitchen roll",
+  "title": "Plenty Original Kitchen Roll vs Lidl Floralys Kitchen Towels",
+  "brand": {
+   "brand": "Plenty",
+   "product": "Plenty Original Kitchen Roll, 4 rolls of 100 sheets",
+   "size": 400,
+   "unit": "sheet",
+   "price": 5.0,
+   "retailer": "morrisons",
+   "asin": null,
+   "url": "https://groceries.morrisons.com/search?q=plenty+original+kitchen+roll",
+   "gtin": "0314670164246",
+   "image": "https://images.openproductsfacts.org/images/products/031/467/016/4246/front_en.4.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Floralys (Lidl)",
+   "product": "Lidl Floralys Kitchen Towels Ultra Super Absorbent, 4 rolls of 100 sheets",
+   "size": 400,
+   "unit": "sheet",
+   "price": 2.09,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/q/search?q=floralys+kitchen+towels",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s kitchen roll test both packs had four 100-sheet rolls, at £5 against £2.09. The scores are locked.",
+  "evidence": "Which? best kitchen roll, tested November 2024, page checked March 2026, published 2 April 2026. Plenty Original four-pack £5 at Morrisons (£9.20 at Waitrose), 100 sheets a roll, sheet 22 x 22cm. Lidl Floralys four-pack £2.09 in store, 100 sheets a roll, sheet 23 x 22.5cm. Which? shows the scores to members, so we saw neither.",
+  "differences": "We can't say which soaks up more or is stronger, and Plenty may have scored higher. Which? doesn't list plies. Prices are from March 2026. Lidl's sheet is slightly larger.",
+  "why": "Same sheet count, and Lidl's sheet is a touch bigger, for well under half of Morrisons' price for Plenty.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/toilet-roll/article/best-kitchen-roll-ax8ij8H0j12S",
+   "https://world.openproductsfacts.org/product/0314670164246"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "ariel-original-powder-vs-aldi-almat-bio-powder-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Ariel Original Powder vs Aldi Almat Bio Powder",
+  "brand": {
+   "brand": "Ariel",
+   "product": "Ariel Original Powder, 50 washes",
+   "size": 50,
+   "unit": "wash",
+   "price": 10.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=ariel+original+powder+50+washes",
+   "gtin": "8001841699356",
+   "image": "https://images.openproductsfacts.org/images/products/800/184/169/9356/front_en.5.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Almat (Aldi)",
+   "product": "Aldi Almat Bio For Brilliant Whites Powder, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 3.89,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=almat+bio+powder",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s laundry test Ariel powder cost 21p a wash and Aldi's Almat 10p. The scores are locked.",
+  "evidence": "Which? laundry detergent test, tested May 2026, page checked September 2026, published 5 November 2026. Aldi Almat Bio £3.89 for 40 washes (10p a wash), in store only. Ariel Original Powder 50 washes at 21p a wash. Which? prints no shelf price for Ariel, so the £10.50 is our sum from 21p a wash. Both scores are locked to members, so we saw neither. Which? does say some of the most expensive detergents were beaten by cheaper ones.",
+  "differences": "We can't say which removes stains better, and Ariel may have scored higher. Almat is sold for whites, and we didn't confirm Ariel's enzymes, so check before using either on colours. Ariel's price is worked out from a rounded per-wash figure, from September 2026.",
+  "why": "Both are washing powders from the same test, and Ariel costs about twice as much a wash. Try Aldi's on a normal wash first.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-powder-and-laundry-detergent/article/full-laundry-detergent-test-ratings-aIVZc3D36seF",
+   "https://world.openproductsfacts.org/product/8001841699356"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "duracell-original-aa-vs-aldi-activ-energy-aa-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Duracell Original AA vs Aldi Activ Energy AA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Original AA alkaline batteries, 12 pack",
+   "size": 12,
+   "unit": "cell",
+   "price": 6.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.bmstores.co.uk/products/duracell-original-aa-batteries-12pk-376674",
+   "key_ingredients": [
+    {
+     "name": "Alkaline",
+     "amount": "AA"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Activ Energy (Aldi)",
+   "product": "Aldi Activ Energy AA super alkaline batteries, pack of 10",
+   "size": 10,
+   "unit": "cell",
+   "price": 2.49,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/product/activ-energy-super-alkaline-batteries-aa-000000000585909001",
+   "key_ingredients": [
+    {
+     "name": "Alkaline",
+     "amount": "AA"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which? lists both alkaline AAs: Duracell £6.99 for 12, Aldi £2.49 for 10. The scores are locked.",
+  "evidence": "Which? best AA and AAA batteries, published 12 October 2026, page checked October 2026. Aldi Activ Energy AA £2.49 for 10, in store only (25p a cell). Duracell Original AA £6.99 for 12 at B&M (58p a cell), and £9.35 at Home Bargains. Aldi's page confirms the £2.49 price and the name Super Alkaline Batteries AA, and Which? gives the count of 10. Both scores are locked to members, so we saw neither.",
+  "differences": "We can't say which lasts longer, and that decides real value: Duracell could last long enough to close some of the gap. B&M's page calls it Duracell Classic and we didn't see a price there, so the £6.99 is Which?'s figure. Prices are from October 2026.",
+  "why": "Same size and chemistry from the same test, for less than half the price per cell.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/batteries/article/how-to-buy-the-best-batteries-a0JRf6d3M52H",
+   "https://www.aldi.co.uk/product/activ-energy-super-alkaline-batteries-aa-000000000585909001",
+   "https://www.bmstores.co.uk/products/duracell-original-aa-batteries-12pk-376674"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "duracell-original-aaa-vs-aldi-activ-energy-aaa-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "AAA batteries",
+  "title": "Duracell Original AAA vs Aldi Activ Energy AAA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Original AAA alkaline batteries, 12 pack",
+   "size": 12,
+   "unit": "cell",
+   "price": 6.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://home.bargains/product/1e39513d-829f-4f7a-9c3b-b7af8797efa7/duracell-original-aaa-batteries-12-pack",
+   "key_ingredients": [
+    {
+     "name": "Alkaline",
+     "amount": "AAA"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Activ Energy (Aldi)",
+   "product": "Aldi Activ Energy AAA super alkaline batteries, pack of 10",
+   "size": 10,
+   "unit": "cell",
+   "price": 2.49,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/product/activ-energy-super-alkaline-batteries-aaa-000000000585909002",
+   "key_ingredients": [
+    {
+     "name": "Alkaline",
+     "amount": "AAA"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which? lists both alkaline AAAs. Duracell is £6.49 for 12 at Home Bargains and Aldi is £2.49 for 10. The scores are locked.",
+  "evidence": "Which? best AA and AAA batteries, published 12 October 2026, page checked October 2026. Aldi Activ Energy AAA £2.49 for 10, in store only (25p a cell). Duracell Original AAA £9.35 for 12 at Home Bargains on Which?'s page. Home Bargains' own page, read on 6 November 2026, shows £6.49 beside £9.35, and we used the lower price (54p a cell). Aldi's page confirms the £2.49 price, and Which? gives the count of 10. Both scores are locked to members, so we saw neither.",
+  "differences": "We can't say which lasts longer, and Duracell may last long enough to close some of the gap. The £6.49 may be a temporary price. At £9.35 the saving would be larger. Prices are from October and November 2026.",
+  "why": "Same size and chemistry from the same test, for under half the price per cell even at Duracell's lower price.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/batteries/article/how-to-buy-the-best-batteries-a0JRf6d3M52H",
+   "https://www.aldi.co.uk/product/activ-energy-super-alkaline-batteries-aaa-000000000585909002",
+   "https://home.bargains/product/1e39513d-829f-4f7a-9c3b-b7af8797efa7/duracell-original-aaa-batteries-12-pack"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "duracell-recharge-ultra-aa-2500mah-vs-ikea-ladda-aa-2450mah-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "Rechargeable AA batteries",
+  "title": "Duracell Rechargeable AA 2500mAh vs Ikea Ladda AA 2450mAh",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Rechargeable AA 2500mAh (Recharge Ultra), 4 pack",
+   "size": 4,
+   "unit": "cell",
+   "price": 14.29,
+   "retailer": "sevendayshop",
+   "asin": null,
+   "url": "https://www.7dayshop.com/products-duracell-rechargeable-aa-2500mah-batteries-4-pack-wh2-dur057043",
+   "key_ingredients": [
+    {
+     "name": "NiMH",
+     "amount": "2500mAh"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Ikea",
+   "product": "Ikea Ladda HR06 AA 1.2V 2,450mAh, 4 pack",
+   "size": 4,
+   "unit": "cell",
+   "price": 8.0,
+   "retailer": "ikea",
+   "asin": null,
+   "url": "https://www.ikea.com/gb/en/search/?q=ladda",
+   "key_ingredients": [
+    {
+     "name": "NiMH",
+     "amount": "2450mAh"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Ikea's Ladda scored 84% in Which?'s test and costs £8 for four, against £14.29 for Duracell at about the same capacity.",
+  "evidence": "Which? rechargeable batteries, published 21 October 2026, lists Ikea Ladda HR06 AA 2,450mAh at £8 for four, and its 29 October 2026 roundup gives it 84%, a Best Buy. Duracell's AA Recharge Ultra is in the same Which? test, with its score locked and no price shown. The Duracell price is 7dayshop's, read on 6 November 2026: £14.29 for 4 x Recharge Ultra AA, including VAT.",
+  "differences": "Duracell's 2500mAh is 50mAh more on paper. The prices come from two different places a few weeks apart. Which? says Ikea outscored Panasonic, Philips and Energizer rechargeables, but doesn't name Duracell there, and we couldn't see Duracell's score. It could be better on charge kept in storage or long-term use.",
+  "why": "The capacities are within 2%, and Ikea's is a Which? Best Buy at under 60% of the price.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/rechargeable-batteries/article/how-to-buy-the-best-rechargeable-batteries-a7OYs6V0VTOB",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://www.7dayshop.com/products-duracell-rechargeable-aa-2500mah-batteries-4-pack-wh2-dur057043"
+  ],
+  "price_checked": "2026-10"
+ }
+]

@@ -42,3 +42,6 @@ next-env.d.ts
 src/generated/
 !.env.example
 /public/vendor/
+
+# python
+__pycache__/

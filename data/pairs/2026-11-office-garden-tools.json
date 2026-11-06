@@ -1,0 +1,56 @@
+[
+ {
+  "slug": "hp-copy-a4-80gsm-paper-vs-viking-economy-a4-80gsm-paper-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Copier paper",
+  "title": "HP Copy A4 Printer Paper vs Viking Economy A4 Printer Paper",
+  "brand": {
+   "brand": "HP",
+   "product": "HP Copy A4 Printer Paper 80 gsm White 500 Sheets",
+   "size": 500,
+   "unit": "sheet",
+   "price": 4.31,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/hp-copy-printer-paper-a4-80-gsm-white-500-sheets-p-1191467",
+   "key_ingredients": [
+    {
+     "name": "A4 copier paper, 80 gsm, 146 CIE whiteness, matt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Economy A4 Printer Paper 80 gsm White 146 CIE 500 Sheets",
+   "size": 500,
+   "unit": "sheet",
+   "price": 3.59,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/niceday-a4-printer-paper-80-gsm-smooth-white-500-sheets-p-1191282",
+   "key_ingredients": [
+    {
+     "name": "A4 copier paper, 80 gsm, 146 CIE whiteness, smooth, 90% opacity",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are white A4 80 gsm copier paper with 146 CIE whiteness in 500-sheet reams, and the Viking Economy ream costs about 17% less per sheet at the same store.",
+  "evidence": "Both prices were read on viking-direct.co.uk in November 2026 with no listing date shown. Prices here include VAT: HP is £4.31 (£3.59 excluding VAT) and Viking Economy is £3.59 (£2.99 excluding VAT), which works out at about 0.86p and 0.72p a sheet. Both pages list 500 sheets, 80 gsm and 146 CIE, and both were in stock with a limit of 10 per order. The HP page gives manufacturer part number 88007468 and EAN 3141725005318. Viking Direct Ireland's listing for that part number states matt and 146 CIE, and Sharp Belgium's listing for the same part number and EAN states matt, 80 g/m2 and 500 sheets. HP's own spec page for CHP910 (Nigeria region of hp.com) shows the same values, but no page we could open links CHP910 to part number 88007468, so that page supports the spec values and doesn't confirm the same SKU.",
+  "differences": "Finish wording differs: the HP paper is listed as matt and the Viking Economy paper as smooth. Viking states 90% opacity, acid-free paper and ECF virgin fibre for its paper, and the HP pages we read don't give opacity, acid-free status or fibre source, so those can't be compared. Viking's UK HP page lists laser only under printer compatibility, while HP's CHP910 page says inkjet and laser, and the Viking Economy page says inkjet, laser and copiers. Thickness and FSC, PEFC or EU Ecolabel certification aren't documented for either paper on the pages we read. HP's regional page says its product is backed by a manufacturer warranty, and the Viking Economy page lists no product warranty. No print-quality or jam test covers these two papers, so how they run in a printer is untested here. Delivery is £5.95 excluding VAT on UK mainland orders of £89 or less excluding VAT, on both, so a single ream costs much more than its shelf price.",
+  "why": "The size, weight, whiteness and sheet count on the labels are the same, and the Viking ream costs 72p less at the same store. No test shows whether the two papers behave differently in a printer.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/hp-copy-printer-paper-a4-80-gsm-white-500-sheets-p-1191467",
+   "https://www.viking-direct.co.uk/niceday-a4-printer-paper-80-gsm-smooth-white-500-sheets-p-1191282",
+   "https://www.vikingdirect.ie/hp-copier-paper-matt-80gsm-210-mm-x-0-297-m-500-sheets-p-6129918",
+   "https://shop.sharp.be/hp-copy-a4-kopieerpapier-80/cat-p/c/p1500032229",
+   "https://hp.com/ng-en/products/ink-toner/product-details/product-specifications/1822789"
+  ],
+  "price_checked": "2026-11"
+ }
+]

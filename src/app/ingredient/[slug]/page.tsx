@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronRight, FlaskConical } from "lucide-react";
-import { getIngredient, getIngredients, ingredientSlugFor, toSummary } from "@/lib/catalog";
-import { PairCard } from "@/components/PairCard";
-import { inSentence, ppu } from "@/lib/format";
+import { getIngredient, getIngredients, ingredientSlugFor } from "@/lib/catalog";
+import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
+import { atLeastOneParam, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
+import { inSentence } from "@/lib/format";
 
 export function generateStaticParams() {
-  return getIngredients().map((i) => ({ slug: i.slug }));
+  return atLeastOneParam(getIngredients().map((i) => i.slug));
 }
 
 export async function generateMetadata({ params }: PageProps<"/ingredient/[slug]">): Promise<Metadata> {
@@ -17,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/ingredient/[slug]
   const brands = Array.from(new Set(ing.pairs.map((p) => p.brand.brand))).slice(0, 3).join(", ");
   return {
     title: `${ing.name}: cheapest products with the same ingredient`,
-    description: `Every brand-name product with ${ing.name} we've verified (${brands}) and the cheaper product with the same ingredient at the same strength.`,
+    description: `Every brand-name product with ${ing.name} we've verified (${brands}) and the cheaper product with the same ingredient.`,
     alternates: { canonical: `/ingredient/${ing.slug}` },
   };
 }
@@ -26,55 +25,42 @@ export default async function IngredientPage({ params }: PageProps<"/ingredient/
   const { slug } = await params;
   const ing = getIngredient(slug);
   if (!ing) notFound();
-  const pairs = [...ing.pairs].sort((a, b) => b.savingsPct - a.savingsPct);
-  const best = pairs[0];
-  const amounts = Array.from(
+  const pairs = ing.pairs;
+  const top = pairs.reduce((a, b) => (b.savingsPct > a.savingsPct ? b : a));
+  const strengths = Array.from(
     new Set(
       pairs.flatMap((p) =>
         p.alternative.key_ingredients.filter((k) => ingredientSlugFor(k.name) === ing.slug).map((k) => k.amount),
       ),
     ),
-  ).filter(Boolean);
+  )
+    .filter(Boolean)
+    .slice(0, 5);
 
   return (
-    <>
-      <section className="hero-wash border-b border-line">
-        <div className="container-page py-10 md:py-14">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-sm text-muted">
-            <Link href="/" className="hover:text-ink">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/ingredients" className="hover:text-ink">Ingredients</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-ink-2">{ing.name}</span>
-          </nav>
-          <div className="mt-5 flex items-start gap-4">
-            <span className="hidden h-14 w-14 shrink-0 place-items-center rounded-2xl bg-accent-soft text-accent sm:grid">
-              <FlaskConical className="h-7 w-7" />
-            </span>
-            <div>
-              <p className="text-sm font-medium text-accent">Ingredient</p>
-              <h1 className="display text-4xl font-medium sm:text-5xl">{ing.name}</h1>
-              <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">
-                The same {inSentence(ing.name)} is sold under many names at very different prices. These are the
-                brand-name products containing it that we&apos;ve verified, each next to a cheaper product with the
-                same ingredient at the same strength.
-              </p>
-              <p className="num mt-4 text-sm text-muted">
-                {pairs.length} verified swap{pairs.length === 1 ? "" : "s"}
-                {amounts.length ? ` · strengths: ${amounts.slice(0, 5).join(", ")}` : ""}
-                {best ? ` · cheapest from ${ppu(best.alternative.ppu, best.currency)} per ${best.alternative.unit}` : ""}
-              </p>
-            </div>
-          </div>
+    <div className="bg-canvas pb-8 md:pb-10">
+      <ShelfHead
+        crumbs={[{ href: "/", label: "Home" }, { href: "/ingredients", label: "Ingredients" }, { label: ing.name }]}
+        title={`${ing.name}: ${swapCount(pairs.length)}`}
+        intro={
+          <>
+            The same {inSentence(ing.name)} is sold under many names at very different prices. These are the brand products
+            we&apos;ve checked that contain it, each beside a cheaper one. The biggest saving is {top.alternative.brand} instead
+            of {top.brand.brand}.
+            {strengths.length > 0 && <> Strengths on file: {strengths.join(", ")}.</>}
+          </>
+        }
+        best={bestSaving(pairs)}
+        facts={<PriceFacts pairs={pairs} />}
+      />
+      {pairs.some((p) => HEALTH_CATEGORIES.has(p.category)) && (
+        <div className="container-page mb-4">
+          <HealthNotice />
         </div>
-      </section>
-      <section className="container-page py-10">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {pairs.map((p) => (
-            <PairCard key={p.slug} pair={toSummary(p)} />
-          ))}
-        </div>
-      </section>
-    </>
+      )}
+      <div className="container-page">
+        <SwapList path={`/ingredient/${ing.slug}`} pairs={pairs} />
+      </div>
+    </div>
   );
 }

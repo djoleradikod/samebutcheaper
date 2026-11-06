@@ -1,0 +1,1366 @@
+[
+ {
+  "slug": "persil-universal-megaperls-vs-denkmit-vollwaschmittel-pulver-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Universal Megaperls vs dm Denkmit Vollwaschmittel powder",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Universal Megaperls Tiefenrein, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.34,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=persil+megaperls",
+   "gtin": "5410091757830",
+   "image": "https://images.openfoodfacts.org/images/products/541/009/175/7830/front_nl.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Powder, full-wash detergent"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Denkmit",
+   "product": "dm Denkmit Vollwaschmittel powder, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.16,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=denkmit+vollwaschmittel",
+   "gtin": "4067796180169",
+   "image": "https://images.openbeautyfacts.org/images/products/406/779/618/0169/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Powder, full-wash detergent"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Stiftung Warentest 4/2025 the dm powder scored better than Persil Megaperls and cost less than half as much per wash.",
+  "evidence": "Stiftung Warentest tested 20 full-wash detergents in issue 4/2025, published 19 March 2025. test.de's product table gives about EUR 0.34 per wash for Persil Universal Megaperls Tiefenrein (shelf price EUR 5.49) and about EUR 0.16 for Denkmit powder (EUR 3.25), prices as of 24 January 2025, for a 4 to 5 kg load with no pre-wash, medium water hardness and normal soiling. The grades are locked on test.de, so they come from mydealz's report of the test: Denkmit 1.6, Persil 1.9.",
+  "differences": "Prices date from January 2025 and may have moved. The grades come from press coverage of the test and we did not see the magazine's own table. The Persil scored good too. The photo on the Persil side shows the Dutch pack of this powder.",
+  "why": "The test put both in the good range with the cheaper powder slightly ahead, so the extra 18 cents a wash did not buy a better result here.",
+  "claims": [
+   "de-full-wash-2025-cheap-powders-beat-persil"
+  ],
+  "sources": [
+   "https://www.test.de/Vollwaschmittel-Die-Besten-fuer-Weisses-4770157-tabelle/",
+   "https://www.mydealz.de/magazin/stiftung-warentest-diese-discounter-waschmittel-sind-besser-als-persil-und-co-26732",
+   "https://www.heidelberg24.de/verbraucher/einkauf-test/denkmit-waschmittel-test-schlaegt-teure-markenprodukte-94516317.html"
+  ],
+  "price_checked": "2025-01"
+ },
+ {
+  "slug": "persil-universal-megaperls-vs-lidl-formil-vollwaschmittel-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Universal Megaperls vs Lidl Formil Vollwaschmittel",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Universal Megaperls Tiefenrein, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.34,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=persil+megaperls",
+   "gtin": "5410091757830",
+   "image": "https://images.openfoodfacts.org/images/products/541/009/175/7830/front_nl.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Powder, full-wash detergent"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Formil",
+   "product": "Lidl Formil Vollwaschmittel powder, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.16,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=formil+vollwaschmittel",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Powder, full-wash detergent"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Lidl's Formil powder scored 1.6 against Persil's 1.9 in Stiftung Warentest 4/2025, at under half the price per wash.",
+  "evidence": "Stiftung Warentest tested 20 full-wash detergents in issue 4/2025, published 19 March 2025. test.de's product table gives about EUR 0.34 per wash for Persil Universal Megaperls Tiefenrein (shelf price EUR 5.49) and about EUR 0.16 for Lidl Formil (EUR 4.89), prices as of 24 January 2025, for a 4 to 5 kg load with no pre-wash, medium water hardness and normal soiling. The grades are locked on test.de, so they come from mydealz's report: Formil 1.6, Persil 1.9.",
+  "differences": "Prices date from January 2025. The shelf prices are closer than the per-wash prices (EUR 5.49 and EUR 4.89), since a pack does a different number of washes. Grades come from press coverage of the test, and the Persil also scored good. The photo on the Persil side shows the Dutch pack of this powder.",
+  "why": "Both powders rated good in the same test and the Lidl one was slightly ahead, at 18 cents less per wash.",
+  "claims": [
+   "de-full-wash-2025-cheap-powders-beat-persil"
+  ],
+  "sources": [
+   "https://www.test.de/Vollwaschmittel-Die-Besten-fuer-Weisses-4770157-tabelle/",
+   "https://www.mydealz.de/magazin/stiftung-warentest-diese-discounter-waschmittel-sind-besser-als-persil-und-co-26732"
+  ],
+  "price_checked": "2025-01"
+ },
+ {
+  "slug": "lenor-universalwaschmittel-aprilfrisch-vs-aldi-tandil-ultra-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Lenor Universalwaschmittel Aprilfrisch vs Aldi Tandil Ultra liquid",
+  "brand": {
+   "brand": "Lenor",
+   "product": "Lenor Universalwaschmittel Aprilfrisch liquid, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.22,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=lenor+universal+aprilfrisch",
+   "gtin": "8700216285452",
+   "image": "https://images.openfoodfacts.org/images/products/870/021/628/5452/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Liquid, full-wash detergent"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Tandil",
+   "product": "Aldi Tandil Ultra Vollwaschmittel liquid, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.16,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi-sued.de/",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Liquid, full-wash detergent"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Stiftung Warentest 4/2025 the Lenor liquid was rated poor (5.1) and the Aldi liquid got 2.5, for 6 cents less per wash.",
+  "evidence": "Stiftung Warentest issue 4/2025, published 19 March 2025. test.de's product table gives about EUR 0.22 per wash for Lenor Universalwaschmittel Aprilfrisch and about EUR 0.16 for Tandil Ultra (Aldi Süd EUR 3.19, Aldi Nord EUR 3.15), prices as of 24 January 2025, for a 4 to 5 kg load with no pre-wash, medium water hardness and normal soiling. mydealz reports the grades: Tandil Ultra 2.5, Lenor 5.1, with the Lenor barely removing dirt at 30 C, leaving a grey film and containing microplastic beads.",
+  "differences": "Prices date from January 2025. Tandil Ultra's cleaning was only rated satisfactory in mydealz's report, so a shopper wanting the best clean should look at a powder. We did not check whether Lenor has changed the recipe since the test.",
+  "why": "The Lenor costs more per wash and did much worse in this test. Here the cheaper bottle is also the one that passed.",
+  "claims": [
+   "de-full-wash-2025-cheap-powders-beat-persil"
+  ],
+  "sources": [
+   "https://www.test.de/Vollwaschmittel-Die-Besten-fuer-Weisses-4770157-tabelle/",
+   "https://www.mydealz.de/magazin/stiftung-warentest-diese-discounter-waschmittel-sind-besser-als-persil-und-co-26732",
+   "https://www.heidelberg24.de/verbraucher/einkauf-test/oekotest-bestes-waschmittel-note-sieger-fluessig-vergleich-stiftung-warentest-note-92573848.html"
+  ],
+  "price_checked": "2025-01"
+ },
+ {
+  "slug": "frosch-all-in-1-spuel-tabs-vs-rossmann-domol-ultra-power-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Frosch All-in-1 Spül-Tabs Limone vs Rossmann Domol Ultra Power All-in-One",
+  "brand": {
+   "brand": "Frosch",
+   "product": "Frosch All-in-1 Spül-Tabs Limone, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.19,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=frosch+spuel+tabs",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "All-in-one tablet"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Domol",
+   "product": "Rossmann Domol Ultra Power All-in-One, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.09,
+   "retailer": "rossmann",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=domol+ultra+power",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "All-in-one tablet"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Stiftung Warentest 8/2026 the Rossmann tablet got a good 2.1 at 9 cents a wash, and the Frosch tablet was rated poor at 19 cents.",
+  "evidence": "Stiftung Warentest tested 10 tablets and 6 caps, online 29 July 2026, issue 8/2026. test.de's product table gives about EUR 0.19 per wash for Frosch and about EUR 0.09 for Domol, prices as of 22 May 2026. Grades are locked on test.de. newstime gives Domol 2.1 and Frosch poor. Stuttgarter Zeitung and ZDF report that limescale clogged the machine's sieve in the Frosch long-term test, and the test was stopped.",
+  "differences": "Frosch says it changed the formula in December 2025, so the tablets on sale now may do better than the ones tested. Prices are from May 2026.",
+  "why": "The tablets tested cost twice as much and did worse. If Frosch's new formula fixes the problem, the price gap stays.",
+  "claims": [
+   "dishwasher-tablets-aldi-lidl-under-half-price-per-wash"
+  ],
+  "sources": [
+   "https://www.test.de/Geschirrspuelmittel-Multitabs-im-Test-4840806-tabelle/",
+   "https://newstime.joyn.de/themen/stiftung-warentest/spuelmaschinen-tabs-stiftung-warentest-aldi-rossmann-162713",
+   "https://www.stuttgarter-zeitung.de/panorama/spuelmaschinen-tabs-im-test-drei-produkte-fallen-durch-guenstige-mittel-ueberzeugen-79345476.html",
+   "https://www.zdfheute.de/ratgeber/stiftung-warentest-spuelmaschine-spuelmaschinentabs-100.html"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "somat-excellence-premium-5in1-caps-vs-aldi-power-force-all-in-one-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Somat Excellence Premium 5in1 Caps vs Aldi Power Force All-In-One tablets",
+  "brand": {
+   "brand": "Somat",
+   "product": "Somat Excellence Premium 5in1 Caps, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.2,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=somat+excellence+premium",
+   "gtin": "4015200035505",
+   "image": "https://images.openfoodfacts.org/images/products/401/520/003/5505/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Liquid cap"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Power Force",
+   "product": "Aldi Power Force All-In-One tablets, price per wash",
+   "size": 1,
+   "unit": "wash",
+   "price": 0.09,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi-sued.de/",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "All-in-one tablet"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both rated good in Stiftung Warentest 8/2026 for the same job, with the Aldi tablet at 9 cents a wash and the Somat cap at 20 cents.",
+  "evidence": "Stiftung Warentest compared 10 tablets and 6 caps as multi-purpose dishwasher products, online 29 July 2026, issue 8/2026. test.de's product table gives about EUR 0.20 per wash for Somat (price the testers paid, EUR 8.23) and about EUR 0.09 for Aldi Power Force (Aldi Süd EUR 6.49, Aldi Nord EUR 3.75 for 40), prices as of 22 May 2026. newstime gives Aldi 2.1 and calls the Somat cap good, with no number given, and says it was the only cap rated good.",
+  "differences": "The form differs: the Somat is a liquid cap and the Aldi product is a pressed tablet. Somat is the better cap in the test, and if you want caps it is the one to buy. test.de notes the Somat count per pack has changed. Pack size varies between Aldi Nord and Süd.",
+  "why": "The test judged both on the same dishes and rated both good. The cap costs about twice as much per wash.",
+  "claims": [
+   "dishwasher-tablets-aldi-lidl-under-half-price-per-wash"
+  ],
+  "sources": [
+   "https://www.test.de/Geschirrspuelmittel-Multitabs-im-Test-4840806-tabelle/",
+   "https://newstime.joyn.de/themen/stiftung-warentest/spuelmaschinen-tabs-stiftung-warentest-aldi-rossmann-162713",
+   "https://www.zdfheute.de/ratgeber/stiftung-warentest-spuelmaschine-spuelmaschinentabs-100.html"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "fairy-konzentrat-vs-rewe-ja-ultra-power-spuelmittelkonzentrat-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Konzentrat vs Rewe Ja! Ultra Power Spülmittelkonzentrat",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Konzentrat Handgeschirrspuelmittel, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.36,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=fairy+konzentrat",
+   "gtin": "8001090510327",
+   "image": "https://images.openfoodfacts.org/images/products/800/109/051/0327/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Concentrate"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Ja!",
+   "product": "Rewe Ja! Ultra Power Spülmittelkonzentrat, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.25,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=ja+spuelmittel+konzentrat",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Concentrate"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Öko-Test 4/2026 gave the Rewe concentrate its top grade overall and the Fairy concentrate satisfactory, with Rewe about 30% cheaper per ml.",
+  "evidence": "Öko-Test magazine 4/2026 tested hand washing-up liquids, with products bought December 2025 to January 2026. Its article lists EUR 0.36 per 100 ml for Fairy Konzentrat and EUR 0.25 for Ja! Ultra Power. echo24, quoting the test with prices from 21 October 2026, gives EUR 3.98 per litre for Fairy (450 ml) and EUR 2.50 for Ja! (500 ml). echo24 reports both at very good (1.0) for yield and cleaning, with Ja! very good overall and Fairy satisfactory, the Fairy marked down partly for a hard-to-read code and no hints on economical use.",
+  "differences": "Fairy matched Ja! on yield and cleaning, so the lower overall grade comes from other criteria. Öko-Test covers ingredients and labelling as well as performance, so the grade is not a cleaning score alone. Both are concentrates, and Öko-Test judged concentrates more strictly than ordinary liquids.",
+  "why": "On yield and cleaning they scored the same in this test, and the Rewe liquid costs about 30% less per ml.",
+  "claims": [],
+  "sources": [
+   "https://www.oekotest.de/bauen-wohnen/spuelmittel-test-nur-2-von-26-mit-bestnote-empfehlenswert_16225_1.html",
+   "https://www.echo24.de/verbraucher/spuelmittel-oeko-test-guenstig-konzentrat-hand-experte-preis-note-angebot-94552387.html"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "pril-original-limette-vs-penny-blik-zitrone-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Pril Original Limette vs Penny Blik Spülmittel Zitrone",
+  "brand": {
+   "brand": "Pril",
+   "product": "Pril Original Grüner Apfel Limette, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.26,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=pril+original",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Ordinary washing-up liquid, not sold as a concentrate"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Blik",
+   "product": "Penny Blik Spülmittel Zitrone, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.1,
+   "retailer": "penny",
+   "asin": null,
+   "url": "https://www.penny.de/",
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Ordinary washing-up liquid, not sold as a concentrate"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Öko-Test 4/2026 the Penny liquid was rated good overall at 10 cents per 100 ml, and the Pril was sufficient at 26 cents.",
+  "evidence": "Öko-Test magazine 4/2026, products bought December 2025 to January 2026. Its article lists EUR 0.26 per 100 ml for Pril Original Limette and EUR 0.10 for Blik Spülmittel Zitrone, sold by Penny. ZDF, reporting the test on 10 April 2026, says Blik got good overall, Pril sufficient, that the Pril was used up after 11 plates, and that it was marked down for the preservative methylisothiazolinone.",
+  "differences": "We have no plate count for the Blik, so we can't say how many plates each cent washes. Scents differ. The grade includes ingredients as well as performance.",
+  "why": "The Pril costs more than twice as much per ml, and the test rated it lower overall and ran out quickly.",
+  "claims": [],
+  "sources": [
+   "https://www.oekotest.de/bauen-wohnen/spuelmittel-test-nur-2-von-26-mit-bestnote-empfehlenswert_16225_1.html",
+   "https://www.zdfheute.de/ratgeber/oeko-test-spuelmittel-handspuelmittel-spuellauge-reinigung-100.html"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "sensodyne-sensitivitaet-zahnfleisch-vs-kaufland-bevola-sensitive-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Toothpaste",
+  "title": "Sensodyne Sensitivität & Zahnfleisch vs Kaufland Bevola Zahncreme Sensitive",
+  "brand": {
+   "brand": "Sensodyne",
+   "product": "Sensodyne Sensitivität & Zahnfleisch, 75 ml",
+   "size": 75,
+   "unit": "ml",
+   "price": 5.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=sensodyne+zahnfleisch",
+   "gtin": "5054563231673",
+   "image": "https://images.openfoodfacts.org/images/products/505/456/323/1673/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Toothpaste for sensitive teeth"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Bevola",
+   "product": "Kaufland Bevola Zahncreme Sensitive, 125 ml",
+   "size": 125,
+   "unit": "ml",
+   "price": 0.85,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=bevola+zahncreme+sensitive",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Toothpaste for sensitive teeth"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Stiftung Warentest's sensitive toothpaste results give Bevola 1.5 and Sensodyne 2.0, and per ml Bevola costs about a twelfth as much.",
+  "evidence": "test.de's toothpaste database, test programme 'Zahnpasta ab 09/2025', lists Sensodyne at EUR 5.99 for 75 ml and Bevola at EUR 0.85 for 125 ml, mean shelf prices as of 31 August 2026. That is EUR 7.99 and EUR 0.68 per 100 ml, a saving of about 91%, which we checked because a gap that wide often means a misread pack. Both pack sizes are printed on test.de. newstime, 23 October 2026, gives the grades: Bevola 1.5, Sensodyne 2.0, and says Bevola showed low abrasion on dentine.",
+  "differences": "Sensodyne names gum care as well as sensitivity, and the sources we read don't compare the two for relief from sensitive teeth over time. test.de notes the labelling of both products has since changed. Stiftung Warentest warns that its grades aren't all fully comparable across programmes, though both of these are in the same one.",
+  "why": "In the same programme the own-label paste scored better for a fraction of the price per tube.",
+  "claims": [],
+  "sources": [
+   "https://www.test.de/Zahnpasta-im-Test-4607097-tabelle/anbieter/Sensodyne/",
+   "https://www.test.de/Zahnpasta-im-Test-4607097-tabelle/anbieter/Kaufland/",
+   "https://newstime.joyn.de/themen/stiftung-warentest/zahnpasta-bei-stiftung-warentest-gute-produkte-schon-fuer55-cent-205730"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "oral-b-professional-sensitiv-pro-vs-kaufland-bevola-sensitive-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Toothpaste",
+  "title": "Oral-B Professional Sensitiv Pro vs Kaufland Bevola Zahncreme Sensitive",
+  "brand": {
+   "brand": "Oral-B",
+   "product": "Oral-B Professional Sensitiv Pro, 75 ml",
+   "size": 75,
+   "unit": "ml",
+   "price": 5.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=oral-b+professional+sensitiv",
+   "gtin": "8700216666671",
+   "image": "https://images.openfoodfacts.org/images/products/870/021/666/6671/front_en.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Toothpaste for sensitive teeth"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Bevola",
+   "product": "Kaufland Bevola Zahncreme Sensitive, 125 ml",
+   "size": 125,
+   "unit": "ml",
+   "price": 0.85,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=bevola+zahncreme+sensitive",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Toothpaste for sensitive teeth"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Stiftung Warentest's sensitive toothpaste results give Bevola 1.5 and Oral-B 3.0, with Bevola about a tenth of the price per ml.",
+  "evidence": "test.de's toothpaste database, test programme 'Zahnpasta ab 09/2025', lists Oral-B Professional Sensitiv Pro at EUR 5.49 for 75 ml and Bevola Sensitive at EUR 0.85 for 125 ml, mean shelf prices as of 31 August 2026. That is EUR 7.32 and EUR 0.68 per 100 ml, a saving of about 91%, with both pack sizes printed on test.de. newstime, 23 October 2026, gives the grades: Bevola 1.5, Oral-B 3.0, and says the testers felt the Oral-B's measured abrasion did not fit the word Sensitive.",
+  "differences": "The sources don't compare how well either eases sensitivity over time. test.de notes Bevola's labelling has since changed. Flavour and texture differ.",
+  "why": "The dearer paste was graded lower in the same programme, and the testers questioned its Sensitive label.",
+  "claims": [],
+  "sources": [
+   "https://www.test.de/Zahnpasta-im-Test-4607097-tabelle/anbieter/Oral-B/",
+   "https://www.test.de/Zahnpasta-im-Test-4607097-tabelle/anbieter/Kaufland/",
+   "https://newstime.joyn.de/themen/stiftung-warentest/zahnpasta-bei-stiftung-warentest-gute-produkte-schon-fuer55-cent-205730"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "blend-a-med-3d-white-luxe-charcoal-vs-lidl-dentalux-seidenweiss-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Toothpaste",
+  "title": "Blend-a-med 3D White Luxe Charcoal vs Lidl Dentalux Seidenweiss",
+  "brand": {
+   "brand": "Blend-a-med",
+   "product": "Blend-a-med 3D White Luxe Charcoal, 75 ml",
+   "size": 75,
+   "unit": "ml",
+   "price": 3.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=3d+white+luxe+charcoal",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Whitening toothpaste with charcoal"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Dentalux",
+   "product": "Lidl Dentalux Seidenweiss 4-fach-Schutz, 125 ml",
+   "size": 125,
+   "unit": "ml",
+   "price": 0.85,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=dentalux+seidenweiss",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Whitening toothpaste"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Stiftung Warentest's whitening toothpaste results give Dentalux 1.3 and Blend-a-med 1.4, with Dentalux about an eighth of the price per ml.",
+  "evidence": "test.de's toothpaste database, test programme 'Zahnpasta ab 09/2025', lists Blend-a-med 3D White Luxe Charcoal at EUR 3.99 for 75 ml and Dentalux Seidenweiss at EUR 0.85 for 125 ml, mean shelf prices as of 28 September 2026. That is EUR 5.32 and EUR 0.68 per 100 ml, a saving of about 87%, with both pack sizes printed on test.de. newstime, 23 October 2026, gives the grades as 1.4 and 1.3.",
+  "differences": "The Blend-a-med is sold as a charcoal paste and the Dentalux isn't. test.de says the Blend-a-med is now sold as Oral-B 3D White Luxe Charcoal with changed packaging. newstime notes whitening pastes do not change the natural colour of teeth. The grades are almost level.",
+  "why": "The two pastes scored almost the same in the same programme. The extra money buys the charcoal and the name, and the test did not show a better result for them.",
+  "claims": [],
+  "sources": [
+   "https://www.test.de/Zahnpasta-im-Test-4607097-tabelle/anbieter/Blend-a-med/",
+   "https://www.test.de/Zahnpasta-im-Test-4607097-tabelle/anbieter/Lidl/",
+   "https://newstime.joyn.de/themen/stiftung-warentest/zahnpasta-bei-stiftung-warentest-gute-produkte-schon-fuer55-cent-205730"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "pantene-volumen-pur-vs-dm-balea-volumen-shampoo-de",
+  "market": "DE",
+  "category": "beauty-hair",
+  "subcategory": "Shampoo",
+  "title": "Pantene Pro-V Volumen Pur vs dm Balea Volumen Shampoo",
+  "brand": {
+   "brand": "Pantene Pro-V",
+   "product": "Pantene Pro-V Volumen Pur Active Nutri-Plex Shampoo, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 1.32,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=pantene+volumen+pur",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Liquid volume shampoo for fine hair"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Balea",
+   "product": "dm Balea Volumen Shampoo, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.22,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=balea+volumen+shampoo",
+   "gtin": "4010355341372",
+   "image": "https://images.openbeautyfacts.org/images/products/401/035/534/1372/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Liquid volume shampoo for fine hair"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Stiftung Warentest 8/2026 the Balea shampoo was rated good and the Pantene satisfactory, and the Balea costs about a sixth as much per ml.",
+  "evidence": "Stiftung Warentest tested 15 volume shampoos, online 24 July 2026, issue 8/2026, with a hairdresser test on 20 people with mainly fine hair. test.de's product table gives EUR 1.32 per 100 ml for Pantene (shelf price EUR 3.95) and EUR 0.22 for Balea (EUR 0.65), prices as of 18 May 2026 from a provider survey. Grades are locked on test.de. The review site arecenze.cz, reporting the test, lists Balea as good and Pantene as satisfactory.",
+  "differences": "Our grades come from one secondary report. We have no number grade for either, or separate volume or care scores. test.de notes Balea's packaging and labelling have since changed. The barcode shown is the Balea volume shampoo with maracuja scent, one version of this line.",
+  "why": "The test rated the cheaper shampoo one step higher, so the higher price did not buy more in this comparison.",
+  "claims": [],
+  "sources": [
+   "https://www.test.de/volumen-shampoo-test-6308605-tabelle/",
+   "https://www.arecenze.cz/clanky/sampony-na-objem-v-testu-stiftung-warentest-2026-vitezi-syoss-a-lavera-dobre-dopadla-i-balea-za-2850-kc-z-dm/",
+   "https://www.test.de/volumen-shampoo-test-6308605-0/"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "nivea-volume-wonder-vs-dm-balea-volumen-shampoo-de",
+  "market": "DE",
+  "category": "beauty-hair",
+  "subcategory": "Shampoo",
+  "title": "Nivea Volume Wonder vs dm Balea Volumen Shampoo",
+  "brand": {
+   "brand": "Nivea",
+   "product": "Nivea Volume Wonder Aufpolsterndes Shampoo, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 1.18,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=nivea+volume+wonder",
+   "gtin": "4005900917744",
+   "image": "https://images.openbeautyfacts.org/images/products/400/590/091/7744/front_en.9.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Liquid volume shampoo for fine hair"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Balea",
+   "product": "dm Balea Volumen Shampoo, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.22,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=balea+volumen+shampoo",
+   "gtin": "4010355341372",
+   "image": "https://images.openbeautyfacts.org/images/products/401/035/534/1372/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Liquid volume shampoo for fine hair"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Stiftung Warentest 8/2026 the Balea shampoo was rated good and the Nivea satisfactory, and the Balea costs about a fifth as much per ml.",
+  "evidence": "Stiftung Warentest tested 15 volume shampoos, online 24 July 2026, issue 8/2026. test.de's product table gives EUR 1.18 per 100 ml for Nivea Volume Wonder (shelf price EUR 2.95) and EUR 0.22 for Balea (EUR 0.65), prices as of 18 May 2026 from a provider survey. Grades are locked on test.de. arecenze.cz, reporting the test, lists Balea as good and Nivea as satisfactory.",
+  "differences": "Our grades come from one secondary report, with no number grades for these two. test.de notes Balea's packaging and labelling have since changed. The barcode shown is the Balea volume shampoo with maracuja scent, one version of this line.",
+  "why": "The test rated the cheaper shampoo one step higher, at about a fifth of the price per ml.",
+  "claims": [],
+  "sources": [
+   "https://www.test.de/volumen-shampoo-test-6308605-tabelle/",
+   "https://www.arecenze.cz/clanky/sampony-na-objem-v-testu-stiftung-warentest-2026-vitezi-syoss-a-lavera-dobre-dopadla-i-balea-za-2850-kc-z-dm/"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "syoss-intense-volume-vs-dm-balea-volumen-shampoo-de",
+  "market": "DE",
+  "category": "beauty-hair",
+  "subcategory": "Shampoo",
+  "title": "Syoss Intense Volume vs dm Balea Volumen Shampoo",
+  "brand": {
+   "brand": "Syoss",
+   "product": "Syoss Intense Volume Leichtes Shampoo, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.9,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=syoss+intense+volume",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Liquid volume shampoo for fine hair"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Balea",
+   "product": "dm Balea Volumen Shampoo, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 0.22,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=balea+volumen+shampoo",
+   "gtin": "4010355341372",
+   "image": "https://images.openbeautyfacts.org/images/products/401/035/534/1372/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Liquid volume shampoo for fine hair"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both were rated good in Stiftung Warentest 8/2026. Syoss was the joint winner at 2.0, and Balea costs about a quarter as much per ml.",
+  "evidence": "Stiftung Warentest tested 15 volume shampoos, online 24 July 2026, issue 8/2026. test.de's product table gives EUR 0.90 per 100 ml for Syoss (shelf price EUR 3.95) and EUR 0.22 for Balea (EUR 0.65), prices as of 18 May 2026 from a provider survey. heidelberg24 gives Syoss 2.0, a joint first place, and arecenze.cz lists Balea as good.",
+  "differences": "Syoss won the test, so it may do more for your hair. Our sources give no number grade for the Balea. test.de notes Balea's packaging and labelling have since changed. The barcode shown is the Balea volume shampoo with maracuja scent, one version of this line.",
+  "why": "The Syoss was the better shampoo in this test, but both landed in the same good band. Whether that gap is worth about four times the price per ml is your call.",
+  "claims": [],
+  "sources": [
+   "https://www.test.de/volumen-shampoo-test-6308605-tabelle/",
+   "https://www.heidelberg24.de/verbraucher/einkauf-test/shampoo-oekotest-2024-haare-hausmittel-schuppen-pflege-stiftung-warentest-92428312.html",
+   "https://www.arecenze.cz/clanky/sampony-na-objem-v-testu-stiftung-warentest-2026-vitezi-syoss-a-lavera-dobre-dopadla-i-balea-za-2850-kc-z-dm/"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "avene-sonnenmilch-dry-touch-vs-dm-sundance-sonnenmilch-lsf-50-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Sunscreen",
+  "title": "Avène Sonnenmilch Dry Touch SPF 50 vs dm Sundance Sonnenmilch SPF 50",
+  "brand": {
+   "brand": "Eau Thermale Avène",
+   "product": "Avène Sonnenmilch Dry Touch SPF 50, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 11.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.shop-apotheke.com/search.htm?q=avene+dry+touch",
+   "key_ingredients": [
+    {
+     "name": "SPF",
+     "amount": "50"
+    },
+    {
+     "name": "Form",
+     "amount": "Sun milk"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sundance",
+   "product": "dm Sundance Sonnenmilch SPF 50, price per 100 ml",
+   "size": 100,
+   "unit": "ml",
+   "price": 1.73,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=sundance+sonnenmilch+50",
+   "gtin": "4010355505361",
+   "image": "https://images.openbeautyfacts.org/images/products/401/035/550/5361/front_en.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "SPF",
+     "amount": "50"
+    },
+    {
+     "name": "Form",
+     "amount": "Sun milk"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Stiftung Warentest 7/2025 gave these two SPF 50 sun milks the same grade, 1.5, and the dm one costs about a sixth as much per ml.",
+  "evidence": "Stiftung Warentest tested 26 sunscreens, published 26 June 2025, issue 7/2025. test.de's product table gives about EUR 11.00 per 100 ml for Avène Sonnenmilch Dry Touch (shelf price EUR 27.50) and about EUR 1.73 for Sundance Sonnenmilch (EUR 3.45), prices as of 30 April 2026. stimme.de reports both at very good (1.5) and quotes EUR 7.77 per 100 ml for the Avène at the earlier price, and says the test shows no added benefit from the extra cost. testsieger.de lists both tested products at SPF 50.",
+  "differences": "Avène is sold in pharmacies. The photo shows the 50 ml size of Sundance SPF 50. Texture and scent differ, and a test does not tell you which you will like wearing. Prices are as of April 2026 and at the older price the gap was smaller.",
+  "why": "The same grade, same SPF and same form at about a sixth of the price per ml. Sources do not show the pharmacy label buys better protection.",
+  "claims": [
+   "sunscreen-test-cheap-store-brands-2025"
+  ],
+  "sources": [
+   "https://www.test.de/Test-Sonnencreme-und-Sonnenspray-fuer-Erwachsene-4868984-tabelle/",
+   "https://www.stimme.de/leben/verbraucher/sonnencreme-stiftung-warentest-note-preis-uv-schutz-v7-art-5176665",
+   "https://www.testsieger.de/sonnenpflege/",
+   "https://www.ptaheute.de/aktuelles/2025/07/03/sonnencremes-2025-diese-produkte-empfiehlt-stiftung-warentest"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "fa-empowering-moments-vs-lidl-cien-duschgel-pure-frische-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Shower gel",
+  "title": "Fa Empowering Moments vs Lidl Cien Duschgel Pure Frische",
+  "brand": {
+   "brand": "Fa",
+   "product": "Fa Duschgel Empowering Moments, 250 ml",
+   "size": 250,
+   "unit": "ml",
+   "price": 1.45,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=fa+empowering+moments",
+   "gtin": "4015100801996",
+   "image": "https://images.openbeautyfacts.org/images/products/401/510/080/1996/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Conventional shower gel"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Cien",
+   "product": "Lidl Cien Duschgel Pure Frische, 250 ml",
+   "size": 250,
+   "unit": "ml",
+   "price": 0.43,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=cien+duschgel+pure+frische",
+   "gtin": "4056489826934",
+   "image": "https://images.openfoodfacts.org/images/products/405/648/982/6934/front_de.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Conventional shower gel"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both shower gels were rated very good by Öko-Test in April 2025, and the Lidl gel cost less than a third as much.",
+  "evidence": "Öko-Test issue 4/2025 tested 35 shower gels on ingredients and environmental aspects. t-online, updated 9 April 2025, reports Fa Empowering Moments as very good at EUR 1.45 for 250 ml in drugstores. Utopia, 5 June 2025, reports Cien Duschgel Pure Frische from Lidl as very good at EUR 0.43 per 250 ml.",
+  "differences": "Öko-Test rates ingredients and environment here. It doesn't test how nice a gel feels or how it smells. Prices date from spring 2025 and come from two reports of the same test. The same t-online page also shows a much higher shop offer for Fa, EUR 12.99, which we took to be a multi-pack and did not use.",
+  "why": "The test found no ingredient reason to prefer the dearer one. The extra money pays for scent and name, which it did not measure.",
+  "claims": [],
+  "sources": [
+   "https://www.t-online.de/ratgeber/gesundheit/drogerie/id_100659426/oeko-test-nur-ein-duschgel-faellt-mit-mangelhaft-durch.html",
+   "https://utopia.de/ratgeber/duschgel-bei-oeko-test-diese-sehr-guten-testsieger-sind-empfehlenswert_795160/"
+  ],
+  "price_checked": "2025-04"
+ },
+ {
+  "slug": "sebamed-wellness-dusche-vs-mueller-aveo-pflegedusche-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Shower gel",
+  "title": "Sebamed Wellness Dusche vs Müller Aveo Pflegedusche Wasserlilie",
+  "brand": {
+   "brand": "Sebamed",
+   "product": "Sebamed Wellness Dusche, 200 ml",
+   "size": 200,
+   "unit": "ml",
+   "price": 2.99,
+   "retailer": "rossmann",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=sebamed+wellness+dusche",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Conventional shower gel"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Aveo",
+   "product": "Müller Aveo Pflegedusche Wasserlilie, 250 ml",
+   "size": 250,
+   "unit": "ml",
+   "price": 0.46,
+   "retailer": "mueller",
+   "asin": null,
+   "url": "https://www.mueller.de/search/?q=aveo+pflegedusche",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Conventional shower gel"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Öko-Test rated both very good in April 2025, and the Aveo cost about an eighth as much per ml.",
+  "evidence": "Öko-Test issue 4/2025 tested 35 shower gels on ingredients and environmental aspects. t-online, updated 9 April 2025, reports Sebamed Wellness Dusche as very good at EUR 2.99 for 200 ml at Rossmann. Utopia, 5 June 2025, reports Aveo Pflegedusche Wasserlilie from Müller as very good at EUR 0.46 per 250 ml. That is EUR 1.50 and EUR 0.18 per 100 ml, a saving of about 88%, which we checked because a gap that wide often means a misread pack.",
+  "differences": "Öko-Test rated ingredients and environment, not skin feel or how skin reacts over time. Other sellers listed the Sebamed at up to EUR 4.50. Prices date from spring 2025.",
+  "why": "On the things this test measured they tied at very good. Anyone choosing Sebamed for a skin condition should go by their doctor's advice.",
+  "claims": [],
+  "sources": [
+   "https://www.t-online.de/ratgeber/gesundheit/drogerie/id_100659426/oeko-test-nur-ein-duschgel-faellt-mit-mangelhaft-durch.html",
+   "https://utopia.de/ratgeber/duschgel-bei-oeko-test-diese-sehr-guten-testsieger-sind-empfehlenswert_795160/"
+  ],
+  "price_checked": "2025-04"
+ },
+ {
+  "slug": "lavera-pflegedusche-vitalisierend-vs-dm-alverde-pflegedusche-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Shower gel",
+  "title": "Lavera Pflegedusche vitalisierend vs dm Alverde Pflegedusche Zeit für Glück",
+  "brand": {
+   "brand": "Lavera",
+   "product": "Lavera Pflegedusche vitalisierend, Bio-Orange & Bio-Minze, 250 ml",
+   "size": 250,
+   "unit": "ml",
+   "price": 3.95,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=lavera+pflegedusche",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Natural-cosmetic shower gel"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Alverde",
+   "product": "dm Alverde Pflegedusche Zeit für Glück, Bio-Minze & Bio-Bergamotte, 250 ml",
+   "size": 250,
+   "unit": "ml",
+   "price": 1.25,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=alverde+pflegedusche",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Natural-cosmetic shower gel"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two natural-cosmetic shower gels, both rated very good by Öko-Test in April 2025, with the dm one about a third of the price.",
+  "evidence": "Öko-Test issue 4/2025 tested 35 shower gels. Utopia, 5 June 2025, lists both as very good natural-cosmetic picks at EUR 3.95 per 250 ml for Lavera and EUR 1.25 per 250 ml for Alverde.",
+  "differences": "Öko-Test rated ingredients and environment, not feel or scent, and the scents differ. Prices date from spring 2025. The price sits in one report of the test and we read no store page for either.",
+  "why": "Both are natural cosmetics and both rated very good, so this test gives no reason to pay three times as much.",
+  "claims": [],
+  "sources": [
+   "https://utopia.de/ratgeber/duschgel-bei-oeko-test-diese-sehr-guten-testsieger-sind-empfehlenswert_795160/",
+   "https://www.t-online.de/ratgeber/gesundheit/drogerie/id_100659426/oeko-test-nur-ein-duschgel-faellt-mit-mangelhaft-durch.html"
+  ],
+  "price_checked": "2025-04"
+ },
+ {
+  "slug": "koelln-bluetenzarte-koellnflocken-vs-brueggen-haferflocken-extrazart-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Oats",
+  "title": "Blütenzarte Köllnflocken vs Brüggen Haferflocken Extrazart",
+  "brand": {
+   "brand": "Kölln",
+   "product": "Blütenzarte Köllnflocken, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.69,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=koelln+bluetenzarte",
+   "gtin": "4000540000108",
+   "image": "https://images.openfoodfacts.org/images/products/400/054/000/0108/front_de.345.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Oats",
+     "amount": "Fine flakes, conventional"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Brüggen",
+   "product": "Brüggen Haferflocken Extrazart, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 0.79,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=brueggen+haferflocken",
+   "gtin": "4008713010282",
+   "image": "https://images.openfoodfacts.org/images/products/400/871/301/0282/front_de.16.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Oats",
+     "amount": "Fine flakes, conventional"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Öko-Test rated both fine oat flakes very good in 10/2024, and the Brüggen cost less than half as much.",
+  "evidence": "Öko-Test tested 35 fine oat flakes, first published in Spezial Vegetarisch & Vegan 2024, products bought May to July 2024. Its own product list gives EUR 1.69 per 500 g for Blütenzarte Köllnflocken and EUR 0.79 for Brüggen Extrazart. t-online reports both as very good. It says traces of pesticides and the mycotoxins DON and HT-2 were found in both, and that the oats for both are grown in Finland.",
+  "differences": "Prices date from summer 2024. We don't know which shops carry the Brüggen pack, and not all own-label flakes did as well: Öko-Test rated some other cheap flakes much lower. Taste was not part of what t-online reports.",
+  "why": "Same type of flake, same grade, the same traces found in the lab and oats grown in the same country. The test found no reason to pay more than double.",
+  "claims": [],
+  "sources": [
+   "https://www.oekotest.de/essen-trinken/Zarte-Haferflocken-im-Test-Pestizide-und-Schimmelpilzgifte-sind-ein-Problem_14890_1.html",
+   "https://www.t-online.de/leben/testberichte/id_100495232/haferflocken-im-test-das-sind-laut-oeko-test-die-besten.html",
+   "https://world.openfoodfacts.org/product/4008713010282"
+  ],
+  "price_checked": "2024-07"
+ },
+ {
+  "slug": "alnatura-haferflocken-feinblatt-vs-aldi-gut-bio-haferflocken-zart-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Oats",
+  "title": "Alnatura Haferflocken Feinblatt vs Aldi Gut Bio Haferflocken Zart",
+  "brand": {
+   "brand": "Alnatura",
+   "product": "Alnatura Haferflocken Feinblatt, Bioland, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.19,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=alnatura+haferflocken+feinblatt",
+   "gtin": "4104420247253",
+   "image": "https://images.openfoodfacts.org/images/products/410/442/024/7253/front_de.7.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Oats",
+     "amount": "Fine flakes, organic (Bioland)"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Gut Bio",
+   "product": "Aldi Gut Bio Vollkorn Haferflocken Zart, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 0.85,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi-sued.de/",
+   "gtin": "4061458088725",
+   "image": "https://images.openfoodfacts.org/images/products/406/145/808/8725/front_de.62.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Oats",
+     "amount": "Fine flakes, organic"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Öko-Test rated both organic fine oat flakes very good in 10/2024, and the Aldi pack cost about 29% less.",
+  "evidence": "Öko-Test tested 35 fine oat flakes, products bought May to July 2024. Its product list gives EUR 1.19 per 500 g for Alnatura Feinblatt and EUR 0.85 for Gut Bio Zart. Utopia, 7 November 2024, reports both as very good.",
+  "differences": "The Alnatura carries the Bioland label, and the Öko-Test list shows no such association label for the Gut Bio, so if Bioland matters to you the Alnatura wins. Prices date from summer 2024.",
+  "why": "Both are organic and both got the top grade, so unless the Bioland label matters to you, the extra money buys little here.",
+  "claims": [],
+  "sources": [
+   "https://www.oekotest.de/essen-trinken/Zarte-Haferflocken-im-Test-Pestizide-und-Schimmelpilzgifte-sind-ein-Problem_14890_1.html",
+   "https://utopia.de/ratgeber/haferflocken-im-test-oeko-test-findet-pestizide-und-schimmelpilzgifte_389632/"
+  ],
+  "price_checked": "2024-07"
+ },
+ {
+  "slug": "alnatura-olivenoel-nativ-extra-vs-dmbio-natives-olivenoel-extra-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Olive oil",
+  "title": "Alnatura Olivenöl nativ extra vs dmBio Natives Olivenöl extra",
+  "brand": {
+   "brand": "Alnatura",
+   "product": "Alnatura Olivenöl nativ extra (organic), 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 6.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=alnatura+olivenoel",
+   "key_ingredients": [
+    {
+     "name": "Olive oil",
+     "amount": "Extra virgin, organic"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "dmBio",
+   "product": "dmBio Natives Olivenöl extra (organic), 750 ml",
+   "size": 750,
+   "unit": "ml",
+   "price": 6.95,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=dmbio+olivenoel",
+   "gtin": "4058172588587",
+   "image": "https://images.openfoodfacts.org/images/products/405/817/258/8587/front_de.27.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Olive oil",
+     "amount": "Extra virgin, organic"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are organic extra virgin oils in Stiftung Warentest 2/2026. Alnatura scored better at 2.3 against 2.6, and dmBio cost about a third less per ml.",
+  "evidence": "Stiftung Warentest tested 25 olive oils, published 29 January 2026, with prices collected in November 2025. test.de's product table gives EUR 6.99 and EUR 13.98 per litre for Alnatura, and EUR 6.95 and EUR 9.27 per litre for dmBio, as of 14 November 2025. We worked out the pack sizes from those figures. ZDF reports Alnatura at good (2.3), and mydealz reports dmBio at satisfactory (2.6) with good chemical quality.",
+  "differences": "The brand is better here: Alnatura rated good and shared first place, and dmBio rated only satisfactory. If you use olive oil on salads and care most about flavour, the Alnatura is the safer pick. The test flagged contaminants in seven oils without naming them on the open page, so we can't rule them in or out for either.",
+  "why": "This swap costs you some quality. It is reasonable for everyday cooking if the lower grade doesn't bother you, at about 4.70 euros less per litre.",
+  "claims": [],
+  "sources": [
+   "https://www.test.de/Olivenoel-im-Test-4971053-tabelle/",
+   "https://www.zdfheute.de/ratgeber/stiftung-warentest-olivenoel-discounter-100.html",
+   "https://www.mydealz.de/magazin/?p=54406"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "royal-canin-medium-adult-vs-4paws-sunny-hills-softbrocken-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry dog food",
+  "title": "Royal Canin Medium Adult vs 4Paws Sunny Hills Premium Softbrocken",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Medium Adult, cost per day (mid-range)",
+   "size": 1,
+   "unit": "day",
+   "price": 1.14,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/medium/1983704",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Complete dry food for adult dogs"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "4Paws",
+   "product": "4Paws Sunny Hills Premium Softbrocken Huhn, cost per day (mid-range)",
+   "size": 1,
+   "unit": "day",
+   "price": 0.58,
+   "retailer": "edeka",
+   "asin": null,
+   "url": "https://www.edeka.de/",
+   "gtin": "4311596625079",
+   "image": "https://images.openfoodfacts.org/images/products/431/159/662/5079/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Complete dry food for adult dogs"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both were rated very good by Öko-Test in November 2024, and the Sunny Hills cost about half as much per day.",
+  "evidence": "Hundeo's summary of Öko-Test's November 2024 dry dog food test reports both as very good, with Royal Canin Medium Adult at EUR 0.98 to 1.29 a day and 4Paws Sunny Hills Huhn at EUR 0.50 to 0.66 a day. We use the midpoint of each range. Sunny Hills was also the only food rated very good by Stiftung Warentest in 8/2025 (1.3 per Herz für Tiere), where test.de lists it at about EUR 0.70 a day as of 16 April 2025.",
+  "differences": "Royal Canin is made for medium dogs, and the Sunny Hills is not, so kibble size and recipe differ. The daily cost depends on your dog's weight. The Hundeo summary does not give the dog size for its ranges. Royal Canin was not in the Stiftung Warentest test, so only one test covers both.",
+  "why": "One test rated both very good, and the cheaper food has a second very good result from another tester.",
+  "claims": [
+   "dry-dog-food-test-sensitive-extra-cost-2025",
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "sources": [
+   "https://www.hundeo.com/hundefutter/stiftung-warentest",
+   "https://www.test.de/Hundefutter-trocken-im-Test-5020107-tabelle/",
+   "https://herz-fuer-tiere.de/haustiere/hunde/hunde-ernaehrung/bestes-hunde-trockenfutter-stiftung-warentest"
+  ],
+  "price_checked": "2024-11"
+ },
+ {
+  "slug": "whiskas-mit-gefluegel-in-sauce-vs-lidl-coshida-schlemmerhappen-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Wet cat food",
+  "title": "Whiskas mit Geflügel in Sauce vs Lidl Coshida Schlemmerhappen",
+  "brand": {
+   "brand": "Whiskas",
+   "product": "Whiskas mit Geflügel in Sauce, cost per day for a 4 kg cat",
+   "size": 1,
+   "unit": "day",
+   "price": 0.93,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=whiskas+gefluegel+sauce",
+   "key_ingredients": [
+    {
+     "name": "Pack",
+     "amount": "400 g can, EUR 1.16, 321 g a day"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Coshida",
+   "product": "Lidl Coshida Schlemmerhappen mit Rind & Leber in Sauce, cost per day for a 4 kg cat",
+   "size": 1,
+   "unit": "day",
+   "price": 0.37,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=coshida+schlemmerhappen",
+   "key_ingredients": [
+    {
+     "name": "Pack",
+     "amount": "415 g, EUR 0.55, about 278 g a day"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Stiftung Warentest 5/2024 rated both very good, Whiskas 1.2 and Coshida 1.3, and the Coshida cost well under half as much per day.",
+  "evidence": "Stiftung Warentest tested 27 wet cat foods, published 25 April 2024, issue 5/2024. test.de's product pages give Whiskas at EUR 1.16 for 400 g, 321 g a day, about EUR 0.93 a day, and Coshida at EUR 0.55 for 415 g, about 278 g a day, about EUR 0.37 a day, for a slightly overweight 4 kg cat, as of 13 February 2024. heidelberg24, 9 May 2024, gives the grades.",
+  "differences": "Whiskas scored slightly better, with the highest grade in the report we read. The flavours differ, poultry against beef and liver, and a cat may refuse one. Prices date from February 2024.",
+  "why": "Both are very good in the same test, a tenth of a grade apart. The Lidl food costs 56 cents less per cat per day.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "sources": [
+   "https://www.test.de/Katzenfutter-Feuchtfutter-Test-4672532-detail/330000031310!0014-01/",
+   "https://www.test.de/Katzenfutter-Feuchtfutter-Test-4672532-detail/330000031310!0026-01/",
+   "https://www.heidelberg24.de/verbraucher/einkauf-test/test-katzenfutter-teure-marken-fallen-mit-uebler-paste-durch-93032497.html"
+  ],
+  "price_checked": "2024-02"
+ },
+ {
+  "slug": "whiskas-1-plus-knackits-vs-netto-attica-knuspermenue-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Whiskas 1+ Lecker gefüllte Knackits vs Netto Attica Knuspermenü",
+  "brand": {
+   "brand": "Whiskas",
+   "product": "Whiskas 1+ Jahre Lecker gefüllte Knackits, cost per day for a 4 kg cat",
+   "size": 1,
+   "unit": "day",
+   "price": 0.18,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=whiskas+knackits",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Complete dry food for adult cats, filled kibble"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Attica",
+   "product": "Netto Attica Knuspermenü, cost per day for a 4 kg cat",
+   "size": 1,
+   "unit": "day",
+   "price": 0.07,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=attica",
+   "key_ingredients": [
+    {
+     "name": "Type",
+     "amount": "Complete dry food for adult cats"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Stiftung Warentest 5/2023 the Netto food scored 1.3 at about 7 cents a day, and the Whiskas got 1.8 at 18 cents.",
+  "evidence": "Stiftung Warentest tested 22 dry cat foods, published 27 April 2023, issue 5/2023. t-online, 28 April 2023, reports Attica as the winner at very good (1.3) and Whiskas at good (1.8) and EUR 0.18 a day. test.de says the test winner costs about 7 cents a day, without naming it on the open page, and we match that to Attica using t-online's first place. The test assumes a 4 kg indoor cat, a little overweight.",
+  "differences": "Prices date from February 2023, the oldest in this set, so check the shelf. t-online names the Whiskas loosely as Adult 1+ mit Huhn, and test.de's list shows one Whiskas dry food, the Knackits. t-online says Attica was not sold online when it wrote. The Whiskas has a filled kibble, and we did not see a form description for the Attica.",
+  "why": "The cheaper food scored better in this test. Cats can be picky, so buy a small bag first.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "sources": [
+   "https://www.t-online.de/ratgeber/leben-und-freizeit/haustier/id_100166808/stiftung-warentest-prueft-katzentrockenfutter-dieses-futter-wird-empfohlen.html",
+   "https://www.test.de/Katzenfutter-Trockenfutter-Test-1708060-tabelle/"
+  ],
+  "price_checked": "2023-02"
+ },
+ {
+  "slug": "duracell-plus-aa-vs-aldi-activ-energy-aa-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Duracell Plus AA vs Aldi Activ Energy AA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus AA, price per cell",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.86,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=duracell+plus+aa",
+   "gtin": "5000394017641",
+   "image": "https://images.openproductsfacts.org/images/products/500/039/401/7641/front_en.8.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chemistry",
+     "amount": "Alkaline AA"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Activ Energy",
+   "product": "Aldi Activ Energy AA, price per cell",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.18,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi-sued.de/",
+   "gtin": "4088500145878",
+   "image": "https://images.openproductsfacts.org/images/products/408/850/014/5878/front_de.8.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chemistry",
+     "amount": "Alkaline AA"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two independent tests found Aldi's AA close to Duracell Plus on capacity or voltage, at about a fifth of the price per cell.",
+  "evidence": "techtest.org, 21 April 2024, measured nine AA alkaline cells. It lists Duracell Plus at EUR 0.86 and Aldi Activ Energy at EUR 0.18 per cell, and ranks Duracell 3rd at 0.1 A and 4th at 0.4 A, Aldi 5th and 6th. TECHBOOK, 12 August 2023, gives EUR 1.50 and EUR 0.20 per cell, with Aldi at 1.063 V and Duracell at 1.015 V after ten hours. Neither is Stiftung Warentest. We found no open Stiftung Warentest result for these cells.",
+  "differences": "Duracell ranked higher on capacity in techtest, and techbook's voltage reading went the other way. These are single small tests by one site each, and neither tests shelf life or leakage. Prices vary by pack size. The Aldi photo is the Austrian pack.",
+  "why": "The two tests disagree on which is ahead and neither shows a large gap, while the Duracell cost four times as much or more per cell.",
+  "claims": [],
+  "sources": [
+   "https://techtest.org/aa-batterien-von-7-discountern-im-vergleich-aldi-lidl-edeka-dm-rossmann-und-co/",
+   "https://www.techbook.de/lifestyle/batterie-test"
+  ],
+  "price_checked": "2024-04"
+ },
+ {
+  "slug": "varta-aa-vs-dm-paradies-aa-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Varta AA vs dm Paradies AA",
+  "brand": {
+   "brand": "Varta",
+   "product": "Varta AA, price per cell",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.4,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.rossmann.de/de/search/?text=varta+aa",
+   "key_ingredients": [
+    {
+     "name": "Chemistry",
+     "amount": "Alkaline AA"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Paradies",
+   "product": "dm Paradies AA, price per cell",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.19,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=paradies+batterien+aa",
+   "key_ingredients": [
+    {
+     "name": "Chemistry",
+     "amount": "Alkaline AA"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "techtest.org ranked dm's AA first on capacity and Varta's last of nine, with dm at about half the price per cell.",
+  "evidence": "techtest.org, 21 April 2024, measured nine AA alkaline cells. It lists Varta at EUR 0.40 and dm Paradies at EUR 0.19 per cell, and ranks Paradies 1st at both 0.1 A and 0.4 A, and Varta 9th at both. The article puts the 0.1 A range at 2,226 to 2,477 mAh. TECHBOOK, 12 August 2023, measured a Varta Longlife at EUR 0.63 and 0.903 V after ten hours, also below the cheaper cells it tested, and did not test Paradies.",
+  "differences": "One site, a small sample and one date. Which Varta line techtest used isn't clear from the name it gives, and Varta sells several. No test here covers shelf life or leakage, and Varta's own ranges differ.",
+  "why": "In this test the cheaper cell gave the most capacity and the dearer one the least, so the price did not track the result.",
+  "claims": [],
+  "sources": [
+   "https://techtest.org/aa-batterien-von-7-discountern-im-vergleich-aldi-lidl-edeka-dm-rossmann-und-co/",
+   "https://www.techbook.de/lifestyle/batterie-test"
+  ],
+  "price_checked": "2024-04"
+ }
+]

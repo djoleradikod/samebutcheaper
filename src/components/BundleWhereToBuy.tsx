@@ -1,16 +1,6 @@
 "use client";
 
-import { Check, MapPin } from "lucide-react";
-import {
-  MARKETS,
-  countryInSentence,
-  deliversTo,
-  flag,
-  lookForQuery,
-  storesFor,
-  type LookFor,
-  type MarketCode,
-} from "@/lib/markets";
+import { MARKETS, countryInSentence, deliversTo, lookForQuery, storesFor, type LookFor, type MarketCode } from "@/lib/markets";
 import { useCountry } from "@/lib/client/country";
 import { CountryPicker } from "./CountryPicker";
 
@@ -33,43 +23,36 @@ export function BundleWhereToBuy({
   const blocked = items.filter((i) => deliversTo(i.retailer, market, country) !== "yes");
 
   if (!blocked.length) {
-    return (
-      <p className="flex items-center justify-center gap-1.5 text-xs text-muted">
-        <Check className="h-3.5 w-3.5 text-accent" /> Every store on this list delivers in {MARKETS[market].short}
-      </p>
-    );
+    return <p className="text-[13px] text-ink-2">Every store on this list delivers to {countryInSentence(country)}.</p>;
   }
 
   const stores = storesFor(country).slice(0, 2);
   return (
-    <div className="card overflow-hidden">
-      <div className="flex items-center justify-between gap-2 border-b border-line bg-surface-2 px-4 py-3">
-        <p className="flex items-center gap-2 text-sm font-semibold">
-          <MapPin className="h-4 w-4 text-accent" />
-          Buying in {countryInSentence(country)} {flag(country)}
-        </p>
+    <div className="card">
+      <div className="flex items-center justify-between gap-2 border-b border-line px-4 py-2">
+        <h2 className="text-sm">Buying in {countryInSentence(country)}</h2>
         <CountryPicker />
       </div>
-      <div className="space-y-3 p-4 text-sm">
+      <div className="p-4 text-sm">
         <p className="text-ink-2">
-          Prices here were checked in {MARKETS[market].short}, and some of these stores don&apos;t deliver to{" "}
+          These prices were checked in {MARKETS[market].short}, and some of the stores don&apos;t deliver to{" "}
           {countryInSentence(country)}. Look for these locally:
         </p>
-        <ul className="space-y-3">
+        <ul className="mt-2 divide-y divide-line">
           {blocked.map((item, i) => {
             const q = lookForQuery(item.lookFor, country);
             return (
-              <li key={i} className="rounded-xl border border-line p-3">
-                <p className="text-xs text-muted">Instead of: {item.replaces}</p>
-                <p className="mt-0.5 font-semibold text-accent-strong">{q}</p>
-                <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+              <li key={i} className="py-2">
+                <p className="text-xs text-muted">Instead of {item.replaces}</p>
+                <p className="mt-0.5 font-semibold">{q}</p>
+                <p className="flex flex-wrap gap-x-3 text-[13px]">
                   {stores.map((s) => (
                     <a
                       key={s.id}
                       href={`/out?s=${s.id}&c=${country}&q=${encodeURIComponent(q)}&from=${slug}`}
                       target="_blank"
                       rel="sponsored nofollow noopener"
-                      className="font-medium text-accent underline-offset-2 hover:underline"
+                      className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-7"
                     >
                       Search {s.name}
                     </a>
@@ -80,9 +63,9 @@ export function BundleWhereToBuy({
           })}
         </ul>
         {health && (
-          <p className="text-xs leading-relaxed text-muted">
-            Medicine rules differ by country: something sold off the shelf in {MARKETS[market].short} may need a
-            pharmacist or a prescription where you live.
+          <p className="mt-2 text-xs leading-relaxed text-ink-2">
+            Medicine rules differ by country. Something sold off the shelf in {MARKETS[market].short} may need a pharmacist or a
+            prescription where you live.
           </p>
         )}
       </div>

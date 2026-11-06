@@ -1,32 +1,35 @@
-import Link from "next/link";
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Geist, Geist_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE } from "@/lib/site";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const display = Fraunces({
-  variable: "--font-display",
+/** One family. The width axis does the work a second typeface would do. */
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT"],
+  axes: ["wdth"],
+  display: "swap",
 });
+
+const TITLE = `${SITE.name}: same job, lower price`;
+const DESCRIPTION =
+  "Cheaper products that do the same job as the brand names, from groceries and cleaning to baby, pet and tech. Compared per unit, with the sources and an honest list of what differs.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name}: Same ingredients, less money`,
+    default: TITLE,
     template: `%s | ${SITE.name}`,
   },
-  description: SITE.description,
+  description: DESCRIPTION,
   applicationName: SITE.name,
   openGraph: {
     type: "website",
     siteName: SITE.name,
-    title: `${SITE.name}: Same ingredients, less money`,
-    description: SITE.description,
+    title: TITLE,
+    description: DESCRIPTION,
     url: "/",
   },
   twitter: { card: "summary_large_image" },
@@ -52,37 +55,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     },
   };
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${archivo.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-surface focus:px-3 focus:py-2"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-tile focus:border focus:border-ink focus:bg-paper focus:px-3 focus:py-2"
         >
           Skip to content
         </a>
-        <div className="bg-[#0f1a14] text-[12px] text-white/85">
-          <p className="container-page flex items-center justify-center gap-1.5 py-1.5 text-center">
-            <span className="sm:hidden">Independent. No paid rankings.</span>
-            <span className="hidden sm:inline">
-              Independent: no brand pays to be listed or ranked. Some links earn us a commission.
-            </span>{" "}
-            <Link href="/how-we-verify" className="font-semibold text-white underline-offset-2 hover:underline">
-              How we check
-            </Link>
-          </p>
-        </div>
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}
         </main>
         <SiteFooter />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>
   );

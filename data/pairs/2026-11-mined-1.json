@@ -1,0 +1,1158 @@
+[
+ {
+  "slug": "mccormick-ground-ginger-vs-signature-select-ground-ginger",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Ground spices",
+  "title": "McCormick Ground ginger vs Signature Select Ground ginger",
+  "brand": {
+   "brand": "McCormick",
+   "product": "McCormick Ground ginger, 0.7 oz",
+   "size": 0.7,
+   "unit": "oz",
+   "price": 5.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=McCormick+Ground+ginger",
+   "gtin": "0052100037509",
+   "image": "https://images.openfoodfacts.org/images/products/005/210/003/7509/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ground ginger",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Ground ginger, 42g",
+   "size": 1.48,
+   "unit": "oz",
+   "price": 4.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=Signature+Select+Ground+ginger",
+   "gtin": "0021130129324",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/012/9324/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ground ginger",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are ground ginger with nothing else on the ingredient list.",
+  "evidence": "Compared the two ingredient lists. Both prices were seen at Safeway in Mountain View on 11 August 2026.",
+  "differences": "The labels show no ingredient difference. The data does not show where the ginger was grown. No taste or performance test was found for this pair. Most of the saving comes from the bigger Signature Select pack, 42g against 0.7 oz, because the two shelf prices are close.",
+  "why": "Each label lists one ingredient, ground ginger. Nothing on the McCormick label shows anything extra for the higher price per gram.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0052100037509",
+   "https://prices.openfoodfacts.org/products/0021130129324",
+   "https://world.openfoodfacts.org/product/0052100037509",
+   "https://world.openfoodfacts.org/product/0021130129324"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "nates-organic-raw-unfiltered-honey-vs-o-organics-organic-raw-unfiltered-honey",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Honey",
+  "title": "NATE'S Organic raw unfiltered honey vs O Organics Organic raw unfiltered honey",
+  "brand": {
+   "brand": "NATE'S",
+   "product": "NATE'S Organic raw unfiltered honey, 16 oz (454 g)",
+   "size": 16.01,
+   "unit": "oz",
+   "price": 14.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=NATE%27S+Organic+raw+unfiltered+honey",
+   "gtin": "0038778610169",
+   "image": "https://images.openfoodfacts.org/images/products/003/877/861/0169/front_en.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Organic honey",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "O Organics",
+   "product": "O Organics Organic raw unfiltered honey, 16 oz",
+   "size": 16.0,
+   "unit": "oz",
+   "price": 7.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=O+Organics+Organic+raw+unfiltered+honey",
+   "gtin": "0079893465005",
+   "image": "https://images.openfoodfacts.org/images/products/007/989/346/5005/front_fr.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Organic honey",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 16 oz packs of organic honey sold as raw and unfiltered, with organic honey as the only ingredient.",
+  "evidence": "Compared names, sizes and ingredient lists. Both prices were seen at Safeway in Mountain View, Nate's on 26 April 2026 and O Organics on 18 October 2026.",
+  "differences": "The labels show no ingredient difference. The data does not show the flower source or country of origin for either one, and either could affect flavour. The two prices were seen about six months apart. No taste or performance test was found for this pair.",
+  "why": "Both labels make the claims a shopper would pay for here: organic, raw and unfiltered. Neither label shows anything further that the higher price adds.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0038778610169",
+   "https://prices.openfoodfacts.org/products/0079893465005",
+   "https://world.openfoodfacts.org/product/0038778610169",
+   "https://world.openfoodfacts.org/product/0079893465005"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "kikkoman-soy-sauce-vs-great-value-soy-sauce-all-purpose-seasoning",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Soy sauce",
+  "title": "Kikkoman Soy sauce vs Great Value Soy sauce all purpose seasoning",
+  "brand": {
+   "brand": "Kikkoman",
+   "product": "Kikkoman Soy sauce, 1.2 L",
+   "size": 40.58,
+   "unit": "fl oz",
+   "price": 8.37,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=Kikkoman+Soy+sauce",
+   "gtin": "0041390001451",
+   "image": "https://images.openfoodfacts.org/images/products/004/139/000/1451/front_en.18.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Wheat",
+     "amount": ""
+    },
+    {
+     "name": "Soybeans",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Sodium benzoate",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Great Value",
+   "product": "Great Value Soy sauce all purpose seasoning, 15 fl oz",
+   "size": 15.0,
+   "unit": "fl oz",
+   "price": 1.66,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=Great+Value+Soy+sauce+all+purpose+seasoning",
+   "gtin": "0078742131870",
+   "image": "https://images.openfoodfacts.org/images/products/007/874/213/1870/front_en.25.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Wheat",
+     "amount": ""
+    },
+    {
+     "name": "Soybeans",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Sodium benzoate",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "identical_formula",
+  "confidence": "medium",
+  "summary": "Both list water, wheat, soybeans, salt and sodium benzoate, in that order.",
+  "evidence": "Compared the two ingredient lists. Both prices were seen at Walmart Supercenter in Mountain View, Kikkoman on 25 April 2026 and Great Value on 10 December 2025.",
+  "differences": "The ingredient lists match, but they do not give amounts or how each sauce was made, and the Great Value name adds \"All Purpose Seasoning\". Both contain wheat and soy. The prices were seen about four months apart. Kikkoman is the bigger pack, so the saving does not come from buying more. No taste or performance test was found for this pair.",
+  "why": "The two labels list the same five ingredients in the same order. The Kikkoman label shows no extra ingredient for the higher price per ounce.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0041390001451",
+   "https://prices.openfoodfacts.org/products/0078742131870",
+   "https://world.openfoodfacts.org/product/0041390001451",
+   "https://world.openfoodfacts.org/product/0078742131870"
+  ],
+  "price_checked": "2025-12"
+ },
+ {
+  "slug": "california-olive-ranch-medium-extra-virgin-olive-oil-vs-good-and-gather-extra-virgin-olive-oil",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Olive oil",
+  "title": "California Olive Ranch Medium extra virgin olive oil vs Good & Gather Extra virgin olive oil",
+  "brand": {
+   "brand": "California Olive Ranch",
+   "product": "California Olive Ranch Medium extra virgin olive oil, 750 mL",
+   "size": 25.36,
+   "unit": "fl oz",
+   "price": 19.19,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=California+Olive+Ranch+Medium+extra+virgin+olive+oil",
+   "gtin": "0850687104009",
+   "image": "https://images.openfoodfacts.org/images/products/085/068/710/4009/front_en.19.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Extra virgin olive oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Good & Gather",
+   "product": "Good & Gather Extra virgin olive oil, 750mL",
+   "size": 25.36,
+   "unit": "fl oz",
+   "price": 11.59,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=Good+%26+Gather+Extra+virgin+olive+oil",
+   "gtin": "0085239058404",
+   "image": "https://images.openfoodfacts.org/images/products/008/523/905/8404/front_en.26.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Extra virgin olive oil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 750 mL of extra virgin olive oil with nothing else listed.",
+  "evidence": "Compared names, sizes and ingredient lists. Both prices were seen at Target in Sunnyvale on 8 November 2025.",
+  "differences": "The labels show no ingredient difference. California Olive Ranch describes its oil as medium and Good & Gather gives no strength in the data. The data does not show origin or harvest date for either one, and flavour can vary between oils. No taste or performance test was found for this pair.",
+  "why": "Both labels give the grade, extra virgin, and the size matches. The data shows nothing else the higher price adds, though it does not cover origin or harvest.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0850687104009",
+   "https://prices.openfoodfacts.org/products/0085239058404",
+   "https://world.openfoodfacts.org/product/0850687104009",
+   "https://world.openfoodfacts.org/product/0085239058404"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "heinz-tomato-ketchup-vs-great-value-tomato-ketchup",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Ketchup",
+  "title": "Heinz Tomato ketchup vs Great Value Tomato ketchup",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Tomato ketchup, 38 oz",
+   "size": 38.0,
+   "unit": "oz",
+   "price": 4.48,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=Heinz+Tomato+ketchup",
+   "gtin": "01346604",
+   "image": "https://images.openfoodfacts.org/images/products/000/000/134/6604/front_en.58.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Distilled vinegar",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Great Value",
+   "product": "Great Value Tomato ketchup, 64 oz",
+   "size": 64.0,
+   "unit": "oz",
+   "price": 3.13,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=Great+Value+Tomato+ketchup",
+   "gtin": "0078742140735",
+   "image": "https://images.openfoodfacts.org/images/products/007/874/214/0735/front_en.20.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Distilled vinegar",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are tomato ketchups made with tomato concentrate, distilled vinegar, high fructose corn syrup, corn syrup, salt, spice, onion powder and natural flavor.",
+  "evidence": "Compared the two ingredient lists. Both prices were seen at Walmart Supercenter in Mountain View on 1 February 2026.",
+  "differences": "Heinz lists distilled vinegar ahead of high fructose corn syrup and Great Value lists them the other way round, so the balance of the two differs and the taste may too. Heinz also says its concentrate is from red ripe tomatoes. No taste or performance test was found for this pair. A big part of the saving comes from the bigger Great Value pack, 64 oz against 38 oz.",
+  "why": "Both labels use the same kinds of ingredients, including both corn syrups. The Heinz label shows no ingredient the Great Value one lacks, only a different order.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/01346604",
+   "https://prices.openfoodfacts.org/products/0078742140735",
+   "https://world.openfoodfacts.org/product/01346604",
+   "https://world.openfoodfacts.org/product/0078742140735"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "hersheys-natural-unsweetened-cocoa-vs-great-value-unsweetened-baking-cocoa",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Cocoa powder",
+  "title": "Hershey's Natural unsweetened cocoa vs Great Value Unsweetened baking cocoa",
+  "brand": {
+   "brand": "Hershey's",
+   "product": "Hershey's Natural unsweetened cocoa, 8 oz",
+   "size": 8.0,
+   "unit": "oz",
+   "price": 5.97,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=Hershey%27s+Natural+unsweetened+cocoa",
+   "gtin": "0034000052004",
+   "image": "https://images.openfoodfacts.org/images/products/003/400/005/2004/front_en.34.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cocoa",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Great Value",
+   "product": "Great Value Unsweetened baking cocoa, 8 oz",
+   "size": 8.0,
+   "unit": "oz",
+   "price": 4.96,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=Great+Value+Unsweetened+baking+cocoa",
+   "gtin": "0078742141589",
+   "image": "https://images.openfoodfacts.org/images/products/007/874/214/1589/front_en.7.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cocoa",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 8 oz packs of unsweetened cocoa powder with cocoa as the only ingredient.",
+  "evidence": "Compared names, sizes and ingredient lists. Both prices were seen at Walmart Supercenter in Mountain View on 30 October 2026.",
+  "differences": "The labels show no ingredient difference, and neither lists an alkali. Hershey's says natural and 100% cacao, while the Great Value name does not say either. The data does not show fat content. No taste or performance test was found for this pair.",
+  "why": "Each label lists one ingredient, cocoa, in the same pack size. Nothing on the Hershey's ingredient list shows what the higher price adds.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0034000052004",
+   "https://prices.openfoodfacts.org/products/0078742141589",
+   "https://world.openfoodfacts.org/product/0034000052004",
+   "https://world.openfoodfacts.org/product/0078742141589"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "hidden-valley-original-ranch-dressing-vs-market-pantry-ranch-dressing",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Salad dressing",
+  "title": "Hidden Valley Original ranch dressing vs Market Pantry Ranch dressing",
+  "brand": {
+   "brand": "Hidden Valley",
+   "product": "Hidden Valley Original ranch dressing, 16 fl oz",
+   "size": 16.0,
+   "unit": "fl oz",
+   "price": 3.89,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=Hidden+Valley+Original+ranch+dressing",
+   "gtin": "0071100003086",
+   "image": "https://images.openfoodfacts.org/images/products/007/110/000/3086/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Vegetable oil (soybean and/or canola)",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Egg yolk",
+     "amount": ""
+    },
+    {
+     "name": "Buttermilk",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Market Pantry",
+   "product": "Market Pantry Ranch dressing, 24 Fl Oz",
+   "size": 24.0,
+   "unit": "fl oz",
+   "price": 2.79,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=Market+Pantry+Ranch+dressing",
+   "gtin": "0085239019979",
+   "image": "https://images.openfoodfacts.org/images/products/008/523/901/9979/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Vegetable oil (soybean and/or canola)",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Egg yolk",
+     "amount": ""
+    },
+    {
+     "name": "Buttermilk",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are ranch dressings that start with soybean and/or canola oil, water and sugar, and contain egg yolk, buttermilk and monosodium glutamate.",
+  "evidence": "Compared the two ingredient lists. Both prices were seen at Target in San Mateo on 27 July 2026.",
+  "differences": "Hidden Valley lists natural and artificial flavors and lactic acid, and Market Pantry lists natural flavors containing milk and no lactic acid. The preservative differs, with sorbic acid in Hidden Valley and potassium sorbate in Market Pantry. Both contain egg and milk. No taste or performance test was found for this pair, and ranch recipes can taste different even with similar lists. Part of the saving comes from the bigger Market Pantry pack, 24 fl oz against 16 fl oz.",
+  "why": "The main ingredients and the two allergens line up on both labels. The differences are in small amounts of flavoring and preservative, and the Hidden Valley label shows nothing more substantial.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0071100003086",
+   "https://prices.openfoodfacts.org/products/0085239019979",
+   "https://world.openfoodfacts.org/product/0071100003086",
+   "https://world.openfoodfacts.org/product/0085239019979"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "s-and-w-canned-garbanzos-vs-signature-select-canned-garbanzo-beans",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Canned vegetables",
+  "title": "S&W Canned garbanzos vs Signature SELECT Canned garbanzo beans",
+  "brand": {
+   "brand": "S&W",
+   "product": "S&W Canned garbanzos, 15.5 oz",
+   "size": 15.5,
+   "unit": "oz",
+   "price": 1.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=S%26W+Canned+garbanzos",
+   "gtin": "0072273391642",
+   "image": "https://images.openfoodfacts.org/images/products/007/227/339/1642/front_en.15.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Garbanzo beans (chickpeas)",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Sodium metabisulfite",
+     "amount": ""
+    },
+    {
+     "name": "Calcium disodium EDTA",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature SELECT",
+   "product": "Signature SELECT Canned garbanzo beans, 15 oz",
+   "size": 15.0,
+   "unit": "oz",
+   "price": 1.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=Signature+SELECT+Canned+garbanzo+beans",
+   "gtin": "0021130341054",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/034/1054/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Garbanzo beans (chickpeas)",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Sodium metabisulfite",
+     "amount": ""
+    },
+    {
+     "name": "Calcium disodium EDTA",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "identical_formula",
+  "confidence": "medium",
+  "summary": "Both list prepared garbanzo beans, water, salt, sodium metabisulfite and calcium disodium EDTA, in that order.",
+  "evidence": "Compared the two ingredient lists. Both prices were seen at Safeway in Mountain View on 19 July 2026.",
+  "differences": "The ingredient lists match, though they do not give amounts. Both contain sodium metabisulfite, a sulfite. S&W is slightly bigger, 15.5 oz against 15 oz. No taste or performance test was found for this pair.",
+  "why": "The two labels list the same five ingredients in the same order. The S&W label shows no extra ingredient for the higher price per ounce.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0072273391642",
+   "https://prices.openfoodfacts.org/products/0021130341054",
+   "https://world.openfoodfacts.org/product/0072273391642",
+   "https://world.openfoodfacts.org/product/0021130341054"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "mccormick-organic-rosemary-vs-o-organics-organic-rosemary",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Spices",
+  "title": "McCormick Organic rosemary vs O Organics Organic rosemary",
+  "brand": {
+   "brand": "McCormick",
+   "product": "McCormick Organic rosemary, 18 g",
+   "size": 0.63,
+   "unit": "oz",
+   "price": 9.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.google.com/search?tbm=shop&q=McCormick+Organic+rosemary",
+   "gtin": "0052100827933",
+   "image": "https://images.openfoodfacts.org/images/products/005/210/082/7933/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Rosemary",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "O Organics",
+   "product": "O Organics Organic rosemary, 0.7 oz, 19.8g",
+   "size": 0.7,
+   "unit": "oz",
+   "price": 5.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=O+Organics+Organic+rosemary",
+   "gtin": "0079893411033",
+   "image": "https://images.openfoodfacts.org/images/products/007/989/341/1033/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Rosemary",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both products are named organic rosemary, and rosemary is the only ingredient listed on each.",
+  "evidence": "We compared the product names, pack sizes and ingredient lists. McCormick Gourmet Organic Rosemary (18 g) was seen at Lucky in Sunnyvale on 2026-01-04. O Organics Organic Rosemary (0.7 oz, 19.8 g) was seen at Safeway in Mountain View on 2026-08-11. The stores differ and the prices were seen months apart, so part of the gap may be down to the store or the date.",
+  "differences": "The McCormick ingredient list says rosemary and the O Organics list says organic rosemary, though both product names say organic. The O Organics pack is slightly bigger, which accounts for a small part of the saving. The data does not say whether either is whole or ground. No taste or performance test was found for this pair.",
+  "why": "Each label lists one ingredient, rosemary, and both products are named organic. The labels show nothing extra in the McCormick product for the higher price.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0052100827933",
+   "https://prices.openfoodfacts.org/products/0079893411033",
+   "https://world.openfoodfacts.org/product/0052100827933",
+   "https://world.openfoodfacts.org/product/0079893411033"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "mccormick-ground-cinnamon-vs-signature-select-ground-cinnamon",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Ground spices",
+  "title": "McCormick Ground cinnamon vs Signature Select Ground cinnamon",
+  "brand": {
+   "brand": "McCormick",
+   "product": "McCormick Ground cinnamon, 2.37 oz",
+   "size": 2.37,
+   "unit": "oz",
+   "price": 4.59,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.google.com/search?tbm=shop&q=McCormick+Ground+cinnamon",
+   "gtin": "0052100004389",
+   "image": "https://images.openfoodfacts.org/images/products/005/210/000/4389/front_en.19.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ground cinnamon",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Ground cinnamon, 67g",
+   "size": 2.36,
+   "unit": "oz",
+   "price": 3.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=Signature+Select+Ground+cinnamon",
+   "gtin": "0021130603053",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/060/3053/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ground cinnamon",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both labels list ground cinnamon as the only ingredient, and the packs are close to the same weight.",
+  "evidence": "Compared the ingredient lists and pack sizes. The brand price was seen at Smart & Final extra! in Mountain View on 2026-07-30, and the own-label price at Safeway in Mountain View on 2026-08-11. These are different chains, so part of the gap may be down to the store.",
+  "differences": "The brand's list says \"premium ground cinnamon\" and the own-label's says \"ground cinnamon\". Neither label names the type of cinnamon or where it was grown, so the two could differ in ways the labels don't show. No taste or performance test was found for this pair.",
+  "why": "Going by the labels, each jar holds one ingredient with nothing added. Neither label shows anything further that the extra money pays for.",
+  "claims": [
+   "nber-informed-shoppers-store-brands"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0052100004389",
+   "https://prices.openfoodfacts.org/products/0021130603053",
+   "https://world.openfoodfacts.org/product/0052100004389",
+   "https://world.openfoodfacts.org/product/0021130603053"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "langnese-fruehlings-bluetenhonig-vs-gut-and-guenstig-bluetenhonig-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Honey",
+  "title": "Langnese Frühlings-Blütenhonig vs Gut & Günstig Blütenhonig",
+  "brand": {
+   "brand": "Langnese",
+   "product": "Langnese Frühlings-Blütenhonig, 250g",
+   "size": 250.0,
+   "unit": "g",
+   "price": 2.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=Langnese+Fr%C3%BChlings-Bl%C3%BCtenhonig",
+   "gtin": "4023300901804",
+   "image": "https://images.openfoodfacts.org/images/products/402/330/090/1804/front_de.8.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Honey",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Gut & Günstig",
+   "product": "Gut & Günstig Blütenhonig, 500 g",
+   "size": 500.0,
+   "unit": "g",
+   "price": 2.69,
+   "retailer": "edeka",
+   "asin": null,
+   "url": "https://www.edeka.de/suche?q=Gut+%26+G%C3%BCnstig+Bl%C3%BCtenhonig",
+   "gtin": "4311501126073",
+   "image": "https://images.openfoodfacts.org/images/products/431/150/112/6073/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Honey",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are blossom honeys, and both labels list honey as the only ingredient.",
+  "evidence": "Compared the product names, ingredient lists and pack sizes. The brand price was seen at Netto in Strausberg on 2026-03-26, and the own-label price at EDEKA in München on 2026-02-06. These are different chains in different cities, so part of the gap may be down to the store.",
+  "differences": "The brand is sold as spring blossom honey and the own-label as blossom honey, with no season given. Neither listing gives the country of origin, and the flavour of honey depends on the flowers. The brand price is for a 250g pack and the own-label price is for 500g, so a big part of the saving comes from the bigger pack. No taste or performance test was found for this pair.",
+  "why": "The ingredient list on each is just honey, so the labels show nothing added on either side. The labels show no difference beyond the spring blossom wording and the pack size.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4023300901804",
+   "https://prices.openfoodfacts.org/products/4311501126073",
+   "https://world.openfoodfacts.org/product/4023300901804",
+   "https://world.openfoodfacts.org/product/4311501126073"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "kathi-weizenmehl-type-405-vs-rewe-beste-wahl-weizenmehl-405-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Flour",
+  "title": "Kathi Weizenmehl Type 405 vs REWE Beste Wahl Weizenmehl 405",
+  "brand": {
+   "brand": "Kathi",
+   "product": "Kathi Weizenmehl Type 405, 1000g",
+   "size": 1000.0,
+   "unit": "g",
+   "price": 1.39,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=Kathi+Weizenmehl+Type+405",
+   "gtin": "4012367012608",
+   "image": "https://images.openfoodfacts.org/images/products/401/236/701/2608/front_en.28.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "REWE Beste Wahl",
+   "product": "REWE Beste Wahl Weizenmehl 405, 1000g",
+   "size": 1000.0,
+   "unit": "g",
+   "price": 0.79,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=REWE+Beste+Wahl+Weizenmehl+405",
+   "gtin": "4337256552554",
+   "image": "https://images.openfoodfacts.org/images/products/433/725/655/2554/front_de.12.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1000g packs of type 405 wheat flour with wheat flour as the only listed ingredient.",
+  "evidence": "Compared the product names, ingredient lists and pack sizes. Both prices were seen at REWE in Dahme/Mark on 2025-11-08, so the store and the day are the same.",
+  "differences": "The brand's ingredient list says \"Weizenmehl Type 405\" and the own-label's says \"Weizenmehl\", with the 405 grade given in its product name. Neither listing gives protein content. No taste or performance test was found for this pair.",
+  "why": "Both labels show the same flour grade in the same pack size, with nothing else listed. The labels show no difference that the extra money would pay for.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4012367012608",
+   "https://prices.openfoodfacts.org/products/4337256552554",
+   "https://world.openfoodfacts.org/product/4012367012608",
+   "https://world.openfoodfacts.org/product/4337256552554"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "ueltje-erdnuesse-geroestet-and-gesalzen-vs-alesto-erdnuesse-geroestet-and-gesalzen-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Roasted peanuts",
+  "title": "ültje Erdnüsse geröstet & gesalzen vs Alesto Erdnüsse geröstet & gesalzen",
+  "brand": {
+   "brand": "ültje",
+   "product": "ültje Erdnüsse geröstet & gesalzen, 180g",
+   "size": 180.0,
+   "unit": "g",
+   "price": 2.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=%C3%BCltje+Erdn%C3%BCsse+ger%C3%B6stet+%26+gesalzen",
+   "gtin": "4004980401907",
+   "image": "https://images.openfoodfacts.org/images/products/400/498/040/1907/front_de.73.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Peanuts",
+     "amount": ""
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Alesto",
+   "product": "Alesto Erdnüsse geröstet & gesalzen, 200g",
+   "size": 200.0,
+   "unit": "g",
+   "price": 0.99,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=Alesto+Erdn%C3%BCsse+ger%C3%B6stet+%26+gesalzen",
+   "gtin": "20005689",
+   "image": "https://images.openfoodfacts.org/images/products/000/002/000/5689/front_de.44.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Peanuts",
+     "amount": ""
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are roasted and salted peanuts, listing peanuts, sunflower oil and salt in that order.",
+  "evidence": "Compared the product names, ingredient lists and pack sizes. The brand price was seen at Netto in Strausberg on 2025-11-13, and the own-label price at Lidl in Dahme/Mark on 2026-07-31. These are different chains and the dates are months apart, so part of the gap may be down to the store or the time.",
+  "differences": "The brand lists salt and the own-label lists table salt. Neither listing gives the amount of salt or oil. The packs are 180g and 200g. No taste or performance test was found for this pair.",
+  "why": "The two ingredient lists name the same three things in the same order. Nothing on the labels shows what the extra money would pay for.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4004980401907",
+   "https://prices.openfoodfacts.org/products/20005689",
+   "https://world.openfoodfacts.org/product/4004980401907",
+   "https://world.openfoodfacts.org/product/20005689"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "albi-banane-fruchtnektar-vs-frucht-stern-bananen-nektar-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Fruit nectar",
+  "title": "albi Banane Fruchtnektar vs Frucht Stern Bananen-Nektar",
+  "brand": {
+   "brand": "albi",
+   "product": "albi Banane Fruchtnektar, 1 l",
+   "size": 1000.0,
+   "unit": "ml",
+   "price": 2.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=albi+Banane+Fruchtnektar",
+   "gtin": "4003240924002",
+   "image": "https://images.openfoodfacts.org/images/products/400/324/092/4002/front_de.21.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Banana puree",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Lemon juice concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Vitamin C (ascorbic acid)",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Frucht Stern",
+   "product": "Frucht Stern Bananen-Nektar, 1L",
+   "size": 1000.0,
+   "unit": "ml",
+   "price": 1.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=Frucht+Stern+Bananen-Nektar",
+   "gtin": "4316268654081",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/865/4081/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Banana puree",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Lemon juice concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Vitamin C (ascorbic acid)",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "identical_formula",
+  "confidence": "medium",
+  "summary": "Both are banana nectars listing water, 25% banana puree, sugar, lemon juice concentrate and ascorbic acid, in that order.",
+  "evidence": "Compared the ingredient lists and pack sizes. Both prices were seen at Netto Marken-Discount, the brand in Dahme/Mark on 2026-10-02 and the own-label in Berlin on 2026-07-27.",
+  "differences": "The ingredient lists match, including the banana share. A matching list doesn't prove the recipe or the taste is identical, since the listings don't give the amounts beyond the banana share. No taste or performance test was found for this pair.",
+  "why": "The labels list the same ingredients in the same order with the same share of banana. They show no difference that the extra money would pay for.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4003240924002",
+   "https://prices.openfoodfacts.org/products/4316268654081",
+   "https://world.openfoodfacts.org/product/4003240924002",
+   "https://world.openfoodfacts.org/product/4316268654081"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "bad-reichenhaller-siedesalz-mit-kaliumjodat-vs-k-classic-jodsalz-aus-siedesalz-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Table salt",
+  "title": "Bad Reichenhaller Siedesalz mit Kaliumjodat vs K-Classic Jodsalz aus Siedesalz",
+  "brand": {
+   "brand": "Bad Reichenhaller",
+   "product": "Bad Reichenhaller Siedesalz mit Kaliumjodat, 500g",
+   "size": 500.0,
+   "unit": "g",
+   "price": 0.85,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.google.com/search?tbm=shop&q=Bad+Reichenhaller+Siedesalz+mit+Kaliumjodat",
+   "gtin": "4001475105609",
+   "image": "https://images.openfoodfacts.org/images/products/400/147/510/5609/front_de.136.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "evaporated salt",
+     "amount": ""
+    },
+    {
+     "name": "potassium fluoride",
+     "amount": ""
+    },
+    {
+     "name": "folic acid",
+     "amount": ""
+    },
+    {
+     "name": "potassium iodate",
+     "amount": ""
+    },
+    {
+     "name": "sodium ferrocyanide (anti-caking agent)",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "K-Classic",
+   "product": "K-Classic Jodsalz aus Siedesalz, 500g",
+   "size": 500.0,
+   "unit": "g",
+   "price": 0.69,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=K-Classic+Jodsalz+aus+Siedesalz",
+   "gtin": "4001475515392",
+   "image": "https://images.openfoodfacts.org/images/products/400/147/551/5392/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "evaporated salt",
+     "amount": ""
+    },
+    {
+     "name": "potassium fluoride",
+     "amount": ""
+    },
+    {
+     "name": "folic acid",
+     "amount": ""
+    },
+    {
+     "name": "potassium iodate",
+     "amount": ""
+    },
+    {
+     "name": "sodium ferrocyanide (anti-caking agent)",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "identical_formula",
+  "confidence": "medium",
+  "summary": "Both are 500g packs of evaporated salt with potassium fluoride, folic acid, potassium iodate and an anti-caking agent, listed in the same order.",
+  "evidence": "Compared the two ingredient lists from Open Facts. Bad Reichenhaller was 0.85 EUR on 2026-05-23, and the record says only Bayern, with no shop or city. K-Classic was 0.69 EUR at Kaufland in Leipzig on 2026-10-10. The stores and dates differ, so part of the gap may come from the chain or the date.",
+  "differences": "The K-Classic label writes the anti-caking agent as E535 and the Bad Reichenhaller label writes it as Natriumferrocyanid, which is what E535 stands for. Neither label gives the amount of each additive, so those levels can't be compared. No taste or performance test was found for this pair.",
+  "why": "The labels list the same ingredients in the same order and both packs hold 500g. On the labels, the extra money buys no ingredient that the K-Classic pack lacks.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4001475105609",
+   "https://prices.openfoodfacts.org/products/4001475515392",
+   "https://world.openfoodfacts.org/product/4001475105609",
+   "https://world.openfoodfacts.org/product/4001475515392"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "anchor-salted-butter-vs-tesco-salted-butter-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Butter",
+  "title": "Anchor Salted butter vs Tesco Salted butter",
+  "brand": {
+   "brand": "Anchor",
+   "product": "Anchor Salted butter, 200 g",
+   "size": 200.0,
+   "unit": "g",
+   "price": 2.9,
+   "retailer": "coop",
+   "asin": null,
+   "url": "https://www.coop.co.uk/products?q=Anchor+Salted+butter",
+   "gtin": "5000246728725",
+   "image": "https://images.openfoodfacts.org/images/products/500/024/672/8725/front_en.52.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "butter (milk)",
+     "amount": ""
+    },
+    {
+     "name": "salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Tesco",
+   "product": "Tesco Salted butter, 250 g",
+   "size": 250.0,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=Tesco+Salted+butter",
+   "gtin": "5000119407283",
+   "image": "https://images.openfoodfacts.org/images/products/500/011/940/7283/front_en.13.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "butter (milk)",
+     "amount": ""
+    },
+    {
+     "name": "salt",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are salted butter, and both labels list only butter and salt.",
+  "evidence": "Compared the two ingredient lists from Open Facts. Anchor 200 g was 2.9 GBP at Co-op Food in Slough on 2026-05-31. Tesco 250 g was 1.99 GBP at Tesco Extra in Cardiff on 2026-03-07. The chains differ and so do the dates, so treat the saving with suspicion: part of the gap may be the chain's price level, and no shelf price from one store was available for both.",
+  "differences": "Anchor's label gives salt at 1.7%, and Tesco's gives no salt figure. Neither label states the fat level. The Tesco pack is bigger, 250 g against 200 g, which may account for part of the gap per gram. No taste or performance test was found for this pair.",
+  "why": "Both labels list butter and salt and nothing else. The extra money buys no further ingredient that the labels show.",
+  "claims": [
+   "cma-bigger-packs-not-always-cheaper"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/5000246728725",
+   "https://prices.openfoodfacts.org/products/5000119407283",
+   "https://world.openfoodfacts.org/product/5000246728725",
+   "https://world.openfoodfacts.org/product/5000119407283"
+  ],
+  "price_checked": "2026-03"
+ }
+]

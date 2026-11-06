@@ -1,0 +1,190 @@
+[
+ {
+  "slug": "nutella-vs-ja-nuss-nougat-creme-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Hazelnut spread",
+  "title": "Nutella vs ja! Nuss-Nougat-Creme",
+  "brand": {
+   "brand": "Nutella",
+   "product": "Nutella, 450 g",
+   "size": 450,
+   "unit": "g",
+   "price": 3.99,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=nutella",
+   "gtin": "4008400401621",
+   "image": "https://images.openfoodfacts.org/images/products/400/840/040/1621/front_en.302.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Palm oil",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnuts",
+     "amount": "13%"
+    },
+    {
+     "name": "Skimmed milk powder",
+     "amount": "8.7%"
+    },
+    {
+     "name": "Fat-reduced cocoa",
+     "amount": "7.4%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "ja!",
+   "product": "ja! Nuss-Nougat-Creme, 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=ja+nuss+nougat+creme",
+   "gtin": "4337256609326",
+   "image": "https://images.openfoodfacts.org/images/products/433/725/660/9326/front_de.22.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Vegetable oils (rapeseed, palm)",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnuts",
+     "amount": "13%"
+    },
+    {
+     "name": "Low-fat cocoa powder",
+     "amount": "7.5%"
+    },
+    {
+     "name": "Skimmed milk powder",
+     "amount": "7.5%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are hazelnut and cocoa spreads with sugar listed first and 13% hazelnuts, and the ja! jar costs about 44% less per 100 g at the same REWE.",
+  "evidence": "Both priced at REWE Stenten, Aachen, on 2026-09-18, neither marked as an offer: Nutella 450 g at 3.99 EUR (0.89 EUR per 100 g), ja! 400 g at 1.99 EUR (0.50 EUR per 100 g). ja! was still 1.99 EUR there on 2026-09-25. Ingredients and nutrition come from the Open Facts records 4008400401621 and 4337256609326. Stiftung Warentest's test of 18 creams (September 2026) included both products, and Öko-Test 9/2022 lab-tested both.",
+  "differences": "Nutella uses palm oil only; ja! uses rapeseed and palm oil. Per 100 g on Open Facts, Nutella has 56.3 g sugars, 30.9 g fat, 10.6 g saturated fat and 539 kcal; ja! has 49 g sugars, 36 g fat, 7.2 g saturated fat and 565 kcal. Nutella has more milk powder (8.7% against 7.5%) and adds vanillin, which the ja! list doesn't show. Nutella did well on taste at Stiftung Warentest: 1.5 for taste and third of 18 overall. ja! was in that test, but its grades are behind the paywall and we haven't read them, so we can't say it tastes as good. Öko-Test 9/2022 rated ingredients gut for ja! and mangelhaft for Nutella; that was a lab test without tasting, and it is four years old. ja! is a smaller jar. Nutella also goes on offer: two Open Prices records from Bavaria in April 2025 show 1.79 and 1.99 EUR, which beats ja! per 100 g.",
+  "why": "The ja! list has the same 13% hazelnuts and nearly the same cocoa share as Nutella for about 44% less per 100 g. What the extra money may buy is taste, and we have no published grade for ja! to compare.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4008400401621",
+   "https://world.openfoodfacts.org/product/4008400401621",
+   "https://prices.openfoodfacts.org/products/4337256609326",
+   "https://world.openfoodfacts.org/product/4337256609326",
+   "https://www.test.de/presse/pressemitteilungen/Nuss-Nougat-Cremes-Zwei-sind-besser-als-Nutella-6330641-0/",
+   "https://www.test.de/Nuss-Nougat-Cremes-Schmeckt-Nutella-wirklich-am-besten-4993834-0",
+   "https://www.oekotest.de/essen-trinken/20-Nuss-Nougat-Cremes-im-Test_110772_2.html"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "nutella-vs-nussetti-nuss-nougat-creme-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Hazelnut spread",
+  "title": "Nutella vs Nussetti Nuss-Nougat-Creme",
+  "brand": {
+   "brand": "Nutella",
+   "product": "Nutella, 450 g",
+   "size": 450,
+   "unit": "g",
+   "price": 3.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/",
+   "gtin": "4008400401621",
+   "image": "https://images.openfoodfacts.org/images/products/400/840/040/1621/front_en.302.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Palm oil",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnuts",
+     "amount": "13%"
+    },
+    {
+     "name": "Skimmed milk powder",
+     "amount": "8.7%"
+    },
+    {
+     "name": "Fat-reduced cocoa",
+     "amount": "7.4%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Nussetti",
+   "product": "Nussetti Nuss-Nougat-Creme, 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/",
+   "gtin": "4316268389792",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/838/9792/front_de.54.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Vegetable oils (rapeseed, palm)",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnuts",
+     "amount": "13%"
+    },
+    {
+     "name": "Low-fat cocoa powder",
+     "amount": "9%"
+    },
+    {
+     "name": "Skimmed milk powder",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are hazelnut and cocoa spreads with sugar listed first and 13% hazelnuts, and the Nussetti jar costs about 44% less per 100 g at the same Netto.",
+  "evidence": "Both priced at Netto Marken-Discount, Strausberg, on 2026-11-02, neither marked as an offer: Nutella 450 g at 3.99 EUR (0.89 EUR per 100 g), Nussetti 400 g at 1.99 EUR (0.50 EUR per 100 g). Nussetti was also 1.99 EUR at Netto City, München, on 2026-10-17. Ingredients and nutrition come from the Open Facts records 4008400401621 and 4316268389792. Öko-Test 9/2022 lab-tested both products.",
+  "differences": "Nutella uses palm oil only; Nussetti uses rapeseed and palm oil. Nussetti has more cocoa (9% against 7.4%). Its label gives no milk powder percentage, against 8.7% for Nutella, and it doesn't list Nutella's vanillin. Per 100 g on Open Facts, Nutella has 56.3 g sugars, 30.9 g fat, 10.6 g saturated fat and 539 kcal; Nussetti has 48 g sugars, 35.6 g fat, 7.1 g saturated fat and 557 kcal. Nutella did well on taste at Stiftung Warentest in September 2026: 1.5 for taste and third of 18 overall. Nussetti wasn't one of the 18, and we found no recent taste test of it. Öko-Test 9/2022 rated ingredients befriedigend for Nussetti and mangelhaft for Nutella; that was a lab test without tasting, and it is four years old. Nussetti is a smaller jar. Nutella also goes on offer: two Open Prices records from Bavaria in April 2025 show 1.79 and 1.99 EUR, which beats Nussetti per 100 g.",
+  "why": "Nussetti has the same 13% hazelnuts as Nutella and more cocoa for about 44% less per 100 g. What the extra money may buy is taste, and we found no recent test that compares the two.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4008400401621",
+   "https://world.openfoodfacts.org/product/4008400401621",
+   "https://prices.openfoodfacts.org/products/4316268389792",
+   "https://world.openfoodfacts.org/product/4316268389792",
+   "https://www.test.de/presse/pressemitteilungen/Nuss-Nougat-Cremes-Zwei-sind-besser-als-Nutella-6330641-0/",
+   "https://www.test.de/Nuss-Nougat-Cremes-Schmeckt-Nutella-wirklich-am-besten-4993834-0",
+   "https://www.oekotest.de/essen-trinken/20-Nuss-Nougat-Cremes-im-Test_110772_2.html"
+  ],
+  "price_checked": "2026-11"
+ }
+]

@@ -121,7 +121,12 @@ async function normalise(input: Buffer, size: number) {
 
 async function main() {
   const idx = process.argv.indexOf("--candidates");
-  const candidates: Candidate[] = idx > 0 ? JSON.parse(readFileSync(process.argv[idx + 1], "utf8")) : candidatesFromPairs();
+  const rejectedPath = join(ROOT, "data", "images-rejected.json");
+  const rejected: Record<string, string[]> = existsSync(rejectedPath) ? JSON.parse(readFileSync(rejectedPath, "utf8")) : {};
+  const fileName = (c: Candidate) => `${slug(c.key.replace("|", " "))}-${createHash("sha1").update(c.url).digest("hex").slice(0, 10)}`;
+  const candidates: Candidate[] = (idx > 0 ? (JSON.parse(readFileSync(process.argv[idx + 1], "utf8")) as Candidate[]) : candidatesFromPairs()).filter(
+    (c) => !rejected[c.key]?.includes(fileName(c)),
+  );
   mkdirSync(OUT, { recursive: true });
   const records: Record<string, unknown> = existsSync(RECORDS) ? JSON.parse(readFileSync(RECORDS, "utf8")) : {};
   let ok = 0;

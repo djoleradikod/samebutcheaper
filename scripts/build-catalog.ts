@@ -186,9 +186,10 @@ const imageRecords: Record<string, ImageRecord> = {};
 const credits: Catalog["credits"] = [];
 const creditSeen = new Set<string>();
 
+/** A photo shows only once someone has looked at it. DailyMed label art stays off until a legal read (R2). */
 function photoFor(brand: string, productName: string): Photo | null {
   const rec = imageRecords[`${brand}|${productName}`];
-  if (!rec) return null;
+  if (!rec || !rec.reviewed || rec.source === "dailymed") return null;
   const photo: Photo = {
     src: `/products/${rec.file}`,
     credit: rec.credit,
@@ -455,6 +456,8 @@ bundles.sort((a, b) => b.score - a.score);
 presets.sort((a, b) => b.score - a.score);
 
 const anySideReal = pairs.filter((p) => p.brand.photo || p.alternative.photo).length;
+const dailymedKey = (s: { brand: string; product: string }) => imageRecords[`${s.brand}|${s.product}`]?.source === "dailymed";
+const withDailymed = pairs.filter((p) => p.brand.photo || p.alternative.photo || dailymedKey(p.brand) || dailymedKey(p.alternative)).length;
 const bothSidesReal = pairs.filter((p) => p.brand.photo && p.alternative.photo).length;
 const medicine = pairs.filter((p) => p.category === "otc-medicine").length;
 const markets: Record<string, number> = {};
@@ -492,6 +495,6 @@ writeFileSync(
 const pct = (n: number) => (pairs.length ? Math.round((n / pairs.length) * 100) : 0);
 console.log(
   `Catalog built: ${pairs.length} pairs from ${files.length} file(s), ${bundles.length} bundles, ${presets.length} presets, ` +
-    `${claims.length} claims, ${shelfLives.length} shelf-life records. Real image: any ${anySideReal} (${pct(anySideReal)}%), both ${bothSidesReal} (${pct(bothSidesReal)}%). ` +
+    `${claims.length} claims, ${shelfLives.length} shelf-life records. Real image: any ${anySideReal} (${pct(anySideReal)}%), both ${bothSidesReal} (${pct(bothSidesReal)}%), any counting DailyMed ${withDailymed} (${pct(withDailymed)}%). ` +
     `Medicine ${medicine} (${pct(medicine)}%).`,
 );
