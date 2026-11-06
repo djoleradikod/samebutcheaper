@@ -17,7 +17,7 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
       <div className="relative flex items-center gap-3 bg-gradient-to-br from-tint via-white to-surface-2 px-5 pt-5 pb-4">
         <div className="relative opacity-80 grayscale-[35%]">
           <ProductThumb
-            image={bundle.bundle.image}
+            image={bundle.photo?.src ?? null}
             brand={bundle.bundle.brand}
             category={bundle.category}
             size="sm"
@@ -34,7 +34,7 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
           {bundle.components.slice(0, 4).map((c) => (
             <ProductThumb
               key={c.replaces}
-              image={c.image}
+              image={c.photo?.src ?? null}
               brand={c.brand}
               category={bundle.category}
               unit={c.unit}

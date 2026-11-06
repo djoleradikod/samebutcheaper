@@ -137,7 +137,7 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
                 href={`/compare/${p.slug}`}
                 className="card group flex flex-col gap-4 p-4 transition hover:border-accent sm:flex-row sm:items-center"
               >
-                <ProductThumb image={p.alternative.image} brand={p.alternative.brand} category={p.category} unit={p.alternative.unit} />
+                <ProductThumb image={p.alternative.photo?.src ?? null} brand={p.alternative.brand} category={p.category} unit={p.alternative.unit} />
                 <div className="min-w-0 flex-1">
                   <p className="flex flex-wrap items-center gap-2">
                     <span className="text-lg font-semibold">{p.alternative.brand}</span>

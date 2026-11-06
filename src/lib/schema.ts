@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { CATEGORY_SLUGS } from "./category-slugs";
 import { MARKET_CODES, RETAILERS } from "./markets";
 
 export { MARKET_CODES, RETAILERS };
@@ -9,17 +10,7 @@ export { MARKET_CODES, RETAILERS };
  * the computed fields (price per unit, savings) into src/generated/catalog.json.
  */
 
-export const CATEGORY_SLUGS = [
-  "otc-medicine",
-  "supplements",
-  "skincare-personal-care",
-  "beauty-hair",
-  "household",
-  "baby",
-  "pet",
-  "food-pantry",
-  "tech-tools",
-] as const;
+export { CATEGORY_SLUGS };
 
 export const MATCH_TYPES = [
   "identical_active",
@@ -144,6 +135,22 @@ export const pairSchema = z
     price_checked: z.string().min(4),
     /** What to search for in other countries. Derived from the actives when absent. */
     look_for: z.string().optional(),
+    /** One or two plain sentences on why this brand's premium isn't worth paying, specific to this swap. */
+    why: z.string().min(20).optional(),
+    /** Evidence claim ids (data/evidence/claims.json). Claims matching the category apply anyway. */
+    claims: z.array(z.string()).default([]),
+    /** Shelf-life record id (data/evidence/shelf-life.json), when the subcategory match isn't right. */
+    shelf_life: z.string().optional(),
+    /** A bigger pack of the alternative, for the bulk view. Same unit as the pair. */
+    bulk: z
+      .object({
+        product: z.string().min(1),
+        size: z.number().positive(),
+        price: z.number().positive(),
+        retailer: product.shape.retailer,
+        url: z.string().url(),
+      })
+      .optional(),
   })
   .refine((p) => normalizeUnit(p.brand.unit) === normalizeUnit(p.alternative.unit), {
     message: "brand and alternative must use the same unit",
@@ -237,6 +244,127 @@ export const bundleSchema = z
   });
 
 export type BundleInput = z.infer<typeof bundleSchema>;
+
+/* ---------------------------------------------------------------------------
+ * Presets: a basket for a life moment (a new flat, baby's first year), built
+ * from swaps in the catalogue. Stored in data/presets/*.json. Every price comes
+ * from the swaps themselves, so a preset adds no new price claims.
+ * ------------------------------------------------------------------------- */
+
+export const PRESET_ICONS = [
+  "key",
+  "baby",
+  "cooking",
+  "spray",
+  "paw",
+  "laptop",
+  "shirt",
+  "bath",
+  "car",
+  "sprout",
+  "wrench",
+  "battery",
+  "pill",
+  "cart",
+  "plane",
+] as const;
+
+export const presetSchema = z.object({
+  /** Same id across markets: "new-flat" sold as "new-flat-gb" and "new-flat-us". */
+  family: z.string().min(2),
+  slug: z
+    .string()
+    .min(3)
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be kebab-case"),
+  market: z.enum(MARKET_CODES),
+  title: z.string().min(3),
+  /** Who it's for, in a few words. */
+  audience: z.string().min(3),
+  blurb: z.string().min(10),
+  icon: z.enum(PRESET_ICONS),
+  /** Where this list of items came from: which checklists and guides were read. */
+  research: z.string().min(20),
+  /** The guides and checklists behind the list of items. Prices come from each swap's own sources. */
+  sources: z.array(z.string().url()).min(2),
+  items: z
+    .array(
+      z.object({
+        pair: z.string().min(3),
+        /** How many of the brand-name pack this basket buys. */
+        qty: z.number().positive().default(1),
+        note: z.string().optional(),
+      }),
+    )
+    .min(4),
+});
+
+export type PresetInput = z.infer<typeof presetSchema>;
+
+/* ---------------------------------------------------------------------------
+ * Evidence: cited findings on why a brand premium isn't worth paying, and how
+ * long things keep. Stored in data/evidence/. Every record needs two sources.
+ * ------------------------------------------------------------------------- */
+
+const citation = z.object({
+  url: z.string().url(),
+  publisher: z.string().min(2),
+  title: z.string().min(3),
+  /** Year or year-month of the finding. */
+  date: z.string().min(4),
+});
+
+export const claimSchema = z.object({
+  id: z.string().min(3),
+  /** Short headline, e.g. "Own-label beans beat Heinz in blind tests". */
+  title: z.string().min(5),
+  /** The finding in our own words, with the numbers from the source. */
+  finding: z.string().min(20),
+  /** "general" applies across categories. */
+  categories: z.array(z.string()).min(1),
+  subcategories: z.array(z.string()).default([]),
+  markets: z.array(z.enum(MARKET_CODES)).default([]),
+  /** Where the evidence stops or the cheap option lost. */
+  caveat: z.string().default(""),
+  sources: z.array(citation).min(2),
+});
+
+export type ClaimInput = z.infer<typeof claimSchema>;
+
+export const BULK_ADVICE = ["stock_up", "buy_to_use", "buy_small"] as const;
+
+export const shelfLifeSchema = z.object({
+  id: z.string().min(3),
+  label: z.string().min(3),
+  categories: z.array(z.string()).default([]),
+  /** Subcategory names this record applies to, compared case-insensitively. */
+  subcategories: z.array(z.string()).default([]),
+  unopened: z.string().min(3),
+  opened: z.string().default(""),
+  storage: z.string().default(""),
+  /** stock_up: keeps for years. buy_to_use: fine if you get through it in time. buy_small: goes off or weakens. */
+  advice: z.enum(BULK_ADVICE),
+  note: z.string().default(""),
+  sources: z.array(citation).min(2),
+});
+
+export type ShelfLifeInput = z.infer<typeof shelfLifeSchema>;
+
+/** One self-hosted product photo. Stored in data/images.json, keyed by "brand|product". */
+export const imageRecordSchema = z.object({
+  /** Basename in public/products/. The site loads <file>-160.webp and <file>-480.webp. */
+  file: z.string().min(3),
+  source: z.string().min(2),
+  credit: z.string().min(2),
+  license: z.string().min(2),
+  /** The page the photo came from. */
+  page: z.string().url(),
+  /** What the source calls this product, so a reviewer can check the match. */
+  matched: z.string().default(""),
+  /** Date a person or reviewer agent looked at the picture and agreed it shows this product. */
+  reviewed: z.string().nullable().default(null),
+});
+
+export type ImageRecord = z.infer<typeof imageRecordSchema>;
 
 const LEGACY_PRICE = "price_usd";
 

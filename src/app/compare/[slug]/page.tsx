@@ -294,7 +294,7 @@ function ProductPanel({ side, pair, product }: { side: "brand" | "alternative"; 
         isAlt ? "border-accent/40 bg-tint ring-1 ring-accent/20" : "border-line bg-white"
       }`}
     >
-      <ProductThumb image={product.image} brand={product.brand} category={pair.category} unit={product.unit} size="lg" />
+      <ProductThumb image={product.photo?.src ?? null} brand={product.brand} category={pair.category} unit={product.unit} size="lg" />
       {credit && <p className="mt-1.5 text-[11px] text-muted">{credit}</p>}
       <p className={`mt-4 text-xs font-semibold tracking-wide uppercase ${isAlt ? "text-accent" : "text-brand-tone"}`}>
         {isAlt ? "The cheaper one" : "The brand name"}

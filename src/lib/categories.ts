@@ -1,3 +1,4 @@
+import { CATEGORY_SLUGS } from "./category-slugs";
 import type { CategorySlug, MatchType } from "./types";
 
 export type CategoryMeta = {
@@ -14,7 +15,13 @@ export type CategoryMeta = {
     | "baby"
     | "paw"
     | "wheat"
-    | "plug";
+    | "plug"
+    | "cooking"
+    | "battery"
+    | "wrench"
+    | "paperclip"
+    | "car"
+    | "sprout";
 };
 
 export const CATEGORIES: CategoryMeta[] = [
@@ -83,11 +90,58 @@ export const CATEGORIES: CategoryMeta[] = [
   },
   {
     slug: "tech-tools",
-    name: "Tech & Tools",
-    short: "Chargers, cables, batteries, tools",
+    name: "Tech accessories",
+    short: "Chargers, cables, power banks",
     description:
       "Certified to the same standards (MFi, USB-IF, UL) with matching specs, and backed by independent lab tests.",
     icon: "plug",
+  },
+  {
+    slug: "kitchen",
+    name: "Kitchen",
+    short: "Foil, bags, cookware, utensils",
+    description:
+      "Foil, film, bags and basic cookware, compared on thickness, material and independent test results.",
+    icon: "cooking",
+  },
+  {
+    slug: "batteries",
+    name: "Batteries",
+    short: "AA, AAA, button cells, rechargeables",
+    description:
+      "Same chemistry and size, compared per cell, with capacity and shelf-life figures from the makers and independent tests.",
+    icon: "battery",
+  },
+  {
+    slug: "tools-diy",
+    name: "Tools & DIY",
+    short: "Hand tools, tape, fixings, paint",
+    description:
+      "Same spec, standard or material, with warranty and independent test results where they exist.",
+    icon: "wrench",
+  },
+  {
+    slug: "office",
+    name: "Office & School",
+    short: "Paper, pens, ink, labels",
+    description: "Same paper weight, ink type or standard, compared per sheet, per pen or per page.",
+    icon: "paperclip",
+  },
+  {
+    slug: "car",
+    name: "Car",
+    short: "Oil, screenwash, wipers, care",
+    description:
+      "Oil and fluids that meet the same published standard, compared per litre, with what the standard does and doesn't promise.",
+    icon: "car",
+  },
+  {
+    slug: "garden",
+    name: "Garden",
+    short: "Compost, feed, seed, tools",
+    description:
+      "Same active ingredient, nutrient ratio or material, compared per kilo or per litre.",
+    icon: "sprout",
   },
 ];
 
@@ -102,7 +156,16 @@ export const CATEGORY_TONE: Record<CategorySlug, { bg: string; fg: string }> = {
   pet: { bg: "#ffedd5", fg: "#9a3412" },
   "food-pantry": { bg: "#fef9c3", fg: "#854d0e" },
   "tech-tools": { bg: "#e0e7ff", fg: "#3730a3" },
+  kitchen: { bg: "#fee2e2", fg: "#991b1b" },
+  batteries: { bg: "#d1fae5", fg: "#065f46" },
+  "tools-diy": { bg: "#e7e5e4", fg: "#44403c" },
+  office: { bg: "#dbeafe", fg: "#1e40af" },
+  car: { bg: "#e2e8f0", fg: "#334155" },
+  garden: { bg: "#dcfce7", fg: "#166534" },
 };
+
+/** Display order: everyday shopping first, medicine last. */
+CATEGORIES.sort((a, b) => CATEGORY_SLUGS.indexOf(a.slug) - CATEGORY_SLUGS.indexOf(b.slug));
 
 export const CATEGORY_MAP = Object.fromEntries(CATEGORIES.map((c) => [c.slug, c])) as Record<
   CategorySlug,

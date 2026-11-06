@@ -106,8 +106,8 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
         <div className="min-w-0 space-y-8">
           <section className="card overflow-hidden">
             <div className="flex items-center gap-4 border-b border-line bg-brand-soft/60 px-5 py-4">
-              {b.bundle.image ? (
-                <ProductThumb image={b.bundle.image} brand={b.bundle.brand} category={b.category} size="sm" />
+              {b.photo ? (
+                <ProductThumb image={b.photo.src} brand={b.bundle.brand} category={b.category} size="sm" />
               ) : (
                 <Package className="h-5 w-5 text-brand-tone" />
               )}
@@ -153,7 +153,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                 const item = b.bundle.items[c.replaces];
                 return (
                   <li key={i} className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 px-5 py-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
-                    <ProductThumb image={c.image} brand={c.brand} category={b.category} unit={c.unit} size="sm" />
+                    <ProductThumb image={c.photo?.src ?? null} brand={c.brand} category={b.category} unit={c.unit} size="sm" />
                     <div className="min-w-0">
                       <p className="text-xs text-muted">Replaces: {item.name}</p>
                       <p className="mt-0.5 font-semibold">{c.brand}</p>

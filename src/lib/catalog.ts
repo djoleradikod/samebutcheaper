@@ -1,6 +1,6 @@
 import "server-only";
 import catalogJson from "@/generated/catalog.json";
-import type { Bundle, Catalog, CategorySlug, Pair, PairSummary } from "./types";
+import type { Bundle, Catalog, CategorySlug, Claim, Pair, PairSummary, Preset } from "./types";
 import { CATEGORIES } from "./categories";
 import { APPROX_USD, type MarketCode } from "./markets";
 import { dupeActives, dupeSlugFor } from "./dupes";
@@ -21,14 +21,19 @@ export function getPairsByCategory(category: CategorySlug): Pair[] {
 }
 
 export function getFeaturedPairs(limit = 12, market?: MarketCode): Pair[] {
-  // One-per-subcategory first so the homepage shows variety, then fill.
-  const pool = market ? catalog.pairs.filter((p) => p.market === market) : catalog.pairs;
+  // Medicine never leads. Swaps with real photos come first, one per subcategory for variety, then fill.
+  const inMarket = market ? catalog.pairs.filter((p) => p.market === market) : catalog.pairs;
+  const notMedicine = inMarket.filter((p) => p.category !== "otc-medicine");
+  const photoFirst = (p: Pair) => (p.alternative.photo ? 0 : 1) + (p.brand.photo ? 0 : 1);
+  const pool = [...notMedicine].sort((a, b) => photoFirst(a) - photoFirst(b) || b.score - a.score);
   const picked: Pair[] = [];
   const seenSub = new Set<string>();
+  const seenCat = new Map<string, number>();
   for (const p of pool) {
     const key = `${p.category}:${p.subcategory.toLowerCase()}`;
-    if (p.confidence !== "high" || seenSub.has(key)) continue;
+    if (p.confidence !== "high" || seenSub.has(key) || (seenCat.get(p.category) ?? 0) >= 3) continue;
     seenSub.add(key);
+    seenCat.set(p.category, (seenCat.get(p.category) ?? 0) + 1);
     picked.push(p);
     if (picked.length >= limit) return picked;
   }
@@ -96,8 +101,8 @@ export function toSummary(p: Pair): PairSummary {
     brandProduct: p.brand.product,
     altName: p.alternative.brand,
     altProduct: p.alternative.product,
-    brandImage: p.brand.image ?? null,
-    altImage: p.alternative.image ?? null,
+    brandImage: p.brand.photo?.src ?? null,
+    altImage: p.alternative.photo?.src ?? null,
     unit: p.brand.unit,
     brandPpu: p.brand.ppu,
     altPpu: p.alternative.ppu,
@@ -121,6 +126,43 @@ export function getAllBundles(): Bundle[] {
 
 export function getBundle(slug: string): Bundle | undefined {
   return getAllBundles().find((b) => b.slug === slug);
+}
+
+/* ---------------------------------------------------------------- presets */
+
+export function getAllPresets(): Preset[] {
+  return catalog.presets ?? [];
+}
+
+export function getPreset(slug: string): Preset | undefined {
+  return getAllPresets().find((p) => p.slug === slug);
+}
+
+/** One card per family, in the shopper's market when it exists there, else the biggest saving. */
+export function getPresetsFor(market: MarketCode): Preset[] {
+  const byFamily = new Map<string, Preset[]>();
+  for (const p of getAllPresets()) byFamily.set(p.family, [...(byFamily.get(p.family) ?? []), p]);
+  return [...byFamily.values()]
+    .map((list) => list.find((p) => p.market === market) ?? [...list].sort((a, b) => b.score - a.score)[0])
+    .sort((a, b) => Number(b.market === market) - Number(a.market === market) || b.score - a.score);
+}
+
+/* --------------------------------------------------------------- evidence */
+
+export function getClaims(): Claim[] {
+  return catalog.claims ?? [];
+}
+
+export function getShelfLife() {
+  return catalog.shelfLife ?? [];
+}
+
+export function getCredits() {
+  return catalog.credits ?? [];
+}
+
+export function getCoverage() {
+  return catalog.coverage;
 }
 
 /* ---------------------------------------------------- ingredients & brands */

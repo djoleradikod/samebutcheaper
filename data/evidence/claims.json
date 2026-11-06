@@ -1,0 +1,669 @@
+[
+ {
+  "id": "sunscreen-test-cheap-store-brands-2025",
+  "title": "Four cheap store-brand sunscreens rated very good; priciest failed",
+  "finding": "Stiftung Warentest tested 26 sunscreens with SPF 30, 50 and 50+ and published the results on 26 June 2025. Eight were rated 'sehr gut' (very good), and four of those were inexpensive store brands. Seven did not give the UV protection they claimed, and the most expensive product in the test was one of the seven. Prices ran from 1.46 to 21.52 euros per 100 ml. The tester said price is no indicator of quality.",
+  "categories": [
+   "skincare-personal-care"
+  ],
+  "subcategories": [
+   "Sunscreen"
+  ],
+  "markets": [
+   "DE"
+  ],
+  "caveat": "Cheap did not win every time. The test.de results page, updated 20 May 2026, says both expensive and cheap products have failed on UV protection, including brands that did well the year before, so a good result for one product says nothing about the rest of that brand. The press release names no products. The Swiss paper Blick, in July 2026, reported from the June 2025 test that Lidl's Cien Sun Sonnenmilch was rated 'sehr gut' at 1.18 CHF per 100 ml and a Nivea spray 'gut' at 8.98 CHF per 100 ml. Those are Swiss prices.",
+  "sources": [
+   {
+    "url": "https://www.test.de/presse/pressemitteilungen/Sonnenschutz-im-Test-der-Stiftung-Warentest-Sieben-Produkte-schuetzen-nicht-ausreichend-6228955-0/",
+    "publisher": "Stiftung Warentest",
+    "title": "Sonnenschutz im Test der Stiftung Warentest: Sieben Produkte schützen nicht ausreichend",
+    "date": "2025-06-26"
+   },
+   {
+    "url": "https://www.blick.ch/wirtschaft/preis-und-qualitaet-die-guenstigste-sonnencreme-schlaegt-im-test-teure-marken-id22142551.html",
+    "publisher": "Blick",
+    "title": "Sonnencreme-Vergleich: Den Testsieger gibts schon ab 2.95 Fr",
+    "date": "2026-07-29"
+   },
+   {
+    "url": "https://www.test.de/Sonnenschutzmittel-Die-besten-Lotionen-und-Sprays-fuer-Erwachsene-4868984-0/",
+    "publisher": "Stiftung Warentest",
+    "title": "Sonnencremes im Test: Sicher in der Sonne, auch für wenig Geld",
+    "date": "2026-05-20"
+   }
+  ]
+ },
+ {
+  "id": "dry-dog-food-test-sensitive-extra-cost-2025",
+  "title": "Sensitive dry dog food often not worth the extra cost (2025)",
+  "finding": "Stiftung Warentest tested 24 dry foods for adult dogs, published online on 24 July 2025 and in test 8/2025. Five of them were sold as sensitive formulas. The magazine said paying extra for those often does not pay off. Only about one in three foods was recommended, and several good foods cost about 25 cents per daily ration.",
+  "categories": [
+   "pet"
+  ],
+  "subcategories": [
+   "Dry dog food"
+  ],
+  "markets": [
+   "DE"
+  ],
+  "caveat": "Roughly two in three foods were not recommended, so cheap food still needs checking. Grades and most prices are behind a paywall, so the free pages do not show how store brands from Aldi, Lidl and Netto did against Frolic, Bosch or Happy Dog. The hundeo summary works from a 15 kg, moderately active adult dog. This covers dry adult food in Germany in 2025 only, and dogs with a medical condition need a vet's advice.",
+  "sources": [
+   {
+    "url": "https://www.test.de/news/Hunde-Trockenfutter-Test-der-Stiftung-Warentest-Discounter-Futter-haeufig-besser-als-teure-Markenware-6334277-0/",
+    "publisher": "Stiftung Warentest",
+    "title": "Hunde-Trockenfutter im Test: Gutes Futter gibt es günstig",
+    "date": "2025-07-24"
+   },
+   {
+    "url": "https://www.hundeo.com/hundefutter/stiftung-warentest",
+    "publisher": "hundeo.com",
+    "title": "Stiftung Warentest Hundefutter (summary of test 8/2025)",
+    "date": "2026-10-14"
+   }
+  ]
+ },
+ {
+  "id": "complete-pet-food-standard-fediaf-aafco",
+  "title": "'Complete' pet food claims rest on a published nutrient standard",
+  "finding": "In the US, the FDA says a dog or cat food may claim to be 'complete and balanced' only if it meets an AAFCO nutrient profile or passes a feeding trial under AAFCO procedures, and that seals from other organisations do not assure nutritional adequacy (FDA page, 2020). PetMD (2024) describes the same two routes and says foods meeting neither must be labelled for intermittent or supplemental feeding. In Europe, FEDIAF's 2025 guidelines for complete and complementary cat and dog food set out the basic nutrient levels its members work to, as PET worldwide also reported in September 2025.",
+  "categories": [
+   "pet"
+  ],
+  "subcategories": [],
+  "markets": [
+   "US",
+   "DE"
+  ],
+  "caveat": "This is a floor for healthy animals. None of these sources compares prices, so this does not show that a cheap complete food matches a dear one, and it says nothing about taste, digestibility or ingredient quality. FEDIAF is the industry's own federation and its page calls the guidelines a practical guide for manufacturers, not law. The FDA page was last updated in February 2020 and gives 2016 as the latest AAFCO profile update. PetMD says AAFCO does not itself test or approve foods, though its FAQ uses the word certification loosely. Animals with a medical condition need a vet's diet advice.",
+  "sources": [
+   {
+    "url": "https://www.fda.gov/animal-veterinary/animal-health-literacy/complete-and-balanced-pet-food",
+    "publisher": "US Food and Drug Administration",
+    "title": "\"Complete and Balanced\" Pet Food",
+    "date": "2020-02-28"
+   },
+   {
+    "url": "https://www.petmd.com/dog/nutrition/What-Is-AAFCO-and-What-Does-It-Do",
+    "publisher": "PetMD",
+    "title": "What Is AAFCO and What Does It Do?",
+    "date": "2024-11-25"
+   },
+   {
+    "url": "https://europeanpetfood.org/nutritional-guidelines",
+    "publisher": "FEDIAF",
+    "title": "Nutritional Guidelines",
+    "date": "2025"
+   },
+   {
+    "url": "https://www.petworldwide.net/content-1/news/2025/09/09/fediaf-publishes-2025-nutritional-guidelines-for-cats-and-dogs.html",
+    "publisher": "PET worldwide",
+    "title": "Fediaf publishes 2025 Nutritional Guidelines for Cats and Dogs",
+    "date": "2025-09-09"
+   }
+  ]
+ },
+ {
+  "id": "cma-infant-formula-brand-premium-2025",
+  "title": "CMA: cheaper infant formula could save about 300 pounds in year one",
+  "finding": "The Competition and Markets Authority published its final report on infant and follow-on formula on 14 February 2025. It estimated that switching from a popular mid-priced brand to a low-priced one could save about 300 pounds over a baby's first year, and up to 500 pounds from a premium brand. It said many parents assume a higher price means better quality, while NHS advice is that every brand meets a baby's nutritional needs whatever the price. Trade reports of the study say three firms supply more than 90% of the market.",
+  "categories": [
+   "baby"
+  ],
+  "subcategories": [
+   "Infant formula"
+  ],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "The saving assumes only formula from birth to 12 months, on Tesco prices for 800 g powder at the time, so a part-formula-fed baby would save less. The CMA did not recommend a price cap for now, because a cap could push low prices up. We read the CMA's press notice, not the full report. Babies with allergies or on a prescribed formula need advice from a health visitor, pharmacist or doctor before any change.",
+  "sources": [
+   {
+    "url": "https://www.gov.uk/government/news/infant-formula-cma-outlines-clear-path-forward-to-help-parents-save-hundreds-of-pounds-a-year",
+    "publisher": "Competition and Markets Authority",
+    "title": "Infant formula: CMA outlines clear path forward to help parents save hundreds of pounds a year",
+    "date": "2025-02-14"
+   },
+   {
+    "url": "https://www.solicitorsjournal.com/sjarticle/infant-formula-market-study-cma-publishes-final-report",
+    "publisher": "Solicitors Journal",
+    "title": "Infant formula market study: CMA publishes final report",
+    "date": "2025-04-03"
+   },
+   {
+    "url": "https://www.foodmanufacture.co.uk/Article/2025/02/17/cma-publishes-baby-formula-findings-2025/",
+    "publisher": "Food Manufacture",
+    "title": "CMA addresses 'unintended consequences' of baby formula regulations",
+    "date": "2025-02-17"
+   }
+  ]
+ },
+ {
+  "id": "cosmetic-label-durability-rules-eu-uk",
+  "title": "EU and UK cosmetic labels must show a durability or opening period",
+  "finding": "Article 19 of EU Regulation 1223/2009 (November 2009) sets what a cosmetic label must show, including the responsible person's name and address, the nominal content, a batch number or reference, precautions, the function if it is not obvious, and an ingredients list. A product that keeps 30 months or less must show a best-before date. A product that keeps longer shows instead an open-jar symbol with the months or years it stays safe after opening. The UK's revised version of the regulation keeps this rule.",
+  "categories": [
+   "skincare-personal-care",
+   "beauty-hair"
+  ],
+  "subcategories": [],
+  "markets": [
+   "GB",
+   "DE"
+  ],
+  "caveat": "This tells a shopper what the label must show, not which product is better or cheaper. The opening period is left off where it does not apply, and the EU text gives single-use products and packs that do not open as examples. The UK page's latest change shown is dated 31 December 2022, and that site warns its revised text may not be fully up to date. Both sources are versions of one regulation, not independent reports.",
+  "sources": [
+   {
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R1223",
+    "publisher": "EUR-Lex",
+    "title": "Regulation (EC) No 1223/2009 on cosmetic products",
+    "date": "2009-11-30"
+   },
+   {
+    "url": "https://www.legislation.gov.uk/eur/2009/1223/article/19",
+    "publisher": "legislation.gov.uk",
+    "title": "Regulation (EC) No 1223/2009, Article 19 (labelling), UK revised version",
+    "date": "2022-12-31"
+   }
+  ]
+ },
+ {
+  "id": "cma-bigger-packs-not-always-cheaper",
+  "title": "Bigger packs are not always cheaper per unit",
+  "finding": "The CMA's January 2024 summary of its unit pricing research checked a basket of 26 everyday grocery products on a data snapshot from 9 May 2023. It says bigger packs usually had a lower unit price, but not always. Toilet roll, cheese and laundry detergent pods were its examples of the larger pack having the higher unit price. Which? made the same general point in an article dated 23 August 2022, after tracking 10 types of groceries at Asda, Morrisons, Sainsbury's and Tesco from 1 March to 31 May: bigger is often better value, but not always.",
+  "categories": [
+   "general",
+   "food-pantry"
+  ],
+  "subcategories": [],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "Both are spot checks, not a full count of the market. Neither says how often the bigger pack costs more per unit, and the worked examples Which? gives are of small packs costing more. The unit price on the shelf label is the figure to compare.",
+  "sources": [
+   {
+    "url": "https://www.gov.uk/government/publications/unit-pricing-analysis-and-consumer-research/summary-of-consumer-research-and-unit-pricing-analysis",
+    "publisher": "Competition and Markets Authority",
+    "title": "Summary of consumer research and unit pricing analysis",
+    "date": "2024-01-30"
+   },
+   {
+    "url": "https://www.which.co.uk/policy-and-insight/article/can-you-spot-the-cheapest-supermarket-prices-asvVe1C5iZMO",
+    "publisher": "Which?",
+    "title": "Can you spot the cheapest supermarket prices?",
+    "date": "2022-08-23"
+   }
+  ]
+ },
+ {
+  "id": "which-2024-baked-beans-own-label-beat-heinz",
+  "title": "Aldi own-label baked beans beat Heinz in a Which? test",
+  "finding": "Which? had 66 people blind taste 10 baked beans and published the result on 27 September 2024, with prices checked on 13 September. Aldi's own-label Bramwells beans scored 76% at 41p for a 410g can. Heinz Beanz scored 72% at £1.40 for 415g. In its 29 October 2026 own-brand roundup, Which? gave an Aldi Bramwells bean 77% at 39p a can and said Aldi and Lidl own-label beans scored higher than Heinz, the priciest on that test. The roundup gives no score or price for Heinz.",
+  "categories": [
+   "food-pantry"
+  ],
+  "subcategories": [
+   "Baked beans"
+  ],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "Branston, a brand at £1 for 410g, scored 75% in 2024, close to the winner. Heinz still earned a Which? Best Buy in the 2026 round, for its tomato flavour. The 2024 and 2026 results use different scores and prices, so keep the dates apart. This covers one category and does not show that own-label beats every brand.",
+  "sources": [
+   {
+    "url": "https://www.which.co.uk/policy-and-insight/article/beans-on-a-budget-supermarket-own-brand-baked-beans-beat-branded-favourites-aLrd20H6Mayc",
+    "publisher": "Which?",
+    "title": "Beans on a budget: Supermarket own-brand baked beans beat branded favourites",
+    "date": "2024-09-27"
+   },
+   {
+    "url": "https://news.stv.tv/world/supermarket-own-label-baked-beans-beat-well-known-brands-heinz-and-branston-in-blind-taste-test",
+    "publisher": "STV News",
+    "title": "Supermarket own-label baked beans beat Heinz and Branston in taste test",
+    "date": "2024-09-27"
+   },
+   {
+    "url": "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+    "publisher": "Which?",
+    "title": "8 own-brand Best Buys our experts love – and how they compete with the big names",
+    "date": "2026-10-29"
+   }
+  ]
+ },
+ {
+  "id": "which-2024-tea-asda-beat-pg-tips",
+  "title": "Asda own-label tea edged PG Tips in a blind test",
+  "finding": "Which? ran a blind tasting of 12 teas with 79 tea drinkers and published it on 6 September 2024, with prices checked on 30 August 2024. Asda Everyday tea bags scored 72% and cost £1.20 for 80 bags. PG Tips Original scored 71% and cost £3 for 80 bags. Grocery Gazette reported the same scores on 6 September 2024.",
+  "categories": [
+   "food-pantry"
+  ],
+  "subcategories": [
+   "Tea",
+   "Tea bags"
+  ],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "The gap is one point, so PG Tips lost on price rather than clearly on taste. The PG Tips price comes from Which? only, since Grocery Gazette does not give it. The test is from 2024 and used one panel. Prices and blends change, so check the current pack.",
+  "sources": [
+   {
+    "url": "https://www.which.co.uk/policy-and-insight/article/the-perfect-cuppa-supermarket-own-brand-tea-bags-beat-branded-favourites-aYXko9I0vZQn",
+    "publisher": "Which?",
+    "title": "The perfect cuppa: supermarket own brand tea bags beat branded favourites",
+    "date": "2024-09-06"
+   },
+   {
+    "url": "https://www.grocerygazette.co.uk/2024/09/06/asda-tea-bags-ranking/",
+    "publisher": "Grocery Gazette",
+    "title": "Data: Asda tea bags beat big-name brands in consumer ranking",
+    "date": "2024-09-06"
+   }
+  ]
+ },
+ {
+  "id": "stiftung-warentest-2023-own-label-basket-34-percent",
+  "title": "Stiftung Warentest: own-label food scored close to brands",
+  "finding": "Stiftung Warentest's January 2023 review covered 1,414 food products from a little over four years of tests. Across 48 evaluated tests, brands averaged a grade of 2.8 and own-label products 2.7, where lower is better, so quality was close. In 25 tests it bought the best brand and the best own-label product still on sale. The own-label basket cost €75.60 against €115.08 for the brands, which is 34% less.",
+  "categories": [
+   "food-pantry",
+   "general"
+  ],
+  "subcategories": [],
+  "markets": [
+   "DE"
+  ],
+  "caveat": "The 34% comes from one basket of selected products, not from an average shopping bill. Brands were ahead in sensory testing (2.3 against 2.5) and slightly ahead on microbiological quality. Own-label was slightly ahead on pollutants (2.3 against 2.4) and on labelling. Tofu, oil and organic meat cost about the same either way. Stiftung Warentest's own article says 58 food tests in all, against 48 in its release, and we have not read the paywalled tables. The data is from 2023, so prices will differ.",
+  "sources": [
+   {
+    "url": "https://www.test.de/presse/pressemitteilungen/Der-grosse-Markenvergleich-Handelsmarken-bieten-oft-gute-Qualitaet-fuer-weniger-Geld-5957414-0/",
+    "publisher": "Stiftung Warentest",
+    "title": "Der große Markenvergleich: Handelsmarken bieten oft gute Qualität für weniger Geld",
+    "date": "2023-01-25"
+   },
+   {
+    "url": "https://www.heidelberg24.de/verbraucher/einkauf-test/eigenmarke-stiftung-marke-noname-warentest-lebensmittel-vergleich-preis-92048293.html",
+    "publisher": "Heidelberg24",
+    "title": "Preis-Vergleich bei Stiftung Warentest: Marke vs. No-Name – teurer ist nicht gleich besser",
+    "date": "2023-04-03"
+   }
+  ]
+ },
+ {
+  "id": "nber-informed-shoppers-store-brands",
+  "title": "Informed shoppers choose store brands more often",
+  "finding": "Bronnenberg, Dubé, Gentzkow and Shapiro used Nielsen Homescan data from 2004 to 2011, covering 125,114 households. Pharmacists chose national-brand headache remedies over store brands 9% of the time, against 26% for the average shopper. Chefs gave 12 percentage points less of their pantry staple purchases to national brands than otherwise similar non-chefs. Shoppers who could name all the active ingredients in national-brand headache remedies had an 85% chance of buying the store brand, 19 points more than shoppers who could name none. The paper was published in the Quarterly Journal of Economics in 2015. NBER's November 2014 digest puts yearly spending on items with a store-brand alternative at $196 billion, with about $44 billion of possible savings from switching.",
+  "categories": [
+   "general",
+   "food-pantry"
+  ],
+  "subcategories": [
+   "Pantry staples"
+  ],
+  "markets": [
+   "US"
+  ],
+  "caveat": "This is US household data from 2004 to 2011, so it may not hold for shoppers in the UK or EU. The authors find that lack of information explains a large share of the brand premium for health products but a much smaller share for most food and drink. It shows which brand people choose, not that the store brand is identical. The pharmacist figure describes buying habits and is not advice on which medicine to buy.",
+  "sources": [
+   {
+    "url": "https://www.nber.org/papers/w20295",
+    "publisher": "NBER (Working Paper 20295)",
+    "title": "Do Pharmacists Buy Bayer? Informed Shoppers and the Brand Premium",
+    "date": "2014-07"
+   },
+   {
+    "url": "https://www.nber.org/digest/nov14/informed-shoppers-and-brand-premiums",
+    "publisher": "NBER Digest",
+    "title": "Informed Shoppers and Brand Premiums",
+    "date": "2014-11-01"
+   }
+  ]
+ },
+ {
+  "id": "consumer-reports-store-brands-2010-2012",
+  "title": "Consumer Reports: store brands tie often, name brands still win some",
+  "finding": "In its September 2010 release on 21 taste matchups, Consumer Reports found national brands won 7, store brands won 3 and the remaining 11 were ties. Mayonnaise, mozzarella and frozen french fries were among the national-brand wins. Its August 2012 release on 19 grocery staples found the store brand tied 10 times, beat the name brand once (Giant Eagle chicken broth over Swanson) and lost 8 times. That release gives an average saving of 25 percent from switching to store brands.",
+  "categories": [
+   "food-pantry"
+  ],
+  "subcategories": [
+   "Mayonnaise",
+   "Mozzarella",
+   "Frozen french fries"
+  ],
+  "markets": [
+   "US"
+  ],
+  "caveat": "These are US tests from 2010 and 2012, so they are old and the products have changed. The 2010 release names only three of the seven national-brand wins. Ties are common and some name brands win, so this does not show that store brands always match.",
+  "sources": [
+   {
+    "url": "https://www.consumerreports.org/media-room/press-releases/2010/09/latest-taste-tests-find-some-store-brands-at-least-as-good-as-national-brands/",
+    "publisher": "Consumer Reports",
+    "title": "Latest Taste Tests Find Some Store Brands At Least As Good As National Brands",
+    "date": "2010-09-07"
+   },
+   {
+    "url": "https://www.consumerreports.org/media-room/press-releases/2012/08/eleven-store-brand-products-tie-or-beat-name-brand-rivals-in-cr-taste-tests/",
+    "publisher": "Consumer Reports",
+    "title": "Eleven Store-Brand Products Tie Or Beat Name-Brand Rivals In CR Taste-Tests",
+    "date": "2012-08-30"
+   }
+  ]
+ },
+ {
+  "id": "umass-shrinkflation-food-2026",
+  "title": "US food packs shrank 14.6% on average, 2012 to 2019",
+  "finding": "A UMass Amherst study led by Christian Rojas, with Edward Jaenicke of Penn State and Elina Page of the US Department of Agriculture, used national US retail scanner data. The average size of packaged food fell by 14.6% between 2012 and 2019. Smaller packs added nearly four percentage points to measured food inflation over that time. Classic shrinkflation, where a continuing product is downsized, covered fewer than 0.5% of products. Most of the decline came from new, smaller products entering the market. The study appeared in the International Journal of Industrial Organization and was reported in January and February 2026.",
+  "categories": [
+   "general",
+   "food-pantry"
+  ],
+  "subcategories": [],
+  "markets": [
+   "US"
+  ],
+  "caveat": "This is US data up to 2019, not UK or EU. We could not open the paper itself, so the numbers come from the university's write-up on Phys.org and an NEPM interview with the lead author. NEPM rounds the fall to nearly 15%. It does not show which of your own items shrank.",
+  "sources": [
+   {
+    "url": "https://phys.org/news/2026-01-reveals-package-sizes-significant-food.html",
+    "publisher": "Phys.org (credited to UMass Amherst)",
+    "title": "Study reveals shrinking package sizes hide significant food inflation",
+    "date": "2026-01-28"
+   },
+   {
+    "url": "https://www.nepm.org/regional-news/2026-02-09/shrinkflation-umass-amherst-study-looks-at-food-product-sizes",
+    "publisher": "NEPM",
+    "title": "Shrinkflation? UMass Amherst study looks at food product sizes",
+    "date": "2026-02-09"
+   }
+  ]
+ },
+ {
+  "id": "which-2026-own-label-beats-brands-several-categories",
+  "title": "Which? 2026: cheaper products beat some big names in its tests",
+  "finding": "Which?'s 29 October 2026 own-brand roundup gave Tesco Extra Long Life AAA batteries 78% at £3.50 for four and Sainsbury's Home Long Life Alkaline AA batteries 77% at £3.70 for four, both slightly above Duracell's Best Buy batteries. Aldi's Magnum Original washing-up liquid scored 78% at 62p, slightly above Fairy Original. Its 11 June 2026 article said some of the most expensive laundry detergents were outperformed by cheaper ones, and that alternatives to big-name rechargeable batteries tend to be cheaper, with some duds and some among the best it has tested.",
+  "categories": [
+   "general",
+   "household",
+   "batteries"
+  ],
+  "subcategories": [
+   "Batteries",
+   "AA batteries",
+   "AAA batteries",
+   "Rechargeable batteries",
+   "Washing-up liquid",
+   "Laundry detergent"
+  ],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "Duracell keeps a Best Buy and its score is not given. Aldi's Magnum came close to the two Fairy Max Power Best Buys but did not beat them. The June article names no winners outside the members' area, and it says cheaper rather than own-label. Ranks change with each test round.",
+  "sources": [
+   {
+    "url": "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+    "publisher": "Which?",
+    "title": "8 own-brand Best Buys our experts love – and how they compete with the big names",
+    "date": "2026-10-29"
+   },
+   {
+    "url": "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+    "publisher": "Which?",
+    "title": "Expert-tested: the seven Best Buy everyday essentials you need to get right",
+    "date": "2026-06-11"
+   }
+  ]
+ },
+ {
+  "id": "own-brand-batteries-beat-duracell-not-energizer",
+  "title": "Own-label batteries beat Duracell's Best Buy, not Energizer's",
+  "finding": "Which?'s roundup of 29 October 2026 gives Tesco Extra Long Life AAA batteries 78% at £3.50 for four, and Sainsbury's Home Long Life Alkaline AA batteries 77% at £3.70 for four. Both are Best Buys. Both scored slightly higher than Duracell's Best Buy batteries but did not match Energizer's top-scoring ones. The Sainsbury's AA outlasted every other alkaline on test in low-drain devices. Which?'s feature of 11 June 2026 says rechargeable alternatives to the big names tend to be cheaper, and that some are duds while others are among the best it has tested.",
+  "categories": [
+   "batteries"
+  ],
+  "subcategories": [
+   "AA batteries",
+   "AAA batteries",
+   "Rechargeable AA batteries",
+   "Rechargeable AAA batteries"
+  ],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "Energizer's top batteries still beat both supermarket packs. Neither article gives a score or price for Energizer or Duracell, so we cannot say how big the gaps are or how much you save. Both sources are from Which?, covering its alkaline and rechargeable tests separately, and the full tables need a Which? login. The June warning about duds is about rechargeables only.",
+  "sources": [
+   {
+    "url": "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+    "publisher": "Which?",
+    "title": "8 own-brand Best Buys our experts love – and how they compete with the big names",
+    "date": "2026-10-29"
+   },
+   {
+    "url": "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+    "publisher": "Which?",
+    "title": "Expert-tested: the seven Best Buy everyday essentials you need to get right",
+    "date": "2026-06-11"
+   }
+  ]
+ },
+ {
+  "id": "de-full-wash-2025-cheap-powders-beat-persil",
+  "title": "Cheap powders beat Persil in a German 2025 detergent test",
+  "finding": "Stiftung Warentest tested 20 full-wash detergents in issue 4/2025, published 19 March 2025, and rated eight of them good. A wash cost between 16 and 34 cents. A mydealz report of the test gives dm Denkmit and Lidl Formil a grade of 1.6 and Rossmann Domol 1.7, all at 16 cents per wash, against 1.9 for Persil Universal Megaperls at 34 cents. On this scale a lower number is better. Lenor Universalwaschmittel Aprilfrisch, a named brand, was rated poor at 5.1.",
+  "categories": [
+   "household"
+  ],
+  "subcategories": [
+   "Laundry detergent"
+  ],
+  "markets": [
+   "DE"
+  ],
+  "caveat": "Persil's 1.9 is still a good grade, so the gap in quality is small and the gap in price is the larger one. The numeric grades come from one deal-site report, because test.de charges to unlock them. Heidelberg24 confirms that Denkmit and Formil powders were rated good but does not give a grade for Persil. Own-label did not always win: Denkmit's liquid was rated only satisfactory, and Aldi's Tandil Ultra liquid earned 2.5 with only satisfactory cleaning. Products were bought in June and July 2024, with prices from January 2025.",
+  "sources": [
+   {
+    "url": "https://www.test.de/Vollwaschmittel-Die-Besten-fuer-Weisses-4770157-4767045/",
+    "publisher": "Stiftung Warentest",
+    "title": "Vollwaschmittel im Test: Weiß zum Sparpreis",
+    "date": "2025-03-19"
+   },
+   {
+    "url": "https://www.mydealz.de/magazin/stiftung-warentest-diese-discounter-waschmittel-sind-besser-als-persil-und-co-26732",
+    "publisher": "mydealz",
+    "title": "Stiftung Warentest: Diese Discounter-Waschmittel sind besser als Persil und Co.",
+    "date": "2025-03-19"
+   },
+   {
+    "url": "https://www.heidelberg24.de/verbraucher/einkauf-test/oekotest-bestes-waschmittel-note-sieger-fluessig-vergleich-stiftung-warentest-note-92573848.html",
+    "publisher": "Heidelberg24",
+    "title": "Das beste Waschmittel – Discounter-Marken überzeugen im Test",
+    "date": "2026-01-29"
+   }
+  ]
+ },
+ {
+  "id": "dishwasher-tablets-aldi-lidl-under-half-price-per-wash",
+  "title": "Aldi and Lidl tablets cost under half of Fairy and Finish per wash",
+  "finding": "In prices from Which?'s April 2026 test, Aldi Magnum Premium All In One cost 11p per wash and Lidl W5 All In One 10p, against 24p each for Fairy Platinum All In One and Finish Powerball Ultimate All In One. Asda, Sainsbury's and Tesco tablets cost 12p to 13p. In Germany, Stiftung Warentest tested 16 products at about 9 to 27 cents per use, as Stuttgarter Zeitung reported on 30 July 2026. It said several cheap own-label products did well in almost all key areas, and a higher price did not automatically mean cleaner dishes.",
+  "categories": [
+   "household",
+   "kitchen"
+  ],
+  "subcategories": [
+   "Dishwasher tablets"
+  ],
+  "markets": [
+   "GB",
+   "DE"
+  ],
+  "caveat": "Own-label did not always win. Three products in the German test were rated poor: Edeka Gut & Günstig liquid caps for weak cleaning, Finish Powerball Ultimate Plus caps for water pollution rather than cleaning, and Frosch tablets because deposits blocked the machine's sieve. The Edeka caps are no longer sold, and Finish and Frosch have since changed theirs. Which?'s cleaning scores need a login, so its prices say nothing here about how well the cheap tablets clean. The German report does not name the store brands that did well, and the UK and German figures come from different tests.",
+  "sources": [
+   {
+    "url": "https://www.which.co.uk/reviews/dishwasher-tablets",
+    "publisher": "Which?",
+    "title": "Best dishwasher tablets 2026: tried and tested by Which? experts",
+    "date": "2026-10-05"
+   },
+   {
+    "url": "https://www.stuttgarter-zeitung.de/panorama/spuelmaschinen-tabs-im-test-drei-produkte-fallen-durch-guenstige-mittel-ueberzeugen-79345476.html",
+    "publisher": "Stuttgarter Zeitung (reporting Stiftung Warentest)",
+    "title": "Spülmaschinen-Tabs im Test: Drei Produkte fallen durch – günstige Mittel überzeugen",
+    "date": "2026-07-30"
+   }
+  ]
+ },
+ {
+  "id": "usb-if-certified-cable-meaning",
+  "title": "What a USB-IF certified cable has to meet",
+  "finding": "USB-IF's own pages, undated and read on 6 November 2026, set these rules. A product that passes its compliance testing counts as certified and is added to the Integrators List. Connectors must be certified first. A USB-C to USB-C cable must be labelled 60W or 240W, and the logo must be on the cable, where the test lab checks it. Using the logo needs a certified product and a trademark licence. How-To Geek reported the 60W and 240W logos on 30 September 2021 and said they appear on certified cables.",
+  "categories": [
+   "tech-tools"
+  ],
+  "subcategories": [
+   "USB-C cables"
+  ],
+  "markets": [],
+  "caveat": "These sources explain the rules. They do not test any cable, and they do not compare cheap cables with dear ones, or cover price, warranty or lifespan. USB-IF does not name its test specifications on these pages or say anything about uncertified cables, so a missing logo does not tell you a cable is unsafe. Captive cables, which are fixed to a device, are not eligible. How-To Geek's report is from 2021.",
+  "sources": [
+   {
+    "url": "https://usb.org/node/596",
+    "publisher": "USB-IF",
+    "title": "Cables and Connectors",
+    "date": "undated, checked 2026-11-06"
+   },
+   {
+    "url": "https://usb.org/node/579",
+    "publisher": "USB-IF",
+    "title": "Compliance",
+    "date": "undated, checked 2026-11-06"
+   },
+   {
+    "url": "https://www.howtogeek.com/758954/these-new-usb-c-logos-make-picking-charging-cables-easier/",
+    "publisher": "How-To Geek",
+    "title": "These New USB-C Logos Make Picking Charging Cables Easier",
+    "date": "2021-09-30"
+   }
+  ]
+ },
+ {
+  "id": "screenwash-own-brand-cleaned-best-cheap-froze",
+  "title": "The cheapest screenwashes froze in two UK car-magazine tests",
+  "finding": "In Hagerty's January 2023 test of seven screenwashes, the cheapest, WCSIL tablets at £0.18 a litre, scored 1 and turned to ice once the temperature fell below zero. Tesco's concentrate cost £0.33 a litre at summer strength and £1.30 at winter strength, scored 7 and froze solid at -18 C. Halfords' -20 concentrate cost £0.54 and £1.37, scored a top 9, cleaned best and did not freeze. In Auto Express's test of eight, dated 1 September 2026 and run at -15 C, Aldi's Ride & Go was the cheapest it could find at £2.99 for 5 litres, about £0.60 a litre by our sum. It froze after an hour, left traces of grease and bugs and got 3 stars. Asda All-Seasons, at around £4 for 5 litres, also froze after an hour but got 4 stars, and the magazine called it arguably the best value.",
+  "categories": [
+   "car"
+  ],
+  "subcategories": [
+   "Screenwash"
+  ],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "The brand won the 2026 test: Prestone Extreme, at around £4.75 for 2.5 litres, got 5 stars, with Tesco's concentrate third on value and all-round performance. Halfords did not hold its lead either. Its Berry Scented wash, at around £8 for 5 litres, was solid by three hours and Auto Express said supermarket rivals do a similar job for less. Aldi's wash makes no winter claim, and freezing only matters if the car sees frost. Both tests are small and have the same writer, and prices are as listed at the time.",
+  "sources": [
+   {
+    "url": "https://www.hagerty.co.uk/articles/maintenance-and-gear/reviewed-rated-the-best-screenwash-tested/",
+    "publisher": "Hagerty UK",
+    "title": "Reviewed & Rated: The best screenwash tested",
+    "date": "2023-01-13"
+   },
+   {
+    "url": "https://www.autoexpress.co.uk/product-reviews/65265/best-car-screen-wash",
+    "publisher": "Auto Express",
+    "title": "Best car screen wash 2026",
+    "date": "2026-09-01"
+   }
+  ]
+ },
+ {
+  "id": "engine-oil-cheap-vw-spec-passed",
+  "title": "Budget engine oils held up against brand oils in two German tests",
+  "finding": "A test of twelve motor oils by GTÜ and ACE Auto Club Europa, reported on 11 July 2014, found no basis for the suspicion that cheap oil is only half as good as brand oil. The oils cost €8.99 to €26.75 a litre. Four oils at €11.90 to €13.99 were rated very recommended, while brand oils well above €20 a litre, such as Shell, Mercedes and VW, reached only recommended or conditionally recommended. In auto motor und sport's test of 13 no-name 5W-30 oils against Castrol Edge 5W-30, last updated 10 March 2016, 11 passed the lab checks and were rated recommended, and some stood up well to Castrol on the properties scored. Castrol cost more than three times as much per litre as the cheap oils. All the test oils claimed VW 507.00 on the label, and 10 of the 11 recommended oils had a verifiable VW approval.",
+  "categories": [
+   "car"
+  ],
+  "subcategories": [
+   "Engine oil"
+  ],
+  "markets": [
+   "DE"
+  ],
+  "caveat": "Two of the 13 no-name oils did not pass the 2016 lab checks, and the approval on one recommended oil could not be clearly confirmed. Neither article says a cheap oil beat Castrol, and the 2016 test published no numerical scores. Both tests are German and about ten years old, with prices from that time. The 2014 article warns that simply buying the cheapest oil is a mistake because oils do not suit every engine, and both articles warn about vague label wording. Check that the approval your handbook asks for is printed on the label.",
+  "sources": [
+   {
+    "url": "https://de.motor1.com/news/152826/motorole-im-test-markenole-nicht-besser-als-no-name-ole/",
+    "publisher": "Motor1 Deutschland (reporting GTÜ and ACE Auto Club Europa)",
+    "title": "Angeschmiert mit teurer Marken-Schmiere",
+    "date": "2014-07-11"
+   },
+   {
+    "url": "https://www.auto-motor-und-sport.de/test/motoroel/",
+    "publisher": "auto motor und sport",
+    "title": "5W-30 Motoröle im Test: Wie gut sind Mannol, Rowe und Co.?",
+    "date": "2016-03-10"
+   }
+  ]
+ },
+ {
+  "id": "kitchen-foil-store-brands-match-name-brand",
+  "title": "Foil brand barely mattered, but the thinnest cheap foil lost",
+  "finding": "America's Test Kitchen's review of nine foils, last updated 9 July 2025, concluded that it does not really matter which brand or type you buy, with differences mainly in the box and cutter. It recommended store brands Kirkland (Costco), 365 (Whole Foods) and up & up (Target) as well as Reynolds. Its only rejected foils were both from If You Care, because the cardboard cutter tore the foil messily. A one-person test of six regular foils by Parade, dated 8 March 2025 and republished by AOL, ranked Reynolds first at under $5. It called Giant's store brand, at $4.29, a great foil for shoppers on a budget, though it developed small tears when reused. Dollar Tree's foil, at $1.25, came last: it was noticeably thinner than the others and ripped when lifted out after baking.",
+  "categories": [
+   "kitchen"
+  ],
+  "subcategories": [
+   "Kitchen foil"
+  ],
+  "markets": [
+   "US"
+  ],
+  "caveat": "The brand won where a winner was named: Parade put Reynolds first, and America's Test Kitchen listed Reynolds foils first among its top picks. Store brand up & up came fourth for Parade, behind Giant and Nature's Promise. The cheap loss applies to the thinnest foils, Dollar Tree and Dollar General's True Living, not to store brands in general. Both tests are American with US prices, and America's Test Kitchen gives no test date.",
+  "sources": [
+   {
+    "url": "https://www.americastestkitchen.com/equipment_reviews/2748-the-best-aluminum-foil",
+    "publisher": "America's Test Kitchen",
+    "title": "The Best Aluminum Foil",
+    "date": "2025-07-09"
+   },
+   {
+    "url": "https://www.aol.com/tested-6-different-brands-aluminum-190000346.html",
+    "publisher": "AOL (syndicating Parade)",
+    "title": "We Tested 6 Different Brands of Aluminum Foil and the Winner Was Abundantly Clear",
+    "date": "2025-03-08"
+   }
+  ]
+ },
+ {
+  "id": "compost-brand-and-price-do-not-predict-quality",
+  "title": "Which? finds compost brand and price do not predict quality",
+  "finding": "Which? said on 5 February 2026 that price and brand name do not guarantee a good seed compost, that some well-known brands rank lower than expected and that several smaller ones do well. Its guide updated 5 October 2026 says results vary widely for both cheap and expensive compost, with prices from 99p to £25. Don't Buy verdicts, for scores under 45 per cent, include Miracle-Gro Peat Free Premium Moisture Control at 40 per cent for patio pots, Wickes Peat Free Multi-Purpose at 38 per cent for patio pots and PlantGrow Multi-Purpose at 34 per cent for patio pots and 28 per cent for young plants. An older Which? trial of 24 composts, reported by DIY Week on 8 January 2010, found B&Q's own multipurpose was consistently the best performer and also the cheapest on test, at £3.98 for 70 litres.",
+  "categories": [
+   "garden"
+  ],
+  "subcategories": [
+   "Compost"
+  ],
+  "markets": [
+   "GB"
+  ],
+  "caveat": "All of this comes from one tester, Which?, and most of its score tables are for members only. The prices of the Don't Buy products are not shown on the page, so they do not show that dear compost lost. Which? says own-brand composts such as Aldi, B&Q and Lidl are often left out because formulations change, though some Aldi Gardenline products are in its tables. The B&Q result is 16 years old and that compost contained 63 per cent peat, so it says nothing about today's B&Q compost. The 2026 guide also gives two different counts of products tested.",
+  "sources": [
+   {
+    "url": "https://www.which.co.uk/news/article/weve-found-the-best-compost-for-growing-seeds-aLdsp8Z1LC08",
+    "publisher": "Which?",
+    "title": "We've found the best compost for growing seeds, and our expert tests prove it",
+    "date": "2026-02-05"
+   },
+   {
+    "url": "https://www.which.co.uk/reviews/compost/article/best-composts-for-containers",
+    "publisher": "Which?",
+    "title": "Best compost to buy in 2026",
+    "date": "2026-10-05"
+   },
+   {
+    "url": "https://www.diyweek.net/b-q-best-for-compost-says-which-trial",
+    "publisher": "DIY Week (reporting Which?)",
+    "title": "B&Q best for compost says Which? trial",
+    "date": "2010-01-08"
+   }
+  ]
+ }
+]

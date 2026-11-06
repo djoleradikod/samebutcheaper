@@ -117,9 +117,15 @@ export function ProductThumb({
   unit,
   size = "md",
   className = "",
+  alt,
+  eager = false,
 }: {
   image?: string | null;
   brand: string;
+  /** Describes the photo. Defaults to the brand name. */
+  alt?: string;
+  /** Set for the largest image on the page so it isn't lazy-loaded. */
+  eager?: boolean;
   category: CategorySlug;
   /** The pack unit (tablet, fl oz, oz...), used to pick the drawing. */
   unit?: string;
@@ -131,17 +137,23 @@ export function ProductThumb({
   const box = `${SIZES[size]} shrink-0 overflow-hidden border border-line ${className}`;
 
   if (image && !failed) {
+    const local = image.startsWith("/products/");
     return (
       <div className={`${box} grid place-items-center bg-white p-2`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={image}
-          alt={brand}
-          loading="lazy"
+          src={local ? `${image}-160.webp` : image}
+          srcSet={local ? `${image}-160.webp 160w, ${image}-480.webp 480w` : undefined}
+          sizes={size === "lg" ? "(min-width: 640px) 320px, 45vw" : size === "md" ? "96px" : "64px"}
+          width={size === "lg" ? 480 : 160}
+          height={size === "lg" ? 480 : 160}
+          alt={alt ?? brand}
+          loading={eager ? "eager" : "lazy"}
+          fetchPriority={eager ? "high" : undefined}
           decoding="async"
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
-          className="h-full w-full object-contain mix-blend-multiply"
+          className="h-full w-full object-contain"
         />
       </div>
     );

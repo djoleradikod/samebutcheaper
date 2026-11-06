@@ -1,32 +1,42 @@
 /**
- * Validates every pair in data/pairs/*.json and writes the derived catalog to
+ * Validates every record in data/ and writes the derived catalog to
  * src/generated/catalog.json. Run automatically before `dev` and `build`.
  *
- *   npm run catalog          # build, fail on any invalid pair
- *   npm run catalog -- --lenient   # skip invalid pairs with a warning
+ *   npm run catalog          # build, fail on any invalid record
+ *   npm run catalog -- --lenient   # skip invalid records with a warning
  */
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import {
   bundleSchema,
+  claimSchema,
+  imageRecordSchema,
   migrateLegacyPrices,
   normalizeUnit,
   pairSchema,
+  presetSchema,
+  shelfLifeSchema,
   type BundleInput,
+  type ImageRecord,
   type MatchType,
   type PairInput,
+  type PresetInput,
 } from "../src/lib/schema";
 import { APPROX_USD, MARKETS, type LookFor } from "../src/lib/markets";
 import { dupeSlugFor } from "../src/lib/dupes";
-import type { Bundle, Catalog, Pair } from "../src/lib/types";
+import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, ShelfLife } from "../src/lib/types";
 
 const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data", "pairs");
 const BUNDLE_DIR = join(ROOT, "data", "bundles");
+const PRESET_DIR = join(ROOT, "data", "presets");
+const EVIDENCE_DIR = join(ROOT, "data", "evidence");
+const IMAGE_DIR = join(ROOT, "public", "products");
 const OUT_DIR = join(ROOT, "src", "generated");
 const lenient = process.argv.includes("--lenient");
 
 const round = (n: number, d = 4) => Math.round(n * 10 ** d) / 10 ** d;
+const errors: string[] = [];
 
 const FORMS: Record<string, string> = {
   tablet: "tablets",
@@ -91,6 +101,128 @@ function lookFor(
   return { text };
 }
 
+/* ---------------------------------------------------------------- evidence */
+
+function readArray(dir: string, file: string): unknown[] {
+  const path = join(dir, file);
+  if (!existsSync(path)) return [];
+  const raw = JSON.parse(readFileSync(path, "utf8"));
+  if (!Array.isArray(raw)) {
+    errors.push(`${file}: expected a JSON array`);
+    return [];
+  }
+  return raw;
+}
+
+function loadRecords<T>(dir: string, name: string, schema: { safeParse: (x: unknown) => { success: boolean; data?: T; error?: { issues: { path: PropertyKey[]; message: string }[] } } }): T[] {
+  const out: T[] = [];
+  readArray(dir, name).forEach((item, i) => {
+    const parsed = schema.safeParse(item);
+    if (!parsed.success) {
+      errors.push(`${name}[${i}]: ${parsed.error!.issues.map((iss) => `${iss.path.join(".")}: ${iss.message}`).join("; ")}`);
+      return;
+    }
+    out.push(parsed.data as T);
+  });
+  return out;
+}
+
+const claims: Claim[] = loadRecords(EVIDENCE_DIR, "claims.json", claimSchema);
+const shelfLives: ShelfLife[] = loadRecords(EVIDENCE_DIR, "shelf-life.json", shelfLifeSchema);
+const claimById = new Map(claims.map((c) => [c.id, c]));
+const shelfById = new Map(shelfLives.map((s) => [s.id, s]));
+const lower = (s: string) => s.toLowerCase().trim();
+
+/** Findings for a swap: named ones first, then subcategory matches, then category, then general. */
+function claimsFor(p: PairInput): Claim[] {
+  const picked: Claim[] = [];
+  const add = (c: Claim) => {
+    if (!picked.includes(c)) picked.push(c);
+  };
+  for (const id of p.claims) {
+    const c = claimById.get(id);
+    if (c) add(c);
+    else errors.push(`${p.slug}: unknown claim id ${id}`);
+  }
+  const inMarket = (c: Claim) => !c.markets.length || c.markets.includes(p.market);
+  const sub = lower(p.subcategory);
+  for (const c of claims)
+    if (inMarket(c) && c.categories.includes(p.category) && c.subcategories.some((s) => lower(s) === sub)) add(c);
+  for (const c of claims) if (inMarket(c) && c.categories.includes(p.category) && !c.subcategories.length) add(c);
+  for (const c of claims) if (inMarket(c) && c.categories.includes("general")) add(c);
+  return picked.slice(0, 4);
+}
+
+function shelfFor(p: PairInput): ShelfLife | null {
+  if (p.shelf_life) {
+    const s = shelfById.get(p.shelf_life);
+    if (!s) errors.push(`${p.slug}: unknown shelf_life id ${p.shelf_life}`);
+    return s ?? null;
+  }
+  const sub = lower(p.subcategory);
+  return (
+    shelfLives.find((s) => s.subcategories.some((x) => lower(x) === sub)) ??
+    shelfLives.find((s) => !s.subcategories.length && s.categories.includes(p.category)) ??
+    null
+  );
+}
+
+/* ------------------------------------------------------------------ photos */
+
+const imageRecords: Record<string, ImageRecord> = {};
+{
+  const path = join(ROOT, "data", "images.json");
+  if (existsSync(path)) {
+    for (const [key, value] of Object.entries(JSON.parse(readFileSync(path, "utf8")))) {
+      const parsed = imageRecordSchema.safeParse(value);
+      if (!parsed.success) continue; // not ingested yet: the page draws a tile
+      const hasFiles =
+        existsSync(join(IMAGE_DIR, `${parsed.data.file}-160.webp`)) && existsSync(join(IMAGE_DIR, `${parsed.data.file}-480.webp`));
+      if (hasFiles) imageRecords[key] = parsed.data;
+    }
+  }
+}
+
+const credits: Catalog["credits"] = [];
+const creditSeen = new Set<string>();
+
+function photoFor(brand: string, productName: string): Photo | null {
+  const rec = imageRecords[`${brand}|${productName}`];
+  if (!rec) return null;
+  const photo: Photo = {
+    src: `/products/${rec.file}`,
+    credit: rec.credit,
+    license: rec.license,
+    page: rec.page,
+    source: rec.source,
+  };
+  const key = `${brand}|${productName}`;
+  if (!creditSeen.has(key)) {
+    creditSeen.add(key);
+    credits.push({ ...photo, brand, product: productName });
+  }
+  return photo;
+}
+
+/* ------------------------------------------------------------------- pairs */
+
+function bulkViewFor(p: PairInput, brandPpu: number, altPpu: number): BulkView {
+  const view: BulkView = { breakEvenUnits: round(p.alternative.price / brandPpu, 1) };
+  if (p.bulk) {
+    const ppu = p.bulk.price / p.bulk.size;
+    view.bigger = {
+      product: p.bulk.product,
+      size: p.bulk.size,
+      price: p.bulk.price,
+      ppu: round(ppu),
+      retailer: p.bulk.retailer,
+      url: p.bulk.url,
+      extraSavingPct: round(Math.max(0, (1 - ppu / altPpu) * 100), 1),
+    };
+  }
+  return view;
+}
+
 function derive(p: PairInput): Pair {
   const brandPpu = p.brand.price / p.brand.size;
   const altPpu = p.alternative.price / p.alternative.size;
@@ -105,13 +237,16 @@ function derive(p: PairInput): Pair {
   const unit = normalizeUnit(p.brand.unit);
   return {
     ...p,
-    brand: { ...p.brand, unit, ppu: round(brandPpu) },
-    alternative: { ...p.alternative, unit, ppu: round(altPpu) },
+    brand: { ...p.brand, unit, ppu: round(brandPpu), photo: photoFor(p.brand.brand, p.brand.product) },
+    alternative: { ...p.alternative, unit, ppu: round(altPpu), photo: photoFor(p.alternative.brand, p.alternative.product) },
     savingsPct: round(savingsPct, 1),
     savingsPerPack: round(savingsPerPack, 2),
     score: round(score, 2),
     currency,
     lookFor: lookFor(p.match_type, p.alternative, p.look_for),
+    evidence_claims: claimsFor(p),
+    shelfLife: shelfFor(p),
+    bulkView: bulkViewFor(p, brandPpu, altPpu),
   };
 }
 
@@ -123,6 +258,7 @@ function deriveBundle(b: BundleInput): Bundle {
       ...c,
       unit: normalizeUnit(c.unit),
       ppu: round(ppu),
+      photo: photoFor(c.brand, c.product),
       equivalentCost: round(ppu * item.size, 2),
       lookFor: lookFor(c.match_type, c, c.look_for),
     };
@@ -136,6 +272,7 @@ function deriveBundle(b: BundleInput): Bundle {
   return {
     ...b,
     currency,
+    photo: photoFor(b.bundle.brand, b.bundle.name),
     bundle: { ...b.bundle, items: b.bundle.items.map((i) => ({ ...i, unit: normalizeUnit(i.unit) })) },
     components: [...components].sort((x, y) => x.replaces - y.replaces),
     equivalentTotal: round(equivalentTotal, 2),
@@ -149,7 +286,6 @@ function deriveBundle(b: BundleInput): Bundle {
 const files = readdirSync(DATA_DIR).filter((f) => f.endsWith(".json")).sort();
 const pairs: Pair[] = [];
 const seen = new Set<string>();
-const errors: string[] = [];
 
 for (const file of files) {
   const raw = JSON.parse(readFileSync(join(DATA_DIR, file), "utf8"));
@@ -217,6 +353,97 @@ for (const file of bundleFiles) {
   });
 }
 
+/* ----------------------------------------------------------------- presets */
+
+const pairBySlug = new Map(pairs.map((p) => [p.slug, p]));
+
+function derivePreset(input: PresetInput): Preset | null {
+  const lines: PresetLine[] = [];
+  for (const item of input.items) {
+    const p = pairBySlug.get(item.pair);
+    if (!p) {
+      errors.push(`preset ${input.slug}: unknown swap ${item.pair}`);
+      return null;
+    }
+    if (p.market !== input.market) {
+      errors.push(`preset ${input.slug}: ${item.pair} is priced in ${p.market}, not ${input.market}`);
+      return null;
+    }
+    const amount = p.brand.size * item.qty;
+    const brandCost = p.brand.ppu * amount;
+    const altCost = p.alternative.ppu * amount;
+    lines.push({
+      pair: p.slug,
+      qty: item.qty,
+      note: item.note,
+      title: p.title,
+      subcategory: p.subcategory,
+      brandName: p.brand.brand,
+      altName: p.alternative.brand,
+      brandPhoto: p.brand.photo?.src ?? null,
+      altPhoto: p.alternative.photo?.src ?? null,
+      brandCost: round(brandCost, 2),
+      altCost: round(altCost, 2),
+      saved: round(brandCost - altCost, 2),
+      savingsPct: p.savingsPct,
+      unit: p.brand.unit,
+      brandPpu: p.brand.ppu,
+      altPpu: p.alternative.ppu,
+    });
+  }
+  const brandTotal = lines.reduce((s, l) => s + l.brandCost, 0);
+  const altTotal = lines.reduce((s, l) => s + l.altCost, 0);
+  const savings = brandTotal - altTotal;
+  const photos = lines.map((l) => l.altPhoto).filter((x): x is string => !!x);
+  const currency = MARKETS[input.market].currency;
+  const { items: _items, ...rest } = input;
+  void _items;
+  return {
+    ...rest,
+    lines,
+    brandTotal: round(brandTotal, 2),
+    altTotal: round(altTotal, 2),
+    savings: round(savings, 2),
+    savingsPct: round((savings / brandTotal) * 100, 1),
+    currency,
+    photos: photos.slice(0, 4),
+    photoShare: round(photos.length / lines.length, 2),
+    score: round(savings * APPROX_USD[currency], 2),
+  };
+}
+
+const presets: Preset[] = [];
+let presetFiles: string[] = [];
+try {
+  presetFiles = readdirSync(PRESET_DIR).filter((f) => f.endsWith(".json")).sort();
+} catch {
+  /* no presets yet */
+}
+for (const file of presetFiles) {
+  const raw = JSON.parse(readFileSync(join(PRESET_DIR, file), "utf8"));
+  if (!Array.isArray(raw)) {
+    errors.push(`presets/${file}: expected a JSON array`);
+    continue;
+  }
+  raw.forEach((item, i) => {
+    const label = `presets/${file}[${i}] ${item?.slug ?? "(no slug)"}`;
+    const parsed = presetSchema.safeParse(item);
+    if (!parsed.success) {
+      errors.push(`${label}: ${parsed.error.issues.map((iss) => `${iss.path.join(".")}: ${iss.message}`).join("; ")}`);
+      return;
+    }
+    if (seen.has(parsed.data.slug)) {
+      errors.push(`${label}: duplicate slug`);
+      return;
+    }
+    const preset = derivePreset(parsed.data);
+    if (preset) {
+      seen.add(preset.slug);
+      presets.push(preset);
+    }
+  });
+}
+
 if (errors.length) {
   const log = lenient ? console.warn : console.error;
   log(`\n${errors.length} item(s) rejected:\n  - ${errors.join("\n  - ")}\n`);
@@ -225,7 +452,31 @@ if (errors.length) {
 
 pairs.sort((a, b) => b.score - a.score);
 bundles.sort((a, b) => b.score - a.score);
-const catalog: Catalog = { generatedAt: new Date().toISOString(), pairs, bundles };
+presets.sort((a, b) => b.score - a.score);
+
+const anySideReal = pairs.filter((p) => p.brand.photo || p.alternative.photo).length;
+const bothSidesReal = pairs.filter((p) => p.brand.photo && p.alternative.photo).length;
+const medicine = pairs.filter((p) => p.category === "otc-medicine").length;
+const markets: Record<string, number> = {};
+for (const p of pairs) markets[p.market] = (markets[p.market] ?? 0) + 1;
+
+const catalog: Catalog = {
+  generatedAt: new Date().toISOString(),
+  pairs,
+  bundles,
+  presets,
+  claims,
+  shelfLife: shelfLives,
+  credits,
+  coverage: {
+    pairs: pairs.length,
+    bothSidesReal,
+    anySideReal,
+    medicine,
+    categories: new Set(pairs.map((p) => p.category)).size,
+    markets,
+  },
+};
 mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(join(OUT_DIR, "catalog.json"), JSON.stringify(catalog));
 // Small list for the proxy, so a page that doesn't exist answers with a real 404.
@@ -234,7 +485,13 @@ writeFileSync(
   JSON.stringify({
     compare: catalog.pairs.map((p) => p.slug),
     bundle: catalog.bundles.map((b) => b.slug),
+    basket: catalog.presets.map((p) => p.slug),
     dupe: [...new Set(catalog.pairs.map(dupeSlugFor))],
   }),
 );
-console.log(`Catalog built: ${pairs.length} pairs from ${files.length} file(s), ${bundles.length} bundles from ${bundleFiles.length} file(s).`);
+const pct = (n: number) => (pairs.length ? Math.round((n / pairs.length) * 100) : 0);
+console.log(
+  `Catalog built: ${pairs.length} pairs from ${files.length} file(s), ${bundles.length} bundles, ${presets.length} presets, ` +
+    `${claims.length} claims, ${shelfLives.length} shelf-life records. Real image: any ${anySideReal} (${pct(anySideReal)}%), both ${bothSidesReal} (${pct(bothSidesReal)}%). ` +
+    `Medicine ${medicine} (${pct(medicine)}%).`,
+);
