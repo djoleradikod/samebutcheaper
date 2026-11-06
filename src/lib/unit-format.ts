@@ -80,3 +80,31 @@ export function unitPrice(pricePerUnit: number, unit: string, currency: Currency
   if (rounded < 0.1) return ppu(n, currency);
   return rounded < 1 ? ppu(rounded, currency).replace(/\.\d/, "") : ppu(rounded, currency);
 }
+
+/** Measures and counts that don't take a plural: "415 g", "6 fl oz", "30.8 oz powder", "300 count". */
+const NO_PLURAL = /^(fl oz|oz|g|mg|kg|ml|cl|l|lb|mah|count)\b/i;
+
+function plural(word: string) {
+  // The catalogue strips a trailing "s", which leaves "stylu".
+  if (word === "stylu") return "styluses";
+  if (/[^aeiou]y$/i.test(word)) return `${word.slice(0, -1)}ies`;
+  return /(s|x|ch|sh)$/i.test(word) ? `${word}es` : `${word}s`;
+}
+
+/** "415 g", "30 servings", "4 batteries", "1 stylus", from the catalogue's size and unit. */
+export function packSize(size: number, unit: string) {
+  const clean = unit.replace(/\s*\(.*\)\s*$/, "").trim();
+  const n = Number.isInteger(size) ? String(size) : size.toFixed(1);
+  if (NO_PLURAL.test(clean)) return `${n} ${clean}`;
+  if (size === 1) return `${n} ${clean === "stylu" ? "stylus" : clean}`;
+  return `${n} ${plural(clean)}`;
+}
+
+/**
+ * Test results price a product per wash or per 100 ml, not per pack. A basket line on such a record
+ * counts that amount, so it says "16 washes in all" and not "16 packs of 1 wash".
+ */
+export function isPerAmountRecord(size: number, unit: string) {
+  const clean = unit.trim().toLowerCase();
+  return (size === 1 && /^(wash|load|use|tablet|capsule|sheet)$/.test(clean)) || (size === 100 && /^(ml|g)$/.test(clean));
+}

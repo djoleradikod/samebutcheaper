@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  experimental: {
+    // One static-generation worker per CPU overruns a 4 GB build cage on a 20-core host.
+    cpus: 4,
+  },
   turbopack: {
     rules: {
       "*.css": {

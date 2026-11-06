@@ -35,12 +35,13 @@ Remove Fraunces and Geist. Monospace isn't needed.
 
 ## Parts (build once, use everywhere)
 
-- `Ticket`: yellow rectangle with a small punched hole or notch made in CSS, showing "-52%" or "Save £4.20". Sizes sm, md, lg.
+- `Ticket`: plain yellow rectangle showing "-52%" or "Save £4.20". Sizes sm, md, lg. No punched hole: the blind round of 6 Nov read it as a
+  stray mark.
 - `UnitPrice`: the cheaper price per unit in large condensed ink, the brand's beside it in muted with no strike-through, then "per 100 g".
   Convert per-unit display so it reads naturally (per 100 g, per 100 ml, per sheet, per wash).
-- `ProductThumb` (exists): the real photo on a white 4px tile with a 1px line, and an honest drawn pack when no photo exists. A drawn pack must
-  look like a placeholder, never a photo. Takes `eager` for the LCP image.
-- `PairCard`: two tiles side by side, brand left and cheaper right, the ticket on the cheaper tile's corner, then brand name to cheaper name,
+- `ProductThumb` (exists): the real photo filling its white tile, and an honest shelf label (brand name, product kind, "No photo yet") when no
+  photo exists. A label must never look like a photo or a pack design. Takes `eager` for the LCP image.
+- `PairCard`: two tiles side by side, brand left and cheaper right, the ticket beneath the photos and never on one, then brand name to cheaper name,
   the UnitPrice row, the match level as plain text. Dense enough for 4 across at 1320px and 2 across on a phone.
 - `BasketCard`: for presets. A 2x2 or overlapping collage of real product photos, the title, who it's for, "Same shop: £64.20 → £31.85",
   a large ticket with the saving, and the item count. This is the most important card on the site.

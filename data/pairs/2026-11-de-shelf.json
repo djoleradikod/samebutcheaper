@@ -1,0 +1,2956 @@
+[
+ {
+  "slug": "jacobs-meister-roestung-vs-cafet-gold-gemahlen-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Ground coffee",
+  "title": "Jacobs Meister Röstung vs Cafèt Röstkaffee Gold",
+  "brand": {
+   "brand": "Jacobs",
+   "product": "Jacobs Meister Röstung, gemahlen, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 8.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=jacobs+meister+roestung",
+   "gtin": "8711000670026",
+   "image": "https://images.openfoodfacts.org/images/products/871/100/067/0026/front_de.12.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ground roast coffee",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Cafèt",
+   "product": "Cafèt Gemahlener Röstkaffee Gold, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 5.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=cafet+roestkaffee+gold",
+   "gtin": "4316268692519",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/869/2519/front_de.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Arabica",
+     "amount": ""
+    },
+    {
+     "name": "Robusta",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are ground roast coffee in a 500 g pack, sold at the same chain.",
+  "evidence": "Open Prices shows Jacobs Meister Röstung at 8.49 at Netto Marken-Discount in Berlin on 12 Aug 2026 and Cafèt Gold at 5.49 at Netto Marken-Discount in Villingen-Schwenningen on 12 Sep 2026. Pack sizes are from the Open Food Facts records.",
+  "differences": "Cafèt lists an arabica and robusta blend. The Jacobs record gives no blend, so we can't compare them. We have no taste test for this pair.",
+  "why": "Same chain, same form and same 500 g pack, and the Cafèt pack costs €3.00 less. One pack is enough to find out whether you like the blend.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8711000670026",
+   "https://prices.openfoodfacts.org/products/4316268692519",
+   "https://world.openfoodfacts.org/product/8711000670026",
+   "https://world.openfoodfacts.org/product/4316268692519"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "barilla-fusilli-vs-combino-fusilli-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Pasta",
+  "title": "Barilla Fusilli vs Combino Fusilli",
+  "brand": {
+   "brand": "Barilla",
+   "product": "Barilla Fusilli, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=barilla+fusilli",
+   "gtin": "8076802085981",
+   "image": "https://images.openfoodfacts.org/images/products/807/680/208/5981/front_en.44.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Durum wheat semolina",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Combino",
+   "product": "Combino Fusilli (Lidl), 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 0.69,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=combino+fusilli",
+   "gtin": "20003470",
+   "image": "https://images.openfoodfacts.org/images/products/000/002/000/3470/front_en.173.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Durum wheat semolina",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are dried durum wheat fusilli in a 500 g bag.",
+  "evidence": "Open Prices shows Barilla Fusilli at 1.99 at Kaufland in Berlin on 25 Aug 2026 and Combino Fusilli at 0.69 at Lidl in Berlin on 22 Aug 2026. The two prices are from different chains.",
+  "differences": "Combino's label warns of possible traces of egg and soy. Barilla pasta can be much cheaper on some days: Barilla Rigatoni 500 g was recorded at 0.88 at REWE in Jena in September 2026. We have no cooking or taste test for this pair.",
+  "why": "The labels list the same main ingredient, durum wheat semolina, and the shape and bag size match. The Combino bag costs €1.30 less at these prices.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8076802085981",
+   "https://prices.openfoodfacts.org/products/20003470",
+   "https://prices.openfoodfacts.org/products/8076802085738",
+   "https://world.openfoodfacts.org/product/8076802085981",
+   "https://world.openfoodfacts.org/product/20003470"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "bens-original-mediterran-vs-k-classic-express-reis-mediterran-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Microwave rice",
+  "title": "Ben's Original Mediterran vs K-Classic Express Reis Mediterrane Art",
+  "brand": {
+   "brand": "Ben's Original",
+   "product": "Ben's Original Express-Reis Mediterran, 220 g",
+   "size": 220,
+   "unit": "g",
+   "price": 2.29,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=bens+original+mediterran",
+   "gtin": "3487400006332",
+   "image": "https://images.openfoodfacts.org/images/products/348/740/000/6332/front_de.59.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Long-grain rice",
+     "amount": "86%"
+    },
+    {
+     "name": "Tomato paste",
+     "amount": "5.9%"
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": ""
+    },
+    {
+     "name": "Tomato powder",
+     "amount": "2.5%"
+    },
+    {
+     "name": "Basil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "K-Classic",
+   "product": "K-Classic Express Reis Mediterrane Art (Kaufland), 250 g",
+   "size": 250,
+   "unit": "g",
+   "price": 1.19,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=k-classic+express+reis",
+   "gtin": "3760163670010",
+   "image": "https://images.openfoodfacts.org/images/products/376/016/367/0010/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cooked long-grain rice",
+     "amount": "81%"
+    },
+    {
+     "name": "Tomatoes",
+     "amount": "10%"
+    },
+    {
+     "name": "Tomato paste",
+     "amount": ""
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": ""
+    },
+    {
+     "name": "Basil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are ready-cooked long-grain rice in a Mediterranean-style tomato and basil seasoning.",
+  "evidence": "Open Prices shows Ben's Original Mediterran at 2.29 at Netto in Berlin on 20 Jul 2026 and K-Classic Mediterrane Art at 1.19 at Kaufland in Strausberg on 3 Jul 2026. The two prices are from different chains.",
+  "differences": "The seasonings are not the same recipe. K-Classic lists 81% cooked rice and 10% tomatoes, while Ben's lists 86% rice with tomato paste and powder. Ben's is often on offer: it was 1.49 at Netto in Strausberg in July 2026, about €6.77 per kg against €4.76 for K-Classic. We have no taste test for this pair.",
+  "why": "Both are the same kind of quick pouch with rice, tomato, sunflower oil and basil on the label. K-Classic's pouch is bigger and cheaper, even when Ben's is on offer.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/3487400006332",
+   "https://prices.openfoodfacts.org/products/3760163670010",
+   "https://world.openfoodfacts.org/product/3487400006332",
+   "https://world.openfoodfacts.org/product/3760163670010"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "oro-di-parma-tomaten-stueckig-vs-ja-tomaten-gehackt-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Canned tomatoes",
+  "title": "Oro di Parma Tomaten stückig vs ja! Tomaten gehackt",
+  "brand": {
+   "brand": "Oro di Parma",
+   "product": "Oro di Parma Tomaten stückig, 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=oro+di+parma+tomaten",
+   "gtin": "40081236",
+   "image": "https://images.openfoodfacts.org/images/products/000/004/008/1236/front_en.243.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chopped tomatoes",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "ja!",
+   "product": "ja! Tomaten gehackt, 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 0.59,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=ja+tomaten+gehackt",
+   "gtin": "4337256908122",
+   "image": "https://images.openfoodfacts.org/images/products/433/725/690/8122/front_de.45.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomatoes",
+     "amount": "60%"
+    },
+    {
+     "name": "Tomato juice",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are chopped tomatoes in a 400 g pack with citric acid as the only additive.",
+  "evidence": "Open Prices shows Oro di Parma at 1.99 at Lidl in Dahme/Mark on 31 Jul 2026, and ja! at 0.59 at REWE in Dahme/Mark on 3 Apr 2026 and at REWE Center in Frankfurt on 17 Apr 2026. The two prices are from different chains and months apart.",
+  "differences": "Oro di Parma adds salt, ja! doesn't list it. ja! states 60% tomatoes plus juice, and the Oro di Parma record gives no percentage, so we can't say which has more tomato. We have no taste test for this pair.",
+  "why": "For a sauce base, both tins hold chopped tomatoes with almost nothing else. The ja! tin costs €1.40 less.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/40081236",
+   "https://prices.openfoodfacts.org/products/4337256908122",
+   "https://world.openfoodfacts.org/product/40081236",
+   "https://world.openfoodfacts.org/product/4337256908122"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "bonne-maman-aprikose-vs-gut-guenstig-aprikose-konfituere-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Jam",
+  "title": "Bonne Maman Aprikose vs Gut & Günstig Aprikose Konfitüre Extra",
+  "brand": {
+   "brand": "Bonne Maman",
+   "product": "Bonne Maman Aprikosen Konfitüre, 320 g",
+   "size": 320,
+   "unit": "g",
+   "price": 2.59,
+   "retailer": "edeka",
+   "asin": null,
+   "url": "https://www.edeka.de/suche?q=bonne+maman+aprikose",
+   "gtin": "3608580758693",
+   "image": "https://images.openfoodfacts.org/images/products/360/858/075/8693/front_fr.43.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Apricots",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Brown cane sugar",
+     "amount": ""
+    },
+    {
+     "name": "Lemon juice concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Fruit pectin",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Gut & Günstig",
+   "product": "Gut & Günstig Aprikose Konfitüre Extra (EDEKA), 450 g",
+   "size": 450,
+   "unit": "g",
+   "price": 1.79,
+   "retailer": "edeka",
+   "asin": null,
+   "url": "https://www.edeka.de/suche?q=gut+guenstig+aprikose+konfituere",
+   "gtin": "4311501058138",
+   "image": "https://images.openfoodfacts.org/images/products/431/150/105/8138/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Apricots",
+     "amount": "50%"
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Lemon juice concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Pectin",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are apricot jam made from apricots, sugar, lemon juice concentrate and pectin, seen at EDEKA.",
+  "evidence": "Open Prices shows Bonne Maman at 2.59 at EDEKA in Leipzig on 9 Aug 2026, marked as an offer, and Gut & Günstig at 1.79 at EDEKA in München on 24 Feb 2026. It's the only Bonne Maman apricot record we found, so the usual price may be higher.",
+  "differences": "Gut & Günstig states 50% apricots. The Bonne Maman record gives no fruit share and adds brown cane sugar. The two prices are six months apart. We have no taste test for this pair.",
+  "why": "The ingredient lists nearly match, and Gut & Günstig is sold in a bigger jar at a lower price. Even against Bonne Maman's offer price it costs about half as much per 100 g.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/3608580758693",
+   "https://prices.openfoodfacts.org/products/4311501058138",
+   "https://world.openfoodfacts.org/product/3608580758693",
+   "https://world.openfoodfacts.org/product/4311501058138"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "coca-cola-original-vs-ja-cola-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Cola",
+  "title": "Coca-Cola Original vs ja! Cola",
+  "brand": {
+   "brand": "Coca-Cola",
+   "product": "Coca-Cola Original, 1.25 l",
+   "size": 1.25,
+   "unit": "l",
+   "price": 1.59,
+   "retailer": "penny",
+   "asin": null,
+   "url": "https://www.penny.de/",
+   "gtin": "5000112546415",
+   "image": "https://images.openfoodfacts.org/images/products/500/011/254/6415/front_de.137.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Carbon dioxide",
+     "amount": ""
+    },
+    {
+     "name": "Colour E150d",
+     "amount": ""
+    },
+    {
+     "name": "Phosphoric acid",
+     "amount": ""
+    },
+    {
+     "name": "Natural flavouring, caffeine flavouring",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "ja!",
+   "product": "ja! Cola, 1.5 l",
+   "size": 1.5,
+   "unit": "l",
+   "price": 0.65,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=ja+cola",
+   "gtin": "4388810057701",
+   "image": "https://images.openfoodfacts.org/images/products/438/881/005/7701/front_en.9.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Carbon dioxide",
+     "amount": ""
+    },
+    {
+     "name": "Colour (ammonia sulphite caramel)",
+     "amount": ""
+    },
+    {
+     "name": "Phosphoric acid",
+     "amount": ""
+    },
+    {
+     "name": "Caffeine flavouring, natural flavouring",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are sugar-sweetened cola with the same kinds of ingredients on the label.",
+  "evidence": "Open Prices shows Coca-Cola 1.25 l at 1.59 at PENNY in Berlin on 6 Aug 2026 and at Netto in Berlin on 17 Jul 2026, and ja! Cola 1.5 l at 0.65 at REWE in Berlin on 20 Jul 2026. The labels are from Open Food Facts.",
+  "differences": "Neither label gives the flavour recipe, so they may taste different, and we have no taste test for this pair. Bottle deposit comes on top of both prices.",
+  "why": "The two labels list water, sugar, carbonation, caramel colour, phosphoric acid, flavouring and caffeine flavouring. Per litre ja! costs about a third of Coca-Cola, so a bottle is a cheap way to test it.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/5000112546415",
+   "https://prices.openfoodfacts.org/products/4388810057701",
+   "https://world.openfoodfacts.org/product/5000112546415",
+   "https://world.openfoodfacts.org/product/4388810057701"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "prinzenrolle-schoko-vs-ja-doppelkeks-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Biscuits",
+  "title": "De Beukelaer Prinzenrolle Schoko vs ja! Doppelkeks",
+  "brand": {
+   "brand": "De Beukelaer",
+   "product": "De Beukelaer Prinzenrolle Schoko, 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 2.59,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=prinzenrolle",
+   "gtin": "4001518117316",
+   "image": "https://images.openfoodfacts.org/images/products/400/151/811/7316/front_de.60.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Palm fat",
+     "amount": ""
+    },
+    {
+     "name": "Low-fat cocoa powder",
+     "amount": "5.5%"
+    },
+    {
+     "name": "Dark chocolate",
+     "amount": "2.3%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "ja!",
+   "product": "ja! Doppelkeks, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.69,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=ja+doppelkeks",
+   "gtin": "4337256839655",
+   "image": "https://images.openfoodfacts.org/images/products/433/725/683/9655/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wheat flour",
+     "amount": "41%"
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Palm fat",
+     "amount": ""
+    },
+    {
+     "name": "Low-fat cocoa powder",
+     "amount": "5.5%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are cocoa cream sandwich biscuits in a roll, with almost the same ingredient list.",
+  "evidence": "Open Prices shows Prinzenrolle at 2.59 at Netto Marken-Discount in Strausberg on 11 Jul 2026. ja! Doppelkeks was 1.69 at HIT in Wiesbaden on 4 Nov 2026, and a second ja! Doppelkeks barcode was 1.69 at REWE Stenten in Aachen on 30 Oct 2026. The two brands' prices are from different chains.",
+  "differences": "Prinzenrolle adds 2.3% dark chocolate, which ja! doesn't list. Prinzenrolle goes on offer: it was 2.29 at Netto in Strausberg in March 2026, still dearer per kilo than ja!. We have no taste test for this pair.",
+  "why": "Flour, sugar, palm fat, starch and 5.5% cocoa powder appear on both labels in the same order. You get a bigger roll of ja! for 90 cents less, and the main recipe gap is a little dark chocolate.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4001518117316",
+   "https://prices.openfoodfacts.org/products/4337256839655",
+   "https://prices.openfoodfacts.org/products/4070308045795",
+   "https://world.openfoodfacts.org/product/4001518117316",
+   "https://world.openfoodfacts.org/product/4337256839655"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "pringles-original-vs-clarkys-stapelchips-original-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Crisps",
+  "title": "Pringles Original vs Clarkys Stapelchips Original",
+  "brand": {
+   "brand": "Pringles",
+   "product": "Pringles Original, 185 g",
+   "size": 185,
+   "unit": "g",
+   "price": 2.79,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=pringles+original",
+   "gtin": "5053990167807",
+   "image": "https://images.openfoodfacts.org/images/products/505/399/016/7807/front_de.165.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dried potato",
+     "amount": ""
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": ""
+    },
+    {
+     "name": "Maize flour",
+     "amount": ""
+    },
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Rice flour",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Clarkys",
+   "product": "Clarkys Stapelchips Original (Netto), 175 g",
+   "size": 175,
+   "unit": "g",
+   "price": 1.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=clarkys+stapelchips",
+   "gtin": "4316268723367",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/872/3367/front_de.9.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Potato powder",
+     "amount": "43%"
+    },
+    {
+     "name": "Vegetable oils (sunflower, rapeseed)",
+     "amount": ""
+    },
+    {
+     "name": "Potato starch",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are stackable potato crisps in a tube, sold at the same chain.",
+  "evidence": "Open Prices shows Pringles Original at 2.79 at Netto Marken-Discount in Berlin on 12 Aug 2026 and at Lidl in Berlin on 8 Aug 2026, and Clarkys Original at 1.49 at Netto Marken-Discount in Strausberg on 14 Oct 2026.",
+  "differences": "The recipes differ: Pringles adds maize, wheat and rice flour, and Clarkys uses potato starch and a rapeseed oil mix. Clarkys comes 10 g lighter. Pringles was 2.49 at Rossmann in Bollensdorf in May 2026, which cuts the saving to about 37%. We have no taste test for this pair.",
+  "why": "It's the same stacked crisp in the same kind of tube at the same chain, and Clarkys costs about 44% less per gram.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/5053990167807",
+   "https://prices.openfoodfacts.org/products/4316268723367",
+   "https://world.openfoodfacts.org/product/5053990167807",
+   "https://world.openfoodfacts.org/product/4316268723367"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "doritos-nacho-cheese-vs-clarkys-tortilla-chips-nacho-cheese-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Tortilla chips",
+  "title": "Doritos Nacho Cheese vs Clarkys Tortilla Chips Nacho Cheese",
+  "brand": {
+   "brand": "Doritos",
+   "product": "Doritos Nacho Cheese, 110 g",
+   "size": 110,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=doritos+nacho+cheese",
+   "gtin": "4062139006038",
+   "image": "https://images.openfoodfacts.org/images/products/406/213/900/6038/front_de.29.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Maize",
+     "amount": ""
+    },
+    {
+     "name": "Rapeseed oil",
+     "amount": ""
+    },
+    {
+     "name": "Whey powder",
+     "amount": ""
+    },
+    {
+     "name": "Cheese powder",
+     "amount": ""
+    },
+    {
+     "name": "Flavour enhancer",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Clarkys",
+   "product": "Clarkys Tortilla Chips Nacho Cheese (Netto), 300 g",
+   "size": 300,
+   "unit": "g",
+   "price": 1.19,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=clarkys+tortilla+chips",
+   "gtin": "4316268596473",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/859/6473/front_de.35.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Maize flour",
+     "amount": "75%"
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": "20%"
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Processed cheese powder",
+     "amount": "1%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are nacho-cheese tortilla chips made from maize, sold at the same chain.",
+  "evidence": "Open Prices shows Doritos Nacho Cheese at 1.99 for 110 g at Netto Marken-Discount in Berlin on 12 Aug 2026 and Clarkys Nacho Cheese at 1.19 for 300 g at Netto Marken-Discount in Villingen-Schwenningen on 7 Oct 2026.",
+  "differences": "The seasoning differs. Doritos lists whey, buttermilk and cheese powders and a flavour enhancer, while Clarkys lists 1% cheese powder and no enhancer in what we could read, so the flavour may differ. We have no taste test for this pair.",
+  "why": "For a bowl on the table it's the same maize chip with a nacho-cheese coating. The Clarkys bag is nearly three times the size and costs 80 cents less.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4062139006038",
+   "https://prices.openfoodfacts.org/products/4316268596473",
+   "https://world.openfoodfacts.org/product/4062139006038",
+   "https://world.openfoodfacts.org/product/4316268596473"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "iglo-fischstaebchen-vs-sea-gold-fischstaebchen-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Fish fingers",
+  "title": "Iglo 15 Fischstäbchen vs Sea Gold Fischstäbchen",
+  "brand": {
+   "brand": "Iglo",
+   "product": "Iglo 15 Fischstäbchen, 450 g",
+   "size": 450,
+   "unit": "g",
+   "price": 4.88,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=iglo+fischstaebchen",
+   "gtin": "4250241203524",
+   "image": "https://images.openfoodfacts.org/images/products/425/024/120/3524/front_en.303.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alaska pollock fillet",
+     "amount": "65%"
+    },
+    {
+     "name": "Breadcrumbs",
+     "amount": ""
+    },
+    {
+     "name": "Rapeseed oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sea Gold",
+   "product": "Sea Gold Fischstäbchen paniert (Netto), 15 x 30 g",
+   "size": 450,
+   "unit": "g",
+   "price": 2.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=sea+gold+fischstaebchen",
+   "gtin": "4316268451529",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/845/1529/front_de.41.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alaska pollock fillet",
+     "amount": "65%"
+    },
+    {
+     "name": "Breadcrumbs",
+     "amount": ""
+    },
+    {
+     "name": "Rapeseed oil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both packs hold 15 fish fingers of 30 g with 65% Alaska pollock, and both were priced at one store on one day.",
+  "evidence": "Open Prices shows Iglo at 4.88 and Sea Gold at 2.49, both at Netto Marken-Discount in Dahme/Mark on 15 May 2026. Iglo was still 4.89 at a Netto in Strausberg on 29 Sep 2026. Both labels state 65% pollock fillet.",
+  "differences": "Iglo goes on offer: it was 2.49 at a Netto in Strausberg on 23 Oct 2026, the same as Sea Gold, so at that price there's nothing to save. The breadcrumb recipes differ slightly. We have no taste test for this pair.",
+  "why": "The fish share, stick size and count are the same on both packs. Unless Iglo is on offer, Sea Gold costs about half as much.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4250241203524",
+   "https://prices.openfoodfacts.org/products/4316268451529",
+   "https://world.openfoodfacts.org/product/4250241203524",
+   "https://world.openfoodfacts.org/product/4316268451529"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "kerrygold-irische-butter-vs-frija-irische-butter-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Butter",
+  "title": "Kerrygold Irische Butter vs frija Irische Butter",
+  "brand": {
+   "brand": "Kerrygold",
+   "product": "Kerrygold Irische Butter, 250 g",
+   "size": 250,
+   "unit": "g",
+   "price": 3.49,
+   "retailer": "edeka",
+   "asin": null,
+   "url": "https://www.edeka.de/suche?q=kerrygold+butter",
+   "gtin": "4001954161010",
+   "image": "https://images.openfoodfacts.org/images/products/400/195/416/1010/front_de.344.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Lightly soured butter",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "frija",
+   "product": "frija Irische Butter (Netto), 250 g",
+   "size": 250,
+   "unit": "g",
+   "price": 1.89,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto.de/",
+   "gtin": "4250365909241",
+   "image": "https://images.openfoodfacts.org/images/products/425/036/590/9241/front_de.14.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Lightly soured butter from Irish milk",
+     "amount": "82% fat"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are lightly soured Irish butter in a 250 g block.",
+  "evidence": "Open Prices shows Kerrygold at a regular 3.49 at EDEKA Woltersdorf on 16 Jun 2026 and at REWE in Dresden on 27 Mar 2026, and frija at 1.89 at a store recorded as Netto in Strausberg on 16 Jul 2026.",
+  "differences": "This only pays when Kerrygold isn't on offer. It was 1.59 at EDEKA in Hamburg on 28 Oct 2026 and 1.79 at a Netto in Strausberg on 27 Aug 2026, both below frija's price, and our latest regular Kerrygold price is from June. Germany has two chains called Netto, so check both for frija. We have no taste test for this pair.",
+  "why": "Both blocks are lightly soured Irish butter, so at the regular price there's little reason to pay €1.60 more. If Kerrygold is on offer below frija, buy Kerrygold.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4001954161010",
+   "https://prices.openfoodfacts.org/products/4250365909241",
+   "https://world.openfoodfacts.org/product/4001954161010",
+   "https://world.openfoodfacts.org/product/4250365909241"
+  ],
+  "price_checked": "2026-06"
+ },
+ {
+  "slug": "weihenstephan-haltbare-milch-vs-gut-guenstig-h-milch-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Long-life milk",
+  "title": "Weihenstephan Haltbare Milch 1,5% vs Gut & Günstig H-Milch 1,5%",
+  "brand": {
+   "brand": "Weihenstephan",
+   "product": "Weihenstephan Haltbare Milch 1,5% Fett, 1 l",
+   "size": 1,
+   "unit": "l",
+   "price": 1.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=weihenstephan+haltbare+milch",
+   "gtin": "4008452027589",
+   "image": "https://images.openfoodfacts.org/images/products/400/845/202/7589/front_de.116.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Low-fat UHT milk",
+     "amount": "1.5% fat"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Gut & Günstig",
+   "product": "Gut & Günstig H-Milch 1,5%, 1 l",
+   "size": 1,
+   "unit": "l",
+   "price": 0.85,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.edeka.de/suche?q=gut+guenstig+h-milch",
+   "gtin": "4311501094716",
+   "image": "https://images.openfoodfacts.org/images/products/431/150/109/4716/front_de.21.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Milk",
+     "amount": "1.5% fat"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are long-life milk with 1.5% fat in a 1 litre carton, priced at the same store.",
+  "evidence": "Open Prices shows Weihenstephan at 1.49 at Feneberg in Kempten on 11 Sep 2026 and Gut & Günstig at 0.85 at Feneberg in Kempten on 7 Aug 2026. Weihenstephan was also 1.49 at V-MARKT in Mariaberg on 20 Jul 2026.",
+  "differences": "Weihenstephan is often on offer: 0.99 at a Netto in Strausberg on 1 Sep 2026 and at V-MARKT on 8 Aug 2026, and a record of 1.11 at Aldi in Berlin. At 0.99 the saving is about 14%. Neither record gives processing details beyond UHT. We have no taste test for this pair.",
+  "why": "Same fat level, same litre carton, same store, and milk is the only thing on the label. At the regular price Gut & Günstig costs 64 cents less per litre.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4008452027589",
+   "https://prices.openfoodfacts.org/products/4311501094716",
+   "https://world.openfoodfacts.org/product/4008452027589",
+   "https://world.openfoodfacts.org/product/4311501094716"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "philadelphia-original-vs-ja-cremiger-frischkaese-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Cream cheese",
+  "title": "Philadelphia Original vs ja! Cremiger Frischkäse",
+  "brand": {
+   "brand": "Philadelphia",
+   "product": "Philadelphia Original Doppelrahmstufe, 195 g",
+   "size": 195,
+   "unit": "g",
+   "price": 2.29,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=philadelphia+original",
+   "gtin": "7622202356797",
+   "image": "https://images.openfoodfacts.org/images/products/762/220/235/6797/front_de.25.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cream cheese",
+     "amount": ""
+    },
+    {
+     "name": "Whey products",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Guar gum",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "ja!",
+   "product": "ja! Cremiger Frischkäse Doppelrahmstufe, 300 g",
+   "size": 300,
+   "unit": "g",
+   "price": 1.59,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=ja+frischkaese+doppelrahmstufe",
+   "gtin": "4337256458023",
+   "image": "https://images.openfoodfacts.org/images/products/433/725/645/8023/front_de.32.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cream cheese",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are plain full-fat cream cheese of the Doppelrahmstufe grade, seen at REWE stores.",
+  "evidence": "Open Prices shows Philadelphia at 2.29 at REWE City in Köln on 29 Nov 2025 and ja! at 1.59 at REWE Stenten in Aachen on 25 Sep 2026. The 195 g size is on the tub in the Open Food Facts photo. The two prices are ten months apart.",
+  "differences": "Philadelphia is named a cream cheese preparation and lists whey products, guar gum and citric acid, while ja! lists only cream cheese and salt. So the texture may differ. Flavoured Philadelphia tubs of 175 g were on offer at 1.29 at a Netto in March 2026, which is still dearer per kilo. We have no taste test for this pair.",
+  "why": "Both are labelled Doppelrahmstufe, and the ja! tub has the shorter ingredient list. It's bigger and costs 70 cents less.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/7622202356797",
+   "https://prices.openfoodfacts.org/products/4337256458023",
+   "https://prices.openfoodfacts.org/products/7622300568160",
+   "https://world.openfoodfacts.org/product/7622202356797",
+   "https://world.openfoodfacts.org/product/4337256458023"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "milka-haselnusscreme-vs-nussetti-nuss-nougat-creme-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Hazelnut spread",
+  "title": "Milka Haselnusscreme vs Nussetti Nuss-Nougat-Creme",
+  "brand": {
+   "brand": "Milka",
+   "product": "Milka Haselnusscreme, 350 g",
+   "size": 350,
+   "unit": "g",
+   "price": 3.79,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=milka+haselnusscreme",
+   "gtin": "7622201127206",
+   "image": "https://images.openfoodfacts.org/images/products/762/220/112/7206/front_en.156.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": "28%"
+    },
+    {
+     "name": "Whey powder",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnut mass",
+     "amount": "5%"
+    },
+    {
+     "name": "Low-fat cocoa powder",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Nussetti",
+   "product": "Nussetti Nuss-Nougat-Creme (Netto), 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=nussetti",
+   "gtin": "4316268389792",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/838/9792/front_de.54.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Vegetable oils (rapeseed, palm)",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnuts",
+     "amount": "13%"
+    },
+    {
+     "name": "Low-fat cocoa powder",
+     "amount": "9%"
+    },
+    {
+     "name": "Skimmed milk powder",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are sweet hazelnut and cocoa spreads, priced at the same store on the same day.",
+  "evidence": "Open Prices shows Milka Haselnusscreme at 3.79 for 350 g and Nussetti at 1.99 for 400 g, both at Netto Marken-Discount in Strausberg on 2 Nov 2026. Milka was 3.69 at Kaufland in Strausberg on 19 Mar 2026.",
+  "differences": "Milka uses sunflower oil and Nussetti uses rapeseed and palm oil, so if you avoid palm oil, Milka wins. Nussetti lists 13% hazelnuts against 5% hazelnut mass in Milka. Milka lists its cocoa after that 5%, so it has 5% or less, against 9% in Nussetti. We have no taste test for this pair.",
+  "why": "The Nussetti label shows more hazelnut and more cocoa, in a bigger jar, for €1.80 less. Unless you're avoiding palm oil, the label gives little reason to pay more.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/7622201127206",
+   "https://prices.openfoodfacts.org/products/4316268389792",
+   "https://world.openfoodfacts.org/product/7622201127206",
+   "https://world.openfoodfacts.org/product/4316268389792"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "monster-energy-zero-sugar-vs-speedstar-ultra-zero-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Energy drinks",
+  "title": "Monster Energy Zero Sugar vs Speedstar Energydrink Ultra Zero",
+  "brand": {
+   "brand": "Monster",
+   "product": "Monster Energy Zero Sugar, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.49,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=monster+energy+zero",
+   "gtin": "5060947549555",
+   "image": "https://images.openfoodfacts.org/images/products/506/094/754/9555/front_de.37.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Taurine",
+     "amount": "0.4%"
+    },
+    {
+     "name": "Panax ginseng root extract",
+     "amount": "0.08%"
+    },
+    {
+     "name": "Caffeine",
+     "amount": "0.03%"
+    },
+    {
+     "name": "Sweeteners (sucralose, acesulfame K)",
+     "amount": ""
+    },
+    {
+     "name": "Guarana seed extract",
+     "amount": "0.002%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Speedstar",
+   "product": "Speedstar Energydrink Ultra Zero (Norma), 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.69,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.norma-online.de/",
+   "gtin": "42342649",
+   "image": "https://images.openfoodfacts.org/images/products/000/004/234/2649/front_de.29.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Taurine",
+     "amount": "0.4%"
+    },
+    {
+     "name": "Ginseng extract",
+     "amount": "0.08%"
+    },
+    {
+     "name": "Caffeine",
+     "amount": "0.03%"
+    },
+    {
+     "name": "Sweeteners (sucralose, acesulfame K)",
+     "amount": ""
+    },
+    {
+     "name": "Guarana extract",
+     "amount": "0.002%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are sugar-free energy drinks in a 500 ml can, listing the same levels of caffeine, taurine, ginseng and guarana.",
+  "evidence": "Open Prices shows Monster Energy Zero Sugar at 1.49 at Lidl in Berlin on 8 Aug 2026 and Speedstar Ultra Zero at 0.69 at Norma in Ludwigshafen on 25 Aug 2026. The percentages are from the labels on Open Food Facts. The two prices are from different chains.",
+  "differences": "The flavours and colours aren't the same recipe, and Monster also lists erythritol. Monster flavours go on offer: Ultra Fiesta Mango was 0.77 at Netto Marken-Discount in Berlin in July 2026, close to Speedstar's price. Can deposit comes on top of both prices. We have no taste test for this pair.",
+  "why": "The active ingredients on the two labels match at the percentages stated. Speedstar costs 80 cents less per can, which is less than half the price.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/5060947549555",
+   "https://prices.openfoodfacts.org/products/42342649",
+   "https://prices.openfoodfacts.org/products/5060751212249",
+   "https://world.openfoodfacts.org/product/5060947549555",
+   "https://world.openfoodfacts.org/product/42342649"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "loewensenf-extra-vs-bautzner-senf-scharf-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Mustard",
+  "title": "Löwensenf Extra vs Bautz'ner Senf scharf",
+  "brand": {
+   "brand": "Löwensenf",
+   "product": "Löwensenf Extra scharf, 250 ml",
+   "size": 250,
+   "unit": "ml",
+   "price": 1.89,
+   "retailer": "edeka",
+   "asin": null,
+   "url": "https://www.edeka.de/suche?q=loewensenf+extra",
+   "gtin": "42094722",
+   "image": "https://images.openfoodfacts.org/images/products/000/004/209/4722/front_de.57.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Mustard seeds",
+     "amount": ""
+    },
+    {
+     "name": "Vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Bautz'ner",
+   "product": "Bautz'ner Senf scharf, 200 ml",
+   "size": 200,
+   "unit": "ml",
+   "price": 0.55,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=bautzner+senf+scharf",
+   "gtin": "4012860003219",
+   "image": "https://images.openfoodfacts.org/images/products/401/286/000/3219/front_de.31.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Mustard seed",
+     "amount": ""
+    },
+    {
+     "name": "Spirit vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Spices",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are hot German table mustards made from mustard seed, vinegar, water and salt.",
+  "evidence": "Open Prices shows Löwensenf Extra at 1.89 at EDEKA Y. Reichelt in Berlin on 3 Aug 2026 and Bautz'ner scharf at a regular 0.55 at Netto in Berlin on 20 Jul 2026. The two prices are from different chains.",
+  "differences": "Löwensenf is sold as extra hot and Bautz'ner as hot, so the heat may differ, and we have no test for this pair. Bautz'ner adds sugar, paprika and spices, while Löwensenf lists none. Löwensenf comes in a 250 ml jar and Bautz'ner in a 200 ml tub.",
+  "why": "Mustard is a small part of any meal, and both are made from seed, vinegar, water and salt. Per litre Bautz'ner costs about a third as much.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/42094722",
+   "https://prices.openfoodfacts.org/products/4012860003219",
+   "https://world.openfoodfacts.org/product/42094722",
+   "https://world.openfoodfacts.org/product/4012860003219"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "heinz-tomato-ketchup-vs-le-gusto-tomato-ketchup-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Ketchup",
+  "title": "Heinz Tomato Ketchup vs Le Gusto Tomato Ketchup",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Tomato Ketchup, 400 ml",
+   "size": 400,
+   "unit": "ml",
+   "price": 2.79,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=heinz+ketchup",
+   "gtin": "87157246",
+   "image": "https://images.openfoodfacts.org/images/products/000/008/715/7246/front_en.40.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomatoes",
+     "amount": "148 g per 100 g"
+    },
+    {
+     "name": "Vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Le Gusto",
+   "product": "Le Gusto Tomato Ketchup (Aldi), 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.29,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi-nord.de/",
+   "gtin": "4068706960468",
+   "image": "https://images.openfoodfacts.org/images/products/406/870/696/0468/front_de.15.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato ketchup",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are plain tomato ketchup in a squeeze bottle, with the price per litre far apart.",
+  "evidence": "Open Prices shows Heinz at a regular 2.79 at Lidl in Bach on 21 Feb 2026, and Le Gusto at 1.29 at Aldi in Strausberg on 8 Apr 2026. On that same day at that Aldi, Heinz was on offer at 1.79.",
+  "differences": "Heinz states 148 g of tomatoes per 100 g of ketchup. The Le Gusto ingredient list on file is unreadable, so we can't compare tomato share, and Heinz may use more. Germany has two Aldi chains and the record doesn't say which sold Le Gusto, so check both. We have no taste test for this pair.",
+  "why": "Even on offer at the same Aldi, Heinz works out at about €4.48 per litre against €2.58 for Le Gusto. Try one bottle and see whether you can tell them apart.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/87157246",
+   "https://prices.openfoodfacts.org/products/4068706960468",
+   "https://world.openfoodfacts.org/product/87157246",
+   "https://world.openfoodfacts.org/product/4068706960468"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "thomy-delikatess-mayo-vs-ja-mayonnaise-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Mayonnaise",
+  "title": "Thomy Delikatess Mayo vs ja! Mayonnaise",
+  "brand": {
+   "brand": "Thomy",
+   "product": "Thomy Delikatess Mayo mit Freilandeiern, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 2.79,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=thomy+delikatess+mayo",
+   "gtin": "42403104",
+   "image": "https://images.openfoodfacts.org/images/products/000/004/240/3104/front_en.11.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Mayonnaise with free-range eggs",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "ja!",
+   "product": "ja! Mayonnaise, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.69,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=ja+mayonnaise",
+   "gtin": "4337256692038",
+   "image": "https://images.openfoodfacts.org/images/products/433/725/669/2038/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Rapeseed oil",
+     "amount": "80%"
+    },
+    {
+     "name": "Egg yolk",
+     "amount": "6%"
+    },
+    {
+     "name": "Spirit vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Mustard",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are mayonnaise in a 500 ml squeeze bottle.",
+  "evidence": "Open Prices shows Thomy at 2.79 at a Netto in Strausberg on 8 May 2026 and ja! at 1.69 at REWE in Dahme/Mark on 13 Jan 2026. The two prices are from different chains and four months apart.",
+  "differences": "Thomy is better on eggs: its name says free-range, and ja! says barn-reared eggs. The Thomy ingredient list isn't on file, so we can't compare oil or yolk shares. We have no taste test for this pair.",
+  "why": "ja! states 80% rapeseed oil and 6% yolk and costs €1.10 less in the same size. If free-range eggs matter to you, that's the reason to stay with Thomy.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/42403104",
+   "https://prices.openfoodfacts.org/products/4337256692038",
+   "https://world.openfoodfacts.org/product/42403104",
+   "https://world.openfoodfacts.org/product/4337256692038"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "thomy-reines-sonnenblumenoel-vs-vegola-sonnenblumenoel-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Vegetable oil",
+  "title": "Thomy Reines Sonnenblumenöl vs Vegola Sonnenblumenöl",
+  "brand": {
+   "brand": "Thomy",
+   "product": "Thomy Reines Sonnenblumenöl, 750 ml",
+   "size": 750,
+   "unit": "ml",
+   "price": 2.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=thomy+sonnenblumenoel",
+   "gtin": "4005500087151",
+   "image": "https://images.openfoodfacts.org/images/products/400/550/008/7151/front_de.242.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sunflower oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Vegola",
+   "product": "Vegola Sonnenblumenöl (Netto), 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 1.89,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=vegola+sonnenblumenoel",
+   "gtin": "4316268427548",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/842/7548/front_de.30.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sunflower oil",
+     "amount": "100%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both bottles hold plain sunflower oil and nothing else.",
+  "evidence": "Open Prices shows Thomy at 2.99 for 750 ml at a Netto in Strausberg on 8 May 2026 and Vegola at 1.89 for 1 l at Netto Marken-Discount in Berlin on 4 Sep 2026. Both labels list only sunflower oil.",
+  "differences": "Neither record says how the oil was refined or where the seed came from. The bottles differ in size.",
+  "why": "A single-ingredient oil gives little room for a difference on the label. The Vegola bottle is a third bigger and still costs €1.10 less.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4005500087151",
+   "https://prices.openfoodfacts.org/products/4316268427548",
+   "https://world.openfoodfacts.org/product/4005500087151",
+   "https://world.openfoodfacts.org/product/4316268427548"
+  ],
+  "price_checked": "2026-05"
+ },
+ {
+  "slug": "bertolli-natives-olivenoel-extra-vs-bellasan-natives-olivenoel-extra-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Olive oil",
+  "title": "Bertolli Natives Olivenöl Extra vs Bellasan Natives Olivenöl Extra",
+  "brand": {
+   "brand": "Bertolli",
+   "product": "Bertolli Originale Natives Olivenöl Extra, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 7.99,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=bertolli+olivenoel",
+   "gtin": "8002470031944",
+   "image": "https://images.openfoodfacts.org/images/products/800/247/003/1944/front_de.25.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Extra virgin olive oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Bellasan",
+   "product": "Bellasan Natives Olivenöl Extra (Aldi), 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 7.99,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi-sued.de/",
+   "gtin": "4069365382097",
+   "image": "https://images.openfoodfacts.org/images/products/406/936/538/2097/front_de.17.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Extra virgin olive oil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are extra virgin olive oil, and the same money buys twice as much Bellasan.",
+  "evidence": "Open Prices shows Bertolli at 7.99 for 500 ml at Kaufland in Strausberg on 13 Jul 2026, and Bellasan at 7.99 for 1 l at Aldi Süd in Stuttgart on 8 Aug 2026 and at ALDI Süd in Mühltal on 27 May 2026. The two prices are from different chains.",
+  "differences": "Olive oils vary by harvest and origin, and neither record gives them, so the taste may differ. Bertolli goes on offer: it was 5.99 at a Netto in Strausberg in May 2026, about €11.98 per litre, still well above Bellasan. We have no taste or quality test for this pair.",
+  "why": "Both carry the extra virgin grade on the label. For cooking, the same €7.99 gets you twice the oil.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8002470031944",
+   "https://prices.openfoodfacts.org/products/4069365382097",
+   "https://world.openfoodfacts.org/product/8002470031944",
+   "https://world.openfoodfacts.org/product/4069365382097"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "barilla-pesto-genovese-vs-baresa-pesto-alla-genovese-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Pesto",
+  "title": "Barilla Pesto Genovese vs Baresa Pesto alla Genovese",
+  "brand": {
+   "brand": "Barilla",
+   "product": "Barilla Pesto alla Genovese, 190 g",
+   "size": 190,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=barilla+pesto+genovese",
+   "gtin": "8076809513746",
+   "image": "https://images.openfoodfacts.org/images/products/807/680/951/3746/front_en.391.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sunflower oil",
+     "amount": "44.5%"
+    },
+    {
+     "name": "Basil",
+     "amount": "30%"
+    },
+    {
+     "name": "Cashews",
+     "amount": ""
+    },
+    {
+     "name": "Grana Padano",
+     "amount": "4.5%"
+    },
+    {
+     "name": "Pecorino Romano",
+     "amount": "1.2%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Baresa",
+   "product": "Baresa Pesto alla Genovese (Lidl), 190 g",
+   "size": 190,
+   "unit": "g",
+   "price": 0.99,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.de/q/search?q=baresa+pesto",
+   "gtin": "20425555",
+   "image": "https://images.openfoodfacts.org/images/products/000/002/042/5555/front_fr.83.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Vegetable oil",
+     "amount": "40.8%"
+    },
+    {
+     "name": "Basil",
+     "amount": "34%"
+    },
+    {
+     "name": "Cashews",
+     "amount": "9%"
+    },
+    {
+     "name": "Parmigiano Reggiano",
+     "amount": "5%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are green basil pesto in a 190 g jar with basil, cashews and hard Italian cheese.",
+  "evidence": "Open Prices shows Barilla at 1.99 at Netto City in München on 15 Sep 2026, marked as an offer, and Baresa at 0.99 at Lidl in Bach on 7 Sep 2026. That offer is the only Barilla Genovese record we found, so the usual price may be higher. The labels are from Open Food Facts, and the Baresa text on file is partly garbled.",
+  "differences": "Barilla mixes Grana Padano with Pecorino and lists 1% olive oil. Baresa lists Parmigiano Reggiano and olive oil too, but we couldn't read its full list. We have no taste test for this pair.",
+  "why": "On the labels Baresa has slightly more basil and less oil, and Barilla has slightly more cheese. Baresa is half the price even with Barilla on offer.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8076809513746",
+   "https://prices.openfoodfacts.org/products/20425555",
+   "https://world.openfoodfacts.org/product/8076809513746",
+   "https://world.openfoodfacts.org/product/20425555"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "barilla-basilico-sauce-vs-la-campagna-pasta-sauce-basil-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Pasta sauce",
+  "title": "Barilla Basilico vs la campagna Pasta Sauce with Basil",
+  "brand": {
+   "brand": "Barilla",
+   "product": "Barilla Basilico Sauce, 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=barilla+basilico",
+   "gtin": "8076809513722",
+   "image": "https://images.openfoodfacts.org/images/products/807/680/951/3722/front_fr.1053.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato pulp",
+     "amount": "71%"
+    },
+    {
+     "name": "Tomato concentrate",
+     "amount": "13.5%"
+    },
+    {
+     "name": "Onions",
+     "amount": ""
+    },
+    {
+     "name": "Sunflower oil",
+     "amount": ""
+    },
+    {
+     "name": "Basil",
+     "amount": "2%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "la campagna",
+   "product": "la campagna Pasta Sauce with Basil (Netto), 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.59,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto.de/",
+   "gtin": "5712873839001",
+   "image": "https://images.openfoodfacts.org/images/products/571/287/383/9001/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomatoes",
+     "amount": "75%"
+    },
+    {
+     "name": "Tomato paste",
+     "amount": "11%"
+    },
+    {
+     "name": "Basil",
+     "amount": "2%"
+    },
+    {
+     "name": "Onion",
+     "amount": ""
+    },
+    {
+     "name": "Olive oil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are ready tomato and basil pasta sauces with about 85% tomato and 2% basil on the label.",
+  "evidence": "Open Prices shows Barilla at 1.99 for 400 g on 29 Jun 2026 and la campagna at 1.59 for 500 g on 8 Oct 2026, both at a store recorded as Netto in Strausberg. Germany has two chains called Netto and the records don't say which, so check both for la campagna.",
+  "differences": "Barilla uses sunflower oil, while la campagna uses olive oil, water and citric acid. We have no taste test for this pair.",
+  "why": "The tomato and basil shares on the two labels are close, and la campagna's jar is bigger and costs 40 cents less. That works out at about 36% less per gram.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8076809513722",
+   "https://prices.openfoodfacts.org/products/5712873839001",
+   "https://world.openfoodfacts.org/product/8076809513722",
+   "https://world.openfoodfacts.org/product/5712873839001"
+  ],
+  "price_checked": "2026-06"
+ },
+ {
+  "slug": "miracoli-klassiker-spaghetti-vs-mondo-italiano-spaghetti-tomatensauce-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Pasta kits",
+  "title": "Mirácoli Klassiker Spaghetti vs Mondo Italiano Spaghetti mit Tomatensauce",
+  "brand": {
+   "brand": "Mirácoli",
+   "product": "Mirácoli Klassiker Spaghetti, 610.4 g",
+   "size": 610.4,
+   "unit": "g",
+   "price": 4.49,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=miracoli+klassiker",
+   "gtin": "4002359018671",
+   "image": "https://images.openfoodfacts.org/images/products/400/235/901/8671/front_de.32.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Durum wheat pasta",
+     "amount": ""
+    },
+    {
+     "name": "Double-concentrated tomato paste",
+     "amount": ""
+    },
+    {
+     "name": "Spice mix",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Mondo Italiano",
+   "product": "Mondo Italiano Spaghetti mit Tomatensauce und Würzmischung (Netto), 397 g",
+   "size": 397,
+   "unit": "g",
+   "price": 1.69,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=mondo+italiano+spaghetti+tomatensauce",
+   "gtin": "4316268452915",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/845/2915/front_de.20.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Durum wheat pasta",
+     "amount": "63%"
+    },
+    {
+     "name": "Double-concentrated tomato paste",
+     "amount": "28.7%"
+    },
+    {
+     "name": "Spice mix",
+     "amount": "4.5%"
+    },
+    {
+     "name": "Grated hard cheese",
+     "amount": "3.8%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are boxed spaghetti kits with tomato paste and a spice mix that you cook at home.",
+  "evidence": "Open Prices shows Mirácoli at a regular 4.49 on 29 Jun 2026 and Mondo Italiano at 1.69 on 19 Oct 2026, both at a store recorded as Netto in Strausberg. Mondo Italiano was also 1.69 at Netto Marken-Discount there in April 2026. Compared by the weight stated on the packs.",
+  "differences": "The boxes differ in size, and we have no serving count for either, so compare by weight. Mondo Italiano includes grated hard cheese. Mirácoli goes on offer: on 19 Oct 2026 it was 2.99 at the same Netto, which cuts the saving to about 13%. We have no taste test for this pair.",
+  "why": "Pasta, tomato paste and a spice sachet are in both boxes, and Mondo Italiano adds cheese. Unless Mirácoli is on offer, you pay about 42% less per gram.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4002359018671",
+   "https://prices.openfoodfacts.org/products/4316268452915",
+   "https://world.openfoodfacts.org/product/4002359018671",
+   "https://world.openfoodfacts.org/product/4316268452915"
+  ],
+  "price_checked": "2026-06"
+ },
+ {
+  "slug": "bonduelle-goldmais-vs-kaufland-gemuese-mais-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Canned vegetables",
+  "title": "Bonduelle Goldmais vs Kaufland Gemüse Mais",
+  "brand": {
+   "brand": "Bonduelle",
+   "product": "Bonduelle Goldmais Junge Ernte, 285 g",
+   "size": 285,
+   "unit": "g",
+   "price": 2.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=bonduelle+goldmais",
+   "gtin": "3083681117769",
+   "image": "https://images.openfoodfacts.org/images/products/308/368/111/7769/front_en.13.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sweetcorn",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Kaufland",
+   "product": "Kaufland Gemüse Mais, 285 g",
+   "size": 285,
+   "unit": "g",
+   "price": 0.69,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=gemuese+mais",
+   "gtin": "4007415030581",
+   "image": "https://images.openfoodfacts.org/images/products/400/741/503/0581/front_de.7.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sweetcorn",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both tins hold sweetcorn, water and salt, listed at 285 g.",
+  "evidence": "Open Prices shows Bonduelle at 2.29 at V-MARKT in Mariaberg on 10 Jun 2026 and Kaufland's own at 0.69 at Kaufland in Berlin on 5 Oct 2026. The two prices are from different chains, and V-MARKT's price may not match other stores. ja! Sonnenmais, also 285 g, was 0.99 at Nahkauf in Darmstadt on 17 Jun 2026.",
+  "differences": "Bonduelle says young harvest on the tin. The records don't say whether 285 g is the drained weight on either tin. We have no taste test for this pair.",
+  "why": "The ingredient lists match: sweetcorn, water and salt. Kaufland's costs €1.60 less.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/3083681117769",
+   "https://prices.openfoodfacts.org/products/4007415030581",
+   "https://prices.openfoodfacts.org/products/4337256280631",
+   "https://world.openfoodfacts.org/product/3083681117769",
+   "https://world.openfoodfacts.org/product/4007415030581"
+  ],
+  "price_checked": "2026-06"
+ },
+ {
+  "slug": "golden-toast-vollkorn-vs-kornmuehle-vollkorn-toast-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Toast bread",
+  "title": "Golden Toast Vollkorntoast vs Kornmühle Vollkorn Toast",
+  "brand": {
+   "brand": "Golden Toast",
+   "product": "Golden Toast Vollkorntoast, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=golden+toast+vollkorn",
+   "gtin": "4009249019923",
+   "image": "https://images.openfoodfacts.org/images/products/400/924/901/9923/front_de.121.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wholemeal wheat flour",
+     "amount": "58%"
+    },
+    {
+     "name": "Wheat sourdough",
+     "amount": ""
+    },
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Rapeseed oil",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Kornmühle",
+   "product": "Kornmühle Vollkorn Toast (Netto), 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 0.89,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=kornmuehle+vollkorn+toast",
+   "gtin": "4316268461009",
+   "image": "https://images.openfoodfacts.org/images/products/431/626/846/1009/front_en.33.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wholemeal wheat flour",
+     "amount": "58%"
+    },
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Rapeseed oil",
+     "amount": ""
+    },
+    {
+     "name": "Yeast",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 500 g sliced wholemeal toast with 58% wholemeal wheat flour, sold at the same chain.",
+  "evidence": "Open Prices shows Golden Toast at 1.99 at Netto Marken-Discount in Strausberg on 12 Aug 2026 and Kornmühle at 0.89 at Netto Marken-Discount in Woltersdorf on 24 Jul 2026. Both labels state 58% wholemeal wheat flour.",
+  "differences": "Golden Toast adds wheat sourdough and sugar, which Kornmühle doesn't list, so the flavour may differ. Two records with no named store show Golden Toast on offer at 1.00, which nearly closes the gap. We have no taste test for this pair.",
+  "why": "Same wholemeal share, same weight and same chain, and the Kornmühle loaf has the shorter list. It costs €1.10 less a loaf.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4009249019923",
+   "https://prices.openfoodfacts.org/products/4316268461009",
+   "https://world.openfoodfacts.org/product/4009249019923",
+   "https://world.openfoodfacts.org/product/4316268461009"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "mueller-milchreis-schoko-vs-grandiso-milchreis-schoko-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Rice pudding",
+  "title": "müller Milch Reis Schoko vs Grandiso Milchreis Schoko",
+  "brand": {
+   "brand": "müller",
+   "product": "müller Milch Reis Schoko, 200 g",
+   "size": 200,
+   "unit": "g",
+   "price": 0.99,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=mueller+milchreis+schoko",
+   "gtin": "40255651",
+   "image": "https://images.openfoodfacts.org/images/products/000/004/025/5651/front_de.39.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chocolate rice pudding",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Grandiso",
+   "product": "Grandiso Milchreis Schoko (Netto), 200 g",
+   "size": 200,
+   "unit": "g",
+   "price": 0.39,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=grandiso+milchreis",
+   "gtin": "42508854",
+   "image": "https://images.openfoodfacts.org/images/products/000/004/250/8854/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Whole milk",
+     "amount": "70%"
+    },
+    {
+     "name": "Chocolate preparation",
+     "amount": "15%"
+    },
+    {
+     "name": "Round-grain rice",
+     "amount": "9%"
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 200 g chilled pots of rice pudding with a chocolate layer.",
+  "evidence": "Open Prices shows müller at 0.99 at REWE in Kempten on 27 Jul 2026 and Grandiso at 0.39 at Netto City in München on 30 Jul 2026, with the same price there in four records back to December 2025. The two prices are from different chains.",
+  "differences": "The müller ingredient list on file is unreadable, so we can't compare milk, rice or chocolate shares. müller goes on offer: it was 0.49 at a Netto in Strausberg in May 2026, close to Grandiso. We have no taste test for this pair.",
+  "why": "At the same pot size, Grandiso costs 60 cents less and held that price from December 2025 to July 2026. If müller is on offer, the gap nearly disappears.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/40255651",
+   "https://prices.openfoodfacts.org/products/42508854",
+   "https://world.openfoodfacts.org/product/40255651",
+   "https://world.openfoodfacts.org/product/42508854"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "heinz-beanz-vs-k-classic-baked-beans-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Baked beans",
+  "title": "Heinz Beanz vs K-Classic Baked Beans",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Beanz in Tomato Sauce, 415 g",
+   "size": 415,
+   "unit": "g",
+   "price": 2.49,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=heinz+beanz",
+   "gtin": "8715700131139",
+   "image": "https://images.openfoodfacts.org/images/products/871/570/013/1139/front_en.184.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "White beans",
+     "amount": "50%"
+    },
+    {
+     "name": "Tomatoes",
+     "amount": "36%"
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Spirit vinegar",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "K-Classic",
+   "product": "K-Classic Baked Beans (Kaufland), 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 0.99,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=k-classic+baked+beans",
+   "gtin": "8050444757109",
+   "image": "https://images.openfoodfacts.org/images/products/805/044/475/7109/front_de.32.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "White beans",
+     "amount": "57%"
+    },
+    {
+     "name": "Water",
+     "amount": "32%"
+    },
+    {
+     "name": "Tomato concentrate",
+     "amount": "5%"
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are white beans in tomato sauce in a tin of about 400 g, priced at the same Kaufland.",
+  "evidence": "Open Prices shows Heinz at a regular 2.49 on 19 Mar 2026 and K-Classic at 0.99 on 8 Jun 2026, both at Kaufland in Strausberg. Heinz was 1.79 on offer at the same store on 18 Aug 2026.",
+  "differences": "Heinz lists 36% tomatoes in its sauce, and K-Classic lists water and 5% tomato concentrate, so the Heinz sauce may be richer. K-Classic has more beans by share. We have no taste test for this pair.",
+  "why": "You get a bit more bean by share in K-Classic for €1.50 less a tin. Even with Heinz on offer, K-Classic is about 43% cheaper per gram.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8715700131139",
+   "https://prices.openfoodfacts.org/products/8050444757109",
+   "https://world.openfoodfacts.org/product/8715700131139",
+   "https://world.openfoodfacts.org/product/8050444757109"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "spreewaldhof-spreelinge-vs-k-classic-gewuerzgurken-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Pickled gherkins",
+  "title": "Spreewaldhof Spreelinge vs K-Classic Gewürzgurken",
+  "brand": {
+   "brand": "Spreewaldhof",
+   "product": "Spreewaldhof Spreelinge, 360 g",
+   "size": 360,
+   "unit": "g",
+   "price": 2.59,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=spreewaldhof+spreelinge",
+   "gtin": "4012712001547",
+   "image": "https://images.openfoodfacts.org/images/products/401/271/200/1547/front_en.9.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Gherkins",
+     "amount": ""
+    },
+    {
+     "name": "Spirit vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Onions",
+     "amount": ""
+    },
+    {
+     "name": "Dill",
+     "amount": ""
+    },
+    {
+     "name": "Mustard seeds",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "K-Classic",
+   "product": "K-Classic Gewürzgurken (Kaufland), 360 g",
+   "size": 360,
+   "unit": "g",
+   "price": 1.19,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=k-classic+gewuerzgurken",
+   "gtin": "4063367144721",
+   "image": "https://images.openfoodfacts.org/images/products/406/336/714/4721/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Gherkins",
+     "amount": ""
+    },
+    {
+     "name": "Spirit vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Mustard seed",
+     "amount": ""
+    },
+    {
+     "name": "Dill",
+     "amount": ""
+    },
+    {
+     "name": "Onions",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are sweet-sour pickled gherkins in vinegar with dill, onion and mustard seed, listed at 360 g.",
+  "evidence": "Open Prices shows Spreewaldhof at 2.59 at Netto Marken-Discount in Strausberg on 27 Oct 2026 and at a Netto in Strausberg on 24 Aug 2026, and K-Classic at 1.19 at Kaufland in Berlin on 5 Aug 2026. The two prices are from different chains.",
+  "differences": "The records don't give the size of the gherkins or say whether 360 g is the drained weight. K-Classic adds paprika. We have no taste test for this pair.",
+  "why": "The ingredient lists are almost the same, and the listed weights match. The K-Classic jar costs €1.40 less.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4012712001547",
+   "https://prices.openfoodfacts.org/products/4063367144721",
+   "https://world.openfoodfacts.org/product/4012712001547",
+   "https://world.openfoodfacts.org/product/4063367144721"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "vitalis-schoko-muesli-vs-k-classic-schokomuesli-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Muesli",
+  "title": "Dr. Oetker Vitalis Schoko Müsli vs K-Classic Schokomüsli",
+  "brand": {
+   "brand": "Vitalis",
+   "product": "Dr. Oetker Vitalis Schoko Müsli Klassisch, 450 g",
+   "size": 450,
+   "unit": "g",
+   "price": 3.99,
+   "retailer": "rewe",
+   "asin": null,
+   "url": "https://shop.rewe.de/productList?search=vitalis+schoko+muesli",
+   "gtin": "4000521041991",
+   "image": "https://images.openfoodfacts.org/images/products/400/052/104/1991/front_de.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wholegrain oat flakes",
+     "amount": "61%"
+    },
+    {
+     "name": "Chocolate",
+     "amount": "13%"
+    },
+    {
+     "name": "Milk chocolate",
+     "amount": "10%"
+    },
+    {
+     "name": "Caramelised almond pieces",
+     "amount": "2%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "K-Classic",
+   "product": "K-Classic Schokomüsli (Kaufland), 750 g",
+   "size": 750,
+   "unit": "g",
+   "price": 2.49,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=k-classic+schokomuesli",
+   "gtin": "4008713713978",
+   "image": "https://images.openfoodfacts.org/images/products/400/871/371/3978/front_de.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wholegrain oat flakes",
+     "amount": "66%"
+    },
+    {
+     "name": "Milk chocolate pieces",
+     "amount": "25%"
+    },
+    {
+     "name": "Cornflakes",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnut brittle",
+     "amount": "1%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are chocolate oat muesli with about a quarter chocolate and wholegrain oats as the main ingredient.",
+  "evidence": "Open Prices shows Vitalis at a regular 3.99 at REWE in Kempten on 7 Jan 2026 and K-Classic at 2.49 at Kaufland in Strausberg on 13 Jul 2026. Vitalis was 2.49 on offer at a Netto in Strausberg on 27 Apr 2026. The two prices are from different chains and six months apart.",
+  "differences": "Vitalis uses dark and milk chocolate with caramelised almond, and K-Classic uses milk chocolate with hazelnut brittle. If you prefer dark chocolate, the taste will differ. We have no taste test for this pair.",
+  "why": "K-Classic lists more oats and about the same chocolate share, and the bag holds 300 g more. Even with Vitalis on offer at 2.49, you'd pay about 40% less per gram.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4000521041991",
+   "https://prices.openfoodfacts.org/products/4008713713978",
+   "https://world.openfoodfacts.org/product/4000521041991",
+   "https://world.openfoodfacts.org/product/4008713713978"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "seeberger-cashewkerne-geroestet-vs-kaufland-cashew-kerne-geroestet-de",
+  "market": "DE",
+  "category": "food-pantry",
+  "subcategory": "Nuts",
+  "title": "Seeberger Cashewkerne geröstet vs Kaufland Cashew-Kerne geröstet",
+  "brand": {
+   "brand": "Seeberger",
+   "product": "Seeberger Cashewkerne geröstet, 150 g",
+   "size": 150,
+   "unit": "g",
+   "price": 4.38,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=seeberger+cashewkerne",
+   "gtin": "4008258109007",
+   "image": "https://images.openfoodfacts.org/images/products/400/825/810/9007/front_de.45.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Roasted cashews",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Kaufland",
+   "product": "Kaufland Cashew-Kerne geröstet, ungesalzen, 200 g",
+   "size": 200,
+   "unit": "g",
+   "price": 3.79,
+   "retailer": "kaufland",
+   "asin": null,
+   "url": "https://www.kaufland.de/s/?search_value=cashew-kerne+geroestet",
+   "gtin": "4038934177679",
+   "image": "https://images.openfoodfacts.org/images/products/403/893/417/7679/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Roasted cashews",
+     "amount": "100%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are bags of roasted cashews with nothing else on the label, priced at Kaufland in the same month.",
+  "evidence": "Open Prices shows Seeberger at 4.38 at Kaufland in Berlin on 25 Aug 2026 and Kaufland's own at 3.79 at Kaufland in Berlin on 11 Aug 2026.",
+  "differences": "Kaufland says unsalted. The Seeberger record lists only roasted cashews and doesn't use that word. The records don't give nut size or origin. We have no taste test for this pair.",
+  "why": "It's a single-ingredient snack, so there's little on the label to set them apart. Kaufland's bag holds 50 g more and costs about 35% less per gram.",
+  "claims": [
+   "stiftung-warentest-2023-own-label-basket-34-percent"
+  ],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4008258109007",
+   "https://prices.openfoodfacts.org/products/4038934177679",
+   "https://world.openfoodfacts.org/product/4008258109007",
+   "https://world.openfoodfacts.org/product/4038934177679"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "listerine-cool-mint-mild-vs-dontodent-mundspuelung-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Mouthwash",
+  "title": "Listerine Cool Mint Mild vs Dontodent Mundspülung",
+  "brand": {
+   "brand": "Listerine",
+   "product": "Listerine Cool Mint Mild, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 3.95,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=listerine+cool+mint+mild",
+   "gtin": "3574661731100",
+   "image": "https://images.openfoodfacts.org/images/products/357/466/173/1100/front_de.10.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Eucalyptol",
+     "amount": ""
+    },
+    {
+     "name": "Thymol",
+     "amount": ""
+    },
+    {
+     "name": "Methyl salicylate",
+     "amount": ""
+    },
+    {
+     "name": "Menthol",
+     "amount": ""
+    },
+    {
+     "name": "Sodium fluoride",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Dontodent",
+   "product": "Dontodent Mundspülung antibakteriell (dm), 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.85,
+   "retailer": "dm",
+   "asin": null,
+   "url": "https://www.dm.de/search?query=dontodent+mundspuelung",
+   "gtin": "4066447878226",
+   "image": "https://images.openfoodfacts.org/images/products/406/644/787/8226/front_de.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cetylpyridinium chloride",
+     "amount": ""
+    },
+    {
+     "name": "Sodium fluoride",
+     "amount": ""
+    },
+    {
+     "name": "Xylitol",
+     "amount": ""
+    },
+    {
+     "name": "Menthol",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are daily mouth rinses with sodium fluoride and no alcohol on the label, in a 500 ml bottle, seen at dm.",
+  "evidence": "Open Prices shows Listerine Cool Mint Mild at 3.95 at dm in Berlin on 20 Aug 2026, with similar prices at Kaufland and Netto Marken-Discount that month, and Dontodent at 0.85 at dm in Barsinghausen on 7 Jan 2026. Ingredients are from the Open Food Facts records. The two prices are seven months apart.",
+  "differences": "The antibacterial ingredients aren't the same: Listerine uses essential oil compounds and Dontodent uses cetylpyridinium chloride. We have no test of Dontodent or any test comparing the two, so we can't say they work equally well. Listerine was 2.99 at REWE in Berlin on 25 Aug 2026. Ask a dentist if you use a rinse for a gum problem.",
+  "why": "For a daily rinse with fluoride, Dontodent costs about a fifth of the price. If a dentist told you to use Listerine, stay with it, because the antibacterial ingredients differ.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/3574661731100",
+   "https://prices.openfoodfacts.org/products/4066447878226",
+   "https://world.openfoodfacts.org/product/3574661731100",
+   "https://world.openfoodfacts.org/product/4066447878226"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Konzentrat vs Shine Spülmittel Konzentrat",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Konzentrat, 450 ml",
+   "size": 450,
+   "unit": "ml",
+   "price": 1.69,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=fairy+konzentrat",
+   "gtin": "8001090510327",
+   "image": "https://images.openfoodfacts.org/images/products/800/109/051/0327/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Concentrated washing-up liquid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Shine",
+   "product": "Shine Washing-up Liquid Concentrated Classic (Netto), 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.25,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto.de/",
+   "gtin": "5712873371105",
+   "image": "https://images.openfoodfacts.org/images/products/571/287/337/1105/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Concentrated washing-up liquid",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are concentrated hand washing-up liquids, priced at one store on one day.",
+  "evidence": "Open Prices shows Fairy at 1.69 for 450 ml and Shine at 1.25 for 500 ml, both at a store recorded as Netto in Strausberg on 13 Feb 2026. Open Prices' product records give the sizes.",
+  "differences": "Neither ingredient list is on file, so we can't compare how concentrated they are, and you may need more or less of one per wash. We found no cleaning test that covers Shine. Germany has two chains called Netto, so check both for Shine.",
+  "why": "Both are sold as concentrates, and Shine comes out about a third cheaper per millilitre. Check how far a squeeze goes before you buy it in quantity.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8001090510327",
+   "https://prices.openfoodfacts.org/products/5712873371105",
+   "https://world.openfoodfacts.org/product/8001090510327",
+   "https://world.openfoodfacts.org/product/5712873371105"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "royal-canin-indoor-27-vs-concept-for-life-indoor-cats-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Royal Canin Indoor 27 vs Concept for Life Indoor Cats",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Indoor 27, 2 kg",
+   "size": 2,
+   "unit": "kg",
+   "price": 21.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/royal_canin/royal_canin_indoor/7191?activeVariant=7191.18",
+   "gtin": "3182550704625",
+   "image": "https://images.openfoodfacts.org/images/products/318/255/070/4625/front_en.27.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein",
+     "amount": ""
+    },
+    {
+     "name": "Rice",
+     "amount": ""
+    },
+    {
+     "name": "Wheat",
+     "amount": ""
+    },
+    {
+     "name": "Maize",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "27%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "13%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Indoor Cats, 3 kg",
+   "size": 3,
+   "unit": "kg",
+   "price": 19.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_indoor/1218612?activeVariant=1218612.1",
+   "gtin": "4062911015586",
+   "key_ingredients": [
+    {
+     "name": "Chicken protein",
+     "amount": "33.4%"
+    },
+    {
+     "name": "Rice",
+     "amount": "33%"
+    },
+    {
+     "name": "Fresh chicken",
+     "amount": "14%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "30%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "12.5%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods made for adult indoor cats, with a similar fat level and comparable protein, sold at zooplus.",
+  "evidence": "zooplus.de product pages read on 6 Nov 2026: Royal Canin Indoor 27 is 21.49 for 2 kg and Concept for Life Indoor Cats is 19.99 for 3 kg at the regular shop price, without subscription. Both pages call the food complete (Alleinfuttermittel) for adult cats. Analysis: Royal Canin 27% protein, 13% fat, 4% fibre, 7% ash. Concept for Life 30% protein, 12.5% fat, 5.5% fibre, 7.2% ash.",
+  "differences": "We compared the nearest pack sizes. In other sizes the gap is smaller: Royal Canin 4 kg is 34.99 (8.75 per kg), and Concept for Life's 3 kg is about 24% less per kg. At 10 kg it's 65.99 against 53.99, about 18% less. The recipes differ, and Royal Canin's page says up to 7 years. We know of no feeding trial comparing them. Cats with a medical condition need a vet's advice. There's no licensed photo on file for Concept for Life.",
+  "why": "On the analysis, Concept for Life gives a little more protein with similar fat, and it's sold as a complete food for the same indoor cat. You pay less per kilo in every size we checked.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "aspects": [
+   {
+    "aspect": "Crude protein",
+    "brand": "27%",
+    "alternative": "30%",
+    "verdict": "different"
+   },
+   {
+    "aspect": "Crude fat",
+    "brand": "13%",
+    "alternative": "12.5%",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Crude fibre",
+    "brand": "4%",
+    "alternative": "5.5%",
+    "verdict": "different"
+   }
+  ],
+  "bulk": {
+   "product": "Concept for Life Indoor Cats, 10 kg",
+   "size": 10,
+   "price": 53.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_indoor/1218612?activeVariant=1218612.2"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/royal_canin/royal_canin_indoor/7191?activeVariant=7191.18",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_indoor/1218612?activeVariant=1218612.1",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_indoor/1218612?activeVariant=1218612.2",
+   "https://world.openfoodfacts.org/product/3182550704625",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "royal-canin-maxi-adult-vs-concept-for-life-large-adult-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry dog food",
+  "title": "Royal Canin Maxi Adult vs Concept for Life Large Adult",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Maxi Adult, 15 kg",
+   "size": 15,
+   "unit": "kg",
+   "price": 64.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/maxi/1983069",
+   "gtin": "3182550401937",
+   "image": "https://images.openpetfoodfacts.org/images/products/318/255/040/1937/front_en.7.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein",
+     "amount": ""
+    },
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Maize",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "26%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "17%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Large Adult Huhn, 12 kg",
+   "size": 12,
+   "unit": "kg",
+   "price": 43.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_maxi/497453?activeVariant=497453.12",
+   "gtin": "4062911064614",
+   "key_ingredients": [
+    {
+     "name": "Poultry protein",
+     "amount": "27%"
+    },
+    {
+     "name": "Rice",
+     "amount": ""
+    },
+    {
+     "name": "Maize",
+     "amount": ""
+    },
+    {
+     "name": "Fresh chicken",
+     "amount": "10%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "26%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "17%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for large adult dogs with the same 26% protein and 17% fat, sold at zooplus.",
+  "evidence": "zooplus.de product pages read on 6 Nov 2026: Royal Canin Maxi Adult is 64.49 for 15 kg and Concept for Life Large Adult is 43.99 for 12 kg at the regular shop price, without subscription. Both pages call the food complete (Alleinfuttermittel) for adult dogs from 15 months. Analysis: Royal Canin 26% protein, 17% fat, 1.6% fibre, 7.6% ash. Concept for Life 26% protein, 17% fat, 2% fibre, 7.2% ash.",
+  "differences": "This saving is modest, about 15%. Royal Canin states a dog weight of 26 to 44 kg, and the Concept for Life text we read says large adult dogs without a range. The grains differ: Royal Canin lists wheat flour and maize, Concept for Life rice and maize. Both list sources of glucosamine and chondroitin. The double packs are 121.99 for 30 kg and 82.99 for 24 kg. We know of no feeding trial comparing them. Dogs with a medical condition need a vet's advice. There's no licensed photo on file for Concept for Life.",
+  "why": "The protein and fat figures match exactly, and both are sold as complete food for the same size of dog. For a big dog that eats a lot, 63 cents less per kilo adds up.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "aspects": [
+   {
+    "aspect": "Crude protein",
+    "brand": "26%",
+    "alternative": "26%",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Crude fat",
+    "brand": "17%",
+    "alternative": "17%",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Crude fibre",
+    "brand": "1.6%",
+    "alternative": "2%",
+    "verdict": "different"
+   }
+  ],
+  "bulk": {
+   "product": "Concept for Life Large Adult Huhn, 2 x 12 kg",
+   "size": 24,
+   "price": 82.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_maxi/497453?activeVariant=497453.13"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/maxi/1983069",
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_maxi/497453?activeVariant=497453.12",
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_maxi/497453?activeVariant=497453.13",
+   "https://world.openpetfoodfacts.org/product/3182550401937",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "hills-science-plan-adult-huhn-vs-concept-for-life-all-cats-adult-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Hill's Science Plan Adult 1-6 Huhn vs Concept for Life All Cats Adult",
+  "brand": {
+   "brand": "Hill's Science Plan",
+   "product": "Hill's Science Plan Adult 1-6 Huhn, 3 kg",
+   "size": 3,
+   "unit": "kg",
+   "price": 28.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/hills/hills_adult/4956",
+   "gtin": "052742030838",
+   "key_ingredients": [
+    {
+     "name": "Chicken and turkey meal",
+     "amount": ""
+    },
+    {
+     "name": "Wheat",
+     "amount": ""
+    },
+    {
+     "name": "Maize",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "31.9%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "19.7%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life All Cats Adult Huhn, 3 kg",
+   "size": 3,
+   "unit": "kg",
+   "price": 19.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_adult/1218920?activeVariant=1218920.8",
+   "gtin": "4062911064331",
+   "key_ingredients": [
+    {
+     "name": "Chicken protein",
+     "amount": "34%"
+    },
+    {
+     "name": "Rice",
+     "amount": ""
+    },
+    {
+     "name": "Green peas",
+     "amount": ""
+    },
+    {
+     "name": "Fresh chicken",
+     "amount": "10%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "32%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "18%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete chicken-based dry foods for adult cats with about 32% protein, sold at zooplus in a 3 kg bag.",
+  "evidence": "zooplus.de product pages read on 6 Nov 2026: Hill's Adult 1-6 Huhn is 28.49 for 3 kg and Concept for Life All Cats Adult is 19.99 for 3 kg at the regular shop price, without subscription. Both pages call the food complete (Alleinfuttermittel) for adult cats. Analysis: Hill's 31.9% protein, 19.7% fat, 1.4% fibre, 5.5% ash. Concept for Life 32% protein, 18% fat, 4% fibre, 8.2% ash.",
+  "differences": "Hill's is richer in fat and lower in fibre and ash. The recipes differ: Hill's lists poultry meal, wheat and maize, and Concept for Life lists chicken protein, rice and peas. At 10 kg the prices are 73.49 and 52.99. We know of no feeding trial comparing them. Cats with a medical condition need a vet's advice. We found no licensed photo that we could match exactly to either product.",
+  "why": "Protein is the same on the analysis, and both are sold as a complete food for the same cat. In the same size of bag, Concept for Life costs €8.50 less.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "aspects": [
+   {
+    "aspect": "Crude protein",
+    "brand": "31.9%",
+    "alternative": "32%",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Crude fat",
+    "brand": "19.7%",
+    "alternative": "18%",
+    "verdict": "different"
+   },
+   {
+    "aspect": "Crude ash",
+    "brand": "5.5%",
+    "alternative": "8.2%",
+    "verdict": "brand_better"
+   }
+  ],
+  "bulk": {
+   "product": "Concept for Life All Cats Adult Huhn, 10 kg",
+   "size": 10,
+   "price": 52.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_adult/1218920"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/hills/hills_adult/4956",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_adult/1218920",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_adult/1218920?activeVariant=1218920.8",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "catsan-ultra-plus-vs-biokats-micro-classic-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Cat litter",
+  "title": "Catsan Ultra plus vs Biokat's Micro Classic",
+  "brand": {
+   "brand": "Catsan",
+   "product": "Catsan Ultra plus Klumpstreu, 15 l",
+   "size": 15,
+   "unit": "l",
+   "price": 23.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenstreu/catsan/446330?activeVariant=446330.0",
+   "gtin": "4008429022227",
+   "image": "https://images.openfoodfacts.org/images/products/400/842/902/2227/front_en.3.400.jpg",
+   "rating": {
+    "stars": 4.1,
+    "count": 98,
+    "source": "https://www.zooplus.de/shop/katzen/katzenstreu/catsan/446330"
+   },
+   "key_ingredients": [
+    {
+     "name": "Clay granules, clumping, unscented",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Biokat's",
+   "product": "Biokat's Micro Classic Katzenstreu, 14 l",
+   "size": 14,
+   "unit": "l",
+   "price": 10.29,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenstreu/biokats/alleskoenner_streu/59413?activeVariant=59413.6",
+   "gtin": "4002064613840",
+   "image": "https://images.openproductsfacts.org/images/products/400/206/461/3840/front_nl.3.400.jpg",
+   "rating": {
+    "stars": 3.6,
+    "count": 412,
+    "source": "https://www.zooplus.de/shop/katzen/katzenstreu/biokats/alleskoenner_streu/59413"
+   },
+   "key_ingredients": [
+    {
+     "name": "Natural clay, extra fine grain, clumping, unscented",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are unscented clumping clay cat litters, sold at zooplus and priced by the litre.",
+  "evidence": "zooplus.de product pages read on 6 Nov 2026: Catsan Ultra plus is 23.99 for 15 l and Biokat's Micro Classic is 10.29 for 14 l. The Catsan photo and barcode on file are for a 10 l pack of Catsan Ultra plus, and zooplus lists the 15 l pack under a different barcode. Both pages describe clay litter that clumps and has no added scent.",
+  "differences": "Catsan rates higher at zooplus: 4.1 of 5 from 98 ratings against 3.6 of 5 from 412. zooplus's summary of the Biokat's reviews mentions dust, clumps breaking apart and less suitability for several cats. Biokat's has a very fine grain. How long a litre lasts isn't tested here, so a cheaper litre may not mean a cheaper month.",
+  "why": "Same material, same clumping job, same shop, and Biokat's costs less than half as much per litre. Catsan rates higher, so try one bag before you buy the double pack.",
+  "claims": [],
+  "aspects": [
+   {
+    "aspect": "zooplus rating",
+    "brand": "4.1 of 5 (98)",
+    "alternative": "3.6 of 5 (412)",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Material",
+    "brand": "Clay granules",
+    "alternative": "Natural clay",
+    "verdict": "same"
+   }
+  ],
+  "bulk": {
+   "product": "Biokat's Micro Classic Katzenstreu, 2 x 14 l",
+   "size": 28,
+   "price": 19.19,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/katzen/katzenstreu/biokats/alleskoenner_streu/59413?activeVariant=59413.7"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/katzen/katzenstreu/catsan/446330",
+   "https://www.zooplus.de/shop/katzen/katzenstreu/biokats/alleskoenner_streu/59413",
+   "https://www.zooplus.de/shop/katzen/katzenstreu/biokats/alleskoenner_streu/59413?activeVariant=59413.7",
+   "https://world.openfoodfacts.org/product/4008429022227",
+   "https://world.openproductsfacts.org/product/4002064613840"
+  ],
+  "price_checked": "2026-11"
+ }
+]

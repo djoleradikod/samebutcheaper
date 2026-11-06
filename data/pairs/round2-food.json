@@ -30,7 +30,8 @@
     },
     "alternative": {
       "brand": "Great Value",
-      "product": "Great Value No Calorie Sweetener with Sucralose, 200 count (7 oz)", "image": "https://images.openfoodfacts.org/images/products/007/874/204/6181/front_en.6.400.jpg",
+      "product": "Great Value No Calorie Sweetener with Sucralose, 200 count (7 oz)",
+      "image": "https://images.openfoodfacts.org/images/products/007/874/204/6181/front_en.6.400.jpg",
       "size": 7,
       "unit": "oz",
       "price_usd": 3.28,
@@ -66,86 +67,14 @@
     "price_checked": "2026-11"
   },
   {
-    "slug": "argo-vs-good-and-gather-corn-starch",
-    "category": "food-pantry",
-    "subcategory": "Baking",
-    "title": "Argo Corn Starch vs Good & Gather Corn Starch",
-    "brand": {
-      "brand": "Argo",
-      "product": "Argo 100% Pure Corn Starch, 16 oz",
-      "size": 16,
-      "unit": "oz",
-      "price_usd": 2.59,
-      "retailer": "target",
-      "asin": null,
-      "url": "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426",
-      "key_ingredients": [
-        {
-          "name": "Corn starch",
-          "amount": "100%"
-        }
-      ],
-      "rating": { "stars": 4.7, "count": 986, "source": "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426" }
-    },
-    "alternative": {
-      "brand": "Good & Gather (Target)",
-      "product": "Good & Gather Corn Starch, 16 oz",
-      "size": 16,
-      "unit": "oz",
-      "price_usd": 1.99,
-      "retailer": "target",
-      "asin": null,
-      "url": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320",
-      "key_ingredients": [
-        {
-          "name": "Corn starch",
-          "amount": "100%"
-        }
-      ],
-      "rating": { "stars": 4.69, "count": 653, "source": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320" }
-    },
-    "match_type": "identical_formula",
-    "confidence": "high",
-    "summary": "Both are a single ingredient: corn starch.",
-    "evidence": "Target's product pages list the only ingredient as corn starch for both Argo and Good & Gather, each 16 oz net weight.",
-    "differences": "Argo comes in a cardboard box. The store brand's packaging may differ. Otherwise none.",
-    "sources": [
-      "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426",
-      "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Gluten-free label",
-        "brand": "'Certified Gluten-Free' on Target listing",
-        "alternative": "Gluten-free not stated on Target listing",
-        "verdict": "brand_better",
-        "source": "https://www.target.com/p/argo-100-pure-corn-starch-16oz/-/A-14771426"
-      },
-      {
-        "aspect": "Packaging",
-        "brand": "Screw-top plastic container",
-        "alternative": "Cardboard box, per a Target reviewer",
-        "verdict": "different",
-        "source": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320"
-      },
-      {
-        "aspect": "GMO",
-        "brand": "Not non-GMO; Argo says its corn is genetically modified",
-        "alternative": "Not stated non-GMO; reviewers mention a Bioengineered Food label on the box",
-        "verdict": "same",
-        "source": "https://www.target.com/p/corn-starch-16oz-good-38-gather-8482/-/A-77914320"
-      }
-    ]
-  },
-  {
     "slug": "domino-vs-great-value-granulated-sugar-4lb",
     "category": "food-pantry",
     "subcategory": "Baking",
     "title": "Domino Granulated Sugar vs Great Value Pure Granulated Sugar",
     "brand": {
       "brand": "Domino",
-      "product": "Domino Premium Pure Cane Granulated Sugar, 4 lb", "image": "https://images.openfoodfacts.org/images/products/004/920/004/5503/front_en.22.400.jpg",
+      "product": "Domino Premium Pure Cane Granulated Sugar, 4 lb",
+      "image": "https://images.openfoodfacts.org/images/products/004/920/004/5503/front_en.22.400.jpg",
       "size": 64,
       "unit": "oz",
       "price_usd": 4.74,
@@ -186,65 +115,6 @@
       "https://www.priceritemarketplace.com/product/domino-premium-pure-cane-granulated-sugar-4-lb-id-00049200045503"
     ],
     "price_checked": "2026-11"
-  },
-  {
-    "slug": "c-and-h-vs-good-and-gather-granulated-sugar-4lb",
-    "category": "food-pantry",
-    "subcategory": "Baking",
-    "title": "C&H Pure Cane Sugar vs Good & Gather Granulated Sugar",
-    "brand": {
-      "brand": "C&H",
-      "product": "C&H Premium Pure Cane Granulated Sugar, 4 lb",
-      "size": 64,
-      "unit": "oz",
-      "price_usd": 4.99,
-      "retailer": "target",
-      "asin": null,
-      "url": "https://www.target.com/p/c-38-h-premium-pure-cane-granulated-sugar-4lbs/-/A-13379070",
-      "key_ingredients": [
-        {
-          "name": "Sugar (cane)",
-          "amount": "100%"
-        }
-      ],
-      "rating": { "stars": 4.69, "count": 586, "source": "https://www.target.com/p/c-38-h-premium-pure-cane-granulated-sugar-4lbs/-/A-13379070" }
-    },
-    "alternative": {
-      "brand": "Good & Gather (Target)",
-      "product": "Good & Gather Granulated Sugar, 4 lb",
-      "size": 64,
-      "unit": "oz",
-      "price_usd": 3.19,
-      "retailer": "target",
-      "asin": null,
-      "url": "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310",
-      "key_ingredients": [
-        {
-          "name": "Sugar",
-          "amount": "100%"
-        }
-      ],
-      "rating": { "stars": 4.75, "count": 5834, "source": "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310" }
-    },
-    "match_type": "identical_formula",
-    "confidence": "medium",
-    "summary": "Both list one ingredient, sugar, in a 4 lb bag.",
-    "evidence": "Target's pages list the ingredient as 'sugar' for both C&H and Good & Gather. Target's spec for Good & Gather says the sweetener source is sugar beet, and a brand rep on the page says it can be beet or cane depending on the bag.",
-    "differences": "C&H is cane sugar. Good & Gather is usually beet sugar. Both are refined sucrose, but people who want cane sugar specifically should know this.",
-    "sources": [
-      "https://www.target.com/p/c-38-h-premium-pure-cane-granulated-sugar-4lbs/-/A-13379070",
-      "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Sugar source",
-        "brand": "Sugar cane (Target specs)",
-        "alternative": "Sugar beet (Target specs); brand rep says bags may be beet or cane, check the code on the bag",
-        "verdict": "brand_better",
-        "source": "https://www.target.com/p/granulated-sugar-4lbs-good-38-gather-8482/-/A-78471310"
-      }
-    ]
   },
   {
     "slug": "heinz-vs-great-value-distilled-white-vinegar-gallon",
@@ -304,7 +174,8 @@
     "title": "Quaker Old Fashioned Oats vs Great Value Old Fashioned Oats (42 oz)",
     "brand": {
       "brand": "Quaker",
-      "product": "Quaker Old Fashioned Oats, 42 oz", "image": "https://images.openfoodfacts.org/images/products/003/000/001/0402/front_en.268.400.jpg",
+      "product": "Quaker Old Fashioned Oats, 42 oz",
+      "image": "https://images.openfoodfacts.org/images/products/003/000/001/0402/front_en.268.400.jpg",
       "size": 42,
       "unit": "oz",
       "price_usd": 5.49,
@@ -366,7 +237,11 @@
           "amount": "100%"
         }
       ],
-      "rating": { "stars": 4.79, "count": 286, "source": "https://www.target.com/p/-/A-13479028" }
+      "rating": {
+        "stars": 4.79,
+        "count": 286,
+        "source": "https://www.target.com/p/-/A-13479028"
+      }
     },
     "alternative": {
       "brand": "Good & Gather (Target)",
@@ -383,7 +258,11 @@
           "amount": "100%"
         }
       ],
-      "rating": { "stars": 4.7, "count": 1162, "source": "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121" }
+      "rating": {
+        "stars": 4.7,
+        "count": 1162,
+        "source": "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121"
+      }
     },
     "match_type": "identical_formula",
     "confidence": "high",

@@ -207,6 +207,15 @@ function photoFor(brand: string, productName: string): Photo | null {
 
 /* ------------------------------------------------------------------- pairs */
 
+/** A price older than this is shown as old and stays off the home page. */
+const OLD_PRICE_MONTHS = 12;
+
+function monthsSince(yearMonth: string) {
+  const [y, m] = yearMonth.split("-").map(Number);
+  const now = new Date();
+  return (now.getUTCFullYear() - y) * 12 + (now.getUTCMonth() + 1 - (m || 1));
+}
+
 function bulkViewFor(p: PairInput, brandPpu: number, altPpu: number): BulkView {
   const view: BulkView = { breakEvenUnits: round(p.alternative.price / brandPpu, 1) };
   if (p.bulk) {
@@ -248,6 +257,7 @@ function derive(p: PairInput): Pair {
     evidence_claims: claimsFor(p),
     shelfLife: shelfFor(p),
     bulkView: bulkViewFor(p, brandPpu, altPpu),
+    priceOld: monthsSince(p.price_checked) > OLD_PRICE_MONTHS,
   };
 }
 
@@ -408,7 +418,7 @@ function derivePreset(input: PresetInput): Preset | null {
     savingsPct: round((savings / brandTotal) * 100, 1),
     currency,
     photos: photos.slice(0, 4),
-    photoShare: round(photos.length / lines.length, 2),
+    photoShare: round(lines.filter((l) => l.altPhoto || l.brandPhoto).length / lines.length, 2),
     score: round(savings * APPROX_USD[currency], 2),
   };
 }

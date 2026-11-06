@@ -184,10 +184,8 @@ body {
     border-radius: 8px;
   }
 
-  /* The shelf ticket. The hole is punched with a mask, so it shows whatever is behind. */
+  /* The shelf ticket. */
   .ticket {
-    --hole-r: 2px;
-    --hole-x: 6px;
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -201,33 +199,23 @@ body {
     letter-spacing: -0.012em;
     line-height: 1;
     white-space: nowrap;
-    -webkit-mask-image: radial-gradient(circle at var(--hole-x) 50%, transparent var(--hole-r), #000 calc(var(--hole-r) + 0.5px));
-    mask-image: radial-gradient(circle at var(--hole-x) 50%, transparent var(--hole-r), #000 calc(var(--hole-r) + 0.5px));
   }
   .ticket-sm {
-    --hole-r: 2px;
-    --hole-x: 6px;
-    padding: 4px 6px 4px 11px;
+    padding: 4px 6px;
     font-size: 0.875rem;
   }
   .ticket-md {
-    --hole-r: 2.5px;
-    --hole-x: 7px;
-    padding: 5px 8px 5px 14px;
+    padding: 5px 8px;
     font-size: 1.125rem;
   }
   .ticket-lg {
-    --hole-r: 4px;
-    --hole-x: 10px;
-    padding: 8px 12px 8px 21px;
+    padding: 8px 12px;
     font-size: 1.75rem;
   }
   /* A small ticket that grows where the card has room. */
   @media (min-width: 1024px) {
     .ticket-up {
-      --hole-r: 2.5px;
-      --hole-x: 7px;
-      padding: 5px 8px 5px 14px;
+      padding: 5px 8px;
       font-size: 1.125rem;
     }
   }

@@ -1,9 +1,11 @@
-import { RETAILER_LABEL } from "./affiliate";
 import { formatSize, ppu } from "./format";
 import type { CategorySlug, Pair, ProductSide } from "./types";
 
-/** Researched verdicts, plus "check" for things we couldn't compare from the labels. */
-export type Verdict = "same" | "alt_better" | "brand_better" | "different" | "check";
+/**
+ * Researched verdicts, plus "check" for things we couldn't compare from the labels, "about_same"
+ * for a pack within 5%, and "unknown" when a value is missing on one side, which proves nothing.
+ */
+export type Verdict = "same" | "about_same" | "alt_better" | "brand_better" | "different" | "check" | "unknown";
 export type CompareRow = {
   aspect: string;
   brand: string;
@@ -12,6 +14,8 @@ export type CompareRow = {
   source?: string;
   /** Link for the aspect name, e.g. an ingredient page. */
   href?: string;
+  /** Left out of the "x of y the same" count. The unit price differs on every swap, so it says nothing there. */
+  uncounted?: boolean;
 };
 export type Comparison = {
   /** "Active ingredients" or "Specs": one row per ingredient or spec, from the labels. */
@@ -20,6 +24,22 @@ export type Comparison = {
   /** Everything else: formula, pack, price, rating, licence, researched rows. */
   rows: CompareRow[];
 };
+
+/** A pack this close in size counts as about the same. */
+const ABOUT_SAME_SHARE = 0.05;
+
+function packVerdict(brandSize: number, altSize: number): Verdict {
+  if (brandSize === altSize) return "same";
+  return Math.abs(brandSize - altSize) / Math.max(brandSize, altSize) <= ABOUT_SAME_SHARE ? "about_same" : "different";
+}
+
+const NOT_ON_FILE = /^(not (listed|recorded|rated|stated|given|published|disclosed|on file)|unknown|n\/a)\b/i;
+
+/** A missing value against a real one isn't a difference. A verdict that says the brand or the cheaper one won stays. */
+function withoutFalseDifference(row: CompareRow): CompareRow {
+  const missing = NOT_ON_FILE.test(row.brand.trim()) || NOT_ON_FILE.test(row.alternative.trim());
+  return missing && (row.verdict === "different" || row.verdict === "check") ? { ...row, verdict: "unknown" } : row;
+}
 
 const norm = (s: string) => s.toLowerCase().replace(/[\s,]+/g, "");
 const normName = (s: string) =>
@@ -65,7 +85,7 @@ function ingredientRows(pair: Pair, slugFor?: (name: string) => string | undefin
       aspect: r.name,
       brand: r.brand === undefined ? "Not listed" : r.brand || "Yes",
       alternative: r.alt === undefined ? "Not listed" : r.alt || "Yes",
-      verdict: same ? "same" : "different",
+      verdict: !both ? "unknown" : same ? "same" : "different",
       href: slug ? `/ingredient/${slug}` : undefined,
     };
   });
@@ -115,7 +135,7 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
     aspect: "Pack",
     brand: formatSize(b.size, b.unit),
     alternative: formatSize(a.size, a.unit),
-    verdict: b.size === a.size ? "same" : "different",
+    verdict: packVerdict(b.size, a.size),
   });
 
   rows.push({
@@ -123,6 +143,7 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
     brand: ppu(b.ppu, pair.currency),
     alternative: `${ppu(a.ppu, pair.currency)} (${Math.round(pair.savingsPct)}% less)`,
     verdict: "alt_better",
+    uncounted: true,
   });
 
   if (b.license_id || a.license_id) {
@@ -131,7 +152,7 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
       aspect: "Licence number",
       brand: b.license_id ?? "Not recorded",
       alternative: a.license_id ?? "Not recorded",
-      verdict: same ? "same" : "different",
+      verdict: !b.license_id || !a.license_id ? "unknown" : same ? "same" : "different",
     });
   }
 
@@ -142,20 +163,13 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
       brand: ratingText(b),
       alternative: ratingText(a),
       verdict:
-        !b.rating || !a.rating ? "check" : Math.abs(diff) <= 0.2 ? "same" : diff > 0 ? "alt_better" : "brand_better",
+        !b.rating || !a.rating ? "unknown" : Math.abs(diff) <= 0.2 ? "same" : diff > 0 ? "alt_better" : "brand_better",
       source: a.rating?.source ?? b.rating?.source,
     });
   }
 
-  rows.push({
-    aspect: "Where we priced it",
-    brand: RETAILER_LABEL[b.retailer] ?? "Retailer",
-    alternative: RETAILER_LABEL[a.retailer] ?? "Retailer",
-    verdict: b.retailer === a.retailer ? "same" : "different",
-  });
-
   // Researched rows win over generated ones with the same name.
-  let researched: CompareRow[] = pair.aspects ?? [];
+  let researched: CompareRow[] = (pair.aspects ?? []).map(withoutFalseDifference);
   const taken = new Set(researched.map((r) => norm(r.aspect)));
   let ingredients = ingredientRows(pair, slugFor).filter((r) => !taken.has(norm(r.aspect)));
   // A researched row that repeats an ingredient or spec row word for word only
@@ -177,22 +191,66 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
   };
 }
 
+/** Words that end in a full stop without ending the sentence. */
+const ABBREVIATION = "e\\.g|i\\.e|vs|cf|ca|approx|incl|excl|St|Dr|Mr|Mrs|Ms|Prof|No|Nr|Reg|Inc|Ltd|Co|Corp|Bros|U\\.S|U\\.K";
+/** Names written in lower case that can start a sentence. */
+const LOWER_CASE_START = "t-online|test\\.de|up&up|iMore|newstime";
+/** "Which?" only ends a sentence when the next word clearly starts a new one. Otherwise it's "Which? Best Buy". */
+const AFTER_WHICH = "The|It|Its|They|Their|Both|Neither|This|That|These|Those|However|But|So";
+const SENTENCE_END = new RegExp(
+  `(?<!\\bWhich\\?)(?<!\\b(?:${ABBREVIATION})\\.)(?<=[.!?])\\s+(?=[A-Z0-9'"]|(?:${LOWER_CASE_START})\\b)|(?<=\\bWhich\\?)\\s+(?=(?:${AFTER_WHICH})\\b)`,
+);
+
+/** Splits text at real sentence ends, and not after "Which?", "e.g." or "No.". */
+export function splitSentences(text: string) {
+  return text
+    .split(SENTENCE_END)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+}
+
+/** The note that says how old a price is. The date beside the prices already covers it. */
+const PRICE_DATE_NOTE = /treat (these|the) prices|\b(checked|dated)\b.*\b(19|20)\d\d\b|^([\w'-]+ )?prices? (are|is|date|dates|were|was) from\b.*\b(19|20)\d\d\b/i;
+
 /** "Honest differences" text as separate points. */
 export function differencePoints(text: string) {
-  return text
-    .split(/(?<=[.!?])\s+(?=[A-Z0-9])/)
-    .map((s) => s.trim())
-    .filter((s) => s.length > 3);
+  return splitSentences(text).filter((s) => s.length > 3 && !PRICE_DATE_NOTE.test(s));
+}
+
+/** Sentences about prices, dates, stores or how a record was read. True, but none of them is a way the product loses. */
+const NOT_ABOUT_THE_PRODUCT = new RegExp(
+  [
+    "\\b(prices?|priced|pricing|priciest|costs?|cheap(er|est)?|low-cost|on sale|marked down|out of stock|in stock)\\b",
+    "[£$€]\\s?\\d|\\b\\d+p\\b|\\bEUR\\b",
+    "\\b(checked|dated?|listing|listed at|pages?|site|photos?|records?|sources?|sellers?|marketplace)\\b",
+    "\\b(19|20)\\d\\d\\b",
+    "\\b(January|February|March|April|June|July|August|September|October|November|December)\\b",
+    "\\bI\\b|\\bwe (did not confirm|didn't confirm|left out|ignore)\\b",
+    "\\b(no|single|small|one) (taste )?tests?\\b",
+    // Says the two match, or talks about the saving: neither is a way the product loses.
+    "(?<!not )\\bthe same\\b|^same\\b|\\bon both\\b|\\b(lists?|labels?) (match|show no)|no ingredient differences?",
+    "\\b(didn't|wasn't) (score )?better\\b|\\bscores are level\\b|\\bclose to a tie\\b|\\bwith either\\b",
+    "^both (contain|labels say)\\b",
+    "\\bsavings? (is|are) (small|modest)\\b|\\bconfidence\\b|\\balso (available|sells)\\b|\\bbarcode\\b|\\bmeta description\\b|\\bfigures come\\b",
+  ].join("|"),
+  "i",
+);
+
+/** The points that are a real way the cheaper product loses, for the "Against it" line. */
+export function drawbacks(points: string[]) {
+  return points.filter((p) => !NOT_ABOUT_THE_PRODUCT.test(p));
 }
 
 /** Exact counts for a one-line summary: never a blended score. */
 export function matchParts(c: Comparison) {
   const all = [...c.ingredients, ...c.rows];
   const count = (v: Verdict) => all.filter((r) => r.verdict === v).length;
+  const labels = c.ingredients.map((r) => r.verdict);
+  const labelMatches = labels.length === 0 || labels.includes("unknown") ? null : labels.every((v) => v === "same");
   return {
-    /** Every active or spec row matches. Null when the label data lists none. */
-    labelMatches: c.ingredients.length ? c.ingredients.every((r) => r.verdict === "same") : null,
-    same: count("same"),
+    /** Every active or spec row matches. Null when the label data is missing on either side. */
+    labelMatches: labels.some((v) => v === "different" || v === "brand_better") ? false : labelMatches,
+    same: count("same") + count("about_same"),
     differ: count("different") + count("check"),
     brandBetter: count("brand_better"),
     altBetter: count("alt_better"),

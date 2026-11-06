@@ -4,14 +4,19 @@ import type { Comparison, CompareRow, Verdict } from "@/lib/compare";
 /** Pale fill for the row and darker text for the words. Alt-better rows stay white: yellow is for the ticket. */
 const VERDICT: Record<Verdict, { label: string; row: string; text: string }> = {
   same: { label: "Same", row: "bg-same-soft", text: "text-same" },
+  about_same: { label: "About the same", row: "bg-same-soft", text: "text-same" },
   alt_better: { label: "Cheaper one wins", row: "", text: "text-ink" },
   brand_better: { label: "Brand wins", row: "bg-brand-better-soft", text: "text-brand-better" },
   different: { label: "Differs", row: "bg-different-soft", text: "text-different" },
   check: { label: "Check the label", row: "bg-different-soft", text: "text-different" },
+  unknown: { label: "Not on file", row: "", text: "text-muted" },
 };
 
 /** Ingredient rows shown before the rest fold away. */
 const SHOW = 8;
+
+/** Fewer points than this with data on both sides, and a count of them says nothing. */
+const MIN_COUNTED = 3;
 
 /** What's the same and what's different, point by point, with an honest verdict on each. */
 export function SameOrDifferent({
@@ -27,7 +32,9 @@ export function SameOrDifferent({
   intro?: string;
 }) {
   const all = [...comparison.ingredients, ...comparison.rows];
-  const same = all.filter((r) => r.verdict === "same").length;
+  // Only points with data on both sides count, and the unit price differs on every swap.
+  const counted = all.filter((r) => !r.uncounted && r.verdict !== "unknown" && r.verdict !== "check");
+  const same = counted.filter((r) => r.verdict === "same" || r.verdict === "about_same").length;
   const brandWins = all.filter((r) => r.verdict === "brand_better").length;
   const shown = comparison.ingredients.slice(0, SHOW);
   const folded = comparison.ingredients.slice(SHOW);
@@ -42,12 +49,16 @@ export function SameOrDifferent({
           </h2>
           <p className="mt-1 text-[15px] text-ink-2">{intro ?? "Point by point, including where the brand is better."}</p>
         </div>
-        <p className="num text-sm font-semibold">
-          <span className="text-same">
-            {same} of {all.length} the same.
-          </span>
-          {brandWins > 0 && <span className="text-brand-better"> Brand wins {brandWins}.</span>}
-        </p>
+        {(counted.length >= MIN_COUNTED || brandWins > 0) && (
+          <p className="num text-sm font-semibold">
+            {counted.length >= MIN_COUNTED && (
+              <span className="text-same">
+                {same} of {counted.length} the same.
+              </span>
+            )}
+            {brandWins > 0 && <span className="text-brand-better"> Brand wins {brandWins}.</span>}
+          </p>
+        )}
       </div>
 
       <div className="mt-4 space-y-4">

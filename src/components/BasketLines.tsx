@@ -6,6 +6,7 @@ import { Minus, Plus } from "lucide-react";
 import { setSavedList, useSavedList } from "@/lib/client/savedList";
 import { money, type Currency } from "@/lib/format";
 import type { CategorySlug } from "@/lib/types";
+import { packSize } from "@/lib/unit-format";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, SaveTicket } from "./Ticket";
 import { ToArrow, UnitPrice } from "./UnitPrice";
@@ -34,6 +35,8 @@ export type BasketLineView = {
   altPpu: number;
   /** The brand pack the quantity counts, such as "415 g". */
   pack: string | null;
+  /** Set when the price is per wash or per 100 ml, so the quantity counts that amount and not packs. */
+  measure: { size: number; unit: string } | null;
 };
 
 const MAX_QTY = 99;
@@ -251,7 +254,11 @@ function Line({ line, index }: { line: BasketLineView; index: number }) {
       <div className="col-span-2 flex items-start justify-between gap-3 md:contents">
         <div>
           <Stepper value={n} name={line.altName} onChange={(v) => setQty(index, v)} />
-          {line.pack && <p className="mt-1 text-xs leading-tight text-muted">{n === 1 ? "pack" : "packs"} of {line.pack}</p>}
+          {line.measure ? (
+            <p className="mt-1 text-xs leading-tight text-muted">{packSize(n * line.measure.size, line.measure.unit)} in all</p>
+          ) : (
+            line.pack && <p className="mt-1 text-xs leading-tight text-muted">{n === 1 ? "pack" : "packs"} of {line.pack}</p>
+          )}
         </div>
         <div className="min-w-0 text-right">
           {n > 0 ? (

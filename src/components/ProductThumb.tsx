@@ -1,93 +1,43 @@
+import { CATEGORY_MAP } from "@/lib/categories";
 import type { CategorySlug } from "@/lib/types";
 
 /**
  * Fixed sizes for lists, fluid sizes for card grids. `tile` keeps itself square and
  * `fill` takes the size of its parent, so nothing shifts when a photo loads.
+ * `tile` sizes follow the card grid: half of a card, 2 across on a phone, 3 then 4 on a desktop.
  */
 const SIZES = {
   xs: { box: "h-11 w-11", pixels: 160, sizes: "44px" },
   sm: { box: "h-16 w-16", pixels: 160, sizes: "64px" },
   md: { box: "h-24 w-24", pixels: 160, sizes: "96px" },
   lg: { box: "h-40 w-full sm:h-44", pixels: 480, sizes: "(min-width: 640px) 320px, 45vw" },
-  tile: { box: "aspect-square w-full", pixels: 480, sizes: "(min-width: 768px) 150px, 24vw" },
+  tile: {
+    box: "aspect-square w-full",
+    pixels: 480,
+    sizes: "(min-width: 1320px) 160px, (min-width: 1024px) 12.5vw, (min-width: 768px) 17vw, 25vw",
+  },
   fill: { box: "h-full w-full", pixels: 480, sizes: "(min-width: 768px) 90px, 130px" },
 } as const;
 
-type Shape = "bottle" | "pump" | "jar" | "box" | "bag";
-
-const DOSE_FORMS = /tablet|caplet|capsule|softgel|gelcap|gumm|lozenge|chewable|pill/i;
-const LIQUID = /fl ?oz|ml|litre|liter|^l$/i;
-
-/** Pick a pack shape that looks like what's on the shelf. */
-function shapeFor(category: CategorySlug | undefined, unit = ""): Shape {
-  if (DOSE_FORMS.test(unit)) return "bottle";
-  switch (category) {
-    case "pet":
-      return "bag";
-    case "beauty-hair":
-    case "household":
-      return LIQUID.test(unit) ? "pump" : "box";
-    case "skincare-personal-care":
-      return LIQUID.test(unit) ? "pump" : /oz|g$|gram/i.test(unit) ? "jar" : "box";
-    case "food-pantry":
-      return /oz|g$|gram|lb|kg/i.test(unit) ? "jar" : "box";
-    case "otc-medicine":
-    case "supplements":
-    case "baby":
-      return LIQUID.test(unit) ? "bottle" : "box";
-    default:
-      return "box";
-  }
+/** Font size for the name on a label, as a share of the tile: short names large, long ones small enough to fit. */
+function labelScale(name: string) {
+  const longestWord = Math.max(...name.split(/\s+/).map((w) => w.length));
+  return Math.min(24, 170 / longestWord, 300 / name.length);
 }
 
-/** Outline only, with a dashed line: it has to read as a placeholder, never as a photo. */
-function PackOutline({ shape }: { shape: Shape }) {
-  switch (shape) {
-    case "bottle":
-      return (
-        <>
-          <rect x="33" y="10" width="34" height="14" rx="2" />
-          <rect x="25" y="29" width="50" height="61" rx="6" />
-          <path d="M25 46h50M25 72h50" />
-        </>
-      );
-    case "pump":
-      return (
-        <>
-          <path d="M42 8h20M49 8v13" />
-          <rect x="39" y="21" width="22" height="8" rx="1" />
-          <rect x="29" y="29" width="42" height="61" rx="8" />
-          <path d="M29 48h42M29 74h42" />
-        </>
-      );
-    case "jar":
-      return (
-        <>
-          <rect x="21" y="24" width="58" height="12" rx="2" />
-          <rect x="17" y="36" width="66" height="54" rx="9" />
-          <path d="M17 52h66M17 76h66" />
-        </>
-      );
-    case "bag":
-      return (
-        <>
-          <path d="M24 12h52l6 76q0 2-3 2H21q-3 0-3-2l6-76Z" />
-          <path d="M22 40h56M20 70h60" />
-        </>
-      );
-    default:
-      return (
-        <>
-          <rect x="21" y="12" width="58" height="78" rx="2" />
-          <path d="M21 26h58M21 42h58M21 70h58" />
-        </>
-      );
-  }
+/** "Member's Mark" gives "MM". */
+function initials(name: string) {
+  return name
+    .split(/\s+/)
+    .map((w) => w.match(/\p{L}|\p{N}/u)?.[0] ?? "")
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 }
 
 /**
- * A real product photo on a white 4px tile with a 1px line. With no licensed photo it
- * draws an honest outline of a pack and says so. Photos are checked to exist when the
+ * The real photo, or with no licensed photo a shelf label: the name set large on a quiet tint and
+ * a line saying there's no photo, so it can't pass for a pack. Photos are checked to exist when the
  * catalogue is built, so this needs no client code and works on the server.
  */
 export function ProductThumb({
@@ -95,12 +45,14 @@ export function ProductThumb({
   brand,
   category,
   unit,
+  kind,
   size = "md",
   className = "",
   alt,
   eager = false,
   sizes,
   quiet = false,
+  flush = false,
 }: {
   image?: string | null;
   brand: string;
@@ -108,22 +60,28 @@ export function ProductThumb({
   alt?: string;
   /** Set for the largest image on the page so it isn't lazy-loaded. */
   eager?: boolean;
+  /** The aisle, named on a label when `kind` isn't given. */
   category?: CategorySlug;
-  /** The pack unit (tablet, fl oz, oz...), used to pick the drawing. */
+  /** The pack unit (tablet, fl oz, oz...), named on a label when there's nothing better. */
   unit?: string;
+  /** What the product is ("Cookware"), for the label's second line. */
+  kind?: string;
   size?: keyof typeof SIZES;
   className?: string;
   /** Overrides the `sizes` attribute when the tile's width is known. */
   sizes?: string;
-  /** Leaves the words off a drawn pack, for tiles too small to fit them. */
+  /** Initials only on a label, for tiles too small to fit the name. */
   quiet?: boolean;
+  /** No line or corners of its own, for tiles set edge to edge inside a card. */
+  flush?: boolean;
 }) {
   const s = SIZES[size];
-  const box = `relative shrink-0 overflow-hidden rounded-tile border border-line bg-white ${s.box} ${className}`;
+  const edge = flush ? "" : "rounded-tile border border-line";
+  const box = `relative shrink-0 overflow-hidden ${edge} ${s.box} ${className}`;
 
   if (image) {
     return (
-      <div className={box}>
+      <div className={`${box} bg-white`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${image}-${s.pixels}.webp`}
@@ -135,29 +93,48 @@ export function ProductThumb({
           loading={eager ? "eager" : "lazy"}
           fetchPriority={eager ? "high" : undefined}
           decoding={eager ? "sync" : "async"}
-          className="absolute inset-0 h-full w-full object-contain p-1"
+          className="absolute inset-0 h-full w-full object-contain"
         />
       </div>
     );
   }
 
-  const showText = !quiet && size !== "xs" && size !== "sm";
-  return (
-    <div role="img" aria-label={`${alt ?? brand}: no photo yet`} className={`${box} grid place-items-center bg-canvas!`}>
-      <div className="flex h-full w-full flex-col items-center justify-center gap-0.5 p-1">
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 100 100"
-          fill="none"
-          stroke="var(--line-strong)"
-          strokeWidth="2"
-          strokeDasharray="5 4"
-          className="min-h-0 w-full flex-1"
-        >
-          <PackOutline shape={shapeFor(category, unit)} />
-        </svg>
-        {showText && <span className="shrink-0 text-center text-[10px] leading-tight text-muted">No photo yet</span>}
+  const label = `${alt ?? brand}: no photo yet`;
+  const tint = `${box} bg-canvas [container-type:size]`;
+
+  if (quiet || size === "xs" || size === "sm") {
+    return (
+      <div role="img" aria-label={label} className={`${tint} grid place-items-center`}>
+        <span className="price text-ink-2" style={{ fontSize: "38cqmin" }}>
+          {initials(brand)}
+        </span>
       </div>
+    );
+  }
+
+  const detail = kind ?? (category ? CATEGORY_MAP[category].name : unit);
+  return (
+    <div role="img" aria-label={label} className={`${tint} flex flex-col text-left`} style={{ padding: "6cqmin" }}>
+      <span
+        className="price min-h-0 overflow-hidden text-ink [overflow-wrap:anywhere]"
+        style={{ fontSize: `clamp(10px, ${labelScale(brand)}cqmin, 44px)`, lineHeight: 1.05 }}
+      >
+        {brand}
+      </span>
+      {detail && detail !== brand && (
+        <span
+          className="mt-[0.3em] truncate leading-tight font-medium text-ink-2"
+          style={{ fontSize: "clamp(10px, 9cqmin, 15px)" }}
+        >
+          {detail}
+        </span>
+      )}
+      <span
+        className="mt-auto shrink-0 pt-[0.3em] leading-tight text-muted"
+        style={{ fontSize: "clamp(9px, 7.5cqmin, 12px)" }}
+      >
+        No photo yet
+      </span>
     </div>
   );
 }

@@ -30,8 +30,9 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 - `image`: where a product photo was found (older files). The site never loads this URL. `scripts/images/ingest.ts`
   downloads it, normalises it, and stores `public/products/<file>-160.webp` and `-480.webp` with a licence record in
   `data/images.json`, keyed by `"<brand>|<product>"`. **Only openly licensed sources**: Open Facts (CC BY-SA, credited on
-  the page), DailyMed (public domain) and others listed in `docs/research/R2-reuse.md`. Never brand or retailer photos
-  unless their terms allow it. A swap with no record draws a pack tile and doesn't count as covered.
+  the page) and others listed in `docs/research/R2-reuse.md`. A photo shows only once a person has checked it (`reviewed`).
+  DailyMed label images stay off: they're flat carton artwork and their rights aren't confirmed. Never brand or retailer
+  photos unless their terms allow it. A swap with no record draws a pack tile and doesn't count as covered.
 - `why`: one or two plain sentences on why this brand's premium isn't worth paying, specific to this swap.
 - `claims`: ids from `data/evidence/claims.json` to show on this swap. Claims matching the category apply anyway.
 - `shelf_life`: an id from `data/evidence/shelf-life.json`, when the subcategory match isn't the right record.

@@ -9,6 +9,8 @@ import {
   getPresetsFor,
   getShelfLife,
   getSiteStats,
+  photoStanding,
+  pickByPhotos,
   toSummary,
 } from "@/lib/catalog";
 import type { BasketSummary } from "@/components/BasketCard";
@@ -18,7 +20,7 @@ import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
 import { MARKET_CODES, type MarketCode } from "@/lib/markets";
-import type { CategorySlug, Claim, Pair, Preset, ShelfLife } from "@/lib/types";
+import type { CategorySlug, Claim, Preset, ShelfLife } from "@/lib/types";
 
 const MEDICINE: CategorySlug = "otc-medicine";
 
@@ -37,17 +39,13 @@ function isMedicine(line: Preset["lines"][number]) {
   return getPair(line.pair)?.category === MEDICINE;
 }
 
-/** Fewest missing photos first. */
-function photoGap(p: Pair) {
-  return (p.brand.photo ? 0 : 1) + (p.alternative.photo ? 0 : 1);
-}
-
-/** Medicine stays off the first screens, so its photos never go in a collage. */
+/** Cheaper packs first, then the brands they replace. Medicine stays off the first screens, so its photos never go in a collage. */
 function toBasketSummary(p: Preset): BasketSummary {
-  const photos: BasketSummary["photos"] = [];
-  for (const l of p.lines) {
-    if (l.altPhoto && !isMedicine(l)) photos.push({ src: l.altPhoto, name: getPair(l.pair)?.alternative.product ?? l.altName });
-  }
+  const lines = p.lines.filter((l) => !isMedicine(l));
+  const photos: BasketSummary["photos"] = [
+    ...lines.flatMap((l) => (l.altPhoto ? [{ src: l.altPhoto, name: getPair(l.pair)?.alternative.product ?? l.altName }] : [])),
+    ...lines.flatMap((l) => (l.brandPhoto ? [{ src: l.brandPhoto, name: getPair(l.pair)?.brand.product ?? l.brandName }] : [])),
+  ];
   return {
     slug: p.slug,
     market: p.market,
@@ -75,29 +73,17 @@ function basketsFor(market: MarketCode) {
 
 /**
  * Never medicine, including remedies filed under another aisle such as infant gas relief.
- * Real photos on both sides come first, with a cap per aisle and per shelf so the grid shows
- * the range of the site, and it reads as a ranking: biggest saving first.
+ * Photos fill the grid first (see pickByPhotos), with a cap per aisle and per shelf so it shows
+ * the range of the site, and within a photo standing it reads as a ranking: biggest saving first.
  */
 function biggestSavings(market: MarketCode, limit = 12) {
-  const pool = getFeaturedPairs(48, market)
-    .filter((p) => !/relief|remed|fever|allerg|cough/i.test(p.subcategory))
-    .sort((a, b) => photoGap(a) - photoGap(b));
-  const picked: Pair[] = [];
-  const counts = new Map<string, number>();
-  for (const p of pool) {
-    if (picked.length >= limit) break;
-    const shelf = `${p.category}:${p.subcategory.toLowerCase()}`;
-    const aisleCap = p.category === "supplements" ? 2 : 6;
-    if ((counts.get(p.category) ?? 0) >= aisleCap || (counts.get(shelf) ?? 0) >= 2) continue;
-    counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
-    counts.set(shelf, (counts.get(shelf) ?? 0) + 1);
-    picked.push(p);
-  }
-  for (const p of pool) {
-    if (picked.length >= limit) break;
-    if (!picked.includes(p)) picked.push(p);
-  }
-  return picked.sort((a, b) => b.savingsPct - a.savingsPct).map(toSummary);
+  const pool = getFeaturedPairs(48, market).filter((p) => !/relief|remed|fever|allerg|cough/i.test(p.subcategory));
+  return pickByPhotos(pool, limit, (p) => [
+    { key: p.category, max: p.category === "supplements" ? 2 : 6 },
+    { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 2 },
+  ])
+    .sort((a, b) => photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct)
+    .map(toSummary);
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;

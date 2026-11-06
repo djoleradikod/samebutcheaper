@@ -41,12 +41,14 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
               </div>
             ))}
           </div>
-          <PctTicket pct={bundle.savingsPct} size="sm" grow className="absolute -top-1 -right-1" />
         </div>
       </div>
 
       <div className="mt-2.5 flex flex-1 flex-col">
-        <p className="text-[13px] font-medium text-muted">Instead of the {bundle.bundle.brand} kit</p>
+        <div className="flex items-start justify-between gap-2">
+          <p className="text-[13px] font-medium text-muted">Instead of the {bundle.bundle.brand} kit</p>
+          <PctTicket pct={bundle.savingsPct} size="sm" grow className="shrink-0" />
+        </div>
         <p className="mt-0.5 leading-snug font-semibold group-hover:underline">{bundle.bundle.name}</p>
         <ul className="mt-1.5 space-y-0.5 text-[13px] text-ink-2">
           {pieces.map((c) => (

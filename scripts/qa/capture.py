@@ -190,7 +190,8 @@ def run_bar(out):
 def run_ours(out, base, paths):
     os.makedirs(out, exist_ok=True)
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        # Hinting on headless Linux spaces glyphs unevenly ("wit h"), which no phone or desktop browser does.
+        browser = p.chromium.launch(headless=True, args=["--font-render-hinting=none"])
         for vp, cfg in contexts(p).items():
             ctx = browser.new_context(**cfg)
             page = ctx.new_page()

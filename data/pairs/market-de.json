@@ -110,7 +110,11 @@
           "amount": "500 mg"
         }
       ],
-      "rating": { "stars": 4.7, "count": 16, "source": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm" }
+      "rating": {
+        "stars": 4.7,
+        "count": 16,
+        "source": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm"
+      }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -120,7 +124,8 @@
     "sources": [
       "https://www.shop-apotheke.com/arzneimittel/10203632/aspirin-500-mg-ueberzogene-tabletten.htm",
       "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm",
-      "https://www.shop-apotheke.com/marken/ass/ass-500/"
+      "https://www.shop-apotheke.com/marken/ass/ass-500/",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/ass-500-1a-pharma-tabletten-8612429.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Aspirin (acetylsalicylic acid) 500 mg tablets",
@@ -178,7 +183,11 @@
           "amount": "2 mg"
         }
       ],
-      "rating": { "stars": 5, "count": 4, "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm" }
+      "rating": {
+        "stars": 5,
+        "count": 4,
+        "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm"
+      }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -188,7 +197,8 @@
     "sources": [
       "https://www.shop-apotheke.com/arzneimittel/4940757/imodium-akut-bei-akutem-durchfall.htm",
       "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm",
-      "https://www.shop-apotheke.com/marken/loperamid/"
+      "https://www.shop-apotheke.com/marken/loperamid/",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/imodium-akut-hartkapseln-4940757.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Loperamide hydrochloride 2 mg capsules",
@@ -253,7 +263,11 @@
           "amount": "500 mg"
         }
       ],
-      "rating": { "stars": 4.9, "count": 27, "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm" }
+      "rating": {
+        "stars": 4.9,
+        "count": 27,
+        "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm"
+      }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -418,7 +432,8 @@
     "differences": "Vomex A is a sugar-coated tablet (Dragee); Dimenhydrinat AL is a plain tablet. Inactive ingredients differ.",
     "sources": [
       "https://www.aponeo.de/04274616-vomex-a-dragees-50-mg-ueberzogene-tabletten.html",
-      "https://www.aponeo.de/06938658-dimenhydrinat-al-50-mg-tabletten.html"
+      "https://www.aponeo.de/06938658-dimenhydrinat-al-50-mg-tabletten.html",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/dimenhydrinat-al-50-mg-tabletten-6938658.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Dimenhydrinate 50 mg tablets",
@@ -491,7 +506,8 @@
     "differences": "Inactive ingredients and tablet colour may differ. Neither page states the salt form; both are the standard 20 mg non-prescription strength.",
     "sources": [
       "https://www.aponeo.de/05124445-pantozol-control-20-mg-magensaftres-tabletten.html",
-      "https://www.aponeo.de/07021927-panto-aristo-bei-sodbrennen-20-mg-magensaftr-tabl.html"
+      "https://www.aponeo.de/07021927-panto-aristo-bei-sodbrennen-20-mg-magensaftr-tabl.html",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/pantozol-control-20-mg-magensaftrestabletten-5124422.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Pantoprazole 20 mg gastro-resistant tablets (for heartburn)",
@@ -565,7 +581,8 @@
     "sources": [
       "https://www.shop-apotheke.com/arzneimittel/8794436/nurofen-ibuprofen-400-mg-bei-kopfschmerzen.htm",
       "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm",
-      "https://www.shop-apotheke.com/marken/nurofen/nurofen-ibuprofen/"
+      "https://www.shop-apotheke.com/marken/nurofen/nurofen-ibuprofen/",
+      "https://www.ratiopharm.de/produkte/details/ibu-ratiopharm-400-mg-akut-schmerztabletten-pzn-266011/"
     ],
     "price_checked": "2026-11",
     "look_for": "Ibuprofen 400 mg tablets",
@@ -688,7 +705,11 @@
           "amount": "10 mg"
         }
       ],
-      "rating": { "stars": 4, "count": 11, "source": "https://www.aponeo.de/07224435-lorano-akut-tabletten.html" }
+      "rating": {
+        "stars": 4,
+        "count": 11,
+        "source": "https://www.aponeo.de/07224435-lorano-akut-tabletten.html"
+      }
     },
     "alternative": {
       "brand": "axicur (axicorp)",
@@ -714,7 +735,8 @@
     "sources": [
       "https://www.aponeo.de/07224435-lorano-akut-tabletten.html",
       "https://www.aponeo.de/14293796-loratadin-axicur-10-mg-tabletten.html",
-      "https://www.aponeo.de/arzneimittel/antiallergikum/loratadin/"
+      "https://www.aponeo.de/arzneimittel/antiallergikum/loratadin/",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/loratadin-axicur-10-mg-tabletten-14293750.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Loratadine 10 mg tablets",
@@ -787,7 +809,8 @@
     "differences": "Inactive ingredients may differ. Doxylamine is for short-term use only; follow the leaflet.",
     "sources": [
       "https://www.aponeo.de/04402066-hoggar-night-tabletten.html",
-      "https://www.aponeo.de/07707524-schlaf-tabs-ratiopharm-25-mg-tabletten.html"
+      "https://www.aponeo.de/07707524-schlaf-tabs-ratiopharm-25-mg-tabletten.html",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/schlaf-tabs-ratiopharm-25-mg-tabletten-7707524.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Doxylamine succinate 25 mg tablets",
@@ -860,7 +883,8 @@
     "differences": "Flavour and inactive ingredients may differ. At 50 tablets the gap is smaller (13.99 vs 9.14 EUR).",
     "sources": [
       "https://www.aponeo.de/01921682-talcid-kautabletten.html",
-      "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html"
+      "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/talcid-kautabletten-1921682.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Hydrotalcite 500 mg chewable tablets",
@@ -925,7 +949,11 @@
           "amount": "1 mg/ml (0.1%)"
         }
       ],
-      "rating": { "stars": 4.7, "count": 25, "source": "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm" }
+      "rating": {
+        "stars": 4.7,
+        "count": 25,
+        "source": "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm"
+      }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -934,7 +962,8 @@
     "differences": "The base solution differs: Otriven uses a saline phosphate buffer with disodium edetate, the AL spray uses seawater and potassium phosphate. Bottle sizes differ (10 ml vs 15 ml); a 10 ml AL bottle is 3.29 EUR.",
     "sources": [
       "https://www.shop-apotheke.com/arzneimittel/8444541/otriven-gegen-schnupfen-0-1-nasenspray-dosierspray-ohne-konservierungsstoffe.htm",
-      "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm"
+      "https://www.shop-apotheke.com/arzneimittel/12464124/nasenspray-sine-al-1-mg-ml.htm",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/nasenspray-sine-al-1-mgml-nasenspray-12464124.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Xylometazoline 0.1% preservative-free nasal spray",
@@ -1015,7 +1044,11 @@
           "amount": "50 mg"
         }
       ],
-      "rating": { "stars": 4.9, "count": 12, "source": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm" }
+      "rating": {
+        "stars": 4.9,
+        "count": 12,
+        "source": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm"
+      }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -1090,7 +1123,11 @@
           "amount": "683.47 mg (= 400 mg ibuprofen)"
         }
       ],
-      "rating": { "stars": 5, "count": 5, "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm" }
+      "rating": {
+        "stars": 5,
+        "count": 5,
+        "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
+      }
     },
     "match_type": "identical_active",
     "confidence": "high",
@@ -1099,7 +1136,8 @@
     "differences": "Inactive ingredients may differ.",
     "sources": [
       "https://www.shop-apotheke.com/arzneimittel/1094724/dolormin-extra.htm",
-      "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
+      "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/dolormin-extra-filmtabletten-91072.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Ibuprofen lysine 684 mg (400 mg ibuprofen) tablets",
@@ -1157,7 +1195,11 @@
           "amount": "23.2 mg/g (2.32%)"
         }
       ],
-      "rating": { "stars": 4.8, "count": 60, "source": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm" }
+      "rating": {
+        "stars": 4.8,
+        "count": 60,
+        "source": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm"
+      }
     },
     "match_type": "identical_active",
     "confidence": "high",

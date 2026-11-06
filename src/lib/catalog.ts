@@ -20,28 +20,49 @@ export function getPairsByCategory(category: CategorySlug): Pair[] {
   return catalog.pairs.filter((p) => p.category === category);
 }
 
-export function getFeaturedPairs(limit = 12, market?: MarketCode): Pair[] {
-  // Medicine never leads. Swaps with real photos come first, one per subcategory for variety, then fill.
-  const inMarket = market ? catalog.pairs.filter((p) => p.market === market) : catalog.pairs;
-  const notMedicine = inMarket.filter((p) => p.category !== "otc-medicine");
-  const photoFirst = (p: Pair) => (p.alternative.photo ? 0 : 1) + (p.brand.photo ? 0 : 1);
-  const pool = [...notMedicine].sort((a, b) => photoFirst(a) - photoFirst(b) || b.score - a.score);
+/** 0: photos on both sides. 1: a photo of the cheaper product. 2: anything else. */
+export function photoStanding(p: Pair): 0 | 1 | 2 {
+  if (!p.alternative.photo) return 2;
+  return p.brand.photo ? 0 : 1;
+}
+
+/**
+ * Fills a grid from the best photo standing down, leaving out swaps with an old price. Caps add
+ * variety only among swaps of equal standing: capped-out swaps still go ahead of a lower standing.
+ */
+export function pickByPhotos(
+  pool: Pair[],
+  limit: number,
+  capsFor: (p: Pair) => { key: string; max: number }[],
+): Pair[] {
   const picked: Pair[] = [];
-  const seenSub = new Set<string>();
-  const seenCat = new Map<string, number>();
-  for (const p of pool) {
-    const key = `${p.category}:${p.subcategory.toLowerCase()}`;
-    if (p.confidence !== "high" || seenSub.has(key) || (seenCat.get(p.category) ?? 0) >= 3) continue;
-    seenSub.add(key);
-    seenCat.set(p.category, (seenCat.get(p.category) ?? 0) + 1);
-    picked.push(p);
-    if (picked.length >= limit) return picked;
-  }
-  for (const p of pool) {
-    if (!picked.includes(p)) picked.push(p);
-    if (picked.length >= limit) break;
+  for (const standing of [0, 1, 2]) {
+    const tier = pool.filter((p) => !p.priceOld && photoStanding(p) === standing);
+    const counts = new Map<string, number>();
+    for (const p of tier) {
+      if (picked.length >= limit) return picked;
+      const caps = capsFor(p);
+      if (caps.some((c) => (counts.get(c.key) ?? 0) >= c.max)) continue;
+      for (const c of caps) counts.set(c.key, (counts.get(c.key) ?? 0) + 1);
+      picked.push(p);
+    }
+    for (const p of tier) {
+      if (picked.length >= limit) return picked;
+      if (!picked.includes(p)) picked.push(p);
+    }
   }
   return picked;
+}
+
+export function getFeaturedPairs(limit = 12, market?: MarketCode): Pair[] {
+  // Medicine never leads. Within a photo standing: high confidence, one per subcategory and three per aisle, then fill.
+  const inMarket = market ? catalog.pairs.filter((p) => p.market === market) : catalog.pairs;
+  const pool = inMarket.filter((p) => p.category !== "otc-medicine").sort((a, b) => b.score - a.score);
+  return pickByPhotos(pool, limit, (p) => [
+    { key: "confidence", max: p.confidence === "high" ? Infinity : 0 },
+    { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 1 },
+    { key: p.category, max: 3 },
+  ]);
 }
 
 export function getBiggestDollarSavings(limit = 6): Pair[] {

@@ -7,20 +7,34 @@
     "brand": {
       "brand": "Tide",
       "product": "Tide Original Liquid Laundry Detergent, 132 fl oz (100 loads)",
-      "size": 100, "unit": "load",
+      "size": 100,
+      "unit": "load",
       "price_usd": 23.99,
-      "retailer": "walmart", "asin": null,
+      "retailer": "walmart",
+      "asin": null,
       "url": "https://www.walmart.com/ip/Tide-Liquid-Laundry-Detergent-Original-100-Loads-132-fl-oz/5033448584",
-      "key_ingredients": [{"name": "Surfactant/enzyme liquid detergent (full formula proprietary)", "amount": "1 dose per load"}]
+      "key_ingredients": [
+        {
+          "name": "Surfactant/enzyme liquid detergent (full formula proprietary)",
+          "amount": "1 dose per load"
+        }
+      ]
     },
     "alternative": {
       "brand": "Kirkland Signature",
       "product": "Kirkland Signature Ultra Clean HE Liquid Laundry Detergent, 194 fl oz (146 loads)",
-      "size": 146, "unit": "load",
+      "size": 146,
+      "unit": "load",
       "price_usd": 17.89,
-      "retailer": "costco", "asin": null,
+      "retailer": "costco",
+      "asin": null,
       "url": "https://www.costco.com/kirkland-signature-ultra-clean-he-liquid-laundry-detergent%2c-146-loads%2c-194-fl-oz.product.100525846.html",
-      "key_ingredients": [{"name": "Surfactant/enzyme liquid detergent (full formula proprietary)", "amount": "1 dose per load"}]
+      "key_ingredients": [
+        {
+          "name": "Surfactant/enzyme liquid detergent (full formula proprietary)",
+          "amount": "1 dose per load"
+        }
+      ]
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
@@ -35,10 +49,34 @@
     ],
     "price_checked": "2026-11",
     "aspects": [
-      {"aspect": "Consumer Reports rank", "brand": "Tide products rank just above Kirkland in CR's liquid tests", "alternative": "Top five liquid, behind four Tide products; matched Tide in hard water", "verdict": "same", "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"},
-      {"aspect": "Tough stains", "brand": "Better on grass and blood stains", "alternative": "Not quite as good as Tide on grass and blood", "verdict": "brand_better", "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"},
-      {"aspect": "Body oil and salad dressing stains", "brand": "Top results", "alternative": "Kept up with Tide's top offerings", "verdict": "same", "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"},
-      {"aspect": "Cost per load (per CR via Hunker)", "brand": "22 to 37 cents", "alternative": "14 cents", "verdict": "alt_better", "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"}
+      {
+        "aspect": "Consumer Reports rank",
+        "brand": "Tide products rank just above Kirkland in CR's liquid tests",
+        "alternative": "Top five liquid, behind four Tide products; matched Tide in hard water",
+        "verdict": "same",
+        "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"
+      },
+      {
+        "aspect": "Tough stains",
+        "brand": "Better on grass and blood stains",
+        "alternative": "Not quite as good as Tide on grass and blood",
+        "verdict": "brand_better",
+        "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"
+      },
+      {
+        "aspect": "Body oil and salad dressing stains",
+        "brand": "Top results",
+        "alternative": "Kept up with Tide's top offerings",
+        "verdict": "same",
+        "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"
+      },
+      {
+        "aspect": "Cost per load (per CR via Hunker)",
+        "brand": "22 to 37 cents",
+        "alternative": "14 cents",
+        "verdict": "alt_better",
+        "source": "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/"
+      }
     ]
   },
   {
@@ -49,20 +87,35 @@
     "brand": {
       "brand": "Cascade",
       "product": "Cascade Platinum ActionPacs Dishwasher Detergent, Lemon, 62 count",
-      "size": 62, "unit": "pac",
+      "size": 62,
+      "unit": "pac",
       "price_usd": 19.94,
-      "retailer": "walmart", "asin": null,
+      "retailer": "walmart",
+      "asin": null,
       "url": "https://www.walmart.com/ip/Cascade-Platinum-ActionPacs-Dishwasher-Detergent-Lemon-Scent-62-Ct/669992839",
-      "key_ingredients": [{"name": "Enzyme dishwasher detergent pac (full formula proprietary)", "amount": "1 pac per load"}]
+      "key_ingredients": [
+        {
+          "name": "Enzyme dishwasher detergent pac (full formula proprietary)",
+          "amount": "1 pac per load"
+        }
+      ]
     },
     "alternative": {
       "brand": "Kirkland Signature",
-      "product": "Kirkland Signature Platinum Performance UltraShine Dishwasher Detergent Pacs, 115 count", "image": "https://images.openproductsfacts.org/images/products/019/663/380/8424/front_en.3.400.jpg",
-      "size": 115, "unit": "pac",
+      "product": "Kirkland Signature Platinum Performance UltraShine Dishwasher Detergent Pacs, 115 count",
+      "image": "https://images.openproductsfacts.org/images/products/019/663/380/8424/front_en.3.400.jpg",
+      "size": 115,
+      "unit": "pac",
       "price_usd": 11.59,
-      "retailer": "costco", "asin": null,
+      "retailer": "costco",
+      "asin": null,
       "url": "https://www.costco.com/p/-/1452518",
-      "key_ingredients": [{"name": "Enzyme dishwasher detergent pac (full formula proprietary)", "amount": "1 pac per load"}]
+      "key_ingredients": [
+        {
+          "name": "Enzyme dishwasher detergent pac (full formula proprietary)",
+          "amount": "1 pac per load"
+        }
+      ]
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
@@ -78,7 +131,13 @@
     ],
     "price_checked": "2026-11",
     "aspects": [
-      {"aspect": "Consumer Reports rating", "brand": "Cascade ActionPacs with Dawn: Excellent cleaning test, Recommended (CR, Apr 2022)", "alternative": "Excellent on food removal and film resistance, CR Best Buy, 9 cents per dose (CR, Apr 2022)", "verdict": "same", "source": "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html"}
+      {
+        "aspect": "Consumer Reports rating",
+        "brand": "Cascade ActionPacs with Dawn: Excellent cleaning test, Recommended (CR, Apr 2022)",
+        "alternative": "Excellent on food removal and film resistance, CR Best Buy, 9 cents per dose (CR, Apr 2022)",
+        "verdict": "same",
+        "source": "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html"
+      }
     ]
   },
   {
@@ -89,20 +148,35 @@
     "brand": {
       "brand": "Finish",
       "product": "Finish Powerball Quantum Dishwasher Detergent Tablets, 82 count",
-      "size": 82, "unit": "pac",
-      "price_usd": 19.00,
-      "retailer": "amazon", "asin": null,
+      "size": 82,
+      "unit": "pac",
+      "price_usd": 19.0,
+      "retailer": "amazon",
+      "asin": null,
       "url": "https://www.amazon.com/s?k=finish+quantum+82+count",
-      "key_ingredients": [{"name": "Enzyme dishwasher detergent tablet (full formula proprietary)", "amount": "1 tablet per load"}]
+      "key_ingredients": [
+        {
+          "name": "Enzyme dishwasher detergent tablet (full formula proprietary)",
+          "amount": "1 tablet per load"
+        }
+      ]
     },
     "alternative": {
       "brand": "Kirkland Signature",
-      "product": "Kirkland Signature Platinum Performance UltraShine Dishwasher Detergent Pacs, 115 count", "image": "https://images.openproductsfacts.org/images/products/019/663/380/8424/front_en.3.400.jpg",
-      "size": 115, "unit": "pac",
+      "product": "Kirkland Signature Platinum Performance UltraShine Dishwasher Detergent Pacs, 115 count",
+      "image": "https://images.openproductsfacts.org/images/products/019/663/380/8424/front_en.3.400.jpg",
+      "size": 115,
+      "unit": "pac",
       "price_usd": 11.59,
-      "retailer": "costco", "asin": null,
+      "retailer": "costco",
+      "asin": null,
       "url": "https://www.costco.com/p/-/1452518",
-      "key_ingredients": [{"name": "Enzyme dishwasher detergent pac (full formula proprietary)", "amount": "1 pac per load"}]
+      "key_ingredients": [
+        {
+          "name": "Enzyme dishwasher detergent pac (full formula proprietary)",
+          "amount": "1 pac per load"
+        }
+      ]
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
@@ -117,47 +191,13 @@
     ],
     "price_checked": "2026-11",
     "aspects": [
-      {"aspect": "Consumer Reports rating", "brand": "Finish Powerball Quantum: Excellent overall, mainly on cleaning; only Finish formula recommended (CR, Apr 2022)", "alternative": "Excellent on food removal and film resistance, CR Best Buy at 9 cents per dose", "verdict": "same", "source": "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html"}
-    ]
-  },
-  {
-    "slug": "clorox-disinfecting-bleach-vs-up-up-regular-bleach-121oz",
-    "category": "household",
-    "subcategory": "Bleach",
-    "title": "Clorox Disinfecting Bleach vs up&up Regular Bleach",
-    "brand": {
-      "brand": "Clorox",
-      "product": "Clorox Disinfecting Bleach, Regular, 121 fl oz",
-      "size": 121, "unit": "fl oz",
-      "price_usd": 7.99,
-      "retailer": "target", "asin": null,
-      "url": "https://www.target.com/p/clorox-disinfecting-bleach-regular-121oz/-/A-77787193",
-      "key_ingredients": [{"name": "Sodium hypochlorite", "amount": "7.5%"}],
-      "rating": { "stars": 4.82, "count": 3177, "source": "https://www.target.com/p/clorox-disinfecting-bleach-regular-121oz/-/A-77787193" }
-    },
-    "alternative": {
-      "brand": "up&up (Target)",
-      "product": "up&up Regular Bleach with Fabric Protection, 121 fl oz",
-      "size": 121, "unit": "fl oz",
-      "price_usd": 6.99,
-      "retailer": "target", "asin": null,
-      "url": "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909",
-      "key_ingredients": [{"name": "Sodium hypochlorite", "amount": "7.5%"}],
-      "rating": { "stars": 4.61, "count": 6145, "source": "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909" }
-    },
-    "match_type": "equivalent_spec",
-    "confidence": "medium",
-    "summary": "Both are 7.5% sodium hypochlorite regular bleach in the same 121 oz size, so they bleach and disinfect the same way when diluted per label.",
-    "evidence": "Target's product pages list sodium hypochlorite at 7.5% for both Clorox Disinfecting Bleach (Regular) and up&up Regular Bleach with Fabric Protection. Both are sold in 121 fl oz jugs at Target.",
-    "differences": "Savings are modest (about 12%). Neither Target page shows the EPA registration number, so check the up&up jug for an EPA Reg. No. before relying on it for disinfection claims. The up&up product adds a fabric-protection claim; the additives are not disclosed. The up&up page shows no EPA registration number, so its disinfecting claim isn't verified.",
-    "sources": [
-      "https://www.target.com/p/clorox-disinfecting-bleach-regular-121oz/-/A-77787193",
-      "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {"aspect": "Disinfecting claim", "brand": "EPA Reg. No. 5813-120; label says kills 99.9% of viruses and bacteria when used as directed", "alternative": "Target page makes no disinfecting claim and shows no EPA Reg. No. (only \"EPA\" in the URL); staff answer: cannot be relied on to kill C. diff", "verdict": "brand_better", "source": "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909"},
-      {"aspect": "Additives", "brand": "Unscented plain bleach", "alternative": "Added fabric-protection additive, undisclosed; not colour-safe", "verdict": "different", "source": "https://www.target.com/p/epa-regular-bleach-with-fabric-protection-up-up/-/A-80159909"}
+      {
+        "aspect": "Consumer Reports rating",
+        "brand": "Finish Powerball Quantum: Excellent overall, mainly on cleaning; only Finish formula recommended (CR, Apr 2022)",
+        "alternative": "Excellent on food removal and film resistance, CR Best Buy at 9 cents per dose",
+        "verdict": "same",
+        "source": "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html"
+      }
     ]
   },
   {
@@ -168,21 +208,55 @@
     "brand": {
       "brand": "OxiClean",
       "product": "OxiClean Versatile Stain Remover Powder, 3 lb (48 oz)",
-      "size": 48, "unit": "oz",
+      "size": 48,
+      "unit": "oz",
       "price_usd": 9.38,
-      "retailer": "walmart", "asin": null,
+      "retailer": "walmart",
+      "asin": null,
       "url": "https://www.walmart.com/ip/seort/19406203",
-      "key_ingredients": [{"name": "Sodium carbonate", "amount": "listed 1st (% not disclosed)"}, {"name": "Sodium percarbonate (sodium carbonate peroxide)", "amount": "listed 2nd (% not disclosed)"}, {"name": "C10-16 alcohol ethoxylate surfactant", "amount": "listed 3rd"}]
+      "key_ingredients": [
+        {
+          "name": "Sodium carbonate",
+          "amount": "listed 1st (% not disclosed)"
+        },
+        {
+          "name": "Sodium percarbonate (sodium carbonate peroxide)",
+          "amount": "listed 2nd (% not disclosed)"
+        },
+        {
+          "name": "C10-16 alcohol ethoxylate surfactant",
+          "amount": "listed 3rd"
+        }
+      ]
     },
     "alternative": {
       "brand": "up&up (Target)",
       "product": "up&up Powder Stain Remover, Unscented, 56 oz",
-      "size": 56, "unit": "oz",
+      "size": 56,
+      "unit": "oz",
       "price_usd": 9.29,
-      "retailer": "target", "asin": null,
+      "retailer": "target",
+      "asin": null,
       "url": "https://www.target.com/p/-/A-81069446",
-      "key_ingredients": [{"name": "Sodium carbonate", "amount": "listed 1st (% not disclosed)"}, {"name": "Sodium percarbonate", "amount": "listed 2nd (% not disclosed)"}, {"name": "Laureth-7 surfactant", "amount": "listed 3rd"}],
-      "rating": { "stars": 4.5, "count": 1322, "source": "https://www.target.com/p/-/A-81069446" }
+      "key_ingredients": [
+        {
+          "name": "Sodium carbonate",
+          "amount": "listed 1st (% not disclosed)"
+        },
+        {
+          "name": "Sodium percarbonate",
+          "amount": "listed 2nd (% not disclosed)"
+        },
+        {
+          "name": "Laureth-7 surfactant",
+          "amount": "listed 3rd"
+        }
+      ],
+      "rating": {
+        "stars": 4.5,
+        "count": 1322,
+        "source": "https://www.target.com/p/-/A-81069446"
+      }
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
@@ -197,8 +271,20 @@
     ],
     "price_checked": "2026-11",
     "aspects": [
-      {"aspect": "Ingredient list", "brand": "Sodium carbonate, sodium carbonate peroxide, C10-16 alcohol ethoxylate, fragrance, sodium chloride, blue pigment", "alternative": "Sodium carbonate, sodium percarbonate, laureth-7, sodium silicate, colorant", "verdict": "different", "source": "https://churchdwight.com/ingredient-disclosure/laundry-fabric-care/42015066-oxiclean-versatile-stain-remover.aspx"},
-      {"aspect": "Fragrance", "brand": "Contains fragrance (undisclosed components)", "alternative": "Listed as 'Unscented', but shoppers dispute it; some reviewers report a scent", "verdict": "different", "source": "https://www.target.com/p/-/A-81069446"}
+      {
+        "aspect": "Ingredient list",
+        "brand": "Sodium carbonate, sodium carbonate peroxide, C10-16 alcohol ethoxylate, fragrance, sodium chloride, blue pigment",
+        "alternative": "Sodium carbonate, sodium percarbonate, laureth-7, sodium silicate, colorant",
+        "verdict": "different",
+        "source": "https://churchdwight.com/ingredient-disclosure/laundry-fabric-care/42015066-oxiclean-versatile-stain-remover.aspx"
+      },
+      {
+        "aspect": "Fragrance",
+        "brand": "Contains fragrance (undisclosed components)",
+        "alternative": "Listed as 'Unscented', but shoppers dispute it; some reviewers report a scent",
+        "verdict": "different",
+        "source": "https://www.target.com/p/-/A-81069446"
+      }
     ]
   },
   {
@@ -209,20 +295,34 @@
     "brand": {
       "brand": "Mr. Clean",
       "product": "Mr. Clean Magic Eraser Extra Durable, 10 count",
-      "size": 10, "unit": "count",
-      "price_usd": 13.00,
-      "retailer": "amazon", "asin": null,
+      "size": 10,
+      "unit": "count",
+      "price_usd": 13.0,
+      "retailer": "amazon",
+      "asin": null,
       "url": "https://www.amazon.com/s?k=mr+clean+magic+eraser+extra+durable+10+count",
-      "key_ingredients": [{"name": "Melamine foam", "amount": "100% of pad"}]
+      "key_ingredients": [
+        {
+          "name": "Melamine foam",
+          "amount": "100% of pad"
+        }
+      ]
     },
     "alternative": {
       "brand": "Amazon Basics",
       "product": "Amazon Basics Extra Durable Cleaning Erasers, 14 count",
-      "size": 14, "unit": "count",
+      "size": 14,
+      "unit": "count",
       "price_usd": 12.98,
-      "retailer": "amazon", "asin": null,
+      "retailer": "amazon",
+      "asin": null,
       "url": "https://www.amazon.com/s?k=amazon+basics+extra+durable+cleaning+erasers+14+count",
-      "key_ingredients": [{"name": "Melamine foam", "amount": "100% of pad"}]
+      "key_ingredients": [
+        {
+          "name": "Melamine foam",
+          "amount": "100% of pad"
+        }
+      ]
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
@@ -237,8 +337,20 @@
     ],
     "price_checked": "2026-11",
     "aspects": [
-      {"aspect": "Cleaning performance (buyer comment)", "brand": "Mr. Clean Magic Eraser melamine pad", "alternative": "Buyer on a deal post: 'similar to the Mr Clean brand', similar on tub and door scuffs", "verdict": "same", "source": "https://hip2save.com/deals/amazon-basics-cleaning-erasers/"},
-      {"aspect": "Pad thickness", "brand": "Thicker pad", "alternative": "Same buyer: Amazon pads are slimmer, about the same width", "verdict": "brand_better", "source": "https://hip2save.com/deals/amazon-basics-cleaning-erasers/"}
+      {
+        "aspect": "Cleaning performance (buyer comment)",
+        "brand": "Mr. Clean Magic Eraser melamine pad",
+        "alternative": "Buyer on a deal post: 'similar to the Mr Clean brand', similar on tub and door scuffs",
+        "verdict": "same",
+        "source": "https://hip2save.com/deals/amazon-basics-cleaning-erasers/"
+      },
+      {
+        "aspect": "Pad thickness",
+        "brand": "Thicker pad",
+        "alternative": "Same buyer: Amazon pads are slimmer, about the same width",
+        "verdict": "brand_better",
+        "source": "https://hip2save.com/deals/amazon-basics-cleaning-erasers/"
+      }
     ]
   }
 ]

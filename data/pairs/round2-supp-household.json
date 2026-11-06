@@ -35,7 +35,11 @@
           "amount": "3 g fiber per 2 tsp"
         }
       ],
-      "rating": { "stars": 4.18, "count": 207, "source": "https://www.target.com/p/-/A-11303415" }
+      "rating": {
+        "stars": 4.18,
+        "count": 207,
+        "source": "https://www.target.com/p/-/A-11303415"
+      }
     },
     "match_type": "identical_formula",
     "confidence": "medium",
@@ -189,70 +193,6 @@
     "price_checked": "2026-11"
   },
   {
-    "slug": "nature-made-d3-2000iu-vs-spring-valley-d3-2000iu",
-    "category": "supplements",
-    "subcategory": "Vitamin D",
-    "title": "Nature Made Vitamin D3 2000 IU vs Spring Valley Vitamin D3 2000 IU",
-    "brand": {
-      "brand": "Nature Made",
-      "product": "Nature Made Vitamin D3 2000 IU (50 mcg) Softgels, 250 count",
-      "size": 250,
-      "unit": "softgel",
-      "price_usd": 14.52,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/558324711",
-      "key_ingredients": [
-        {
-          "name": "Vitamin D3 (cholecalciferol)",
-          "amount": "50 mcg (2000 IU)"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Spring Valley",
-      "product": "Spring Valley Vitamin D3 Softgels, 50 mcg (2,000 IU), 400 count",
-      "size": 400,
-      "unit": "softgel",
-      "price_usd": 9.38,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/Spring-Valley-Vitamin-D3-Supplement-Softgels-50-Mcg-2-000-IU-400-Count/1728703957",
-      "key_ingredients": [
-        {
-          "name": "Vitamin D3 (cholecalciferol)",
-          "amount": "50 mcg (2000 IU)"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "high",
-    "summary": "Both are one-a-day softgels with 50 mcg (2000 IU) of vitamin D3.",
-    "evidence": "Walmart listings for both products state 50 mcg (2000 IU) vitamin D3 per softgel. Nature Made 250 ct is $14.52 (5.8 cents each) and Spring Valley 400 ct is $9.38 (2.3 cents each).",
-    "differences": "Carrier oil and softgel ingredients were not listed on either page. Nature Made is USP Verified; we did not confirm third-party verification for Spring Valley.",
-    "sources": [
-      "https://www.walmart.com/ip/558324711",
-      "https://www.walmart.com/ip/Spring-Valley-Vitamin-D3-Supplement-Softgels-50-Mcg-2-000-IU-400-Count/1728703957"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Third-party verification",
-        "brand": "USP Dietary Supplement Verified (stated on DSLD label)",
-        "alternative": "No USP seal on the Spring Valley D3 labels found; independent verification not confirmed",
-        "verdict": "brand_better",
-        "source": "https://api.ods.od.nih.gov/dsld/v9/label/179704"
-      },
-      {
-        "aspect": "Softgel carrier",
-        "brand": "Soybean oil, gelatin, glycerin, water",
-        "alternative": "Soybean oil, gelatin, glycerin, corn oil (found label is the 1000 IU version, 2018)",
-        "verdict": "same",
-        "source": "https://api.ods.od.nih.gov/dsld/v9/label/178388"
-      }
-    ]
-  },
-  {
     "slug": "nature-made-melatonin-5mg-vs-spring-valley-melatonin-5mg",
     "category": "supplements",
     "subcategory": "Sleep",
@@ -272,7 +212,11 @@
           "amount": "5 mg"
         }
       ],
-      "rating": { "stars": 4.51, "count": 167, "source": "https://www.target.com/p/nature-made-melatonin-5mg-100-drug-free-sleep-aid-for-adults-tablets-90ct/-/A-14161827" }
+      "rating": {
+        "stars": 4.51,
+        "count": 167,
+        "source": "https://www.target.com/p/nature-made-melatonin-5mg-100-drug-free-sleep-aid-for-adults-tablets-90ct/-/A-14161827"
+      }
     },
     "alternative": {
       "brand": "Spring Valley",
@@ -322,70 +266,6 @@
         "alternative": "Spring Valley melatonin 2012 DSLD label names Pharmavite LLC as the maker",
         "verdict": "same",
         "source": "https://api.ods.od.nih.gov/dsld/v9/label/12210"
-      }
-    ]
-  },
-  {
-    "slug": "nature-made-b12-1000mcg-time-release-vs-spring-valley-b12-1000mcg",
-    "category": "supplements",
-    "subcategory": "B vitamins",
-    "title": "Nature Made B12 1000 mcg Time Release vs Spring Valley B12 1000 mcg Timed-Release",
-    "brand": {
-      "brand": "Nature Made",
-      "product": "Nature Made Vitamin B12 1000 mcg Time Release Tablets, 160 count",
-      "size": 160,
-      "unit": "tablet",
-      "price_usd": 18.2,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/Nature-Made-Vitamin-B12-1000-mcg-Time-Release-Tablets-160-Count-Value-Size/5176462694",
-      "key_ingredients": [
-        {
-          "name": "Vitamin B12",
-          "amount": "1000 mcg"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Spring Valley",
-      "product": "Spring Valley Vitamin B12 Timed-Release Tablets, 1000 mcg, 2 x 150 count (300)",
-      "size": 300,
-      "unit": "tablet",
-      "price_usd": 9.88,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/Spring-Valley-Vitamin-B12-Timed-Release-Tablets-1000-mcg-150-Ct-2-Pk/22027168",
-      "key_ingredients": [
-        {
-          "name": "Vitamin B12 (cyanocobalamin)",
-          "amount": "1000 mcg"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "medium",
-    "summary": "Both are 1000 mcg vitamin B12 time-release tablets taken once a day.",
-    "evidence": "Walmart lists Nature Made B12 at 1000 mcg per time-release tablet ($18.20/160) and Spring Valley at 1000 mcg cyanocobalamin per timed-release tablet ($9.88/300).",
-    "differences": "The Nature Made listing did not state the B12 form, so cyanocobalamin is unconfirmed for it from our sources. Release technology and binders may differ.",
-    "sources": [
-      "https://www.walmart.com/ip/Nature-Made-Vitamin-B12-1000-mcg-Time-Release-Tablets-160-Count-Value-Size/5176462694",
-      "https://www.walmart.com/ip/Spring-Valley-Vitamin-B12-Timed-Release-Tablets-1000-mcg-150-Ct-2-Pk/22027168"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Other ingredients",
-        "brand": "Cellulose gel, hypromellose, stearic acid, silicon dioxide, magnesium stearate, croscarmellose sodium",
-        "alternative": "Dextrose, hypromellose, magnesium stearate (2013 label, may have changed)",
-        "verdict": "different",
-        "source": "https://api.ods.od.nih.gov/dsld/v9/label/26898"
-      },
-      {
-        "aspect": "Label quality claim",
-        "brand": "'Quality tested in the USA', no USP seal on this label",
-        "alternative": "Walmart Spring Valley (made by Schiff in 2013 label), no third-party seal listed",
-        "verdict": "same",
-        "source": "https://api.ods.od.nih.gov/dsld/v9/label/302757"
       }
     ]
   },

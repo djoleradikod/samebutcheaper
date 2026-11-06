@@ -1,7 +1,9 @@
 /**
- * Adds label images from DailyMed (U.S. National Library of Medicine, public
- * domain) to US OTC medicines in data/pairs and data/bundles, as the `image`
- * URL on each product. Open Facts photos come from scripts/fetch-images.ts.
+ * Adds label images from DailyMed (U.S. National Library of Medicine) to US OTC
+ * medicines in data/pairs and data/bundles, as the `image` URL on each product.
+ * The site doesn't show these: rights in a maker's label art aren't confirmed, so
+ * data/images.json records them as "Rights not confirmed". Open Facts photos come
+ * from scripts/fetch-images.ts.
  *
  *   npx tsx scripts/find-images.ts          # only products without an image
  *   npx tsx scripts/find-images.ts --redo   # look every OTC product up again
@@ -148,7 +150,7 @@ async function fromDailyMed(item: Item): Promise<ImageEntry | null> {
     file: pick.url,
     source: "dailymed",
     credit: "DailyMed, U.S. National Library of Medicine",
-    license: "Public domain",
+    license: "Rights not confirmed",
     page: `https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${best.spl.setid}`,
     matched: best.spl.title,
   };

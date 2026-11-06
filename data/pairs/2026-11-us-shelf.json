@@ -1,0 +1,1917 @@
+[
+ {
+  "slug": "lundberg-arborio-rice-vs-signature-select-arborio-rice",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Rice",
+  "title": "Lundberg Arborio Rice vs Signature Select Arborio Rice",
+  "brand": {
+   "brand": "Lundberg Family Farms",
+   "product": "Lundberg White Arborio Gourmet Rice, 32 oz",
+   "size": 32,
+   "unit": "oz",
+   "price": 10.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=lundberg+arborio+rice",
+   "gtin": "0073416050914",
+   "image": "https://images.openfoodfacts.org/images/products/007/341/605/0914/front_en.8.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "White arborio rice",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Arborio Rice, 32 oz",
+   "size": 32,
+   "unit": "oz",
+   "price": 6.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+arborio+rice",
+   "gtin": "0021130170210",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/017/0210/front_en.8.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Arborio rice",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both bags are dry arborio rice with nothing else listed, and at Safeway the own label costs 36% less for the same weight.",
+  "evidence": "Regular prices at Safeway, Mountain View on 11 August 2026 (Open Prices): Lundberg $10.99 and Signature Select $6.99. Neither record gives a quantity, so the 32 oz on both comes from the net weight on the front-of-pack photos at Open Food Facts. Lundberg was $9.29 at Whole Foods, Los Altos on 15 March 2026.",
+  "differences": "The Lundberg bag carries a non-GMO verified mark and the word sustainable. The part of the Signature Select label in its photo shows neither. Where each rice was grown isn't on the records. No cooking or taste test covers this pair.",
+  "why": "Each label lists arborio rice as the only ingredient, in the same weight of bag. The Lundberg label adds growing claims, and no source shows a difference in the pot.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0073416050914",
+   "https://world.openfoodfacts.org/product/0073416050914",
+   "https://prices.openfoodfacts.org/products/0021130170210",
+   "https://world.openfoodfacts.org/product/0021130170210"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "ronzoni-penne-rigate-vs-bowl-and-basket-penne-rigate",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Pasta",
+  "title": "Ronzoni Penne Rigate vs Bowl & Basket Penne Rigate",
+  "brand": {
+   "brand": "Ronzoni",
+   "product": "Ronzoni Penne Rigate No. 76, 16 oz",
+   "size": 16,
+   "unit": "oz",
+   "price": 1.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.shoprite.com/",
+   "gtin": "0071300000762",
+   "image": "https://images.openfoodfacts.org/images/products/007/130/000/0762/front_en.18.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Durum wheat semolina",
+     "amount": ""
+    },
+    {
+     "name": "Durum wheat flour",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Bowl & Basket",
+   "product": "Bowl & Basket Penne Rigate Pasta, 16 oz",
+   "size": 16,
+   "unit": "oz",
+   "price": 1.19,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.shoprite.com/",
+   "gtin": "0041190066537",
+   "image": "https://images.openfoodfacts.org/images/products/004/119/006/6537/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1 lb boxes of penne rigate at ShopRite, and the store's own label costs 20% less.",
+  "evidence": "Regular prices at ShopRite, Huntington Station (Open Prices): Ronzoni $1.49 on 10 July 2026 and Bowl & Basket $1.19 on 13 September 2026.",
+  "differences": "The Bowl & Basket record has no ingredient list, so the flours can't be compared. The two prices are two months apart. No cooking test covers this pair.",
+  "why": "Same shape and same weight in the same store. The saving is 30 cents a box, which adds up mainly if you buy pasta often.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0071300000762",
+   "https://world.openfoodfacts.org/product/0071300000762",
+   "https://prices.openfoodfacts.org/products/0041190066537",
+   "https://world.openfoodfacts.org/product/0041190066537"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "smt-diced-tomatoes-vs-signature-diced-tomatoes",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Canned vegetables",
+  "title": "SMT Diced Tomatoes vs Signature Diced Tomatoes",
+  "brand": {
+   "brand": "SMT",
+   "product": "SMT Pomodoro Cubetti Diced Tomatoes, 28 oz",
+   "size": 28,
+   "unit": "oz",
+   "price": 6.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=smt+diced+tomatoes",
+   "gtin": "0040784987500",
+   "image": "https://images.openfoodfacts.org/images/products/004/078/498/7500/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Diced tomatoes",
+     "amount": ""
+    },
+    {
+     "name": "Tomato juice",
+     "amount": ""
+    },
+    {
+     "name": "Sea salt",
+     "amount": ""
+    },
+    {
+     "name": "Calcium chloride",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature",
+   "product": "Signature Diced Tomatoes, 794 g (28 oz)",
+   "size": 28,
+   "unit": "oz",
+   "price": 2.79,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+diced+tomatoes",
+   "gtin": "0021130338283",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/033/8283/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomatoes",
+     "amount": ""
+    },
+    {
+     "name": "Tomato juice",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Calcium chloride",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "These 28 oz cans of diced tomatoes list the same five kinds of ingredient, and at Safeway the own label costs 60% less.",
+  "evidence": "Regular prices at Safeway, Mountain View on 11 August 2026 (Open Prices): SMT $6.99 and Signature $2.79. SMT was also $6.99 at Draeger's, Los Altos on 20 August 2026.",
+  "differences": "SMT uses sea salt where Signature says salt. Where the tomatoes were grown isn't on either record, and the variety isn't either. No taste test covers this pair, and canned tomatoes can differ in flavor even with matching labels.",
+  "why": "Both labels read tomatoes, tomato juice, salt, calcium chloride and citric acid. The labels show no reason for a gap of $4.20 a can, so try the cheaper can first and judge by taste.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0040784987500",
+   "https://world.openfoodfacts.org/product/0040784987500",
+   "https://prices.openfoodfacts.org/products/0021130338283",
+   "https://world.openfoodfacts.org/product/0021130338283"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "goya-chick-peas-vs-signature-select-garbanzo-beans",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Canned vegetables",
+  "title": "Goya Chick Peas vs Signature Select Garbanzo Beans",
+  "brand": {
+   "brand": "Goya",
+   "product": "Goya Chick Peas Garbanzos, 15.5 oz",
+   "size": 15.5,
+   "unit": "oz",
+   "price": 3.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=goya+chick+peas",
+   "gtin": "0041331124225",
+   "image": "https://images.openfoodfacts.org/images/products/004/133/112/4225/front_en.63.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chick peas",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Disodium EDTA",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Garbanzo Beans, 15 oz",
+   "size": 15,
+   "unit": "oz",
+   "price": 1.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+garbanzo+beans",
+   "gtin": "0021130341054",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/034/1054/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Prepared garbanzo beans",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Sodium metabisulfite",
+     "amount": ""
+    },
+    {
+     "name": "Calcium disodium EDTA",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both cans hold chickpeas in salted water, and at Safeway the own label costs 56% less per ounce.",
+  "evidence": "Regular prices at Safeway, Mountain View (Open Prices): Goya 15.5 oz at $3.49 on 11 August 2026 and Signature Select 15 oz at $1.49 on 19 July 2026. That is $0.23 against $0.10 per oz.",
+  "differences": "Signature Select adds sodium metabisulfite to protect color, which Goya doesn't list, and the can is half an ounce smaller. Drained weight isn't on either record. No taste test covers this pair.",
+  "why": "Chickpeas, water and salt lead both labels, and the rest is additives. The sources show no quality reason for paying $2 more a can.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0041331124225",
+   "https://world.openfoodfacts.org/product/0041331124225",
+   "https://prices.openfoodfacts.org/products/0021130341054",
+   "https://world.openfoodfacts.org/product/0021130341054"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "justins-almond-butter-vs-kirkland-signature-creamy-almond-butter",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Almond butter",
+  "title": "Justin's Almond Butter vs Kirkland Signature Creamy Almond Butter",
+  "brand": {
+   "brand": "Justin's",
+   "product": "Justin's Almond Butter, 16 oz",
+   "size": 16,
+   "unit": "oz",
+   "price": 14.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=justins+almond+butter",
+   "gtin": "0894455000315",
+   "image": "https://images.openfoodfacts.org/images/products/089/445/500/0315/front_en.73.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dry roasted almonds",
+     "amount": ""
+    },
+    {
+     "name": "Palm oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Kirkland Signature",
+   "product": "Kirkland Signature Creamy Almond Butter, 765 g (27 oz)",
+   "size": 26.98,
+   "unit": "oz",
+   "price": 8.29,
+   "retailer": "costco",
+   "asin": null,
+   "url": "https://www.costco.com/CatalogSearch?dept=All&keyword=kirkland+almond+butter",
+   "gtin": "0196633799784",
+   "image": "https://images.openfoodfacts.org/images/products/019/663/379/9784/front_en.10.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dry roasted almonds",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Kirkland's jar is bigger and lists only almonds, and it costs 67% less per ounce than Justin's did at Safeway.",
+  "evidence": "Regular prices from Open Prices, both in Mountain View: Justin's 16 oz at $14.99 at Safeway on 18 October 2026, and Kirkland Signature 765 g at $8.29 at Costco on 16 August 2026. That is $0.94 against $0.31 per oz. Justin's was $13.99 at Dumbo Market, New York on 12 September 2026. Kirkland was $7.99 on Costco records from December 2025 to March 2026.",
+  "differences": "Justin's adds palm oil and Kirkland doesn't, so the texture may differ and the Kirkland jar may need stirring. Costco sells to members, so the fee is an extra cost if you don't already pay it. The chains differ. No taste test covers this pair.",
+  "why": "Almonds are the whole recipe on the Kirkland label and nearly all of it on the Justin's label. The Kirkland jar is 11 oz larger and $6.70 cheaper, which suits you if you get through almond butter steadily.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0894455000315",
+   "https://world.openfoodfacts.org/product/0894455000315",
+   "https://prices.openfoodfacts.org/products/0196633799784",
+   "https://world.openfoodfacts.org/product/0196633799784"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "kraft-grated-parmesan-vs-signature-select-grated-parmesan",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Grated parmesan",
+  "title": "Kraft Grated Parmesan vs Signature Select Grated Parmesan",
+  "brand": {
+   "brand": "Kraft",
+   "product": "Kraft Parmesan Cheese, 8 oz",
+   "size": 8,
+   "unit": "oz",
+   "price": 6.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=kraft+parmesan+cheese",
+   "gtin": "0840370900674",
+   "image": "https://images.openfoodfacts.org/images/products/084/037/090/0674/front_en.76.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Parmesan cheese",
+     "amount": ""
+    },
+    {
+     "name": "Cellulose powder",
+     "amount": ""
+    },
+    {
+     "name": "Potassium sorbate",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Grated Parmesan Cheese, 8 oz",
+   "size": 8,
+   "unit": "oz",
+   "price": 5.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+grated+parmesan",
+   "gtin": "0021130043750",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/004/3750/front_en.13.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Parmesan cheese",
+     "amount": ""
+    },
+    {
+     "name": "Powdered cellulose",
+     "amount": ""
+    },
+    {
+     "name": "Potassium sorbate",
+     "amount": ""
+    }
+   ]
+  },
+  "bulk": {
+   "product": "Signature Kitchens Grated Parmesan Cheese, 16 oz",
+   "size": 16,
+   "price": 7.99,
+   "retailer": "safeway",
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+kitchens+grated+parmesan+16+oz"
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both tubs are grated parmesan with cellulose and potassium sorbate, 14% cheaper for the own label at 8 oz and 27% cheaper at 16 oz.",
+  "evidence": "Regular prices at Safeway, Mountain View on 11 August 2026 (Open Prices): Kraft 8 oz $6.99, Signature Select 8 oz $5.99, Kraft 16 oz $10.99, Signature Kitchens 16 oz $7.99. The 16 oz own-label tub works out at $0.50 per oz against $0.87 for the 8 oz Kraft.",
+  "differences": "Kraft specifies part-skim milk and Signature Select says cultured milk. The 16 oz own-label record is sold under the Signature Kitchens name and lists no potassium sorbate. No taste test covers this pair.",
+  "why": "The labels share parmesan, an anti-caking agent and a preservative. The bigger own-label tub saves the most, at $0.50 per oz against $0.87 for the 8 oz Kraft, if you use it before it goes off.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0840370900674",
+   "https://world.openfoodfacts.org/product/0840370900674",
+   "https://prices.openfoodfacts.org/products/0021130043750",
+   "https://world.openfoodfacts.org/product/0021130043750",
+   "https://prices.openfoodfacts.org/products/0021130043743",
+   "https://world.openfoodfacts.org/product/0021130043743",
+   "https://prices.openfoodfacts.org/products/0840370900506"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "breakstones-whipped-butter-vs-bowl-and-basket-whipped-butter",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Butter",
+  "title": "Breakstone's Whipped Butter vs Bowl & Basket Whipped Butter",
+  "brand": {
+   "brand": "Breakstone's",
+   "product": "Breakstone's Salted Whipped Butter, 8 oz",
+   "size": 8,
+   "unit": "oz",
+   "price": 3.15,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.shoprite.com/",
+   "gtin": "0021000301928",
+   "image": "https://images.openfoodfacts.org/images/products/002/100/030/1928/front_en.13.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cream",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Bowl & Basket",
+   "product": "Bowl & Basket Whipped Salted Butter, 8 oz",
+   "size": 8,
+   "unit": "oz",
+   "price": 2.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.shoprite.com/",
+   "gtin": "0041190467433",
+   "image": "https://images.openfoodfacts.org/images/products/004/119/046/7433/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 8 oz tubs of salted whipped butter at the same ShopRite, and the own label was 21% cheaper.",
+  "evidence": "Regular prices at ShopRite, Huntington Station (Open Prices): Breakstone's $3.15 on 31 December 2025 and Bowl & Basket $2.49 on 10 July 2026. On sale there, Breakstone's was $2.77 on 24 January 2026 and Bowl & Basket $1.99 on 8 September 2026.",
+  "differences": "The prices are six months apart. The Bowl & Basket record has no ingredient list, so only the product name and form can be compared. No taste test covers this pair.",
+  "why": "Same form, same salt level by name and same tub size in one store. The own label was also cheaper when both were on sale.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0021000301928",
+   "https://world.openfoodfacts.org/product/0021000301928",
+   "https://prices.openfoodfacts.org/products/0041190467433",
+   "https://world.openfoodfacts.org/product/0041190467433"
+  ],
+  "price_checked": "2025-12"
+ },
+ {
+  "slug": "lactaid-whole-milk-vs-lucerne-lactose-free-whole-milk",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Lactose-free milk",
+  "title": "Lactaid Whole Milk vs Lucerne Lactose Free Whole Milk",
+  "brand": {
+   "brand": "Lactaid",
+   "product": "Lactaid Lactose Free Whole Milk, 1.89 L (64 fl oz)",
+   "size": 64,
+   "unit": "fl oz",
+   "price": 5.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=lactaid+whole+milk",
+   "gtin": "0041383090363",
+   "image": "https://images.openfoodfacts.org/images/products/004/138/309/0363/front_en.54.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Milk",
+     "amount": ""
+    },
+    {
+     "name": "Lactase enzyme",
+     "amount": ""
+    },
+    {
+     "name": "Vitamin D3",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Lucerne",
+   "product": "Lucerne Lactose Free Whole Milk, 64 oz",
+   "size": 64,
+   "unit": "fl oz",
+   "price": 4.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=lucerne+lactose+free+whole+milk",
+   "gtin": "0021130071890",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/007/1890/front_en.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Milk",
+     "amount": ""
+    },
+    {
+     "name": "Lactase enzyme",
+     "amount": ""
+    },
+    {
+     "name": "Vitamin D3",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are half gallons of whole milk with lactase enzyme and vitamin D3, and the own label was 9% cheaper at Safeway.",
+  "evidence": "Regular prices at Safeway, Mountain View on 12 November 2025 (Open Prices): Lactaid $5.49 and Lucerne $4.99. Lactaid's pack is labeled 1.89 L, which is 64 fl oz. Lactaid was $5.99 at La Plaza, Mountain View on 3 January 2026.",
+  "differences": "The saving is small and the records are a year old. Neither record gives a use-by period. Fat and vitamin amounts weren't compared. No taste test covers this pair.",
+  "why": "The two labels list the same three ingredients in the same order. The own label saves about 50 cents a carton for what reads as the same milk.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0041383090363",
+   "https://world.openfoodfacts.org/product/0041383090363",
+   "https://prices.openfoodfacts.org/products/0021130071890",
+   "https://world.openfoodfacts.org/product/0021130071890"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "horizon-organic-half-and-half-vs-o-organics-half-and-half",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Half and half",
+  "title": "Horizon Organic Half and Half vs O Organics Half & Half",
+  "brand": {
+   "brand": "Horizon Organic",
+   "product": "Horizon Organic Half and Half, 473 mL (16 fl oz)",
+   "size": 16,
+   "unit": "fl oz",
+   "price": 4.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=horizon+organic+half+and+half",
+   "gtin": "0742365216701",
+   "image": "https://images.openfoodfacts.org/images/products/074/236/521/6701/front_en.24.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Grade A organic milk",
+     "amount": ""
+    },
+    {
+     "name": "Grade A organic cream",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "O Organics",
+   "product": "O Organics Half & Half, 1 quart (32 fl oz)",
+   "size": 32,
+   "unit": "fl oz",
+   "price": 5.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=o+organics+half+and+half",
+   "gtin": "0079893122458",
+   "image": "https://images.openfoodfacts.org/images/products/007/989/312/2458/front_en.14.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Organic Grade A milk",
+     "amount": ""
+    },
+    {
+     "name": "Organic Grade A cream",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are organic half and half made from milk and cream only, and Safeway's quart costs 40% less per ounce than the Horizon pint.",
+  "evidence": "Regular prices at Safeway, Mountain View on 12 November 2025 (Open Prices): Horizon 473 mL at $4.99 and O Organics 1 quart at $5.99, which is $0.31 against $0.19 per fl oz. Organic Valley half and half, 16 oz, was also $4.99 there that day.",
+  "differences": "Much of the saving comes from pack size, because the O Organics carton is twice as large and costs $1 more. The quart only saves money if you finish it before it spoils. Open Prices has no Horizon quart on file to compare. No taste test covers this pair.",
+  "why": "Both labels list organic milk and organic cream and nothing else. Twice the volume for one extra dollar is a good deal if a quart gets used in time.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0742365216701",
+   "https://world.openfoodfacts.org/product/0742365216701",
+   "https://prices.openfoodfacts.org/products/0079893122458",
+   "https://world.openfoodfacts.org/product/0079893122458"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "chobani-nonfat-plain-greek-yogurt-vs-o-organics-nonfat-plain-greek-yogurt",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Greek yogurt",
+  "title": "Chobani Nonfat Plain Greek Yogurt vs O Organics Nonfat Plain Greek Yogurt",
+  "brand": {
+   "brand": "Chobani",
+   "product": "Chobani Greek Yogurt Nonfat Plain, 32 oz",
+   "size": 32,
+   "unit": "oz",
+   "price": 7.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=chobani+nonfat+plain+32+oz",
+   "gtin": "0894700010137",
+   "image": "https://images.openfoodfacts.org/images/products/089/470/001/0137/front_en.838.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cultured nonfat milk",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "O Organics",
+   "product": "O Organics Greek Plain Yogurt 0% Nonfat, 32 oz",
+   "size": 32,
+   "unit": "oz",
+   "price": 6.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=o+organics+greek+plain+yogurt",
+   "gtin": "0079893406275",
+   "image": "https://images.openfoodfacts.org/images/products/007/989/340/6275/front_en.25.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cultured pasteurized organic skim milk",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 32 oz tubs of plain nonfat Greek yogurt, and the O Organics tub is organic and 13% cheaper at Safeway.",
+  "evidence": "Regular prices at Safeway, Mountain View on 12 February 2026 (Open Prices): Chobani $7.99 and O Organics $6.99.",
+  "differences": "O Organics is organic and Chobani's record doesn't claim that. Chobani names six live cultures on its record and the O Organics record names none, so that side can't be compared. Protein per serving wasn't compared. No taste test covers this pair.",
+  "why": "Each label is cultured nonfat milk, and the cheaper tub is the organic one. The Chobani label does give more detail on cultures.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0894700010137",
+   "https://world.openfoodfacts.org/product/0894700010137",
+   "https://prices.openfoodfacts.org/products/0079893406275",
+   "https://world.openfoodfacts.org/product/0079893406275"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "morton-and-bassett-vanilla-extract-vs-signature-select-vanilla-extract",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Vanilla extract",
+  "title": "Morton & Bassett Vanilla Extract vs Signature Select Vanilla Extract",
+  "brand": {
+   "brand": "Morton & Bassett",
+   "product": "Morton & Bassett Pure Vanilla Extract, 2 fl oz",
+   "size": 2,
+   "unit": "fl oz",
+   "price": 13.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=morton+bassett+vanilla+extract",
+   "gtin": "0016291445802",
+   "image": "https://images.openfoodfacts.org/images/products/001/629/144/5802/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Alcohol",
+     "amount": "35% minimum"
+    },
+    {
+     "name": "Vanilla bean extractions",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Pure Vanilla Extract, 2 fl oz",
+   "size": 2,
+   "unit": "fl oz",
+   "price": 6.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+pure+vanilla+extract",
+   "gtin": "0021130584420",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/058/4420/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Vanilla bean extractives",
+     "amount": ""
+    },
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Alcohol",
+     "amount": ""
+    }
+   ]
+  },
+  "bulk": {
+   "product": "Signature Select Pure Vanilla Extract, 4 fl oz",
+   "size": 4,
+   "price": 11.99,
+   "retailer": "safeway",
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+pure+vanilla+extract+4+oz"
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are pure vanilla extract in 2 fl oz bottles, and on the same day at Safeway the own label cost 48% less.",
+  "evidence": "Regular prices at Safeway, Mountain View on 11 August 2026 (Open Prices): Morton & Bassett 2 fl oz $13.49, Signature Select 2 fl oz $6.99 and Signature Select 4 fl oz $11.99. McCormick Pure Vanilla Extract, 4 fl oz, was $12.99 marked as discounted that day, so the own-label 4 fl oz also beat it, by 8%.",
+  "differences": "Morton & Bassett states at least 35% alcohol. The Signature Select record gives no percentage. Bean origin and strength in the bottle aren't on either record. No baking or taste test covers this pair.",
+  "why": "Both labels are vanilla bean extract, water and alcohol. The 4 fl oz own-label bottle brings the cost to $3 per fl oz against $6.75, and vanilla is used in small amounts.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0016291445802",
+   "https://world.openfoodfacts.org/product/0016291445802",
+   "https://prices.openfoodfacts.org/products/0021130584420",
+   "https://world.openfoodfacts.org/product/0021130584420",
+   "https://prices.openfoodfacts.org/products/0021130189106",
+   "https://world.openfoodfacts.org/product/0021130189106",
+   "https://prices.openfoodfacts.org/products/0052100071060"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "campbells-cream-of-mushroom-less-sodium-vs-signature-select-reduced-sodium",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Condensed soup",
+  "title": "Campbell's Cream of Mushroom 25% Less Sodium vs Signature Select Reduced Sodium",
+  "brand": {
+   "brand": "Campbell's",
+   "product": "Campbell's Condensed Cream of Mushroom Soup 25% Less Sodium, 10.5 oz",
+   "size": 10.5,
+   "unit": "oz",
+   "price": 2.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=campbells+cream+of+mushroom+25+less+sodium",
+   "gtin": "0051000166814",
+   "image": "https://images.openfoodfacts.org/images/products/005/100/016/6814/front_en.10.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Mushrooms",
+     "amount": ""
+    },
+    {
+     "name": "Vegetable oil",
+     "amount": ""
+    },
+    {
+     "name": "Modified food starch",
+     "amount": ""
+    },
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Cream",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Cream of Mushroom Condensed Soup, Reduced Sodium, 10.5 oz",
+   "size": 10.5,
+   "unit": "oz",
+   "price": 1.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+cream+of+mushroom+reduced+sodium",
+   "gtin": "0021130371617",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/037/1617/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": ""
+    },
+    {
+     "name": "Mushrooms",
+     "amount": ""
+    },
+    {
+     "name": "Modified food starch",
+     "amount": ""
+    },
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Soybean oil",
+     "amount": ""
+    },
+    {
+     "name": "Cream",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 10.5 oz cans of reduced-sodium condensed cream of mushroom soup, and the own label was 20% cheaper at Safeway.",
+  "evidence": "Regular prices at Safeway, Mountain View (Open Prices): Campbell's $2.49 on 19 July and 11 August 2026, and Signature Select $1.99 on 19 July 2026. The Signature Select record gives no quantity or sodium claim, so the 10.5 oz and the reduced sodium wording come from the label photo at Open Food Facts.",
+  "differences": "Campbell's lists monosodium glutamate and Signature Select doesn't. Signature Select lists potassium chloride and Campbell's doesn't. Oil comes earlier on the Campbell's list. Sodium per serving wasn't compared, so check the panels if the number matters to you. No taste test covers this pair.",
+  "why": "Water, mushrooms, starch, flour and cream are in both, and both cans are sold as lower in sodium. The saving is 50 cents a can.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0051000166814",
+   "https://world.openfoodfacts.org/product/0051000166814",
+   "https://prices.openfoodfacts.org/products/0021130371617",
+   "https://world.openfoodfacts.org/product/0021130371617"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "smuckers-strawberry-vs-signature-select-strawberry-preserves",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Jam and preserves",
+  "title": "Smucker's Strawberry vs Signature Select Strawberry Preserves",
+  "brand": {
+   "brand": "Smucker's",
+   "product": "Smucker's Strawberry Fruit Spread, 20 oz",
+   "size": 20,
+   "unit": "oz",
+   "price": 5.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=smuckers+strawberry+20+oz",
+   "gtin": "0051500057223",
+   "image": "https://images.openfoodfacts.org/images/products/005/150/005/7223/front_en.44.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Strawberries",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Fruit pectin",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Strawberry Preserves, 32 oz",
+   "size": 32,
+   "unit": "oz",
+   "price": 5.49,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+strawberry+preserves",
+   "gtin": "0021130461523",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/046/1523/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Strawberries",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Fruit pectin",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "For the same $5.49 at Safeway you get a 32 oz jar of the own label or 20 oz of Smucker's, with the same main ingredients in the same order.",
+  "evidence": "Regular prices at Safeway, Mountain View on 18 October 2026 (Open Prices): Smucker's 20 oz $5.49 and Signature Select 32 oz $5.49, which is $0.27 against $0.17 per oz. Smucker's was also $5.49 there on 24 July 2026. The 32 oz is confirmed by the label photo at Open Food Facts, which shows the jar under the older Signature Kitchens name. We rejected Smucker's 12.75 oz Strawberry Preserves record, also $5.49, because its ingredient list is a sugar-free recipe.",
+  "differences": "Smucker's calls its jar a fruit spread and adds red grape juice concentrate and natural flavor. The saving comes from the larger jar, so it helps only if you finish 32 oz before it spoils. No taste test covers this pair.",
+  "why": "Strawberries, the same three sweeteners, pectin and citric acid appear on both labels in the same order. You pay the same at the till and take home 60% more.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0051500057223",
+   "https://world.openfoodfacts.org/product/0051500057223",
+   "https://prices.openfoodfacts.org/products/0021130461523",
+   "https://world.openfoodfacts.org/product/0021130461523"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "bounty-select-a-size-vs-uline-deluxe-easy-size-paper-towels",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Paper towels",
+  "title": "Bounty Select-A-Size vs Uline Deluxe Easy-Size Paper Towels",
+  "brand": {
+   "brand": "Bounty",
+   "product": "Bounty Select-A-Size Paper Towels, 12 rolls x 82 sheets (984 sheets)",
+   "size": 984,
+   "unit": "sheet",
+   "price": 48,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-25369/Paper-Towels-and-Dispensers/Bounty-Select-A-Size-Paper-Towel-Rolls",
+   "gtin": "0030772167748",
+   "image": "https://images.openproductsfacts.org/images/products/003/077/216/7748/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2-ply"
+    },
+    {
+     "name": "Sheet size",
+     "amount": "11 x 6 in"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Deluxe Easy-Size Paper Towels, 12 rolls x 140 sheets (1,680 sheets), model S-22309",
+   "size": 1680,
+   "unit": "sheet",
+   "price": 34,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-22309/Paper-Towels-and-Dispensers/Uline-Deluxe-Easy-Size-Paper-Towel-Rolls",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2-ply"
+    },
+    {
+     "name": "Sheet size",
+     "amount": "11 x 6 in"
+    }
+   ]
+  },
+  "bulk": {
+   "product": "Uline Deluxe Easy-Size Paper Towels, 3 cases at $32 each (5,040 sheets)",
+   "size": 5040,
+   "price": 96,
+   "retailer": "other",
+   "url": "https://www.uline.com/Product/Detail/S-22309/Paper-Towels-and-Dispensers/Uline-Deluxe-Easy-Size-Paper-Towel-Rolls"
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 2-ply towels with 11 x 6 inch sheets from the same seller, and the Uline case costs 59% less per sheet.",
+  "evidence": "Case prices read on Uline's pages in November 2026, one case: Bounty Select-A-Size (S-25369) $48 for 12 rolls of 82 sheets, and Uline Deluxe Easy-Size (S-22309) $34 for 12 rolls of 140 sheets. That is 4.9 cents against 2.0 cents per sheet. Open Products Facts has the retail Bounty pack shown in the photo, which holds a different roll count from Uline's case.",
+  "differences": "Uline's page describes Bounty as the most absorbent towel on the market, and Uline sells both, so that is a seller's claim. No absorbency or strength test covers these two, and Bounty may well do better on spills. Uline sells by the case to businesses and shipping isn't included in these prices. The Uline side has no licensed photo.",
+  "why": "Ply and sheet size match, and the Uline rolls hold about 70% more sheets. If you tear off small sheets for everyday use and have room for a case, the sums favor Uline.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-25369/Paper-Towels-and-Dispensers/Bounty-Select-A-Size-Paper-Towel-Rolls",
+   "https://www.uline.com/Product/Detail/S-22309/Paper-Towels-and-Dispensers/Uline-Deluxe-Easy-Size-Paper-Towel-Rolls",
+   "https://www.uline.com/BL_1105/Paper-Towels",
+   "https://world.openproductsfacts.org/product/0030772167748"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "charmin-ultra-soft-vs-uline-ultra-toilet-tissue",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Toilet paper",
+  "title": "Charmin Ultra Soft vs Uline Ultra Toilet Tissue",
+  "brand": {
+   "brand": "Charmin",
+   "product": "Charmin Ultra Soft Mega Roll, 32 rolls x 208 sheets (6,656 sheets), model S-25631",
+   "size": 6656,
+   "unit": "sheet",
+   "price": 100,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-25631/Toilet-Paper-and-Dispensers/Charmin-Toilet-Tissue",
+   "gtin": "0037000609896",
+   "image": "https://images.openproductsfacts.org/images/products/003/700/060/9896/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2-ply"
+    },
+    {
+     "name": "Sheet size",
+     "amount": "3.9 x 4 in"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Ultra Toilet Tissue, 36 rolls x 244 sheets (8,784 sheets), model S-26141",
+   "size": 8784,
+   "unit": "sheet",
+   "price": 62,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_4561/Uline-Ultra-Toilet-Tissue",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2-ply"
+    },
+    {
+     "name": "Sheet size",
+     "amount": "3.9 x 4 in"
+    }
+   ]
+  },
+  "bulk": {
+   "product": "Uline Ultra Toilet Tissue, 3 cases at $58 each (26,352 sheets)",
+   "size": 26352,
+   "price": 174,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_4561/Uline-Ultra-Toilet-Tissue"
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 2-ply tissue with 3.9 x 4 inch sheets, both septic safe, and the Uline case costs 53% less per sheet from the same seller.",
+  "evidence": "Case prices read on Uline's pages in November 2026, one case: Charmin Ultra Soft Mega Roll (S-25631) $100 for 32 rolls of 208 sheets, and Uline Ultra (S-26141) $62 for 36 rolls of 244 sheets. That is 1.5 cents against 0.7 cents per sheet. Open Products Facts has the retail Charmin Ultra Soft pack shown in the photo.",
+  "differences": "Uline's page sells Charmin on softness, and no softness or strength test covers these two, so Charmin may feel better. Uline sells by the case to businesses and shipping isn't included. Retail Charmin packs may hold a different sheet count from the case Uline sells. The Uline side has no licensed photo.",
+  "why": "Ply and sheet size match, and the Uline case holds more rolls with more sheets on each. Softness is the open question, so it costs less to find out with one case than to keep paying double per sheet.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-25631/Toilet-Paper-and-Dispensers/Charmin-Toilet-Tissue",
+   "https://www.uline.com/BL_4561/Uline-Ultra-Toilet-Tissue",
+   "https://www.uline.com/BL_1106/Toilet-Tissue-and-Dispensers",
+   "https://world.openproductsfacts.org/product/0037000609896"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "dawn-liquid-dish-soap-vs-uline-liquid-dish-soap",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Dish soap",
+  "title": "Dawn Liquid Dish Soap vs Uline Liquid Dish Soap",
+  "brand": {
+   "brand": "Dawn",
+   "product": "Dawn Liquid Dish Soap, 38 fl oz, model S-9975",
+   "size": 38,
+   "unit": "fl oz",
+   "price": 9.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_6966/Dish-Soap",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Liquid Dish Soap, 38 fl oz, model S-25782",
+   "size": 38,
+   "unit": "fl oz",
+   "price": 6.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_6966/Dish-Soap",
+   "key_ingredients": []
+  },
+  "bulk": {
+   "product": "Uline Liquid Dish Soap, 1 gallon bottle, model S-25783",
+   "size": 128,
+   "price": 19,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_6966/Dish-Soap"
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Uline sells both in 38 oz bottles, and its own liquid dish soap costs 32% less per bottle than Dawn at the lowest order tier.",
+  "evidence": "Prices read on Uline's dish soap page in November 2026: Dawn 38 oz (S-9975) $9.50 a bottle at the minimum order of 4, and Uline 38 oz (S-25782) $6.50 a bottle at the minimum of 6. In gallons, Dawn (S-14764) is $29.50 and Uline (S-25783) $19, at a minimum of 4 bottles each. Open Products Facts is cited only as a record of a retail Dawn bottle; that bottle is a different Dawn product, so no photo is used here.",
+  "differences": "Neither formula is on Uline's page, and concentration isn't stated, so one bottle may not wash as many dishes as the other. No washing test covers this pair, and Dawn may well clean better per squirt. You must buy several bottles at once, and shipping isn't included. Neither side has a matching licensed photo.",
+  "why": "Uline describes its soap only as tough on grease, so the case for it rests on price. It is worth trying where dishes get done in volume, and the gallon size brings the cost down further.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/BL_6966/Dish-Soap",
+   "https://world.openproductsfacts.org/product/0030772052075"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "windex-glass-cleaner-vs-uline-glass-cleaner",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Glass cleaner",
+  "title": "Windex Glass Cleaner vs Uline Glass Cleaner",
+  "brand": {
+   "brand": "Windex",
+   "product": "Windex Glass Cleaner, 32 fl oz spray bottle, model S-24177",
+   "size": 32,
+   "unit": "fl oz",
+   "price": 6.15,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-24177/Glass-Cleaners/Windex-Glass-Cleaner-32-oz-Spray-Bottle",
+   "gtin": "0019800002022",
+   "image": "https://images.openfoodfacts.org/images/products/001/980/000/2022/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ammonia-D",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Glass Cleaner, 32 fl oz spray bottle, model S-19451",
+   "size": 32,
+   "unit": "fl oz",
+   "price": 4.3,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-19451/Glass-Cleaners/Uline-Glass-Cleaner-32-oz-Spray-Bottle",
+   "key_ingredients": [
+    {
+     "name": "Ammonia",
+     "amount": ""
+    }
+   ]
+  },
+  "bulk": {
+   "product": "Uline Glass Cleaner Refill, 1 gallon, model S-19452",
+   "size": 128,
+   "price": 9.5,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_6962/Glass-Cleaners"
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 32 oz spray bottles of ammonia-based glass cleaner, and Uline's own costs 30% less at the same minimum order.",
+  "evidence": "Prices read on Uline's pages in November 2026, each at a minimum of 4 bottles: Windex 32 oz (S-24177) $6.15, and Uline 32 oz (S-19451) $4.30. Gallon refills on Uline's glass cleaner page: Uline (S-19452) $9.50 and Windex (S-17246) $16.65, at the first price listed for each. The photo is the retail Windex Original 26 fl oz bottle from Open Food Facts, a smaller size of the brand's spray.",
+  "differences": "Uline's page names ammonia in its formula and Ammonia-D for Windex, but gives no percentages. No streak or cleaning test covers this pair. You must buy at least 4 bottles, and shipping isn't included. The Uline side has no licensed photo.",
+  "why": "Uline's page describes both as non-streaking and for glass, chrome, mirrors and tile. Refilling a spray bottle from Uline's gallon brings the cost to about 7 cents per fl oz against 19 cents for a Windex bottle.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-24177/Glass-Cleaners/Windex-Glass-Cleaner-32-oz-Spray-Bottle",
+   "https://www.uline.com/Product/Detail/S-19451/Glass-Cleaners/Uline-Glass-Cleaner-32-oz-Spray-Bottle",
+   "https://www.uline.com/BL_6962/Glass-Cleaners",
+   "https://world.openfoodfacts.org/product/0019800002022"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "softsoap-aloe-refill-vs-uline-aloe-hand-soap-refill",
+  "market": "US",
+  "category": "skincare-personal-care",
+  "subcategory": "Hand soap",
+  "title": "Softsoap Aloe Refill vs Uline Aloe Hand Soap Refill",
+  "brand": {
+   "brand": "Softsoap",
+   "product": "Softsoap Aloe Hand Soap Refill, 1 gallon, model S-11741",
+   "size": 128,
+   "unit": "fl oz",
+   "price": 26,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_7032/Uline-Soap-Dispenser/",
+   "gtin": "0074182260125",
+   "image": "https://images.openfoodfacts.org/images/products/007/418/226/0125/front_en.16.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Aloe Hand Soap Refill, 1 gallon, model S-17081",
+   "size": 128,
+   "unit": "fl oz",
+   "price": 16,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_7032/Uline-Soap-Dispenser/",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1 gallon refills of aloe liquid hand soap, and Uline's own costs 38% less from the same seller.",
+  "evidence": "Prices read on Uline's soap page in November 2026, one bottle: Softsoap Aloe (S-11741) $26 and Uline Aloe (S-17081) $16. At 8 or more bottles they are $24 and $14. Uline's table doesn't print the size on the Uline row, and the 1 gallon comes from its product link. The photo is the 7.5 fl oz retail Softsoap aloe pump from Open Beauty Facts, a smaller pack of the brand's aloe soap.",
+  "differences": "Neither ingredient list is on Uline's page, and the two soaps may differ in thickness, scent and how they feel on skin. No test covers this pair. Shipping isn't included. The Uline side has no licensed photo.",
+  "why": "Both are sold as aloe soap in the same gallon size by one seller. Refilling pumps from a gallon at $10 less adds up in a busy home or small office.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/BL_7032/Uline-Soap-Dispenser/",
+   "https://world.openbeautyfacts.org/product/0074182260125"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "cheerios-vs-great-value-toasted-os",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Breakfast cereal",
+  "title": "Cheerios vs Great Value Toasted O's",
+  "brand": {
+   "brand": "Cheerios",
+   "product": "General Mills Cheerios, 12 oz",
+   "size": 12,
+   "unit": "oz",
+   "price": 4.42,
+   "retailer": "winco",
+   "asin": null,
+   "url": "https://www.wincofoods.com/",
+   "gtin": "0016000487727",
+   "image": "https://images.openfoodfacts.org/images/products/001/600/048/7727/front_en.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Whole grain oats",
+     "amount": ""
+    },
+    {
+     "name": "Corn starch",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Great Value",
+   "product": "Great Value Toasted O's, 12 oz",
+   "size": 12,
+   "unit": "oz",
+   "price": 1.83,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=great+value+toasted+os",
+   "gtin": "0078742181554",
+   "image": "https://images.openfoodfacts.org/images/products/007/874/218/1554/front_en.34.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Great Value Toasted O's is the same size box of O-shaped breakfast cereal as Cheerios and came in 59% cheaper, though the two prices are from different chains.",
+  "evidence": "Regular prices from Open Prices: Cheerios 12 oz at $4.42 at WinCo Foods, Edmonds on 23 March 2026, and Great Value Toasted O's 12 oz at $1.83 at Walmart Supercenter, Lynchburg on 16 May 2026. Open Prices has no Walmart record for this Cheerios box. WinCo was the lowest regular price on file for it; the same box was $6.99 at La Plaza, Mountain View on 3 January 2026.",
+  "differences": "The prices come from different chains in different states, so part of the gap may be regional. The Great Value record holds only garbled nutrition text, so the ingredient lists can't be compared. Cheerios lists whole grain oats first. No taste test covers this pair.",
+  "why": "Both are 12 oz boxes of toasted O-shaped cereal. Nothing on the records shows what the extra $2.59 a box pays for, but the Great Value recipe could not be checked.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0016000487727",
+   "https://world.openfoodfacts.org/product/0016000487727",
+   "https://prices.openfoodfacts.org/products/0078742181554",
+   "https://world.openfoodfacts.org/product/0078742181554"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "starbucks-sumatra-ground-vs-signature-select-sumatra-ground",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Ground coffee",
+  "title": "Starbucks Sumatra Ground Coffee vs Signature Select Sumatra Ground Coffee",
+  "brand": {
+   "brand": "Starbucks",
+   "product": "Starbucks Single-Origin Sumatra Dark Roast Ground Coffee, 12 oz",
+   "size": 12,
+   "unit": "oz",
+   "price": 13.59,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=starbucks+sumatra+ground+coffee",
+   "gtin": "0762111622914",
+   "image": "https://images.openfoodfacts.org/images/products/076/211/162/2914/front_en.4.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Sumatra Ground Coffee, 12 oz",
+   "size": 12,
+   "unit": "oz",
+   "price": 8.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+sumatra+ground+coffee",
+   "gtin": "0021130453177",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/045/3177/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 12 oz packs of ground coffee sold as Sumatra, and Safeway's own label was 34% cheaper at regular prices, or 29% when both were on sale at Safeway on the same day.",
+  "evidence": "Regular prices from Open Prices: Starbucks at $13.59 at Target, Sunnyvale on 5 September 2026, and Signature Select at $8.99 at Safeway, Mountain View on 7 February 2026. On 18 October 2026 the same Safeway showed Starbucks at $13.99 and Signature Select at $9.99, both marked as discounted, which is a same-store, same-day gap of 29%.",
+  "differences": "The regular prices are from different chains and seven months apart, and later Safeway records put the own label at $9.99 on sale, so $8.99 may no longer be its price. Starbucks states dark roast on its label. The Signature Select record doesn't give a roast level. Neither record lists how the beans were sourced. No taste test covers this pair.",
+  "why": "Both packs hold the same weight of ground coffee named for the same origin. The sources show nothing on how they compare in the cup, so taste is the open question.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0762111622914",
+   "https://world.openfoodfacts.org/product/0762111622914",
+   "https://prices.openfoodfacts.org/products/0021130453177",
+   "https://world.openfoodfacts.org/product/0021130453177"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "jif-creamy-peanut-butter-vs-good-and-gather-creamy-peanut-butter",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Peanut butter",
+  "title": "Jif Creamy Peanut Butter vs Good & Gather Creamy Peanut Butter",
+  "brand": {
+   "brand": "Jif",
+   "product": "Jif Creamy Peanut Butter, 16 oz",
+   "size": 16,
+   "unit": "oz",
+   "price": 3.29,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=jif+creamy+peanut+butter",
+   "gtin": "0051500255162",
+   "image": "https://images.openfoodfacts.org/images/products/005/150/025/5162/front_en.197.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Roasted peanuts",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Molasses",
+     "amount": ""
+    },
+    {
+     "name": "Fully hydrogenated vegetable oils",
+     "amount": ""
+    },
+    {
+     "name": "Mono and diglycerides",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Good & Gather",
+   "product": "Good & Gather Creamy Peanut Butter, 16 oz",
+   "size": 16,
+   "unit": "oz",
+   "price": 1.99,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=good+and+gather+creamy+peanut+butter",
+   "gtin": "0085239276495",
+   "image": "https://images.openfoodfacts.org/images/products/008/523/927/6495/front_en.14.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dry roasted peanuts",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Hydrogenated vegetable oils",
+     "amount": ""
+    },
+    {
+     "name": "Molasses",
+     "amount": ""
+    },
+    {
+     "name": "Mono and diglycerides",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "These 16 oz jars list the same kinds of ingredient, and at Target the own label was 40% cheaper.",
+  "evidence": "Regular prices at Target (Open Prices): Jif $3.29 at San Mateo on 27 July 2026 and Good & Gather $1.99 at Cupertino on 23 July 2026. Jif was $3.19 at Target, Lynnwood on 2 May 2026 and $2.96 at WinCo, Edmonds on 8 February 2026.",
+  "differences": "The order of the minor ingredients differs and Good & Gather lists cottonseed among its oils, so the recipes aren't identical. The prices are from two Target stores four days apart. No taste test covers this pair.",
+  "why": "Peanuts and sugar come first on both labels, followed by the same small additions. The gap is $1.30 a jar and the labels show nothing that accounts for it.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0051500255162",
+   "https://world.openfoodfacts.org/product/0051500255162",
+   "https://prices.openfoodfacts.org/products/0085239276495",
+   "https://world.openfoodfacts.org/product/0085239276495"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "nutella-vs-good-and-gather-hazelnut-spread",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Hazelnut spread",
+  "title": "Nutella vs Good & Gather Hazelnut Spread",
+  "brand": {
+   "brand": "Nutella",
+   "product": "Nutella Hazelnut Spread with Cocoa, 13 oz",
+   "size": 13,
+   "unit": "oz",
+   "price": 6.39,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=nutella+13+oz",
+   "gtin": "0009800895007",
+   "image": "https://images.openfoodfacts.org/images/products/000/980/089/5007/front_en.106.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Palm oil",
+     "amount": ""
+    },
+    {
+     "name": "Hazelnuts",
+     "amount": ""
+    },
+    {
+     "name": "Skim milk",
+     "amount": ""
+    },
+    {
+     "name": "Cocoa",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Good & Gather",
+   "product": "Good & Gather Hazelnut Spread with Cocoa, 13 oz",
+   "size": 13,
+   "unit": "oz",
+   "price": 3.39,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=good+and+gather+hazelnut+spread",
+   "gtin": "0085239983577",
+   "image": "https://images.openfoodfacts.org/images/products/008/523/998/3577/front_en.9.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 13 oz jars of hazelnut spread with cocoa, and on the same day at the same Target the own label was 47% cheaper.",
+  "evidence": "Regular prices at Target, New York on 10 September 2026 (Open Prices): Nutella $6.39 and Good & Gather $3.39. At Target, San Mateo on 27 July 2026 they were $4.99 and $3.19, a gap of 36%. The Good & Gather record has no quantity, so the 13 oz comes from the net weight on its front-of-pack photo at Open Food Facts.",
+  "differences": "The 13 oz Good & Gather record has no ingredient list. The list on file for the store's larger jar runs sugar, palm oil, hazelnuts, cocoa powder, skim milk powder, whey powder, lactose, lecithin and natural flavors, against an artificial vanilla flavor in Nutella. The jar's photo also carries a new allergen notice, so check the label if allergies matter. No taste test covers this pair. The size of the gap varied between the two Target stores.",
+  "why": "Sugar, palm oil and hazelnuts lead the Nutella list and the list for Good & Gather's larger jar. Target's jar was cheaper in both stores on file, by $1.80 to $3 for the same weight.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0009800895007",
+   "https://world.openfoodfacts.org/product/0009800895007",
+   "https://prices.openfoodfacts.org/products/0085239983577",
+   "https://world.openfoodfacts.org/product/0085239983577",
+   "https://world.openfoodfacts.org/product/0085239983560"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "vital-farms-pasture-raised-eggs-vs-sprouts-pasture-raised-eggs",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Eggs",
+  "title": "Vital Farms Pasture-Raised Eggs vs Sprouts Pasture-Raised Eggs",
+  "brand": {
+   "brand": "Vital Farms",
+   "product": "Vital Farms Pasture Raised Eggs, 12 count",
+   "size": 12,
+   "unit": "egg",
+   "price": 8.99,
+   "retailer": "sprouts",
+   "asin": null,
+   "url": "https://shop.sprouts.com/search?search_term=vital+farms+pasture+raised+eggs",
+   "gtin": "0861745000010",
+   "image": "https://images.openfoodfacts.org/images/products/086/174/500/0010/front_en.95.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Eggs",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sprouts",
+   "product": "Sprouts Pasture Raised Large Brown Eggs, 12 count",
+   "size": 12,
+   "unit": "egg",
+   "price": 5.49,
+   "retailer": "sprouts",
+   "asin": null,
+   "url": "https://shop.sprouts.com/search?search_term=sprouts+pasture+raised+eggs",
+   "gtin": "0646670512285",
+   "image": "https://images.openfoodfacts.org/images/products/064/667/051/2285/front_en.15.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Pasture raised brown eggs",
+     "amount": ""
+    }
+   ]
+  },
+  "bulk": {
+   "product": "Sprouts Farmers Market Pasture Raised Eggs, 18 count",
+   "size": 18,
+   "price": 7.79,
+   "retailer": "sprouts",
+   "url": "https://shop.sprouts.com/search?search_term=sprouts+pasture+raised+eggs+18"
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both cartons are a dozen pasture-raised eggs, and at Sprouts the store's own cost 39% less on the same day.",
+  "evidence": "Regular prices at Sprouts Farmers Market, Sunnyvale on 31 January 2026 (Open Prices): Vital Farms 12 at $8.99, Sprouts 12 at $5.49 and Sprouts 18 at $7.79, which is $0.75, $0.46 and $0.43 per egg. Vital Farms was $6.67 at Walmart Supercenter, Mountain View on 14 November 2025, so the gap is smaller if you buy it there.",
+  "differences": "Neither record says which certifier, if any, audits the pasture-raised claim, so the farm standards can't be compared. The Sprouts 12 is labeled large brown, and the Sprouts 18 record doesn't give a size or color. These records are from January 2026. No taste test covers this pair. Buy the 18 only if you will use them before the date on the carton.",
+  "why": "The two cartons make the same pasture-raised claim for the same count in one store. What the sources can't show is whether the farms' standards match, so check the carton if that is why you buy these eggs.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0861745000010",
+   "https://world.openfoodfacts.org/product/0861745000010",
+   "https://prices.openfoodfacts.org/products/0646670512285",
+   "https://world.openfoodfacts.org/product/0646670512285",
+   "https://prices.openfoodfacts.org/products/0646670518119",
+   "https://world.openfoodfacts.org/product/0646670518119"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "daves-killer-bread-good-seed-vs-simply-nature-seedtastic",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Bread",
+  "title": "Dave's Killer Bread Good Seed vs Simply Nature Seedtastic",
+  "brand": {
+   "brand": "Dave's Killer Bread",
+   "product": "Dave's Killer Bread Organic Good Seed, 27 oz",
+   "size": 27,
+   "unit": "oz",
+   "price": 5.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.groceryoutlet.com/",
+   "gtin": "0013764027039",
+   "image": "https://images.openfoodfacts.org/images/products/001/376/402/7039/front_en.131.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Organic whole wheat",
+     "amount": ""
+    },
+    {
+     "name": "Organic wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Organic flax and sunflower seeds",
+     "amount": ""
+    },
+    {
+     "name": "Organic cane sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Simply Nature",
+   "product": "Simply Nature Seedtastic Bread, 27 oz",
+   "size": 27,
+   "unit": "oz",
+   "price": 4.19,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.us/results?q=simply+nature+seedtastic",
+   "gtin": "4099100253108",
+   "image": "https://images.openfoodfacts.org/images/products/409/910/025/3108/front_en.45.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Organic whole wheat",
+     "amount": ""
+    },
+    {
+     "name": "Organic wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Organic flax and sunflower seeds",
+     "amount": ""
+    },
+    {
+     "name": "Organic cane sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 27 oz organic seeded whole wheat loaves, and ALDI's cost 30% less than the lowest regular Dave's price on file.",
+  "evidence": "Regular prices from Open Prices: Dave's Killer Bread $5.99 at Grocery Outlet, Palo Alto on 25 July 2026, and Simply Nature $4.19 at ALDI, Elwood on 4 October 2026. Dave's was $7.49 at Food Bazaar, New York on 15 September 2026 and $5.99 marked as discounted at Target, Cupertino on 23 July 2026.",
+  "differences": "The seed mixes differ: Dave's adds steel cut oats and quinoa, and Simply Nature lists sesame seeds. Chains and states differ, and the Grocery Outlet price ties a Target sale price as the lowest Dave's record, so the gap may be wider elsewhere. Nutrition per slice wasn't compared. No taste test covers this pair.",
+  "why": "The labels start the same way, with organic whole wheat, water, organic wheat flour and a grain and seed mix, followed by organic cane sugar. The seeds differ, so expect a slightly different loaf for less money.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0013764027039",
+   "https://world.openfoodfacts.org/product/0013764027039",
+   "https://prices.openfoodfacts.org/products/4099100253108",
+   "https://world.openfoodfacts.org/product/4099100253108"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "ritz-crackers-vs-krantz-golden-round-crackers",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Crackers",
+  "title": "Ritz Crackers vs Krantz Golden Round Crackers",
+  "brand": {
+   "brand": "Ritz",
+   "product": "Ritz Fresh Stacks The Original, 11.8 oz",
+   "size": 11.8,
+   "unit": "oz",
+   "price": 2.97,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=ritz+fresh+stacks",
+   "gtin": "0044000031138",
+   "image": "https://images.openfoodfacts.org/images/products/004/400/003/1138/front_en.75.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Unbleached enriched flour",
+     "amount": ""
+    },
+    {
+     "name": "Canola oil",
+     "amount": ""
+    },
+    {
+     "name": "Palm oil",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Krantz",
+   "product": "Krantz Golden Round Crackers, 13.7 oz",
+   "size": 13.7,
+   "unit": "oz",
+   "price": 2.05,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.us/results?q=golden+round+crackers",
+   "gtin": "4099100063448",
+   "image": "https://images.openfoodfacts.org/images/products/409/910/006/3448/front_en.30.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Enriched flour",
+     "amount": ""
+    },
+    {
+     "name": "High oleic canola and/or soybean oil",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are round golden crackers with very similar labels, and the ALDI box costs 41% less per ounce than Ritz did at Walmart.",
+  "evidence": "Regular prices from Open Prices: Ritz Fresh Stacks 11.8 oz at $2.97 at Walmart Neighborhood Market, Lynnwood on 3 August 2026, and Krantz 13.7 oz at $2.05 at ALDI, Elwood on 24 January 2026. That is $0.25 against $0.15 per oz. Ritz was $2.98 at WinCo, $4.49 at Safeway and $4.69 at Fred Meyer on records from February and March 2026.",
+  "differences": "Ritz uses canola and palm oil, while Krantz uses high oleic canola or soybean oil. Ritz comes in fresh stacks and the Krantz record doesn't say how its box is packed. The chains differ and the prices are six months apart. No taste test covers this pair.",
+  "why": "Flour, oil and sugar lead both labels, with high fructose corn syrup and leavening behind them. Walmart's low Ritz price still works out well above ALDI's per ounce.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0044000031138",
+   "https://world.openfoodfacts.org/product/0044000031138",
+   "https://prices.openfoodfacts.org/products/4099100063448",
+   "https://world.openfoodfacts.org/product/4099100063448"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "libbys-pure-pumpkin-vs-great-value-pure-pumpkin",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Canned vegetables",
+  "title": "Libby's 100% Pure Pumpkin vs Great Value 100% Pure Pumpkin",
+  "brand": {
+   "brand": "Libby's",
+   "product": "Libby's 100% Pure Pumpkin, 29 oz",
+   "size": 29,
+   "unit": "oz",
+   "price": 3.79,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.groceryoutlet.com/",
+   "gtin": "0039000045124",
+   "image": "https://images.openfoodfacts.org/images/products/003/900/004/5124/front_en.54.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Pumpkin",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Great Value",
+   "product": "Great Value 100% Pure Pumpkin, 29 oz",
+   "size": 29,
+   "unit": "oz",
+   "price": 2.74,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=great+value+100+pure+pumpkin+29+oz",
+   "gtin": "0078742067018",
+   "image": "https://images.openfoodfacts.org/images/products/007/874/206/7018/front_en.23.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Pumpkin",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both 29 oz cans list pumpkin as the only ingredient, and Great Value was 28% cheaper.",
+  "evidence": "Regular prices from Open Prices: Libby's $3.79 at Grocery Outlet, San Jose on 19 December 2025, and Great Value $2.74 at Walmart Supercenter, Mountain View on 29 November 2025. Libby's was $3.99 marked as discounted at Smart & Final, Mountain View on 29 November 2025.",
+  "differences": "Pumpkin puree varies in thickness and color, and no test covers these two. The chains differ, and the records date from the holiday baking season, when pumpkin prices may shift.",
+  "why": "One ingredient on each label and the same size of can, so a baker has little to lose by trying the cheaper one.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0039000045124",
+   "https://world.openfoodfacts.org/product/0039000045124",
+   "https://prices.openfoodfacts.org/products/0078742067018",
+   "https://world.openfoodfacts.org/product/0078742067018"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "raos-tomato-basil-vs-good-and-gather-organic-tomato-basil",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Pasta sauce",
+  "title": "Rao's Tomato Basil vs Good & Gather Organic Tomato Basil",
+  "brand": {
+   "brand": "Rao's Homemade",
+   "product": "Rao's Homemade Tomato Basil Sauce, 24 oz",
+   "size": 24,
+   "unit": "oz",
+   "price": 6.99,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=raos+tomato+basil",
+   "gtin": "0747479001052",
+   "image": "https://images.openfoodfacts.org/images/products/074/747/900/1052/front_en.52.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Italian whole peeled tomatoes",
+     "amount": ""
+    },
+    {
+     "name": "Olive oil",
+     "amount": ""
+    },
+    {
+     "name": "Onions",
+     "amount": ""
+    },
+    {
+     "name": "Basil",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Garlic",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Good & Gather",
+   "product": "Good & Gather Organic Tomato Basil Pasta Sauce, 24 oz",
+   "size": 24,
+   "unit": "oz",
+   "price": 3.19,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=good+and+gather+organic+tomato+basil+pasta+sauce",
+   "gtin": "0085239110607",
+   "image": "https://images.openfoodfacts.org/images/products/008/523/911/0607/front_en.18.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Organic tomato puree",
+     "amount": ""
+    },
+    {
+     "name": "Organic diced tomatoes",
+     "amount": ""
+    },
+    {
+     "name": "Organic onions",
+     "amount": ""
+    },
+    {
+     "name": "Organic basil",
+     "amount": ""
+    },
+    {
+     "name": "Organic extra virgin olive oil",
+     "amount": ""
+    },
+    {
+     "name": "Organic sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 24 oz jars of tomato basil sauce at Target, and the own-label organic jar was 54% cheaper, though the recipes differ.",
+  "evidence": "Regular prices at Target (Open Prices): Rao's $6.99 at Smithtown on 16 January 2026 and Good & Gather $3.19 at Sunnyvale on 8 November 2025. Rao's was $6.89 marked as discounted at Target, Sunnyvale on 8 November 2025, so the gap held in the same store that day.",
+  "differences": "Rao's has the shorter label and wins on it: whole peeled tomatoes and olive oil near the top and no added sugar. Good & Gather starts from tomato puree, lists olive oil lower down and adds organic sugar. Good & Gather is organic and the Rao's record doesn't claim that. No taste test covers this pair.",
+  "why": "Same jar size and the same tomato, onion, basil and olive oil basics for less than half the money. If a little added sugar doesn't bother you, the labels give less reason to pay double.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0747479001052",
+   "https://world.openfoodfacts.org/product/0747479001052",
+   "https://prices.openfoodfacts.org/products/0085239110607",
+   "https://world.openfoodfacts.org/product/0085239110607"
+  ],
+  "price_checked": "2025-11"
+ }
+]

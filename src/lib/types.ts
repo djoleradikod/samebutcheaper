@@ -48,6 +48,8 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   evidence_claims: Claim[];
   shelfLife: ShelfLife | null;
   bulkView: BulkView;
+  /** The price record is more than a year old when the catalogue was built. */
+  priceOld: boolean;
 };
 
 export type PresetLine = {

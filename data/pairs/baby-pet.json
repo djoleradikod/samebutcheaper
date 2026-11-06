@@ -402,71 +402,6 @@
     ]
   },
   {
-    "slug": "desitin-maximum-strength-vs-parents-choice-diaper-rash-40-zinc",
-    "category": "baby",
-    "subcategory": "Diaper rash",
-    "title": "Desitin Maximum Strength vs Parent's Choice Max Strength Diaper Rash Ointment (40% Zinc Oxide)",
-    "brand": {
-      "brand": "Desitin",
-      "product": "Desitin Maximum Strength Diaper Rash Paste, 40% Zinc Oxide, 4.8 oz",
-      "size": 4.8,
-      "unit": "oz",
-      "price_usd": 7.97,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/16480956226",
-      "key_ingredients": [
-        {
-          "name": "Zinc oxide",
-          "amount": "40%"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Parent's Choice",
-      "product": "Parent's Choice Diaper Rash Ointment, Max Strength, 4 oz",
-      "size": 4,
-      "unit": "oz",
-      "price_usd": 2.08,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/53975866",
-      "key_ingredients": [
-        {
-          "name": "Zinc oxide",
-          "amount": "40%"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "high",
-    "summary": "Both are maximum-strength diaper rash pastes with 40% zinc oxide, the highest level the FDA allows.",
-    "evidence": "Walmart's Desitin Maximum Strength listing states 40% zinc oxide. The Parent's Choice Max Strength listing states 40% zinc oxide and is marketed as comparable to Desitin Maximum Strength Diaper Rash Paste.",
-    "differences": "We could not confirm the inactive ingredients of the Parent's Choice version (the listing says it is free of parabens, phthalates and Quaternium-15), so its texture and smell may differ. Tube sizes differ (4 oz vs 4.8 oz).",
-    "sources": [
-      "https://www.walmart.com/ip/53975866",
-      "https://www.walmart.com/ip/16480956226",
-      "https://www.walmart.com/ip/284389604"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Inactive ingredients",
-        "brand": "Desitin 4.8 oz tube: petrolatum, cod liver oil, lanolin, corn starch, glycerin, sorbitan sesquioleate, yellow wax, tocopherol acetate (+ antioxidant)",
-        "alternative": "Parent's Choice: same list (petrolatum, cod liver oil, lanolin, corn starch, glycerin, sorbitan sesquioleate, yellow wax, tocopherol acetate)",
-        "verdict": "same",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=320bcbd3-9e91-437f-99c5-066f880a4b32"
-      },
-      {
-        "aspect": "Talc, parabens, phthalates",
-        "brand": "Desitin: paraben-free; the 4.8 oz tube uses corn starch (older 4 oz tubes list talc)",
-        "alternative": "Parent's Choice label: no talc, free of parabens, phthalates and quaternium-15",
-        "verdict": "same",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=320bcbd3-9e91-437f-99c5-066f880a4b32"
-      }
-    ]
-  },
-  {
     "slug": "aquaphor-baby-vs-equate-advanced-healing-ointment",
     "category": "baby",
     "subcategory": "Baby skin care",
@@ -621,7 +556,8 @@
     "title": "Mylicon vs Equate Infants' Gas Relief Drops (Simethicone 20mg)",
     "brand": {
       "brand": "Mylicon",
-      "product": "Mylicon Infants' Gas Relief Drops, Dye Free, 1 fl oz", "image": "https://images.openfoodfacts.org/images/products/081/990/301/0234/front_en.5.400.jpg",
+      "product": "Mylicon Infants' Gas Relief Drops, Dye Free, 1 fl oz",
+      "image": "https://images.openfoodfacts.org/images/products/081/990/301/0234/front_en.5.400.jpg",
       "size": 1,
       "unit": "fl oz",
       "price_usd": 16.32,

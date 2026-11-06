@@ -1,0 +1,1705 @@
+[
+ {
+  "slug": "409-cleaner-degreaser-vs-uline-2in1-cleaner-disinfectant",
+  "market": "US",
+  "category": "household",
+  "subcategory": "All-purpose cleaner",
+  "title": "409 Cleaner Degreaser vs Uline 2in1 Cleaner and Disinfectant",
+  "brand": {
+   "brand": "409",
+   "product": "409 Cleaner/Degreaser, 32 oz spray bottle (Uline S-7147)",
+   "size": 32,
+   "unit": "fl oz",
+   "price": 7.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-7147/Disinfectants/409-Cleaner-Degreaser-32-oz-Spray-Bottle",
+   "key_ingredients": [
+    {
+     "name": "EPA registration",
+     "amount": "67619-10"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline 2in1 Cleaner and Disinfectant, 32 fl oz spray bottle (S-19373)",
+   "size": 32,
+   "unit": "fl oz",
+   "price": 4.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-19373/Disinfectants/Uline-2in1-Cleaner-and-Disinfectant-32-fl-oz",
+   "key_ingredients": [
+    {
+     "name": "Quat formula, EPA registration",
+     "amount": "1839-83-89809"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 32 oz spray cleaners with EPA registration numbers, sold on the same site.",
+  "evidence": "Uline lists 409 Cleaner/Degreaser (S-7147) at $7.50 and its own 2in1 Cleaner and Disinfectant (S-19373) at $4.75, each at the price for 4 bottles, read on 6 Nov 2026. Each page gives an EPA registration number. Its disinfectants list shows the Uline gallon (S-19374) at $12.75.",
+  "differences": "The EPA numbers differ, so these are separately registered products with their own kill claims and contact times. Read both labels if you need a specific germ covered. We did not compare active ingredients. Uline sells in multiples at commercial prices, and a supermarket may charge less for 409. No test covers this pair.",
+  "why": "Both are 32 oz spray bottles of registered cleaner and disinfectant on the same site, and the 409 costs about 58% more.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-7147/Disinfectants/409-Cleaner-Degreaser-32-oz-Spray-Bottle",
+   "https://www.uline.com/Product/Detail/S-19373/Disinfectants/Uline-2in1-Cleaner-and-Disinfectant-32-fl-oz",
+   "https://www.uline.com/BL_759/Disinfectants",
+   "https://world.openfoodfacts.org/product/0044600008899"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline 2in1 Cleaner and Disinfectant, 1 gallon (S-19374)",
+   "size": 128,
+   "price": 12.75,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_759/Disinfectants"
+  }
+ },
+ {
+  "slug": "lysol-toilet-bowl-cleaner-vs-uline-toilet-bowl-cleaner",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Toilet cleaner",
+  "title": "Lysol Toilet Bowl Cleaner vs Uline Toilet Bowl Cleaner",
+  "brand": {
+   "brand": "Lysol",
+   "product": "Lysol Toilet Bowl Cleaner, 32 oz (Uline S-7141)",
+   "size": 32,
+   "unit": "fl oz",
+   "price": 6.25,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-7141/Toilet-Bowl-Cleaners/Lysol-Toilet-Bowl-Cleaner",
+   "key_ingredients": [
+    {
+     "name": "Hydrochloric acid, EPA registration",
+     "amount": "777-81-675"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Toilet Bowl Cleaner, 32 oz (S-24321)",
+   "size": 32,
+   "unit": "fl oz",
+   "price": 3.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-24321/Toilet-Bowl-Cleaners/Uline-Toilet-Bowl-Cleaner",
+   "key_ingredients": [
+    {
+     "name": "EPA registration",
+     "amount": "8155-6-89809"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 32 oz toilet bowl cleaners with EPA registration numbers, sold on the same site.",
+  "evidence": "Uline lists Lysol (S-7141) at $6.25 and its own cleaner (S-24321) at $3.75, each at the price for 4 bottles, read on 6 Nov 2026. At 12 or more bottles the prices are $5.50 and $3.50.",
+  "differences": "Lysol's listing names hydrochloric acid. Uline's page does not state its acid, so we can't say the two clean with the same strength. The scents differ (wintergreen and floral). Uline sells in multiples at commercial prices, and a supermarket may charge less for Lysol. No test covers this pair.",
+  "why": "Both are registered toilet bowl cleaners in the same size on one site, and the Lysol costs two thirds more. The pages give no test showing that it cleans better.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-7141/Toilet-Bowl-Cleaners/Lysol-Toilet-Bowl-Cleaner",
+   "https://www.uline.com/Product/Detail/S-24321/Toilet-Bowl-Cleaners/Uline-Toilet-Bowl-Cleaner",
+   "https://world.openfoodfacts.org/product/0019200025225"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Toilet Bowl Cleaner, 12 x 32 oz bottles at the 12-or-more price (S-24321)",
+   "size": 384,
+   "price": 42,
+   "retailer": "other",
+   "url": "https://www.uline.com/Product/Detail/S-24321/Toilet-Bowl-Cleaners/Uline-Toilet-Bowl-Cleaner"
+  }
+ },
+ {
+  "slug": "clorox-disinfecting-wipes-lemon-vs-uline-disinfecting-wipes",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Disinfecting wipes",
+  "title": "Clorox Disinfecting Wipes vs Uline Disinfecting Wipes",
+  "brand": {
+   "brand": "Clorox",
+   "product": "Clorox Disinfecting Wipes, Lemon, 75 count can (Uline S-15765)",
+   "size": 75,
+   "unit": "wipe",
+   "price": 10.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-15765/Disinfecting-Wipes/Clorox-Disinfecting-Wipes-Lemon-Scent-75-ct",
+   "key_ingredients": [
+    {
+     "name": "Bleach free, EPA registration",
+     "amount": "67619-31"
+    },
+    {
+     "name": "Wipe size",
+     "amount": "7 x 7 in"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Disinfecting Wipes, 75 count can (S-19459)",
+   "size": 75,
+   "unit": "wipe",
+   "price": 5.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_6981/Disinfecting-Wipes",
+   "key_ingredients": [
+    {
+     "name": "Wipe size",
+     "amount": "7 x 7 in"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "The same count and wipe size in a can, listed on one Uline page.",
+  "evidence": "Uline lists Clorox Disinfecting Wipes (S-15765, 75 count, 7 x 7 in) at $10.50 and its own (S-19459, 75 count, 7 x 7 in) at $5, each at the price for 6 cans, read on 6 Nov 2026. At 12 or more, Uline's own are $4 a can.",
+  "differences": "Clorox's page gives its EPA number (67619-31). We could not read an EPA number for the Uline wipe, so check its label for the germs and contact times you need. No test covers this pair. Uline sells in multiples at commercial prices, and a supermarket may charge less for Clorox.",
+  "why": "The count and wipe size match, and the Clorox costs about twice as much per wipe on the same site.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-15765/Disinfecting-Wipes/Clorox-Disinfecting-Wipes-Lemon-Scent-75-ct",
+   "https://www.uline.com/BL_6981/Disinfecting-Wipes",
+   "https://www.cloroxpro.com/products/clorox/clorox-disinfecting-wipes/"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Disinfecting Wipes, 12 cans of 75 at the 12-or-more price (S-19459)",
+   "size": 900,
+   "price": 48,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_6981/Disinfecting-Wipes"
+  }
+ },
+ {
+  "slug": "mr-clean-magic-eraser-vs-uline-amazing-foam-eraser",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Sponges and scrubbers",
+  "title": "Mr. Clean Magic Eraser vs Uline Amazing Foam Eraser",
+  "brand": {
+   "brand": "Mr. Clean",
+   "product": "Mr. Clean Magic Eraser, 5 x 2 x 1 in, case of 36 (Uline S-23224)",
+   "size": 36,
+   "unit": "pad",
+   "price": 59,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-23224/Foam-Erasers/Mr-Clean-Magic-Eraser",
+   "key_ingredients": [
+    {
+     "name": "Pad size",
+     "amount": "5 x 2 x 1 in"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Amazing Foam Eraser, 5 x 2 x 1 in, case of 24 (S-19311)",
+   "size": 24,
+   "unit": "pad",
+   "price": 25,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-19311/Foam-Erasers/Amazing-Eraser",
+   "key_ingredients": [
+    {
+     "name": "Pad size",
+     "amount": "5 x 2 x 1 in"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Foam erasers of the same size, sold by the case on the same site.",
+  "evidence": "Uline lists the Magic Eraser at $59 for 36 pads and its own eraser at $25 for 24 pads, both 5 x 2 x 1 in, read on 6 Nov 2026. Its foam eraser list shows 5 cases of the Uline eraser at $105 for 120 pads.",
+  "differences": "Uline says not to use its eraser on brushed, polished or glossy surfaces. We have no test of how long either pad lasts. A shop selling single packs may be a cheaper way to buy the Mr. Clean than a commercial case.",
+  "why": "The size and the job are the same, and the Uline pad works out about 36% cheaper per pad by the case.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-23224/Foam-Erasers/Mr-Clean-Magic-Eraser",
+   "https://www.uline.com/Product/Detail/S-19311/Foam-Erasers/Amazing-Eraser",
+   "https://www.uline.com/BL_169/Foam-Erasers",
+   "https://www.mrclean.com/en-us/shop-products/magic-erasers/magic-eraser-sponge-whole-home-extra-durable"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Amazing Foam Eraser, 5 cases of 24 (S-19311)",
+   "size": 120,
+   "price": 105,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_169/Foam-Erasers"
+  }
+ },
+ {
+  "slug": "glad-forceflex-fresh-13-gallon-vs-uline-max-flex-fresh-13-gallon",
+  "market": "US",
+  "category": "household",
+  "subcategory": "Trash bags",
+  "title": "Glad ForceFlex Fresh 13 Gallon vs Uline Max-Flex Fresh 13 Gallon",
+  "brand": {
+   "brand": "Glad",
+   "product": "Glad ForceFlex Fresh Scent Drawstring Trash Bags, 13 gallon, box of 110 (Uline S-25708)",
+   "size": 110,
+   "unit": "bag",
+   "price": 34,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-25708/Trash-Liners-Bags/Glad-ForceFlex-Fresh-Scent-Drawstring-Trash-Bags-13-Gallon",
+   "key_ingredients": [
+    {
+     "name": "Thickness",
+     "amount": ".72 mil"
+    },
+    {
+     "name": "Actual size",
+     "amount": "23.5 x 25.4 in"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Max-Flex Fresh Scent Drawstring Trash Liners, 13 gallon, box of 150 (S-26116)",
+   "size": 150,
+   "unit": "bag",
+   "price": 32,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-26116/Trash-Liners-Bags/Uline-Max-Flex-Fresh-Scent-Drawstring-Trash-Liners-13-Gallon",
+   "key_ingredients": [
+    {
+     "name": "Thickness",
+     "amount": "1.0 mil"
+    },
+    {
+     "name": "Size",
+     "amount": "24 x 27 in"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Scented 13 gallon drawstring bags on the same site.",
+  "evidence": "Uline lists Glad ForceFlex Fresh at $34 for 110 bags (.72 mil, actual 23.5 x 25.4 in) and Uline Max-Flex Fresh at $32 for 150 bags (1.0 mil, 24 x 27 in), read on 6 Nov 2026. Uline's trash bag list gives the thickness and size. Six boxes of the Uline bag are $180 for 900.",
+  "differences": "Uline lists its bag as thicker, which on its own doesn't prove it is stronger. We have no strength test for either bag. Uline sells at commercial prices, and a supermarket may charge less for Glad.",
+  "why": "Uline's bag is listed as bigger and thicker, and costs about 31% less per bag on the same site.",
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-25708/Trash-Liners-Bags/Glad-ForceFlex-Fresh-Scent-Drawstring-Trash-Bags-13-Gallon",
+   "https://www.uline.com/Product/Detail/S-26116/Trash-Liners-Bags/Uline-Max-Flex-Fresh-Scent-Drawstring-Trash-Liners-13-Gallon",
+   "https://www.uline.com/BL_1634/Uline-Trash-Bags",
+   "https://www.glad.com/products/kitchen/forceflex-kitchen-drawstring/"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Max-Flex Fresh Scent Drawstring Trash Liners, 6 boxes of 150 (S-26116)",
+   "size": 900,
+   "price": 180,
+   "retailer": "other",
+   "url": "https://www.uline.com/Product/Detail/S-26116/Trash-Liners-Bags/Uline-Max-Flex-Fresh-Scent-Drawstring-Trash-Liners-13-Gallon"
+  }
+ },
+ {
+  "slug": "bacofoil-professional-catering-foil-vs-caterwrap-catering-foil-gb",
+  "market": "GB",
+  "category": "kitchen",
+  "subcategory": "Kitchen foil",
+  "title": "Bacofoil Professional Catering Foil vs caterwrap Catering Foil",
+  "brand": {
+   "brand": "Bacofoil",
+   "product": "Bacofoil Professional Original Catering Foil, 45 cm x 60 m",
+   "size": 60,
+   "unit": "metre",
+   "price": 16.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.bacofoil.co.uk/product/bacofoil-professional-original-catering-foil/",
+   "key_ingredients": [
+    {
+     "name": "Width",
+     "amount": "45 cm"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "caterwrap",
+   "product": "caterwrap Aluminium Catering Foil, 450 mm x 75 m (23C05), price with 20% VAT added",
+   "size": 75,
+   "unit": "metre",
+   "price": 16.07,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/caterwrap-aluminium-catering-foil-450-mm-x-75-m-silver-p-1289442",
+   "key_ingredients": [
+    {
+     "name": "Width",
+     "amount": "450 mm"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Catering foil of the same width, with the caterwrap roll priced lower per metre.",
+  "evidence": "Bacofoil's own shop lists 45 cm x 60 m at a regular £16.99 and a sale price of £13.59, read on 6 Nov 2026. Viking Direct lists caterwrap 450 mm x 75 m at £13.39 without VAT, read the same day, and we added 20% VAT to get £16.07. Four rolls are listed at £14.87 each with VAT. Different stores.",
+  "differences": "Neither page lists the foil's thickness, so we can't say they are equally strong. Bacofoil's page doesn't say whether its price includes VAT, and we compared on the assumption that it does. At Bacofoil's sale price the saving falls to about 5%. Viking's Bacofoil dispenser costs more than either, so we did not compare within Viking. No test covers this pair.",
+  "why": "The width matches, and at Bacofoil's regular price caterwrap costs about a quarter less per metre.",
+  "claims": [],
+  "sources": [
+   "https://www.bacofoil.co.uk/product/bacofoil-professional-original-catering-foil/",
+   "https://www.viking-direct.co.uk/en/caterwrap-aluminium-catering-foil-450-mm-x-75-m-silver-p-1289442"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "caterwrap Aluminium Catering Foil, 4 rolls of 450 mm x 75 m, with VAT",
+   "size": 300,
+   "price": 59.48,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/caterwrap-aluminium-catering-foil-450-mm-x-75-m-silver-p-1289442"
+  }
+ },
+ {
+  "slug": "kenwood-abbey-lux-kettle-vs-igenix-cordless-kettle-gb",
+  "market": "GB",
+  "category": "kitchen",
+  "subcategory": "Kettles",
+  "title": "Kenwood Abbey Lux Kettle vs igenix Cordless Kettle",
+  "brand": {
+   "brand": "Kenwood",
+   "product": "Kenwood Abbey Lux Kettle, 1.7 L, 3000 W, white plastic, price without VAT",
+   "size": 1,
+   "unit": "kettle",
+   "price": 29.99,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/kenwood-abbey-lux-1-7l-white-electric-kettle-p-1237611",
+   "key_ingredients": [
+    {
+     "name": "Capacity and power",
+     "amount": "1.7 L, 3000 W"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "igenix",
+   "product": "igenix Cordless Kettle, 1.7 L, 3000 W, white plastic, price without VAT",
+   "size": 1,
+   "unit": "kettle",
+   "price": 25.79,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/igenix-p-1013007",
+   "key_ingredients": [
+    {
+     "name": "Capacity and power",
+     "amount": "1.7 L, 3000 W"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two white plastic cordless kettles with the same capacity and power, at one store.",
+  "evidence": "Viking Direct lists the Kenwood Abbey Lux at £29.99 and the igenix at £25.79, read on 6 Nov 2026. Both prices are shown without VAT, so add 20% at the till. Kenwood's own page confirms 1.7 L, 3000 W, plastic body and a mesh filter.",
+  "differences": "Kenwood lists a mesh filter and a 360 degree cordless base. The igenix page states neither, so check before buying. We did not compare warranties. Viking is an office supplier, and the Kenwood may cost less at a kitchen shop. No test covers this pair.",
+  "why": "Capacity, power and body material all match on paper, which leaves a small saving and fewer listed details on the igenix side.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/kenwood-abbey-lux-1-7l-white-electric-kettle-p-1237611",
+   "https://www.viking-direct.co.uk/en/igenix-p-1013007",
+   "https://www.kenwoodworld.com/en-ie/p/kettles-abbey-collection-white-kettle-zjp05.a0wh/ZJP05.A0WH.html?pid=0W21010011"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "plenty-kitchen-roll-2-ply-vs-viking-kitchen-roll-2-ply-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Kitchen roll",
+  "title": "Plenty Kitchen Roll 2 Ply vs Viking Kitchen Roll 2 Ply",
+  "brand": {
+   "brand": "Plenty",
+   "product": "Plenty Kitchen Roll 2 Ply (102110), 3 rolls of 80 sheets, price without VAT",
+   "size": 240,
+   "unit": "sheet",
+   "price": 7.49,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/plenty-kitchen-roll-2-ply-102110-3-pieces-p-1286973",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Kitchen Roll 2 Ply, 4 rolls of 50 sheets, price without VAT",
+   "size": 200,
+   "unit": "sheet",
+   "price": 3.29,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-standard-kitchen-roll-2-ply-42-sheets-pack-of-4-p-1191864",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2"
+    },
+    {
+     "name": "Sheet size",
+     "amount": "22.4 x 24 cm"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 2-ply kitchen rolls at one store, with the Viking roll priced at about half per sheet.",
+  "evidence": "Viking Direct lists Plenty 2 Ply (3 x 80 sheets) at £7.49 and its own 2 Ply (4 x 50 sheets) at £3.29, read on 6 Nov 2026. Both prices are shown without VAT, so add 20% at the till. The Viking product's web address says 42 sheets, but its heading and specification table say 50, and its 12 m roll at 24 cm a sheet fits 50.",
+  "differences": "Plenty's sheet size is not on the page, so we can't compare by area. The Viking page shows a Black Friday badge and a \"4+2 free\" badge it doesn't explain, and we used the listed price. Viking's roll has FSC and EU Ecolabel marks. No test covers this pair, and Plenty may absorb better.",
+  "why": "The ply matches at one store, and the Viking roll costs about half as much per sheet. We have no absorbency test either way, so try one pack first.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/plenty-kitchen-roll-2-ply-102110-3-pieces-p-1286973",
+   "https://www.viking-direct.co.uk/en/viking-standard-kitchen-roll-2-ply-42-sheets-pack-of-4-p-1191864",
+   "https://world.openfoodfacts.org/product/7322540910728"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "cushelle-original-2-ply-vs-viking-toilet-roll-2-ply-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Toilet paper",
+  "title": "Cushelle Original 2 Ply vs Viking Toilet Roll 2 Ply",
+  "brand": {
+   "brand": "Cushelle",
+   "product": "Cushelle Original Toilet Roll 2 Ply, 24 rolls of 180 sheets, price without VAT",
+   "size": 4320,
+   "unit": "sheet",
+   "price": 15.49,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/cushelle-original-toilet-roll-2-ply-8363031-24-rolls-of-180-sheets-p-1012284",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2"
+    },
+    {
+     "name": "Sheet size",
+     "amount": "about 10.4 x 11.7 cm"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Toilet Roll 2 Ply, 48 rolls of 200 sheets, price without VAT",
+   "size": 9600,
+   "unit": "sheet",
+   "price": 17.99,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-standard-toilet-roll-2-ply-1191865-200-sheets-pack-of-48-p-1191865",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "2"
+    },
+    {
+     "name": "Sheet size",
+     "amount": "93 x 110 mm"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 2-ply toilet rolls at one store, with smaller sheets on the cheaper one.",
+  "evidence": "Viking Direct lists Cushelle Original (24 x 180 sheets) at £15.49 and its own (48 x 200 sheets) at £17.99, read on 6 Nov 2026. Both prices are shown without VAT, so add 20% at the till. Five packs of the Viking roll are £79.95. Cushelle's sheet size comes from Viking's listing for the 32-roll pack.",
+  "differences": "Viking's sheets are smaller, 93 x 110 mm against about 104 x 117 mm. Per sheet the saving is about 48%, and by paper area we work it out at about 38%. No softness test covers this pair, so you may notice a difference.",
+  "why": "Both are 2-ply, and even after allowing for the smaller sheets the Viking roll costs over a third less for the same area of paper.",
+  "claims": [
+   "cma-bigger-packs-not-always-cheaper"
+  ],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/cushelle-original-toilet-roll-2-ply-8363031-24-rolls-of-180-sheets-p-1012284",
+   "https://www.viking-direct.co.uk/en/viking-standard-toilet-roll-2-ply-1191865-200-sheets-pack-of-48-p-1191865",
+   "https://world.openproductsfacts.org/product/7322542361405"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Toilet Roll 2 Ply, 5 packs of 48 rolls, price without VAT",
+   "size": 48000,
+   "price": 79.95,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-standard-toilet-roll-2-ply-1191865-200-sheets-pack-of-48-p-1191865"
+  }
+ },
+ {
+  "slug": "cif-professional-window-multisurface-vs-viking-window-cleaner-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Glass cleaner",
+  "title": "Cif Professional Window and Multisurface vs Viking Window Cleaner",
+  "brand": {
+   "brand": "Cif",
+   "product": "Cif Professional Window and Multisurface Cleaner, 750 ml, price without VAT",
+   "size": 750,
+   "unit": "ml",
+   "price": 3.89,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/mr-muscle-window-cleaner-750-ml-p-2070518",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Window Cleaner Spray, 750 ml, price without VAT",
+   "size": 750,
+   "unit": "ml",
+   "price": 2.99,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-professional-window-cleaner-spray-750ml-p-3900247",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 750 ml window cleaners at one store.",
+  "evidence": "Viking Direct lists Cif Professional at £3.89 and Viking Window Cleaner Spray at £2.99, read on 6 Nov 2026. Both prices are shown without VAT, so add 20% at the till. Twelve Viking bottles are £27.48. The Cif listing sits at a web address that says Mr Muscle, but the page shows the Cif product.",
+  "differences": "Cif is also sold for other hard surfaces, while the Viking spray is sold for windows. We did not compare ingredients. No test covers this pair.",
+  "why": "For windows alone both do the job on the label, and the Viking spray costs about 23% less.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/mr-muscle-window-cleaner-750-ml-p-2070518",
+   "https://www.viking-direct.co.uk/en/viking-professional-window-cleaner-spray-750ml-p-3900247",
+   "https://www.proformula.com/uk/products-2/cif-professional-glass-and-multi-surface-cleaner/"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Window Cleaner Spray, 12 x 750 ml, price without VAT",
+   "size": 9000,
+   "price": 27.48,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-professional-window-cleaner-spray-750ml-p-3900247"
+  }
+ },
+ {
+  "slug": "zewa-bewaehrt-3-lagig-vs-jeden-tag-soft-3-lagig-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Toilet paper",
+  "title": "Zewa Bewährt 3-lagig vs Jeden Tag Soft 3-lagig",
+  "brand": {
+   "brand": "Zewa",
+   "product": "Zewa Bewährt Toilettenpapier 3-lagig, 8 rolls of 150 sheets",
+   "size": 1200,
+   "unit": "sheet",
+   "price": 4.79,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/zewa_bewaehrt_toilettenpapier_3-lagig_4501031121.html",
+   "gtin": "7322541442488",
+   "image": "https://images.openfoodfacts.org/images/products/732/254/144/2488/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "3"
+    },
+    {
+     "name": "Part straw fibre",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Soft Toilettenpapier 3-lagig, 4 rolls of 220 sheets",
+   "size": 880,
+   "unit": "sheet",
+   "price": 2.39,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_soft_toilettenpapier_3-lagig_4501031342.html",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "3"
+    },
+    {
+     "name": "Pulp (Zellstoff)",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 3-ply toilet papers at one store, with Jeden Tag about a third cheaper per sheet.",
+  "evidence": "mytime.de lists Zewa Bewährt (8 x 150) at €4.79 and Jeden Tag Soft (4 x 220) at €2.39, read on 6 Nov 2026, with VAT and plus shipping. The 10-roll Jeden Tag pack (10 x 220) is €4.39.",
+  "differences": "Zewa contains a share of straw fibre, and Jeden Tag is pulp. We did not compare sheet size. No softness test covers this pair.",
+  "why": "The ply matches at one store, and the larger Jeden Tag pack halves the price per sheet.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/zewa_bewaehrt_toilettenpapier_3-lagig_4501031121.html",
+   "https://www.mytime.de/jeden_tag_soft_toilettenpapier_3-lagig_4501031342.html",
+   "https://www.mytime.de/jeden_tag_soft_toilettenpapier_3-lagig_4501031341.html",
+   "https://world.openfoodfacts.org/product/7322541442488"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Soft Toilettenpapier 3-lagig, 10 rolls of 220 sheets",
+   "size": 2200,
+   "price": 4.39,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_soft_toilettenpapier_3-lagig_4501031341.html"
+  }
+ },
+ {
+  "slug": "zewa-ultra-soft-4-lagig-vs-jeden-tag-supersoft-4-lagig-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Toilet paper",
+  "title": "Zewa Ultra Soft 4-lagig vs Jeden Tag Supersoft 4-lagig",
+  "brand": {
+   "brand": "Zewa",
+   "product": "Zewa Toilettenpapier Ultra Soft 4-lagig, 8 rolls of 150 sheets",
+   "size": 1200,
+   "unit": "sheet",
+   "price": 5.65,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/zewa_toilettenpapier_ultra_soft_4-lagig_4501031120.html",
+   "gtin": "7322541459691",
+   "image": "https://images.openfoodfacts.org/images/products/732/254/145/9691/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "4"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Supersoft Toilettenpapier 4-lagig, 10 rolls of 200 sheets",
+   "size": 2000,
+   "unit": "sheet",
+   "price": 4.85,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_supersoft_toilettenpapier_4-lagig_4501031343.html",
+   "key_ingredients": [
+    {
+     "name": "Ply",
+     "amount": "4"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 4-ply toilet papers at one store, with Jeden Tag about half the price per sheet.",
+  "evidence": "mytime.de lists Zewa Ultra Soft (8 x 150) at €5.65 and Jeden Tag Supersoft (10 x 200) at €4.85, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag packs at the page's 6-or-more price are €26.22.",
+  "differences": "We did not compare sheet size. No softness test covers this pair, and softness is what both are sold on.",
+  "why": "The ply matches at one store, and the Jeden Tag roll has more sheets for about half the price per sheet.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/zewa_toilettenpapier_ultra_soft_4-lagig_4501031120.html",
+   "https://www.mytime.de/jeden_tag_supersoft_toilettenpapier_4-lagig_4501031343.html",
+   "https://world.openfoodfacts.org/product/7322541459691"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Supersoft Toilettenpapier 4-lagig, 6 packs of 10 rolls",
+   "size": 12000,
+   "price": 26.22,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_supersoft_toilettenpapier_4-lagig_4501031343.html"
+  }
+ },
+ {
+  "slug": "ajax-frischeduft-vs-jeden-tag-allzweck-reiniger-lemon-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "All-purpose cleaner",
+  "title": "Ajax Frischeduft vs Jeden Tag Allzweck-Reiniger Lemon",
+  "brand": {
+   "brand": "Ajax",
+   "product": "Ajax Frischeduft Allzweckreiniger, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 2.25,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/ajax_frischeduft_allzweckreiniger_4501011378.html",
+   "gtin": "8714789952543",
+   "image": "https://images.openbeautyfacts.org/images/products/871/478/995/2543/front_nl.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Anionic and nonionic surfactants",
+     "amount": "<5%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Allzweck-Reiniger Lemon, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 1.05,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_allzweck-reiniger_lemon_4501013531.html",
+   "key_ingredients": [
+    {
+     "name": "Anionic and nonionic surfactants, soap",
+     "amount": "<5%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 1 litre all-purpose cleaners at one store with the same surfactant band on the label.",
+  "evidence": "mytime.de lists Ajax Frischeduft at €2.25 and Jeden Tag Allzweck-Reiniger Lemon at €1.05, both 1 l, read on 6 Nov 2026, with VAT and plus shipping. Both ingredient lists start with under 5% anionic and nonionic surfactants. Six Jeden Tag bottles at the page's 6-or-more price are €5.70.",
+  "differences": "Ajax's page says it is pH neutral and gentle on marble and ceramic. Check the Jeden Tag label before using it on marble. The scents differ, and Jeden Tag lists soap as well. No test covers this pair.",
+  "why": "The surfactant band on the labels is the same, and Ajax costs more than twice as much per litre at the same store.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/ajax_frischeduft_allzweckreiniger_4501011378.html",
+   "https://www.mytime.de/jeden_tag_allzweck-reiniger_lemon_4501013531.html",
+   "https://world.openbeautyfacts.org/product/8714789952543"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Allzweck-Reiniger Lemon, 6 x 1 l",
+   "size": 6000,
+   "price": 5.7,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_allzweck-reiniger_lemon_4501013531.html"
+  }
+ },
+ {
+  "slug": "sidolin-streifenfrei-cristal-vs-jeden-tag-glasreiniger-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Glass cleaner",
+  "title": "Sidolin Streifenfrei Cristal vs Jeden Tag Glasreiniger",
+  "brand": {
+   "brand": "Sidolin",
+   "product": "Sidolin Streifenfrei Cristal, 500 ml spray",
+   "size": 500,
+   "unit": "ml",
+   "price": 2.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/sidolin_streifenfrei_cristal_4501013376.html",
+   "gtin": "4015000969734",
+   "image": "https://images.openfoodfacts.org/images/products/401/500/096/9734/front_de.11.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Bio-alcohol",
+     "amount": ""
+    },
+    {
+     "name": "Fragrance, preservative",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Glasreiniger, 1 l spray",
+   "size": 1000,
+   "unit": "ml",
+   "price": 1.35,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_glasreiniger_4501012947.html",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants",
+     "amount": "<5%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two spray glass cleaners at one store, with Jeden Tag at under a third of the price per millilitre.",
+  "evidence": "mytime.de lists Sidolin Streifenfrei Cristal (500 ml) at €2.29 and Jeden Tag Glasreiniger (1 l) at €1.35, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag bottles at the page's 6-or-more price are €7.32. The photo record for Sidolin is an earlier pack with a different barcode from the one mytime shows.",
+  "differences": "Sidolin's page says its formula has bio-alcohol, and Jeden Tag's page doesn't mention alcohol, so it may behave differently on streaks. No test covers this pair.",
+  "why": "Both are spray cleaners for glass, and Sidolin costs more than three times as much per millilitre at the same store. The extra money pays for a formula we have no test results for.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/sidolin_streifenfrei_cristal_4501013376.html",
+   "https://www.mytime.de/jeden_tag_glasreiniger_4501012947.html",
+   "https://world.openfoodfacts.org/product/4015000969734"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Glasreiniger, 6 x 1 l",
+   "size": 6000,
+   "price": 7.32,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_glasreiniger_4501012947.html"
+  }
+ },
+ {
+  "slug": "null-null-wc-urinstein-kalkloeser-vs-jeden-tag-wc-urin-kalksteinloeser-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Limescale remover",
+  "title": "Null-Null WC Urinstein und Kalklöser vs Jeden Tag WC Urin- und Kalksteinlöser",
+  "brand": {
+   "brand": "Null-Null",
+   "product": "Null-Null WC Urinstein und Kalklöser, 750 ml",
+   "size": 750,
+   "unit": "ml",
+   "price": 3.05,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/null-null_wc_urinstein_und_kalkloeser_4501010673.html",
+   "key_ingredients": [
+    {
+     "name": "Hydrochloric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag WC Urin- und Kalksteinlöser, 750 ml",
+   "size": 750,
+   "unit": "ml",
+   "price": 1.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_wc_urin-_und_kalksteinloeser_4501013478.html",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 750 ml toilet limescale removers at one store with the same corrosive warnings.",
+  "evidence": "mytime.de lists Null-Null at €3.05 and Jeden Tag at €1.49, both 750 ml, read on 6 Nov 2026, with VAT and plus shipping. Both carry the same corrosive warnings. Six Jeden Tag bottles at the page's 6-or-more price are €8.10.",
+  "differences": "Null-Null's page names hydrochloric acid. Jeden Tag's page doesn't name its acid, so strength may differ. Stiftung Warentest's toilet cleaner test covers this kind of product, but we found neither of these two in what we could read.",
+  "why": "Both are sold for the same limescale job in the same size with the same warnings, and Null-Null costs about twice as much.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/null-null_wc_urinstein_und_kalkloeser_4501010673.html",
+   "https://www.mytime.de/jeden_tag_wc_urin-_und_kalksteinloeser_4501013478.html",
+   "https://www.test.de/WC-Reiniger-im-Test-4673580-0/"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag WC Urin- und Kalksteinlöser, 6 x 750 ml",
+   "size": 4500,
+   "price": 8.1,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_wc_urin-_und_kalksteinloeser_4501013478.html"
+  }
+ },
+ {
+  "slug": "finish-spezial-salz-vs-jeden-tag-spezialsalz-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Dishwasher salt",
+  "title": "Finish Spezial-Salz vs Jeden Tag Spezialsalz",
+  "brand": {
+   "brand": "Finish",
+   "product": "Finish Spezial-Salz, 1.2 kg",
+   "size": 1200,
+   "unit": "g",
+   "price": 1.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/finish_spezial-salz_4501010120.html",
+   "gtin": "4002448046424",
+   "image": "https://images.openfoodfacts.org/images/products/400/244/804/6424/front_de.21.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Spezialsalz für Geschirrspülmaschinen, 2.2 kg",
+   "size": 2200,
+   "unit": "g",
+   "price": 1.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_spezialsalz_fuer_geschirrspuelmaschinen_4501012747.html",
+   "key_ingredients": [
+    {
+     "name": "Sodium chloride",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Dishwasher salt at one store, with the bigger Jeden Tag bag costing less than the small Finish box.",
+  "evidence": "mytime.de lists Finish Spezial-Salz (1.2 kg) at €1.75 and Jeden Tag Spezialsalz (2.2 kg) at €1.29, read on 6 Nov 2026, with VAT and plus shipping.",
+  "differences": "Jeden Tag's page names sodium chloride. We did not read a composition for Finish, and we can't compare grain size or how the pack pours. No test covers this pair.",
+  "why": "Both are sold for the same job of softening water in a dishwasher, and the Jeden Tag pack holds nearly twice as much for less money.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/finish_spezial-salz_4501010120.html",
+   "https://www.mytime.de/jeden_tag_spezialsalz_fuer_geschirrspuelmaschinen_4501012747.html",
+   "https://world.openfoodfacts.org/product/4002448046424"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "somat-5in1-klarspueler-vs-jeden-tag-klarspueler-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Rinse aid",
+  "title": "Somat 5in1 Klarspüler vs Jeden Tag Klarspüler",
+  "brand": {
+   "brand": "Somat",
+   "product": "Somat 5in1 Klarspüler, 750 ml",
+   "size": 750,
+   "unit": "ml",
+   "price": 2.89,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/somat_5in1_klarspueler_4501013357.html",
+   "gtin": "4015200036281",
+   "image": "https://images.openfoodfacts.org/images/products/401/520/003/6281/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Nonionic surfactants",
+     "amount": "5-15%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Klarspüler, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 1.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_klarspueler_4501010913.html",
+   "key_ingredients": [
+    {
+     "name": "Nonionic surfactants",
+     "amount": "5-15%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two rinse aids at one store with the same surfactant band on the label.",
+  "evidence": "mytime.de lists Somat 5in1 (750 ml) at €2.89 and Jeden Tag (1 l) at €1.29, read on 6 Nov 2026, with VAT and plus shipping. Both list 5 to 15% nonionic surfactants. Six Jeden Tag bottles at the page's 6-or-more price are €7.02.",
+  "differences": "Somat sells five functions in one, and we have no test of whether they show up in your glasses. The bands are wide, so the two may not hold the same amount. No test covers this pair.",
+  "why": "The surfactant band on the labels is the same, and Somat costs about three times as much per millilitre at the same store.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/somat_5in1_klarspueler_4501013357.html",
+   "https://www.mytime.de/jeden_tag_klarspueler_4501010913.html",
+   "https://world.openfoodfacts.org/product/4015200036281"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Klarspüler, 6 x 1 l",
+   "size": 6000,
+   "price": 7.02,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_klarspueler_4501010913.html"
+  }
+ },
+ {
+  "slug": "somat-all-in-1-extra-xxl-vs-jeden-tag-all-in-one-multi-12-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Somat All in 1 Extra XXL vs Jeden Tag All in One Multi 12",
+  "brand": {
+   "brand": "Somat",
+   "product": "Somat Tabs All in 1 Extra XXL, 58 tablets",
+   "size": 58,
+   "unit": "tablet",
+   "price": 11.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/somat_tabs_all_in_1_extra_xxl_4501013554.html",
+   "gtin": "4015200036953",
+   "image": "https://images.openfoodfacts.org/images/products/401/520/003/6953/front_de.3.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Geschirr-Reiniger Tabs All in One Multi 12, 40 tablets",
+   "size": 40,
+   "unit": "tablet",
+   "price": 4.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_geschirr-reiniger_tabs_all_in_one_multi_12_4501012779.html",
+   "key_ingredients": [
+    {
+     "name": "Oxygen-based bleach",
+     "amount": "15-30%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "All-in-one dishwasher tablets at one store, with Jeden Tag about 43% cheaper per tablet.",
+  "evidence": "mytime.de lists Somat All in 1 Extra XXL (58) at €11.99 and Jeden Tag All in One Multi 12 (40) at €4.75, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag packs at the page's 6-or-more price are €25.68. The photo record is the same 58-pack under a different barcode from the one mytime shows.",
+  "differences": "We did not compare full ingredient lists. No test we could read covers this exact pair, so Somat may clean better.",
+  "why": "Both are sold as all-in-one tablets, and the price gap at one store is large enough to be worth trying one pack.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/somat_tabs_all_in_1_extra_xxl_4501013554.html",
+   "https://www.mytime.de/jeden_tag_geschirr-reiniger_tabs_all_in_one_multi_12_4501012779.html",
+   "https://world.openfoodfacts.org/product/4015200036953"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Geschirr-Reiniger Tabs All in One Multi 12, 6 packs of 40",
+   "size": 240,
+   "price": 25.68,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_geschirr-reiniger_tabs_all_in_one_multi_12_4501012779.html"
+  }
+ },
+ {
+  "slug": "bref-power-backofen-grill-vs-jeden-tag-backofen-grillreiniger-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Oven cleaner",
+  "title": "Bref Power Backofen und Grill vs Jeden Tag Backofen- und Grillreiniger",
+  "brand": {
+   "brand": "Bref",
+   "product": "Bref Power Backofen und Grill Reiniger, 500 ml aerosol",
+   "size": 500,
+   "unit": "ml",
+   "price": 4.55,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/bref_power_backofen_und_grill_reiniger_4501010198.html",
+   "key_ingredients": [
+    {
+     "name": "Sodium hydroxide",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Backofen- und Grillreiniger, 500 ml aerosol foam",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.79,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_backofen-_und_grillreiniger_4501012625.html",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 500 ml aerosol oven cleaners at one store with the same corrosive warning.",
+  "evidence": "mytime.de lists Bref Power at €4.55 and Jeden Tag at €1.79, both 500 ml aerosols, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag cans at the page's 6-or-more price are €9.72. Stiftung Warentest's oven cleaner test of 29 June 2023 lists both. Only 3 of the cleaners tested cleaned well, 8 were satisfactory and 3 poor, at 7 cents to €1.05 per use.",
+  "differences": "The grades for these two are behind test.de's paywall, so we don't know how either did, and Bref may be the better cleaner. Jeden Tag's page says to leave it on for 30 minutes to 2 hours and to wait 8 hours before using the oven. Bref's page names sodium hydroxide, and Jeden Tag's page doesn't name its active.",
+  "why": "Both are aerosol oven cleaners with the same corrosive warning, and Bref costs about two and a half times as much. Test results vary widely in this category, so read the test.de grades if you can.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/bref_power_backofen_und_grill_reiniger_4501010198.html",
+   "https://www.mytime.de/jeden_tag_backofen-_und_grillreiniger_4501012625.html",
+   "https://www.test.de/backofenreiniger-grillreiniger-test-6009513-0/"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Backofen- und Grillreiniger, 6 x 500 ml",
+   "size": 3000,
+   "price": 9.72,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_backofen-_und_grillreiniger_4501012625.html"
+  }
+ },
+ {
+  "slug": "drano-power-gel-vs-jeden-tag-rohrreiniger-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Drain unblocker",
+  "title": "Drano Power-Gel vs Jeden Tag Rohrreiniger",
+  "brand": {
+   "brand": "Drano",
+   "product": "Drano Power-Gel Rohrfrei, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 4.39,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/drano_power-gel_rohrfrei_4501012555.html",
+   "gtin": "5000204150735",
+   "image": "https://images.openfoodfacts.org/images/products/500/020/415/0735/front_de.9.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chlorine bleach",
+     "amount": ""
+    },
+    {
+     "name": "Sodium hydroxide",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Rohrreiniger, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 1.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_rohrreiniger_4501013476.html",
+   "key_ingredients": [
+    {
+     "name": "Chlorine bleach",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 1 litre chlorine-based drain cleaners at one store with the same warnings.",
+  "evidence": "mytime.de lists Drano Power-Gel at €4.39 and Jeden Tag Rohrreiniger at €1.49, both 1 l, read on 6 Nov 2026, with VAT and plus shipping. Both list chlorine bleach and carry the same warnings. Six Jeden Tag bottles at the page's 6-or-more price are €8.10.",
+  "differences": "Drano is sold as a gel. Jeden Tag's page doesn't state the form or the dose, and a thinner liquid may reach a blockage differently. Follow the label on each. No test covers this pair.",
+  "why": "Both rely on chlorine bleach and carry the same warnings, and Drano costs about three times as much per litre.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/drano_power-gel_rohrfrei_4501012555.html",
+   "https://www.mytime.de/jeden_tag_rohrreiniger_4501013476.html",
+   "https://world.openfoodfacts.org/product/5000204150735"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Rohrreiniger, 6 x 1 l",
+   "size": 6000,
+   "price": 8.1,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_rohrreiniger_4501013476.html"
+  }
+ },
+ {
+  "slug": "bref-power-kalk-schmutz-vs-jeden-tag-badreiniger-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Bathroom cleaner",
+  "title": "Bref Power Kalk und Schmutz vs Jeden Tag Badreiniger",
+  "brand": {
+   "brand": "Bref",
+   "product": "Bref Power gegen Kalk und Schmutz, 750 ml",
+   "size": 750,
+   "unit": "ml",
+   "price": 3.19,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/bref_power_kalk_und_schmutz_4501012476.html",
+   "gtin": "4015000971157",
+   "image": "https://images.openproductsfacts.org/images/products/401/500/097/1157/front_de.8.400.jpg",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Badreiniger, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 1.39,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_badreiniger_4501013040.html",
+   "key_ingredients": [
+    {
+     "name": "Lactic acid, formic acid",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two bathroom cleaners for limescale and dirt at one store.",
+  "evidence": "mytime.de lists Bref Power Kalk und Schmutz (750 ml) at €3.19 and Jeden Tag Badreiniger (1 l) at €1.39, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag bottles at the page's 6-or-more price are €7.56. Stiftung Warentest's test of 16 bathroom cleaners, reported on 20 Sep 2024, included Bref and found that discounter own-labels at about 10 cents beat dearer brands.",
+  "differences": "Jeden Tag's page lists lactic and formic acid. We did not compare the Bref acids, so strength may differ. We could not read Bref's grade, and Jeden Tag was not named in what we could read.",
+  "why": "Both are sold for limescale and dirt in the bathroom, and Bref costs about three times as much per millilitre at the same store.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/bref_power_kalk_und_schmutz_4501012476.html",
+   "https://www.mytime.de/jeden_tag_badreiniger_4501013040.html",
+   "https://test.de/news/Stiftung-Warentest-prueft-16-Badreiniger-Discounter-Eigenmarken-fuer-10-Cent-schlagen-teure-Markenreiniger-6289120-0",
+   "https://world.openproductsfacts.org/product/4015000971157"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Badreiniger, 6 x 1 l",
+   "size": 6000,
+   "price": 7.56,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_badreiniger_4501013040.html"
+  }
+ },
+ {
+  "slug": "viss-cleanboost-scheuermilch-vs-jeden-tag-scheuermilch-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Cream cleaner",
+  "title": "Viss Cleanboost Scheuermilch vs Jeden Tag Scheuermilch",
+  "brand": {
+   "brand": "Viss",
+   "product": "Viss Cleanboost Scheuermilch Citrus, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 2.25,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/viss_cleanboost_scheuermilch_citrus_4501012882.html",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Scheuermilch, 750 ml",
+   "size": 750,
+   "unit": "ml",
+   "price": 1.35,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_scheuermilch_4501011331.html",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two cream cleaners at one store, with Jeden Tag at less than half the price per millilitre.",
+  "evidence": "mytime.de lists Viss Cleanboost Scheuermilch Citrus (500 ml) at €2.25 and Jeden Tag Scheuermilch (750 ml) at €1.35, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag bottles at the page's 6-or-more price are €7.32.",
+  "differences": "We did not compare ingredients, so the abrasive and how gentle each is on a surface may differ. The Open Products Facts record we cite is an older Viss pack. No test covers this pair.",
+  "why": "Both are cream cleaners for the same scrubbing job, and Viss costs about two and a half times as much per millilitre at the same store.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/viss_cleanboost_scheuermilch_citrus_4501012882.html",
+   "https://www.mytime.de/jeden_tag_scheuermilch_4501011331.html",
+   "https://world.openproductsfacts.org/product/8710908835360"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Scheuermilch, 6 x 750 ml",
+   "size": 4500,
+   "price": 7.32,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_scheuermilch_4501011331.html"
+  }
+ },
+ {
+  "slug": "frosch-essig-reiniger-vs-jeden-tag-essigreiniger-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "All-purpose cleaner",
+  "title": "Frosch Essig Reiniger vs Jeden Tag Essigreiniger",
+  "brand": {
+   "brand": "Frosch",
+   "product": "Frosch Essig Reiniger, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 2.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/frosch_essig_reiniger_4501012871.html",
+   "key_ingredients": [
+    {
+     "name": "Acetic acid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Essigreiniger, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 1.15,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_essigreiniger_4501013065.html",
+   "key_ingredients": [
+    {
+     "name": "Lactic acid, acetic acid",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 1 litre vinegar cleaners at one store, with Jeden Tag at less than half the price.",
+  "evidence": "mytime.de lists Frosch Essig Reiniger at €2.49 and Jeden Tag Essigreiniger at €1.15, both 1 l, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag bottles at the page's 6-or-more price are €6.24.",
+  "differences": "Jeden Tag lists lactic acid as well as acetic acid, so it isn't vinegar alone. We did not compare environmental labels. No test covers this pair.",
+  "why": "Both are sold as vinegar cleaners in the same size, and Frosch costs more than twice as much at the same store.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/frosch_essig_reiniger_4501012871.html",
+   "https://www.mytime.de/jeden_tag_essigreiniger_4501013065.html",
+   "https://frosch.de/de/produkte-und-tipps/putzen.html"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Essigreiniger, 6 x 1 l",
+   "size": 6000,
+   "price": 6.24,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_essigreiniger_4501013065.html"
+  }
+ },
+ {
+  "slug": "vileda-glitzi-plus-vs-jeden-tag-anti-fett-topfreiniger-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Sponges and scrubbers",
+  "title": "Vileda Glitzi Plus vs Jeden Tag Anti-Fett Topfreiniger",
+  "brand": {
+   "brand": "Vileda",
+   "product": "Vileda Glitzi Plus Topfreiniger, 3 pieces",
+   "size": 3,
+   "unit": "piece",
+   "price": 1.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/vileda_glitzi_plus_topfreiniger_4510072166.html",
+   "gtin": "4003790001444",
+   "image": "https://images.openfoodfacts.org/images/products/400/379/000/1444/front_de.7.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Silver antibacterial treatment, microfibre side",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Anti-Fett Topfreiniger, 3 pieces",
+   "size": 3,
+   "unit": "piece",
+   "price": 0.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_anti-fett_topfreiniger_3er_4510073945.html",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Three-packs of pot scourers at one store, with the Vileda offering more features.",
+  "evidence": "mytime.de lists Vileda Glitzi Plus at €1.29 and Jeden Tag Anti-Fett Topfreiniger at €0.99, 3 pieces each, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag packs at the page's 6-or-more price are €5.40.",
+  "differences": "Vileda has a silver antibacterial treatment and a microfibre side. The Jeden Tag page mentions neither, so the brand is better on those. We have no test of how long either lasts.",
+  "why": "If you only need a scourer for pots, the Jeden Tag pack is about 23% cheaper. The Vileda lists extra features, so it depends on whether you want them.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/vileda_glitzi_plus_topfreiniger_4510072166.html",
+   "https://www.mytime.de/jeden_tag_anti-fett_topfreiniger_3er_4510073945.html",
+   "https://world.openfoodfacts.org/product/4003790001444"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Anti-Fett Topfreiniger, 6 packs of 3",
+   "size": 18,
+   "price": 5.4,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_anti-fett_topfreiniger_3er_4510073945.html"
+  }
+ },
+ {
+  "slug": "melitta-filtertueten-weiss-1x4-vs-jeden-tag-kaffeefilter-groesse-4-de",
+  "market": "DE",
+  "category": "kitchen",
+  "subcategory": "Coffee filters",
+  "title": "Melitta Filtertüten Weiß 1x4 vs Jeden Tag Kaffeefilter Größe 4",
+  "brand": {
+   "brand": "Melitta",
+   "product": "Melitta Filtertüten Weiß 1x4, 80 filters",
+   "size": 80,
+   "unit": "filter",
+   "price": 2.95,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/melitta_filtertueten_weiss_1x4_4510060461.html",
+   "gtin": "4006508206827",
+   "image": "https://images.openproductsfacts.org/images/products/400/650/820/6827/front_de.9.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "1x4"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Kaffeefilter Größe 4, 100 filters",
+   "size": 100,
+   "unit": "filter",
+   "price": 1.19,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_kaffeefilter_groesse_4_4510061546.html",
+   "gtin": "4306188402312",
+   "image": "https://images.openfoodfacts.org/images/products/430/618/840/2312/front_de.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "4"
+    },
+    {
+     "name": "Unbleached fresh cellulose",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Size 4 paper coffee filters at one store, with Jeden Tag about two thirds cheaper per filter.",
+  "evidence": "mytime.de lists Melitta Filtertüten Weiß 1x4 at €2.95 and Jeden Tag Kaffeefilter Größe 4 (100) at €1.19, read on 6 Nov 2026, with VAT and plus shipping. mytime doesn't give the Melitta count, so we took 80 from the Open Facts record for that barcode. Six Jeden Tag boxes at the page's 6-or-more price are €6.48.",
+  "differences": "Melitta's filter is white and Jeden Tag's is unbleached. We have no test of how either affects brewing.",
+  "why": "The size is the same and the box holds more, at less than half the price of the Melitta box. Paper colour is the one difference the pages show.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/melitta_filtertueten_weiss_1x4_4510060461.html",
+   "https://www.mytime.de/jeden_tag_kaffeefilter_groesse_4_4510061546.html",
+   "https://world.openproductsfacts.org/product/4006508206827",
+   "https://world.openfoodfacts.org/product/4306188402312"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Kaffeefilter Größe 4, 6 boxes of 100",
+   "size": 600,
+   "price": 6.48,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_kaffeefilter_groesse_4_4510061546.html"
+  }
+ },
+ {
+  "slug": "toppits-alufolie-extra-reissfest-vs-quickpack-alufolie-premiumline-de",
+  "market": "DE",
+  "category": "kitchen",
+  "subcategory": "Kitchen foil",
+  "title": "Toppits Alufolie Extra Reißfest vs Quickpack Alufolie Premiumline",
+  "brand": {
+   "brand": "Toppits",
+   "product": "Toppits Alufolie extra reißfest, 10 m",
+   "size": 10,
+   "unit": "metre",
+   "price": 2.85,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/toppits_alufolie_extra_reissfest_4510060172.html",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Quickpack",
+   "product": "Quickpack Alufolie Premiumline extra stark, 15 m",
+   "size": 15,
+   "unit": "metre",
+   "price": 3.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/quickpack_alufolie_premiumline_extra_stark_4510061913.html",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two aluminium foils sold as extra strong at one store, with Quickpack about 18% cheaper per metre.",
+  "evidence": "mytime.de lists Toppits Alufolie extra reißfest (10 m) at €2.85 and Quickpack Alufolie Premiumline extra stark (15 m) at €3.49, read on 6 Nov 2026, with VAT and plus shipping.",
+  "differences": "Neither page lists width or thickness, so extra tear-resistant and extra strong are the makers' own words and we can't confirm they mean the same. The Open Products Facts record we cite is another Quickpack foil, used only to confirm the brand. No test covers this pair. Jeden Tag Alufolie at the same store is cheaper still at €2.29 for 30 m, but it isn't sold as extra strong.",
+  "why": "Both are sold as stronger foils at the same store, and Quickpack gives more metres for a modest saving. If you don't need the heavier foil, the store's plain Jeden Tag roll saves far more.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/toppits_alufolie_extra_reissfest_4510060172.html",
+   "https://www.mytime.de/quickpack_alufolie_premiumline_extra_stark_4510061913.html",
+   "https://www.mytime.de/jeden_tag_alufolie_4510061550.html",
+   "https://world.openproductsfacts.org/product/4008284073365"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "pely-power-gefrierbeutel-1-liter-vs-jeden-tag-gefrierbeutel-1-liter-de",
+  "market": "DE",
+  "category": "kitchen",
+  "subcategory": "Freezer bags",
+  "title": "Pely Power Gefrierbeutel 1 Liter vs Jeden Tag Gefrierbeutel 1 Liter",
+  "brand": {
+   "brand": "Pely",
+   "product": "Pely Power Gefrierbeutel 1 Liter, 40 bags, 16 x 25 cm",
+   "size": 40,
+   "unit": "bag",
+   "price": 1.69,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/pely_power_gefrierbeutel_1_liter_4510061516.html",
+   "key_ingredients": [
+    {
+     "name": "Bag size",
+     "amount": "16 x 25 cm"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Gefrierbeutel 1 Liter, 40 bags, 18 x 28 cm, with clips",
+   "size": 40,
+   "unit": "bag",
+   "price": 1.19,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_gefrierbeutel_1_liter_4510060481.html",
+   "key_ingredients": [
+    {
+     "name": "Bag size",
+     "amount": "18 x 28 cm"
+    },
+    {
+     "name": "Temperature range",
+     "amount": "-40 to 115 C"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Forty 1 litre freezer bags each at one store, with Jeden Tag about 30% cheaper.",
+  "evidence": "mytime.de lists Pely Power at €1.69 and Jeden Tag at €1.19, both 1 litre and 40 bags, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag packs at the page's 6-or-more price are €6.48.",
+  "differences": "The bags are listed at different sizes, with Jeden Tag larger, though both are called 1 litre. We have no thickness figure for either, and Pely sells this bag as Power. No test covers this pair.",
+  "why": "The count and the litre size match, and Jeden Tag comes with clips for about 30% less.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/pely_power_gefrierbeutel_1_liter_4510061516.html",
+   "https://www.mytime.de/jeden_tag_gefrierbeutel_1_liter_4510060481.html",
+   "https://pely.de/lebensmittelfolien-und-lebensmittelbeutel/"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Gefrierbeutel 1 Liter, 6 packs of 40",
+   "size": 240,
+   "price": 6.48,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_gefrierbeutel_1_liter_4510060481.html"
+  }
+ },
+ {
+  "slug": "frosch-spuelmittel-limone-vs-shine-washing-up-liquid-concentrated-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Frosch Spülmittel Limone vs Shine Washing-up Liquid Concentrated",
+  "brand": {
+   "brand": "Frosch",
+   "product": "Frosch Spülmittel Limone, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.99,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto-online.de/search?query=frosch+spuelmittel+limone",
+   "gtin": "4001499964541",
+   "image": "https://images.openfoodfacts.org/images/products/400/149/996/4541/front_de.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Washing-up liquid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Shine",
+   "product": "Shine Washing-up Liquid Concentrated Classic (Netto), 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 1.25,
+   "retailer": "netto",
+   "asin": null,
+   "url": "https://www.netto.de/",
+   "gtin": "5712873371105",
+   "image": "https://images.openfoodfacts.org/images/products/571/287/337/1105/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Concentrated washing-up liquid",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 500 ml washing-up liquids priced at shops called Netto, with Shine about 37% cheaper.",
+  "evidence": "Open Prices shows Frosch at €1.99 for 500 ml at Netto Marken-Discount in Berlin on 23 Sep 2026, and Shine at €1.25 for 500 ml at a store recorded as Netto in Strausberg on 13 Feb 2026. Open Prices' product records give the sizes.",
+  "differences": "Germany has two chains called Netto, and these prices may come from different ones, seven months apart. Shine is sold as concentrated and Frosch's record doesn't say, so you may need different amounts per wash. Neither ingredient list is on file, and we did not compare environmental labels. No test covers this pair.",
+  "why": "Both are hand washing-up liquids in the same size, and Shine costs over a third less. Check how far a squeeze goes before buying more.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4001499964541",
+   "https://world.openfoodfacts.org/product/4001499964541",
+   "https://prices.openfoodfacts.org/products/5712873371105",
+   "https://world.openfoodfacts.org/product/5712873371105"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "toppits-backpapier-vs-jeden-tag-backpapier-rolle-de",
+  "market": "DE",
+  "category": "kitchen",
+  "subcategory": "Baking parchment",
+  "title": "Toppits Backpapier vs Jeden Tag Backpapier Rolle",
+  "brand": {
+   "brand": "Toppits",
+   "product": "Toppits Backpapier, 8 m",
+   "size": 8,
+   "unit": "metre",
+   "price": 2.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/toppits_backpapier_4510060029.html",
+   "gtin": "4008871200365",
+   "image": "https://images.openfoodfacts.org/images/products/400/887/120/0365/front_de.10.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "FSC, up to 220 C",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Backpapier Rolle, 20 m x 38 cm",
+   "size": 20,
+   "unit": "metre",
+   "price": 1.89,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_backpapier_rolle_4510061521.html",
+   "key_ingredients": [
+    {
+     "name": "Non-stick on both sides",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Baking paper on a roll at one store, with Jeden Tag about two thirds cheaper per metre.",
+  "evidence": "mytime.de lists Toppits Backpapier (8 m) at €2.29 and Jeden Tag Backpapier Rolle (20 m x 38 cm) at €1.89, read on 6 Nov 2026, with VAT and plus shipping. Six Jeden Tag rolls at the page's 6-or-more price are €10.26.",
+  "differences": "Toppits states FSC paper and use up to 220 C. Jeden Tag's page doesn't state a top temperature, so check the box before baking hot. We did not read a Toppits width. No test covers this pair.",
+  "why": "Both are rolls of baking paper at the same store, and the Jeden Tag roll is longer for less money.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/toppits_backpapier_4510060029.html",
+   "https://www.mytime.de/jeden_tag_backpapier_rolle_4510061521.html",
+   "https://world.openfoodfacts.org/product/4008871200365"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Backpapier Rolle, 6 rolls of 20 m",
+   "size": 120,
+   "price": 10.26,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_backpapier_rolle_4510061521.html"
+  }
+ }
+]
