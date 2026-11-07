@@ -32,3 +32,22 @@ export function ingredientKey(name: string) {
     .replace(/\b(paracetamol|aciclovir|beclometasone|salbutamol)\b/g, (w) => SAME_AS_US[w]);
   return INGREDIENT_STOP.has(base) ? "" : base;
 }
+
+/** Salts and hydrates a name can carry, in a name or a bracket like "(as magnesium)". */
+const SALT_WORD =
+  /\b(hcl|dihydrochloride|hydrochloride|monohydrate|magnesium|sodium|potassium|calcium|zinc|citrate|carbonate|oxide|malate|glycinate|bisglycinate|gluconate|picolinate|sulfate|sulphate|fumarate|succinate|tartrate|maleate|phosphate|acetate|nitrate)\b/g;
+/** Spellings of one salt. */
+const SAME_SALT: Record<string, string> = { hcl: "hydrochloride", dihydrochloride: "hydrochloride", sulphate: "sulfate" };
+
+/** The salt words in a name, leaving out the ingredient's own, so "Calcium (as calcium citrate)" gives "citrate". */
+function saltWords(name: string) {
+  const own = new Set(ingredientKey(name).split("-"));
+  const words = (name.toLowerCase().match(SALT_WORD) ?? []).map((w) => SAME_SALT[w] ?? w).filter((w) => !own.has(w));
+  return [...new Set(words)].sort().join("+");
+}
+
+/** Both names state a salt and the two aren't the same one. A name that states none proves nothing either way. */
+export function differentSalts(a: string, b: string) {
+  const [x, y] = [saltWords(a), saltWords(b)];
+  return x !== "" && y !== "" && x !== y;
+}

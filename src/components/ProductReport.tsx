@@ -22,6 +22,8 @@ const KIND_LABEL = {
 export function ProductReport({ detail, from }: { detail: LookupDetail; from: string }) {
   const { product: p, verified, sameActive, bundles, labelMatches, lookFor } = detail;
   const hasSwaps = verified.length + sameActive.length + bundles.length > 0;
+  const matched = verified.filter((x) => x.match_type !== "same_kind");
+  const sameKind = verified.filter((x) => x.match_type === "same_kind");
   const storeBrands = labelMatches.filter((m) => m.storeBrand);
   const otherLabels = labelMatches.filter((m) => !m.storeBrand);
   const firstFive = p.kind === "cosmetic" ? p.ingredients.slice(0, 5) : [];
@@ -150,15 +152,30 @@ export function ProductReport({ detail, from }: { detail: LookupDetail; from: st
       </section>
 
       <section>
-        <h2 className="display text-2xl font-medium sm:text-3xl">Cheaper, with the same ingredients</h2>
+        <h2 className="display text-2xl font-medium sm:text-3xl">Cheaper options</h2>
 
-        {verified.length > 0 && (
+        {matched.length > 0 && (
           <div className="mt-5">
             <p className="flex items-center gap-2 font-semibold">
-              <BadgeCheck className="h-5 w-5 text-accent" /> Swaps we&apos;ve verified for this product
+              <BadgeCheck className="h-5 w-5 text-accent" /> Swaps we&apos;ve compared with this product
+            </p>
+            <p className="mt-1 text-xs text-muted">Each one says what it matches on and what differs.</p>
+            <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {matched.map((x) => (
+                <PairCard key={x.slug} pair={toSummary(x)} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {sameKind.length > 0 && (
+          <div className="mt-6">
+            <p className="font-semibold">The same kind of product, for less</p>
+            <p className="mt-1 text-xs text-muted">
+              Our records don&apos;t show that these match on what&apos;s inside or how well they work.
             </p>
             <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {verified.map((x) => (
+              {sameKind.map((x) => (
                 <PairCard key={x.slug} pair={toSummary(x)} />
               ))}
             </div>
@@ -168,8 +185,7 @@ export function ProductReport({ detail, from }: { detail: LookupDetail; from: st
         {sameActive.length > 0 && (
           <div className="mt-6">
             <p className="flex items-center gap-2 font-semibold">
-              <BadgeCheck className="h-5 w-5 text-accent" /> Verified cheaper products with the same active
-              ingredients
+              <BadgeCheck className="h-5 w-5 text-accent" /> Cheaper products with the same active ingredients on file
             </p>
             <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {sameActive.slice(0, 6).map((x) => (
@@ -197,7 +213,7 @@ export function ProductReport({ detail, from }: { detail: LookupDetail; from: st
             medicine={p.kind === "medicine"}
             note={
               lookFor.actives?.length
-                ? "Any brand that lists exactly these active ingredients at the same strength is the same medicine or supplement. Medicine rules differ by country, so ask a pharmacist if you're unsure."
+                ? "Look for a brand that lists exactly these active ingredients at the same strength. The form and other ingredients can still differ, and medicine rules differ by country, so ask a pharmacist if you're unsure."
                 : firstFive.length
                   ? `Tip: products whose first five ingredients match (${firstFive.join(", ")}) in the same order are usually close in formula. Ingredients are listed from most to least.`
                   : "Store brands are usually the cheapest. Compare the label and the price per unit."
@@ -243,7 +259,7 @@ export function ProductReport({ detail, from }: { detail: LookupDetail; from: st
           <div className="mt-6 flex gap-3 rounded-2xl border border-line bg-surface-2 p-5 text-sm">
             <ListChecks className="mt-0.5 h-5 w-5 shrink-0 text-muted" />
             <p className="leading-relaxed text-ink-2">
-              We haven&apos;t verified a cheaper match with prices for this one yet. We count every lookup, and
+              We don&apos;t have a cheaper match with prices for this one yet. We count every lookup, and
               the most requested products are researched first.{" "}
               <Link
                 href={`/suggest?brand=${encodeURIComponent(`${p.brand} ${p.name}`.trim())}`}

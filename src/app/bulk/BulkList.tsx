@@ -256,7 +256,7 @@ function BulkGroup({
       )}
       {noPhoto.length > 0 && (
         <>
-          {withPhoto.length > 0 && <h3 className="mt-5 mb-2 text-base">More bigger packs, no photo yet</h3>}
+          {withPhoto.length > 0 && <h3 className="mt-5 mb-2 text-base">More bigger packs</h3>}
           <div className="card overflow-hidden">
             <p aria-hidden="true" className={`hidden border-b border-line py-1.5 text-xs font-medium text-muted md:grid ${COMPACT_COLUMNS}`}>
               <span>Swap</span>

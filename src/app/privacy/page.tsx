@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Product checks.</strong> When you search, scan or photograph a product on the product check
-          page, we record what was looked up, your country and whether we had a verified swap, with the same
+          page, we record what was looked up, your country and whether we had a swap on file, with the same
           daily-changing hash. This tells us which products to research next.
         </li>
         <li>

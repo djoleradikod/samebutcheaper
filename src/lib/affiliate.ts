@@ -64,6 +64,11 @@ export function storeName(retailer: string, url: string) {
   return RETAILER_LABEL[retailer] ?? hostname(url);
 }
 
+/** Whose site a link really opens: any Amazon URL is Amazon, whichever retailer the record names. */
+export function linkStoreName(p: Pick<ProductSide, "retailer" | "url">) {
+  return hostname(p.url).startsWith("amazon.") ? "Amazon" : storeName(p.retailer, p.url);
+}
+
 /** "on Amazon", "at Tesco", "at uline.com". Without a URL an unnamed store is "the store". */
 export function atStore(retailer: string, url?: string) {
   if (retailer === "amazon") return "on Amazon";

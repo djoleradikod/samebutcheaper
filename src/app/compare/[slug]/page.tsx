@@ -13,7 +13,7 @@ import { SaveButton } from "@/components/SaveButton";
 import { PctTicket } from "@/components/Ticket";
 import { WhereToBuy } from "@/components/WhereToBuy";
 import { BrandWins, WhyBlock } from "@/components/WhyBlock";
-import { atStore, mayEarn, RETAILER_LABEL, storeName, tagUrl } from "@/lib/affiliate";
+import { atStore, linkStoreName, mayEarn, RETAILER_LABEL, storeName, tagUrl } from "@/lib/affiliate";
 import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
@@ -471,7 +471,7 @@ function disclosure(pair: Pair) {
   const earning = [pair.alternative, pair.brand].filter((p) => mayEarn(p));
   if (earning.length === 0) return "We don't earn anything from these links.";
   if (earning.length === 2) return "Affiliate links. We may earn a commission at no cost to you.";
-  return `The ${storeName(earning[0].retailer, earning[0].url)} link is an affiliate link. We may earn a commission at no cost to you.`;
+  return `The ${linkStoreName(earning[0])} link is an affiliate link. We may earn a commission at no cost to you.`;
 }
 
 function listWords(words: string[]) {

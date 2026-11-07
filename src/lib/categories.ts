@@ -172,6 +172,22 @@ export const CATEGORY_MAP = Object.fromEntries(CATEGORIES.map((c) => [c.slug, c]
   CategoryMeta
 >;
 
+const MATCH_PHRASE: [MatchType, string][] = [
+  ["identical_active", "the same active ingredients"],
+  ["identical_formula", "the same formula on the label"],
+  ["same_manufacturer", "the same manufacturer"],
+  ["equivalent_spec", "comparable specs or tests"],
+];
+
+/** One or two sentences on what a group of swaps can claim, so a page promises no more than its weakest swap shows. */
+export function matchSentence(types: MatchType[]) {
+  const phrases = MATCH_PHRASE.filter(([type]) => types.includes(type)).map(([, phrase]) => phrase);
+  const list = phrases.length < 2 ? phrases.join("") : `${phrases.slice(0, -1).join(", ")}, or ${phrases[phrases.length - 1]}`;
+  if (!types.includes("same_kind")) return list ? `Each has ${list}.` : "";
+  if (!list) return "Each is the same kind of product. Our records don't show that the two match on what's inside or how well they work.";
+  return `Some have ${list}, and the rest are only the same kind of product. Each swap says which.`;
+}
+
 export const MATCH_TYPE_META: Record<
   MatchType,
   { label: string; short: string; description: string; strength: number }

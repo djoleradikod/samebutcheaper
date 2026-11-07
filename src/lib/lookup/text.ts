@@ -44,7 +44,8 @@ export function normAmount(a: string) {
     .replace(/\s+/g, "")
     .replace(/µg|μg/g, "mcg")
     .replace(/units?$/, "iu")
-    .replace(/\.0+(?=[a-z%])/, "");
+    // "5.0mg" is 5 mg. "1.000mg" may be a thousand, so it keeps its zeros.
+    .replace(/\.0{1,2}(?=[a-z%])/, "");
 }
 
 /** Removes a leading section heading ("Uses", "Purpose", "Directions") from label text. */
