@@ -40,6 +40,8 @@ export type BulkItem = BrowseRow & {
   biggerPack: string;
   normalPrice: string;
   biggerPrice: string;
+  biggerUrl: string;
+  biggerAt: string;
   extraSavingPct: number;
   advice: ShelfLife["advice"] | null;
   unopened: string;
@@ -221,6 +223,20 @@ function BulkGroup({
   );
 }
 
+/** Where the bigger pack's price came from. It sits above the link stretched over the row, so it stays its own target. */
+function StoreLink({ item }: { item: BulkItem }) {
+  return (
+    <a
+      href={item.biggerUrl}
+      target="_blank"
+      rel="nofollow noopener"
+      className="relative z-10 font-medium whitespace-nowrap text-cobalt underline underline-offset-2"
+    >
+      {item.biggerAt}
+    </a>
+  );
+}
+
 /**
  * A swap with no photo, as a text row in one panel: the names and full product name, the bigger pack's
  * unit price against the normal pack's, the bigger pack's size, the saving and a line on how long it keeps.
@@ -270,7 +286,7 @@ function CompactRow({ item }: { item: BulkItem }) {
         </p>
         <p className="text-[13px] text-ink-2 md:col-start-3 md:row-start-1">
           <span className="md:sr-only">Bigger pack </span>
-          {item.biggerPack}
+          {item.biggerPack}, {item.biggerPrice} <StoreLink item={item} />
         </p>
       </div>
 
@@ -321,7 +337,7 @@ function BulkRow({ item, eager = false }: { item: BulkItem; eager?: boolean }) {
               <span className="price text-[1.375rem] text-ink">{item.biggerUnitPrice}</span>{" "}
               <span className="text-xs font-medium text-muted">{item.unitLabel}</span>
               <span className="block text-[13px] text-ink-2">
-                {item.biggerPack}, {item.biggerPrice}
+                {item.biggerPack}, {item.biggerPrice} <StoreLink item={item} />
               </span>
             </dd>
             <dt className="text-[13px] font-medium text-ink-2">Normal pack</dt>

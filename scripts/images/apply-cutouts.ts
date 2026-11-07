@@ -42,13 +42,15 @@ async function onWhite(png: string, size: number) {
     .sharpen({ sigma: size > 200 ? 0.8 : 0.5 })
     .toBuffer();
   const body = await sharp(rgb).joinChannel(alpha).png().toBuffer();
+  // A flat bar or tray on the baseline leaves a gap above it, so wide packs sit in the middle of the tile instead.
+  const top = w / h > 1.35 ? Math.floor((size - h) / 2) : size - margin - h;
   const pool = Buffer.from(
-    `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg"><ellipse cx="${size / 2}" cy="${size - margin}" rx="${(w * 0.92) / 2}" ry="${Math.max(4, Math.round(size * 0.035))}" fill="#000" fill-opacity="0.28"/></svg>`,
+    `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg"><ellipse cx="${size / 2}" cy="${top + h}" rx="${(w * 0.8) / 2}" ry="${Math.max(2, Math.round(size * 0.014))}" fill="#000" fill-opacity="0.16"/></svg>`,
   );
-  const shadow = await sharp(pool).blur(Math.max(1, size * 0.018)).png().toBuffer();
+  const shadow = await sharp(pool).blur(Math.max(0.6, size * 0.008)).png().toBuffer();
   return sharp({ create: { width: size, height: size, channels: 3, background: "#ffffff" } }).composite([
     { input: shadow, left: 0, top: 0 },
-    { input: body, left: Math.floor((size - w) / 2), top: size - margin - h },
+    { input: body, left: Math.floor((size - w) / 2), top },
   ]);
 }
 

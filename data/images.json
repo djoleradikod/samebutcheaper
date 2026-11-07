@@ -3255,7 +3255,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/50378265",
   "matched": "",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Tesco|Tesco Free Range Eggs Medium, 6 eggs": {
   "file": "tesco-tesco-free-range-eggs-medium-6-eggs-22f64262b3",
@@ -3264,7 +3265,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5051399881256",
   "matched": "",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Tony's Chocolonely|Tony's Chocolonely Milk Chocolate, 180g": {
   "file": "tony-s-chocolonely-tony-s-chocolonely-milk-chocolate-180g-e8f1060427",
@@ -3462,7 +3464,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4061463080424",
   "matched": "Washing up liquid | Magnum | 500ml",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Thorne|Thorne Creatine, Unflavored, 16 oz (450 g), 90 servings": {
   "file": "thorne-thorne-creatine-unflavored-16-oz-450-g-90-servings-c97fff35a4",

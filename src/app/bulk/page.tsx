@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { packText } from "@/components/BulkBox";
 import { browseProps, ListLinks, ShelfHead } from "@/components/ShelfParts";
+import { atStore } from "@/lib/affiliate";
 import { MEDICINE, type BrowseRow } from "@/lib/browse";
 import { getAllPairs } from "@/lib/catalog";
 import { money, monthYear } from "@/lib/format";
@@ -35,6 +36,8 @@ function toItem(p: Pair): Omit<BulkItem, keyof BrowseRow> {
     biggerPack: packText(bigger.size, a.unit),
     normalPrice: money(a.price, currency),
     biggerPrice: money(bigger.price, currency),
+    biggerUrl: bigger.url,
+    biggerAt: atStore(bigger.retailer),
     extraSavingPct: bigger.extraSavingPct,
     advice: shelf?.advice ?? null,
     unopened: shelf?.unopened ?? "",

@@ -72,7 +72,7 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
           className="mt-auto pt-1.5"
         />
         <p className="mt-1 flex flex-wrap items-baseline justify-between gap-x-2 text-xs font-medium">
-          <span className="text-same" title={match.description}>
+          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={match.description}>
             {matchText(pair.matchType)}
           </span>
           <MarketNote market={pair.market} />
