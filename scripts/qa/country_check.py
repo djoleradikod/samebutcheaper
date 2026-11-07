@@ -97,6 +97,27 @@ with sync_playwright() as p:
     check(not found, "back: the kept list has caught up with Ireland", str(sorted(set(found))))
     check(not DOLLAR_PRICE.search(text), "back: no $ on the kept list", str(DOLLAR_PRICE.findall(text)[:3]))
     ctx.close()
+
+    # The band streams in after the first paint. Its space has to be held, or a fallback country's whole page jumps.
+    SHIFT = "() => new Promise(r => { let c = 0; new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) c += e.value; }).observe({type:'layout-shift', buffered:true}); setTimeout(() => r(c), 2500); })"
+    NO_RESERVE = "const s = Element.prototype.setAttribute; Element.prototype.setAttribute = function (a, b) { if (a !== 'data-band') s.call(this, a, b); };"
+
+    def layout_shift(path, width, reserve=True):
+        ctx = browser.new_context(viewport={"width": width, "height": 900})
+        ctx.add_cookies([{"name": "sbc_country", "value": "IE", "url": BASE}])
+        if not reserve:
+            ctx.add_init_script(NO_RESERVE)
+        page = ctx.new_page()
+        page.goto(BASE + path, wait_until="domcontentloaded", timeout=60000)
+        value = page.evaluate(SHIFT)
+        ctx.close()
+        return value
+
+    for path, width in (("/", 1280), ("/", 390), ("/category/pet", 390), ("/about", 390)):
+        value = layout_shift(path, width)
+        check(value < 0.1, f"IE {path} at {width}: the band doesn't push the page down", str(round(value, 4)))
+    value = layout_shift("/", 1280, reserve=False)
+    check(value > 0.03, "control: without the held space, Ireland's home page does jump", str(round(value, 4)))
     browser.close()
 
 print(f"failed {failures}")

@@ -5,7 +5,8 @@ import "./globals.css";
 import { CountryProvider, FollowCountry } from "@/components/CountryProvider";
 import { FallbackBand } from "@/components/Money";
 import { getAllPairs } from "@/lib/catalog";
-import { localFor } from "@/lib/localize";
+import { isThinMarket, localFor } from "@/lib/localize";
+import { MARKET_CODES } from "@/lib/markets";
 import { getCountry, getLocal } from "@/lib/server-country";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -66,6 +67,13 @@ async function CountryBand() {
   );
 }
 
+/**
+ * The band streams in after the first paint, so without this it pushes a fallback country's whole page down. Static HTML can't
+ * know the country, but the browser can read the cookie before it paints, and globals.css holds the band's height from there.
+ */
+const OWN_PRICES = MARKET_CODES.filter((m) => !isThinMarket(m)).join("|");
+const RESERVE_BAND = `(function(){var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);if(m&&!/^(${OWN_PRICES})$/.test(m[1]))document.documentElement.setAttribute("data-band","")})()`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -79,8 +87,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     },
   };
   return (
-    <html lang="en" className={`${archivo.variable} h-full antialiased`}>
+    <html lang="en" className={`${archivo.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="flex min-h-full flex-col">
+        <script dangerouslySetInnerHTML={{ __html: RESERVE_BAND }} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-tile focus:border focus:border-ink focus:bg-paper focus:px-3 focus:py-2"
@@ -89,7 +98,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <SiteHeader />
         <main id="main" className="flex-1">
-          <Suspense fallback={null}>
+          <Suspense fallback={<div className="band-slot" aria-hidden="true" />}>
             <CountryBand />
           </Suspense>
           {children}
