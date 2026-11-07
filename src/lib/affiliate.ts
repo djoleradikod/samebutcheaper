@@ -11,7 +11,7 @@ import type { ProductSide } from "./types";
  * Without a tag or template the plain URL is used, so links always work.
  *
  * next.config.ts fixes these values at build time, because most pages are rendered then. A tag that
- * only exists at run time does nothing, so a page's words about earning can't disagree with its links.
+ * only exists at run time does nothing, so links can't start earning under pages built saying they don't.
  */
 
 /** The Associates tag for an Amazon storefront, e.g. "amazon.de". */
@@ -71,7 +71,11 @@ export function mayEarn(p: Pick<ProductSide, "retailer" | "asin" | "url">, marke
 
 /** Whether any Amazon link on the site carries a tag. Amazon's required wording only appears then. */
 export function amazonEarns() {
-  return !!process.env.AMAZON_ASSOCIATE_TAG || (process.env.AMAZON_TAGS ?? "").split(",").some((e) => !!e.split(":")[1]?.trim());
+  if (process.env.AMAZON_ASSOCIATE_TAG) return true;
+  return (process.env.AMAZON_TAGS ?? "").split(",").some((entry) => {
+    const [host, tag] = entry.split(":").map((s) => s?.trim());
+    return !!tag && !!host?.toLowerCase().replace(/^www\./, "").startsWith("amazon.");
+  });
 }
 
 /** Whether any link on the site can earn us anything. */

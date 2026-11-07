@@ -10,7 +10,7 @@ import { HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Eviden
 import { ProductThumb } from "@/components/ProductThumb";
 import { SaveButton } from "@/components/SaveButton";
 import { SaveTicket } from "@/components/Ticket";
-import { mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
+import { linksEarn, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
@@ -308,7 +308,11 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
             </ul>
           </div>
           <p className="text-xs text-muted">
-            {earns ? "Some of these are affiliate links, so we may earn a commission at no extra cost to you." : "We don't earn anything from these links."}{" "}
+            {earns
+              ? "Some of these are affiliate links, so we may earn a commission at no extra cost to you."
+              : linksEarn()
+                ? "These links don't earn us anything. A store search further down may."
+                : "We don't earn anything from these links."}{" "}
             <Link href="/disclosure" className="underline underline-offset-2">
               Details
             </Link>

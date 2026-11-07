@@ -13,7 +13,7 @@ import { SaveButton } from "@/components/SaveButton";
 import { PctTicket } from "@/components/Ticket";
 import { WhereToBuy } from "@/components/WhereToBuy";
 import { BrandWins, WhyBlock } from "@/components/WhyBlock";
-import { atStore, linkStoreName, mayEarn, RETAILER_LABEL, storeName, tagUrl } from "@/lib/affiliate";
+import { atStore, linkStoreName, linksEarn, mayEarn, RETAILER_LABEL, storeName, tagUrl } from "@/lib/affiliate";
 import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
@@ -469,7 +469,8 @@ function sameAmount(pair: Pair) {
 
 function disclosure(pair: Pair) {
   const earning = [pair.alternative, pair.brand].filter((p) => mayEarn(p, pair.market));
-  if (earning.length === 0) return "We don't earn anything from these links.";
+  // A store search or bigger pack further down can still carry a tag when these two don't.
+  if (earning.length === 0) return linksEarn() ? "These two links don't earn us anything. A link further down this page may." : "We don't earn anything from these links.";
   if (earning.length === 2) return "Affiliate links. We may earn a commission at no cost to you.";
   return `The ${linkStoreName(earning[0])} link is an affiliate link. We may earn a commission at no cost to you.`;
 }

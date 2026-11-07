@@ -123,6 +123,9 @@ export function BulkList({ items }: { items: BulkItem[] }) {
   }));
   const allAisles = inMarket.filter(matchesKeep).length;
   const markets = marketsIn(items);
+  // What each country would leave with the other two filters as they are.
+  const marketCount = (m: MarketCode | "all") =>
+    items.filter((i) => (m === "all" || i.market === m) && (activeAisle === "all" || i.aisle === activeAisle) && matchesKeep(i)).length;
 
   return (
     <div className="lg:grid lg:grid-cols-[232px_minmax(0,1fr)] lg:gap-6">
@@ -130,7 +133,7 @@ export function BulkList({ items }: { items: BulkItem[] }) {
         aria-label="Filters"
         className="hidden divide-y divide-line lg:sticky lg:top-[4.25rem] lg:block lg:max-h-[calc(100dvh-5rem)] lg:self-start lg:overflow-y-auto lg:pr-2 lg:pl-1"
       >
-        <MarketGroup items={items} market={market} onChange={setMarket} />
+        <MarketGroup markets={markets} market={market} count={marketCount} onChange={setMarket} />
         <Group title="How long it keeps">
           <OptionRow type="radio" name="bulk-keep" label="Any" count={inAisle.length} checked={!chosenKeep} onChange={() => setKeep("all")} />
           {keeps.map((k) => (
@@ -166,10 +169,10 @@ export function BulkList({ items }: { items: BulkItem[] }) {
           <div className="grid grid-cols-2 gap-2">
             {markets.length > 1 && (
               <Select label="Prices from" value={market} onChange={(v) => setMarket(v as MarketCode | "all")} className="col-span-2">
-                <option value="all">Prices from all countries ({items.length})</option>
+                <option value="all">Prices from all countries ({marketCount("all")})</option>
                 {markets.map((m) => (
-                  <option key={m} value={m}>
-                    {MARKET_LABEL[m]} prices ({items.filter((i) => i.market === m).length})
+                  <option key={m} value={m} disabled={marketCount(m) === 0 && market !== m}>
+                    {MARKET_LABEL[m]} prices ({marketCount(m)})
                   </option>
                 ))}
               </Select>
@@ -211,7 +214,7 @@ export function BulkList({ items }: { items: BulkItem[] }) {
           <p className="mt-2 text-sm text-ink-2">
             {chosenKeep.body}{" "}
             {chosenKeep.advice && (
-              <Link href={`/why#advice-${chosenKeep.advice}`} className="font-medium whitespace-nowrap text-cobalt underline-offset-2 hover:underline">
+              <Link href={`/why#advice-${chosenKeep.advice}`} className="inline-flex min-h-11 items-center font-medium whitespace-nowrap text-cobalt underline-offset-2 hover:underline lg:min-h-0">
                 Shelf lives, with sources
               </Link>
             )}
@@ -282,27 +285,28 @@ function Select({
 }
 
 function MarketGroup({
-  items,
+  markets,
   market,
+  count,
   onChange,
 }: {
-  items: BulkItem[];
+  markets: MarketCode[];
   market: MarketCode | "all";
+  count: (m: MarketCode | "all") => number;
   onChange: (next: MarketCode | "all") => void;
 }) {
   const name = "bulk-market";
-  const markets = marketsIn(items);
   if (markets.length < 2) return null;
   return (
     <Group title="Prices from">
-      <OptionRow type="radio" name={name} label="All countries" count={items.length} checked={market === "all"} onChange={() => onChange("all")} />
+      <OptionRow type="radio" name={name} label="All countries" count={count("all")} checked={market === "all"} onChange={() => onChange("all")} />
       {markets.map((m) => (
         <OptionRow
           key={m}
           type="radio"
           name={name}
           label={MARKET_LABEL[m]}
-          count={items.filter((i) => i.market === m).length}
+          count={count(m)}
           checked={market === m}
           onChange={() => onChange(m)}
         />
@@ -378,6 +382,7 @@ function BulkRow({ item, eager }: { item: BulkItem; eager: boolean }) {
       </div>
 
       <p className="min-w-0">
+        <span className="sr-only">Bigger pack </span>
         <span className="price text-xl leading-none text-ink">{item.biggerUnitPrice}</span>{" "}
         <span className="text-xs font-medium text-muted">{item.unitLabel}</span>
         <span className="mt-0.5 block text-xs text-ink-2">
@@ -398,7 +403,7 @@ function BulkRow({ item, eager }: { item: BulkItem; eager: boolean }) {
             <Ticket size="sm" label={`${extra}% less ${item.unitLabel} than the normal pack`}>
               −{extra}%
             </Ticket>
-            <span className="font-medium text-ink">{item.packSaving} less on this pack</span>
+            <span className="font-medium text-ink">{item.packSaving} less than in normal packs</span>
           </>
         ) : (
           <span className="font-medium text-muted">No saving on the normal pack</span>

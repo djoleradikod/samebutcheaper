@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { packText } from "@/components/BulkBox";
 import { browseProps, ListLinks, ShelfHead } from "@/components/ShelfParts";
 import { atStore } from "@/lib/affiliate";
@@ -41,7 +42,7 @@ function toItem(p: Pair): Omit<BulkItem, keyof BrowseRow> {
     biggerUrl: bigger.url,
     biggerAt: atStore(bigger.retailer, bigger.url),
     extraSavingPct: bigger.extraSavingPct,
-    packSaving: money((a.ppu - bigger.ppu) * bigger.size, currency),
+    packSaving: money((a.price / a.size) * bigger.size - bigger.price, currency),
     againstBrandPct: Math.round((1 - bigger.ppu / b.ppu) * 100),
     advice: shelf?.advice ?? null,
     unopened: shelf?.unopened ?? "",
@@ -66,6 +67,9 @@ export default function BulkPage() {
           <>
             {latest && <>Prices last checked {monthYear(latest)}.</>}
             <ListLinks />
+            <Link href="/why#advice-stock_up" className="inline-flex min-h-11 items-center text-cobalt underline underline-offset-2 md:min-h-0">
+              Shelf lives, with sources
+            </Link>
           </>
         }
       />

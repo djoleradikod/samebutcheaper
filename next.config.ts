@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
-  // Fixed at build time, so the pages' words about earning and the links they sit beside always agree. See src/lib/affiliate.ts.
+  // Fixed at build time, so links can't start earning under pages built saying they don't. See src/lib/affiliate.ts.
   env: {
     AMAZON_ASSOCIATE_TAG: process.env.AMAZON_ASSOCIATE_TAG ?? "",
     AMAZON_TAGS: process.env.AMAZON_TAGS ?? "",
