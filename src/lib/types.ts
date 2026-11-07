@@ -12,6 +12,8 @@ export type Photo = {
   license: string;
   page: string;
   source: string;
+  /** The right product but a poor picture. It sorts after clean photos. */
+  weak?: boolean;
 };
 
 export type ProductSide = PairInput["brand"] & {

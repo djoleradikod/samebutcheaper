@@ -122,7 +122,7 @@ export function SameOrDifferent({
             )}
           </div>
         )}
-        <CompareTable caption="Everything else" rows={comparison.rows} {...names} />
+        <CompareTable caption={shown.length ? "Everything else" : "What we compared"} rows={comparison.rows} {...names} />
         {comparison.nutrition && (
           <div>
             <CompareTable caption={comparison.nutrition.caption} rows={comparison.nutrition.rows} {...names} />

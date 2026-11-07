@@ -12,9 +12,19 @@ const MENU = [
   { href: "/my-list", label: "My savings list" },
   { href: "/biggest-savings", label: "Biggest savings" },
   { href: "/bundles", label: "Bundles" },
+  { href: "/bulk", label: "Buy in bulk" },
+  { href: "/why", label: "Why not overpay" },
   { href: "/brands", label: "Browse by brand" },
   { href: "/how-we-verify", label: "How we check" },
   { href: "/suggest", label: "Suggest a swap" },
+];
+
+/** The right-hand end of the aisle row. */
+const SHOP_LINKS = [
+  { href: "/biggest-savings", label: "Biggest savings" },
+  { href: "/bundles", label: "Bundles" },
+  { href: "/bulk", label: "Buy in bulk" },
+  { href: "/why", label: "Why not overpay" },
 ];
 
 /** Short names for the aisle row, so the whole shop fits on one line. */
@@ -114,32 +124,34 @@ export function SiteHeader() {
 
       <nav aria-label="Aisles" className="border-b border-line bg-paper">
         <div className="container-page">
-          <ul className="rail -mx-4 flex items-center overflow-x-auto px-2 whitespace-nowrap sm:-mx-6 sm:px-4">
-            {aisles.map((a) => (
-              <li key={a.slug}>
-                <Link
-                  href={`/category/${a.slug}`}
-                  title={a.name}
-                  className="flex h-11 items-center px-2 text-sm focus-visible:outline-offset-[-2px] font-medium text-ink-2 hover:text-ink hover:underline md:h-10"
-                >
-                  {AISLE_LABEL[a.slug]}
-                </Link>
-              </li>
-            ))}
-            <li className="md:ml-auto">
-              <Link
-                href="/biggest-savings"
-                className="flex h-11 items-center px-2 text-sm focus-visible:outline-offset-[-2px] font-semibold text-ink hover:underline md:h-10"
-              >
-                Biggest savings
-              </Link>
-            </li>
-            <li>
-              <Link href="/bundles" className="flex h-11 items-center px-2 text-sm focus-visible:outline-offset-[-2px] font-semibold text-ink hover:underline md:h-10">
-                Bundles
-              </Link>
-            </li>
-          </ul>
+          {/* Below lg the whole row scrolls sideways. From lg the shop links stay put and only the aisles scroll. */}
+          <div className="rail -mx-4 flex items-center overflow-x-auto whitespace-nowrap sm:-mx-6 lg:overflow-visible">
+            <ul className="rail flex shrink-0 items-center pl-2 sm:pl-4 lg:min-w-0 lg:flex-1 lg:shrink lg:overflow-x-auto">
+              {aisles.map((a) => (
+                <li key={a.slug}>
+                  <Link
+                    href={`/category/${a.slug}`}
+                    title={a.name}
+                    className="flex h-11 items-center px-2 text-sm focus-visible:outline-offset-[-2px] font-medium text-ink-2 hover:text-ink hover:underline md:h-10"
+                  >
+                    {AISLE_LABEL[a.slug]}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <ul className="flex shrink-0 items-center pr-2 sm:pr-4 lg:border-l lg:border-line lg:pl-2">
+              {SHOP_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="flex h-11 items-center px-2 text-sm focus-visible:outline-offset-[-2px] font-semibold text-ink hover:underline md:h-10"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </nav>
     </>

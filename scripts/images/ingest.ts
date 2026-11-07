@@ -166,7 +166,7 @@ async function main() {
         bytes = null;
       }
     }
-    const prior = records[c.key] as { file?: string; credit?: string; reviewed?: string | null } | undefined;
+    const prior = records[c.key] as { file?: string; credit?: string; reviewed?: string | null; weak?: boolean } | undefined;
     const samePicture = prior?.file === name;
     records[c.key] = {
       file: name,
@@ -177,6 +177,7 @@ async function main() {
       page: c.page,
       matched: c.matched ?? "",
       reviewed: samePicture ? (prior?.reviewed ?? null) : null,
+      ...(samePicture && prior?.weak ? { weak: true } : {}),
     };
     ok++;
   }

@@ -6,6 +6,7 @@ const LINKS = [
   { href: "/check", label: "Check any product" },
   { href: "/biggest-savings", label: "Biggest savings" },
   { href: "/bundles", label: "Bundles" },
+  { href: "/bulk", label: "Buy in bulk" },
   { href: "/why", label: "Why it's worth switching" },
   { href: "/brands", label: "Browse by brand" },
   { href: "/ingredients", label: "Browse by ingredient" },

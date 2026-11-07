@@ -18,6 +18,7 @@ import {
   toSummary,
 } from "@/lib/catalog";
 import { AisleTile } from "@/components/CategoryIcon";
+import { isCutOut } from "@/lib/photos";
 import { FeaturedBaskets, FeaturedPairs } from "@/components/FeaturedPairs";
 import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -272,7 +273,10 @@ export default function Home() {
             <SectionHeading
               title="Buying in bulk"
               body="A bigger pack only saves money if it's cheaper per unit and you'll use it before it goes off. These are for unopened packs."
-              links={[{ href: "/why", label: "All shelf lives, with sources" }]}
+              links={[
+                { href: "/bulk", label: "All bigger packs" },
+                { href: "/why", label: "All shelf lives, with sources" },
+              ]}
             />
             <div className="grid gap-6 md:grid-cols-3 md:gap-8">
               {BULK_COLUMNS.map((col) => {
@@ -327,7 +331,7 @@ export default function Home() {
                   className="card group flex flex-col p-2 transition-colors hover:border-ink-2"
                 >
                   <div className="aspect-[4/3]">
-                    {best ? (
+                    {best && isCutOut(best.photo) ? (
                       <ProductThumb
                         size="fill"
                         image={best.photo.src}

@@ -2,11 +2,11 @@
  * What we know about a product photo from its licence record. Safe on the server and in the browser.
  */
 
-type PhotoRecord = { credit: string } | null | undefined;
+type PhotoRecord = { credit: string; weak?: boolean } | null | undefined;
 
-/** A cut-out sits cleanly on white. Anything else is a raw snapshot with its own background. */
+/** A cut-out sits cleanly on white. Anything else is a raw snapshot with its own background, or a picture marked weak in review. */
 export function isCutOut(photo: PhotoRecord) {
-  return photo?.credit.includes("background removed") ?? false;
+  return !photo?.weak && (photo?.credit.includes("background removed") ?? false);
 }
 
 /** 0: both photos cut out. 1: both photos. 2: one photo. 3: no photo. */

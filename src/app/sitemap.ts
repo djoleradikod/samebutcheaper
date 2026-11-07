@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/check",
     "/biggest-savings",
     "/bundles",
+    "/bulk",
     "/why",
     "/ingredients",
     "/brands",

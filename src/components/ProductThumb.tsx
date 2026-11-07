@@ -20,11 +20,12 @@ const SIZES = {
 
 /**
  * Font size for the name on a tile, as a share of the tile. The longest word has to fit across it, and all
- * the wrapped lines above the caption. The display face runs about 0.62em a letter.
+ * the wrapped lines above the caption. The display face runs up to about 0.8em a letter on wide letters like m,
+ * and the tile's padding leaves 86% of its width. It stays smaller than a pack so the real photos lead.
  */
 function nameScale(name: string) {
   const longestWord = Math.max(...name.split(/\s+/).map((w) => w.length));
-  return Math.min(26, 140 / longestWord, 90 / Math.sqrt(name.length));
+  return Math.min(16, 100 / longestWord, 62 / Math.sqrt(name.length));
 }
 
 /** "Member's Mark" gives "MM". */
@@ -119,7 +120,7 @@ export function ProductThumb({
       {band}
       <span className="absolute inset-0 flex flex-col text-left" style={{ padding: "10cqmin 7cqmin 6cqmin" }}>
         <span
-          className="display min-h-0 overflow-hidden text-ink [overflow-wrap:anywhere]"
+          className="display min-h-0 overflow-hidden text-ink [overflow-wrap:break-word]"
           style={{ fontSize: `clamp(11px, ${nameScale(brand)}cqmin, 64px)`, lineHeight: 1.06 }}
         >
           {brand}

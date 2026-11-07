@@ -81,6 +81,11 @@ export function unitPrice(pricePerUnit: number, unit: string, currency: Currency
   return rounded < 1 ? ppu(rounded, currency).replace(/\.\d/, "") : ppu(rounded, currency);
 }
 
+/** For two close prices, such as a pack and its bigger pack: a tenth of a cent can be the whole difference, so it stays. */
+export function unitPriceFine(pricePerUnit: number, unit: string, currency: Currency) {
+  return ppu(pricePerUnit * unitDisplay(unit).factor, currency);
+}
+
 /** Measures and counts that don't take a plural: "415 g", "6 fl oz", "30.8 oz powder", "300 count". */
 const NO_PLURAL = /^(fl oz|oz|g|mg|kg|ml|cl|l|lb|mah|count)\b/i;
 

@@ -229,6 +229,7 @@ function photoFor(brand: string, productName: string): Photo | null {
     license: rec.license,
     page: rec.page,
     source: rec.source,
+    ...(rec.weak ? { weak: true } : {}),
   };
   const key = `${brand}|${productName}`;
   if (!creditSeen.has(key)) {

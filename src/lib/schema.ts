@@ -362,6 +362,8 @@ export const imageRecordSchema = z.object({
   matched: z.string().default(""),
   /** Date a person or reviewer agent looked at the picture and agreed it shows this product. */
   reviewed: z.string().nullable().default(null),
+  /** The right product but a poor picture, such as a bottle cropped through its name. It shows, but after the clean ones. */
+  weak: z.boolean().default(false),
 });
 
 export type ImageRecord = z.infer<typeof imageRecordSchema>;

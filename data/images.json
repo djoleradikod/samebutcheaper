@@ -1514,7 +1514,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4088600265148",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Specially Selected (Aldi)|Aldi Specially Selected Large Beef Dripping Yorkshire Puddings, 6 (290g)": {
   "file": "specially-selected-aldi-aldi-specially-selected-large-beef-dripping-yorkshire-pu-2b648eb8e5",
@@ -1550,7 +1551,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/8712000053116",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Perlenbacher (Lidl)|Lidl Perlenbacher 0.0%, 6 x 330ml bottles": {
   "file": "perlenbacher-lidl-lidl-perlenbacher-0-0-6-x-330ml-bottles-7b156301b7",
@@ -1559,7 +1561,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4304493265448",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Hotel Chocolat|Hotel Chocolat Classic 70% Hot Chocolate, 250g": {
   "file": "hotel-chocolat-hotel-chocolat-classic-70-hot-chocolate-250g-eb405c2092",
@@ -3161,7 +3164,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5057172771127",
   "matched": "",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Sainsbury's Little Ones|Sainsbury's Little Ones Sensitive wipes, 60 wipes": {
   "file": "sainsbury-s-little-ones-sainsbury-s-little-ones-sensitive-wipes-60-wipes-81ea43d30e",
