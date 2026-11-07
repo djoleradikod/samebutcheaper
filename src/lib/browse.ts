@@ -1,5 +1,5 @@
 import { CATEGORIES, CATEGORY_MAP, MATCH_TYPE_META } from "./categories";
-import { listMarketFor } from "./localize";
+import { isThinMarket, listMarketFor } from "./localize";
 import { isMarket, MARKET_CODES, MARKET_LABEL, type MarketCode } from "./markets";
 import type { PhotoTier } from "./photos";
 import type { Bundle, CategorySlug, MatchType, PairSummary } from "./types";
@@ -116,6 +116,8 @@ export function shelfKey(label: string) {
  * (see forCountry). With no country at all, assume the US.
  */
 export function defaultMarket(rows: BrowseRow[], country: string | null, hideMedicine = false): MarketCode | "all" {
+  // A market too thin to lead shows its own records beside the fallback's.
+  if (isThinMarket(country)) return "all";
   const lead = listMarketFor(country);
   return rows.some((r) => r.market === lead && !(hideMedicine && r.aisle === MEDICINE)) ? lead : "all";
 }

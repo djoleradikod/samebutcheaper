@@ -16,9 +16,9 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 - `brand.unit` and `alternative.unit` must be the same unit, because savings are computed per unit.
 - At least 2 real `sources` URLs.
 - The alternative must be at least 5% cheaper per unit, or the build rejects it.
-- `market` is the country the prices were checked in: `US` (default), `GB`, `CA` or `DE`. `price` is in
+- `market` is the country the prices were checked in: `US` (default), `GB`, `CA`, `DE` or `IE`. `price` is in
   that country's currency (USD, GBP, CAD, EUR), and both sides of a pair must be priced in the same market.
-  Slugs for non-US pairs end in `-gb`, `-ca` or `-de`. (Older files use `price_usd`; it still works and means USD.)
+  Slugs for non-US pairs end in `-gb`, `-ca`, `-de` or `-ie`. (Older files use `price_usd`; it still works and means USD.)
 - `retailer` is one of the stores in `RETAILERS` in `src/lib/markets.ts`, or `other`.
 - `asin` is optional. When it is set, Amazon links go to that market's Amazon store (`amazon.com`, `amazon.co.uk`,
   `amazon.ca`, `amazon.de`) with the matching affiliate tag.
@@ -180,3 +180,7 @@ German grades run backwards, so they can't share a formula. Grade 1 reads as 5 s
 Scores the catalogue already quoted in its text live in `data/evidence/ratings.json`, written by `scripts/qa/mine_ratings.py`. A rating in a pair's own record wins over that file. New pairs carry their rating in the record. Ratings follow the same rights rules as photos: quote the score and link the source, and don't copy review text.
 
 An unrated product stays listed and reads "No rating found yet". It sorts behind rated ones, and doesn't lead the home page or baskets once a market has enough rated swaps. The owner can still choose to hide unrated products outright.
+
+## Ireland
+
+`IE` is a market with too few swaps of its own to lead (`THIN_MARKETS` in `src/lib/localize.ts`): it still falls back to UK prices under the seller rule, says so, and lists its own records as well. Take it out of `THIN_MARKETS` once it can fill the home page. Irish records so far come from zooplus.ie, whose terms show no bar on reading prices. Left out on purpose: Tesco and Aldi Ireland, Dunnes, Boots and Harvey Norman refuse automated requests; SuperValu's terms (clause 1.2) say personal, non-commercial use only; Woodie's terms bar copying without written approval. A new Irish record ships with a rating.

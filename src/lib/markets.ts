@@ -10,7 +10,7 @@
  * secrets and Node-only imports.
  */
 
-export const MARKET_CODES = ["US", "GB", "CA", "DE"] as const;
+export const MARKET_CODES = ["US", "GB", "CA", "DE", "IE"] as const;
 export type MarketCode = (typeof MARKET_CODES)[number];
 
 export type Market = {
@@ -28,10 +28,11 @@ export const MARKETS: Record<MarketCode, Market> = {
   GB: { code: "GB", name: "United Kingdom", short: "the UK", currency: "GBP", locale: "en-GB", amazon: "amazon.co.uk" },
   CA: { code: "CA", name: "Canada", short: "Canada", currency: "CAD", locale: "en-CA", amazon: "amazon.ca" },
   DE: { code: "DE", name: "Germany", short: "Germany", currency: "EUR", locale: "de-DE", amazon: "amazon.de" },
+  IE: { code: "IE", name: "Ireland", short: "Ireland", currency: "EUR", locale: "en-IE", amazon: "amazon.ie" },
 };
 
 /** Short names for labels: "UK prices". */
-export const MARKET_LABEL: Record<MarketCode, string> = { US: "US", GB: "UK", CA: "Canada", DE: "Germany" };
+export const MARKET_LABEL: Record<MarketCode, string> = { US: "US", GB: "UK", CA: "Canada", DE: "Germany", IE: "Ireland" };
 
 /** Rough USD value of one unit of each currency. Used only to rank savings across markets. */
 export const APPROX_USD: Record<Market["currency"], number> = { USD: 1, GBP: 1.27, CAD: 0.72, EUR: 1.08 };

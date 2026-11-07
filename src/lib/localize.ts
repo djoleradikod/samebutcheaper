@@ -66,7 +66,15 @@ export const NO_RATE: Record<string, string> = {
 /** Countries whose nearest market is the UK. Every other country outside the US and Canada falls back to Germany. */
 const NEAREST_IS_UK = new Set(["IE", "AU", "NZ", "SG", "MY", "PH", "IN", "ZA", "AE", "SA", "IL", "JP", "MX", "BR", "AR"]);
 
-export const MARKET_ADJECTIVE: Record<MarketCode, string> = { US: "US", GB: "UK", CA: "Canadian", DE: "German" };
+export const MARKET_ADJECTIVE: Record<MarketCode, string> = { US: "US", GB: "UK", CA: "Canadian", DE: "German", IE: "Irish" };
+
+/** Markets with a few checked swaps of their own, too few to lead. They fall back as if they had none, and their own records list as well. */
+const THIN_MARKETS: ReadonlySet<string> = new Set(["IE"]);
+
+export function isThinMarket(country: string | null) {
+  return country !== null && THIN_MARKETS.has(country);
+}
+
 
 const CURRENCY_NAME: Partial<Record<Currency, string>> = {
   EUR: "euro",
@@ -89,7 +97,7 @@ const home = (country: string | null) => (isKnownCountry(country) ? country : "U
 /** The market whose prices lead for a country: its own, or the nearest we have. */
 export function listMarketFor(country: string | null): MarketCode {
   const c = home(country);
-  if (isMarket(c)) return c;
+  if (isMarket(c) && !isThinMarket(c)) return c;
   return NEAREST_IS_UK.has(c) ? "GB" : "DE";
 }
 
@@ -188,7 +196,7 @@ export function shortMonth(iso: string) {
 
 function build(country: string, askedForOthers: boolean): Local {
   const listMarket = listMarketFor(country);
-  const fallback = !isMarket(country);
+  const fallback = listMarket !== country;
   const others = askedForOthers && fallback;
   const markets = visibleMarkets(country);
   const northAmerica = country === "US" || country === "CA";
@@ -285,7 +293,9 @@ export function fallbackNotice(local: Local): { text: string; rate: string | nul
       rate: null,
     };
   }
-  const shown = `We haven't checked prices in ${where} yet, so these are ${market} prices, shown in ${currencyName(local.currency)}.`;
+  const shown = isThinMarket(local.country)
+    ? `We've only started checking prices in ${where}, so most of these are ${market} prices, shown in ${currencyName(local.currency)}.`
+    : `We haven't checked prices in ${where} yet, so these are ${market} prices, shown in ${currencyName(local.currency)}.`;
   if (from === local.currency) return { text: shown, rate: null };
   return { text: shown, rate: `Converted at the ECB rate of ${rateDate()}, ${rateText(from, local.currency)}, so treat them as approximate.` };
 }

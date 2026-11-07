@@ -42,7 +42,7 @@ test("Ireland leads with UK prices in euro, and never sees a US or Canadian reco
   assert.equal(ie.listMarket, "GB");
   assert.equal(ie.currency, "EUR");
   assert.equal(ie.fallback, true);
-  assert.deepEqual(visibleMarkets("IE"), ["GB", "DE"]);
+  assert.deepEqual(visibleMarkets("IE"), ["GB", "DE", "IE"]);
   const everywhere = ["amazon"];
   const kept = forCountry((["US", "CA", "GB", "DE"] as const).map((market) => ({ market, sellers: everywhere })), ie);
   assert.deepEqual(kept.map((k) => k.market), ["GB", "DE"]);
@@ -90,7 +90,7 @@ test("with no country, a record keeps its own currency and store: we can't say i
 
 test("the band says what it's showing, in each case", () => {
   const ie = fallbackNotice(localFor("IE"));
-  assert.match(ie?.text ?? "", /prices in Ireland yet, so these are UK prices, shown in euro/);
+  assert.match(ie?.text ?? "", /only started checking prices in Ireland, so most of these are UK prices, shown in euro/);
   assert.match(ie?.rate ?? "", /ECB rate of 6 Nov 2026, £1 = €1\.\d\d/);
 
   const hr = fallbackNotice(localFor("HR"));
@@ -119,11 +119,11 @@ test("the default list follows the rule, and doesn't pick a country the list has
   const all = [row("US"), row("GB"), row("DE")];
   assert.equal(defaultMarket(all, "US"), "US");
   assert.equal(defaultMarket(all, null), "US");
-  assert.equal(defaultMarket(all, "IE"), "GB");
+  assert.equal(defaultMarket(all, "IE"), "all", "too thin to lead, so its own records list beside the fallback's");
   assert.equal(defaultMarket(all, "HR"), "DE");
   assert.equal(defaultMarket(all, "DE"), "DE");
-  // Ireland with only German rows on this list: "all", which is only what the server sent.
-  assert.equal(defaultMarket([row("DE")], "IE"), "all");
+  // Croatia with no German rows on this list: "all", which is only what the server sent.
+  assert.equal(defaultMarket([row("GB")], "HR"), "all");
 });
 
 test("no store that doesn't sell in the selected country", () => {
@@ -236,4 +236,16 @@ test("a rating reads as its source gave it", () => {
   assert.equal(ratingLabel({ score: 4.4, scale: "stars-5", count: 1253 }), "4.4 of 5 from 1,253 ratings");
   assert.equal(ratingLabel({ score: 75, scale: "percent", publisher: "Which?" }), "Which? 75%");
   assert.equal(ratingLabel({ score: 1.5, scale: "de-grade", publisher: "Stiftung Warentest" }), "Stiftung Warentest grade 1.5");
+});
+
+test("Ireland is a market too thin to lead: it still falls back, its own records list, and they convert nothing", () => {
+  const ie = localFor("IE");
+  assert.equal(ie.listMarket, "GB");
+  assert.equal(ie.fallback, true);
+  assert.ok(ie.shows(listed("IE", "zooplus")));
+  assert.ok(!localFor("IE", false).shows(listed("GB", "sainsburys")));
+  assert.equal(ie.converts("EUR"), false);
+  assert.match(fallbackNotice(ie)?.text ?? "", /only started checking prices in Ireland, so most of these are UK prices/);
+  assert.equal(defaultMarket([row("IE"), row("GB")], "IE"), "all");
+  assert.equal(defaultMarket([row("DE"), row("GB")], "DE"), "DE");
 });

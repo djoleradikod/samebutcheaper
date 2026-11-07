@@ -88,8 +88,13 @@ for page in PAGES:
 
 status, body, _ = get("/", "IE")
 text = visible(body)
-check("prices in Ireland yet" in text, "IE home: the band says these aren't Irish prices")
+check("started checking prices in Ireland" in text, "IE home: the band says most of these aren't Irish prices")
 check("UK prices, shown in euro" in text, "IE home: the band names the market and the currency")
+ie_swap = by_market.get("IE", [{}])[0].get("slug")
+check(bool(ie_swap), "the catalogue has an Irish swap")
+status, body, _ = get(f"/compare/{ie_swap}", "IE")
+offers = visible(body).split("Prices checked")[0]
+check(status == 200 and "€" in offers and not re.search(r"about\s*€\d", offers), "IE an Irish swap: plain euro, nothing to convert", offers[:300])
 check("ECB rate of" in text, "IE home: the band names the rate and its date")
 
 status, body, _ = get(f"/compare/{uk_swap}", "IE")

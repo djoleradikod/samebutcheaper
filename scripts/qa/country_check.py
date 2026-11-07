@@ -67,7 +67,7 @@ with sync_playwright() as p:
     check(bool(DOLLAR_PRICE.search(page.inner_text("main"))), "picker: starts on $ for the US")
     page.locator('select[aria-label="Country you shop in"]').first.select_option("IE")
     # The band and prices change at once in the browser. Lists and stores arrive with the server's answer, so wait for the page to stop updating.
-    page.wait_for_function("document.querySelector('main').innerText.includes('prices in Ireland yet')", timeout=30000)
+    page.wait_for_function("document.querySelector('main').innerText.includes('started checking prices in Ireland')", timeout=30000)
     page.wait_for_function("!document.documentElement.hasAttribute('data-updating')", timeout=30000)
     text = page.inner_text("main")
     check("€" in text and not DOLLAR_PRICE.search(text), "picker: Ireland changes the page to euro with no $", str(DOLLAR_PRICE.findall(text)[:3]))

@@ -25,7 +25,7 @@ import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
-import { forCountry, localClaim, visibleMarkets, type Local } from "@/lib/localize";
+import { forCountry, isThinMarket, localClaim, visibleMarkets, type Local } from "@/lib/localize";
 import type { MarketCode } from "@/lib/markets";
 import { namedSellers, sellsIn } from "@/lib/sellers";
 import { getLocal } from "@/lib/server-country";
@@ -86,7 +86,13 @@ function featuredFor(local: Local, limit = 12): PairSummary[] {
   const market = local.listMarket;
   const own = biggestSavings(market, local, limit);
   const merged = market === "CA" ? [...own, ...biggestSavings("US", local, limit)] : own;
-  return [...merged.filter(showsOnlyCutOuts), ...merged.filter((p) => !showsOnlyCutOuts(p))].slice(0, limit).map(toSummary);
+  // A market too thin to lead still opens with what we've priced there, photo or not.
+  const home = isThinMarket(local.country)
+    ? getAllPairs()
+        .filter((p) => p.market === local.country && p.category !== MEDICINE)
+        .slice(0, 4)
+    : [];
+  return [...home, ...merged.filter(showsOnlyCutOuts), ...merged.filter((p) => !showsOnlyCutOuts(p))].slice(0, limit).map(toSummary);
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;

@@ -1,0 +1,164 @@
+[
+  {
+    "slug": "royal-canin-medium-adult-vs-josera-daily-menu-adult-duck-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Dry dog food",
+    "title": "Royal Canin Medium Adult vs Josera Daily Menu Adult Duck",
+    "brand": {
+      "brand": "Royal Canin",
+      "product": "Royal Canin Medium Adult, 10 kg",
+      "size": 10,
+      "unit": "kg",
+      "price": 63.49,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/medium/128332",
+      "gtin": "3182551055856",
+      "key_ingredients": [
+        {
+          "name": "Dried poultry protein, wheat, maize meal, wheat flour, maize, hydrolysed animal proteins, animal fat",
+          "amount": ""
+        },
+        {
+          "name": "Crude protein",
+          "amount": "25%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "14%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Josera",
+      "product": "Josera Daily Menu Adult Duck, 12.5 kg",
+      "size": 12.5,
+      "unit": "kg",
+      "price": 50.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/josera/2473762",
+      "gtin": "4032254795681",
+      "key_ingredients": [
+        {
+          "name": "Wholegrain maize, rice, dried poultry protein, dried duck protein, beet fibre, poultry fat",
+          "amount": ""
+        },
+        {
+          "name": "Dried duck protein",
+          "amount": "10%"
+        },
+        {
+          "name": "Crude protein",
+          "amount": "22%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "11%"
+        }
+      ],
+      "rating": {
+        "score": 4.7,
+        "scale": "stars-5",
+        "count": 3,
+        "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/josera/2473762",
+        "date": "2026-11-07"
+      }
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete dry foods for adult dogs on zooplus.ie, and the Josera costs about 36% less per kg.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Medium Adult 10 kg is EUR 63.49 (EUR 6.35/kg). Josera Daily Menu Adult Duck 12.5 kg is EUR 50.99 (EUR 4.08/kg). Royal Canin's 15 kg pack is EUR 79.99 (EUR 5.33/kg) but was sold out that day, so we compare the 10 kg. Once it's back, the gap is about 23%. Both are sold as complete food.",
+    "differences": "Royal Canin has more protein and fat: 25% and 14% against 22% and 11% (Royal Canin's figures from zooplus.de). Its recipe is made for medium dogs, and the Josera is for adult dogs of all breeds. The Josera rating is from only 3 reviews. The two rely on different proteins: the Josera has dried duck and poultry protein, and the Royal Canin has poultry protein and hydrolysed animal proteins.",
+    "sources": [
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/medium/128332",
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/josera/2473762",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "The labels show the same everyday job. The sources read don't show whether Royal Canin's extra protein and fat or its sized kibble change results for a healthy dog of this size."
+  },
+  {
+    "slug": "royal-canin-instinctive-in-jelly-vs-felix-as-good-as-it-looks-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Wet cat food",
+    "title": "Royal Canin Instinctive in Jelly vs Felix As Good As It Looks",
+    "brand": {
+      "brand": "Royal Canin",
+      "product": "Royal Canin Instinctive in Jelly, 12 x 85 g",
+      "size": 1.02,
+      "unit": "kg",
+      "price": 17.49,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/top_brands/royal_canin/wet_cat_food/196793",
+      "gtin": "9003579309544",
+      "key_ingredients": [
+        {
+          "name": "Meat and animal by-products, vegetable protein extracts, minerals, vegetable by-products, oils and fats, yeasts",
+          "amount": ""
+        },
+        {
+          "name": "Crude protein",
+          "amount": "11.9%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "4.5%"
+        }
+      ]
+    },
+    "alternative": {
+      "brand": "Felix",
+      "product": "Felix As Good As It Looks, 44 x 85 g, chicken, beef, tuna and salmon",
+      "size": 3.74,
+      "unit": "kg",
+      "price": 19.49,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/398603?activeVariant=398603.3",
+      "gtin": "7613038735436",
+      "key_ingredients": [
+        {
+          "name": "Chicken pouch: meat and animal by-products (14%, of which chicken 8%), vegetable protein extracts, fish and fish by-products, minerals, sugar",
+          "amount": ""
+        },
+        {
+          "name": "Crude protein",
+          "amount": "11.5%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "2.5%"
+        }
+      ],
+      "rating": {
+        "score": 4.0,
+        "scale": "stars-5",
+        "count": 1151,
+        "source": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/398603?activeVariant=398603.3",
+        "date": "2026-11-07"
+      }
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete wet food for adult cats, sold as chunks in jelly in 85 g pouches, and the Felix costs about 70% less per kg.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Instinctive in Jelly 12 x 85 g is EUR 17.49 (EUR 17.15/kg). Felix As Good As It Looks 44 x 85 g, chicken, beef, tuna and salmon, is EUR 19.49 (EUR 5.21/kg). Both pages call the food complete. The Felix rating covers the listing's flavours together.",
+    "differences": "Royal Canin has more fat, 4.5% against 2.5%, with protein about the same at 11.9% and 11.5%, and slightly less moisture at 80% against 82%. zooplus.de's feeding guides give a 4 kg cat 2.5 Royal Canin pouches a day and up to 4 Felix, so the saving per day is about half, well below the saving per kg. The Felix pack mixes four flavours.",
+    "sources": [
+      "https://www.zooplus.ie/shop/top_brands/royal_canin/wet_cat_food/196793",
+      "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/398603?activeVariant=398603.3",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "The labels show the same everyday job, and even after Felix's bigger portions it comes to about half the cost per day. No taste or feeding test covers this pair."
+  }
+]
