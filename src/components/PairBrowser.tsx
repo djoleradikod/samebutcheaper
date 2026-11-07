@@ -11,6 +11,7 @@ import {
   PAGE_SIZE,
   parseState,
   SORTS,
+  splitAtFirstTier,
   stateToQuery,
   SWAP_GRID,
   SWAP_GRID_BESIDE_FILTERS,
@@ -28,7 +29,7 @@ import { MARKET_LABEL, type MarketCode } from "@/lib/markets";
 import { NO_PHOTO_TIER } from "@/lib/photos";
 import type { PairSummary } from "@/lib/types";
 import { FilterSheet } from "./FilterSheet";
-import { PairCard, PairRow, PairRows } from "./PairCard";
+import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
 
 /** With this many shelves or fewer the whole list shows. Past it, the biggest few and a button. */
 const SHELF_LIMIT = 10;
@@ -153,6 +154,21 @@ export function PairBrowser({
   const firstText = shown.findIndex((r) => r.tier === NO_PHOTO_TIER);
   const cardRows = firstText < 0 ? shown : shown.slice(0, firstText);
   const textRows = firstText < 0 ? [] : shown.slice(firstText);
+  // The sort starts again where the first tier ends, so that's where the heading goes.
+  const [firstTier, laterTiers] = splitAtFirstTier(cardRows, (r) => r.tier);
+  const grid = hasFilters ? SWAP_GRID_BESIDE_FILTERS : SWAP_GRID;
+  const renderCard = (r: BrowseRow, i: number) => {
+    const card = prerendered.get(r.slug) ?? index?.get(r.slug);
+    // An index from a newer deploy may have dropped this swap.
+    if (!card) return index ? null : <CardPlaceholder key={r.slug} />;
+    // The numbers stop with the first tier: past it the saving starts again from the top.
+    const ranked = showRank && defaultView && i < firstTier.length;
+    return (
+      <li key={r.slug} data-row={i} className="min-w-0">
+        <PairCard pair={card} rank={ranked ? i + 1 : undefined} eager={i === firstPhoto && i < 4} />
+      </li>
+    );
+  };
   const explainSameJob = path.startsWith("/category/") && matched.some((r) => r.match === "equivalent_spec");
   const explainSameKind = path.startsWith("/category/") && matched.some((r) => r.match === "same_kind");
   const multiMarket = facets.markets.length > 1;
@@ -279,24 +295,15 @@ export function PairBrowser({
           <NoMatches rows={rows} state={state} active={active} market={market} hideMedicine={hideMedicine} onUpdate={update} onClear={clearAll} />
         ) : (
           <div ref={listRef} className="mt-2 lg:mt-3">
-            {cardRows.length > 0 && (
-              <ul className={hasFilters ? SWAP_GRID_BESIDE_FILTERS : SWAP_GRID}>
-                {cardRows.map((r, i) => {
-                  const card = prerendered.get(r.slug) ?? index?.get(r.slug);
-                  // An index from a newer deploy may have dropped this swap.
-                  if (!card) return index ? null : <CardPlaceholder key={r.slug} />;
-                  // The numbers stop with the first tier: past it the saving starts again from the top.
-                  const ranked = showRank && defaultView && r.tier === shown[0].tier;
-                  return (
-                    <li key={r.slug} data-row={i} className="min-w-0">
-                      <PairCard pair={card} rank={ranked ? i + 1 : undefined} eager={i === firstPhoto && i < 4} />
-                    </li>
-                  );
-                })}
-              </ul>
+            {firstTier.length > 0 && <ul className={grid}>{firstTier.map((r, i) => renderCard(r, i))}</ul>}
+            {laterTiers.length > 0 && (
+              <>
+                <MoreSwapsHeading />
+                <ul className={grid}>{laterTiers.map((r, i) => renderCard(r, firstTier.length + i))}</ul>
+              </>
             )}
             {textRows.length > 0 && (
-              <PairRows headed={cardRows.length > 0}>
+              <PairRows headed={cardRows.length > 0 && laterTiers.length === 0} below={cardRows.length > 0}>
                 {textRows.map((r, i) => {
                   const card = prerendered.get(r.slug) ?? index?.get(r.slug);
                   if (!card) return index ? null : <RowPlaceholder key={r.slug} />;

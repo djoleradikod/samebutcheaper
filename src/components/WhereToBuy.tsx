@@ -53,7 +53,7 @@ export function WhereToBuy({
   if (delivery === "yes") {
     return (
       <p className="text-[13px] font-medium text-ink-2">
-        {retailerLabel} delivers in {MARKETS[market].short}.
+        {retailerLabel} sells this in {MARKETS[market].short}. Check the store for delivery or collection.
       </p>
     );
   }

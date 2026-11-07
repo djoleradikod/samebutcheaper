@@ -1310,13 +1310,13 @@
   "reviewed": "2026-11-06"
  },
  "Heinz|Heinz Tomato Ketchup, 460g": {
-  "file": "heinz-heinz-tomato-ketchup-460g-0783d643b4",
+  "file": "heinz-heinz-tomato-ketchup-460g-ffd278c400",
   "source": "openfoodfacts",
   "credit": "Open Food Facts contributors, background removed",
   "license": "CC BY-SA 3.0",
-  "page": "https://world.openfoodfacts.org/product/5000157142061",
-  "matched": "",
-  "reviewed": "2026-11-06"
+  "page": "https://world.openfoodfacts.org/product/4830416375043",
+  "matched": "tomato Ketchup | Heinz | ",
+  "reviewed": "2026-11-07"
  },
  "Essential Waitrose|Waitrose Essential Tomato Ketchup, 470g": {
   "file": "essential-waitrose-waitrose-essential-tomato-ketchup-470g-bbb639ace3",
@@ -1400,13 +1400,13 @@
   "reviewed": "2026-11-06"
  },
  "Sainsbury's|Sainsbury's Red Label Tea Bags, 80 bags (250g)": {
-  "file": "sainsbury-s-sainsbury-s-red-label-tea-bags-80-bags-250g-2e2745debd",
+  "file": "sainsbury-s-sainsbury-s-red-label-tea-bags-80-bags-250g-01699074f8",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
-  "page": "https://world.openfoodfacts.org/product/00277570",
-  "matched": "",
-  "reviewed": "2026-11-06"
+  "page": "https://world.openfoodfacts.org/product/00277587",
+  "matched": "Red Label Tea Bags 240 | Sainsbury's | ",
+  "reviewed": "2026-11-07"
  },
  "Yorkshire Tea|Taylors of Harrogate Yorkshire Tea, 80 tea bags (250g)": {
   "file": "yorkshire-tea-taylors-of-harrogate-yorkshire-tea-80-tea-bags-250g-542fe4b030",
@@ -3453,6 +3453,114 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4104420234710",
   "matched": "Olivenöl nativ extra | Alnatura | 0,5 l | exact",
+  "reviewed": "2026-11-07"
+ },
+ "Magnum (Aldi)|Aldi Magnum Original Washing Up Liquid, 500ml": {
+  "file": "magnum-aldi-aldi-magnum-original-washing-up-liquid-500ml-8444718989",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/4061463080424",
+  "matched": "Washing up liquid | Magnum | 500ml",
+  "reviewed": "2026-11-07"
+ },
+ "Thorne|Thorne Creatine, Unflavored, 16 oz (450 g), 90 servings": {
+  "file": "thorne-thorne-creatine-unflavored-16-oz-450-g-90-servings-c97fff35a4",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0693749015239",
+  "matched": "Creatine | THORNE | ",
+  "reviewed": "2026-11-07"
+ },
+ "Listerine|Listerine Cool Mint Antiseptic Mouthwash, 1.5 L (50.7 fl oz)": {
+  "file": "listerine-listerine-cool-mint-antiseptic-mouthwash-1-5-l-50-7-fl-oz-d7662da114",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0312547427555",
+  "matched": "Cool Mint | Listerine | ",
+  "reviewed": "2026-11-07"
+ },
+ "Clorox|Clorox Disinfecting Wipes, Lemon, 75 count can (Uline S-15765)": {
+  "file": "clorox-clorox-disinfecting-wipes-lemon-75-count-can-uline-s-15765-2663dba319",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0044600015941",
+  "matched": "Disinfecting Wipes Bleach Free Cleaning Wipes | Clorox | ",
+  "reviewed": "2026-11-07"
+ },
+ "Pampers|Pampers Baby Dry Windeln Gr. 4, 9-14 kg, 34 nappies": {
+  "file": "pampers-pampers-baby-dry-windeln-gr-4-9-14-kg-34-nappies-a17c220038",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/8001090336446",
+  "matched": "pampers baby dry  air channels | Pampers | 34 couches",
+  "reviewed": "2026-11-07"
+ },
+ "Bellasan|Bellasan Natives Olivenöl Extra (Aldi), 1 l": {
+  "file": "bellasan-bellasan-natives-oliveno-l-extra-aldi-1-l-f15677fe2b",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/4070757437141",
+  "matched": "natives Olivenöl | Bellasan | 500ml",
+  "reviewed": "2026-11-07"
+ },
+ "Pritt|Pritt Glue Stick 43 g, value pack 4 + 1 free (5 sticks)": {
+  "file": "pritt-pritt-glue-stick-43-g-value-pack-4-1-free-5-sticks-5629bb7031",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/96010242",
+  "matched": "Pritt original | Pritt | ",
+  "reviewed": "2026-11-07"
+ },
+ "Good & Gather|Good & Gather Extra virgin olive oil, 750mL": {
+  "file": "good-gather-good-gather-extra-virgin-olive-oil-750ml-65c82cc2c8",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/08524898",
+  "matched": "Extra Virgin Live Oil | Good and gather | ",
+  "reviewed": "2026-11-07"
+ },
+ "409|409 Cleaner/Degreaser, 32 oz spray bottle (Uline S-7147)": {
+  "file": "409-409-cleaner-degreaser-32-oz-spray-bottle-uline-s-7147-3e69be7d30",
+  "source": "openbeautyfacts",
+  "credit": "Open Beauty Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openbeautyfacts.org/product/0044600008899",
+  "matched": "Formula 409 Multi-Surface Cleanser | Formula 409 | 32 FL OZ (1 QT) 946 mL",
+  "reviewed": "2026-11-07"
+ },
+ "Varta|Varta AA, price per cell": {
+  "file": "varta-varta-aa-price-per-cell-69c98c6b36",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/4008496083565",
+  "matched": "Batterien AA | Varta | ",
+  "reviewed": "2026-11-07"
+ },
+ "Pely|Pely Power Gefrierbeutel 1 Liter, 40 bags, 16 x 25 cm": {
+  "file": "pely-pely-power-gefrierbeutel-1-liter-40-bags-16-x-25-cm-ec41ee9495",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/4007519051314",
+  "matched": "Zipper Gefrierbeutel 1l | Pely | 20pcs",
+  "reviewed": "2026-11-07"
+ },
+ "Specially Selected (Aldi)|Aldi Specially Selected White Sourdough Sliced Loaf, 500g": {
+  "file": "specially-selected-aldi-aldi-specially-selected-white-sourdough-sliced-loaf-500g-f2e0c0305f",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/4069365234716",
+  "matched": "White Sourdough Toasting Loaf | Specially Selected | 500g",
   "reviewed": "2026-11-07"
  }
 }

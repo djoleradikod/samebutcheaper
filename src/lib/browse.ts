@@ -152,11 +152,18 @@ const COMPARE: Record<SortKey, (a: BrowseRow, b: BrowseRow) => number> = {
 
 /**
  * The rows the shopper should see, in tiers: both photos cut out, then both photos, then one photo, then
- * none. Each tier follows the chosen sort, and the list prints a heading before the no-photo rows.
+ * none. Each tier follows the chosen sort, and the list prints one heading where the first tier ends,
+ * because the sort starts again from the top there.
  */
 export function matchRows(rows: BrowseRow[], s: BrowseState, scope: Scope) {
   const compare = COMPARE[s.sort];
   return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || compare(a, b));
+}
+
+/** Cards already in tier order, split where the first tier ends. The second part is empty with only one tier. */
+export function splitAtFirstTier<T>(cards: T[], tier: (card: T) => PhotoTier): [T[], T[]] {
+  const end = cards.findIndex((c) => tier(c) !== tier(cards[0]));
+  return end < 0 ? [cards, []] : [cards.slice(0, end), cards.slice(end)];
 }
 
 /**

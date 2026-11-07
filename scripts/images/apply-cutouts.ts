@@ -23,19 +23,32 @@ const LABEL = 24;
 
 type ImageRecord = { file: string; credit: string; reviewed?: string | null; source?: string };
 
+/** A pack stood on a shared baseline with a soft pool of shadow, so a pair of snapshots reads as two products on one shelf. */
 async function onWhite(png: string, size: number) {
   const trimmed = await sharp(png).trim({ threshold: 10 }).png().toBuffer();
-  const inner = Math.round(size * 0.9);
+  const margin = Math.round(size * 0.07);
+  const inner = size - margin * 2;
+  const resized = await sharp(trimmed).resize(inner, inner, { fit: "inside" }).png().toBuffer();
+  const m = await sharp(resized).metadata();
+  const w = m.width ?? inner;
+  const h = m.height ?? inner;
+  // Feather the edge a touch, so a cut reads as a photo and not as scissors.
+  const alpha = await sharp(resized).ensureAlpha().extractChannel(3).blur(size > 200 ? 0.9 : 0.5).toBuffer();
   // Snapshots run dim and soft: stretch the levels a little and sharpen after the resize, so packs read at card size.
-  const fit = await sharp(trimmed)
-    .resize(inner, inner, { fit: "inside" })
+  const rgb = await sharp(resized)
+    .removeAlpha()
     .normalise({ lower: 1, upper: 99 })
-    .sharpen({ sigma: size > 200 ? 0.7 : 0.5 })
-    .png()
+    .modulate({ saturation: 1.06 })
+    .sharpen({ sigma: size > 200 ? 0.8 : 0.5 })
     .toBuffer();
-  const m = await sharp(fit).metadata();
+  const body = await sharp(rgb).joinChannel(alpha).png().toBuffer();
+  const pool = Buffer.from(
+    `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg"><ellipse cx="${size / 2}" cy="${size - margin}" rx="${(w * 0.92) / 2}" ry="${Math.max(4, Math.round(size * 0.035))}" fill="#000" fill-opacity="0.28"/></svg>`,
+  );
+  const shadow = await sharp(pool).blur(Math.max(1, size * 0.018)).png().toBuffer();
   return sharp({ create: { width: size, height: size, channels: 3, background: "#ffffff" } }).composite([
-    { input: fit, left: Math.floor((size - (m.width ?? inner)) / 2), top: Math.floor((size - (m.height ?? inner)) / 2) },
+    { input: shadow, left: 0, top: 0 },
+    { input: body, left: Math.floor((size - w) / 2), top: size - margin - h },
   ]);
 }
 

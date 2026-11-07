@@ -23,7 +23,7 @@ export function BundleWhereToBuy({
   const blocked = items.filter((i) => deliversTo(i.retailer, market, country) !== "yes");
 
   if (!blocked.length) {
-    return <p className="text-[13px] text-ink-2">Every store on this list delivers to {countryInSentence(country)}.</p>;
+    return <p className="text-[13px] text-ink-2">Every store on this list sells in {countryInSentence(country)}. Check each one for delivery.</p>;
   }
 
   const stores = storesFor(country).slice(0, 2);

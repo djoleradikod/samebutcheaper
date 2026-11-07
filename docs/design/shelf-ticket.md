@@ -40,16 +40,18 @@ Remove Fraunces and Geist. Monospace isn't needed.
 - `UnitPrice`: the cheaper price per unit in large condensed ink, the brand's beside it in muted with no strike-through, then "per 100 g".
   Convert per-unit display so it reads naturally (per 100 g, per 100 ml, per sheet, per wash).
 - `ProductThumb` (exists): the real photo filling its white tile. With no photo, a typographic tile: the brand name large in the display face
-  on white under a plain ink band, like a no-frills own-label pack, with a very small "no photo yet" caption. It reads as deliberate and never
-  passes for a photo. Tiles too small for the name show initials. Takes `eager` for the LCP image.
+  on white under a plain ink band, like a no-frills own-label pack. It reads as deliberate and never passes for a photo. There's no visible
+  caption, because across a grid it was noise: "no photo yet" stays in the tile's `aria-label`, and the swap page's credit line says "No licensed
+  photo of X yet". Tiles too small for the name show initials. Takes `eager` for the LCP image.
 - Cut-outs: a photo whose credit includes "background removed" sits cleanly on white (`isCutOut`, `src/lib/photos.ts`). Anything else is a raw
   snapshot with a background.
 - `PairCard`: two tiles side by side, brand left and cheaper right, the ticket beneath the photos and never on one, then brand name to cheaper name,
-  the UnitPrice row, the match level as plain text. Dense enough for 4 across at 1320px and 2 across on a phone. One photo: a typographic tile on
-  the missing side. No photo: lists use `PairRow`, and places that must show a card get it with no tiles.
+  the UnitPrice row, the match level as plain text. The tiles run edge to edge with no line between them, so the picture area reads as one white
+  shelf with two products on it. The gap comes from the margin in the photos. Dense enough for 4 across at 1320px and 2 across on a phone. One
+  photo: a typographic tile on the missing side. No photo: lists use `PairRow`, and places that must show a card get it with no tiles.
 - `PairRow`: a swap with no photo on either side, as a compact text row: brand to cheaper name, unit price against unit price with the unit, the
-  saving, the match. Grouped in one panel under "More swaps, still missing a photo".
-- `BasketCard`: for presets. A collage of real product photos laid out for however many there are (1 to 4, with no blank cells), the title, who
+  saving, the match. Grouped in one panel with thin dividers. Text rows without pictures make the point, so no heading announces the missing photos.
+- `BasketCard`: for presets. A collage of real product photos with no lines between them, laid out for however many there are (1 to 4, with no blank cells), the title, who
   it's for, "Same shop: £64.20 → £31.85", a large ticket with the saving, and the item count. This is the most important card on the site.
 - `AisleTile`: an aisle with no photo: its icon and name on white under the same ink band.
 - `Finding`: a cited claim: the title, the finding in one or two lines, publisher and date as a link.
@@ -68,8 +70,14 @@ any cut-out uses only cut-outs, and no picture repeats across the basket cards.
 
 **Category.** H1 with count. Left filter column on desktop (shelf, how strong the match is, market, photo only), a filter sheet on a phone.
 Sort by biggest saving, lowest unit price or newest check. Lists run in tiers, with the chosen sort inside each: both photos cut out, both photos,
-one photo, then no photo as PairRows. A line near the list head says what "Same job" means, when the list has any. Medicine category pages keep
-the health note.
+one photo, then no photo as PairRows. The sort starts again in each tier, so a small "More swaps" heading, smaller than a section head, goes where
+the first tier ends. Everything after it follows with no other heading. A line near the list head says what "Same job" means, when the list has any.
+Medicine category pages keep the health note.
+
+**Bulk.** `/bulk` groups swaps by what the shelf-life record says to do. Swaps with photos keep a fuller row, with long shelf-life notes cut to
+their first sentence or two and the rest behind a disclosure. Swaps with no photo follow under a small "More bigger packs" heading, as one panel of
+text rows like `PairRow`: brand to cheaper name, the full product name (some carry "price without VAT", which stays visible), the bigger pack's
+unit price against the normal pack's with the unit, the bigger pack's size, the saving and a short shelf-life line.
 
 **Swap page.** The answer first: two big photos side by side, price, pack and unit price under each, and the ticket between them. One sentence
 of verdict. Buttons to both stores. Then in order: why the extra money buys little (`why`, then Findings with citations); where the brand wins

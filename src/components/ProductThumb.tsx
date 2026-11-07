@@ -20,7 +20,7 @@ const SIZES = {
 
 /**
  * Font size for the name on a tile, as a share of the tile. The longest word has to fit across it, and all
- * the wrapped lines above the caption. The display face runs up to about 0.8em a letter on wide letters like m,
+ * the wrapped lines down it. The display face runs up to about 0.8em a letter on wide letters like m,
  * and the tile's padding leaves 86% of its width. It stays smaller than a pack so the real photos lead.
  */
 function nameScale(name: string) {
@@ -40,9 +40,9 @@ function initials(name: string) {
 
 /**
  * The real photo, or with no licensed photo a typographic tile: the brand name set large on white under
- * a plain ink band, like a no-frills own-label pack, and a small caption saying there's no photo, so it
- * can't pass for one. Photos are checked to exist when the catalogue is built, so this needs no client
- * code and works on the server.
+ * a plain ink band, like a no-frills own-label pack, so it can't pass for a photo. Its label says there's
+ * no photo for screen readers, and the swap page's credit line says so in print. Photos are checked to
+ * exist when the catalogue is built, so this needs no client code and works on the server.
  */
 export function ProductThumb({
   image,
@@ -124,12 +124,6 @@ export function ProductThumb({
           style={{ fontSize: `clamp(11px, ${nameScale(brand)}cqmin, 64px)`, lineHeight: 1.06 }}
         >
           {brand}
-        </span>
-        <span
-          className="mt-auto shrink-0 pt-[0.3em] leading-tight text-muted"
-          style={{ fontSize: "clamp(9px, 6.5cqmin, 11px)" }}
-        >
-          no photo yet
         </span>
       </span>
     </div>

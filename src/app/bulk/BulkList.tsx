@@ -12,8 +12,16 @@ import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
 import { MARKET_LABEL, type MarketCode } from "@/lib/markets";
 import { NO_PHOTO_TIER } from "@/lib/photos";
 import type { ShelfLife } from "@/lib/types";
+import { trimNote } from "./shelf-note";
 
 const PATH = "/bulk";
+
+/** How long a shelf-life note can run before it's cut: on a row with photos, and on a text row. */
+const NOTE_LIMIT = 110;
+const COMPACT_NOTE_LIMIT = 70;
+
+/** The text rows and their column heads share these columns on a tablet and up. */
+const COMPACT_COLUMNS = "md:grid-cols-[minmax(0,1fr)_15rem_7rem_3.25rem] md:gap-x-4 md:px-3";
 
 /** One swap with a bigger pack. The figures arrive already formatted, in the swap's own currency. */
 export type BulkItem = BrowseRow & {
@@ -187,18 +195,26 @@ function BulkGroup({
       {withPhoto.length > 0 && (
         <ul className="grid gap-2 md:gap-3">
           {withPhoto.map((item) => (
-            <BulkRow key={item.slug} item={item} title={group.title} eager={item.slug === eagerSlug} />
+            <BulkRow key={item.slug} item={item} eager={item.slug === eagerSlug} />
           ))}
         </ul>
       )}
       {noPhoto.length > 0 && (
         <>
-          {withPhoto.length > 0 && <h3 className="mt-5 mb-2 text-base">More swaps, still missing a photo</h3>}
-          <ul className="grid gap-2 md:gap-3">
-            {noPhoto.map((item) => (
-              <BulkRow key={item.slug} item={item} title={group.title} />
-            ))}
-          </ul>
+          {withPhoto.length > 0 && <h3 className="mt-5 mb-2 text-base">More bigger packs</h3>}
+          <div className="card overflow-hidden">
+            <p aria-hidden="true" className={`hidden border-b border-line py-1.5 text-xs font-medium text-muted md:grid ${COMPACT_COLUMNS}`}>
+              <span>Swap</span>
+              <span>Unit price, bigger vs normal pack</span>
+              <span>Bigger pack</span>
+              <span className="text-right">Saving</span>
+            </p>
+            <ul className="divide-y divide-line">
+              {noPhoto.map((item) => (
+                <CompactRow key={item.slug} item={item} />
+              ))}
+            </ul>
+          </div>
         </>
       )}
     </section>
@@ -206,21 +222,84 @@ function BulkGroup({
 }
 
 /**
- * Brand and cheaper photos, then the bigger pack against the normal one, then how long it keeps.
- * The name is the link, stretched over the whole card. A swap with no photo drops the tiles.
+ * A swap with no photo, as a text row in one panel: the names and full product name, the bigger pack's
+ * unit price against the normal pack's, the bigger pack's size, the saving and a line on how long it keeps.
+ * The name is the link, stretched over the whole row. The words the column heads carry on a
+ * tablet stay printed on a phone, and stay there for screen readers.
  */
-function BulkRow({ item, title, eager = false }: { item: BulkItem; title: string; eager?: boolean }) {
+function CompactRow({ item }: { item: BulkItem }) {
   const extra = Math.round(item.extraSavingPct);
+  return (
+    <li
+      className={`group relative grid min-h-11 min-w-0 grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 gap-y-0.5 px-2.5 py-2 transition-colors hover:bg-canvas ${COMPACT_COLUMNS}`}
+    >
+      <div className="col-start-1 row-start-1 min-w-0">
+        <p className="text-sm leading-snug font-semibold">
+          <Link href={`/compare/${item.slug}`} className="after:absolute after:inset-0 group-hover:underline">
+            {item.brandName}
+            <ToArrow />
+            {item.altName}
+          </Link>
+        </p>
+        <p className="text-xs leading-snug text-ink-2">
+          {item.biggerProduct}
+          <MarketNote market={item.market} className="ml-2 font-medium" />
+        </p>
+      </div>
+
+      {extra > 0 ? (
+        <Ticket
+          size="sm"
+          className="col-start-2 row-start-1 justify-self-end md:col-start-4"
+          label={`${extra}% less ${item.unitLabel} than the normal pack`}
+        >
+          −{extra}%
+        </Ticket>
+      ) : (
+        <span className="col-start-2 row-start-1 text-xs font-medium text-muted md:col-start-4 md:text-right">No saving</span>
+      )}
+
+      <div className="col-span-2 row-start-2 flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 md:contents">
+        <p className="flex min-w-0 flex-wrap items-baseline gap-x-1.5 md:col-start-2 md:row-start-1">
+          <span className="price text-lg leading-none text-ink">{item.biggerUnitPrice}</span>
+          <span className="price text-[13px] font-semibold text-muted">vs {item.normalUnitPrice}</span>
+          <span className="text-xs leading-tight font-medium text-muted">
+            <span className="md:sr-only">normal pack, </span>
+            {item.unitLabel}
+          </span>
+        </p>
+        <p className="text-[13px] text-ink-2 md:col-start-3 md:row-start-1">
+          <span className="md:sr-only">Bigger pack </span>
+          {item.biggerPack}
+        </p>
+      </div>
+
+      {item.unopened && (
+        <p className="col-span-2 row-start-3 line-clamp-2 text-xs leading-snug text-ink-2 md:col-span-1 md:col-start-1 md:row-start-2">
+          <span className="font-medium text-ink">Unopened: </span>
+          {trimNote(item.unopened, COMPACT_NOTE_LIMIT).lead}
+        </p>
+      )}
+    </li>
+  );
+}
+
+/**
+ * Brand and cheaper photos, then the bigger pack against the normal one, then how long it keeps.
+ * The name is the link, stretched over the whole card.
+ */
+function BulkRow({ item, eager = false }: { item: BulkItem; eager?: boolean }) {
+  const extra = Math.round(item.extraSavingPct);
+  const unopened = trimNote(item.unopened, NOTE_LIMIT);
+  const opened = trimNote(item.opened, NOTE_LIMIT);
   return (
     <li className="card group relative min-w-0 p-3 transition-colors hover:border-ink-2 md:p-4">
       <div className="grid gap-3 md:grid-cols-2 md:gap-x-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)]">
         <div className="flex min-w-0 flex-col gap-2.5 sm:flex-row sm:gap-3">
-          {item.tier !== NO_PHOTO_TIER && (
-            <div className="flex shrink-0 gap-1">
-              <ProductThumb image={item.brandImage} brand={item.brandName} alt={item.brandProduct} eager={eager && !!item.brandImage} />
-              <ProductThumb image={item.altImage} brand={item.altName} alt={item.altProduct} eager={eager && !item.brandImage} />
-            </div>
-          )}
+          <div className="flex shrink-0 gap-1">
+            <ProductThumb image={item.brandImage} brand={item.brandName} alt={item.brandProduct} eager={eager && !!item.brandImage} />
+            <ProductThumb image={item.altImage} brand={item.altName} alt={item.altProduct} eager={eager && !item.brandImage} />
+          </div>
           <div className="min-w-0">
             <p className="text-xs font-medium text-muted">{item.kind}</p>
             <h3 className="mt-0.5 text-[15px] leading-snug font-semibold">
@@ -259,7 +338,7 @@ function BulkRow({ item, title, eager = false }: { item: BulkItem; title: string
               <Ticket size="sm" className="shrink-0" label={`${extra}% less ${item.unitLabel} than the normal pack`}>
                 −{extra}%
               </Ticket>
-              <span aria-hidden="true">{item.unitLabel} against the normal pack</span>
+              <span aria-hidden="true">vs the normal pack</span>
             </p>
           ) : (
             <p className="mt-2 text-[13px] text-ink-2">It costs no less {item.unitLabel} than the normal pack.</p>
@@ -268,16 +347,33 @@ function BulkRow({ item, title, eager = false }: { item: BulkItem; title: string
 
         {item.advice && (
           <div className="min-w-0 text-[13px] leading-snug text-ink-2 md:col-span-2 lg:col-span-1">
-            <p className="font-semibold text-ink">{title}</p>
-            <p className="mt-1">
+            <p>
               <span className="font-medium text-ink">Unopened: </span>
-              {item.unopened}
+              {unopened.lead}
             </p>
             {item.opened && (
               <p className="mt-1">
                 <span className="font-medium text-ink">Once opened: </span>
-                {item.opened}
+                {opened.lead}
               </p>
+            )}
+            {(unopened.rest || opened.rest) && (
+              // Above the link stretched over the card, so a tap here opens this and not the swap page.
+              <details className="relative z-10 mt-1">
+                <summary className="cursor-pointer py-3 font-medium text-cobalt md:py-0">More on how long it keeps</summary>
+                {unopened.rest && (
+                  <p className="mt-1">
+                    <span className="font-medium text-ink">Unopened: </span>
+                    {unopened.rest}
+                  </p>
+                )}
+                {opened.rest && (
+                  <p className="mt-1">
+                    <span className="font-medium text-ink">Once opened: </span>
+                    {opened.rest}
+                  </p>
+                )}
+              </details>
             )}
           </div>
         )}

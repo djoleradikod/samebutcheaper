@@ -31,7 +31,7 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
       className="card group flex h-full min-w-0 flex-col overflow-hidden transition-colors hover:border-ink-2"
     >
       {(pair.brandImage || pair.altImage) && (
-        <div className="grid grid-cols-2 gap-px border-b border-line bg-line">
+        <div className="grid grid-cols-2 border-b border-line bg-white">
           <ProductThumb
             flush
             size="tile"
@@ -111,12 +111,20 @@ export function PairRow({ pair }: { pair: PairSummary }) {
   );
 }
 
-/** The panel of PairRows that ends a list, headed only when there are cards above it. */
-export function PairRows({ headed, children }: { headed: boolean; children: ReactNode }) {
+/** Goes where a list's first photo tier ends, since the chosen sort starts again from the top there. Smaller than a section head. */
+export function MoreSwapsHeading() {
+  return <h2 className="mt-5 mb-2 text-base md:mt-6">More swaps</h2>;
+}
+
+/**
+ * The panel of PairRows that ends a list. `below` means there are cards above it, and `headed` means
+ * those cards are all one tier, so this is where the heading goes. Otherwise the rows just carry on.
+ */
+export function PairRows({ headed, below, children }: { headed: boolean; below: boolean; children: ReactNode }) {
   return (
-    <div className={headed ? "mt-5 md:mt-6" : ""}>
-      {headed && <h2 className="mb-2 text-base">More swaps, still missing a photo</h2>}
-      <ul className="card divide-y divide-line overflow-hidden">{children}</ul>
-    </div>
+    <>
+      {headed && <MoreSwapsHeading />}
+      <ul className={`card divide-y divide-line overflow-hidden ${below && !headed ? "mt-2 sm:mt-3" : ""}`}>{children}</ul>
+    </>
   );
 }

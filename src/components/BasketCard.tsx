@@ -35,12 +35,12 @@ export const COLLAGE_CELLS: Record<number, string[]> = {
 
 function Collage({ basket, eager }: { basket: BasketSummary; eager: boolean }) {
   const photos = basket.photos.slice(0, 4);
-  // A basket with no photos to show gets typographic tiles, which say so. The cells fit however many there are.
+  // A basket with no photos to show gets typographic tiles. The cells fit however many there are.
   const tiles = photos.length ? photos : basket.tileNames.slice(0, 4).map((name) => ({ src: null, name }));
   const cells = COLLAGE_CELLS[tiles.length] ?? [];
   const sizes = tiles.length === 1 ? "(min-width: 768px) 180px, 300px" : "(min-width: 768px) 90px, 150px";
   return (
-    <div className="grid aspect-[4/3] w-full grid-cols-2 grid-rows-2 gap-px overflow-hidden rounded-tile border border-line bg-line md:aspect-square">
+    <div className="grid aspect-[4/3] w-full grid-cols-2 grid-rows-2 overflow-hidden rounded-tile border border-line bg-white md:aspect-square">
       {tiles.map((p, i) => (
         <div key={p.src ?? p.name} className={`min-h-0 min-w-0 ${cells[i]}`}>
           <ProductThumb flush size="fill" image={p.src} brand={p.name} eager={eager && i === 0 && !!p.src} sizes={sizes} />
