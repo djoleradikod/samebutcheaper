@@ -63,6 +63,8 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   currency: Currency;
   /** Who sells the cheaper product, for the seller rule in localize.ts. */
   sellers: string[];
+  /** This same swap priced in another market. A list shows one of the two, see localize.ts. */
+  twin: { slug: string; market: MarketCode } | null;
   /** What to search for in countries where this listing doesn't deliver. */
   lookFor: LookFor;
   /** Findings that apply to this swap, most specific first. */
@@ -163,6 +165,7 @@ export type PairSummary = {
   title: string;
   market: MarketCode;
   sellers: string[];
+  twin: { slug: string; market: MarketCode } | null;
   /** How the cheaper product rates, as it reads on a card. Null when we have no rating. */
   altRating: string | null;
   currency: Currency;

@@ -326,6 +326,7 @@ function derive(p: PairInput): Pair {
     score: round(score, 2),
     currency,
     sellers: [sellerOf(p.alternative)],
+    twin: null,
     lookFor: lookFor(p.match_type, p.alternative, p.look_for),
     evidence_claims: claimsFor(p),
     shelfLife: shelfFor(p),
@@ -371,6 +372,7 @@ function deriveBundle(b: BundleInput): Bundle {
 const files = readdirSync(DATA_DIR).filter((f) => f.endsWith(".json")).sort();
 const pairs: Pair[] = [];
 const seen = new Set<string>();
+const sameSwaps: [string, string][] = [];
 
 for (const file of files) {
   const raw = JSON.parse(readFileSync(join(DATA_DIR, file), "utf8"));
@@ -398,6 +400,7 @@ for (const file of files) {
       return;
     }
     seen.add(pair.slug);
+    if (parsed.data.same_swap) sameSwaps.push([pair.slug, parsed.data.same_swap]);
     // A swap with nothing compared on both sides can't claim to do the same job, whatever its record says.
     if (pair.match_type === "equivalent_spec" && !hasProof(comparison(pair))) pair.match_type = "same_kind";
     if (pair.match_type === "identical_active") {
@@ -539,6 +542,20 @@ for (const file of presetFiles) {
       presets.push(preset);
     }
   });
+}
+
+// One swap priced in two markets. The seller has to match too, or a shopper could lose the record they can buy to one they can't.
+for (const [slug, other] of sameSwaps) {
+  const a = pairs.find((p) => p.slug === slug)!;
+  const b = pairs.find((p) => p.slug === other);
+  if (!b) errors.push(`${slug}: same_swap ${other} doesn't exist`);
+  else if (a.market === b.market) errors.push(`${slug}: same_swap ${other} is in the same market`);
+  else if (a.sellers.join() !== b.sellers.join()) errors.push(`${slug}: same_swap ${other} has another seller, ${a.sellers} against ${b.sellers}`);
+  else if (a.twin || b.twin) errors.push(`${slug}: a swap can have one twin, and ${a.twin ? slug : other} already does`);
+  else {
+    a.twin = { slug: b.slug, market: b.market };
+    b.twin = { slug: a.slug, market: a.market };
+  }
 }
 
 if (errors.length) {

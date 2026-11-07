@@ -23,7 +23,7 @@ import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
 import { forCountry, localClaim, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
-import { NotListedHere } from "@/components/ShelfParts";
+import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
 import { getLocal } from "@/lib/server-country";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 
@@ -104,9 +104,12 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
     })),
   ];
 
+  const twin = record.twin ? getPair(record.twin.slug) : undefined;
+
   return (
     <article>
-      {!local.shows(record) && <NotListedHere market={record.market} local={local} />}
+      {!local.shows(record) &&
+        (twin && local.shows(twin) ? <SameSwapHere market={record.market} twin={twin} /> : <NotListedHere market={record.market} local={local} />)}
       <div className="container-page pt-1 pb-8 md:pt-4 md:pb-10">
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-x-1 text-[13px] text-muted">
