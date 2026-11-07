@@ -1,3 +1,4 @@
+import { NO_RATING } from "./rating";
 import { formatSize, inSentence, ppu } from "./format";
 import { differentSalts, ingredientKey, slugify } from "./ingredient-key";
 import type { CategorySlug, Pair, ProductSide } from "./types";
@@ -107,8 +108,7 @@ const listKey = (s: string) =>
     .replace(/[^\p{L}\p{N}]+/gu, "");
 
 function ratingText(p: ProductSide) {
-  if (!p.rating) return "Not rated";
-  return `${p.rating.stars.toFixed(1)} ★ (${p.rating.count.toLocaleString("en-US")})`;
+  return p.rating?.label ?? NO_RATING;
 }
 
 /** What "inactive ingredients" means for this kind of product. */
@@ -540,13 +540,13 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
   }
 
   if (b.rating || a.rating) {
-    const diff = (a.rating?.stars ?? 0) - (b.rating?.stars ?? 0);
+    const diff = (a.rating?.share ?? 0) - (b.rating?.share ?? 0);
     rows.push({
-      aspect: "Shopper rating",
+      aspect: "Rating",
       brand: ratingText(b),
       alternative: ratingText(a),
       verdict:
-        !b.rating || !a.rating ? "unknown" : Math.abs(diff) <= 0.2 ? "same" : diff > 0 ? "alt_better" : "brand_better",
+        !b.rating || !a.rating ? "unknown" : Math.abs(diff) <= 0.04 ? "same" : diff > 0 ? "alt_better" : "brand_better",
       source: a.rating?.source ?? b.rating?.source,
       kind: "rating",
     });

@@ -38,6 +38,7 @@ function toRow(p: Pair): BrowseRow {
     market: p.market,
     photo: Boolean(p.brand.photo || p.alternative.photo),
     tier: photoTier(p.brand.photo, p.alternative.photo),
+    rated: Boolean(p.alternative.rating),
     pct: Math.round(p.savingsPct * 10) / 10,
     unit: Number((p.alternative.ppu * unitDisplay(p.brand.unit).factor * APPROX_USD[p.currency]).toPrecision(4)),
     checked: p.price_checked,
@@ -219,7 +220,8 @@ export async function SwapList({ path, pairs }: { path: string; pairs: Pair[] })
   if (visible.length >= FILTER_FROM) return <PairBrowser path={path} {...browseProps(visible, { local })} />;
   // The market that leads for this shopper first, then the biggest saving.
   const lead = (p: Pair) => Number(p.market === local.listMarket);
-  return <SwapGrid pairs={[...visible].sort((a, b) => lead(b) - lead(a) || b.savingsPct - a.savingsPct)} />;
+  const rated = (p: Pair) => Number(Boolean(p.alternative.rating));
+  return <SwapGrid pairs={[...visible].sort((a, b) => lead(b) - lead(a) || rated(b) - rated(a) || b.savingsPct - a.savingsPct)} />;
 }
 
 export type IndexEntry = {

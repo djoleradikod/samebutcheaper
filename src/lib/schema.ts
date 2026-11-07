@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { CATEGORY_SLUGS } from "./category-slugs";
 import { MARKET_CODES, RETAILERS } from "./markets";
+import { inRange, RATING_SCALES } from "./rating";
 
 export { MARKET_CODES, RETAILERS };
 
@@ -58,16 +59,25 @@ const imageUrl = z
   .optional()
   .catch(null);
 
-/** Shopper rating from a named retailer page, e.g. 4.6 stars from 12,400 reviews at Walmart. */
-const rating = z
+/**
+ * A rating or test score, as the source gives it. `stars` is the older spelling of a score on the stars-5 scale.
+ * See "Ratings" in data/README.md and src/lib/rating.ts.
+ */
+export const ratingSchema = z
   .object({
-    stars: z.number().min(0).max(5),
-    count: z.number().int().min(0),
+    stars: z.number().min(0).max(5).optional(),
+    score: z.number().optional(),
+    scale: z.enum(RATING_SCALES).default("stars-5"),
+    count: z.number().int().min(0).optional(),
     source: z.string().url(),
+    /** When the score was read or published. Falls back to the record's price_checked. */
+    date: z.string().optional(),
+    /** A test's publisher, "Which?". Left out for shopper ratings. */
+    publisher: z.string().optional(),
   })
-  .nullable()
-  .optional()
-  .catch(null);
+  .refine((r) => (r.score ?? r.stars) !== undefined, "a rating needs a score")
+  .refine((r) => inRange(r.score ?? r.stars ?? 0, r.scale), "score is outside its scale");
+const rating = ratingSchema.nullable().optional();
 
 /** One row of the "same or different" table on a swap page. */
 export const ASPECT_VERDICTS = ["same", "alt_better", "brand_better", "different"] as const;

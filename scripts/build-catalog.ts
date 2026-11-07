@@ -16,6 +16,7 @@ import {
   nutritionFileSchema,
   pairSchema,
   presetSchema,
+  ratingSchema,
   shelfLifeSchema,
   type BundleInput,
   type ImageRecord,
@@ -31,7 +32,8 @@ import { dupeSlugFor } from "../src/lib/dupes";
 import { CATEGORIES } from "../src/lib/categories";
 import { INGREDIENT_MATCHES, ingredientPageKey, slugify } from "../src/lib/ingredient-key";
 import { sellerOf } from "../src/lib/sellers";
-import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, ShelfLife } from "../src/lib/types";
+import { RATING_FLOOR, ratingLabel, ratingShare } from "../src/lib/rating";
+import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
 
 const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data", "pairs");
@@ -273,6 +275,26 @@ function bulkViewFor(p: PairInput, brandPpu: number, altPpu: number): BulkView {
   return view;
 }
 
+/** Scores the catalogue already quotes in its text, kept apart from the pair files. See scripts/qa/mine_ratings.py. */
+const quotedRatings: Record<string, unknown> = existsSync(join(EVIDENCE_DIR, "ratings.json")) ? JSON.parse(readFileSync(join(EVIDENCE_DIR, "ratings.json"), "utf8")) : {};
+
+function toRating(raw: PairInput["brand"]["rating"], fallbackDate: string): Rating | null {
+  if (!raw) return null;
+  const score = raw.score ?? raw.stars ?? 0;
+  const base = { score, scale: raw.scale, count: raw.count, publisher: raw.publisher };
+  return { ...base, source: raw.source, date: raw.date ?? fallbackDate, share: round(ratingShare(score, raw.scale), 3), label: ratingLabel(base) };
+}
+
+/** The floor applies to the product we tell people to buy. New markets and aisles ship with a rating. */
+function altRatingFor(p: PairInput): Rating | null {
+  const quoted = quotedRatings[p.slug];
+  const parsed = quoted ? ratingSchema.safeParse(quoted) : null;
+  if (parsed && !parsed.success) errors.push(`${p.slug}: ratings.json: ${parsed.error.issues[0].message}`);
+  const rating = toRating(p.alternative.rating ?? (parsed?.success ? parsed.data : null), p.price_checked);
+  if (rating && rating.share < RATING_FLOOR) errors.push(`${p.slug}: the cheaper product rates ${rating.label}, under the floor of ${RATING_FLOOR}`);
+  return rating;
+}
+
 function derive(p: PairInput): Pair {
   const brandPpu = p.brand.price / p.brand.size;
   const altPpu = p.alternative.price / p.alternative.size;
@@ -289,9 +311,10 @@ function derive(p: PairInput): Pair {
   const altNutrition = nutritionFor(p.category, p.alternative);
   return {
     ...p,
-    brand: { ...p.brand, unit, ppu: roundPpu(brandPpu), photo: photoFor(p.brand.brand, p.brand.product), nutrition: brandNutrition },
+    brand: { ...p.brand, rating: toRating(p.brand.rating, p.price_checked), unit, ppu: roundPpu(brandPpu), photo: photoFor(p.brand.brand, p.brand.product), nutrition: brandNutrition },
     alternative: {
       ...p.alternative,
+      rating: altRatingFor(p),
       unit,
       ppu: roundPpu(altPpu),
       photo: photoFor(p.alternative.brand, p.alternative.product),

@@ -169,6 +169,7 @@ export function toSummary(p: Pair): PairSummary {
     savingsPct: p.savingsPct,
     savingsPerPack: p.savingsPerPack,
     sellers: p.sellers,
+    altRating: p.alternative.rating?.label ?? null,
     matchType: p.match_type,
     confidence: p.confidence,
     score: p.score,

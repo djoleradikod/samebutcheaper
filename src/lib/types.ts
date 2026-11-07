@@ -1,6 +1,7 @@
 import type { BundleInput, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairInput, PresetInput, ShelfLifeInput } from "./schema";
 import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
+import type { RatingScale } from "./rating";
 
 export type MatchType = PairInput["match_type"];
 export type CategorySlug = PairInput["category"];
@@ -16,7 +17,20 @@ export type Photo = {
   weak?: boolean;
 };
 
-export type ProductSide = PairInput["brand"] & {
+/** A rating after the catalogue build: the raw score and scale, what it comes to as a share, and how it reads. */
+export type Rating = {
+  score: number;
+  scale: RatingScale;
+  count?: number;
+  source: string;
+  date?: string;
+  publisher?: string;
+  share: number;
+  label: string;
+};
+
+export type ProductSide = Omit<PairInput["brand"], "rating"> & {
+  rating: Rating | null;
   /** Price per single unit (e.g. per tablet, per fl oz). */
   ppu: number;
   photo: Photo | null;
@@ -148,6 +162,8 @@ export type PairSummary = {
   title: string;
   market: MarketCode;
   sellers: string[];
+  /** How the cheaper product rates, as it reads on a card. Null when we have no rating. */
+  altRating: string | null;
   currency: Currency;
   category: CategorySlug;
   subcategory: string;

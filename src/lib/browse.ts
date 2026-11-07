@@ -29,6 +29,8 @@ export type BrowseRow = {
   photo: boolean;
   /** Which group of the list it goes in, see photoTier. */
   tier: PhotoTier;
+  /** The cheaper product has a rating on file. Unrated ones sort behind it. */
+  rated: boolean;
   /** Saving per unit, 0 to 100. */
   pct: number;
   /** The cheaper unit price as the card shows it, in rough dollars so markets can rank together. */
@@ -158,7 +160,7 @@ const COMPARE: Record<SortKey, (a: BrowseRow, b: BrowseRow) => number> = {
  */
 export function matchRows(rows: BrowseRow[], s: BrowseState, scope: Scope) {
   const compare = COMPARE[s.sort];
-  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || compare(a, b));
+  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || Number(b.rated) - Number(a.rated) || compare(a, b));
 }
 
 /** Cards already in tier order, split where the first tier ends. The second part is empty with only one tier. */

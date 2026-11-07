@@ -4,6 +4,7 @@ import fx from "../../data/fx/ecb-reference-rates.json";
 import { defaultMarket, type BrowseRow } from "../../src/lib/browse";
 import { COUNTRY_CURRENCY, fallbackNotice, forCountry, listMarketFor, localFor, NO_RATE, rate, visibleMarkets } from "../../src/lib/localize";
 import { COUNTRIES, deliversTo, isKnownCountry, storesFor, type MarketCode } from "../../src/lib/markets";
+import { inRange, RATING_FLOOR, ratingLabel, ratingShare } from "../../src/lib/rating";
 import { sellerOf, sellsIn } from "../../src/lib/sellers";
 
 const row = (market: MarketCode, aisle: BrowseRow["aisle"] = "household"): BrowseRow => ({
@@ -14,6 +15,7 @@ const row = (market: MarketCode, aisle: BrowseRow["aisle"] = "household"): Brows
   market,
   photo: false,
   tier: 0 as BrowseRow["tier"],
+  rated: false,
   pct: 10,
   unit: 1,
   checked: "2026-11",
@@ -216,4 +218,22 @@ test("written prices convert, keep the original and leave everything else alone"
 test("a prototype name is not a country", () => {
   assert.equal(isKnownCountry("constructor"), false);
   assert.equal(localFor("constructor").known, false);
+});
+
+test("every scale reduces to the same floor, and German grades run backwards", () => {
+  assert.equal(ratingShare(3, "stars-5"), 0.6);
+  assert.equal(ratingShare(6, "out-of-10"), 0.6);
+  assert.equal(ratingShare(60, "percent"), 0.6);
+  assert.equal(ratingShare(3, "de-grade"), 0.6, "grade 3.0 sits where 3 stars sits");
+  assert.equal(ratingShare(1, "de-grade"), 1, "grade 1.0 is the best");
+  assert.ok(ratingShare(3.1, "de-grade") < RATING_FLOOR);
+  assert.ok(ratingShare(2.9, "stars-5") < RATING_FLOOR);
+  assert.ok(!inRange(0.5, "de-grade"));
+  assert.ok(!inRange(5.5, "stars-5"));
+});
+
+test("a rating reads as its source gave it", () => {
+  assert.equal(ratingLabel({ score: 4.4, scale: "stars-5", count: 1253 }), "4.4 of 5 from 1,253 ratings");
+  assert.equal(ratingLabel({ score: 75, scale: "percent", publisher: "Which?" }), "Which? 75%");
+  assert.equal(ratingLabel({ score: 1.5, scale: "de-grade", publisher: "Stiftung Warentest" }), "Stiftung Warentest grade 1.5");
 });

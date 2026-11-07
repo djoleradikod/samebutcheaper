@@ -1,3 +1,4 @@
+import { NO_RATING } from "@/lib/rating";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import type { MatchType, PairSummary } from "@/lib/types";
@@ -77,6 +78,7 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
           </span>
           <MarketNote market={pair.market} />
         </p>
+        <p className="mt-0.5 truncate text-xs text-muted">{pair.altRating ?? NO_RATING}</p>
       </div>
     </Link>
   );
@@ -105,6 +107,7 @@ export function PairRow({ pair }: { pair: PairSummary }) {
             {matchText(pair.matchType)}
           </span>
           <MarketNote market={pair.market} />
+          <span className="text-muted">{pair.altRating ?? NO_RATING}</span>
         </p>
       </div>
     </Link>

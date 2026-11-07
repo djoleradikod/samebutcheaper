@@ -30,7 +30,7 @@ import type { MarketCode } from "@/lib/markets";
 import { namedSellers, sellsIn } from "@/lib/sellers";
 import { getLocal } from "@/lib/server-country";
 import { jsonLdText } from "@/lib/site";
-import type { CategorySlug, Claim, PairSummary, Preset, ShelfLife } from "@/lib/types";
+import type { CategorySlug, Claim, Pair as PairT, PairSummary, Preset, ShelfLife } from "@/lib/types";
 
 const MEDICINE: CategorySlug = "otc-medicine";
 
@@ -48,9 +48,10 @@ function basketsFor(local: Local) {
   const market = local.listMarket;
   const photoRank = (p: Preset) => (cutOutCount(p) >= 3 ? 0 : photoCount(p) > 0 ? 1 : 2);
   const rank = (p: Preset) => (p.market === market ? 0 : 3) + photoRank(p);
+  const unrated = (p: Preset) => p.lines.filter((l) => !getPair(l.pair)?.alternative.rating).length / p.lines.length;
   const chosen = getPresetsFor(market, forCountry(getAllPresets(), local))
     .filter((p) => p.icon !== "pill" && p.lines.filter(isMedicine).length * 2 <= p.lines.length)
-    .sort((a, b) => rank(a) - rank(b))
+    .sort((a, b) => rank(a) - rank(b) || unrated(a) - unrated(b))
     .slice(0, 6);
   const photos = assignBasketPhotos(chosen);
   return chosen.map((p) => toBasketSummary(p, photos.get(p.slug)));
@@ -67,10 +68,14 @@ function biggestSavings(market: MarketCode, local: Local, limit = 12) {
   );
   // The shop window shows both products where it can, so nobody's told to buy something they can't see.
   const both = pool.filter((p) => p.brand.photo && p.alternative.photo);
-  return pickByPhotos(both.length >= limit ? both : pool, limit, (p) => [
+  const framed = both.length >= limit ? both : pool;
+  // Once a market has enough rated swaps to fill the window, an unrated product doesn't lead it.
+  const rated = framed.filter((p) => p.alternative.rating);
+  const rank = (p: PairT) => Number(!p.alternative.rating);
+  return pickByPhotos(rated.length >= limit ? rated : framed, limit, (p) => [
     { key: p.category, max: p.category === "supplements" ? 2 : 6 },
     { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 2 },
-  ]).sort((a, b) => photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);
+  ]).sort((a, b) => rank(a) - rank(b) || photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);
 }
 
 /**
