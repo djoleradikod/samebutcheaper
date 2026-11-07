@@ -32,7 +32,7 @@ import { dupeSlugFor } from "../src/lib/dupes";
 import { CATEGORIES } from "../src/lib/categories";
 import { INGREDIENT_MATCHES, ingredientPageKey, slugify } from "../src/lib/ingredient-key";
 import { sellerOf } from "../src/lib/sellers";
-import { RATING_FLOOR, ratingLabel, ratingShare } from "../src/lib/rating";
+import { RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../src/lib/rating";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -279,7 +279,7 @@ function bulkViewFor(p: PairInput, brandPpu: number, altPpu: number): BulkView {
 const quotedRatings: Record<string, unknown> = existsSync(join(EVIDENCE_DIR, "ratings.json")) ? JSON.parse(readFileSync(join(EVIDENCE_DIR, "ratings.json"), "utf8")) : {};
 
 function toRating(raw: PairInput["brand"]["rating"], fallbackDate: string): Rating | null {
-  if (!raw) return null;
+  if (!raw || !ratingCounts(raw)) return null;
   const score = raw.score ?? raw.stars ?? 0;
   const base = { score, scale: raw.scale, count: raw.count, publisher: raw.publisher, wording: raw.wording };
   return { ...base, source: raw.source, date: raw.date ?? fallbackDate, share: round(ratingShare(score, raw.scale), 3), label: ratingLabel(base) };
