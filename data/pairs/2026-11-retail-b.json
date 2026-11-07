@@ -193,9 +193,17 @@
   "sources": [
    "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-longlife-power-40-stueck-272635",
    "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-40-stueck-272120",
-   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
+   "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-100-stueck-272177"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Intenso Energy Ultra Alkaline AA LR06, 100 cells",
+   "size": 100,
+   "price": 16.99,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-100-stueck-272177"
+  }
  },
  {
   "slug": "varta-longlife-power-aaa-40-vs-intenso-energy-ultra-aaa-40-de",
@@ -253,9 +261,17 @@
   "sources": [
    "https://www.pollin.de/p/varta-batterie-alkaline-micro-aaa-lr03-1-5v-longlife-power-40-stueck-272621",
    "https://www.pollin.de/p/intenso-micro-batterie-set-energy-ultra-aaa-lr03-alkaline-40-stueck-272121",
-   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
+   "https://www.pollin.de/p/intenso-micro-batterie-set-energy-ultra-aaa-lr03-alkaline-100-stueck-272178"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Intenso Energy Ultra Alkaline AAA LR03, 100 cells",
+   "size": 100,
+   "price": 12.99,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/intenso-micro-batterie-set-energy-ultra-aaa-lr03-alkaline-100-stueck-272178"
+  }
  },
  {
   "slug": "varta-alkaline-aaa-8-vs-gut-und-guenstig-alkaline-aaa-10-de",
@@ -482,9 +498,17 @@
   "sources": [
    "https://www.pollin.de/p/duracell-lithium-knopfzelle-cr2032-3v-electronics-4-stueck-272804",
    "https://www.pollin.de/p/intenso-lithium-knopfzelle-cr2032-6-stueck-272252",
-   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
+   "https://www.pollin.de/p/intenso-lithium-knopfzellen-set-cr2032-60er-set-272503"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Intenso Lithium CR2032, 3 V, set of 60",
+   "size": 60,
+   "price": 12.75,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/intenso-lithium-knopfzellen-set-cr2032-60er-set-272503"
+  }
  },
  {
   "slug": "varta-longlife-power-9v-vs-ansmann-industrial-9v-de",
@@ -749,7 +773,14 @@
    "https://www.viking-direct.co.uk/en/energizer-alkaline-batteries-aa-alkaline-batteries-max-plus-lr6-1-5v-pack-of-12-p-1206695",
    "https://en.wikipedia.org/wiki/List_of_battery_sizes"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Energizer Max Plus AA LR6 Alkaline, 3 packs of 12, price without VAT",
+   "size": 36,
+   "price": 31.17,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/energizer-alkaline-batteries-aa-alkaline-batteries-max-plus-lr6-1-5v-pack-of-12-p-1206695"
+  }
  },
  {
   "slug": "duracell-plus-power-boost-aaa-12-vs-energizer-max-plus-aaa-20-gb",
@@ -873,7 +904,14 @@
    "https://world.openproductsfacts.org/product/7638900426533",
    "https://en.wikipedia.org/wiki/List_of_battery_sizes"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Energizer Max 9V 6LR61 Alkaline, 3 packs of 2, price without VAT",
+   "size": 6,
+   "price": 24.87,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/energizer-batteries-max-9v-2-pieces-p-1039570"
+  }
  },
  {
   "slug": "apple-20w-usb-c-adapter-vs-goobay-20w-usb-c-pd-gan-nano-de",
@@ -1255,7 +1293,14 @@
    "https://www.viking-direct.co.uk/en/viking-medium-ballpoint-pens-black-box-of-50-p-1601440",
    "https://www.vikingdirect.ie/en/bic-ballpoint-pen-cristal-0-4-mm-black-pack-50-p-nd538216"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking SBM1.0 Ballpoint Pen Black, 3 packs of 50, price without VAT",
+   "size": 150,
+   "price": 16.47,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-medium-ballpoint-pens-black-box-of-50-p-1601440"
+  }
  },
  {
   "slug": "post-it-super-sticky-76-vs-viking-extra-sticky-76-gb",
@@ -1307,7 +1352,14 @@
    "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852",
    "https://www.vikingdirect.ie/en/post-it-super-sticky-notes-76-x-76-mm-blue-green-orange-pink-yellow-squared-plain-6-pads-of-90-sheets-p-1222135"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Extra Sticky Notes 76 x 76 mm Assorted, 6 packs of 6 pads of 90 sheets, price without VAT",
+   "size": 3240,
+   "price": 34.14,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852"
+  }
  },
  {
   "slug": "stabilo-boss-original-8-vs-viking-hc1-5-highlighter-8-gb",
@@ -1370,7 +1422,14 @@
    "https://www.vikingdirect.ie/en/stabilo-boss-highlighters-assorted-8-pack-p-708",
    "https://world.openfoodfacts.org/product/4006381215718"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking HC1-5 Highlighter Assorted, 3 packs of 8, price without VAT",
+   "size": 24,
+   "price": 14.07,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-highlighter-hc1-5-assorted-pack-8-p-9413673"
+  }
  },
  {
   "slug": "pritt-stick-43g-5-vs-viking-glue-stick-40g-5-gb",
@@ -1436,7 +1495,14 @@
    "https://www.viking-direct.co.uk/en/viking-glue-stick-5-pieces-of-40-g-p-1051100",
    "https://www.vikingdirect.ie/en/pritt-glue-stick-transparent-5-pieces-of-43-g-p-1013295"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Glue Stick Permanent, 5 packs of 5 of 40 g, price without VAT",
+   "size": 1000,
+   "price": 25.95,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-glue-stick-5-pieces-of-40-g-p-1051100"
+  }
  },
  {
   "slug": "scotch-magic-810-19mm-33m-vs-viking-invisible-tape-19mm-33m-gb",
@@ -1496,7 +1562,14 @@
    "https://www.viking-direct.co.uk/en/viking-office-tape-invisible-transparent-19-mm-w-x-33-m-l-bopp-biaxially-oriented-polypropylene-film-pack-of-6-rolls-of-33-m-p-1266331",
    "https://www.vikingdirect.ie/en/scotch-magic-tape-19mm-x-33m-value-pack-7-rolls-1-roll-free-p-3969954"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Office Tape Invisible 19 mm x 33 m, 5 packs of 6 rolls, price without VAT",
+   "size": 30,
+   "price": 43.95,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-office-tape-invisible-transparent-19-mm-w-x-33-m-l-bopp-biaxially-oriented-polypropylene-film-pack-of-6-rolls-of-33-m-p-1266331"
+  }
  },
  {
   "slug": "knipex-alligator-88-01-250-vs-bosch-water-pump-pliers-250-de",

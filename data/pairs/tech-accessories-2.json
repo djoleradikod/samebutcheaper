@@ -228,7 +228,8 @@
       "https://www.macotakara.jp/accessories/entry-38789.html",
       "https://www.walmart.com/ip/Onn-GAN-100W-Laptop-Charger-Compatible-for-Apple-Dell-HP-Asus-Acer-Lenovo-Samsung-White/1559025270"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "The onn 100 W charger matches the Apple 96 W adapter's power levels at equal or higher current and includes a 6 ft cable that the Apple does not. The extra money buys a stated 1-year warranty and teardown-documented power profiles, and the record does not state the onn cable's current rating."
   },
   {
     "slug": "belkin-boostcharge-20w-lightning-kit-vs-onn-20w-lightning-kit",
@@ -339,7 +340,8 @@
       "https://www.belkin.com/p/usb-c-wall-charger-20w-usb-c-cable-with-lightning-connector/WCA006dq1MWH-B5.html",
       "https://www.walmart.com/ip/onn-20W-Single-USB-C-Port-Wall-Charger-with-3ft-Lighting-to-C-Cable-Fast-Charging-MFI-USB-IF-Certified-Foldable-Plug-White/18972467630"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both are 20 W USB-C Power Delivery chargers with a USB-C to Lightning cable for iPhone fast charging. Walmart says the onn is MFi and USB-IF certified but does not say which part carries which, and the Belkin's extras are a 2-year warranty with equipment cover and a slightly longer cable (1 m against 3 ft)."
   },
   {
     "slug": "apple-30w-usb-c-power-adapter-vs-anker-nano-charger-30w",
@@ -458,6 +460,7 @@
       "https://techtest.org/das-anker-511-nano-3-im-test-das-perfekte-ladegeraet-fuers-iphone-14-s22-und-co/",
       "https://www.walmart.com/ip/1648862095"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both give the same four USB PD levels (5V/3A, 9V/3A, 15V/2A, 20V/1.5A), and neither includes a cable. The Anker adds PPS for newer Samsung and Pixel phones, and Walmart's page lists its warranty at 18 or 24 months, against Apple's one year."
   }
 ]

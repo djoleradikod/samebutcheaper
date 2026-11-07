@@ -33,6 +33,7 @@ function toRow(p: Pair): BrowseRow {
     match: p.match_type,
     market: p.market,
     photo: Boolean(p.brand.photo || p.alternative.photo),
+    bothPhotos: Boolean(p.brand.photo && p.alternative.photo),
     pct: Math.round(p.savingsPct * 10) / 10,
     unit: Number((p.alternative.ppu * unitDisplay(p.brand.unit).factor * APPROX_USD[p.currency]).toPrecision(4)),
     checked: p.price_checked,

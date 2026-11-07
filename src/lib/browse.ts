@@ -25,6 +25,8 @@ export type BrowseRow = {
   market: MarketCode;
   /** A real photo on at least one side. */
   photo: boolean;
+  /** Real photos on both sides. */
+  bothPhotos: boolean;
   /** Saving per unit, 0 to 100. */
   pct: number;
   /** The cheaper unit price as the card shows it, in rough dollars so markets can rank together. */
@@ -147,9 +149,13 @@ const COMPARE: Record<SortKey, (a: BrowseRow, b: BrowseRow) => number> = {
   newest: (a, b) => (a.checked < b.checked ? 1 : a.checked > b.checked ? -1 : bySaving(a, b)),
 };
 
-/** The rows the shopper should see, in order. */
+/**
+ * The rows the shopper should see, in order: swaps with both photos first, then the ones still missing a
+ * picture. Each group follows the chosen sort, and the list prints a heading where the second group starts.
+ */
 export function matchRows(rows: BrowseRow[], s: BrowseState, scope: Scope) {
-  return rows.filter((r) => passes(r, s, scope)).sort(COMPARE[s.sort]);
+  const sorted = rows.filter((r) => passes(r, s, scope)).sort(COMPARE[s.sort]);
+  return [...sorted.filter((r) => r.bothPhotos), ...sorted.filter((r) => !r.bothPhotos)];
 }
 
 /**

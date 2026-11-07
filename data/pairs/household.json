@@ -138,7 +138,8 @@
         "verdict": "same",
         "source": "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html"
       }
-    ]
+    ],
+    "why": "Consumer Reports rated Kirkland UltraShine Excellent on food removal and film resistance, and Cascade ActionPacs Excellent on cleaning, so both sit in CR's top tier. The formulas are different and CR did not run a like-for-like test of this Cascade pack, and Kirkland needs a Costco membership."
   },
   {
     "slug": "finish-quantum-vs-kirkland-ultrashine-dishwasher-pacs",
@@ -198,7 +199,8 @@
         "verdict": "same",
         "source": "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html"
       }
-    ]
+    ],
+    "why": "Consumer Reports rated Finish Powerball Quantum Excellent overall and Kirkland UltraShine Excellent on food removal and film resistance, so both sit at the top of its tests. The formulas are different proprietary blends, the record does not compare them head to head, and Kirkland needs a Costco membership."
   },
   {
     "slug": "oxiclean-versatile-vs-up-up-powder-stain-remover",
@@ -285,7 +287,8 @@
         "verdict": "different",
         "source": "https://www.target.com/p/-/A-81069446"
       }
-    ]
+    ],
+    "why": "Both list sodium carbonate, then sodium percarbonate, then a nonionic surfactant, in the same order, and neither discloses percentages. The main listed difference is fragrance, which the OxiClean has, and the per-ounce saving on up&up is about 15%."
   },
   {
     "slug": "mr-clean-magic-eraser-extra-durable-vs-amazon-basics-cleaning-eraser",
@@ -351,6 +354,7 @@
         "verdict": "brand_better",
         "source": "https://hip2save.com/deals/amazon-basics-cleaning-erasers/"
       }
-    ]
+    ],
+    "why": "Both are melamine foam pads, and a buyer on a deal post found the Amazon erasers similar on tub and door scuffs. Reviewers say the Amazon pads are slightly thinner, so they may wear out sooner."
   }
 ]

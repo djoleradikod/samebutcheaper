@@ -26,7 +26,13 @@ type ImageRecord = { file: string; credit: string; reviewed?: string | null; sou
 async function onWhite(png: string, size: number) {
   const trimmed = await sharp(png).trim({ threshold: 10 }).png().toBuffer();
   const inner = Math.round(size * 0.9);
-  const fit = await sharp(trimmed).resize(inner, inner, { fit: "inside" }).png().toBuffer();
+  // Snapshots run dim and soft: stretch the levels a little and sharpen after the resize, so packs read at card size.
+  const fit = await sharp(trimmed)
+    .resize(inner, inner, { fit: "inside" })
+    .normalise({ lower: 1, upper: 99 })
+    .sharpen({ sigma: size > 200 ? 0.7 : 0.5 })
+    .png()
+    .toBuffer();
   const m = await sharp(fit).metadata();
   return sharp({ create: { width: size, height: size, channels: 3, background: "#ffffff" } }).composite([
     { input: fit, left: Math.floor((size - (m.width ?? inner)) / 2), top: Math.floor((size - (m.height ?? inner)) / 2) },

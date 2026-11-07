@@ -7,8 +7,10 @@ was removed.
 A model reads printed white and pale areas as background and eats holes in a pack. Only the outline is taken from the model: holes
 are filled, and when the shape is still eaten away the convex hull is used, because a pack's outline is nearly convex.
 
-Usage: <venv>/bin/python -I cutout.py <data/images.json> <downloads-dir> <out-dir> [--limit N] [--model NAME]
+Usage: <venv>/bin/python -I cutout.py <data/images.json> <downloads-dir> <out-dir> [--limit N] [--union] [--only names.txt]
 Writes <out-dir>/<file>.png with transparency, and skips any already done. Downloads are untrusted: only Pillow reads them.
+--union is for photos a single model got wrong: it takes the union of three models' masks and always uses the hull.
+--only limits the run to the record file names listed in a text file, one per line.
 """
 import json
 import os
@@ -16,18 +18,19 @@ import sys
 
 import numpy as np
 import onnxruntime as ort
-from PIL import Image, ImageFilter, ImageOps
+from PIL import Image, ImageChops, ImageFilter, ImageOps
 from rembg import new_session, remove
 from scipy import ndimage
 from skimage.morphology import convex_hull_image
 
 MAX_SIDE = 1400
 MODEL = "birefnet-general-lite"
+UNION_MODELS = ["birefnet-general-lite", "isnet-general-use", "u2net"]
 SOLID_ENOUGH = 0.86  # area of the filled mask / area of its convex hull
 
 
-def outline(mask):
-    """The pack's outline from the model's mask: the main shape and whatever touches it, solid inside."""
+def outline(mask, always_hull=False):
+    """The pack's outline from a mask: the main shape and whatever touches it, solid inside."""
     on = np.asarray(mask) > 128
     labels, count = ndimage.label(on)
     if not count:
@@ -48,27 +51,36 @@ def outline(mask):
     filled = ndimage.binary_fill_holes(keep)
     hull = convex_hull_image(filled)
     solid = filled.sum() / max(1, hull.sum())
-    final = filled if solid >= SOLID_ENOUGH else hull
+    final = hull if always_hull or solid < SOLID_ENOUGH else filled
     return Image.fromarray((final * 255).astype("uint8")).filter(ImageFilter.GaussianBlur(1.2))
+
+
+def session_for(model):
+    # The memory cage is shared, so keep onnxruntime from holding a big arena.
+    opts = ort.SessionOptions()
+    opts.enable_cpu_mem_arena = False
+    opts.enable_mem_pattern = False
+    opts.intra_op_num_threads = 4
+    return new_session(model, sess_opts=opts)
 
 
 def main():
     records_path, downloads, out = sys.argv[1:4]
     limit = int(sys.argv[sys.argv.index("--limit") + 1]) if "--limit" in sys.argv else None
-    model = sys.argv[sys.argv.index("--model") + 1] if "--model" in sys.argv else MODEL
+    union = "--union" in sys.argv
+    only = None
+    if "--only" in sys.argv:
+        only = {line.strip() for line in open(sys.argv[sys.argv.index("--only") + 1]) if line.strip()}
     os.makedirs(out, exist_ok=True)
-    # The lane's memory cage is shared, so keep onnxruntime from holding a big arena.
-    opts = ort.SessionOptions()
-    opts.enable_cpu_mem_arena = False
-    opts.enable_mem_pattern = False
-    opts.intra_op_num_threads = 4
-    session = new_session(model, sess_opts=opts)
+    sessions = [session_for(m) for m in (UNION_MODELS if union else [MODEL])]
     records = json.load(open(records_path))
     done = failed = 0
     for key, rec in records.items():
         if not rec.get("reviewed") or rec.get("source") == "dailymed":
             continue
         name = rec["file"]
+        if only is not None and name not in only:
+            continue
         target = os.path.join(out, f"{name}.png")
         if os.path.exists(target):
             continue
@@ -81,8 +93,11 @@ def main():
             with Image.open(orig) as im:
                 im = ImageOps.exif_transpose(im).convert("RGB")
                 im.thumbnail((MAX_SIDE, MAX_SIDE))
-                mask = remove(im, session=session, only_mask=True, post_process_mask=True)
-                im.putalpha(outline(mask.convert("L")))
+                mask = None
+                for session in sessions:
+                    m = remove(im, session=session, only_mask=True, post_process_mask=True).convert("L")
+                    mask = m if mask is None else ImageChops.lighter(mask, m)
+                im.putalpha(outline(mask, always_hull=union))
                 im.save(target)
             done += 1
             if done % 25 == 0:

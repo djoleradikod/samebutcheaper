@@ -951,7 +951,14 @@
    "https://www.mytime.de/jeden_tag_spezialsalz_fuer_geschirrspuelmaschinen_4501012747.html",
    "https://world.openfoodfacts.org/product/4002448046424"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Jeden Tag Spezialsalz für Geschirrspülmaschinen, 6 x 2.2 kg",
+   "size": 13200,
+   "price": 7.02,
+   "retailer": "other",
+   "url": "https://www.mytime.de/jeden_tag_spezialsalz_fuer_geschirrspuelmaschinen_4501012747.html"
+  }
  },
  {
   "slug": "somat-5in1-klarspueler-vs-jeden-tag-klarspueler-de",
@@ -1519,7 +1526,14 @@
    "https://www.mytime.de/jeden_tag_alufolie_4510061550.html",
    "https://world.openproductsfacts.org/product/4008284073365"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Quickpack Alufolie Premiumline extra stark, 6 x 15 m",
+   "size": 90,
+   "price": 18.9,
+   "retailer": "other",
+   "url": "https://www.mytime.de/quickpack_alufolie_premiumline_extra_stark_4510061913.html"
+  }
  },
  {
   "slug": "pely-power-gefrierbeutel-1-liter-vs-jeden-tag-gefrierbeutel-1-liter-de",

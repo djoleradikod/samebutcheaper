@@ -87,7 +87,7 @@ export function BasketCard({ basket: b, eager = false }: { basket: BasketSummary
             <ToArrow className="text-muted" />
             <span className="price text-xl leading-none text-ink">{money(b.altTotal, b.currency)}</span>
           </p>
-          <SaveTicket size="lg" amount={b.savings} currency={b.currency} className="mt-2" />
+          <SaveTicket size="md" amount={b.savings} currency={b.currency} className="mt-2" />
         </div>
       </div>
     </Link>

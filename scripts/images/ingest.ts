@@ -166,14 +166,17 @@ async function main() {
         bytes = null;
       }
     }
+    const prior = records[c.key] as { file?: string; credit?: string; reviewed?: string | null } | undefined;
+    const samePicture = prior?.file === name;
     records[c.key] = {
       file: name,
       source: c.source,
-      credit: c.credit,
+      // A cutout notes the change in its credit, as CC BY-SA asks, so ingesting the same picture again keeps that credit.
+      credit: samePicture && prior?.credit ? prior.credit : c.credit,
       license: c.license,
       page: c.page,
       matched: c.matched ?? "",
-      reviewed: (records[c.key] as { file?: string; reviewed?: string | null } | undefined)?.file === name ? ((records[c.key] as { reviewed?: string | null }).reviewed ?? null) : null,
+      reviewed: samePicture ? (prior?.reviewed ?? null) : null,
     };
     ok++;
   }

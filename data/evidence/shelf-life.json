@@ -1,816 +1,1652 @@
 [
- {
-  "id": "toothpaste",
-  "label": "Toothpaste",
-  "categories": [
-   "skincare-personal-care"
-  ],
-  "subcategories": [
-   "Toothpaste"
-  ],
-  "unopened": "About two years from the date of manufacture (Oral-B). Colgate gives two years as a maximum, and shorter for some formulas.",
-  "opened": "No separate period for an opened tube. Put the cap back on.",
-  "storage": "Somewhere fairly cool, in a closed cabinet. Heat can make the ingredients separate (Colgate).",
-  "advice": "buy_to_use",
-  "note": "The date is printed on the tube and is counted from manufacture, so check it before buying a large pack. Both makers say the limit is mainly about fluoride, which can weaken over time. These are the makers' own figures.",
-  "sources": [
-   {
-    "url": "https://oralb.com/en-us/oral-health/why-oral-b/does-toothpaste-expire/",
-    "publisher": "Oral-B",
-    "title": "Does Toothpaste Expire",
-    "date": "2025-06"
-   },
-   {
-    "url": "https://www.colgate.com/en-us/oral-health/nutrition-and-oral-health/does-toothpaste-expire",
-    "publisher": "Colgate-Palmolive",
-    "title": "Does Toothpaste Expire?",
-    "date": "2023-01-09"
-   }
-  ]
- },
- {
-  "id": "nappies",
-  "label": "Nappies",
-  "categories": [
-   "baby"
-  ],
-  "subcategories": [
-   "Nappies",
-   "Diapers"
-  ],
-  "unopened": "No strict expiry date. Pampers says up to 3 years from the manufacturing date, not the purchase date. A 2019 Healthline article reports makers suggesting use within 2 years of purchase.",
-  "opened": "Pampers says best within 12 months of opening. Healthline found no fixed limit for opened packs.",
-  "storage": "Cool, dry place indoors, out of direct sunlight, in the original packaging.",
-  "advice": "buy_to_use",
-  "note": "The concern is performance, not a safety date: older nappies can absorb less and their tabs and elastic can weaken. On Pampers packs, the first digit of the production code gives the year. The 3-year and 12-month figures are the maker's own, and the sources do not cover other brands' codes.",
-  "sources": [
-   {
-    "url": "https://www.pampers.co.uk/safety-and-commitment/nappies-and-wipes/article/do-nappies-expire",
-    "publisher": "Pampers UK",
-    "title": "Do Nappies Expire? Shelf Life Explained",
-    "date": "2026-08-28"
-   },
-   {
-    "url": "https://www.healthline.com/health/baby/do-diapers-expire",
-    "publisher": "Healthline",
-    "title": "Do Diapers Expire? What to Know Before Using Old Diapers",
-    "date": "2019-12-18"
-   }
-  ]
- },
- {
-  "id": "infant-formula",
-  "label": "Infant formula",
-  "categories": [
-   "baby"
-  ],
-  "subcategories": [
-   "Infant formula"
-  ],
-  "unopened": "Until the date on the tub, in a cool, dry place such as a kitchen cupboard (Aptaclub).",
-  "opened": "Powder: in the cupboard with the lid tight, until the time stated on the pack or the expiry date, whichever comes first (Aptaclub). Ready-to-feed liquid: at the back of the fridge for no more than 24 hours (NHS).",
-  "storage": "Make each feed fresh when you can. Throw away what is left at the end of a feed (NHS), and any bottle kept at room temperature for over 2 hours (NHS). A made-up bottle kept in advance needs a fridge at 5 C or below and goes after 24 hours (Aptaclub). The NHS says to ask a health visitor before storing feeds.",
-  "advice": "buy_to_use",
-  "note": "Aptaclub is run by a formula maker, and the opened-powder guidance comes only from there. The NHS says first infant formula should be the main drink until 12 months when a baby is not breastfed. Ask a health visitor or pharmacist before changing formula type.",
-  "sources": [
-   {
-    "url": "https://www.nhs.uk/best-start-in-life/baby/feeding-your-baby/bottle-feeding/how-to-make-up-a-feed/how-to-use-formula/",
-    "publisher": "NHS",
-    "title": "How to use formula",
-    "date": "undated (read 2026-11-06)"
-   },
-   {
-    "url": "https://www.aptaclub.co.uk/feeding/formula-feeding/storing-formula-milk.html",
-    "publisher": "Aptaclub",
-    "title": "Infant Formula Storage Guide",
-    "date": "2026-02-10"
-   }
-  ]
- },
- {
-  "id": "dry-pet-food",
-  "label": "Dry dog and cat food",
-  "categories": [
-   "pet"
-  ],
-  "subcategories": [
-   "Dry dog food",
-   "Dry cat food"
-  ],
-  "unopened": "Until the best-by date on the bag (PetMD).",
-  "opened": "Dogs: about 30 days (PetMD). Cats: no more than two to three months (PetMD), though that page does not say clearly whether this counts from opening.",
-  "storage": "Cool, dry place below 80 F (FDA), in the original bag or a clean container with a tight lid.",
-  "advice": "buy_to_use",
-  "note": "Both time figures come from PetMD, on separate pages for dogs and cats, and they differ. The FDA page gives no period after opening. Follow the bag's guidance where it gives one.",
-  "sources": [
-   {
-    "url": "https://www.fda.gov/animal-veterinary/animal-health-literacy/proper-storage-pet-food-treats",
-    "publisher": "US Food and Drug Administration",
-    "title": "Proper Storage of Pet Food & Treats",
-    "date": "2024-05-23"
-   },
-   {
-    "url": "https://www.petmd.com/dog/nutrition/how-to-store-dog-food",
-    "publisher": "PetMD",
-    "title": "How To Store Dog Food",
-    "date": "2025-06-25"
-   },
-   {
-    "url": "https://www.petmd.com/cat/nutrition/how-to-store-cat-food",
-    "publisher": "PetMD",
-    "title": "How To Store Cat Food",
-    "date": "2025-07-21"
-   }
-  ]
- },
- {
-  "id": "wet-pet-food",
-  "label": "Wet dog and cat food (cans)",
-  "categories": [
-   "pet"
-  ],
-  "subcategories": [
-   "Wet dog food",
-   "Wet cat food"
-  ],
-  "unopened": "Until the best-by date on the can (PetMD). Throw away dented, swollen or leaking cans.",
-  "opened": "In the fridge with a tight seal: three to four days for dog food, three days for cat food (PetMD).",
-  "storage": "Keep unopened cans cool and dry, below 80 F. Refrigerate leftovers promptly, with the fridge at 40 F (4.4 C) or colder (FDA).",
-  "advice": "buy_small",
-  "note": "Unopened cans keep to their date, so the risk is the opened can: it lasts only days, which is why smaller cans suit a pet that eats slowly. The FDA page gives no period for an opened can, so the day counts are PetMD's only.",
-  "sources": [
-   {
-    "url": "https://www.fda.gov/animal-veterinary/animal-health-literacy/proper-storage-pet-food-treats",
-    "publisher": "US Food and Drug Administration",
-    "title": "Proper Storage of Pet Food & Treats",
-    "date": "2024-05-23"
-   },
-   {
-    "url": "https://www.petmd.com/dog/nutrition/how-to-store-dog-food",
-    "publisher": "PetMD",
-    "title": "How To Store Dog Food",
-    "date": "2025-06-25"
-   },
-   {
-    "url": "https://www.petmd.com/cat/nutrition/how-to-store-cat-food",
-    "publisher": "PetMD",
-    "title": "How To Store Cat Food",
-    "date": "2025-07-21"
-   }
-  ]
- },
- {
-  "id": "dry-pasta",
-  "label": "Dry pasta",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Pasta"
-  ],
-  "unopened": "2 years in the pantry (Virginia Tech and NDSU; Nebraska gives 1 to 2 years)",
-  "opened": "About 1 year in the pantry (Virginia Tech and NDSU). Egg noodles only 1 to 2 months (NDSU)",
-  "storage": "Dry place below 85 F, in the original pack or an airtight container",
-  "advice": "stock_up",
-  "note": "Once opened, egg noodles go off much sooner than spaghetti or macaroni, per NDSU.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   }
-  ]
- },
- {
-  "id": "white-rice",
-  "label": "White rice",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "White rice",
-   "Rice"
-  ],
-  "unopened": "2 years in the pantry (Nebraska, Alabama, Virginia Tech table; NDSU gives 1 to 2 years)",
-  "opened": "About 1 year in the pantry (Virginia Tech); 1 to 2 years (NDSU)",
-  "storage": "Tightly closed container at room temperature",
-  "advice": "buy_to_use",
-  "note": "Virginia Tech's text says to use raw white rice within one year, which is stricter than its own table. Brown rice keeps about 1 year (Virginia Tech, Nebraska).",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "canned-low-acid-food",
-  "label": "Canned low-acid food (beans, vegetables, meat, fish)",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Baked beans",
-   "Canned vegetables",
-   "Canned fish",
-   "Canned meat"
-  ],
-  "unopened": "2 to 5 years (Virginia Tech and Nebraska; canned poultry 5 years per Virginia Tech)",
-  "opened": "Refrigerate and use within about 3 to 4 days (Virginia Tech, Nebraska, NDSU). Alabama is stricter: fish 1 day, meat 2 days, vegetables 3 days. NDSU's canned food chart says vegetables 2 days",
-  "storage": "Dry place below 85 F, best at 50 to 70 F",
-  "advice": "stock_up",
-  "note": "The sources differ widely. NDSU gives 12 to 18 months for canned foods in general and Alabama gives 1 year for canned vegetables and soups. Canned ham is shorter at 6 to 9 months (Virginia Tech).",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "canned-high-acid-food",
-  "label": "Canned high-acid food (fruit, juice, tomato soup)",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Canned fruit",
-   "Canned fruit juice",
-   "Tomato soup"
-  ],
-  "unopened": "12 to 18 months (Virginia Tech, Nebraska, NDSU)",
-  "opened": "Refrigerate and use within 5 to 7 days (Virginia Tech, Nebraska, NDSU's canned food chart)",
-  "storage": "Cool, dry place below 85 F, best at 50 to 70 F",
-  "advice": "buy_to_use",
-  "note": "NDSU's fruit chart gives a shorter 2 to 4 days for opened canned fruit. Pickles and olives differ: NDSU gives 1 to 3 months refrigerated after opening.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   }
-  ]
- },
- {
-  "id": "ground-coffee-vacuum-packed",
-  "label": "Ground coffee (vacuum-packed or canned)",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Ground coffee",
-   "Coffee"
-  ],
-  "unopened": "2 years in the pantry for ground coffee (Virginia Tech) and canned coffee (NDSU); 1 year for vacuum-packed (Alabama)",
-  "opened": "2 weeks in the pantry, 1 month refrigerated (Virginia Tech, NDSU), 6 to 12 months frozen (NDSU)",
-  "storage": "Pantry until opened. Alabama says to refrigerate after opening",
-  "advice": "buy_to_use",
-  "note": "Sources disagree on unopened time (1 to 2 years).",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "instant-coffee",
-  "label": "Instant coffee",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Instant coffee"
-  ],
-  "unopened": "1 year (Virginia Tech, NDSU); 6 months (Alabama)",
-  "opened": "2 to 3 months (Virginia Tech, NDSU); 2 weeks (Alabama)",
-  "storage": "Pantry",
-  "advice": "buy_to_use",
-  "note": "Alabama's figures are much shorter than the other two, so buy for the shorter time if you are unsure.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "tea-bags-and-loose-tea",
-  "label": "Tea (bags, loose and instant)",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Tea",
-   "Tea bags"
-  ],
-  "unopened": "18 to 36 months for bags (Virginia Tech, NDSU); 2 years loose (NDSU); 2 to 3 years instant (Virginia Tech, NDSU)",
-  "opened": "6 to 12 months (Virginia Tech, NDSU)",
-  "storage": "Pantry",
-  "advice": "buy_to_use",
-  "note": "Alabama's chart is lower: 18 months for bags and loose tea, 2 years for instant.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "vegetable-and-salad-oil",
-  "label": "Cooking oil (vegetable and salad)",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Cooking oil",
-   "Vegetable oil"
-  ],
-  "unopened": "Vegetable oil 6 months (Virginia Tech, NDSU) or 6 to 12 months (Nebraska). Salad oil 6 to 12 months (Virginia Tech) or 3 months (Alabama)",
-  "opened": "3 to 5 months in the pantry, 4 months refrigerated (Virginia Tech, NDSU, Nebraska)",
-  "storage": "Cool, dark place in a tightly closed container. NDSU says refrigeration is not needed; Alabama says to refrigerate salad oil after opening",
-  "advice": "buy_small",
-  "note": "The fridge figure is no longer than the pantry figure in these charts. Buy what you can use in that time.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "sugar-granulated-brown-icing",
-  "label": "Sugar (granulated, brown and icing)",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Sugar",
-   "Brown sugar",
-   "Icing sugar"
-  ],
-  "unopened": "All three: indefinitely (Virginia Tech) or 18 to 24 months (NDSU, Nebraska). Granulated 2 years and brown or icing 4 months (Alabama)",
-  "opened": "18 to 24 months (Virginia Tech)",
-  "storage": "Dry place in an airtight container. Virginia Tech says humidity above 60% can make dry foods cake",
-  "advice": "buy_to_use",
-  "note": "The sources disagree widely on brown and icing sugar.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "flour-white-all-purpose",
-  "label": "White flour (all-purpose)",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Flour",
-   "All-purpose flour"
-  ],
-  "unopened": "6 to 12 months in the pantry (Virginia Tech, NDSU, Nebraska)",
-  "opened": "6 to 8 months in the pantry; about 12 months refrigerated (Virginia Tech, NDSU, Nebraska)",
-  "storage": "Dry place below 85 F in an airtight container",
-  "advice": "buy_to_use",
-  "note": "Freezing extends white flour to about 2 years (Nebraska). NDSU says it can be frozen for indefinite storage.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   }
-  ]
- },
- {
-  "id": "flour-wholewheat",
-  "label": "Whole-wheat flour",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Flour",
-   "Whole wheat flour"
-  ],
-  "unopened": "3 to 6 months in the pantry (Virginia Tech, NDSU, Nebraska)",
-  "opened": "6 to 8 months refrigerated (Virginia Tech, NDSU, Nebraska)",
-  "storage": "Airtight container. The fridge or freezer helps stop its natural oil going rancid (Virginia Tech)",
-  "advice": "buy_small",
-  "note": "Alabama gives 1 year for rye and whole-wheat flour kept refrigerated. Nebraska gives 2 years frozen.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "spices-whole",
-  "label": "Whole spices",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Spices",
-   "Whole spices"
-  ],
-  "unopened": "3 to 4 years (Virginia Tech, NDSU, Nebraska); 1 year (Alabama)",
-  "opened": "3 to 4 years (Virginia Tech)",
-  "storage": "Cool spot. Alabama says to replace them if the aroma fades",
-  "advice": "buy_to_use",
-  "note": "Alabama's 1 year figure is much shorter than the other three sources.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "spices-ground",
-  "label": "Ground spices",
-  "categories": [
-   "food-pantry"
-  ],
-  "subcategories": [
-   "Spices",
-   "Ground spices"
-  ],
-  "unopened": "2 to 3 years (Virginia Tech, NDSU, Nebraska); 6 months (Alabama)",
-  "opened": "2 to 3 years (Virginia Tech)",
-  "storage": "Cool spot. Alabama says to replace them if the aroma fades",
-  "advice": "buy_to_use",
-  "note": "Alabama gives 6 months, which is much shorter than the other three sources.",
-  "sources": [
-   {
-    "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
-    "publisher": "Virginia Cooperative Extension, Virginia Tech",
-    "title": "Food Storage Guidelines For Consumers (348-960)",
-    "date": "2025-10"
-   },
-   {
-    "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
-    "publisher": "NDSU Extension",
-    "title": "Food Storage Guide Answers the Question (FN579)",
-    "date": "2023-01"
-   },
-   {
-    "url": "https://food.unl.edu/free-resource/food-storage/",
-    "publisher": "UNL Food, Nebraska Extension",
-    "title": "Home Food Storage",
-    "date": "2026"
-   },
-   {
-    "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
-    "publisher": "Alabama Cooperative Extension System",
-    "title": "Food Storage Charts (ACES-2243)",
-    "date": "2018-12-17"
-   }
-  ]
- },
- {
-  "id": "alkaline-batteries",
-  "label": "Alkaline batteries",
-  "categories": [
-   "batteries"
-  ],
-  "subcategories": [
-   "AA batteries",
-   "AAA batteries"
-  ],
-  "unopened": "About 5 to 10 years, and up to 15 for some batteries and brands",
-  "opened": "",
-  "storage": "Cool and dry, out of direct sunlight and away from extreme temperatures",
-  "advice": "stock_up",
-  "note": "Battery University (updated 2021) gives 7 to 10 years and a loss of 2 to 3 percent a year. NBC Select (2024) gives 5 to 10 years in its own text and quotes a Batteries Plus manager saying 5 to 15 years. NBC says the packaging should state the storage life. Its storage advice is for household batteries in general, from the CEO of Cirba Solutions.",
-  "sources": [
-   {
-    "url": "https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do",
-    "publisher": "Battery University",
-    "title": "BU-802b: What does Elevated Self-discharge Do?",
-    "date": "2021-11-02"
-   },
-   {
-    "url": "https://www.nbcnews.com/select/amp/rcna169597",
-    "publisher": "NBC Select",
-    "title": "Here's how to properly store your batteries, according to experts",
-    "date": "2024-09-04"
-   }
-  ]
- },
- {
-  "id": "nimh-rechargeable-batteries",
-  "label": "Rechargeable NiMH batteries",
-  "categories": [
-   "batteries"
-  ],
-  "subcategories": [
-   "Rechargeable AA batteries",
-   "Rechargeable AAA batteries"
-  ],
-  "unopened": "Charge drains while they sit: standard cells lose 10 to 15 percent in the first 24 hours after charging, then 10 to 15 percent a month",
-  "opened": "",
-  "storage": "Recharge before use after a few weeks on a shelf. For storage beyond a year, charge at least once a year",
-  "advice": "buy_to_use",
-  "note": "No source gave a shelf life in years. The drain figures are from Battery University (updated 2021) and cover nickel cells generally. Low self-discharge cells hold charge much better: Epec, a battery maker, said in 2014 they keep up to 85 percent after a year at room temperature, while a home test published in 2009 and updated in 2012 measured 56 percent after 16 months on a single pack. Which? (June 2026) says the best rechargeables stay charged between uses and the worst leak charge, without naming the cell type.",
-  "sources": [
-   {
-    "url": "https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do",
-    "publisher": "Battery University",
-    "title": "BU-802b: What does Elevated Self-discharge Do?",
-    "date": "2021-11-02"
-   },
-   {
-    "url": "https://blog.epectec.com/what-is-the-shelf-life-of-rechargeable-nimh-batteries",
-    "publisher": "Epec Engineered Technologies",
-    "title": "What is the Shelf Life of Rechargeable NiMH Batteries?",
-    "date": "2014-04-01"
-   },
-   {
-    "url": "https://www.stefanv.com/electronics/low_self_discharge.html",
-    "publisher": "Stefan Vorkoetter",
-    "title": "Review: Pre-Charged (Low Self-Discharge) Rechargeable Battery Comparison",
-    "date": "2012-01-10"
-   },
-   {
-    "url": "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
-    "publisher": "Which?",
-    "title": "Expert-tested: the seven Best Buy everyday essentials you need to get right",
-    "date": "2026-06-11"
-   }
-  ]
- },
- {
-  "id": "printer-ink-cartridges",
-  "label": "Printer ink cartridges",
-  "categories": [
-   "office"
-  ],
-  "subcategories": [
-   "Printer ink"
-  ],
-  "unopened": "18 to 24 months for genuine HP inkjet cartridges stored as advised (HP, 16 March 2026). Epson gives no number of months and says not to use a cartridge past its expiry date.",
-  "opened": "3 to 12 months once installed, depending on how often you print (HP). Within six months of installation for best results (Epson).",
-  "storage": "Sealed in the original pack, dry and out of sunlight, at 0 to 35 °C (HP). Cool and dark, with Epson's range for most inkjet cartridges at -20 to 40 °C and no more than a month at 40 °C (Epson).",
-  "advice": "buy_to_use",
-  "note": "These are makers' figures for their own cartridges and say nothing about compatible ones. They vary by model, so check the cartridge's expiry date and your printer's guide.",
-  "sources": [
-   {
-    "url": "https://www.hp.com/us-en/tech-takes/printing/explainer/how-long-does-printer-ink-last.html",
-    "publisher": "HP",
-    "title": "How Long Does Printer Ink Last If You Don't Print Often?",
-    "date": "2026-03-16"
-   },
-   {
-    "url": "https://www.epson.co.uk/en_GB/faq/KA-01601/contents?loc=en-us",
-    "publisher": "Epson UK",
-    "title": "How should I store the Ink Cartridges for my printer?",
-    "date": "undated, read 2026-11-06"
-   }
-  ]
- },
- {
-  "id": "paint-tins",
-  "label": "Paint (tins)",
-  "categories": [
-   "tools-diy"
-  ],
-  "subcategories": [
-   "Paint"
-  ],
-  "unopened": "Figures disagree. General guides say up to 10 years for latex and water-based acrylic and up to 15 for oil-based (Bob Vila, 2020; Southern Living, 2024). Makers say less: three years from manufacture for most Sherwin-Williams architectural coatings (Southern Living, 2024) and an estimated two years for unopened PPG latex (The Spruce, 2019).",
-  "opened": "Up to about two years if well sealed (Dulux, for leftover paint; the president of C2 Paint in Southern Living, 2024). A badly sealed tin can spoil within months.",
-  "storage": "Indoors at a steady temperature, out of strong sunlight and frost (Bob Vila, Dulux). Avoid sheds and garages unless temperature controlled (Southern Living). Freezing or great heat can spoil even a sealed tin (Bob Vila).",
-  "advice": "buy_to_use",
-  "note": "Bob Vila cites no study for its figures, and most of these sources are American. Treat the long figures as a best case and go by the maker's label. Throw paint out if it smells foul or rancid or has mould on it.",
-  "sources": [
-   {
-    "url": "https://www.bobvila.com/articles/how-long-does-paint-last/",
-    "publisher": "Bob Vila",
-    "title": "Solved! Here's How Long Paint Actually Lasts",
-    "date": "2020-02-10"
-   },
-   {
-    "url": "https://www.aol.com/does-paint-expire-experts-weigh-010748008.html",
-    "publisher": "AOL (syndicating Southern Living)",
-    "title": "Does A Can Of Paint Expire? Experts Weigh In",
-    "date": "2024-02-09"
-   },
-   {
-    "url": "https://www.aol.com/long-does-paint-last-181907500.html",
-    "publisher": "AOL (syndicating The Spruce)",
-    "title": "How Long Does Paint Last? 6 Expiration Signs",
-    "date": "2019-03-13"
-   },
-   {
-    "url": "https://www.dulux.co.uk/en/expert-help/how-make-most-leftover-paint",
-    "publisher": "Dulux",
-    "title": "How to Make the Most of Leftover Paint",
-    "date": "undated, read 2026-11-06"
-   }
-  ]
- }
+  {
+    "id": "toothpaste",
+    "label": "Toothpaste",
+    "categories": [
+      "skincare-personal-care"
+    ],
+    "subcategories": [
+      "Toothpaste"
+    ],
+    "unopened": "About two years from the date of manufacture (Oral-B). Colgate gives two years as a maximum, and shorter for some formulas.",
+    "opened": "No separate period for an opened tube. Put the cap back on.",
+    "storage": "Somewhere fairly cool, in a closed cabinet. Heat can make the ingredients separate (Colgate).",
+    "advice": "buy_to_use",
+    "note": "The date is printed on the tube and is counted from manufacture, so check it before buying a large pack. Both makers say the limit is mainly about fluoride, which can weaken over time. These are the makers' own figures.",
+    "sources": [
+      {
+        "url": "https://oralb.com/en-us/oral-health/why-oral-b/does-toothpaste-expire/",
+        "publisher": "Oral-B",
+        "title": "Does Toothpaste Expire",
+        "date": "2025-06"
+      },
+      {
+        "url": "https://www.colgate.com/en-us/oral-health/nutrition-and-oral-health/does-toothpaste-expire",
+        "publisher": "Colgate-Palmolive",
+        "title": "Does Toothpaste Expire?",
+        "date": "2023-01-09"
+      }
+    ]
+  },
+  {
+    "id": "nappies",
+    "label": "Nappies",
+    "categories": [
+      "baby"
+    ],
+    "subcategories": [
+      "Nappies",
+      "Diapers"
+    ],
+    "unopened": "No strict expiry date. Pampers says up to 3 years from the manufacturing date, not the purchase date. A 2019 Healthline article reports makers suggesting use within 2 years of purchase.",
+    "opened": "Pampers says best within 12 months of opening. Healthline found no fixed limit for opened packs.",
+    "storage": "Cool, dry place indoors, out of direct sunlight, in the original packaging.",
+    "advice": "buy_to_use",
+    "note": "The concern is performance, not a safety date: older nappies can absorb less and their tabs and elastic can weaken. On Pampers packs, the first digit of the production code gives the year. The 3-year and 12-month figures are the maker's own, and the sources do not cover other brands' codes.",
+    "sources": [
+      {
+        "url": "https://www.pampers.co.uk/safety-and-commitment/nappies-and-wipes/article/do-nappies-expire",
+        "publisher": "Pampers UK",
+        "title": "Do Nappies Expire? Shelf Life Explained",
+        "date": "2026-08-28"
+      },
+      {
+        "url": "https://www.healthline.com/health/baby/do-diapers-expire",
+        "publisher": "Healthline",
+        "title": "Do Diapers Expire? What to Know Before Using Old Diapers",
+        "date": "2019-12-18"
+      }
+    ]
+  },
+  {
+    "id": "infant-formula",
+    "label": "Infant formula",
+    "categories": [
+      "baby"
+    ],
+    "subcategories": [
+      "Infant formula"
+    ],
+    "unopened": "Until the date on the tub, in a cool, dry place such as a kitchen cupboard (Aptaclub).",
+    "opened": "Powder: in the cupboard with the lid tight, until the time stated on the pack or the expiry date, whichever comes first (Aptaclub). Ready-to-feed liquid: at the back of the fridge for no more than 24 hours (NHS).",
+    "storage": "Make each feed fresh when you can. Throw away what is left at the end of a feed (NHS), and any bottle kept at room temperature for over 2 hours (NHS). A made-up bottle kept in advance needs a fridge at 5 C or below and goes after 24 hours (Aptaclub). The NHS says to ask a health visitor before storing feeds.",
+    "advice": "buy_to_use",
+    "note": "Aptaclub is run by a formula maker, and the opened-powder guidance comes only from there. The NHS says first infant formula should be the main drink until 12 months when a baby is not breastfed. Ask a health visitor or pharmacist before changing formula type.",
+    "sources": [
+      {
+        "url": "https://www.nhs.uk/best-start-in-life/baby/feeding-your-baby/bottle-feeding/how-to-make-up-a-feed/how-to-use-formula/",
+        "publisher": "NHS",
+        "title": "How to use formula",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://www.aptaclub.co.uk/feeding/formula-feeding/storing-formula-milk.html",
+        "publisher": "Aptaclub",
+        "title": "Infant Formula Storage Guide",
+        "date": "2026-02-10"
+      }
+    ]
+  },
+  {
+    "id": "dry-pet-food",
+    "label": "Dry dog and cat food",
+    "categories": [
+      "pet"
+    ],
+    "subcategories": [
+      "Dry dog food",
+      "Dry cat food"
+    ],
+    "unopened": "Until the best-by date on the bag (PetMD).",
+    "opened": "Dogs: about 30 days (PetMD). Cats: no more than two to three months (PetMD), though that page does not say clearly whether this counts from opening.",
+    "storage": "Cool, dry place below 80 F (FDA), in the original bag or a clean container with a tight lid.",
+    "advice": "buy_to_use",
+    "note": "Both time figures come from PetMD, on separate pages for dogs and cats, and they differ. The FDA page gives no period after opening. Follow the bag's guidance where it gives one.",
+    "sources": [
+      {
+        "url": "https://www.fda.gov/animal-veterinary/animal-health-literacy/proper-storage-pet-food-treats",
+        "publisher": "US Food and Drug Administration",
+        "title": "Proper Storage of Pet Food & Treats",
+        "date": "2024-05-23"
+      },
+      {
+        "url": "https://www.petmd.com/dog/nutrition/how-to-store-dog-food",
+        "publisher": "PetMD",
+        "title": "How To Store Dog Food",
+        "date": "2025-06-25"
+      },
+      {
+        "url": "https://www.petmd.com/cat/nutrition/how-to-store-cat-food",
+        "publisher": "PetMD",
+        "title": "How To Store Cat Food",
+        "date": "2025-07-21"
+      }
+    ]
+  },
+  {
+    "id": "wet-pet-food",
+    "label": "Wet dog and cat food (cans)",
+    "categories": [
+      "pet"
+    ],
+    "subcategories": [
+      "Wet dog food",
+      "Wet cat food"
+    ],
+    "unopened": "Until the best-by date on the can (PetMD). Throw away dented, swollen or leaking cans.",
+    "opened": "In the fridge with a tight seal: three to four days for dog food, three days for cat food (PetMD).",
+    "storage": "Keep unopened cans cool and dry, below 80 F. Refrigerate leftovers promptly, with the fridge at 40 F (4.4 C) or colder (FDA).",
+    "advice": "buy_small",
+    "note": "Unopened cans keep to their date, so the risk is the opened can: it lasts only days, which is why smaller cans suit a pet that eats slowly. The FDA page gives no period for an opened can, so the day counts are PetMD's only.",
+    "sources": [
+      {
+        "url": "https://www.fda.gov/animal-veterinary/animal-health-literacy/proper-storage-pet-food-treats",
+        "publisher": "US Food and Drug Administration",
+        "title": "Proper Storage of Pet Food & Treats",
+        "date": "2024-05-23"
+      },
+      {
+        "url": "https://www.petmd.com/dog/nutrition/how-to-store-dog-food",
+        "publisher": "PetMD",
+        "title": "How To Store Dog Food",
+        "date": "2025-06-25"
+      },
+      {
+        "url": "https://www.petmd.com/cat/nutrition/how-to-store-cat-food",
+        "publisher": "PetMD",
+        "title": "How To Store Cat Food",
+        "date": "2025-07-21"
+      }
+    ]
+  },
+  {
+    "id": "dry-pasta",
+    "label": "Dry pasta",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Pasta"
+    ],
+    "unopened": "2 years in the pantry (Virginia Tech and NDSU; Nebraska gives 1 to 2 years)",
+    "opened": "About 1 year in the pantry (Virginia Tech and NDSU). Egg noodles only 1 to 2 months (NDSU)",
+    "storage": "Dry place below 85 F, in the original pack or an airtight container",
+    "advice": "stock_up",
+    "note": "Once opened, egg noodles go off much sooner than spaghetti or macaroni, per NDSU.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      }
+    ]
+  },
+  {
+    "id": "white-rice",
+    "label": "White rice",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "White rice",
+      "Rice"
+    ],
+    "unopened": "2 years in the pantry (Nebraska, Alabama, Virginia Tech table; NDSU gives 1 to 2 years)",
+    "opened": "About 1 year in the pantry (Virginia Tech); 1 to 2 years (NDSU)",
+    "storage": "Tightly closed container at room temperature",
+    "advice": "buy_to_use",
+    "note": "Virginia Tech's text says to use raw white rice within one year, which is stricter than its own table. Brown rice keeps about 1 year (Virginia Tech, Nebraska).",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "canned-low-acid-food",
+    "label": "Canned low-acid food (beans, vegetables, meat, fish)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Baked beans",
+      "Canned vegetables",
+      "Canned fish",
+      "Canned meat"
+    ],
+    "unopened": "2 to 5 years (Virginia Tech and Nebraska; canned poultry 5 years per Virginia Tech)",
+    "opened": "Refrigerate and use within about 3 to 4 days (Virginia Tech, Nebraska, NDSU). Alabama is stricter: fish 1 day, meat 2 days, vegetables 3 days. NDSU's canned food chart says vegetables 2 days",
+    "storage": "Dry place below 85 F, best at 50 to 70 F",
+    "advice": "stock_up",
+    "note": "The sources differ widely. NDSU gives 12 to 18 months for canned foods in general and Alabama gives 1 year for canned vegetables and soups. Canned ham is shorter at 6 to 9 months (Virginia Tech).",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "canned-high-acid-food",
+    "label": "Canned high-acid food (fruit, juice, tomato soup)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Canned fruit",
+      "Canned fruit juice",
+      "Canned tomatoes",
+      "Tomato soup"
+    ],
+    "unopened": "12 to 18 months (Virginia Tech, Nebraska, NDSU)",
+    "opened": "Refrigerate and use within 5 to 7 days (Virginia Tech, Nebraska, NDSU's canned food chart)",
+    "storage": "Cool, dry place below 85 F, best at 50 to 70 F",
+    "advice": "buy_to_use",
+    "note": "NDSU's fruit chart gives a shorter 2 to 4 days for opened canned fruit. Pickles and olives differ: NDSU gives 1 to 3 months refrigerated after opening.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      }
+    ]
+  },
+  {
+    "id": "ground-coffee-vacuum-packed",
+    "label": "Ground coffee (vacuum-packed or canned)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Ground coffee",
+      "Coffee"
+    ],
+    "unopened": "2 years in the pantry for ground coffee (Virginia Tech) and canned coffee (NDSU); 1 year for vacuum-packed (Alabama)",
+    "opened": "2 weeks in the pantry, 1 month refrigerated (Virginia Tech, NDSU), 6 to 12 months frozen (NDSU)",
+    "storage": "Pantry until opened. Alabama says to refrigerate after opening",
+    "advice": "buy_to_use",
+    "note": "Sources disagree on unopened time (1 to 2 years).",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "instant-coffee",
+    "label": "Instant coffee",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Instant coffee"
+    ],
+    "unopened": "1 year (Virginia Tech, NDSU); 6 months (Alabama)",
+    "opened": "2 to 3 months (Virginia Tech, NDSU); 2 weeks (Alabama)",
+    "storage": "Pantry",
+    "advice": "buy_to_use",
+    "note": "Alabama's figures are much shorter than the other two, so buy for the shorter time if you are unsure.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "tea-bags-and-loose-tea",
+    "label": "Tea (bags, loose and instant)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Tea",
+      "Tea bags"
+    ],
+    "unopened": "18 to 36 months for bags (Virginia Tech, NDSU); 2 years loose (NDSU); 2 to 3 years instant (Virginia Tech, NDSU)",
+    "opened": "6 to 12 months (Virginia Tech, NDSU)",
+    "storage": "Pantry",
+    "advice": "buy_to_use",
+    "note": "Alabama's chart is lower: 18 months for bags and loose tea, 2 years for instant.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "vegetable-and-salad-oil",
+    "label": "Cooking oil (vegetable and salad)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Cooking oil",
+      "Vegetable oil"
+    ],
+    "unopened": "Vegetable oil 6 months (Virginia Tech, NDSU) or 6 to 12 months (Nebraska). Salad oil 6 to 12 months (Virginia Tech) or 3 months (Alabama)",
+    "opened": "3 to 5 months in the pantry, 4 months refrigerated (Virginia Tech, NDSU, Nebraska)",
+    "storage": "Cool, dark place in a tightly closed container. NDSU says refrigeration is not needed; Alabama says to refrigerate salad oil after opening",
+    "advice": "buy_small",
+    "note": "The fridge figure is no longer than the pantry figure in these charts. Buy what you can use in that time.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "sugar-granulated-brown-icing",
+    "label": "Sugar (granulated, brown and icing)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Sugar",
+      "Brown sugar",
+      "Icing sugar"
+    ],
+    "unopened": "All three: indefinitely (Virginia Tech) or 18 to 24 months (NDSU, Nebraska). Granulated 2 years and brown or icing 4 months (Alabama)",
+    "opened": "18 to 24 months (Virginia Tech)",
+    "storage": "Dry place in an airtight container. Virginia Tech says humidity above 60% can make dry foods cake",
+    "advice": "buy_to_use",
+    "note": "The sources disagree widely on brown and icing sugar.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "flour-white-all-purpose",
+    "label": "White flour (all-purpose)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Flour",
+      "All-purpose flour"
+    ],
+    "unopened": "6 to 12 months in the pantry (Virginia Tech, NDSU, Nebraska)",
+    "opened": "6 to 8 months in the pantry; about 12 months refrigerated (Virginia Tech, NDSU, Nebraska)",
+    "storage": "Dry place below 85 F in an airtight container",
+    "advice": "buy_to_use",
+    "note": "Freezing extends white flour to about 2 years (Nebraska). NDSU says it can be frozen for indefinite storage.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      }
+    ]
+  },
+  {
+    "id": "flour-wholewheat",
+    "label": "Whole-wheat flour",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Flour",
+      "Whole wheat flour"
+    ],
+    "unopened": "3 to 6 months in the pantry (Virginia Tech, NDSU, Nebraska)",
+    "opened": "6 to 8 months refrigerated (Virginia Tech, NDSU, Nebraska)",
+    "storage": "Airtight container. The fridge or freezer helps stop its natural oil going rancid (Virginia Tech)",
+    "advice": "buy_small",
+    "note": "Alabama gives 1 year for rye and whole-wheat flour kept refrigerated. Nebraska gives 2 years frozen.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "spices-whole",
+    "label": "Whole spices",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Spices",
+      "Whole spices"
+    ],
+    "unopened": "3 to 4 years (Virginia Tech, NDSU, Nebraska); 1 year (Alabama)",
+    "opened": "3 to 4 years (Virginia Tech)",
+    "storage": "Cool spot. Alabama says to replace them if the aroma fades",
+    "advice": "buy_to_use",
+    "note": "Alabama's 1 year figure is much shorter than the other three sources.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "spices-ground",
+    "label": "Ground spices",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Spices",
+      "Ground spices"
+    ],
+    "unopened": "2 to 3 years (Virginia Tech, NDSU, Nebraska); 6 months (Alabama)",
+    "opened": "2 to 3 years (Virginia Tech)",
+    "storage": "Cool spot. Alabama says to replace them if the aroma fades",
+    "advice": "buy_to_use",
+    "note": "Alabama gives 6 months, which is much shorter than the other three sources.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "alkaline-batteries",
+    "label": "Alkaline batteries",
+    "categories": [
+      "batteries"
+    ],
+    "subcategories": [
+      "9V batteries",
+      "AA batteries",
+      "AAA batteries",
+      "C batteries",
+      "D batteries"
+    ],
+    "unopened": "About 5 to 10 years, and up to 15 for some batteries and brands",
+    "opened": "",
+    "storage": "Cool and dry, out of direct sunlight and away from extreme temperatures",
+    "advice": "stock_up",
+    "note": "Battery University (updated 2021) gives 7 to 10 years and a loss of 2 to 3 percent a year. NBC Select (2024) gives 5 to 10 years in its own text and quotes a Batteries Plus manager saying 5 to 15 years. NBC says the packaging should state the storage life. Its storage advice is for household batteries in general, from the CEO of Cirba Solutions.",
+    "sources": [
+      {
+        "url": "https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do",
+        "publisher": "Battery University",
+        "title": "BU-802b: What does Elevated Self-discharge Do?",
+        "date": "2021-11-02"
+      },
+      {
+        "url": "https://www.nbcnews.com/select/amp/rcna169597",
+        "publisher": "NBC Select",
+        "title": "Here's how to properly store your batteries, according to experts",
+        "date": "2024-09-04"
+      }
+    ]
+  },
+  {
+    "id": "nimh-rechargeable-batteries",
+    "label": "Rechargeable NiMH batteries",
+    "categories": [
+      "batteries"
+    ],
+    "subcategories": [
+      "Rechargeable AA batteries",
+      "Rechargeable AAA batteries"
+    ],
+    "unopened": "Charge drains while they sit: standard cells lose 10 to 15 percent in the first 24 hours after charging, then 10 to 15 percent a month",
+    "opened": "",
+    "storage": "Recharge before use after a few weeks on a shelf. For storage beyond a year, charge at least once a year",
+    "advice": "buy_to_use",
+    "note": "No source gave a shelf life in years. The drain figures are from Battery University (updated 2021) and cover nickel cells generally. Low self-discharge cells hold charge much better: Epec, a battery maker, said in 2014 they keep up to 85 percent after a year at room temperature, while a home test published in 2009 and updated in 2012 measured 56 percent after 16 months on a single pack. Which? (June 2026) says the best rechargeables stay charged between uses and the worst leak charge, without naming the cell type.",
+    "sources": [
+      {
+        "url": "https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do",
+        "publisher": "Battery University",
+        "title": "BU-802b: What does Elevated Self-discharge Do?",
+        "date": "2021-11-02"
+      },
+      {
+        "url": "https://blog.epectec.com/what-is-the-shelf-life-of-rechargeable-nimh-batteries",
+        "publisher": "Epec Engineered Technologies",
+        "title": "What is the Shelf Life of Rechargeable NiMH Batteries?",
+        "date": "2014-04-01"
+      },
+      {
+        "url": "https://www.stefanv.com/electronics/low_self_discharge.html",
+        "publisher": "Stefan Vorkoetter",
+        "title": "Review: Pre-Charged (Low Self-Discharge) Rechargeable Battery Comparison",
+        "date": "2012-01-10"
+      },
+      {
+        "url": "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+        "publisher": "Which?",
+        "title": "Expert-tested: the seven Best Buy everyday essentials you need to get right",
+        "date": "2026-06-11"
+      }
+    ]
+  },
+  {
+    "id": "printer-ink-cartridges",
+    "label": "Printer ink cartridges",
+    "categories": [
+      "office"
+    ],
+    "subcategories": [
+      "Printer ink"
+    ],
+    "unopened": "18 to 24 months for genuine HP inkjet cartridges stored as advised (HP, 16 March 2026). Epson gives no number of months and says not to use a cartridge past its expiry date.",
+    "opened": "3 to 12 months once installed, depending on how often you print (HP). Within six months of installation for best results (Epson).",
+    "storage": "Sealed in the original pack, dry and out of sunlight, at 0 to 35 °C (HP). Cool and dark, with Epson's range for most inkjet cartridges at -20 to 40 °C and no more than a month at 40 °C (Epson).",
+    "advice": "buy_to_use",
+    "note": "These are makers' figures for their own cartridges and say nothing about compatible ones. They vary by model, so check the cartridge's expiry date and your printer's guide.",
+    "sources": [
+      {
+        "url": "https://www.hp.com/us-en/tech-takes/printing/explainer/how-long-does-printer-ink-last.html",
+        "publisher": "HP",
+        "title": "How Long Does Printer Ink Last If You Don't Print Often?",
+        "date": "2026-03-16"
+      },
+      {
+        "url": "https://www.epson.co.uk/en_GB/faq/KA-01601/contents?loc=en-us",
+        "publisher": "Epson UK",
+        "title": "How should I store the Ink Cartridges for my printer?",
+        "date": "undated, read 2026-11-06"
+      }
+    ]
+  },
+  {
+    "id": "paint-tins",
+    "label": "Paint (tins)",
+    "categories": [
+      "tools-diy"
+    ],
+    "subcategories": [
+      "Paint"
+    ],
+    "unopened": "Figures disagree. General guides say up to 10 years for latex and water-based acrylic and up to 15 for oil-based (Bob Vila, 2020; Southern Living, 2024). Makers say less: three years from manufacture for most Sherwin-Williams architectural coatings (Southern Living, 2024) and an estimated two years for unopened PPG latex (The Spruce, 2019).",
+    "opened": "Up to about two years if well sealed (Dulux, for leftover paint; the president of C2 Paint in Southern Living, 2024). A badly sealed tin can spoil within months.",
+    "storage": "Indoors at a steady temperature, out of strong sunlight and frost (Bob Vila, Dulux). Avoid sheds and garages unless temperature controlled (Southern Living). Freezing or great heat can spoil even a sealed tin (Bob Vila).",
+    "advice": "buy_to_use",
+    "note": "Bob Vila cites no study for its figures, and most of these sources are American. Treat the long figures as a best case and go by the maker's label. Throw paint out if it smells foul or rancid or has mould on it.",
+    "sources": [
+      {
+        "url": "https://www.bobvila.com/articles/how-long-does-paint-last/",
+        "publisher": "Bob Vila",
+        "title": "Solved! Here's How Long Paint Actually Lasts",
+        "date": "2020-02-10"
+      },
+      {
+        "url": "https://www.aol.com/does-paint-expire-experts-weigh-010748008.html",
+        "publisher": "AOL (syndicating Southern Living)",
+        "title": "Does A Can Of Paint Expire? Experts Weigh In",
+        "date": "2024-02-09"
+      },
+      {
+        "url": "https://www.aol.com/long-does-paint-last-181907500.html",
+        "publisher": "AOL (syndicating The Spruce)",
+        "title": "How Long Does Paint Last? 6 Expiration Signs",
+        "date": "2019-03-13"
+      },
+      {
+        "url": "https://www.dulux.co.uk/en/expert-help/how-make-most-leftover-paint",
+        "publisher": "Dulux",
+        "title": "How to Make the Most of Leftover Paint",
+        "date": "undated, read 2026-11-06"
+      }
+    ]
+  },
+  {
+    "id": "sunscreen",
+    "label": "Sunscreen",
+    "categories": [
+      "skincare-personal-care"
+    ],
+    "subcategories": [
+      "Sunscreen"
+    ],
+    "unopened": "Use the expiry date on the bottle. FDA says a sunscreen with no expiration date should be considered expired three years after purchase, and that a sunscreen with no date and not bought within the last three years should not be used. Consumer Reports, citing FDA, says sunscreens must keep their SPF and broad-spectrum protection for three years, and that a sunscreen sitting around for more than three years has lost its power to protect.",
+    "opened": "Consumer Reports says opening a sunscreen does not make it expire any faster, and that a part-used bottle within the three-year window is safe to use if it has been stored properly. The person who oversees its sunscreen testing says samples retested after lab storage showed no difference in performance (Consumer Reports, updated 24 May 2024). The FDA page gives no separate period for an opened bottle.",
+    "storage": "Keep it out of direct sun and excessive heat. FDA advises wrapping the container in towels or keeping it in the shade when outside in the heat for long periods. Consumer Reports says sunscreen exposed to direct sunlight or excessive heat can deteriorate faster. It says a bathroom cabinet is fine and a beach bag in a car trunk probably is not. The FDA page gives no advice on cold storage.",
+    "advice": "buy_to_use",
+    "note": "The three-year figure is the US rule. For a sunscreen with no date, FDA counts it from purchase. If you do not know how old a bottle is, FDA says to discard it. A bottle that will take longer than three years to use will pass that limit before you finish it, so buy a size you will use within the date on the pack. FDA says some countries regulate sunscreens differently, so outside the US read the label. A pharmacist or doctor can advise if you are unsure about a bottle.",
+    "sources": [
+      {
+        "url": "https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun",
+        "publisher": "US Food and Drug Administration",
+        "title": "Sunscreen: How to Help Protect Your Skin from the Sun",
+        "date": "2026-10-16"
+      },
+      {
+        "url": "https://www.consumerreports.org/health/sunscreens/does-sunscreen-have-an-expiration-date-a3175803160/",
+        "publisher": "Consumer Reports",
+        "title": "Does Sunscreen Expire?",
+        "date": "2024-05-24"
+      }
+    ]
+  },
+  {
+    "id": "dishwasher-tablets",
+    "label": "Dishwasher tablets",
+    "categories": [
+      "household"
+    ],
+    "subcategories": [
+      "Dishwasher tablets"
+    ],
+    "unopened": "Two years. Finish says the standard shelf life of dishwasher tablets is two years, and its page does not separate unopened from opened packs. Blueland gives two years for its dishwasher and laundry tablets while they are still in the refill pouch.",
+    "opened": "None of the sources gives a fixed period for an opened pack. Blueland says that once its tablets are moved from the pouch to its refill container, the shelf life varies with how much moisture and humidity they are exposed to.",
+    "storage": "Keep the tablets dry. Finish says to store dishwashing detergent in a dry environment and out of the reach of children. Blueland suggests keeping the desiccant in its refill container to absorb moisture.",
+    "advice": "buy_to_use",
+    "note": "All the sources are the makers' own pages. Finish says an out-of-date tablet will not damage kitchenware or the dishwasher, but it may be less effective. Finish also says it is best not to stockpile, in case the product and its packaging deteriorate over time, so buy a pack you will use within about two years. The Blueland figures are for its own tablets in the refill pouch, so check the pack date on other brands.",
+    "sources": [
+      {
+        "url": "https://www.finish.co.uk/faqs/do-dishwasher-tablets-expire/",
+        "publisher": "Finish (Reckitt)",
+        "title": "Do dishwasher tablets expire?",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://www.finish.co.uk/faqs/how-should-i-store-my-dishwashing-detergent/",
+        "publisher": "Finish (Reckitt)",
+        "title": "How should I store my dishwashing detergent?",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://help.blueland.com/en-US/what-is-the-shelf-life-of-the-products-324543",
+        "publisher": "Blueland",
+        "title": "What is the shelf life of the products?",
+        "date": "undated (read 2026-11-06)"
+      }
+    ]
+  },
+  {
+    "id": "toilet-paper",
+    "label": "Toilet paper",
+    "categories": [
+      "household"
+    ],
+    "subcategories": [
+      "Toilet paper"
+    ],
+    "unopened": "No expiry date in the way food has one, and age won't make it unsafe (Naked Paper; Who Gives A Crap says it won't cause harm). A tissue manufacturer's site says most makers suggest two to three years, varying with brand and storage (Yuanhua Paper).",
+    "opened": "No separate period. Who Gives A Crap says not to unwrap rolls until you are about to use them.",
+    "storage": "Clean, dry and out of direct sunlight (Naked Paper). Avoid damp sheds, garages and cellars (Naked Paper) and damp basements and laundry rooms (Who Gives A Crap).",
+    "advice": "stock_up",
+    "note": "The sources disagree on whether there is a time limit, and Yuanhua names no maker for its figure. Damp is the real risk: rolls kept damp can develop mould and a musty smell (Naked Paper). Over long periods rolls can yellow and weaken (Naked Paper, Who Gives A Crap). All three sources sell paper. Who Gives A Crap also sells subscriptions and says stockpiling isn't necessary.",
+    "sources": [
+      {
+        "url": "https://uk.nakedpaper.com/blogs/news/does-toilet-paper-expire",
+        "publisher": "Naked Paper",
+        "title": "Does toilet paper expire?",
+        "date": "2026-06-17"
+      },
+      {
+        "url": "https://blog.whogivesacrap.org/home/does-toilet-paper-expire",
+        "publisher": "Who Gives A Crap",
+        "title": "Does Toilet Paper Ever Expire? Read This Before Stocking Up",
+        "date": "2025-06-23"
+      },
+      {
+        "url": "https://www.yuanhuapaper.com/does-toilet-paper-expire",
+        "publisher": "Yuanhua Paper",
+        "title": "Why Does Toilet Paper Have an Expiration Date? How Long is The Expiration Date Usually?",
+        "date": "undated (read 2026-11-06)"
+      }
+    ]
+  },
+  {
+    "id": "ketchup",
+    "label": "Ketchup",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Ketchup"
+    ],
+    "unopened": "1 year (Virginia Tech, NDSU, Nebraska).",
+    "opened": "6 months in the fridge (Virginia Tech, Nebraska). NDSU also gives 6 months and says to refrigerate for longer storage. Alabama's pantry chart gives 1 month.",
+    "storage": "In the cupboard until opened. America's Test Kitchen says its acidity keeps it from going bad at room temperature, but the flavour can fade, so use the fridge if you get through it slowly. Heinz, quoted there, says excessive heat may darken it and change the flavour.",
+    "advice": "buy_to_use",
+    "note": "Alabama's 1 month is much shorter than the other charts. Nebraska says refrigerating shelf-stable commercial sauces after opening is about quality, not safety. Follow the bottle's label where it differs.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      },
+      {
+        "url": "https://www.americastestkitchen.com/articles/7558-which-condiments-need-to-be-refrigerated",
+        "publisher": "America's Test Kitchen",
+        "title": "Which Condiments Need to Be Refrigerated?",
+        "date": "2023-09-15"
+      }
+    ]
+  },
+  {
+    "id": "mayonnaise",
+    "label": "Mayonnaise",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Mayonnaise"
+    ],
+    "unopened": "3 to 6 months in the pantry (Virginia Tech, NDSU, Nebraska).",
+    "opened": "2 months in the fridge (Virginia Tech, NDSU, Nebraska, and Hellmann's/Best Foods quoted by America's Test Kitchen). Hellmann's/Best Foods also gives 1 month at room temperature.",
+    "storage": "NDSU says to check the package date and refrigerate after opening.",
+    "advice": "buy_small",
+    "note": "Sources differ on room temperature. NDSU says to refrigerate after opening, while Hellmann's/Best Foods gives an open shelf life out of the fridge and Nebraska says refrigerating shelf-stable commercial sauces is about quality, not safety. Follow the jar's label. America's Test Kitchen says homemade mayo should always be refrigerated. The opened period is short, so smaller jars suit slow use.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.americastestkitchen.com/articles/7558-which-condiments-need-to-be-refrigerated",
+        "publisher": "America's Test Kitchen",
+        "title": "Which Condiments Need to Be Refrigerated?",
+        "date": "2023-09-15"
+      }
+    ]
+  },
+  {
+    "id": "honey",
+    "label": "Honey",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Honey"
+    ],
+    "unopened": "2 years (Virginia Tech, NDSU, Nebraska). Alabama gives 1 year.",
+    "opened": "The charts give no separate period. America's Test Kitchen says the USDA recommends using honey within 12 months for the best quality.",
+    "storage": "In the pantry (Virginia Tech, Nebraska), tightly covered (NDSU). America's Test Kitchen says it doesn't need the fridge, which makes it crystallize more quickly.",
+    "advice": "buy_to_use",
+    "note": "The figures range from 1 to 2 years. We did not read the USDA page, so the 12 months is America's Test Kitchen's report of it. If honey crystallizes, NDSU says to warm the opened jar in a pan of hot water.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      },
+      {
+        "url": "https://www.americastestkitchen.com/articles/7558-which-condiments-need-to-be-refrigerated",
+        "publisher": "America's Test Kitchen",
+        "title": "Which Condiments Need to Be Refrigerated?",
+        "date": "2023-09-15"
+      }
+    ]
+  },
+  {
+    "id": "jam",
+    "label": "Jam and preserves",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Jam",
+      "Jam and preserves"
+    ],
+    "unopened": "6 to 18 months (Virginia Tech, NDSU, Nebraska). Alabama gives 1 year.",
+    "opened": "6 to 12 months in the fridge (Virginia Tech, NDSU, Nebraska).",
+    "storage": "In the pantry until opened, then tightly covered in the fridge (NDSU). Smucker's, quoted by America's Test Kitchen, says to discard opened products left without refrigeration for more than 48 hours.",
+    "advice": "buy_to_use",
+    "note": "The 48-hour figure is one maker's, for its own products. Nebraska's row is for commercial jam, not homemade.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      },
+      {
+        "url": "https://www.americastestkitchen.com/articles/7558-which-condiments-need-to-be-refrigerated",
+        "publisher": "America's Test Kitchen",
+        "title": "Which Condiments Need to Be Refrigerated?",
+        "date": "2023-09-15"
+      }
+    ]
+  },
+  {
+    "id": "olive-oil",
+    "label": "Olive oil",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Olive oil"
+    ],
+    "unopened": "Figures differ. 6 to 12 months (Nebraska). America's Test Kitchen says unopened oil can go rancid 1 year after harvest, and that label dates are typically 18 months from harvest. Bertolli lists recommended storage times of 17 months for extra virgin and 20 months for Classico and Extra Light, without saying when they start. Filippo Berio gives no general figure and says to check the best-before date.",
+    "opened": "3 to 5 months at room temperature or 4 months in the fridge (Nebraska). 3 months (America's Test Kitchen). Within a few months (Bertolli).",
+    "storage": "Cool, dark place (Bertolli, Filippo Berio), tightly capped (Bertolli), not on the counter or a windowsill (America's Test Kitchen). Filippo Berio says not to use the fridge, where it goes cloudy and solidifies but recovers at room temperature. Nebraska's chart does give a fridge figure.",
+    "advice": "buy_small",
+    "note": "America's Test Kitchen says not to buy olive oil in bulk, because it has a very short shelf life once opened. The Bertolli and Filippo Berio statements are makers' own, for their own oils.",
+    "sources": [
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.americastestkitchen.com/how_tos/5575-keeping-olive-oil-and-other-oils-fresher-longer",
+        "publisher": "America's Test Kitchen",
+        "title": "Keeping Olive Oil and Other Oils Fresher Longer",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://bertolli.com/faq/",
+        "publisher": "Bertolli",
+        "title": "FAQ - Bertolli Pasta Sauces, Olive Oils, Frozen Foods",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://filippoberio.co.uk/pages/faqs",
+        "publisher": "Filippo Berio UK",
+        "title": "FAQs",
+        "date": "undated (read 2026-11-06)"
+      }
+    ]
+  },
+  {
+    "id": "peanut-butter",
+    "label": "Peanut butter",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Peanut butter"
+    ],
+    "unopened": "6 to 24 months (Virginia Tech, NDSU, Nebraska). Alabama gives 6 months.",
+    "opened": "2 to 3 months (Virginia Tech, NDSU, Nebraska). Alabama says to keep it 2 months after opening.",
+    "storage": "NDSU says refrigeration is not needed but it keeps longer that way, and natural peanut butter must be refrigerated after opening. America's Test Kitchen says conventional peanut butter is fine at room temperature, and the oils in natural ones can go rancid.",
+    "advice": "buy_small",
+    "note": "An opened jar lasts far less time than a sealed one, so several small jars suit slow use better than one very large jar.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      },
+      {
+        "url": "https://www.americastestkitchen.com/articles/7558-which-condiments-need-to-be-refrigerated",
+        "publisher": "America's Test Kitchen",
+        "title": "Which Condiments Need to Be Refrigerated?",
+        "date": "2023-09-15"
+      }
+    ]
+  },
+  {
+    "id": "hazelnut-spread",
+    "label": "Hazelnut and chocolate spread",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Hazelnut spread",
+      "Chocolate spread"
+    ],
+    "unopened": "Neither source gives a separate period for an unopened jar. Use the date on the jar.",
+    "opened": "12 months even after opening for Nutella portion packs, jars, tubs and cartridges, and 6 months for the piping bag (Ferrero Food Service). Tasting Table also says one year after opening.",
+    "storage": "Room temperature, 18 to 24 C, with the lid tight, in a cool, dry place. Do not refrigerate, or it hardens and is hard to spread. Too much heat can make the oils separate (Ferrero Food Service).",
+    "advice": "buy_to_use",
+    "note": "Ferrero's figures are from its food-service FAQ and cover only Nutella in the formats listed there. The only jar it names is 25g, so a supermarket jar is not stated. Neither source covers other brands.",
+    "sources": [
+      {
+        "url": "https://www.ferrerofoodservice.com/int/en/faq",
+        "publisher": "Ferrero Food Service",
+        "title": "Ferrero Food Service FAQ",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://www.tastingtable.com/1214680/why-you-should-never-store-nutella-in-the-fridge",
+        "publisher": "Tasting Table",
+        "title": "Why You Should Never Store Nutella In The Fridge",
+        "date": "2023-03-01"
+      }
+    ]
+  },
+  {
+    "id": "oats",
+    "label": "Oats",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Oats"
+    ],
+    "unopened": "1 year (Virginia Tech and NDSU for ready-to-cook or hot cereal, Nebraska for oatmeal). Alabama gives 6 months for ready-to-cook cereal.",
+    "opened": "6 to 12 months (Virginia Tech, NDSU, Nebraska).",
+    "storage": "Dry spot, in the original package or a tightly closed airtight container (Alabama).",
+    "advice": "buy_to_use",
+    "note": "Only Nebraska's chart names oatmeal. The others list ready-to-cook or hot cereal, which we read as including oats.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "breakfast-cereal",
+    "label": "Breakfast cereal (ready to eat)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Breakfast cereal"
+    ],
+    "unopened": "6 to 12 months (Virginia Tech, NDSU, Nebraska). NDSU and Alabama say to check the date on the package.",
+    "opened": "2 to 3 months (Virginia Tech, NDSU, Nebraska).",
+    "storage": "Refold the liner tightly after opening (NDSU). Dry spot, in the original package or a tightly closed airtight container (Alabama).",
+    "advice": "buy_small",
+    "note": "An opened box lasts far less time than a sealed one, so a very large box only suits a household that eats it quickly.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "nuts",
+    "label": "Nuts",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Nuts"
+    ],
+    "unopened": "Figures differ. Packaged shelled nuts 1 year in a vacuum can and 3 months in other packaging, nuts in the shell 4 months (NDSU). Alabama's pantry chart gives 9 months.",
+    "opened": "4 to 6 months, refrigerated (NDSU).",
+    "storage": "Virginia Tech's chart gives 2 to 4 weeks in the pantry, 9 to 12 months in the fridge and 24 months in the freezer, without separating opened from unopened. NDSU says to refrigerate after opening and freeze for longer storage.",
+    "advice": "buy_small",
+    "note": "The sources disagree widely: pantry figures run from 2 to 4 weeks (Virginia Tech) to 9 months (Alabama), and freezer figures from 3 months (Alabama) to 24 months (Virginia Tech). NDSU says unsalted and blanched nuts keep longer than salted. Use the date on the pack.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "pasta-sauce",
+    "label": "Pasta sauce (jars)",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Pasta sauce"
+    ],
+    "unopened": "About 18 months in a cool, dry place (Mashed). A nutrition expert in Southern Living says to throw out a jar kept in the cupboard for more than 18 months. Bertolli encourages using its sauce by the date on the cap.",
+    "opened": "In the fridge: about 5 days for tomato sauces and 3 for cheese-based (Bertolli). 3 to 5 days (Southern Living). Up to 6 days for tomato and 4 for cream-based (The Takeout). Mashed reports Barilla as suggesting up to five days.",
+    "storage": "In a cupboard away from direct light and heat until opened, then in the fridge at 40 F or below (Southern Living). Leftovers can be frozen: up to 3 months (Mashed), or up to 6 months for quality (The Takeout).",
+    "advice": "buy_small",
+    "note": "Unopened jars keep well, so the risk is the opened jar. Smaller jars suit a household that won't finish one in a few days. Southern Living says to throw out jars with dents, rust or a bulging lid. We could not open Barilla's own page.",
+    "sources": [
+      {
+        "url": "https://bertolli.com/faq/",
+        "publisher": "Bertolli",
+        "title": "FAQ - Bertolli Pasta Sauces, Olive Oils, Frozen Foods",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://mashed.com/927276/how-long-you-can-really-keep-jarred-pasta-sauce-in-the-fridge",
+        "publisher": "Mashed",
+        "title": "How Long You Can Really Keep Jarred Pasta Sauce In The Fridge",
+        "date": "2022-07-14"
+      },
+      {
+        "url": "https://www.aol.com/long-does-does-jar-pasta-190800938.html",
+        "publisher": "AOL (syndicating Southern Living)",
+        "title": "How Long Does A Jar Of Pasta Sauce Last After Opening?",
+        "date": "2025-06-29"
+      },
+      {
+        "url": "https://www.thetakeout.com/1656287/how-long-pasta-sauce-good-open/",
+        "publisher": "The Takeout",
+        "title": "How Long Is Jarred Pasta Sauce Still Good After Being Opened?",
+        "date": "2024-09-07"
+      }
+    ]
+  },
+  {
+    "id": "butter",
+    "label": "Butter",
+    "categories": [
+      "food-pantry"
+    ],
+    "subcategories": [
+      "Butter"
+    ],
+    "unopened": "1 to 2 months in the fridge (Virginia Tech, NDSU, Nebraska). 1 to 3 months (Alabama). The charts do not separate unopened from opened, so check the date on the pack.",
+    "opened": "1 to 2 days at room temperature (Virginia Tech, Nebraska). Alabama says to hold only a 2-day supply in a butter keeper.",
+    "storage": "Wrap or cover tightly (NDSU). In the freezer, 6 to 9 months (Virginia Tech, NDSU, Nebraska) or 9 months (Alabama).",
+    "advice": "buy_to_use",
+    "note": "Butter freezes, so a multipack can work if you have freezer space. Nebraska says its freezer times are for quality only. These figures are for butter, and the charts do not cover spreadable blends.",
+    "sources": [
+      {
+        "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",
+        "publisher": "Virginia Cooperative Extension, Virginia Tech",
+        "title": "Food Storage Guidelines For Consumers (348-960)",
+        "date": "2025-10"
+      },
+      {
+        "url": "https://www.ndsu.edu/agriculture/extension/publications/food-storage-guide-answers-question",
+        "publisher": "NDSU Extension",
+        "title": "Food Storage Guide Answers the Question (FN579)",
+        "date": "2023-01"
+      },
+      {
+        "url": "https://food.unl.edu/free-resource/food-storage/",
+        "publisher": "UNL Food, Nebraska Extension",
+        "title": "Home Food Storage",
+        "date": "2026"
+      },
+      {
+        "url": "https://www.aces.edu/blog/topics/disaster-home-family/food-storage-charts/",
+        "publisher": "Alabama Cooperative Extension System",
+        "title": "Food Storage Charts (ACES-2243)",
+        "date": "2018-12-17"
+      }
+    ]
+  },
+  {
+    "id": "shampoo",
+    "label": "Shampoo",
+    "categories": [
+      "beauty-hair"
+    ],
+    "subcategories": [
+      "Shampoo"
+    ],
+    "unopened": "2 to 3 years (Keune). 3 years (a formulation chemist in CHOICE).",
+    "opened": "Figures differ. 6 to 12 months (Keune). 6 months (CHOICE, given as a very safe estimate). Healthline says a period-after-opening mark usually shows 12, 18 or 24 months.",
+    "storage": "Cool, dark place with the lid fully closed (Healthline). CHOICE says the bathroom itself is not a good place to store cosmetics.",
+    "advice": "buy_to_use",
+    "note": "Go by the open-jar mark on the bottle where there is one. Keune says to use shampoos high in natural ingredients a bit sooner, and Healthline says organic and sulfate-free ones may keep less long. An odd smell, clumps or a change of colour are signs it has gone off (Healthline).",
+    "sources": [
+      {
+        "url": "https://www.keune.com/faq-products/shampoo/does-shampoo-expire/",
+        "publisher": "Keune",
+        "title": "Does shampoo expire?",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://www.choice.com.au/health-and-body/beauty-and-personal-care/skin-care-and-cosmetics/articles/cosmetic-expiry-dates",
+        "publisher": "CHOICE",
+        "title": "How long should makeup and cosmetics last?",
+        "date": "2016-11-23"
+      },
+      {
+        "url": "https://www.healthline.com/health/does-shampoo-expire",
+        "publisher": "Healthline",
+        "title": "Does Shampoo Expire and How to Tell If It Has?",
+        "date": "2020-11-11"
+      }
+    ]
+  },
+  {
+    "id": "shower-gel",
+    "label": "Shower gel",
+    "categories": [
+      "skincare-personal-care"
+    ],
+    "subcategories": [
+      "Shower gel"
+    ],
+    "unopened": "Figures differ. Dove gives shower gel 12 to 24 months without separating unopened from opened, and body wash up to 3 years unopened. Puracy says up to three years unopened. CHOICE says three years.",
+    "opened": "Within 12 months for body wash (Dove). One year (Puracy). 6 months (CHOICE, given as a very safe estimate).",
+    "storage": "Cool, dry, out of direct sunlight, with the cap tightly closed (Dove).",
+    "advice": "buy_to_use",
+    "note": "Dove and Puracy are makers giving general figures. Scent fade or a sour smell, clumps or separation, and colour changes are signs it has gone off (Dove).",
+    "sources": [
+      {
+        "url": "https://www.dove.com/uk/stories/tips-and-how-to/grooming-tips/does-body-wash-expire.html",
+        "publisher": "Dove",
+        "title": "Does Body Wash Expire? What You Need to Know About Soap Shelf Life",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://puracy.com/blogs/wellness/does-body-wash-expire",
+        "publisher": "Puracy",
+        "title": "Does Body Wash Expire?",
+        "date": "2023-06-20"
+      },
+      {
+        "url": "https://www.choice.com.au/health-and-body/beauty-and-personal-care/skin-care-and-cosmetics/articles/cosmetic-expiry-dates",
+        "publisher": "CHOICE",
+        "title": "How long should makeup and cosmetics last?",
+        "date": "2016-11-23"
+      }
+    ]
+  },
+  {
+    "id": "mouthwash",
+    "label": "Mouthwash",
+    "categories": [
+      "skincare-personal-care"
+    ],
+    "subcategories": [
+      "Mouthwash"
+    ],
+    "unopened": "A maximum of 2 to 3 years from manufacture (Healthline). Up to three years unopened (Lane & Associates, a dental practice). Listerine says most of its products have an expiration date.",
+    "opened": "Can start to lose effectiveness within six months to a year of opening (Lane & Associates). Healthline and Listerine give no separate period.",
+    "storage": "Heat and sunlight can break it down (Lane & Associates).",
+    "advice": "buy_to_use",
+    "note": "Check the date on the bottle. Listerine recommends replacing products past their expiration dates, and gives no period of its own. Healthline says old mouthwash may not work as well, and that natural options have even shorter shelf lives.",
+    "sources": [
+      {
+        "url": "https://www.healthline.com/health/does-mouthwash-expire",
+        "publisher": "Healthline",
+        "title": "Does Mouthwash Expire?",
+        "date": "2021-06-01"
+      },
+      {
+        "url": "https://lanedds.com/blog/does-mouthwash-expire/",
+        "publisher": "Lane & Associates Family Dentistry",
+        "title": "Does Mouthwash Expire?",
+        "date": "2023-04-10"
+      },
+      {
+        "url": "https://www.listerine.com/frequently-asked-questions",
+        "publisher": "Listerine",
+        "title": "Frequently Asked Questions (FAQ)",
+        "date": "undated (read 2026-11-06)"
+      }
+    ]
+  },
+  {
+    "id": "compost",
+    "label": "Bagged compost",
+    "categories": [
+      "garden"
+    ],
+    "subcategories": [
+      "Compost"
+    ],
+    "unopened": "Love The Garden advises using it within 1 year, because feed in the compost can be leached out by rain through air holes in the bag. Which? gives no period, but says its tests show peat-free compost deteriorates in quality if kept too long.",
+    "opened": "No period given. Which? says to keep leftovers in a cool, dry place such as a shed or garage.",
+    "storage": "Under cover. Which? says bags that are faded or repeatedly rained on deteriorate, and that compost left in rain or sun can still be used for most purposes, but fresh gives better results.",
+    "advice": "buy_to_use",
+    "note": "Which? says to buy only as much as you need and to look for fresh bags, so a multi-bag deal only suits you if you will use it within the year. It also found coir blocks store well. Love The Garden suggests using old compost as a soil improver in beds and borders. Which?'s advice is about peat-free compost.",
+    "sources": [
+      {
+        "url": "https://www.lovethegarden.com/uk-en/product-support-categories/soil-compost-bark?page=2",
+        "publisher": "Love The Garden",
+        "title": "What is the shelf life of compost? (Soil, compost & bark support)",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://www.which.co.uk/reviews/compost/article/should-i-buy-peat-free-compost",
+        "publisher": "Which?",
+        "title": "Peat-free compost: what is peat and how to use it",
+        "date": "2026-10-08"
+      }
+    ]
+  },
+  {
+    "id": "screenwash",
+    "label": "Screenwash",
+    "categories": [
+      "car"
+    ],
+    "subcategories": [
+      "Screenwash"
+    ],
+    "unopened": "A few years (Wigan Council). Rain-X says most of its products are intended to be used within 1 to 2 years, and does not guarantee its chemical products beyond 2 years. Biltema says concentrate has a slightly longer shelf life than pre-mixed.",
+    "opened": "6 to 12 months (Wigan Council).",
+    "storage": "",
+    "advice": "buy_to_use",
+    "note": "The evidence is thin and the figures differ. Wigan's comes from a council recycling guide that names no source, and it says makers may not print an expiry date. Rain-X's statement covers its products generally, not screenwash by name.",
+    "sources": [
+      {
+        "url": "https://recyclingatoz.wigan.gov.uk/wasteitem/screen-wash",
+        "publisher": "Wigan Council",
+        "title": "Waste Recycling A-Z: Screen Wash",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://www.rainx.com/heres-how/faqs/",
+        "publisher": "Rain-X",
+        "title": "Frequently Asked Questions",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://www.biltema.se/en-se/car-care/exterior-car-care/windscreen-washer-fluids/concentrated-windscreen-washer-fluids/",
+        "publisher": "Biltema",
+        "title": "Concentrated Washer Fluid",
+        "date": "undated (read 2026-11-06)"
+      }
+    ]
+  },
+  {
+    "id": "super-glue",
+    "label": "Super glue",
+    "categories": [
+      "tools-diy"
+    ],
+    "subcategories": [
+      "Super glue"
+    ],
+    "unopened": "Figures differ. 8 to 12 months (Adhesive and Sealant Council). 12 to 15 months (Gateway NMRA). Bostik says most adhesives last about 12 months and some up to 24, not naming super glue in that figure.",
+    "opened": "Much less than unopened (Adhesive and Sealant Council). About 6 to 12 months, and as little as one month for some (Gateway NMRA).",
+    "storage": "Cool, dry place out of direct sunlight, ideally 50 to 70 F, in an airtight container or sealed bag with silica gel (Adhesive and Sealant Council). The fridge is an option if you let the glue reach room temperature before use (Adhesive and Sealant Council; Bostik also suggests the fridge). Gateway NMRA says never to freeze an opened bottle.",
+    "advice": "buy_small",
+    "note": "Heat and humidity deteriorate glue, especially super glue (Bostik), and an opened bottle lasts much less time, so a small tube suits occasional use. Gateway NMRA is a model railway club's article, not a maker's, and it says to check dates and buy fresh.",
+    "sources": [
+      {
+        "url": "https://www.ascouncil.org/news/how-end-users-can-extend-the-life-of-cyanoacrylate-adhesives",
+        "publisher": "Adhesive and Sealant Council",
+        "title": "How End Users Can Extend The Life of Cyanoacrylate Adhesives",
+        "date": "2023-10-18"
+      },
+      {
+        "url": "https://www.gatewaynmra.org/2017/increase-life-super-glue/",
+        "publisher": "Gateway NMRA",
+        "title": "How to Increase the Life of Your Super Glue",
+        "date": "2017-07-23"
+      },
+      {
+        "url": "https://diy-mobile.bostik.com/en-SG/how-to/how-store-and-sort-glues-home",
+        "publisher": "Bostik",
+        "title": "How to Store Glues at Home",
+        "date": "undated (read 2026-11-06)"
+      }
+    ]
+  },
+  {
+    "id": "silicone-sealant",
+    "label": "Silicone sealant",
+    "categories": [
+      "tools-diy"
+    ],
+    "subcategories": [
+      "Silicone sealant"
+    ],
+    "unopened": "12 to 18 months for an unopened tube (GE Sealants).",
+    "opened": "No period given. GE says to put a screw or nail in the nozzle and wrap the tip tightly in foil or plastic. Bostik says to remove the nozzle, place plastic over the cartridge tip and screw the nozzle back on.",
+    "storage": "Upright in a cool, dry place, away from direct sun or heat (GE). Bostik also says to store it somewhere cool.",
+    "advice": "buy_to_use",
+    "note": "The only figure is GE's, for its own sealants, so check the date on the cartridge. GE says to throw it out if the material feels rubbery or won't come out smoothly. It says freezing won't usually ruin silicone, though it can thicken it.",
+    "sources": [
+      {
+        "url": "https://gesealants.com/Frequently-asked-questions/",
+        "publisher": "GE Sealants",
+        "title": "Frequently Asked Questions",
+        "date": "undated (read 2026-11-06)"
+      },
+      {
+        "url": "https://diy.bostik.com/en-ZA/node/406/how-do-i-store-my-silicone",
+        "publisher": "Bostik",
+        "title": "How do I store my silicone?",
+        "date": "undated (read 2026-11-06)"
+      }
+    ]
+  }
 ]

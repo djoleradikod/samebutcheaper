@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
+import { Fragment, useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { ChevronDown, X } from "lucide-react";
 import {
   buildFacets,
@@ -263,14 +263,22 @@ export function PairBrowser({
               const card = prerendered.get(r.slug) ?? index?.get(r.slug);
               // An index from a newer deploy may have dropped this swap.
               if (!card) return index ? null : <CardPlaceholder key={r.slug} />;
+              const startsMissing = !r.bothPhotos && i > 0 && shown[i - 1].bothPhotos;
               return (
-                <li key={r.slug} className="min-w-0">
-                  <PairCard
-                    pair={card}
-                    rank={showRank && defaultView ? i + 1 : undefined}
-                    eager={i === firstPhoto && i < 4}
-                  />
-                </li>
+                <Fragment key={r.slug}>
+                  {startsMissing && (
+                    <li className="col-span-full mt-3 border-t border-line pt-3">
+                      <p className="text-sm font-semibold">More swaps, still missing a photo</p>
+                    </li>
+                  )}
+                  <li className="min-w-0">
+                    <PairCard
+                      pair={card}
+                      rank={showRank && defaultView && r.bothPhotos ? i + 1 : undefined}
+                      eager={i === firstPhoto && i < 4}
+                    />
+                  </li>
+                </Fragment>
               );
             })}
           </ul>

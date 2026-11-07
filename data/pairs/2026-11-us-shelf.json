@@ -1249,7 +1249,14 @@
    "https://www.uline.com/BL_7032/Uline-Soap-Dispenser/",
    "https://world.openbeautyfacts.org/product/0074182260125"
   ],
-  "price_checked": "2026-11"
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Aloe Hand Soap Refill, 8 x 1 gallon, model S-17081",
+   "size": 1024,
+   "price": 112.0,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_7032/Uline-Soap-Dispenser/"
+  }
  },
  {
   "slug": "cheerios-vs-great-value-toasted-os",

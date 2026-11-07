@@ -55,7 +55,8 @@
       "https://www.anker.com/products/a2637-nano-20w-charger",
       "https://www.macrumors.com/2020/10/13/apple-selling-20w-usb-c-power-adapter/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both are one-port 20 W USB-C Power Delivery chargers, with no cable in either box. Anker's own note says the Nano 20W does not support Samsung Super Fast Charging on Galaxy S20, S21 and Note models, so check your phone first."
   },
   {
     "slug": "apple-40w-dynamic-power-adapter-vs-anker-nano-45w",
@@ -173,7 +174,8 @@
       "https://9to5mac.com/2025/10/21/anker-nano-charger-35w-and-70w-review-for-iphone-17/",
       "https://www.digitalreviews.net/reviews/lifestyle/the-power-of-three-anker-charger-70w-3-port-reviewed/"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both give 70 W from one USB-C port on their own. The Anker adds two more USB-C ports, a USB-A port and a cable, which the Apple does not include, and with several devices plugged in the Anker splits its power."
   },
   {
     "slug": "apple-140w-power-adapter-vs-anker-140w-4-port-pd-3-1",
@@ -299,7 +301,8 @@
       "https://www.notebookcheck.net/Anker-s-new-USB-C-to-USB-C-Cable-240W-Upcycled-Braided-now-on-sale.851869.0.html",
       "https://service.anker.com/article-description/Introduction-to-Anker-240W-USB-C-to-USB-C-Cable-3-ft-6-ft-10-ft-240W-Braided"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both are 240 W USB PD cables with USB 2 data, woven or braided, and neither carries video. The Anker is 6 ft against the Apple's 2 m and is listed as USB-IF certified, but its support page notes slower charging on some 2021 to 2023 16-inch MacBook Pro models."
   },
   {
     "slug": "apple-usb-c-digital-av-multiport-adapter-vs-ugreen-7-in-1-usb-c-hub",
@@ -356,7 +359,8 @@
       "https://www.apple.com/shop/product/MW5M3AM/A/usb-c-digital-av-multiport-adapter",
       "https://us.ugreen.com/products/7-in-1-multiport-adapter-with-4k-60hz"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both give 4K 60 Hz HDMI, a USB-A port and a USB-C charging pass-through. The UGREEN adds Ethernet, a second USB-A port and card slots, and it says 4K 60 Hz needs a host with DisplayPort 1.4 Alt Mode."
   },
   {
     "slug": "apple-pencil-usb-c-vs-logitech-crayon-usb-c",

@@ -93,7 +93,8 @@
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ccaecec5-5348-4b24-9190-5464c50f6d80",
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=98f780ad-dc07-4d37-a05d-fc7b45b0c474"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both are 5% minoxidil in alcohol, propylene glycol and purified water, in three 2 fl oz dropper bottles, and the DailyMed labels list the same three inactives. The record finds no formula difference, only in packaging and branding."
   },
   {
     "slug": "womens-rogaine-2-solution-vs-equate-minoxidil-2-solution",
@@ -307,7 +308,8 @@
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e97e4f8-80c2-44e0-862c-0dfca392a436",
       "https://ndclist.com/ndc/49035-664/label"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both have the same four essential-oil actives at the same strengths and the same inactive list, including 21.6% alcohol. The Equate is Blue Mint rather than Cool Mint, so the taste may differ slightly, and Walmart's six-bottle Listerine price was close to Equate's per ounce, so the saving mostly applies to single bottles."
   },
   {
     "slug": "listerine-original-vs-equate-antiseptic-original-1-5l",
@@ -420,7 +422,8 @@
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=78e2e172-09a4-4bf1-9871-d099c49087be",
       "https://ndclist.com/ndc/79903-153/label"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both have the same four essential-oil actives at the same strengths, and the same six inactive ingredients with 26.9% alcohol. The record finds only a difference in the order of the inactive list, and the same medicinal taste."
   },
   {
     "slug": "cerave-acne-control-cleanser-vs-up-and-up-salicylic-acid-acne-wash",
@@ -520,7 +523,8 @@
       "https://www.cerave.com/skincare/cleansers/acne-salicylic-acid-cleanser",
       "https://www.target.com/p/oil-free-acne-wash-with-salicylic-acid-8oz-up-38-up-8482/-/A-91551186"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both list 2% salicylic acid with the same ceramides, cholesterol, niacinamide and hectorite clay, in 8 fl oz. The full inactive lists differ in a few ingredients, and the record shows no test where the CeraVe performs better."
   },
   {
     "slug": "cerave-acne-foaming-cream-cleanser-vs-up-and-up-benzoyl-peroxide-4-cleanser",

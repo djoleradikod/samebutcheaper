@@ -1,0 +1,596 @@
+[
+ {
+  "slug": "ambrosia-rice-pudding-vs-lidl-belbake-rice-pudding-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Rice pudding",
+  "title": "Ambrosia Rice Pudding vs Lidl Belbake Rice Pudding",
+  "brand": {
+   "brand": "Ambrosia",
+   "product": "Ambrosia Rice Pudding, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 1.8,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=ambrosia+rice+pudding",
+   "gtin": "5000354800931",
+   "image": "https://images.openfoodfacts.org/images/products/500/035/480/0931/front_en.15.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Full cream milk, skimmed milk",
+     "amount": ""
+    },
+    {
+     "name": "Rice",
+     "amount": "9%"
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Belbake (Lidl)",
+   "product": "Lidl Belbake Rice Pudding, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 0.75,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/q/search?q=belbake+rice+pudding",
+   "gtin": "20397418",
+   "image": "https://images.openfoodfacts.org/images/products/000/002/039/7418/front_en.15.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Whole milk, skimmed milk",
+     "amount": ""
+    },
+    {
+     "name": "Rice",
+     "amount": "9%"
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 400g rice puddings, both labelled 9% rice, at 75p from Lidl against £1.80 for Ambrosia at Tesco.",
+  "evidence": "Open Prices regular shelf prices: Ambrosia £1.80 at Tesco Express, Cardiff, 7 March 2026; Belbake 75p at Lidl, Cardiff, 28 March 2026. Different chains, same city and month. Ingredients are from the Open Food Facts records. Sainsbury's Local had an Ambrosia rice pudding at £1.95 in October 2026 on another barcode.",
+  "differences": "Ambrosia's list is shorter: milk, whey, rice and sugar. Belbake also lists water and an acidity regulator (sodium carbonates). Tesco Express is a convenience format, which can cost more than a large Tesco. No taste test covers this pair.",
+  "why": "Both are mostly milk with 9% rice and sugar, and the Lidl one costs less than half as much for the same weight.",
+  "sources": [
+   "https://prices.openfoodfacts.org/products/5000354800931",
+   "https://prices.openfoodfacts.org/products/20397418",
+   "https://world.openfoodfacts.org/product/5000354800931",
+   "https://world.openfoodfacts.org/product/20397418"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "napolina-passata-vs-lidl-baresa-passata-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Passata",
+  "title": "Napolina Passata vs Lidl Baresa Passata",
+  "brand": {
+   "brand": "Napolina",
+   "product": "Napolina Sieved Tomatoes Passata, 690g",
+   "size": 690,
+   "unit": "g",
+   "price": 1.25,
+   "retailer": "morrisons",
+   "asin": null,
+   "url": "https://groceries.morrisons.com/search?q=napolina+passata",
+   "gtin": "5000232814500",
+   "image": "https://images.openfoodfacts.org/images/products/500/023/281/4500/front_en.25.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomatoes",
+     "amount": ""
+    },
+    {
+     "name": "Citric acid",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Baresa (Lidl)",
+   "product": "Lidl Baresa Tomato Passata, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 0.45,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/q/search?q=baresa+passata",
+   "gtin": "20522605",
+   "image": "https://images.openfoodfacts.org/images/products/000/002/052/2605/front_en.47.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomatoes",
+     "amount": "100%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Lidl's passata is about half Napolina's price per 100g, and its label lists only tomatoes.",
+  "evidence": "Open Prices regular shelf prices: Napolina 690g £1.25 at Morrisons, Manchester, 12 April 2026 (18p per 100g); Baresa 500g 45p at Lidl, Cardiff, 27 September 2026 (9p per 100g), and 49p there on 25 January 2026. Different chains and cities. Ingredients are from the Open Food Facts records.",
+  "differences": "Napolina adds citric acid as an acidity regulator, and Baresa's label lists tomatoes only. Napolina's pack is bigger. No taste test covers this pair.",
+  "why": "Passata is sieved tomatoes on both labels, and Lidl's costs about half as much by weight.",
+  "sources": [
+   "https://prices.openfoodfacts.org/products/5000232814500",
+   "https://prices.openfoodfacts.org/products/20522605",
+   "https://world.openfoodfacts.org/product/5000232814500",
+   "https://world.openfoodfacts.org/product/20522605"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "alpen-original-muesli-vs-aldi-harvest-morn-swiss-style-muesli-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Muesli",
+  "title": "Alpen Original Muesli vs Aldi Harvest Morn Swiss Style Muesli",
+  "brand": {
+   "brand": "Alpen",
+   "product": "Alpen Original Muesli, 550g",
+   "size": 550,
+   "unit": "g",
+   "price": 2.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=alpen+original+muesli",
+   "gtin": "5010029226133",
+   "image": "https://images.openfoodfacts.org/images/products/501/002/922/6133/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wholegrain wheat",
+     "amount": "39%"
+    },
+    {
+     "name": "Wholegrain rolled oats",
+     "amount": "37%"
+    },
+    {
+     "name": "Raisins",
+     "amount": "12%"
+    },
+    {
+     "name": "Hazelnuts, almonds",
+     "amount": "2%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Harvest Morn (Aldi)",
+   "product": "Aldi Harvest Morn Muesli Swiss Style, 1.1kg",
+   "size": 1100,
+   "unit": "g",
+   "price": 2.29,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=harvest+morn+swiss+style+muesli",
+   "gtin": "4088600169934",
+   "image": "https://images.openfoodfacts.org/images/products/408/860/016/9934/front_en.30.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Oat flakes",
+     "amount": ""
+    },
+    {
+     "name": "Toasted wheat flakes",
+     "amount": ""
+    },
+    {
+     "name": "Raisins",
+     "amount": "15%"
+    },
+    {
+     "name": "Hazelnuts",
+     "amount": "2%"
+    },
+    {
+     "name": "Flaked almonds",
+     "amount": "1%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "A bigger Aldi bag of oat, wheat, raisin and nut muesli costs less than the small Alpen box, even with Alpen on offer.",
+  "evidence": "Open Prices: Alpen Original 550g £2.50 at the Co-op, Cardiff, 20 March 2026, marked as a discounted price, the only Alpen record on file (45p per 100g). Harvest Morn Swiss Style 1.1kg £2.29 at Aldi, Birkenhead, 22 August 2026, regular price (21p per 100g). Different chains and cities. Ingredients are from the Open Food Facts records.",
+  "differences": "Alpen's price here was a promotion, so the usual gap is likely wider than shown. The recipes aren't the same: Alpen leads with wholegrain wheat, states wholegrain on both grains and lists sugar and milk powder; Aldi's leads with oat flakes, uses toasted wheat flakes with barley malt extract, whey powder and more raisins, and lists no sugar as such. No taste test covers this pair.",
+  "why": "Both are cereal, raisin and nut mixes in similar proportions, and Aldi's costs under half as much per 100g against Alpen's offer price.",
+  "sources": [
+   "https://prices.openfoodfacts.org/products/5010029226133",
+   "https://prices.openfoodfacts.org/products/4088600169934",
+   "https://world.openfoodfacts.org/product/5010029226133",
+   "https://world.openfoodfacts.org/product/4088600169934"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "barilla-spaghetti-n5-vs-lidl-baresa-spaghetti-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Pasta",
+  "title": "Barilla Spaghetti No.5 vs Lidl Baresa Spaghetti",
+  "brand": {
+   "brand": "Barilla",
+   "product": "Barilla Spaghetti No.5, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=barilla+spaghetti+500g",
+   "gtin": "8076800195057",
+   "image": "https://images.openfoodfacts.org/images/products/807/680/019/5057/front_en.3881.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Durum wheat semolina",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Baresa (Lidl)",
+   "product": "Lidl Baresa Spaghetti, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 0.75,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/q/search?q=baresa+spaghetti",
+   "gtin": "4013159604599",
+   "image": "https://images.openfoodfacts.org/images/products/401/315/960/4599/front_en.86.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Durum wheat semolina",
+     "amount": "100%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 500g of dried durum wheat spaghetti, and Lidl's was 25p cheaper than Barilla's offer price.",
+  "evidence": "Open Prices: Barilla Spaghetti No.5 500g £1.00 at the Co-op, Cardiff, 27 February 2026, marked as a discounted price, the only Barilla record on file. Baresa Spaghetti 500g 75p at Lidl, Cardiff, the same regular price on 1 November 2025, 25 January 2026 and 22 June 2026. Different chains, same city. Ingredients are from the Open Food Facts records.",
+  "differences": "Barilla's price here was a promotion, so the usual gap is likely wider than shown. Open Facts lists no thickness or cooking time for the Lidl pasta, so those may differ from Barilla's No.5. No taste test covers this pair.",
+  "why": "Both labels list only durum wheat semolina, so even at a promotional price the Barilla pack costs a third more than Lidl's everyday one.",
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8076800195057",
+   "https://prices.openfoodfacts.org/products/4013159604599",
+   "https://world.openfoodfacts.org/product/8076800195057",
+   "https://world.openfoodfacts.org/product/4013159604599"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "happy-egg-co-medium-free-range-eggs-vs-tesco-free-range-medium-eggs-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Eggs",
+  "title": "The Happy Egg Co Medium Eggs vs Tesco Free Range Medium Eggs",
+  "brand": {
+   "brand": "The Happy Egg Co",
+   "product": "The Happy Egg Co Medium Free Range Eggs, 6 eggs",
+   "size": 6,
+   "unit": "egg",
+   "price": 2.2,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/happy%20egg%20medium",
+   "gtin": "50378265",
+   "image": "https://images.openfoodfacts.org/images/products/000/005/037/8265/front_en.18.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Free range eggs, medium",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Tesco",
+   "product": "Tesco Free Range Eggs Medium, 6 eggs",
+   "size": 6,
+   "unit": "egg",
+   "price": 1.8,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=free+range+eggs+medium",
+   "gtin": "5051399881256",
+   "image": "https://images.openfoodfacts.org/images/products/505/139/988/1256/front_en.8.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Free range eggs, medium",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Six medium free-range eggs at Tesco cost 40p less than six from The Happy Egg Co at Sainsbury's.",
+  "evidence": "Open Prices regular shelf prices: The Happy Egg Co 6 medium £2.20 at Sainsbury's, Pontypridd, 11 December 2025; Tesco 6 free range medium £1.80 at Tesco Express, Cardiff, on 24 January and 4 March 2026. Different chains. Pack names are from the Open Food Facts records.",
+  "differences": "The Happy Egg Co's price is the older by a few months. Breed, farm and flock standards beyond free range aren't in these records, so this swap doesn't compare them. No taste test covers this pair.",
+  "why": "Both packs are six medium free-range eggs, and the records show nothing else that would account for the extra 7p an egg.",
+  "sources": [
+   "https://prices.openfoodfacts.org/products/50378265",
+   "https://prices.openfoodfacts.org/products/5051399881256",
+   "https://world.openfoodfacts.org/product/50378265",
+   "https://world.openfoodfacts.org/product/5051399881256"
+  ],
+  "price_checked": "2025-12"
+ },
+ {
+  "slug": "tonys-chocolonely-milk-chocolate-vs-sainsburys-milk-chocolate-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Milk chocolate",
+  "title": "Tony's Chocolonely Milk Chocolate vs Sainsbury's Milk Chocolate",
+  "brand": {
+   "brand": "Tony's Chocolonely",
+   "product": "Tony's Chocolonely Milk Chocolate, 180g",
+   "size": 180,
+   "unit": "g",
+   "price": 4.0,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=tony%27s+chocolonely+milk+180g",
+   "gtin": "8717677339914",
+   "image": "https://images.openfoodfacts.org/images/products/871/767/733/9914/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar, dried whole milk, cocoa butter, cocoa mass",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Milk Chocolate, 180g",
+   "size": 180,
+   "unit": "g",
+   "price": 2.0,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/milk%20chocolate%20180g",
+   "gtin": "5063334039165",
+   "image": "https://images.openfoodfacts.org/images/products/506/333/403/9165/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Sugar, cocoa butter, whole milk powder, cocoa mass",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "The same size of milk chocolate bar costs £2 at Sainsbury's and £4 for Tony's at Tesco.",
+  "evidence": "Open Prices regular shelf prices: Tony's Chocolonely 180g £4.00 at Tesco Extra, Cardiff, 7 March 2026; Sainsbury's 180g £2.00 at Sainsbury's, Grimsby, 28 September 2026. Different chains and cities, six months apart. Ingredients are from the Open Food Facts records.",
+  "differences": "Tony's has the shorter list: sugar, whole milk, cocoa butter, cocoa mass and soya lecithin. Sainsbury's adds whey powder, milk fat, skimmed milk powder, a stabiliser and flavouring. Neither record gives a cocoa percentage or sourcing details, so this swap doesn't compare them, and if sourcing is why you buy Tony's, this page doesn't answer that. No taste test covers this pair.",
+  "why": "Both are milk chocolate built on the same four main ingredients, and the Sainsbury's bar costs half as much. The brand's shorter ingredient list is the difference you can read off the labels.",
+  "sources": [
+   "https://prices.openfoodfacts.org/products/8717677339914",
+   "https://prices.openfoodfacts.org/products/5063334039165",
+   "https://world.openfoodfacts.org/product/8717677339914",
+   "https://world.openfoodfacts.org/product/5063334039165"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "jolly-hog-proper-porkers-vs-lidl-deluxe-pork-sausages-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Pork sausages",
+  "title": "The Jolly Hog Proper Porkers vs Lidl Deluxe Pork Sausages",
+  "brand": {
+   "brand": "The Jolly Hog",
+   "product": "The Jolly Hog Proper Porkers Sausages, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 3.8,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.which.co.uk/reviews/food-and-drink/article/best-pork-sausages-a5ry14e4lyVn",
+   "gtin": "5010498509218",
+   "image": "https://images.openfoodfacts.org/images/products/501/049/850/9218/front_en.29.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Pork",
+     "amount": "84%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Deluxe (Lidl)",
+   "product": "Lidl Deluxe Pork Sausages, 400g",
+   "size": 400,
+   "unit": "g",
+   "price": 2.49,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/q/search?q=deluxe+pork+sausages",
+   "key_ingredients": [
+    {
+     "name": "Pork",
+     "amount": "90%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which?'s blind tasters scored Lidl Deluxe 73% and Jolly Hog 65%, and Lidl's has more pork and costs £1.31 less.",
+  "evidence": "Which? pork sausage test, published 1 May 2026, prices correct as of 23 April 2026: 60 people tasted blind. Lidl Deluxe Pork Sausages 73%, £2.49 for 400g, 90% pork. The Jolly Hog Proper Porkers 65%, £3.80 for 400g, 84% pork. Which?'s 29 October 2026 roundup still has Lidl Deluxe at £2.49. Jolly Hog's ingredients are from its Open Food Facts record.",
+  "differences": "Jolly Hog's pork is labelled British, outdoor bred and RSPCA Assured on its record, and its recipe uses gluten-free breadcrumb. Which? doesn't give those details for Lidl's, so check the pack if they matter to you. Each price comes from its own retailer.",
+  "why": "In a blind test the branded sausage scored lower, with less pork, at about 50% more money. If outdoor-bred pork is the reason you buy it, that's the part the Lidl pack may not match.",
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-pork-sausages-a5ry14e4lyVn",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://world.openfoodfacts.org/product/5010498509218"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "manilife-original-roast-smooth-vs-whole-earth-smooth-peanut-butter-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Peanut butter",
+  "title": "Manilife Original Roast Smooth vs Whole Earth Smooth Peanut Butter",
+  "brand": {
+   "brand": "Manilife",
+   "product": "Manilife Original Roast Smooth Peanut Butter, 275g",
+   "size": 275,
+   "unit": "g",
+   "price": 4.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.which.co.uk/reviews/food-and-drink/article/best-smooth-peanut-butter-acemD1X6zQ93",
+   "gtin": "5060560280958",
+   "image": "https://images.openfoodfacts.org/images/products/506/056/028/0958/front_de.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Hi-oleic peanuts",
+     "amount": "99.1%"
+    },
+    {
+     "name": "Sea salt",
+     "amount": "0.9%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Whole Earth",
+   "product": "Whole Earth Smooth Peanut Butter, 454g",
+   "size": 454,
+   "unit": "g",
+   "price": 4.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.which.co.uk/reviews/food-and-drink/article/best-smooth-peanut-butter-acemD1X6zQ93",
+   "gtin": "5000237208700",
+   "image": "https://images.openfoodfacts.org/images/products/500/023/720/8700/front_en.3.400.jpg",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Whole Earth edged Manilife 70% to 69% in Which?'s blind test and costs £1.05 per 100g against £1.45.",
+  "evidence": "Which? smooth peanut butter test, published 22 September 2026, prices correct as of 15 September 2026: 69 people tasted blind in August 2026. Whole Earth Smooth 70%, a Best Buy, £4.75 for 454g (£1.05 per 100g). Manilife Original Roast Smooth 69%, £4 for 275g (£1.45 per 100g). Manilife's ingredients are from its Open Food Facts record.",
+  "differences": "Manilife's label lists only hi-oleic peanuts and sea salt. Whole Earth's ingredients aren't on the record we read, so check its label if you want peanuts and salt only. A one-point gap is small. No supermarket peanut butter appears in this test, so this isn't the cheapest option on the shelf.",
+  "why": "Blind tasters put them a point apart, so the smaller Manilife jar's higher price per 100g didn't buy a better score. The shorter ingredient list is the thing to weigh.",
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-smooth-peanut-butter-acemD1X6zQ93",
+   "https://world.openfoodfacts.org/product/5060560280958",
+   "https://world.openfoodfacts.org/product/5000237208700"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "bertinet-rustic-country-white-sourdough-vs-aldi-specially-selected-white-sourdough-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Sourdough bread",
+  "title": "Bertinet Rustic Country White Sourdough vs Aldi Specially Selected White Sourdough",
+  "brand": {
+   "brand": "Bertinet",
+   "product": "Bertinet Rustic Country White Sourdough, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 2.4,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.which.co.uk/reviews/food-and-drink/article/best-sourdough-bread-aqEvT9B8A0wg",
+   "gtin": "5060149576052",
+   "image": "https://images.openfoodfacts.org/images/products/506/014/957/6052/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Wholemeal wheat, rye, emmer and spelt flours",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Specially Selected (Aldi)",
+   "product": "Aldi Specially Selected White Sourdough Sliced Loaf, 500g",
+   "size": 500,
+   "unit": "g",
+   "price": 1.75,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=specially+selected+white+sourdough",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Bertinet and Aldi's sourdough tied on 62% in Which?'s blind test, and Aldi's costs 65p less for the same weight.",
+  "evidence": "Which? sourdough test, published 16 April 2026, prices checked November 2025: 71 people tasted blind. Aldi Specially Selected White Sourdough Sliced Loaf 62%, £1.75 for 500g (35p per 100g). Bertinet Rustic Country White Sourdough 62%, £2.40 for 500g (48p per 100g). Bertinet's ingredients are from its Open Food Facts record.",
+  "differences": "Bertinet's label lists several wholemeal flours and says no artificial preservatives. Aldi's ingredients aren't on a record we could read, so check the pack. Aldi's loaf is sliced. Prices are a year old. Neither loaf was a Best Buy: the top two, from Co-op and Tesco, scored 73% and 72%.",
+  "why": "Blind tasters gave these two loaves the same score, so the extra 13p per 100g bought no higher mark in this test.",
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-sourdough-bread-aqEvT9B8A0wg",
+   "https://world.openfoodfacts.org/product/5060149576052"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "filippo-berio-100-italian-vs-lidl-deluxe-puglian-extra-virgin-olive-oil-gb",
+  "market": "GB",
+  "category": "food-pantry",
+  "subcategory": "Olive oil",
+  "title": "Filippo Berio 100% Italian vs Lidl Deluxe Puglian Extra Virgin Olive Oil",
+  "brand": {
+   "brand": "Filippo Berio",
+   "product": "Filippo Berio 100% Italian Extra Virgin Olive Oil, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 9.95,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.which.co.uk/reviews/food-and-drink/article/best-extra-virgin-olive-oil-aZTRl1M3bAnf",
+   "gtin": "0041736000032",
+   "image": "https://images.openfoodfacts.org/images/products/004/173/600/0032/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Extra virgin olive oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Deluxe (Lidl)",
+   "product": "Lidl Deluxe Puglian Extra Virgin Olive Oil, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 5.49,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/q/search?q=deluxe+extra+virgin+olive+oil",
+   "key_ingredients": [
+    {
+     "name": "Extra virgin olive oil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are Italian extra virgin olive oils in 500ml, at £5.49 from Lidl against £9.95 for Filippo Berio.",
+  "evidence": "Which? extra virgin olive oil test, published 15 June 2026, prices correct as of June 2026: Filippo Berio 100% Italian £9.95 for 500ml (Italy); Lidl Deluxe Puglian £5.49 for 500ml (Italy, PDO). Each price is from its own retailer. Filippo Berio's photo is from a US record for the same 100% Italian oil.",
+  "differences": "Which? keeps its scores and tasting notes for members, and we haven't seen them, so we can't say which tastes better. Two oils of different origin within Italy may taste quite different. Lidl's carries a PDO, which ties it to a named area of Puglia.",
+  "why": "Same grade, same country and same size, and the Lidl bottle also carries a protected origin, at 45% less. Taste is the open question.",
+  "sources": [
+   "https://www.which.co.uk/reviews/food-and-drink/article/best-extra-virgin-olive-oil-aZTRl1M3bAnf",
+   "https://world.openfoodfacts.org/product/0041736000032"
+  ],
+  "price_checked": "2026-06"
+ }
+]

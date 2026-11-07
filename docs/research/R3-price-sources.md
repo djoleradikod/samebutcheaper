@@ -275,6 +275,30 @@ with others. That last one needs reading before any use.
 Sources: https://github.com/openfoodfacts/open-prices (`docs/guides/data.md`, `docs/community/reuses.md`, `API.md`) and
 https://prices.openfoodfacts.org/api/v1/prices.
 
+## Added during the November research rounds
+
+Researchers read these sites' robots rules and terms before citing them. This table records what they found; nobody has read the
+terms again since. Prices were read through a summarising fetch, so a price on the site is the record, and each swap carries its date.
+
+Swap counts come from the built catalogue of 424 swaps on 7 Nov.
+
+| Site | Market | Swaps citing it | Status | Limits |
+|---|---|---|---|---|
+| Uline | US | 13 (household 9, tools 3, skincare 1) | Used | |
+| Dehner | DE | 2 (garden) | Used | |
+| Toolstation | GB | 10 (tools 9, garden 1) | Used | |
+| mytime.de | DE | 32 (household 21, baby 5, kitchen 4, skincare 2) | Used | Product pages only. Robots bar `?page=`, `?sort=`, `?category=` and `/api` |
+| bacofoil.co.uk | GB | 1 (kitchen) | Used | |
+| Open Prices community records | DE 41, US 37, GB 7 | 85 (food 81, household 2, others 2) | Used | Some record shelf prices at Target, Walmart and Aldi stores. The ban on fetching those retailers' own sites still stands |
+| reichelt | DE | 0 | Allowed, not cited yet | |
+| Rossmann | DE | 0 | Barred | Robots bar ClaudeBot |
+| Screwfix | GB | 0 | Barred | |
+| Webbs Direct, RHS Plants | GB | 0 | Barred | Terms limit this use |
+| Halfords | GB | 0 | Left out | Terms not read |
+
+Auto Express supplies 17 swaps (car 11, tools 6), from one publisher and with rounded prices, so treat that area as thinly sourced. Four
+swaps stay out until they have a second source: Duck tape, 3M 3900, 3M 2090 and microflex gloves.
+
 ## What remains without a source
 
 - **CA retailers:** not scouted in this round. CA has only Open Prices, with 90 prices in 2026 and 0/10 barcodes.

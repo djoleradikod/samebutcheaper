@@ -1,0 +1,1276 @@
+[
+ {
+  "slug": "pampers-baby-dry-gr-4-vs-jeden-tag-babywindeln-maxi-gr-4-de",
+  "market": "DE",
+  "category": "baby",
+  "subcategory": "Nappies",
+  "title": "Pampers Baby Dry Gr. 4 vs Jeden Tag Babywindeln Maxi Gr. 4",
+  "brand": {
+   "brand": "Pampers",
+   "product": "Pampers Baby Dry Windeln Gr. 4, 9-14 kg, 34 nappies",
+   "size": 34,
+   "unit": "nappy",
+   "price": 11.59,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/pampers_baby_dry_windeln_gr._4-_9kg-14kg_4501031441.html",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "4, 9-14 kg"
+    },
+    {
+     "name": "Wetness indicator",
+     "amount": "yes"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Babywindeln Maxi Gr. 4, 9-14 kg, 42 nappies",
+   "size": 42,
+   "unit": "nappy",
+   "price": 7.09,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_babywindeln_maxi_gr._4-_9-14kg_4501031105.html",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "4, 9-14 kg"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two size 4 nappies for the same 9-14 kg weight at one shop, with Jeden Tag about half the price per nappy.",
+  "evidence": "mytime.de lists Pampers Baby Dry Gr. 4 (34) at €11.59 and Jeden Tag Maxi Gr. 4 (42) at €7.09, both with VAT and plus shipping, read in November 2026. Pampers' 78-pack is €25.45, about 33 cents a nappy, still dearer than Jeden Tag. Stiftung Warentest (08/2021) put Pampers Baby-Dry size 4 at 21 cents and store brands from dm, Edeka and Lidl at 12 to 13 cents. Those are older prices and Jeden Tag was not in that test.",
+  "differences": "The Pampers page describes a wetness indicator, double leg cuffs and a back pocket against leaks, and an OEKO-TEX STANDARD 100 certificate. The Jeden Tag page mentions none of these. No test we could read covers Jeden Tag, and the grades in the Stiftung Warentest and Öko-Test nappy tests are behind a paywall, so we can't say how they compare on leaks or fit.",
+  "why": "Same size and weight range at one shop, for about half the price per nappy. Buy one pack first, because leaks and fit are the part we have no test for.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/pampers_baby_dry_windeln_gr._4-_9kg-14kg_4501031441.html",
+   "https://www.mytime.de/pampers_baby_dry_windeln_gr._4-_9kg-14kg_4501031443.html",
+   "https://www.mytime.de/jeden_tag_babywindeln_maxi_gr._4-_9-14kg_4501031105.html",
+   "https://www.test.de/Windeln-im-Test-1230140-0/"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "pampers-baby-dry-gr-5-vs-jeden-tag-babywindeln-junior-gr-5-de",
+  "market": "DE",
+  "category": "baby",
+  "subcategory": "Nappies",
+  "title": "Pampers Baby Dry Gr. 5 vs Jeden Tag Babywindeln Junior Gr. 5",
+  "brand": {
+   "brand": "Pampers",
+   "product": "Pampers Baby Dry Windeln Gr. 5, 11-16 kg, 29 nappies",
+   "size": 29,
+   "unit": "nappy",
+   "price": 11.59,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/pampers_baby_dry_windeln_gr._5-_11kg-16kg_4501031442.html",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "5, 11-16 kg"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Babywindeln Junior Gr. 5, 11-16 kg, 36 nappies",
+   "size": 36,
+   "unit": "nappy",
+   "price": 6.79,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_babywindeln_junior_gr._5-_11-16kg_4501031099.html",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "5, 11-16 kg"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two size 5 nappies for 11-16 kg at one shop, with Jeden Tag a little over half the price per nappy.",
+  "evidence": "mytime.de lists Pampers Baby Dry Gr. 5 (29) at €11.59 and Jeden Tag Junior Gr. 5 (36) at €6.79, both with VAT and plus shipping, read in November 2026. Öko-Test's size 4 nappy test (magazine 9/2023, bought April 2023) showed the same kind of gap between Pampers and store brands, at 35 cents for Pampers Premium Protection and 13 to 14 cents for most store brands.",
+  "differences": "No test we could read covers Jeden Tag or this size. The Öko-Test grades are behind a paywall and the Öko-Test prices are for size 4 and from 2023. mytime's product type field differs too: Babywindel for Pampers, Höschenwindel for Jeden Tag.",
+  "why": "Same size and weight range at one shop, for a little over half the price per nappy. Try one pack before buying more, because no test we could read covers this nappy.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/pampers_baby_dry_windeln_gr._5-_11kg-16kg_4501031442.html",
+   "https://www.mytime.de/jeden_tag_babywindeln_junior_gr._5-_11-16kg_4501031099.html",
+   "https://www.oekotest.de/kinder-familie/Windeln-im-Test-Welche-Windeln-sind-am-besten_14033_1.html"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "pampers-baby-dry-pants-gr-5-vs-jeden-tag-premium-pants-junior-gr-5-de",
+  "market": "DE",
+  "category": "baby",
+  "subcategory": "Nappy pants",
+  "title": "Pampers Baby Dry Pants Gr. 5 vs Jeden Tag Premium Pants Junior Gr. 5",
+  "brand": {
+   "brand": "Pampers",
+   "product": "Pampers Baby Dry Pants Gr. 5, 11-17 kg, 26 pants",
+   "size": 26,
+   "unit": "nappy",
+   "price": 11.55,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/pampers_baby_dry_pants_gr._5-_11kg-17kg_4501031446.html",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "5, 11-17 kg"
+    },
+    {
+     "name": "Type",
+     "amount": "Pull-up pants"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Premium Pants Junior Gr. 5, 12-17 kg, 20 pants",
+   "size": 20,
+   "unit": "nappy",
+   "price": 4.69,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_premium_pants_junior_gr._5-_12-17kg_4501031116.html",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "5, 12-17 kg"
+    },
+    {
+     "name": "Type",
+     "amount": "Pull-up pants"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two size 5 nappy pants at one shop, with Jeden Tag about half the price per pair.",
+  "evidence": "mytime.de lists Pampers Baby Dry Pants Gr. 5 (26) at €11.55 and Jeden Tag Premium Pants Junior Gr. 5 (20) at €4.69, both with VAT and plus shipping, read in November 2026. Open Products Facts has a record for the Pampers size 5 pants.",
+  "differences": "The weight range starts lower on Pampers: 11-17 kg against 12-17 kg, so a lighter child may not fit the Jeden Tag. No test we could read covers either pair of pants.",
+  "why": "Same size number and the same pull-up form at one shop, for about half the price each. Check the weight range first, because Jeden Tag starts at 12 kg.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/pampers_baby_dry_pants_gr._5-_11kg-17kg_4501031446.html",
+   "https://www.mytime.de/jeden_tag_premium_pants_junior_gr._5-_12-17kg_4501031116.html",
+   "https://world.openproductsfacts.org/product/8700216614290"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "pampers-feuchte-tuecher-sensitive-vs-jeden-tag-baby-feuchttuecher-sensitiv-de",
+  "market": "DE",
+  "category": "baby",
+  "subcategory": "Baby wipes",
+  "title": "Pampers Feuchte Tücher Sensitive vs Jeden Tag Baby Feuchttücher sensitiv",
+  "brand": {
+   "brand": "Pampers",
+   "product": "Pampers Feuchte Tücher Sensitive, 3 x 80 wipes",
+   "size": 240,
+   "unit": "wipe",
+   "price": 7.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/pampers_feuchte_tuecher_sensitive_4501031434.html",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Citric Acid",
+     "amount": ""
+    },
+    {
+     "name": "PEG-40 Hydrogenated Castor Oil",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Benzoate",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Baby Feuchttücher sensitiv, 2 x 80 wipes",
+   "size": 160,
+   "unit": "wipe",
+   "price": 2.06,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_baby_feuchttuecher_sensitiv_4501030907.html",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Benzoate",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Cocoamphoacetate",
+     "amount": ""
+    },
+    {
+     "name": "Aloe Barbadensis Leaf Juice",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two sensitive baby wipes without added perfume at one shop, with Jeden Tag well under half the price per wipe.",
+  "evidence": "mytime.de lists Pampers Sensitive (3 x 80) at €7.29 and Jeden Tag sensitiv (2 x 80) at €2.06, both with VAT and plus shipping, read in November 2026. Öko-Test's fragrance-free wipes test (published 2025, bought June and July 2024) priced Pampers Sensitive at €1.71 for 80 wipes, and most store-brand sensitive wipes between €0.86 and €1.30.",
+  "differences": "The ingredient lists differ, and Jeden Tag adds aloe, chamomile, panthenol and glycerin. Pampers says on its page that dermatologists of the Skin Health Alliance confirmed it and that it suits newborns' skin. Jeden Tag says dermatologically confirmed, pH-neutral and perfume-free. Jeden Tag was not in the Öko-Test list, and its grades are behind a paywall. We did not compare wipe size or thickness.",
+  "why": "Both are sold as sensitive and perfume-free at the same shop, and Pampers costs more than twice as much per wipe. Öko-Test's price list shows a similar gap against other store brands.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/pampers_feuchte_tuecher_sensitive_4501031434.html",
+   "https://www.mytime.de/jeden_tag_baby_feuchttuecher_sensitiv_4501030907.html",
+   "https://www.oekotest.de/kinder-familie/Feuchttuecher-Test-Wie-schlagen-sich-Pampers-Hipp-Lillydoo-Co-_14895_1.html"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "buebchen-baby-shampoo-sensitiv-vs-penaten-baby-shampoo-de",
+  "market": "DE",
+  "category": "baby",
+  "subcategory": "Baby shampoo",
+  "title": "Bübchen Baby Shampoo sensitiv vs Penaten Baby Shampoo",
+  "brand": {
+   "brand": "Bübchen",
+   "product": "Bübchen Baby Shampoo sensitiv, 200 ml",
+   "size": 200,
+   "unit": "ml",
+   "price": 2.25,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/buebchen_baby_shampoo_sensitiv_4501125876.html",
+   "key_ingredients": [
+    {
+     "name": "Sodium C14-16 Olefin Sulfonate",
+     "amount": ""
+    },
+    {
+     "name": "Cocamidopropyl Betaine",
+     "amount": ""
+    },
+    {
+     "name": "Glycerin",
+     "amount": ""
+    },
+    {
+     "name": "Parfum",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Penaten",
+   "product": "Penaten Baby Shampoo, 400 ml",
+   "size": 400,
+   "unit": "ml",
+   "price": 3.45,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/penaten_baby_shampoo_4501125963.html",
+   "gtin": "3574661474915",
+   "image": "https://images.openbeautyfacts.org/images/products/357/466/147/4915/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cocamidopropyl Betaine",
+     "amount": ""
+    },
+    {
+     "name": "Decyl Glucoside",
+     "amount": ""
+    },
+    {
+     "name": "Glycerin",
+     "amount": ""
+    },
+    {
+     "name": "Parfum",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two baby shampoos at one shop, with Penaten's bigger bottle about a quarter cheaper per ml.",
+  "evidence": "mytime.de lists Bübchen sensitiv (200 ml) at €2.25 and Penaten (400 ml) at €3.45, both with VAT and plus shipping, read in November 2026. Both labels say dermatologically tested and both contain perfume.",
+  "differences": "The cleansing ingredients differ. Bübchen's page says its mildness to eyes is confirmed by eye doctors, and it adds panthenol, aloe and chamomile. Penaten's page says it is as mild to the eyes as pure water. Penaten is a big name too, so this is a cheaper brand rather than a budget product, and you have to buy twice as much. No test we could read covers this pair.",
+  "why": "Both are baby shampoos with dermatological claims and perfume on the label, and buying the bigger Penaten bottle costs less per ml.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/buebchen_baby_shampoo_sensitiv_4501125876.html",
+   "https://www.mytime.de/penaten_baby_shampoo_4501125963.html",
+   "https://world.openbeautyfacts.org/product/3574661474915"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "hakle-feucht-ultra-med-vs-jeden-tag-feuchtes-toilettenpapier-sensitiv-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Moist toilet tissue",
+  "title": "Hakle Feucht Ultra med vs Jeden Tag Feuchtes Toilettenpapier sensitiv",
+  "brand": {
+   "brand": "Hakle",
+   "product": "Hakle Feucht Toilettenpapier Ultra med, 42 sheets",
+   "size": 42,
+   "unit": "sheet",
+   "price": 1.95,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/hakle_feucht_toilettenpapier_ultra_med_4501031389.html",
+   "gtin": "4260344220717",
+   "image": "https://images.openbeautyfacts.org/images/products/426/034/422/0717/front_de.11.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Propylene Glycol",
+     "amount": ""
+    },
+    {
+     "name": "Hamamelis Virginiana Leaf Extract",
+     "amount": ""
+    },
+    {
+     "name": "Panthenol",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Feuchtes Toilettenpapier sensitiv, 70 sheets",
+   "size": 70,
+   "unit": "sheet",
+   "price": 0.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_feuchtes_toilettenpapier_sensitiv_4501030908.html",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Phenoxyethanol",
+     "amount": ""
+    },
+    {
+     "name": "Aloe Barbadensis Leaf Juice",
+     "amount": ""
+    },
+    {
+     "name": "Panthenol",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two moist toilet tissues at one shop, with Jeden Tag less than a third of the price per sheet.",
+  "evidence": "mytime.de lists Hakle Feucht Ultra med (42) at €1.95 and Jeden Tag sensitiv (70) at €0.99, both with VAT and plus shipping, read in November 2026. Ingredients are from both product pages.",
+  "differences": "Hakle's page cites a slosh-box test for dissolving in water, and says it is biodegradable and free of microplastic. Jeden Tag's page says it can go down the toilet, no more than two sheets at a time, but cites no test. Hakle has witch hazel. Jeden Tag has aloe and chamomile and says it is perfume-free. We did not compare sheet size, and no test we could read covers this pair.",
+  "why": "Same job, both with panthenol and both flushable by their own labels. If flushing matters to your pipes, Hakle is the one that cites a test.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/hakle_feucht_toilettenpapier_ultra_med_4501031389.html",
+   "https://www.mytime.de/jeden_tag_feuchtes_toilettenpapier_sensitiv_4501030908.html",
+   "https://world.openbeautyfacts.org/product/4260344220717"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "lenor-weichspueler-aprilfrisch-vs-jeden-tag-weichspueler-meeresfrische-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Fabric softener",
+  "title": "Lenor Weichspüler Aprilfrisch vs Jeden Tag Weichspüler Meeresfrische",
+  "brand": {
+   "brand": "Lenor",
+   "product": "Lenor Weichspüler Aprilfrisch, 71 washes",
+   "size": 71,
+   "unit": "wash",
+   "price": 5.79,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/lenor_weichspueler_aprilfrisch_4501013486.html",
+   "gtin": "8006540484289",
+   "image": "https://images.openproductsfacts.org/images/products/800/654/048/4289/front_de.6.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cationic surfactants",
+     "amount": "<5%"
+    },
+    {
+     "name": "Dose",
+     "amount": "21 ml"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Weichspüler Meeresfrische, 1.5 l, 75 washes",
+   "size": 75,
+   "unit": "wash",
+   "price": 2.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_weichspueler_meeresfrische_4501013405.html",
+   "key_ingredients": [
+    {
+     "name": "Cationic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Dose",
+     "amount": "20 ml"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two liquid fabric softeners at one shop with about the same dose, with Jeden Tag well under half the price per wash.",
+  "evidence": "mytime.de lists Lenor Aprilfrisch (71 washes) at €5.79 and Jeden Tag Meeresfrische (75 washes, 1.5 l) at €2.29, both with VAT and plus shipping, read in November 2026. Stiftung Warentest's softener test (10/2019) found only 6 of 21 good, costs of 2 to 15 cents a wash, and the most expensive product failing to soften at all.",
+  "differences": "The scents differ. Neither of these two was shown in the part of the 2019 test we read, and that test is old. Lenor's page warns against use on children's nightwear and flame-retardant clothing, because liquid softeners can raise flammability. We did not see that warning on the Jeden Tag page, but read the label for either.",
+  "why": "The dose is nearly the same and the label bands show softening agents in both. Stiftung Warentest's 2019 test found that the highest price did not buy softness.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/lenor_weichspueler_aprilfrisch_4501013486.html",
+   "https://www.mytime.de/jeden_tag_weichspueler_meeresfrische_4501013405.html",
+   "https://www.test.de/Weichspueler-im-Test-5519844-0/",
+   "https://world.openproductsfacts.org/product/8006540484289"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "demak-up-expert-wattepads-vs-la-ligne-duo-wattepads-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Cotton pads",
+  "title": "Demak'Up Expert Wattepads vs La Ligne Duo Wattepads",
+  "brand": {
+   "brand": "Demak'Up",
+   "product": "Demak'Up Expert Wattepads rund, 70 pads",
+   "size": 70,
+   "unit": "pad",
+   "price": 2.09,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/demak%27up_expert_wattepads_rund_4501030877.html",
+   "gtin": "3228061018506",
+   "image": "https://images.openfoodfacts.org/images/products/322/806/101/8506/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Material",
+     "amount": "100% cotton fibres"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "La Ligne",
+   "product": "La Ligne Duo Wattepads, 140 pads",
+   "size": 140,
+   "unit": "pad",
+   "price": 1.19,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/la_ligne_duo_wattepads_4501031440.html",
+   "key_ingredients": [
+    {
+     "name": "Material",
+     "amount": "100% cotton"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 100% cotton round pads at one shop, with La Ligne less than a third of the price per pad.",
+  "evidence": "mytime.de lists Demak'Up Expert (70) at €2.09 and La Ligne Duo (140) at €1.19, both with VAT and plus shipping, read in November 2026. Both pages state 100% cotton.",
+  "differences": "Demak'Up has a honeycomb side that it says removes long-lasting and waterproof make-up. La Ligne makes no such claim. We did not compare pad size or thickness, and no test we could read covers this pair.",
+  "why": "The material is the same, 100% cotton, and you get twice the pads for less money. The textured side is what Demak'Up adds, which matters mostly for heavy make-up.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/demak%27up_expert_wattepads_rund_4501030877.html",
+   "https://www.mytime.de/la_ligne_duo_wattepads_4501031440.html",
+   "https://world.openfoodfacts.org/product/3228061018506"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "q-tips-pflegestaebchen-papierschaft-vs-la-ligne-wattestaebchen-papierschaft-de",
+  "market": "DE",
+  "category": "skincare-personal-care",
+  "subcategory": "Cotton buds",
+  "title": "Q-Tips Pflegestäbchen vs La Ligne Wattestäbchen, paper stem",
+  "brand": {
+   "brand": "Q-tips",
+   "product": "Pelz Q-Tips Pflegestäbchen mit Papierschaft, 206 buds",
+   "size": 206,
+   "unit": "bud",
+   "price": 1.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/pelz_q-tips_pflegestaebchen_mit_papierschaft_4501030931.html",
+   "gtin": "4000576027308",
+   "image": "https://images.openfoodfacts.org/images/products/400/057/602/7308/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tip",
+     "amount": "100% cotton"
+    },
+    {
+     "name": "Stem",
+     "amount": "Paper"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "La Ligne",
+   "product": "La Ligne Wattestäbchen mit Papierschaft Nachfüllpack, 160 buds",
+   "size": 160,
+   "unit": "bud",
+   "price": 0.89,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/la_ligne_wattestaebchen_mit_papierschaft_nachfuellpack_4501031387.html",
+   "key_ingredients": [
+    {
+     "name": "Stem",
+     "amount": "Paper"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two paper-stem cotton buds at one shop, with La Ligne a little over half the price per bud.",
+  "evidence": "mytime.de lists Q-Tips with paper stem (206) at €1.99 and the La Ligne refill with paper stem (160) at €0.89, both with VAT and plus shipping, read in November 2026.",
+  "differences": "Q-Tips comes in a tub and La Ligne in a refill bag, so you would need your own container. Q-Tips states 100% cotton and dermatologically tested. La Ligne's page states neither. No test we could read covers this pair.",
+  "why": "A cotton bud with a paper stem does a simple job. The Q-Tips price also buys a tub, which the La Ligne refill does not include.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/pelz_q-tips_pflegestaebchen_mit_papierschaft_4501030931.html",
+   "https://www.mytime.de/la_ligne_wattestaebchen_mit_papierschaft_nachfuellpack_4501031387.html",
+   "https://world.openfoodfacts.org/product/4000576027308"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "persil-universal-kraft-gel-vs-jeden-tag-vollwaschmittel-fluessig-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Universal Kraft-Gel vs Jeden Tag Vollwaschmittel flüssig",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Universal Kraft-Gel Tiefenrein, 20 washes",
+   "size": 20,
+   "unit": "wash",
+   "price": 7.89,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/persil_universal_kraft-gel_fluessig-waschmittel_tiefenrein_4501013346.html",
+   "gtin": "4015200035154",
+   "image": "https://images.openfoodfacts.org/images/products/401/520/003/5154/front_de.11.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants, nonionic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Soap",
+     "amount": "<5%"
+    },
+    {
+     "name": "Enzymes and optical brighteners",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Vollwaschmittel flüssig, 27 washes",
+   "size": 27,
+   "unit": "wash",
+   "price": 5.05,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_vollwaschmittel_fluessig_4501013591.html",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants, nonionic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Soap, phosphonates",
+     "amount": "<5%"
+    },
+    {
+     "name": "Enzymes and optical brighteners",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two liquid full-wash detergents with the same label bands at one shop, with Jeden Tag about half the price per wash.",
+  "evidence": "mytime.de lists Persil Universal Kraft-Gel (20 washes) at €7.89 and Jeden Tag Vollwaschmittel flüssig (27 washes) at €5.05, both with VAT and plus shipping, read in November 2026. Both pages state 5-15% anionic and nonionic surfactants, enzymes and optical brighteners.",
+  "differences": "Label bands are ranges, so the same band does not mean the same amount. Persil's page gives a dose of 45 ml for 4-5 kg. We found no dose for Jeden Tag, so its wash count is the maker's own figure. No test we could read covers these two liquids.",
+  "why": "The label shows the same ingredient bands and the same types of ingredient, at about half the price per wash at one shop. No wash test covers them, so we can't say the results match.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/persil_universal_kraft-gel_fluessig-waschmittel_tiefenrein_4501013346.html",
+   "https://www.mytime.de/jeden_tag_vollwaschmittel_fluessig_4501013591.html",
+   "https://world.openfoodfacts.org/product/4015200035154"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "persil-color-kraft-gel-vs-jeden-tag-color-waschmittel-fluessig-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Color Kraft-Gel vs Jeden Tag Color Waschmittel flüssig",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Color Kraft-Gel Tiefenrein, 20 washes",
+   "size": 20,
+   "unit": "wash",
+   "price": 7.89,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/persil_color_kraft-gel_fluessig-waschmittel_tiefenrein_4501013344.html",
+   "gtin": "4015200035161",
+   "image": "https://images.openfoodfacts.org/images/products/401/520/003/5161/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants",
+     "amount": "15-30%"
+    },
+    {
+     "name": "Nonionic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Color Waschmittel flüssig, 27 washes",
+   "size": 27,
+   "unit": "wash",
+   "price": 5.05,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_color_waschmittel_fluessig_4501013590.html",
+   "key_ingredients": [
+    {
+     "name": "Anionic and nonionic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two liquid colour detergents at one shop, with Jeden Tag about half the price per wash, though Persil's label shows more surfactant.",
+  "evidence": "mytime.de lists Persil Color Kraft-Gel (20 washes) at €7.89 and Jeden Tag Color flüssig (27 washes) at €5.05, both with VAT and plus shipping, read in November 2026.",
+  "differences": "Persil is ahead on the label here: it states 15-30% anionic surfactants, against 5-15% for Jeden Tag. No test we could read says whether it washes better. Neither ingredient list names optical brighteners.",
+  "why": "This is a colour liquid at about half the price per wash at one shop. Persil's label shows a higher surfactant band, and we have no test showing what that does in the wash.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/persil_color_kraft-gel_fluessig-waschmittel_tiefenrein_4501013344.html",
+   "https://www.mytime.de/jeden_tag_color_waschmittel_fluessig_4501013590.html",
+   "https://world.openfoodfacts.org/product/4015200035161"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "persil-color-waschpulver-vs-jeden-tag-waschmittel-kompakt-color-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Color Waschpulver vs Jeden Tag Waschmittel Kompakt Color",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Color Waschpulver Tiefenrein, 90 washes",
+   "size": 90,
+   "unit": "wash",
+   "price": 26.45,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/persil_color_waschpulver_tiefenrein_4501013511.html",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Zeolites, phosphonates",
+     "amount": ""
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Waschmittel Kompakt Color, 30 washes",
+   "size": 30,
+   "unit": "wash",
+   "price": 5.79,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_waschmittel_kompakt_color_4501011985.html",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants, zeolites",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Phosphonates",
+     "amount": "<5%"
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two colour powders with the same surfactant band at one shop, with Jeden Tag about a third cheaper per wash even against Persil's big box.",
+  "evidence": "mytime.de lists Persil Color Waschpulver (90 washes) at €26.45 and Jeden Tag Kompakt Color (30 washes) at €5.79, both with VAT and plus shipping, read in November 2026. Open Products Facts has a record for Persil Color powder in another pack.",
+  "differences": "Persil's box is three times the size, so you would be comparing a big purchase with a small one. Label bands are ranges and do not show exact amounts. No test we could read covers these two colour powders.",
+  "why": "Jeden Tag is cheaper per wash even though Persil's price here is for a much bigger box. The label shows the same anionic surfactant band and the same types of ingredient.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/persil_color_waschpulver_tiefenrein_4501013511.html",
+   "https://www.mytime.de/jeden_tag_waschmittel_kompakt_color_4501011985.html",
+   "https://world.openproductsfacts.org/product/4015200034911"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "perwoll-black-renew-vs-jeden-tag-feinwaschmittel-black-sensation-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Perwoll Black renew vs Jeden Tag Feinwaschmittel Black Sensation",
+  "brand": {
+   "brand": "Perwoll",
+   "product": "Perwoll Black Flüssig-Waschmittel renew, 27 washes",
+   "size": 27,
+   "unit": "wash",
+   "price": 6.85,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/perwoll_black_fluessig-waschmittel_renew_4501013159.html",
+   "gtin": "4015200033778",
+   "image": "https://images.openfoodfacts.org/images/products/401/520/003/3778/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Nonionic surfactants, soap",
+     "amount": "<5%"
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Jeden Tag",
+   "product": "Jeden Tag Feinwaschmittel Black Sensation flüssig, 37 washes",
+   "size": 37,
+   "unit": "wash",
+   "price": 2.15,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/jeden_tag_feinwaschmittel_black_sensation_fluessig_4501013520.html",
+   "key_ingredients": [
+    {
+     "name": "Anionic surfactants",
+     "amount": "5-15%"
+    },
+    {
+     "name": "Nonionic surfactants, soap",
+     "amount": "<5%"
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two liquid detergents for black clothes with the same label bands at one shop, with Jeden Tag about a quarter of the price per wash.",
+  "evidence": "mytime.de lists Perwoll Black renew (27 washes) at €6.85 and Jeden Tag Black Sensation (37 washes) at €2.15, both with VAT and plus shipping, read in November 2026. Both pages state 5-15% anionic surfactants, under 5% nonionic surfactants and soap, and enzymes.",
+  "differences": "Perwoll's name promises renew, which Jeden Tag's name does not. Label bands are ranges and do not show exact amounts. We did not compare doses, so the wash count is the maker's figure. No test we could read covers this pair.",
+  "why": "The label bands and ingredient types match at one shop, for about a quarter of the price per wash. No test we read has checked what renew does.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/perwoll_black_fluessig-waschmittel_renew_4501013159.html",
+   "https://www.mytime.de/jeden_tag_feinwaschmittel_black_sensation_fluessig_4501013520.html",
+   "https://world.openfoodfacts.org/product/4015200033778"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "dr-beckmann-fleckensalz-oxi-power-vs-sil-fleckensalz-de",
+  "market": "DE",
+  "category": "household",
+  "subcategory": "Stain remover",
+  "title": "Dr. Beckmann Fleckensalz Oxi Power vs Sil Fleckensalz",
+  "brand": {
+   "brand": "Dr. Beckmann",
+   "product": "Dr. Beckmann Fleckensalz Oxi Power, 400 g",
+   "size": 400,
+   "unit": "g",
+   "price": 3.35,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/dr._beckmann_fleckensalz_oxi_power_4501013353.html",
+   "gtin": "4008455095912",
+   "image": "https://images.openfoodfacts.org/images/products/400/845/509/5912/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Oxygen-based bleach",
+     "amount": "5-<15%"
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sil",
+   "product": "Sil Fleckensalz 1 für Alles, 500 g",
+   "size": 500,
+   "unit": "g",
+   "price": 3.45,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mytime.de/sil_fleckensalz_1_fuer_alles_4501012630.html",
+   "gtin": "4015000971904",
+   "image": "https://images.openproductsfacts.org/images/products/401/500/097/1904/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Oxygen-based bleach",
+     "amount": "15-30%"
+    },
+    {
+     "name": "Enzymes",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two stain salts that go in with your detergent, at one shop, with Sil about 18% cheaper per gram and a higher bleach band on the label.",
+  "evidence": "mytime.de lists Dr. Beckmann Oxi Power (400 g) at €3.35 and Sil 1 für Alles (500 g) at €3.45, both with VAT and plus shipping, read in November 2026.",
+  "differences": "Doses are stated differently: 50 g a machine wash for Dr. Beckmann, and 70 ml (about 4 tablespoons) for normal stains for Sil, so we can't work out the price per wash. Sil is a big name too. Sil also lists surfactants and phosphonates. No test we could read covers this pair.",
+  "why": "Both are oxygen-bleach stain salts with enzymes, and Sil's label shows the higher bleach band for less per gram.",
+  "claims": [],
+  "sources": [
+   "https://www.mytime.de/dr._beckmann_fleckensalz_oxi_power_4501013353.html",
+   "https://www.mytime.de/sil_fleckensalz_1_fuer_alles_4501012630.html",
+   "https://world.openfoodfacts.org/product/4008455095912",
+   "https://world.openproductsfacts.org/product/4015000971904"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "pampers-harmonie-aqua-vs-tesco-fred-and-flo-biodegradable-wipes-gb",
+  "market": "GB",
+  "category": "baby",
+  "subcategory": "Baby wipes",
+  "title": "Pampers Harmonie Aqua vs Tesco Fred & Flo Biodegradable Wipes",
+  "brand": {
+   "brand": "Pampers",
+   "product": "Pampers Harmonie Aqua baby wipes, 48 wipes",
+   "size": 48,
+   "unit": "wipe",
+   "price": 2.55,
+   "retailer": "boots",
+   "asin": null,
+   "url": "https://www.boots.com/sitesearch?searchTerm=pampers%20harmonie%20aqua",
+   "gtin": "8700216780339",
+   "image": "https://images.openfoodfacts.org/images/products/870/021/678/0339/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Citric Acid",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Benzoate",
+     "amount": ""
+    },
+    {
+     "name": "PEG-40 Hydrogenated Castor Oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Tesco Fred & Flo",
+   "product": "Tesco Fred & Flo Biodegradable Fragrance Free wipes, 60 wipes",
+   "size": 60,
+   "unit": "wipe",
+   "price": 0.59,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fred%20and%20flo%20biodegradable%20wipes",
+   "gtin": "1057733937409",
+   "image": "https://images.openbeautyfacts.org/images/products/105/773/393/7409/front_fr.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Phenoxyethanol",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Citrate",
+     "amount": ""
+    },
+    {
+     "name": "Glycerin",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two fragrance-free baby wipes in Which?'s price table, with Fred & Flo about 1p a wipe against about 5p for Pampers.",
+  "evidence": "Which? listed Pampers Harmonie Aqua (48) at £2.55 with a link to Boots and Tesco Fred & Flo (60) at 59p with a link to Tesco, prices correct on 5 March 2026. Which? does not say which shop each price is from, so the shops are from its links. No ingredient list in its table includes a fragrance.",
+  "differences": "This is more than an 80% saving, and we checked the packs: 48 and 60 wipes. The formulas are not the same. Fred & Flo has the longest list in the table, at 17 ingredients, and contains phenoxyethanol. Pampers has seven. Which? shows Fred & Flo as biodegradable and Not stated for Pampers. Which? compared prices and ingredients only and did not test how well they clean.",
+  "why": "Both clean a baby without added fragrance, for very different money. If you want a shorter ingredient list, Pampers has one.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/nappies/article/baby-wipes-how-do-they-compare-aiTaA1s22uEI",
+   "https://world.openfoodfacts.org/product/8700216780339",
+   "https://world.openbeautyfacts.org/product/1057733937409"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "waterwipes-original-vs-superdrug-my-little-star-biodegradable-pure-gb",
+  "market": "GB",
+  "category": "baby",
+  "subcategory": "Baby wipes",
+  "title": "WaterWipes Original vs Superdrug My Little Star Biodegradable Pure",
+  "brand": {
+   "brand": "WaterWipes",
+   "product": "WaterWipes Original, 60 wipes",
+   "size": 60,
+   "unit": "wipe",
+   "price": 2.57,
+   "retailer": "boots",
+   "asin": null,
+   "url": "https://www.boots.com/sitesearch?searchTerm=waterwipes%20original",
+   "gtin": "5099514200216",
+   "image": "https://images.openbeautyfacts.org/images/products/509/951/420/0216/front_en.9.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water",
+     "amount": "99.9%"
+    },
+    {
+     "name": "Fruit extract",
+     "amount": "a drop"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Superdrug My Little Star",
+   "product": "Superdrug My Little Star Biodegradable Pure, 60 wipes",
+   "size": 60,
+   "unit": "wipe",
+   "price": 1.7,
+   "retailer": "superdrug",
+   "asin": null,
+   "url": "https://www.superdrug.com/search?text=my%20little%20star%20biodegradable%20wipes",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Myristamidopropyl PG-Dimonium Chloride Phosphate",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Benzoate",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Citrate",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two biodegradable baby wipes with short ingredient lists, with Superdrug's about a third cheaper per wipe.",
+  "evidence": "Which? listed WaterWipes Original (60) at £2.57 with a link to Boots and Superdrug My Little Star Biodegradable Pure (60) at £1.70 with a link to Superdrug, prices correct on 5 March 2026. Which? does not say which shop each price is from, so the shops are from its links.",
+  "differences": "WaterWipes has the shortest list in Which?'s table, mostly water and a fruit extract with a trace of benzalkonium chloride. Superdrug's list has six ingredients, so it is short but not the same. Which? compared prices and ingredients only and did not test how well they clean.",
+  "why": "If a short list is why you buy WaterWipes, Superdrug's list is one of the shorter ones in the table and is biodegradable too, for a third less. WaterWipes' list is still the shorter of the two.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/nappies/article/baby-wipes-how-do-they-compare-aiTaA1s22uEI",
+   "https://world.openbeautyfacts.org/product/5099514200216"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "rascals-premium-sensitive-vs-asda-little-angels-sensitive-wipes-gb",
+  "market": "GB",
+  "category": "baby",
+  "subcategory": "Baby wipes",
+  "title": "Rascals Premium Sensitive vs Asda Little Angels Sensitive Wipes",
+  "brand": {
+   "brand": "Rascals",
+   "product": "Rascals Premium Sensitive wipes, 52 wipes",
+   "size": 52,
+   "unit": "wipe",
+   "price": 0.96,
+   "retailer": "asda",
+   "asin": null,
+   "url": "https://www.asda.com/groceries/search/rascals%20wipes",
+   "gtin": "4895248002062",
+   "image": "https://images.openfoodfacts.org/images/products/489/524/800/2062/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Glycerin",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Citrate",
+     "amount": ""
+    },
+    {
+     "name": "Aloe Barbadensis Leaf Juice",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Asda Little Angels",
+   "product": "Asda Little Angels Sensitive wipes, 60 wipes",
+   "size": 60,
+   "unit": "wipe",
+   "price": 0.59,
+   "retailer": "asda",
+   "asin": null,
+   "url": "https://www.asda.com/groceries/search/little%20angels%20sensitive%20wipes",
+   "gtin": "5057172771127",
+   "image": "https://images.openfoodfacts.org/images/products/505/717/277/1127/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Phenoxyethanol",
+     "amount": ""
+    },
+    {
+     "name": "Glycerin",
+     "amount": ""
+    },
+    {
+     "name": "Propylene Glycol",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two sensitive baby wipes linked to Asda in Which?'s price table, with Little Angels nearly half the price per wipe.",
+  "evidence": "Which? listed Rascals Premium Sensitive (52) at 96p and Asda Little Angels Sensitive (60) at 59p, both linked to Asda, prices correct on 5 March 2026. Which? does not say which shop each price is from, so the shop is from its links.",
+  "differences": "The formulas differ. Little Angels contains phenoxyethanol, and Rascals does not list it. Which? compared prices and ingredients only and did not test how well they clean.",
+  "why": "Both are sold as sensitive, and neither lists a fragrance in Which?'s table. If you want to avoid phenoxyethanol, Rascals is the one without it.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/nappies/article/baby-wipes-how-do-they-compare-aiTaA1s22uEI",
+   "https://world.openfoodfacts.org/product/4895248002062",
+   "https://world.openfoodfacts.org/product/5057172771127"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "huggies-pure-0-plastic-vs-sainsburys-little-ones-sensitive-wipes-gb",
+  "market": "GB",
+  "category": "baby",
+  "subcategory": "Baby wipes",
+  "title": "Huggies Pure 0% Plastic vs Sainsbury's Little Ones Sensitive Wipes",
+  "brand": {
+   "brand": "Huggies",
+   "product": "Huggies Pure 0% Plastic wipes, 48 wipes",
+   "size": 48,
+   "unit": "wipe",
+   "price": 0.95,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/huggies%20pure",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Citric Acid",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Benzoate",
+     "amount": ""
+    },
+    {
+     "name": "Polysorbate 20",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sainsbury's Little Ones",
+   "product": "Sainsbury's Little Ones Sensitive wipes, 60 wipes",
+   "size": 60,
+   "unit": "wipe",
+   "price": 0.56,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/little%20ones%20sensitive%20wipes",
+   "gtin": "00408974",
+   "image": "https://images.openbeautyfacts.org/images/products/000/000/040/8974/front_fr.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Aqua",
+     "amount": ""
+    },
+    {
+     "name": "Glycerin",
+     "amount": ""
+    },
+    {
+     "name": "Sodium Benzoate",
+     "amount": ""
+    },
+    {
+     "name": "Aloe Barbadensis Leaf Juice",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two baby wipes linked to Sainsbury's in Which?'s price table, with Little Ones a little under half the price per wipe.",
+  "evidence": "Which? listed Huggies Pure 0% Plastic (48) at 95p and Sainsbury's Little Ones Sensitive (60) at 56p, both linked to Sainsbury's, prices correct on 5 March 2026. Which? does not say which shop each price is from, so the shop is from its links. Open Food Facts has a Huggies Pure record for a 56-wipe pack.",
+  "differences": "Huggies names 0% plastic and states wood pulp and lyocell fibres. Which? gives no material for Little Ones, so we can't say whether it is plastic-free. The formulas differ, and Little Ones adds aloe and chamomile. Which? compared prices and ingredients only and did not test how well they clean.",
+  "why": "Neither lists a fragrance, and Little Ones costs about half as much per wipe. If plastic-free is what you are paying for, Huggies is the one that says so.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/nappies/article/baby-wipes-how-do-they-compare-aiTaA1s22uEI",
+   "https://world.openfoodfacts.org/product/5029053550039",
+   "https://world.openbeautyfacts.org/product/00408974"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "pampers-baby-dry-size-4-vs-tesco-fred-and-flo-ultra-dry-size-4-gb",
+  "market": "GB",
+  "category": "baby",
+  "subcategory": "Nappies",
+  "title": "Pampers Baby-Dry Size 4 vs Tesco Fred & Flo Ultra Dry Size 4",
+  "brand": {
+   "brand": "Pampers",
+   "product": "Pampers Baby-Dry size 4 (9-15 kg), 44 nappies",
+   "size": 44,
+   "unit": "nappy",
+   "price": 11.0,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=pampers%20baby%20dry%20size%204",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "4"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Tesco Fred & Flo",
+   "product": "Tesco Fred & Flo Ultra Dry Size 4, 48 nappies",
+   "size": 48,
+   "unit": "nappy",
+   "price": 2.89,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fred%20and%20flo%20ultra%20dry%20size%204",
+   "key_ingredients": [
+    {
+     "name": "Size",
+     "amount": "4"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which?'s price tracking puts Pampers Baby-Dry size 4 at 25p a nappy at Tesco and Tesco's own at about 6p.",
+  "evidence": "Which? tracked prices from 1 July 2025 to 30 June 2026. At Tesco, Pampers Baby-Dry size 4 (44) averaged £11 with a low of £11, 25p a nappy. Tesco Fred & Flo Ultra Dry size 4 (48) averaged £2.89, 6.02p a nappy. Prices include regular discounts but not multibuys or loyalty prices. Pampers averaged 17p a nappy at Asda, one of its cheapest shops over that year, so the gap can be smaller.",
+  "differences": "Which? tests nappies in its lab, but the scores for these two are for members only and we have not seen them. Which? says budget supermarket nappies range from 88% to 67% in its tests and one of Aldi and Lidl does much better than the other, so own-label quality varies. We did not read the Fred & Flo weight range, and the Open Products Facts record we cite for the range shows a different size.",
+  "why": "Pampers costs about four times as much per nappy at the same shop. Which?'s scores show budget nappies vary, so try one pack before stocking up.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/nappies/article/how-to-buy-the-best-disposable-nappies-aDP2s0d3lS4V",
+   "https://www.which.co.uk/reviews/nappies/article/aldi-vs-lidl-nappies-how-do-they-compare-aCiky3g05G1p",
+   "https://world.openproductsfacts.org/product/5057753934255"
+  ],
+  "price_checked": "2026-06"
+ }
+]

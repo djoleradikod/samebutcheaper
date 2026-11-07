@@ -56,10 +56,29 @@ Match quality is a second problem. The record for "Equate Ibuprofen Tablets 200 
 | OFF S3 image bucket | https://openfoodfacts.github.io/openfoodfacts-server/api/aws-images-dataset/ | Licence not on that page; OFF's data page says all images are CC BY-SA | Monthly sync | adopt | Spot-checked. Recommended route for more than about 10 images. Sister databases are not mentioned, so use their servers one image at a time |
 | Wikimedia Commons with Wikidata P18 | https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia | Per file: CC0, CC BY, CC BY-SA, public domain | n/a | adopt | Spot-checked. A generic battery photo is not "this item", so only exact product matches count as covered. Product coverage not measured |
 | Open Icecat | https://iceclog.com/open-content-license/ | Open Content License v1.4 (11 Feb 2026); Fair Use Policy (2 May 2026) | n/a | watch | Spot-checked, summary read only (raw fetch gave a page shell). Copies and modified copies allowed with a set notice. Images, caching and hosting are not named. The Fair Use Policy bars use that violates a brand's purpose of "promoting and advancing" its products, which a "don't pay for the brand" site may do. Commercial use "inside a generative AI framework" voids the licence, and this repo has an Anthropic SDK dependency, so Icecat content must never reach a prompt. Free brands unconfirmed |
-| Openverse | https://docs.openverse.org | Per item | WordPress/openverse, MIT, 536, 2026-11-06 | watch | Rate limits and filters unconfirmed: the API page returned only its title. It indexes Commons and others, so it adds little until Commons runs out |
+| Openverse | https://docs.openverse.org | Per item | WordPress/openverse, MIT, 536, 2026-11-06 | reject | Re-checked 7 Nov: api.openverse.org/robots.txt disallows `/v1/images/` for every agent and all of the site for `anthropic-ai`. A probe sent 8 search requests before those rules were read; the results were not used. No more requests go there |
 | DailyMed | https://www.nlm.nih.gov/web_policies.html | Text public; photos may belong to private parties | n/a | reject | Hold for images until the legal answer. No new records. See the finding above |
 | FoodData Central | https://fdc.nal.usda.gov/ | Public domain data | n/a | reject | No images |
 | EU Safety Gate | https://commission.europa.eu/legal-notice_en | EU-owned content CC BY 4.0; third-party content needs permission | n/a | reject | Photo rights unconfirmed |
+
+### Re-scout, 6 and 7 Nov: Commons in practice, and removing backgrounds
+
+Wikimedia Commons moved from "adopt" to unusable in practice. Its robots rules bar the API and search for automated clients, and
+browsing by hand found no exact product match for the goods that lack a photo. The row above stays as the licence record.
+
+Critics kept naming uneven product snapshots as the biggest gap, so the photos we are allowed to use are cut out and set on white.
+Checked with `gh api` on 7 Nov:
+
+| Tool | Licence | Stars | Last push | Verdict | Why |
+|---|---|---|---|---|---|
+| danielgatis/rembg 2.0.87 | MIT | 25,366 | 2026-11-06 | adopt | Runs as a separate process in its own venv, on CPU. Used by `scripts/images/cutout.py` |
+| ZhengPeng7/BiRefNet (general-lite model) | MIT | 4,377 | 2026-10-25 | adopt | Kept packs whole far better than the isnet model, which ate into them |
+| plemeri/transparent-background | MIT | 1,301 | 2026-07-08 | watch | Not needed, since rembg works |
+| imgly/background-removal-js | AGPL-3.0 | 7,363 | 2025-07-18 | reject | AGPL, and no push since July 2025 |
+
+A cutout is an adaptation, so CC BY-SA asks us to say so: `apply-cutouts.ts` adds "background removed" to the credit and a person
+reviews every cut. Tools, car parts, office goods and most tech still have no licensed photo. An affiliate feed is the likely route,
+and that is the owner's decision.
 
 ## Images: commercial sources
 

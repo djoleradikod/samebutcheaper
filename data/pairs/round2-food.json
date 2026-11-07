@@ -64,7 +64,8 @@
       "https://food.mv.unitheme.net/pantry-en/baking-en/great-value-no-calorie-sweetener-200-count-7-oz/?sl=ar",
       "https://www.heb.com/product-detail/h-e-b-sucralose-sweetener-packets/1169359"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both packets list dextrose, maltodextrin and sucralose, the same three ingredients in the same order, in 200 packets (7 oz). The Great Value list comes from a third-party grocery listing rather than Walmart's own page."
   },
   {
     "slug": "domino-vs-great-value-granulated-sugar-4lb",
@@ -114,7 +115,8 @@
       "https://www.walmart.com/ip/10315162",
       "https://www.priceritemarketplace.com/product/domino-premium-pure-cane-granulated-sugar-4-lb-id-00049200045503"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both are one-ingredient granulated sugar in the same 4 lb bag. The only difference the record names is that Domino is 100% cane sugar, while Great Value does not say whether its sugar is cane or beet."
   },
   {
     "slug": "heinz-vs-great-value-distilled-white-vinegar-gallon",
@@ -165,7 +167,8 @@
       "https://www.target.com/p/-/A-90209724",
       "https://www.shipt.com/shop/products/f07c298b-64ef-30f3-a7b1-0642e3c44cd2?zip=08817"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both are distilled white vinegar diluted with water to 5% acidity, the same strength and ingredients on both labels. Heinz says its vinegar is made from American-grown corn, which Great Value does not state."
   },
   {
     "slug": "quaker-old-fashioned-vs-great-value-old-fashioned-oats-42oz",
@@ -215,7 +218,8 @@
       "https://www.walmart.com/ip/10314925",
       "https://world.openfoodfacts.org/product/0078742371047"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both list whole grain rolled oats as the only ingredient, in a 42 oz canister. The record notes flake thickness and cooking time may differ a little, and neither product is certified gluten-free."
   },
   {
     "slug": "mccormick-vs-good-and-gather-ground-black-pepper-3oz",
@@ -291,7 +295,8 @@
         "verdict": "different",
         "source": "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121"
       }
-    ]
+    ],
+    "why": "Both list only ground black pepper in the same 3 oz size. The record's main difference is on the label claims (vegan and non-GMO on McCormick, kosher on Good & Gather), and grind size and origin may still differ."
   },
   {
     "slug": "mccormick-vs-good-and-gather-garlic-powder-3-12oz",
@@ -340,7 +345,8 @@
       "https://www.target.com/p/garlic-powder-3-12oz-good-38-gather-8482/-/A-77585075",
       "https://stopandshop.com/groceries/baking-cooking/spices-seasonings/mccormick-garlic-powder-312-oz-btl.html"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both list garlic powder as the only ingredient, in the same 3.12 oz bottle. The record notes particle size and garlic origin may differ, but it shows no ingredient difference."
   },
   {
     "slug": "mccormick-vs-good-and-gather-ground-cinnamon-2-37oz",
@@ -389,6 +395,7 @@
       "https://www.target.com/p/ground-cinnamon-2-37oz-good-38-gather-8482/-/A-77586373",
       "https://www.brookshires.com/sm/planning/rsid/97/product/mccormick-cinnamon-ground-seasoning-237-ounce-id-00052100004389"
     ],
-    "price_checked": "2026-11"
+    "price_checked": "2026-11",
+    "why": "Both list only ground cinnamon in the same 2.37 oz size. Neither label names the species, so the record cannot confirm whether the two are the same type of cinnamon."
   }
 ]

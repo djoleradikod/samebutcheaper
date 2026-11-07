@@ -2039,5 +2039,217 @@
    "https://www.rhs.org.uk/plants/aster/growing-guide"
   ],
   "price_checked": "2026-11"
+ },
+ {
+  "slug": "gorilla-super-glue-vs-everbuild-gp-super-glue-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Super glue",
+  "title": "Gorilla Super Glue vs Everbuild GP Super Glue",
+  "brand": {
+   "brand": "Gorilla Glue",
+   "product": "Gorilla Super Glue, 15 g",
+   "size": 15,
+   "unit": "g",
+   "price": 7.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gorilla-super-glue/p54493",
+   "key_ingredients": [
+    {
+     "name": "Super glue, Impact-Tough formula, dries in 10 to 45 seconds",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Everbuild",
+   "product": "Everbuild GP Super Glue, 20 g",
+   "size": 20,
+   "unit": "g",
+   "price": 2.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gp-super-glue/p86374",
+   "key_ingredients": [
+    {
+     "name": "Medium-viscosity super glue, sets in about 5 to 15 seconds, for plastics, metals, PVCu, EPDM and glass",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are super glues at the same shop, and the Everbuild costs about 72% less per gram in a bigger pack.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT, with no reduction shown on either page: Gorilla GBP 7.99 for 15 g (53p a gram) and Everbuild GBP 2.99 for 20 g (15p a gram). The 50 g Everbuild was GBP 4.59 (9p a gram). Neither page names the chemistry. The name super glue generally means cyanoacrylate.",
+  "differences": "Gorilla says its glue is formulated to resist impact, and it's sold for household repairs. Everbuild's page lists an industrial-grade adhesive for non-porous surfaces. It doesn't claim impact resistance, comes in a cartridge with a nozzle, and is sold only to over-18s. No test we read covers these two. If the repair will take knocks, Gorilla's documented claim may be worth having.",
+  "why": "For a small repair on hard plastic, metal or glass the Everbuild is listed for those materials and sets faster by its page, at under a third of the price per gram. Gorilla's main documented extra is impact resistance.",
+  "aspects": [
+   {
+    "aspect": "Impact resistance claimed",
+    "brand": "Yes, Impact-Tough",
+    "alternative": "Not claimed",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Set time, per the pages",
+    "brand": "10 to 45 seconds",
+    "alternative": "About 5 to 15 seconds",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/gorilla-super-glue/p54493",
+   "https://www.toolstation.com/gp-super-glue/p86374",
+   "https://www.toolstation.com/gp-super-glue/p16435",
+   "https://irl.sika.com/en/diy-markets/67416/superglue-activators/everbuild-stick2supergluegp.html"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Everbuild GP Super Glue, 50 g",
+   "size": 50,
+   "price": 4.59,
+   "retailer": "toolstation",
+   "url": "https://www.toolstation.com/gp-super-glue/p16435"
+  }
+ },
+ {
+  "slug": "hamilton-prestige-vs-pinnacle-synthetic-paintbrush-set-5-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Paint brushes",
+  "title": "Hamilton Prestige vs Pinnacle Synthetic Paintbrush Set, 5 Piece",
+  "brand": {
+   "brand": "Hamilton",
+   "product": "Hamilton Prestige Synthetic Paintbrush Set, 5 pieces",
+   "size": 5,
+   "unit": "brush",
+   "price": 17.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/hamilton-prestige-synthetic-paintbrush-set/p55606",
+   "key_ingredients": [
+    {
+     "name": "1 x 1 in, 2 x 1.5 in, 2 x 2 in, synthetic filament, stainless ferrule, FSC wood handle",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Pinnacle",
+   "product": "Pinnacle Synthetic Paintbrush Set, 5 pieces",
+   "size": 5,
+   "unit": "brush",
+   "price": 9.98,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/pinnacle-synthetic-paintbrush-set/p24025",
+   "key_ingredients": [
+    {
+     "name": "1 x 1 in, 1 x 1.5 in, 2 x 2 in, 1 x 3 in, synthetic filament, FSC birch handle",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are five-brush synthetic sets at the same shop with general-purpose brushes, and the Pinnacle costs about 45% less.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT. Hamilton GBP 17.99 on offer, down from GBP 19.99, and we used the lower offer price, so the saving is on the cautious side. Pinnacle GBP 9.98 with no reduction shown. Both are listed as general purpose with synthetic filaments and beavertail wooden handles. Synthetic bristles are generally suited to water-based paint.",
+  "differences": "The sets aren't identical: Pinnacle swaps one 1.5 inch for a 3 inch, which helps on larger areas and is less handy for fine work. Hamilton states rust-resistant stainless steel ferrules, and Pinnacle's page doesn't state the ferrule. No test we read covers these two, so we can't say how they compare in use.",
+  "why": "For painting a room at home both sets cover the same job with synthetic brushes, and the Hamilton's stated extra is the ferrule. The Pinnacle costs little over half as much.",
+  "aspects": [
+   {
+    "aspect": "Brush sizes",
+    "brand": "1, 1.5, 1.5, 2, 2 in",
+    "alternative": "1, 1.5, 2, 2, 3 in",
+    "verdict": "different"
+   },
+   {
+    "aspect": "Ferrule",
+    "brand": "Stainless steel stated",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/hamilton-prestige-synthetic-paintbrush-set/p55606",
+   "https://www.toolstation.com/pinnacle-synthetic-paintbrush-set/p24025",
+   "https://hss.com/buy/p/prestige-synthetic-5pc-brush-set-1-x-1in-2-x-1-5in-2-x-2in"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "stanley-powerlock-5m-vs-einhell-bandmass-5m-de",
+  "market": "DE",
+  "category": "tools-diy",
+  "subcategory": "Tape measures",
+  "title": "Stanley Powerlock 5 m vs Einhell Bandmaß 5 m",
+  "brand": {
+   "brand": "Stanley",
+   "product": "Stanley Bandmaß Powerlock, 5 m, 19 mm",
+   "size": 1,
+   "unit": "tape",
+   "price": 12.09,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Stanley/Bandmass-Powerlock-5-Meter/html/product/1533262",
+   "key_ingredients": [
+    {
+     "name": "5 m, 19 mm blade, accuracy class II, belt clip, Mylar-coated blade",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Einhell",
+   "product": "EINHELL Bandmaß, 5 m, 19 mm",
+   "size": 1,
+   "unit": "tape",
+   "price": 9.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/EINHELL/Bandmass-5-Meter/html/product/100173070",
+   "key_ingredients": [
+    {
+     "name": "5 m, 19 mm blade, accuracy class II, magnetic hook, double-sided scale",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 5 m tapes with a 19 mm blade and accuracy class II at the same shop, and the Einhell costs about 17% less.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, shipping from EUR 7.99. Stanley EUR 12.09, shown against EUR 26.12, with 2 in stock. Einhell EUR 9.99 with no reference price shown, available immediately. Barcodes on the pages: Stanley 3253560331948, Einhell 4009313705509, neither in Open Facts, so no photo. Class II is the EU's middle accuracy class, the most common one.",
+  "differences": "The Stanley has a Mylar-coated blade, a chrome-plated case and a triple-riveted sliding hook. The Einhell has a magnetic hook, a double-sided scale and two brake buttons. Its blade coating isn't stated. No test we read covers these two, so we can't say how long either blade lasts.",
+  "why": "Same length, width and accuracy class on the same shop page, so for measuring at home the Stanley's premium buys a blade coating and a chrome-plated case.",
+  "aspects": [
+   {
+    "aspect": "Accuracy class",
+    "brand": "II",
+    "alternative": "II",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Blade coating stated",
+    "brand": "Mylar",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Hook",
+    "brand": "Sliding, triple rivet",
+    "alternative": "Magnetic",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/Stanley/Bandmass-Powerlock-5-Meter/html/product/1533262",
+   "https://www.alternate.de/EINHELL/Bandmass-5-Meter/html/product/100173070",
+   "https://www.stanleytools.ca/product/33-158/powerlock-5-m-16-ft-x-19-mm-tape"
+  ],
+  "price_checked": "2026-11"
  }
 ]
