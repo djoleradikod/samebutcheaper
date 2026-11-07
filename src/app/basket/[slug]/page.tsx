@@ -12,9 +12,9 @@ import { money } from "@/lib/format";
 import { MARKET_LABEL, MARKETS } from "@/lib/markets";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Preset } from "@/lib/types";
-import { forCountry } from "@/lib/localize";
+import { forCountry, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
-import { getLocal } from "@/lib/server-country";
+import { CountryPart } from "@/components/ForCountry";
 
 const NEEDS_HEALTH_NOTE = new Set(["otc-medicine", "supplements", "baby", "pet"]);
 
@@ -88,8 +88,10 @@ export default async function BasketPage({ params }: PageProps<"/basket/[slug]">
   const { slug } = await params;
   const p = getPreset(slug);
   if (!p) notFound();
+  return <CountryPart>{(local) => <BasketBody p={p} local={local} />}</CountryPart>;
+}
 
-  const local = await getLocal();
+function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>; local: Local }) {
   const lines = basketLines(p, local);
   const dates = priceDates(p);
   const all = forCountry(getAllPresets(), local);

@@ -5,7 +5,7 @@ import { citationDate, Finding } from "@/components/Finding";
 import { ProductThumb } from "@/components/ProductThumb";
 import { getAllPairs, getClaims, getPairsByCategory, getShelfLife } from "@/lib/catalog";
 import { findingShows, forCountry, localClaim, type Local } from "@/lib/localize";
-import { getLocal } from "@/lib/server-country";
+import { CountryPart } from "@/components/ForCountry";
 import { CATEGORIES, CATEGORY_MAP } from "@/lib/categories";
 import { withCelsius } from "@/lib/format";
 import type { CategorySlug, Claim, ShelfLife } from "@/lib/types";
@@ -187,8 +187,11 @@ function ShelfTable({ records, local }: { records: ShelfLife[]; local: Local }) 
 
 /* --------------------------------------------------------------------- the page */
 
-export default async function WhyPage() {
-  const local = await getLocal();
+export default function WhyPage() {
+  return <CountryPart>{(local) => <WhyBody local={local} />}</CountryPart>;
+}
+
+function WhyBody({ local }: { local: Local }) {
   const claims = getClaims()
     .filter((c) => findingShows(c, local))
     .map((c) => localClaim(c, local));

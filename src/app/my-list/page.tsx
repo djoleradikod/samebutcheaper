@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { CountryPart } from "@/components/ForCountry";
 import { MyList, type ListItem } from "@/components/MyList";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getAllPairs } from "@/lib/catalog";
@@ -53,9 +53,7 @@ export default function MyListPage() {
     <section className="container-page pt-4 md:pt-6">
       <h1 className="display text-[1.75rem] md:text-[2.5rem]">My savings list</h1>
       <p className="mt-1.5 max-w-[62ch] text-[15px] text-ink-2 md:text-base">The swaps you&apos;ve saved, and what switching adds up to.</p>
-      <Suspense fallback={<div className="card mt-4 h-40 md:mt-6" />}>
-        <MyList items={items} />
-      </Suspense>
+      <CountryPart fallback={<div className="card mt-4 h-40 md:mt-6" />}>{() => <MyList items={items} />}</CountryPart>
     </section>
   );
 }

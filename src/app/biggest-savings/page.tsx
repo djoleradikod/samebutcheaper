@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { getAllPairs, getSiteStats } from "@/lib/catalog";
 import { MEDICINE } from "@/lib/browse";
 import { PairBrowser } from "@/components/PairBrowser";
-import { bestSaving, browseProps, PriceFacts, ShelfHead, swapCount } from "@/components/ShelfParts";
-import { forCountry } from "@/lib/localize";
-import { getLocal } from "@/lib/server-country";
+import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount } from "@/components/ShelfParts";
+import { forCountry, type Local } from "@/lib/localize";
+import { CountryPart } from "@/components/ForCountry";
 
 export const metadata: Metadata = {
   title: "Biggest savings: every swap, ranked",
@@ -13,23 +13,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "/biggest-savings" },
 };
 
-export default async function BiggestSavingsPage() {
-  const local = await getLocal();
-  const pairs = forCountry(getAllPairs(), local);
+/** The list leaves medicine out until it's added, so the headline figures do too. */
+function everydayPairs(local: Local) {
+  return forCountry(getAllPairs(), local).filter((p) => p.category !== MEDICINE);
+}
+
+export default function BiggestSavingsPage() {
   const stats = getSiteStats();
-  // The list leaves medicine out until it's added, so the headline figures do too.
-  const everyday = pairs.filter((p) => p.category !== MEDICINE);
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead
         crumbs={[{ href: "/", label: "Home" }, { label: "Biggest savings" }]}
-        title={`Biggest savings: ${swapCount(pairs.length)}`}
+        title={
+          <>
+            Biggest savings<CountryPart fallback={null}>{(local) => `: ${swapCount(forCountry(getAllPairs(), local).length)}`}</CountryPart>
+          </>
+        }
         intro={`Every swap we've checked, with the biggest saving per unit first. ${stats.sources} sources back them up.`}
-        best={bestSaving(everyday)}
-        facts={<PriceFacts pairs={everyday} />}
+        ticket={<CountryPart fallback={null}>{(local) => <BestTicket best={bestSaving(everydayPairs(local))} />}</CountryPart>}
+        facts={<CountryPart fallback={null}>{(local) => <PriceFacts pairs={everydayPairs(local)} />}</CountryPart>}
       />
       <div className="container-page">
-        <PairBrowser path="/biggest-savings" {...browseProps(pairs, { hideMedicine: true, local })} showRank />
+        <CountryPart>
+          {(local) => <PairBrowser path="/biggest-savings" {...browseProps(forCountry(getAllPairs(), local), { hideMedicine: true, local })} showRank />}
+        </CountryPart>
       </div>
     </div>
   );

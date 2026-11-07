@@ -17,9 +17,9 @@ import { CATEGORY_MAP } from "@/lib/categories";
 import { money, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay } from "@/lib/unit-format";
-import { forCountry, localText, MARKET_ADJECTIVE } from "@/lib/localize";
+import { forCountry, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
-import { getLocal } from "@/lib/server-country";
+import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount } from "@/components/Money";
 import type { Bundle } from "@/lib/types";
 
@@ -53,8 +53,10 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
   const { slug } = await params;
   const record = getBundle(slug);
   if (!record) notFound();
+  return <CountryPart>{(local) => <BundleBody record={record} local={local} />}</CountryPart>;
+}
 
-  const local = await getLocal();
+function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof getBundle>>; local: Local }) {
   const b = localText(record, local);
   const sells = (retailer: string) => local.sells(retailer, b.market);
   const cat = CATEGORY_MAP[b.category];

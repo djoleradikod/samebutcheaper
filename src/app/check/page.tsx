@@ -23,6 +23,7 @@ import {
 import { logLookup } from "@/lib/lookup/log";
 import type { CategorySlug } from "@/lib/types";
 import { forCountry } from "@/lib/localize";
+import { CountryPart } from "@/components/ForCountry";
 import { getCountry, getLocal } from "@/lib/server-country";
 
 export const metadata: Metadata = {
@@ -53,9 +54,7 @@ export default function CheckPage({ searchParams }: PageProps<"/check">) {
         </div>
       </section>
       <div className="container-page py-10">
-        <Suspense fallback={<ResultsSkeleton />}>
-          <Results searchParams={searchParams} />
-        </Suspense>
+        <CountryPart fallback={<ResultsSkeleton />}>{() => <Results searchParams={searchParams} />}</CountryPart>
       </div>
     </>
   );

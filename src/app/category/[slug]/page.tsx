@@ -6,11 +6,11 @@ import { getCategoryStats, getPairsByCategory } from "@/lib/catalog";
 import { MEDICINE } from "@/lib/browse";
 import { PairBrowser } from "@/components/PairBrowser";
 import { HealthNotice } from "@/components/Evidence";
-import { bestSaving, browseProps, PriceFacts, ShelfHead, swapCount, TagLinks } from "@/components/ShelfParts";
+import { CountryPart } from "@/components/ForCountry";
+import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount, TagLinks } from "@/components/ShelfParts";
 import type { CategorySlug } from "@/lib/types";
 import { inSentence } from "@/lib/format";
 import { forCountry } from "@/lib/localize";
-import { getLocal } from "@/lib/server-country";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }));
@@ -44,27 +44,52 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
   const { slug } = await params;
   const cat = lookup(slug);
   if (!cat) notFound();
-  const local = await getLocal();
-  const pairs = forCountry(getPairsByCategory(cat.slug), local);
+  const all = getPairsByCategory(cat.slug);
   const name = inSentence(cat.name);
 
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead
         crumbs={[{ href: "/", label: "Home" }, { label: cat.name }]}
-        title={pairs.length ? `Cheaper ${name}: ${swapCount(pairs.length)}` : `Cheaper ${name}`}
+        title={
+          <>
+            Cheaper {name}
+            <CountryPart fallback={null}>
+              {(local) => {
+                const n = forCountry(all, local).length;
+                return n > 0 && `: ${swapCount(n)}`;
+              }}
+            </CountryPart>
+          </>
+        }
         intro={cat.description}
-        best={bestSaving(pairs)}
-        facts={pairs.length > 0 && <PriceFacts pairs={pairs} />}
+        ticket={<CountryPart fallback={null}>{(local) => <BestTicket best={bestSaving(forCountry(all, local))} />}</CountryPart>}
+        facts={
+          <CountryPart fallback={null}>
+            {(local) => {
+              const pairs = forCountry(all, local);
+              return pairs.length > 0 && <PriceFacts pairs={pairs} />;
+            }}
+          </CountryPart>
+        }
       />
-      {cat.slug === MEDICINE && pairs.length > 0 && (
-        <div className="container-page mb-4">
-          <HealthNotice />
-        </div>
-      )}
-      <div className="container-page">
-        {pairs.length ? <PairBrowser path={`/category/${cat.slug}`} {...browseProps(pairs, { local })} /> : <EmptyAisle />}
-      </div>
+      <CountryPart>
+        {(local) => {
+          const pairs = forCountry(all, local);
+          return (
+            <>
+              {cat.slug === MEDICINE && pairs.length > 0 && (
+                <div className="container-page mb-4">
+                  <HealthNotice />
+                </div>
+              )}
+              <div className="container-page">
+                {pairs.length ? <PairBrowser path={`/category/${cat.slug}`} {...browseProps(pairs, { local })} /> : <EmptyAisle />}
+              </div>
+            </>
+          );
+        }}
+      </CountryPart>
     </div>
   );
 }

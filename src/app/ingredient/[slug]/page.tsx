@@ -4,8 +4,8 @@ import { getIngredient, getIngredients, ingredientSlugFor } from "@/lib/catalog"
 import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
 import { atLeastOneParam, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
 import { inSentence } from "@/lib/format";
-import { forCountry } from "@/lib/localize";
-import { getLocal } from "@/lib/server-country";
+import { forCountry, type Local } from "@/lib/localize";
+import { CountryPart } from "@/components/ForCountry";
 
 export function generateStaticParams() {
   return atLeastOneParam(getIngredients().map((i) => i.slug));
@@ -27,7 +27,11 @@ export default async function IngredientPage({ params }: PageProps<"/ingredient/
   const { slug } = await params;
   const ing = getIngredient(slug);
   if (!ing) notFound();
-  const pairs = forCountry(ing.pairs, await getLocal());
+  return <CountryPart>{(local) => <IngredientBody ing={ing} local={local} />}</CountryPart>;
+}
+
+function IngredientBody({ ing, local }: { ing: NonNullable<ReturnType<typeof getIngredient>>; local: Local }) {
+  const pairs = forCountry(ing.pairs, local);
   const top = pairs.length ? pairs.reduce((a, b) => (b.savingsPct > a.savingsPct ? b : a)) : null;
   const strengths = Array.from(
     new Set(

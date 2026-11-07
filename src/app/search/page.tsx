@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { forCountry, type Local } from "@/lib/localize";
-import { getLocal } from "@/lib/server-country";
+import { CountryPart } from "@/components/ForCountry";
 import { getAllPairs, getBrands, getCategoryStats } from "@/lib/catalog";
 import { MEDICINE } from "@/lib/browse";
 import { SearchClient } from "@/components/SearchClient";
@@ -39,8 +39,7 @@ function ThingsToTry({ local }: { local: Local }) {
   );
 }
 
-export default async function SearchPage() {
-  const local = await getLocal();
+export default function SearchPage() {
   return (
     <div className="min-h-[60vh] bg-canvas pb-8 md:pb-10">
       <div className="container-page pt-4 md:pt-5">
@@ -48,9 +47,13 @@ export default async function SearchPage() {
         <p className="mt-2 mb-4 max-w-[68ch] text-[15px] text-ink-2 md:text-base">
           Type the brand you usually buy. We&apos;ll show the cheaper one that does the same job.
         </p>
-        <SearchClient total={forCountry(getAllPairs(), local).length}>
-          <ThingsToTry local={local} />
-        </SearchClient>
+        <CountryPart fallback={null}>
+          {(local) => (
+            <SearchClient total={forCountry(getAllPairs(), local).length}>
+              <ThingsToTry local={local} />
+            </SearchClient>
+          )}
+        </CountryPart>
       </div>
     </div>
   );

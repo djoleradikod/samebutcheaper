@@ -21,7 +21,7 @@ import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
 import { PairCard } from "@/components/PairCard";
 import { atLeastOneParam, ListLinks, ShelfHead, SwapGrid, TagLinks, NotListedHere } from "@/components/ShelfParts";
 import { forCountry, localText, oneOfEachSwap, type Local } from "@/lib/localize";
-import { getLocal } from "@/lib/server-country";
+import { CountryPart } from "@/components/ForCountry";
 
 export function generateStaticParams() {
   return atLeastOneParam(getDupes().map((d) => d.slug));
@@ -111,8 +111,11 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
   const { slug } = await params;
   const d = getDupe(slug);
   if (!d) notFound();
+  return <CountryPart>{(local) => <DupeBody d={d} local={local} />}</CountryPart>;
+}
+
+function DupeBody({ d, local }: { d: DupeEntry; local: Local }) {
   const h = heading(d);
-  const local = await getLocal();
   // A brand with nothing that lists here still opens from a direct link, in the shopper's currency, and says so.
   const near = forCountry(d.pairs, local);
   const shown = (near.length ? near : oneOfEachSwap(d.pairs)).map((p) => localText(p, local));

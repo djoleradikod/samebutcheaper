@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { packText } from "@/components/BulkBox";
+import { CountryPart } from "@/components/ForCountry";
 import { browseProps, ListLinks, ShelfHead } from "@/components/ShelfParts";
 import { atStore } from "@/lib/affiliate";
 import { MEDICINE, type BrowseRow } from "@/lib/browse";
@@ -8,7 +9,6 @@ import { getAllPairs } from "@/lib/catalog";
 import { monthYear } from "@/lib/format";
 import { forCountry, type Local } from "@/lib/localize";
 import { APPROX_USD } from "@/lib/markets";
-import { getLocal } from "@/lib/server-country";
 import type { Pair } from "@/lib/types";
 import { unitDisplay } from "@/lib/unit-format";
 import { BulkList, type BulkItem } from "./BulkList";
@@ -53,14 +53,12 @@ function toItem(p: Pair, local: Local): Omit<BulkItem, keyof BrowseRow> {
   };
 }
 
-export default async function BulkPage() {
-  const local = await getLocal();
-  // Medicine pages carry a health note that this list doesn't, as on the home page's bulk section.
-  const pairs = forCountry(getAllPairs(), local).filter((p) => p.bulkView.bigger && p.category !== MEDICINE);
-  const { rows } = browseProps(pairs, { local });
-  const items: BulkItem[] = pairs.map((p, i) => ({ ...rows[i], ...toItem(p, local) }));
-  const latest = pairs.reduce((newest, p) => (p.price_checked > newest ? p.price_checked : newest), "");
+/** Medicine pages carry a health note that this list doesn't, as on the home page's bulk section. */
+function bulkPairs(local: Local) {
+  return forCountry(getAllPairs(), local).filter((p) => p.bulkView.bigger && p.category !== MEDICINE);
+}
 
+export default function BulkPage() {
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead
@@ -69,7 +67,12 @@ export default async function BulkPage() {
         intro="A bigger pack only saves money if you use it before it goes off. Each row shows the unit price, what you pay up front, what that saves and how long it keeps."
         facts={
           <>
-            {latest && <>Prices last checked {monthYear(latest)}.</>}
+            <CountryPart fallback={null}>
+              {(local) => {
+                const latest = bulkPairs(local).reduce((newest, p) => (p.price_checked > newest ? p.price_checked : newest), "");
+                return latest && <>Prices last checked {monthYear(latest)}.</>;
+              }}
+            </CountryPart>
             <ListLinks />
             <Link href="/why#advice-stock_up" className="inline-flex min-h-11 items-center text-cobalt underline underline-offset-2 md:min-h-0">
               Shelf lives, with sources
@@ -78,7 +81,14 @@ export default async function BulkPage() {
         }
       />
       <div className="container-page">
-        <BulkList items={items} />
+        <CountryPart>
+          {(local) => {
+            const pairs = bulkPairs(local);
+            const { rows } = browseProps(pairs, { local });
+            const items: BulkItem[] = pairs.map((p, i) => ({ ...rows[i], ...toItem(p, local) }));
+            return <BulkList items={items} />;
+          }}
+        </CountryPart>
       </div>
     </div>
   );
