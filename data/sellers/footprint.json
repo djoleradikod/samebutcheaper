@@ -1,6 +1,6 @@
 {
  "checked": "2026-11-07",
- "method": "sellers: the chain's national site opened, stayed on that country's address and named the chain in its title. See scripts/qa/seller_footprint.py. manual: a site that refuses automated requests, carried by the source given (Kantar's Irish grocery shares of 20 Oct 2025 name Tesco and Aldi) or, in the chain's home market, by the catalogue's own priced rows. No entry means we couldn't show it sells there, not that it doesn't.",
+ "method": "sellers: the chain's national site opened, stayed on that country's address and named the chain in its title. See scripts/qa/seller_footprint.py. manual: a site that refuses automated requests, carried by the source given (Kantar's Irish grocery shares of 20 Oct 2025 name Tesco and Aldi) or, in the chain's home market, by the catalogue's own priced rows. No entry means we couldn't show it sells there, not that it doesn't. Marks & Spencer's entries are from one visit to each national home page on 7 Nov 2026, before its terms were read. Those terms bar crawling, so the script no longer opens it.",
  "sellers": {
   "lidl": {
    "IE": "https://www.lidl.ie/",
@@ -137,20 +137,6 @@
    "NL": "https://www.vikingdirect.nl/nl/",
    "LU": "https://www.viking-direct.lu/fr/"
   },
-  "marksandspencer": {
-   "IE": "https://www.marksandspencer.com/ie/",
-   "FR": "https://www.marksandspencer.com/fr/",
-   "DE": "https://www.marksandspencer.com/de/",
-   "AT": "https://www.marksandspencer.com/at/",
-   "NL": "https://www.marksandspencer.com/nl/",
-   "ES": "https://www.marksandspencer.com/es/",
-   "IT": "https://www.marksandspencer.com/it/",
-   "SE": "https://www.marksandspencer.com/se/",
-   "CZ": "https://www.marksandspencer.com/cz/",
-   "GR": "https://www.marksandspencer.com/gr/",
-   "AU": "https://www.marksandspencer.com/au/",
-   "GB": "https://www.marksandspencer.com/"
-  },
   "shopapotheke": {
    "DE": "https://www.shop-apotheke.com/",
    "AT": "https://www.shop-apotheke.at/",
@@ -195,6 +181,20 @@
   },
   "kaufland": {
    "DE": "https://www.kaufland.de/"
+  },
+  "marksandspencer": {
+   "IE": "https://www.marksandspencer.com/ie/",
+   "FR": "https://www.marksandspencer.com/fr/",
+   "DE": "https://www.marksandspencer.com/de/",
+   "AT": "https://www.marksandspencer.com/at/",
+   "NL": "https://www.marksandspencer.com/nl/",
+   "ES": "https://www.marksandspencer.com/es/",
+   "IT": "https://www.marksandspencer.com/it/",
+   "SE": "https://www.marksandspencer.com/se/",
+   "CZ": "https://www.marksandspencer.com/cz/",
+   "GR": "https://www.marksandspencer.com/gr/",
+   "AU": "https://www.marksandspencer.com/au/",
+   "GB": "https://www.marksandspencer.com/"
   }
  },
  "refused": {

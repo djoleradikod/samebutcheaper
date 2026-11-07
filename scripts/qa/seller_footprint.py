@@ -18,7 +18,8 @@ import urllib.request
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
 
-# chain: (name that must show in the page title or address, {country: national site}).
+# chain: (name that must show in the page title, {country: national site}).
+# Marks & Spencer stays out: its terms bar crawling without written consent. Its one check is kept as a manual entry in the data file.
 CHAINS = {
     "lidl": (r"lidl", {
         "IE": "https://www.lidl.ie/", "GB": "https://www.lidl.co.uk/", "DE": "https://www.lidl.de/", "US": "https://www.lidl.com/",
@@ -68,9 +69,6 @@ CHAINS = {
         "AT": "https://www.vikingdirekt.at/", "CH": "https://www.vikingdirekt.ch/", "FR": "https://www.viking-direct.fr/", "BE": "https://www.viking-direct.be/",
         "NL": "https://www.vikingdirect.nl/", "LU": "https://www.viking-direct.lu/", "IT": "https://www.viking-direct.it/",
     }),
-    "marksandspencer": (r"m&s|m&amp;s|marks", {
-        c: f"https://www.marksandspencer.com/{c.lower()}/" for c in ["IE", "FR", "DE", "AT", "NL", "BE", "ES", "IT", "SE", "CZ", "GR", "AU", "IN", "AE", "SA"]
-    } | {"GB": "https://www.marksandspencer.com/"}),
     "shopapotheke": (r"shop.?apotheke|redcare", {
         "DE": "https://www.shop-apotheke.com/", "AT": "https://www.shop-apotheke.at/", "CH": "https://www.shop-apotheke.ch/", "IT": "https://www.redcare.it/", "FR": "https://www.redcare-pharmacie.fr/", "BE": "https://www.redcare-pharmacie.be/", "NL": "https://www.shop-apotheke.nl/",
     }),
