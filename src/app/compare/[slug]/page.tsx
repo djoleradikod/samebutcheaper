@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
 import { BulkBox, buysOnce, packText } from "@/components/BulkBox";
-import { HEALTH_CATEGORIES, HealthNotice, hostname, PhotoCaption, PhotoCredits, SourceList } from "@/components/Evidence";
+import { HEALTH_CATEGORIES, HealthNotice, hostname, PhotoCredits, PhotoLine, SourceList } from "@/components/Evidence";
 import { MarketTag } from "@/components/MarketTag";
 import { PairCard } from "@/components/PairCard";
 import { ProductThumb } from "@/components/ProductThumb";
@@ -15,8 +15,8 @@ import { WhereToBuy } from "@/components/WhereToBuy";
 import { BrandWins, WhyBlock } from "@/components/WhyBlock";
 import { atStore, mayEarn, RETAILER_LABEL, tagUrl } from "@/lib/affiliate";
 import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
-import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
-import { comparison, differencePoints, drawbacks, type CompareRow } from "@/lib/compare";
+import { CATEGORY_MAP } from "@/lib/categories";
+import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
 import { dupeSlugFor } from "@/lib/dupes";
 import { inSentence, money, monthYear } from "@/lib/format";
 import { SITE } from "@/lib/site";
@@ -61,9 +61,14 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
   const compared = comparison(pair, ingredientSlugFor);
   const rows = readableRows(compared.rows, pair);
   const wins = [...compared.ingredients, ...rows].filter((r) => r.verdict === "brand_better");
-  const points = pair.differences ? differencePoints(pair.differences) : [];
+  const { points, caveats } = sortDifferences(pair.differences);
   const sameLicence = sameLicenceNumber(pair);
-  const against = wins.length > 0 ? `the brand wins on ${listWords(wins.map((r) => inSentence(r.aspect)))}.` : drawbacks(points)[0];
+  // A test's name is a proper name, so it keeps its capitals.
+  const winNames = wins.map((r) => (r.kind === "test" ? r.aspect : inSentence(r.aspect)));
+  const against = wins.length > 0 ? `the brand wins on ${listWords(winNames)}.` : drawbacks(points)[0];
+  const hasDifferences = wins.length + points.length > 0;
+  const fullComparison = { ...compared, rows };
+  const sources = [...new Set([...pair.sources, ...(compared.nutrition?.records.map((r) => r.page) ?? [])])];
 
   const jsonLd = [
     {
@@ -136,20 +141,22 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
             </p>
             <SaveButton slug={pair.slug} className="mt-3 sm:w-56" />
             <p className="mt-3 text-[15px] text-ink-2">{sameAmount(pair)}</p>
-            <p className="mt-1.5 text-[15px] text-ink-2">
-              {against && (
-                <>
-                  <span className="font-semibold text-brand-better">Against it: </span>
-                  {against}{" "}
-                </>
-              )}
-              <a
-                href={`#${WHAT_DIFFERS}`}
-                className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"
-              >
-                What differs
-              </a>
-            </p>
+            {hasDifferences && (
+              <p className="mt-1.5 text-[15px] text-ink-2">
+                {against && (
+                  <>
+                    <span className="font-semibold text-brand-better">Against it: </span>
+                    {against}{" "}
+                  </>
+                )}
+                <a
+                  href={`#${WHAT_DIFFERS}`}
+                  className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"
+                >
+                  What differs
+                </a>
+              </p>
+            )}
 
             <p className="mt-2 text-[13px] text-muted">
               {disclosure(pair)}{" "}
@@ -163,17 +170,12 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
         {health && <HealthNotice className="mt-5 max-w-4xl" />}
       </div>
 
-      <WhyBlock pair={pair} className={BAND} />
+      <WhyBlock pair={pair} tests={rows.filter((r) => r.kind === "test")} caveats={caveats} className={BAND} />
 
       <BrandWins id={WHAT_DIFFERS} brandName={b.brand} altName={a.brand} points={points} wins={wins} className="border-t-0" />
 
       <div className="container-page py-8 md:py-10">
-        <SameOrDifferent
-          comparison={{ ...compared, rows }}
-          brandName={b.brand}
-          altName={a.brand}
-          intro={`${MATCH_TYPE_META[pair.match_type].description} Every point we checked, including where the brand is better.`}
-        />
+        <SameOrDifferent comparison={fullComparison} brandName={b.brand} altName={a.brand} intro={onFileIntro(fullComparison)} />
       </div>
 
       <BulkBox pair={pair} className={BAND} />
@@ -196,7 +198,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
       </section>
 
       <div className="container-page grid gap-x-10 gap-y-8 pb-8 md:pb-10 lg:grid-cols-2">
-        <SourceList sources={pair.sources} />
+        <SourceList sources={sources} />
         <PhotoCredits
           items={[a, b].map((p) => ({
             name: fullName(p),
@@ -252,7 +254,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
  */
 function Shelf({ pair }: { pair: Pair }) {
   return (
-    <div className="grid min-w-0 grid-cols-2 grid-rows-[repeat(5,auto)] gap-x-2 self-start sm:gap-x-4 md:max-w-lg lg:max-w-none">
+    <div className="grid min-w-0 grid-cols-2 grid-rows-[repeat(4,auto)] gap-x-2 self-start sm:gap-x-4 md:max-w-lg lg:max-w-none">
       <ShelfColumn pair={pair} product={pair.brand} side="brand" />
       <ShelfColumn pair={pair} product={pair.alternative} side="alternative" />
       <div aria-hidden="true" className="col-span-2 col-start-1 row-start-1 h-[3px] self-end bg-ink" />
@@ -263,6 +265,10 @@ function Shelf({ pair }: { pair: Pair }) {
           className="md:px-3.5 md:py-2.5 md:pl-[26px] md:text-[2.25rem] md:[--hole-r:5px] md:[--hole-x:12px]"
         />
       </div>
+      <PhotoLine
+        className="col-span-2 mt-2"
+        items={[pair.brand, pair.alternative].map((p) => ({ name: p.brand, photo: p.photo }))}
+      />
     </div>
   );
 }
@@ -271,7 +277,7 @@ function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductS
   const cheaper = side === "alternative";
   const { label } = unitDisplay(p.unit);
   return (
-    <div className="row-span-5 grid min-w-0 grid-rows-subgrid">
+    <div className="row-span-4 grid min-w-0 grid-rows-subgrid">
       <div className="mx-auto w-full max-w-36 pb-2.5 md:max-w-none">
         <ProductThumb
           size="tile"
@@ -301,9 +307,6 @@ function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductS
           </span>
           <span className="text-[13px] leading-tight font-medium text-muted">{label}</span>
         </p>
-      </div>
-      <div className="mt-1 min-w-0 md:mt-2">
-        <PhotoCaption photo={p.photo} />
       </div>
     </div>
   );

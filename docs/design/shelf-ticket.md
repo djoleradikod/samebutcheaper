@@ -39,12 +39,19 @@ Remove Fraunces and Geist. Monospace isn't needed.
   stray mark.
 - `UnitPrice`: the cheaper price per unit in large condensed ink, the brand's beside it in muted with no strike-through, then "per 100 g".
   Convert per-unit display so it reads naturally (per 100 g, per 100 ml, per sheet, per wash).
-- `ProductThumb` (exists): the real photo filling its white tile, and an honest shelf label (brand name, product kind, "No photo yet") when no
-  photo exists. A label must never look like a photo or a pack design. Takes `eager` for the LCP image.
+- `ProductThumb` (exists): the real photo filling its white tile. With no photo, a typographic tile: the brand name large in the display face
+  on white under a plain ink band, like a no-frills own-label pack, with a very small "no photo yet" caption. It reads as deliberate and never
+  passes for a photo. Tiles too small for the name show initials. Takes `eager` for the LCP image.
+- Cut-outs: a photo whose credit includes "background removed" sits cleanly on white (`isCutOut`, `src/lib/photos.ts`). Anything else is a raw
+  snapshot with a background.
 - `PairCard`: two tiles side by side, brand left and cheaper right, the ticket beneath the photos and never on one, then brand name to cheaper name,
-  the UnitPrice row, the match level as plain text. Dense enough for 4 across at 1320px and 2 across on a phone.
-- `BasketCard`: for presets. A 2x2 or overlapping collage of real product photos, the title, who it's for, "Same shop: £64.20 → £31.85",
-  a large ticket with the saving, and the item count. This is the most important card on the site.
+  the UnitPrice row, the match level as plain text. Dense enough for 4 across at 1320px and 2 across on a phone. One photo: a typographic tile on
+  the missing side. No photo: lists use `PairRow`, and places that must show a card get it with no tiles.
+- `PairRow`: a swap with no photo on either side, as a compact text row: brand to cheaper name, unit price against unit price with the unit, the
+  saving, the match. Grouped in one panel under "More swaps, still missing a photo".
+- `BasketCard`: for presets. A collage of real product photos laid out for however many there are (1 to 4, with no blank cells), the title, who
+  it's for, "Same shop: £64.20 → £31.85", a large ticket with the saving, and the item count. This is the most important card on the site.
+- `AisleTile`: an aisle with no photo: its icon and name on white under the same ink band.
 - `Finding`: a cited claim: the title, the finding in one or two lines, publisher and date as a link.
 
 ## Pages
@@ -53,11 +60,16 @@ Remove Fraunces and Geist. Monospace isn't needed.
 last. Then one short line of H1, such as "Same job. Lower price." with the live count of swaps. Then the baskets straight away, 6 across two
 rows on desktop and a horizontal snap rail on a phone, with the shopper's market first. Then the biggest savings as a dense PairCard grid
 (never medicine). Then "Why it's worth switching": 3 Findings. Then "Buying in bulk": what to stock up on, what to buy to use and what to
-buy small, from the shelf-life records. Then all aisles with a photo each. Then the newsletter, then a short FAQ. Remove the big hero, the
-receipt card, the washes, the dot pattern and the uppercase eyebrows.
+buy small, from the shelf-life records, with 96px pack photos. Then all aisles with a photo each, or an `AisleTile`. Then the newsletter, then a
+short FAQ. Remove the big hero, the receipt card, the washes, the dot pattern and the uppercase eyebrows.
+
+Home page photos are cut-outs wherever one is available: a raw snapshot only shows when there's no cut-out for that slot. A basket collage with
+any cut-out uses only cut-outs, and no picture repeats across the basket cards.
 
 **Category.** H1 with count. Left filter column on desktop (shelf, how strong the match is, market, photo only), a filter sheet on a phone.
-Sort by biggest saving, lowest unit price or newest check. A dense grid of PairCards. Medicine category pages keep the health note.
+Sort by biggest saving, lowest unit price or newest check. Lists run in tiers, with the chosen sort inside each: both photos cut out, both photos,
+one photo, then no photo as PairRows. A line near the list head says what "Same job" means, when the list has any. Medicine category pages keep
+the health note.
 
 **Swap page.** The answer first: two big photos side by side, price, pack and unit price under each, and the ticket between them. One sentence
 of verdict. Buttons to both stores. Then in order: why the extra money buys little (`why`, then Findings with citations); where the brand wins

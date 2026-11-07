@@ -27,6 +27,7 @@ MAX_SIDE = 1400
 MODEL = "birefnet-general-lite"
 UNION_MODELS = ["birefnet-general-lite", "isnet-general-use", "u2net"]
 SOLID_ENOUGH = 0.86  # area of the filled mask / area of its convex hull
+SMOOTH_SHARE = 0.006  # blur of the outline, as a share of the picture's short side
 
 
 def outline(mask, always_hull=False):
@@ -52,6 +53,9 @@ def outline(mask, always_hull=False):
     hull = convex_hull_image(filled)
     solid = filled.sum() / max(1, hull.sum())
     final = hull if always_hull or solid < SOLID_ENOUGH else filled
+    # A pack's edge is smooth, so blur the outline and cut it again: stair-steps and small bites go, and real corners stay close.
+    sigma = max(1.5, min(h, w) * SMOOTH_SHARE)
+    final = ndimage.gaussian_filter(final.astype("float32"), sigma) > 0.5
     return Image.fromarray((final * 255).astype("uint8")).filter(ImageFilter.GaussianBlur(1.2))
 
 
@@ -72,7 +76,8 @@ def main():
     if "--only" in sys.argv:
         only = {line.strip() for line in open(sys.argv[sys.argv.index("--only") + 1]) if line.strip()}
     os.makedirs(out, exist_ok=True)
-    sessions = [session_for(m) for m in (UNION_MODELS if union else [MODEL])]
+    model = sys.argv[sys.argv.index("--model") + 1] if "--model" in sys.argv else MODEL
+    sessions = [session_for(m) for m in (UNION_MODELS if union else [model])]
     records = json.load(open(records_path))
     done = failed = 0
     for key, rec in records.items():

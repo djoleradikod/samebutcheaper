@@ -10,7 +10,53 @@ const VERDICT: Record<Verdict, { label: string; row: string; text: string }> = {
   different: { label: "Differs", row: "bg-different-soft", text: "text-different" },
   check: { label: "Check the label", row: "bg-different-soft", text: "text-different" },
   unknown: { label: "Not on file", row: "", text: "text-muted" },
+  neutral: { label: "", row: "", text: "text-ink-2" },
 };
+
+/** A cell longer than this opens from a short start, so a long ingredient list doesn't push the page down. */
+const LONG_CELL = 160;
+const CELL_START = 90;
+
+function Cell({ text }: { text: string }) {
+  if (text.length <= LONG_CELL) return <>{text}</>;
+  return (
+    <details className="group/cell">
+      <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        <span className="group-open/cell:hidden">
+          {text.slice(0, CELL_START).trimEnd()}… <span className="font-medium text-cobalt underline underline-offset-2">Show all</span>
+        </span>
+        <span className="hidden font-medium text-cobalt underline underline-offset-2 group-open/cell:inline">Show less</span>
+      </summary>
+      <span className="mt-1 block">{text}</span>
+    </details>
+  );
+}
+
+function NutritionCredit({ group }: { group: NonNullable<Comparison["nutrition"]> }) {
+  return (
+    <p className="mt-2 text-[13px] text-muted">
+      From{" "}
+      <a href={group.licenseUrl} target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-ink">
+        {group.source}, {group.license}
+      </a>
+      . People enter these records, so check the pack. Records:{" "}
+      {group.records.map((r, i) => (
+        <span key={r.page}>
+          {i > 0 && ", "}
+          <a
+            href={r.page}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className="inline-block py-1 text-cobalt underline underline-offset-2"
+          >
+            {r.name}
+          </a>
+        </span>
+      ))}
+      .
+    </p>
+  );
+}
 
 /** Ingredient rows shown before the rest fold away. */
 const SHOW = 8;
@@ -28,8 +74,8 @@ export function SameOrDifferent({
   comparison: Comparison;
   brandName: string;
   altName: string;
-  /** One line under the heading, e.g. what the match type requires. */
-  intro?: string;
+  /** One line under the heading: what's on file for this swap. */
+  intro: string;
 }) {
   const all = [...comparison.ingredients, ...comparison.rows];
   // Only points with data on both sides count, and the unit price differs on every swap.
@@ -47,7 +93,7 @@ export function SameOrDifferent({
           <h2 id="same-or-different" className="display text-[22px] md:text-2xl">
             Same or different?
           </h2>
-          <p className="mt-1 text-[15px] text-ink-2">{intro ?? "Point by point, including where the brand is better."}</p>
+          <p className="mt-1 text-[15px] text-ink-2">{intro}</p>
         </div>
         {(counted.length >= MIN_COUNTED || brandWins > 0) && (
           <p className="num text-sm font-semibold">
@@ -77,6 +123,12 @@ export function SameOrDifferent({
           </div>
         )}
         <CompareTable caption="Everything else" rows={comparison.rows} {...names} />
+        {comparison.nutrition && (
+          <div>
+            <CompareTable caption={comparison.nutrition.caption} rows={comparison.nutrition.rows} {...names} />
+            <NutritionCredit group={comparison.nutrition} />
+          </div>
+        )}
       </div>
     </section>
   );
@@ -121,6 +173,7 @@ function CompareTable({
       <tbody>
         {rows.map((r) => {
           const v = VERDICT[r.verdict];
+          const label = r.verdictLabel ?? v.label;
           return (
             <tr key={r.aspect} className={`border-b border-line align-top ${v.row}`}>
               <th scope="row" className="px-2 py-2.5 text-left font-medium break-words md:px-3">
@@ -134,7 +187,8 @@ function CompareTable({
                 ) : (
                   r.aspect
                 )}
-                <span className={`mt-0.5 block text-xs font-semibold md:hidden ${v.text}`}>{v.label}</span>
+                {r.detail && <span className="mt-0.5 block text-xs font-normal text-muted">{r.detail}</span>}
+                <span className={`mt-0.5 block text-xs font-semibold md:hidden ${v.text}`}>{label}</span>
                 {r.source && (
                   <a
                     href={r.source}
@@ -147,9 +201,13 @@ function CompareTable({
                   </a>
                 )}
               </th>
-              <td className="px-2 py-2.5 break-words text-ink-2 md:px-3">{r.brand}</td>
-              <td className="px-2 py-2.5 break-words text-ink-2 md:px-3">{r.alternative}</td>
-              <td className={`hidden px-3 py-2.5 font-semibold md:table-cell ${v.text}`}>{v.label}</td>
+              <td className="px-2 py-2.5 break-words text-ink-2 md:px-3">
+                <Cell text={r.brand} />
+              </td>
+              <td className="px-2 py-2.5 break-words text-ink-2 md:px-3">
+                <Cell text={r.alternative} />
+              </td>
+              <td className={`hidden px-3 py-2.5 font-semibold md:table-cell ${v.text}`}>{label}</td>
             </tr>
           );
         })}

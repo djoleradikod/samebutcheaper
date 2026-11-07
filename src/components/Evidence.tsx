@@ -75,18 +75,52 @@ export function licenceUrl(licence: string) {
   return null;
 }
 
-/** Credit line straight under a product photo, or an honest note when there is no photo. */
-export function PhotoCaption({ photo }: { photo: Photo | null }) {
-  if (!photo) return <p className="text-xs text-muted">No licensed photo of this pack yet.</p>;
+/**
+ * One small credit line for both photos under the shelf: each product links to its photo's page, and the
+ * credit and licence print once when they match. "Background removed" comes from the credit itself.
+ */
+export function PhotoLine({ items, className = "" }: { items: { name: string; photo: Photo | null }[]; className?: string }) {
+  const linkClass = "underline underline-offset-2 hover:text-ink";
+  const photographed = items.filter((i) => i.photo);
+  const missing = items.filter((i) => !i.photo);
+  const groups = new Map<string, { credit: string; license: string; items: typeof items }>();
+  for (const item of photographed) {
+    const { credit, license } = item.photo!;
+    const key = `${credit}|${license}`;
+    const group = groups.get(key) ?? { credit, license, items: [] };
+    group.items.push(item);
+    groups.set(key, group);
+  }
   return (
-    <a
-      href={photo.page}
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-      className="flex min-h-11 items-start text-xs text-muted underline-offset-2 hover:text-ink hover:underline md:min-h-0"
-    >
-      Photo: {photo.credit}, {photo.license}
-    </a>
+    <p className={`text-xs leading-relaxed text-muted ${className}`}>
+      {photographed.length > 0 && "Photos: "}
+      {[...groups.values()].map((g, i) => {
+        const url = licenceUrl(g.license);
+        return (
+          <span key={`${g.credit}|${g.license}`}>
+            {i > 0 && "; "}
+            {g.items.map((item, j) => (
+              <span key={j}>
+                {j > 0 && ", "}
+                <a href={item.photo!.page} target="_blank" rel="noopener noreferrer nofollow" className={linkClass}>
+                  {item.name}
+                </a>
+              </span>
+            ))}{" "}
+            by {g.credit},{" "}
+            {url ? (
+              <a href={url} target="_blank" rel="noopener" className={linkClass}>
+                {g.license}
+              </a>
+            ) : (
+              g.license
+            )}
+          </span>
+        );
+      })}
+      {photographed.length > 0 && ". "}
+      {missing.length > 0 && `No licensed photo of ${missing.map((i) => i.name).join(" or ")} yet.`}
+    </p>
   );
 }
 

@@ -366,6 +366,36 @@ export const imageRecordSchema = z.object({
 
 export type ImageRecord = z.infer<typeof imageRecordSchema>;
 
+const per100 = z.number().nonnegative().nullable();
+
+/** One Open Food Facts record for a product. Values are per 100 g or 100 ml, null when the record doesn't say. */
+export const nutritionRecordSchema = z.object({
+  code: z.string().min(1),
+  page: z.string().url(),
+  name: z.string(),
+  modified: z.string(),
+  kcal: per100,
+  fat: per100,
+  saturates: per100,
+  sugars: per100,
+  salt: per100,
+  protein: per100,
+  fibre: per100,
+  ingredients: z.string().nullable(),
+});
+
+/** data/evidence/nutrition.json, written by scripts/qa/extract_nutrition.py. Items are keyed by "brand|product". */
+export const nutritionFileSchema = z.object({
+  source: z.string().min(2),
+  license: z.string().min(2),
+  licenseUrl: z.string().url(),
+  dump: z.string(),
+  items: z.record(z.string(), nutritionRecordSchema),
+});
+
+export type NutritionRecord = z.infer<typeof nutritionRecordSchema>;
+export type NutritionSource = Omit<z.infer<typeof nutritionFileSchema>, "items">;
+
 const LEGACY_PRICE = "price_usd";
 
 /**

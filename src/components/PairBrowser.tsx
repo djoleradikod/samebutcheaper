@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { ChevronDown, X } from "lucide-react";
 import {
   buildFacets,
@@ -25,9 +25,10 @@ import { useCountry } from "@/lib/client/country";
 import { loadSwapIndex } from "@/lib/client/swap-index";
 import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
 import { MARKET_LABEL, type MarketCode } from "@/lib/markets";
+import { NO_PHOTO_TIER } from "@/lib/photos";
 import type { PairSummary } from "@/lib/types";
 import { FilterSheet } from "./FilterSheet";
-import { PairCard } from "./PairCard";
+import { PairCard, PairRow, PairRows } from "./PairCard";
 
 /** With this many shelves or fewer the whole list shows. Past it, the biggest few and a button. */
 const SHELF_LIMIT = 10;
@@ -115,7 +116,7 @@ export function PairBrowser({
 
   const [sheetOpen, setSheetOpen] = useState(false);
 
-  const listRef = useRef<HTMLUListElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
   const focusAt = useRef<number | null>(null);
 
   const update = (patch: Partial<BrowseState>, mode: "push" | "replace" = "push") => {
@@ -129,7 +130,7 @@ export function PairBrowser({
   // After "Show more", keyboard and screen reader users carry on from the first new card.
   useEffect(() => {
     if (focusAt.current === null) return;
-    const link = listRef.current?.children[focusAt.current]?.querySelector("a");
+    const link = listRef.current?.querySelector<HTMLAnchorElement>(`[data-row="${focusAt.current}"] a`);
     if (!link) return;
     link.focus({ preventScroll: true });
     focusAt.current = null;
@@ -148,6 +149,11 @@ export function PairBrowser({
     facets.photo !== null;
   const defaultView = active.length === 0 && state.sort === "saving" && (state.market ?? fallbackMarket) === fallbackMarket;
   const firstPhoto = shown.findIndex((r) => r.photo);
+  // Tiers put the no-photo rows last, so everything before the first one is a card.
+  const firstText = shown.findIndex((r) => r.tier === NO_PHOTO_TIER);
+  const cardRows = firstText < 0 ? shown : shown.slice(0, firstText);
+  const textRows = firstText < 0 ? [] : shown.slice(firstText);
+  const explainSameJob = path.startsWith("/category/") && matched.some((r) => r.match === "equivalent_spec");
   const multiMarket = facets.markets.length > 1;
   const medicineLeftOut =
     hideMedicine && !state.medicine && !state.aisles.length
@@ -255,33 +261,52 @@ export function PairBrowser({
           </p>
         )}
 
+        {explainSameJob && (
+          <p className="mt-1 max-w-[68ch] text-[13px] text-ink-2 lg:mt-2">
+            {MATCH_TYPE_META.equivalent_spec.short}: {MATCH_TYPE_META.equivalent_spec.description}{" "}
+            <Link
+              href="/how-we-verify"
+              className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"
+            >
+              How we check
+            </Link>
+          </p>
+        )}
+
         {matched.length === 0 ? (
           <NoMatches rows={rows} state={state} active={active} market={market} hideMedicine={hideMedicine} onUpdate={update} onClear={clearAll} />
         ) : (
-          <ul ref={listRef} className={`${hasFilters ? SWAP_GRID_BESIDE_FILTERS : SWAP_GRID} mt-2 lg:mt-3`}>
-            {shown.map((r, i) => {
-              const card = prerendered.get(r.slug) ?? index?.get(r.slug);
-              // An index from a newer deploy may have dropped this swap.
-              if (!card) return index ? null : <CardPlaceholder key={r.slug} />;
-              const startsMissing = !r.bothPhotos && i > 0 && shown[i - 1].bothPhotos;
-              return (
-                <Fragment key={r.slug}>
-                  {startsMissing && (
-                    <li className="col-span-full mt-3 border-t border-line pt-3">
-                      <p className="text-sm font-semibold">More swaps, still missing a photo</p>
+          <div ref={listRef} className="mt-2 lg:mt-3">
+            {cardRows.length > 0 && (
+              <ul className={hasFilters ? SWAP_GRID_BESIDE_FILTERS : SWAP_GRID}>
+                {cardRows.map((r, i) => {
+                  const card = prerendered.get(r.slug) ?? index?.get(r.slug);
+                  // An index from a newer deploy may have dropped this swap.
+                  if (!card) return index ? null : <CardPlaceholder key={r.slug} />;
+                  // The numbers stop with the first tier: past it the saving starts again from the top.
+                  const ranked = showRank && defaultView && r.tier === shown[0].tier;
+                  return (
+                    <li key={r.slug} data-row={i} className="min-w-0">
+                      <PairCard pair={card} rank={ranked ? i + 1 : undefined} eager={i === firstPhoto && i < 4} />
                     </li>
-                  )}
-                  <li className="min-w-0">
-                    <PairCard
-                      pair={card}
-                      rank={showRank && defaultView && r.bothPhotos ? i + 1 : undefined}
-                      eager={i === firstPhoto && i < 4}
-                    />
-                  </li>
-                </Fragment>
-              );
-            })}
-          </ul>
+                  );
+                })}
+              </ul>
+            )}
+            {textRows.length > 0 && (
+              <PairRows headed={cardRows.length > 0}>
+                {textRows.map((r, i) => {
+                  const card = prerendered.get(r.slug) ?? index?.get(r.slug);
+                  if (!card) return index ? null : <RowPlaceholder key={r.slug} />;
+                  return (
+                    <li key={r.slug} data-row={cardRows.length + i} className="min-w-0">
+                      <PairRow pair={card} />
+                    </li>
+                  );
+                })}
+              </PairRows>
+            )}
+          </div>
         )}
 
         {indexFailed && !index && (
@@ -367,6 +392,14 @@ function CardPlaceholder() {
       </div>
       <span className="mt-3 h-3 w-1/2 rounded-tile bg-canvas" />
       <span className="mt-2 h-3 w-5/6 rounded-tile bg-canvas" />
+    </li>
+  );
+}
+
+function RowPlaceholder() {
+  return (
+    <li aria-hidden="true" className="flex min-h-16 items-center px-2.5 md:min-h-11 md:px-3">
+      <span className="h-3 w-1/2 rounded-tile bg-canvas" />
     </li>
   );
 }

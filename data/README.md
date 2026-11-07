@@ -84,7 +84,14 @@ items are priced in one market. The total buys the same amount on both sides, us
 ## Evidence (`data/evidence/`)
 
 `claims.json` holds cited findings on why a premium isn't worth paying, and where the cheap option lost. Each has at least
-two sources, written in our own words with the numbers from the source. `categories` may include `"general"`.
+two sources, written in our own words with the numbers from the source. `categories` may include `"general"`, which puts a
+finding on `/why` but not on swap pages. A swap page shows a finding only when the swap names it in `claims`, when the finding
+lists the swap's subcategory, or when the finding lists the swap's category and no subcategories.
+
+`nutrition.json` holds Open Food Facts records (ODbL) for catalogue products, written by `scripts/qa/extract_nutrition.py`:
+`{source, license, licenseUrl, dump, items: {"<brand>|<product>": {code, page, name, modified, kcal, fat, saturates, sugars, salt, protein, fibre, ingredients}}}`,
+per 100 g or 100 ml, null when unknown. The build attaches a record to each side of a food swap, and the swap page shows it
+when both sides have one, credited and linked. Medicine and other aisles never get nutrition rows.
 
 ```json
 {

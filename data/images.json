@@ -10,7 +10,7 @@
  "Arm & Hammer|ARM & HAMMER Pure Baking Soda, 3 lb Resealable Bag": {
   "file": "arm-hammer-arm-hammer-pure-baking-soda-3-lb-resealable-bag-bdfaff5ac7",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0033200011927",
   "matched": "ARM & HAMMER: Pure Baking Soda",
@@ -46,7 +46,7 @@
  "Domino|Domino Premium Pure Cane Granulated Sugar, 4 lb": {
   "file": "domino-domino-premium-pure-cane-granulated-sugar-4-lb-e746e8b2a4",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0049200045503",
   "matched": "Domino Premium Pure Cane Granulated Sugar",
@@ -81,7 +81,7 @@
  "McCormick|McCormick Pure Ground Black Pepper, 3 oz": {
   "file": "mccormick-mccormick-pure-ground-black-pepper-3-oz-c84d96aa3c",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0052100052311",
   "matched": "Mccormick: Pure ground black pepper 3 oz",
@@ -403,7 +403,7 @@
  "Mylicon|Mylicon Infants' Gas Relief Drops, Dye Free, 1 fl oz": {
   "file": "mylicon-mylicon-infants-gas-relief-drops-dye-free-1-fl-oz-93ef8a3541",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0819903010234",
   "matched": "MYLICON: Infants' MYLICON Gas Relief Drops",
@@ -421,7 +421,7 @@
  "Great Value|Great Value No Calorie Sweetener with Sucralose, 200 count (7 oz)": {
   "file": "great-value-great-value-no-calorie-sweetener-with-sucralose-200-count-7-oz-4afeb53cb5",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0078742165882",
   "matched": "Great Value: No Calorie Sweetener",
@@ -448,7 +448,7 @@
  "Sensodyne|Sensodyne Repair and Protect Whitening Sensitive Toothpaste, Mint, 3.4 oz": {
   "file": "sensodyne-sensodyne-repair-and-protect-whitening-sensitive-toothpaste-mint-3-4-o-ce98929f7b",
   "source": "openbeautyfacts",
-  "credit": "Open Beauty Facts contributors, background removed",
+  "credit": "Open Beauty Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/0060815305561",
   "matched": "Sensodyne: Sensodyne Repair & Protect",
@@ -511,7 +511,7 @@
  "Motrin|Children's Motrin Ibuprofen Oral Suspension, Berry, 4 fl oz": {
   "file": "motrin-children-s-motrin-ibuprofen-oral-suspension-berry-4-fl-oz-c2ec1a9b18",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0300450192042",
   "matched": "Motrin: Children's Motrin",
@@ -736,7 +736,7 @@
  "Beconase|Beconase Allergy Nasal Spray for Hayfever Relief 100 Dose": {
   "file": "beconase-beconase-allergy-nasal-spray-for-hayfever-relief-100-dose-c4c2c4dade",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5012616291715",
   "matched": "Beconase: Hayfever Relief 100 spray",
@@ -754,7 +754,7 @@
  "Calpol|Calpol Infant Paracetamol Oral Suspension 120mg/5ml Strawberry 100ml": {
   "file": "calpol-calpol-infant-paracetamol-oral-suspension-120mg-5ml-strawberry-100ml-21a3351c0b",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/5010123391348",
   "matched": "Calpol: CalPol Infant suspension",
@@ -763,7 +763,7 @@
  "Clarityn|Clarityn Allergy 10mg Tablets Loratadine 30s": {
   "file": "clarityn-clarityn-allergy-10mg-tablets-loratadine-30s-fecc078e73",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5010605403170",
   "matched": "Clarityn: Loratadine 10 tab",
@@ -781,7 +781,7 @@
  "Equate|Equate Non-Drowsy All Day Allergy Relief Loratadine 10 mg, 300 count": {
   "file": "equate-equate-non-drowsy-all-day-allergy-relief-loratadine-10-mg-300-count-6e643a0939",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0194346057481",
   "matched": "Equate: All Day Allergy Relief 300 tablets",
@@ -790,7 +790,7 @@
  "Equate|Equate Daytime Non-Drowsy Cold and Flu Multi-Symptom Relief Softgels, 24 count": {
   "file": "equate-equate-daytime-non-drowsy-cold-and-flu-multi-symptom-relief-softgels-24-c-a964daea88",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0681131123723",
   "matched": "Equate: Severe Cold Multi-Symptom Daytime",
@@ -835,7 +835,7 @@
  "Mucosolvan|Mucosolvan Hustensaft 30 mg/5 ml, 250 ml": {
   "file": "mucosolvan-mucosolvan-hustensaft-30-mg-5-ml-250-ml-da6c525085",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/00743422",
   "matched": "Mucosolvan: Mucosolvan 100 ml",
@@ -871,7 +871,7 @@
  "Piriteze|Piriteze Hayfever & Allergy Relief Film Coated Tablets 30s": {
   "file": "piriteze-piriteze-hayfever-allergy-relief-film-coated-tablets-30s-110099d70b",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5054563060372",
   "matched": "Piriteze: Cetrizine Hydrochloride 30 tabs",
@@ -880,7 +880,7 @@
  "Reactine|Reactine Extra Strength Tablets, Cetirizine Hydrochloride 10 mg, 84 Count": {
   "file": "reactine-reactine-extra-strength-tablets-cetirizine-hydrochloride-10-mg-84-count-bdfadf49bb",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0060245250103",
   "matched": "Reactine: Reactine Cetirizine 8 tablets",
@@ -889,7 +889,7 @@
  "Talcid|Talcid Kautabletten 500 mg, 100 chewable tablets": {
   "file": "talcid-talcid-kautabletten-500-mg-100-chewable-tablets-f5562eaa50",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/6924147603198",
   "matched": "Talcid: Hydrotalcite Chewable Antacid 20pc",
@@ -934,7 +934,7 @@
  "CeraVe|CeraVe Salicylic Acid Acne Treatment Control Gel, 1.35 fl oz": {
   "file": "cerave-cerave-salicylic-acid-acne-treatment-control-gel-1-35-fl-oz-a2ce2c3743",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/3337875782357",
   "matched": "CeraVe: Cerave gel control imperfecciones 40ml",
@@ -943,7 +943,7 @@
  "CeraVe|CeraVe Invisible Mineral Face Sunscreen SPF 50, 1.62 fl oz": {
   "file": "cerave-cerave-invisible-mineral-face-sunscreen-spf-50-1-62-fl-oz-3ca5e5690c",
   "source": "openbeautyfacts",
-  "credit": "Open Beauty Facts contributors, background removed",
+  "credit": "Open Beauty Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openbeautyfacts.org/product/3606000514959",
   "matched": "CeraVe: Hydrating mineral sunscreen spf50",
@@ -979,7 +979,7 @@
  "Sensodyne|Sensodyne Extra Whitening Sensitive Toothpaste, Mint, 4 oz": {
   "file": "sensodyne-sensodyne-extra-whitening-sensitive-toothpaste-mint-4-oz-02dbc0c041",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0031015808404",
   "matched": "Sensodyne: Sensodyne Extra Whitening Sensitive Toothpaste, Mint, 4 Oz, for Adults 1",
@@ -1015,7 +1015,7 @@
  "Emergen-C|Emergen-C Immune+ Vitamin C Drink Mix, Super Orange, 30 packets": {
   "file": "emergen-c-emergen-c-immune-vitamin-c-drink-mix-super-orange-30-packets-d6472920b1",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0885898330336",
   "matched": "Emergen-C: Emergen-C Immune+ Super Orange",
@@ -1195,7 +1195,7 @@
  "Sensodyne|Sensodyne Sensitivität & Zahnfleisch, 75 ml": {
   "file": "sensodyne-sensodyne-sensitivita-t-zahnfleisch-75-ml-1c7fb85fb5",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5054563231673",
   "matched": "",
@@ -1231,7 +1231,7 @@
  "Kölln|Blütenzarte Köllnflocken, 500 g": {
   "file": "ko-lln-blu-tenzarte-ko-llnflocken-500-g-f7a563298e",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4000540000108",
   "matched": "",
@@ -1240,7 +1240,7 @@
  "Brüggen|Brüggen Haferflocken Extrazart, 500 g": {
   "file": "bru-ggen-bru-ggen-haferflocken-extrazart-500-g-f38e80293e",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4008713010282",
   "matched": "",
@@ -1249,7 +1249,7 @@
  "Alnatura|Alnatura Haferflocken Feinblatt, Bioland, 500 g": {
   "file": "alnatura-alnatura-haferflocken-feinblatt-bioland-500-g-37d69c2cd2",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4104420247253",
   "matched": "",
@@ -1258,7 +1258,7 @@
  "Gut Bio|Aldi Gut Bio Vollkorn Haferflocken Zart, 500 g": {
   "file": "gut-bio-aldi-gut-bio-vollkorn-haferflocken-zart-500-g-77f72738fc",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4061458088725",
   "matched": "",
@@ -1393,7 +1393,7 @@
  "PG Tips|PG Tips Original, 80 tea bags (232g)": {
   "file": "pg-tips-pg-tips-original-80-tea-bags-232g-5d7a3060a7",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/8712100712319",
   "matched": "",
@@ -1411,7 +1411,7 @@
  "Yorkshire Tea|Taylors of Harrogate Yorkshire Tea, 80 tea bags (250g)": {
   "file": "yorkshire-tea-taylors-of-harrogate-yorkshire-tea-80-tea-bags-250g-542fe4b030",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5010357112061",
   "matched": "",
@@ -1420,7 +1420,7 @@
  "Essential Waitrose|Waitrose Essential Original Blend Tea Bags, 80 bags (250g)": {
   "file": "essential-waitrose-waitrose-essential-original-blend-tea-bags-80-bags-250g-0c6583e728",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000169289587",
   "matched": "",
@@ -1438,7 +1438,7 @@
  "Morrisons|Morrisons Everyday Tea, 80 bags (232g)": {
   "file": "morrisons-morrisons-everyday-tea-80-bags-232g-d8170ad010",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5010525151816",
   "matched": "",
@@ -1456,7 +1456,7 @@
  "Alcafé (Aldi)|Aldi Alcafé Gold Roast Freeze Dried Coffee, 200g": {
   "file": "alcafe-aldi-aldi-alcafe-gold-roast-freeze-dried-coffee-200g-6232d8bf62",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/25271706",
   "matched": "",
@@ -1519,7 +1519,7 @@
  "Specially Selected (Aldi)|Aldi Specially Selected Large Beef Dripping Yorkshire Puddings, 6 (290g)": {
   "file": "specially-selected-aldi-aldi-specially-selected-large-beef-dripping-yorkshire-pu-2b648eb8e5",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4088600218236",
   "matched": "",
@@ -1573,7 +1573,7 @@
  "Tesco Finest|Tesco Finest Belgian 70% Dark Hot Chocolate Flakes, 200g": {
   "file": "tesco-finest-tesco-finest-belgian-70-dark-hot-chocolate-flakes-200g-ed3e683583",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5063446502540",
   "matched": "",
@@ -1600,7 +1600,7 @@
  "Finish|Finish Powerball Ultimate All In One Lemon, 55 tablets": {
   "file": "finish-finish-powerball-ultimate-all-in-one-lemon-55-tablets-d2c0095d01",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/5059001015297",
   "matched": "",
@@ -1690,7 +1690,7 @@
  "Hershey's|Hershey's Natural unsweetened cocoa, 8 oz": {
   "file": "hershey-s-hershey-s-natural-unsweetened-cocoa-8-oz-38ac0188f3",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0034000052004",
   "matched": "",
@@ -1789,7 +1789,7 @@
  "Kathi|Kathi Weizenmehl Type 405, 1000g": {
   "file": "kathi-kathi-weizenmehl-type-405-1000g-d3b68a04eb",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4012367012608",
   "matched": "",
@@ -1798,7 +1798,7 @@
  "REWE Beste Wahl|REWE Beste Wahl Weizenmehl 405, 1000g": {
   "file": "rewe-beste-wahl-rewe-beste-wahl-weizenmehl-405-1000g-9d98b74ee1",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4337256552554",
   "matched": "",
@@ -1825,7 +1825,7 @@
  "albi|albi Banane Fruchtnektar, 1 l": {
   "file": "albi-albi-banane-fruchtnektar-1-l-08c5f340d8",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4003240924002",
   "matched": "",
@@ -1852,7 +1852,7 @@
  "Anchor|Anchor Salted butter, 200 g": {
   "file": "anchor-anchor-salted-butter-200-g-b30328774d",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000246728725",
   "matched": "",
@@ -1861,7 +1861,7 @@
  "Tesco|Tesco Salted butter, 250 g": {
   "file": "tesco-tesco-salted-butter-250-g-552e7946d1",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000119407283",
   "matched": "",
@@ -1870,7 +1870,7 @@
  "Varta|Varta Energy Alkaline AA LR06, 30 cells": {
   "file": "varta-varta-energy-alkaline-aa-lr06-30-cells-f180b10d28",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/4008496978199",
   "matched": "",
@@ -1879,7 +1879,7 @@
  "Ansmann|Ansmann Alkaline AA LR6, box of 20": {
   "file": "ansmann-ansmann-alkaline-aa-lr6-box-of-20-d810a088a3",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/4013674005482",
   "matched": "",
@@ -1888,7 +1888,7 @@
  "Duracell|Duracell Plus Power Boost Alkaline AA LR06, 4 cells": {
   "file": "duracell-duracell-plus-power-boost-alkaline-aa-lr06-4-cells-e1930b3ddb",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000394176027",
   "matched": "",
@@ -1897,7 +1897,7 @@
  "Varta|Varta Batterien AAA Alkaline, 8 cells": {
   "file": "varta-varta-batterien-aaa-alkaline-8-cells-0404cc142c",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4008496083459",
   "matched": "",
@@ -1906,7 +1906,7 @@
  "Gut & Günstig|Gut & Günstig Batterien LR03 AAA Alkaline, 10 cells": {
   "file": "gut-gu-nstig-gut-gu-nstig-batterien-lr03-aaa-alkaline-10-cells-bc482c417d",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/4311501585559",
   "matched": "",
@@ -1915,7 +1915,7 @@
  "Energizer|Energizer Max 9V 6LR61 Alkaline, pack of 2": {
   "file": "energizer-energizer-max-9v-6lr61-alkaline-pack-of-2-9b7e5dc4f2",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/7638900426533",
   "matched": "",
@@ -1987,7 +1987,7 @@
  "Hershey's|Hershey's Cocoa 100% Cacao Natural Unsweetened, 8 oz": {
   "file": "hershey-s-hershey-s-cocoa-100-cacao-natural-unsweetened-8-oz-38ac0188f3",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0034000052004",
   "matched": "",
@@ -2059,7 +2059,7 @@
  "Jacobs|Jacobs Meister Röstung, gemahlen, 500 g": {
   "file": "jacobs-jacobs-meister-ro-stung-gemahlen-500-g-337476201d",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/8711000670026",
   "matched": "",
@@ -2068,7 +2068,7 @@
  "Cafèt|Cafèt Gemahlener Röstkaffee Gold, 500 g": {
   "file": "cafe-t-cafe-t-gemahlener-ro-stkaffee-gold-500-g-90ace8c57d",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4316268692519",
   "matched": "",
@@ -2086,7 +2086,7 @@
  "Ben's Original|Ben's Original Express-Reis Mediterran, 220 g": {
   "file": "ben-s-original-ben-s-original-express-reis-mediterran-220-g-288634e249",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/3487400006332",
   "matched": "",
@@ -2176,7 +2176,7 @@
  "Clarkys|Clarkys Tortilla Chips Nacho Cheese (Netto), 300 g": {
   "file": "clarkys-clarkys-tortilla-chips-nacho-cheese-netto-300-g-143bf86a90",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4316268596473",
   "matched": "",
@@ -2194,7 +2194,7 @@
  "Kerrygold|Kerrygold Irische Butter, 250 g": {
   "file": "kerrygold-kerrygold-irische-butter-250-g-ca104c22a5",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4001954161010",
   "matched": "",
@@ -2203,7 +2203,7 @@
  "frija|frija Irische Butter (Netto), 250 g": {
   "file": "frija-frija-irische-butter-netto-250-g-b23a684434",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4250365909241",
   "matched": "",
@@ -2212,7 +2212,7 @@
  "Weihenstephan|Weihenstephan Haltbare Milch 1,5% Fett, 1 l": {
   "file": "weihenstephan-weihenstephan-haltbare-milch-1-5-fett-1-l-2ff677a256",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4008452027589",
   "matched": "",
@@ -2374,7 +2374,7 @@
  "Mondo Italiano|Mondo Italiano Spaghetti mit Tomatensauce und Würzmischung (Netto), 397 g": {
   "file": "mondo-italiano-mondo-italiano-spaghetti-mit-tomatensauce-und-wu-rzmischung-netto-3909764b25",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4316268452915",
   "matched": "",
@@ -2392,7 +2392,7 @@
  "Golden Toast|Golden Toast Vollkorntoast, 500 g": {
   "file": "golden-toast-golden-toast-vollkorntoast-500-g-941f8aeb0e",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4009249019923",
   "matched": "",
@@ -2401,7 +2401,7 @@
  "Kornmühle|Kornmühle Vollkorn Toast (Netto), 500 g": {
   "file": "kornmu-hle-kornmu-hle-vollkorn-toast-netto-500-g-d964fbeea2",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4316268461009",
   "matched": "",
@@ -2491,7 +2491,7 @@
  "Kaufland|Kaufland Cashew-Kerne geröstet, ungesalzen, 200 g": {
   "file": "kaufland-kaufland-cashew-kerne-gero-stet-ungesalzen-200-g-2ac9d301ba",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4038934177679",
   "matched": "",
@@ -2563,7 +2563,7 @@
  "Biokat's|Biokat's Micro Classic Katzenstreu, 14 l": {
   "file": "biokat-s-biokat-s-micro-classic-katzenstreu-14-l-cbca61a989",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors, background removed",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/4002064613840",
   "matched": "",
@@ -2581,7 +2581,7 @@
  "Finish|Finish Spezial-Salz, 1.2 kg": {
   "file": "finish-finish-spezial-salz-1-2-kg-bea9f2b2a4",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4002448046424",
   "matched": "",
@@ -2617,7 +2617,7 @@
  "Vileda|Vileda Glitzi Plus Topfreiniger, 3 pieces": {
   "file": "vileda-vileda-glitzi-plus-topfreiniger-3-pieces-3c9349a99f",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4003790001444",
   "matched": "",
@@ -2635,7 +2635,7 @@
  "Jeden Tag|Jeden Tag Kaffeefilter Größe 4, 100 filters": {
   "file": "jeden-tag-jeden-tag-kaffeefilter-gro-e-4-100-filters-1abcd98e93",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4306188402312",
   "matched": "",
@@ -2653,7 +2653,7 @@
  "Toppits|Toppits Backpapier, 8 m": {
   "file": "toppits-toppits-backpapier-8-m-7a4e50b685",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4008871200365",
   "matched": "",
@@ -2662,7 +2662,7 @@
  "Lundberg Family Farms|Lundberg White Arborio Gourmet Rice, 32 oz": {
   "file": "lundberg-family-farms-lundberg-white-arborio-gourmet-rice-32-oz-7afcdeb421",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0073416050914",
   "matched": "",
@@ -2680,7 +2680,7 @@
  "Bowl & Basket|Bowl & Basket Penne Rigate Pasta, 16 oz": {
   "file": "bowl-basket-bowl-basket-penne-rigate-pasta-16-oz-c290b64e26",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0041190066537",
   "matched": "",
@@ -2779,7 +2779,7 @@
  "Lucerne|Lucerne Lactose Free Whole Milk, 64 oz": {
   "file": "lucerne-lucerne-lactose-free-whole-milk-64-oz-62f0b362c4",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0021130071890",
   "matched": "",
@@ -2923,7 +2923,7 @@
  "Great Value|Great Value Toasted O's, 12 oz": {
   "file": "great-value-great-value-toasted-o-s-12-oz-93962a9298",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0078742181554",
   "matched": "",
@@ -2932,7 +2932,7 @@
  "Starbucks|Starbucks Single-Origin Sumatra Dark Roast Ground Coffee, 12 oz": {
   "file": "starbucks-starbucks-single-origin-sumatra-dark-roast-ground-coffee-12-oz-b793e9be46",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0762111622914",
   "matched": "",
@@ -2941,7 +2941,7 @@
  "Signature Select|Signature Select Sumatra Ground Coffee, 12 oz": {
   "file": "signature-select-signature-select-sumatra-ground-coffee-12-oz-00d6c2fd09",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0021130453177",
   "matched": "",
@@ -2977,7 +2977,7 @@
  "Vital Farms|Vital Farms Pasture Raised Eggs, 12 count": {
   "file": "vital-farms-vital-farms-pasture-raised-eggs-12-count-7953f8b561",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0861745000010",
   "matched": "",
@@ -3013,7 +3013,7 @@
  "Ritz|Ritz Fresh Stacks The Original, 11.8 oz": {
   "file": "ritz-ritz-fresh-stacks-the-original-11-8-oz-a00774a710",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0044000031138",
   "matched": "",
@@ -3076,7 +3076,7 @@
  "Hakle|Hakle Feucht Toilettenpapier Ultra med, 42 sheets": {
   "file": "hakle-hakle-feucht-toilettenpapier-ultra-med-42-sheets-b4d883e6e6",
   "source": "openbeautyfacts",
-  "credit": "Open Beauty Facts contributors, background removed",
+  "credit": "Open Beauty Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openbeautyfacts.org/product/4260344220717",
   "matched": "",
@@ -3085,7 +3085,7 @@
  "Demak'Up|Demak'Up Expert Wattepads rund, 70 pads": {
   "file": "demak-up-demak-up-expert-wattepads-rund-70-pads-d8faa2b5ac",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/3228061018506",
   "matched": "",
@@ -3130,7 +3130,7 @@
  "Sil|Sil Fleckensalz 1 für Alles, 500 g": {
   "file": "sil-sil-fleckensalz-1-fu-r-alles-500-g-44c38fc52d",
   "source": "openproductsfacts",
-  "credit": "Open Products Facts contributors",
+  "credit": "Open Products Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/4015000971904",
   "matched": "",
@@ -3139,25 +3139,16 @@
  "Pampers|Pampers Harmonie Aqua baby wipes, 48 wipes": {
   "file": "pampers-pampers-harmonie-aqua-baby-wipes-48-wipes-bbed0b9f64",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/8700216780339",
-  "matched": "",
-  "reviewed": "2026-11-07"
- },
- "Tesco Fred & Flo|Tesco Fred & Flo Biodegradable Fragrance Free wipes, 60 wipes": {
-  "file": "tesco-fred-flo-tesco-fred-flo-biodegradable-fragrance-free-wipes-60-wipes-da19535281",
-  "source": "openbeautyfacts",
-  "credit": "Open Beauty Facts contributors",
-  "license": "CC BY-SA 3.0",
-  "page": "https://world.openbeautyfacts.org/product/1057733937409",
   "matched": "",
   "reviewed": "2026-11-07"
  },
  "Rascals|Rascals Premium Sensitive wipes, 52 wipes": {
   "file": "rascals-rascals-premium-sensitive-wipes-52-wipes-2758feab49",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4895248002062",
   "matched": "",
@@ -3166,7 +3157,7 @@
  "Asda Little Angels|Asda Little Angels Sensitive wipes, 60 wipes": {
   "file": "asda-little-angels-asda-little-angels-sensitive-wipes-60-wipes-7de926cc38",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5057172771127",
   "matched": "",
@@ -3175,7 +3166,7 @@
  "Sainsbury's Little Ones|Sainsbury's Little Ones Sensitive wipes, 60 wipes": {
   "file": "sainsbury-s-little-ones-sainsbury-s-little-ones-sensitive-wipes-60-wipes-81ea43d30e",
   "source": "openbeautyfacts",
-  "credit": "Open Beauty Facts contributors",
+  "credit": "Open Beauty Facts contributors, background removed",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openbeautyfacts.org/product/00408974",
   "matched": "",
@@ -3220,7 +3211,7 @@
  "Alpen|Alpen Original Muesli, 550g": {
   "file": "alpen-alpen-original-muesli-550g-400c665ae0",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5010029226133",
   "matched": "",
@@ -3229,7 +3220,7 @@
  "Harvest Morn (Aldi)|Aldi Harvest Morn Muesli Swiss Style, 1.1kg": {
   "file": "harvest-morn-aldi-aldi-harvest-morn-muesli-swiss-style-1-1kg-46fe84f092",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4088600169934",
   "matched": "",
@@ -3238,7 +3229,7 @@
  "Barilla|Barilla Spaghetti No.5, 500g": {
   "file": "barilla-barilla-spaghetti-no-5-500g-c32fab845e",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/8076800195057",
   "matched": "",
@@ -3256,7 +3247,7 @@
  "The Happy Egg Co|The Happy Egg Co Medium Free Range Eggs, 6 eggs": {
   "file": "the-happy-egg-co-the-happy-egg-co-medium-free-range-eggs-6-eggs-97b09ed660",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/50378265",
   "matched": "",
@@ -3265,7 +3256,7 @@
  "Tesco|Tesco Free Range Eggs Medium, 6 eggs": {
   "file": "tesco-tesco-free-range-eggs-medium-6-eggs-22f64262b3",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors",
+  "credit": "Open Food Facts contributors, background removed",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5051399881256",
   "matched": "",
@@ -3274,7 +3265,7 @@
  "Tony's Chocolonely|Tony's Chocolonely Milk Chocolate, 180g": {
   "file": "tony-s-chocolonely-tony-s-chocolonely-milk-chocolate-180g-e8f1060427",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/8717677339914",
   "matched": "",
@@ -3283,7 +3274,7 @@
  "Sainsbury's|Sainsbury's Milk Chocolate, 180g": {
   "file": "sainsbury-s-sainsbury-s-milk-chocolate-180g-7a9b4e78cb",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5063334039165",
   "matched": "",
@@ -3292,7 +3283,7 @@
  "The Jolly Hog|The Jolly Hog Proper Porkers Sausages, 400g": {
   "file": "the-jolly-hog-the-jolly-hog-proper-porkers-sausages-400g-8551857648",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors",
+  "credit": "Open Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5010498509218",
   "matched": "",
@@ -3328,7 +3319,7 @@
  "Royal Canin|Royal Canin Kitten, 4 kg": {
   "file": "royal-canin-royal-canin-kitten-4-kg-d97c9d1e0e",
   "source": "openpetfoodfacts",
-  "credit": "Open Pet Food Facts contributors",
+  "credit": "Open Pet Food Facts contributors, background removed, straightened",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openpetfoodfacts.org/product/3182550702447",
   "matched": "",
@@ -3386,6 +3377,78 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/4034303020683",
   "matched": "",
+  "reviewed": "2026-11-07"
+ },
+ "Varta|Varta Longlife Power Alkaline AA LR06, 40 cells": {
+  "file": "varta-varta-longlife-power-alkaline-aa-lr06-40-cells-234c9a9d80",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors, background removed, straightened",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/4008496605651",
+  "matched": "VARTA Longlife Power AA | VARTA | 20 Stück | same-line-other-size",
+  "reviewed": "2026-11-07"
+ },
+ "Frucht Stern|Frucht Stern Bananen-Nektar, 1L": {
+  "file": "frucht-stern-frucht-stern-bananen-nektar-1l-1125f84aa4",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/4316268451079",
+  "matched": "Bananen-Nektar | Frucht Stern | 1l | exact",
+  "reviewed": "2026-11-07"
+ },
+ "Varta|Varta Longlife Power Alkaline AAA LR03, 40 cells": {
+  "file": "varta-varta-longlife-power-alkaline-aaa-lr03-40-cells-14b43dc275",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/4008496659203",
+  "matched": "Longlife Power AAA 8 + 4 | Varta | 12 Stück | same-line-other-size",
+  "reviewed": "2026-11-07"
+ },
+ "McCormick|McCormick Ground cinnamon, 2.37 oz": {
+  "file": "mccormick-mccormick-ground-cinnamon-2-37-oz-eda5a57bd6",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/0052100090054",
+  "matched": "Ground cinnamon | Mccormick |  | exact",
+  "reviewed": "2026-11-07"
+ },
+ "Pampers|Pampers Baby Dry Pants Gr. 5, 11-17 kg, 26 pants": {
+  "file": "pampers-pampers-baby-dry-pants-gr-5-11-17-kg-26-pants-2f58eca954",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/8700216614290",
+  "matched": "Pampers Baby Dry Pants 5 | Pampers Procter & Gamble |  | exact",
+  "reviewed": "2026-11-07"
+ },
+ "Nutella|Nutella Hazelnut Spread with Cocoa, 13 oz": {
+  "file": "nutella-nutella-hazelnut-spread-with-cocoa-13-oz-33216b0bf0",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/56604405",
+  "matched": "Hazelnut Spread with Cocoa | Nutella |  | exact",
+  "reviewed": "2026-11-07"
+ },
+ "Combino|Combino Fusilli (Lidl), 500 g": {
+  "file": "combino-combino-fusilli-lidl-500-g-e7f8c5825a",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed, straightened",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/9331612174171",
+  "matched": "Fusilli | Combino | 500 gram | exact",
+  "reviewed": "2026-11-07"
+ },
+ "Alnatura|Alnatura Olivenöl nativ extra (organic), 500 ml": {
+  "file": "alnatura-alnatura-oliveno-l-nativ-extra-organic-500-ml-f15d05c977",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openfoodfacts.org/product/4104420234710",
+  "matched": "Olivenöl nativ extra | Alnatura | 0,5 l | exact",
   "reviewed": "2026-11-07"
  }
 }

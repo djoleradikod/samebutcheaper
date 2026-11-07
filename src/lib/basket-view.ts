@@ -3,6 +3,7 @@ import type { BasketSummary } from "@/components/BasketCard";
 import type { BasketLineView } from "@/components/BasketLines";
 import { getPair } from "./catalog";
 import { monthYear } from "./format";
+import { isCutOut } from "./photos";
 import type { Preset } from "./types";
 import { isPerAmountRecord, packSize } from "./unit-format";
 
@@ -10,28 +11,101 @@ export { packSize };
 
 const MEDICINE = "otc-medicine";
 
-/** Real photos for a basket: the cheaper items first, then brand packs if asked, and medicine last. */
+type BasketPhoto = BasketSummary["photos"][number] & { cutOut: boolean; medicine: boolean; brandSide: boolean };
+
+/** Every photo a basket could show, best first: not medicine, cut-outs, then the cheaper item before its brand. */
+function photoChoices(preset: Preset): BasketPhoto[] {
+  const score = (p: BasketPhoto) => (p.medicine ? 4 : 0) + (p.cutOut ? 0 : 2) + (p.brandSide ? 1 : 0);
+  return preset.lines
+    .flatMap((l) => {
+      const pair = getPair(l.pair);
+      const medicine = pair?.category === MEDICINE;
+      const found: BasketPhoto[] = [];
+      if (l.altPhoto) {
+        const cutOut = isCutOut(pair?.alternative.photo);
+        found.push({ src: l.altPhoto, name: pair?.alternative.product ?? l.altName, cutOut, medicine, brandSide: false });
+      }
+      if (l.brandPhoto) {
+        const cutOut = isCutOut(pair?.brand.photo);
+        found.push({ src: l.brandPhoto, name: pair?.brand.product ?? l.brandName, cutOut, medicine, brandSide: true });
+      }
+      return found;
+    })
+    .sort((a, b) => score(a) - score(b));
+}
+
+const justPhoto = ({ src, name }: BasketPhoto) => ({ src, name });
+
+/** Real photos for a basket: cut-outs first, the cheaper items before brand packs if asked, and medicine last. */
 export function basketPhotos(preset: Preset, limit = 4, withBrands = false) {
-  const cheaper: BasketSummary["photos"] = [];
-  const brands: BasketSummary["photos"] = [];
-  const medicine: BasketSummary["photos"] = [];
-  for (const l of preset.lines) {
-    const pair = getPair(l.pair);
-    const isMedicine = pair?.category === MEDICINE;
-    if (l.altPhoto) (isMedicine ? medicine : cheaper).push({ src: l.altPhoto, name: pair?.alternative.product ?? l.altName });
-    if (withBrands && l.brandPhoto) (isMedicine ? medicine : brands).push({ src: l.brandPhoto, name: pair?.brand.product ?? l.brandName });
-  }
   const seen = new Set<string>();
-  return [...cheaper, ...brands, ...medicine]
+  return photoChoices(preset)
     .filter((p) => {
-      if (seen.has(p.src)) return false;
+      if (seen.has(p.src) || (p.brandSide && !withBrands)) return false;
       seen.add(p.src);
       return true;
     })
-    .slice(0, limit);
+    .slice(0, limit)
+    .map(justPhoto);
 }
 
-export function toBasketSummary(preset: Preset): BasketSummary {
+/** How many cut-outs a home page collage could use, before other cards take theirs. */
+export function cutOutCount(preset: Preset) {
+  return new Set(photoChoices(preset).filter((p) => p.cutOut && !p.medicine).map((p) => p.src)).size;
+}
+
+/** How many photos of any kind a home page collage could use. */
+export function photoCount(preset: Preset) {
+  return new Set(photoChoices(preset).filter((p) => !p.medicine).map((p) => p.src)).size;
+}
+
+/**
+ * Photos for a row of basket cards, with no picture on two cards. Cards take a cut-out in turns, the one
+ * with the fewest left going first, so a big basket can't empty a small one. A card only falls back to
+ * snapshots if it ends up with no cut-out at all. Medicine stays off the first screens, so its photos are
+ * left out. A card with fewer photos than slots gets a collage laid out for that number.
+ */
+export function assignBasketPhotos(presets: Preset[], limit = 4) {
+  const used = new Set<string>();
+  const key = (p: BasketPhoto) => p.name.toLowerCase();
+  const free = (p: BasketPhoto) => !used.has(p.src) && !used.has(key(p));
+  const take = (p: BasketPhoto) => {
+    used.add(p.src);
+    used.add(key(p));
+    return justPhoto(p);
+  };
+
+  const cards = presets.map((preset) => ({
+    slug: preset.slug,
+    choices: photoChoices(preset).filter((p) => !p.medicine),
+    photos: [] as BasketSummary["photos"],
+  }));
+  const cutOutsLeft = (card: (typeof cards)[number]) => card.choices.filter((p) => p.cutOut && free(p)).length;
+
+  for (let round = 0; round < limit; round++) {
+    for (const card of [...cards].sort((a, b) => cutOutsLeft(a) - cutOutsLeft(b))) {
+      const next = card.choices.find((p) => p.cutOut && free(p));
+      if (next) card.photos.push(take(next));
+    }
+  }
+  for (const card of cards) {
+    if (card.photos.length) continue;
+    for (const p of card.choices) {
+      if (card.photos.length < limit && free(p)) card.photos.push(take(p));
+    }
+  }
+  return new Map(cards.map((c) => [c.slug, c.photos]));
+}
+
+/** Names for the typographic tiles of a basket with no photos to show, medicine last. */
+function tileNames(preset: Preset) {
+  const lines = preset.lines.map((l) => ({ name: l.altName, medicine: getPair(l.pair)?.category === MEDICINE }));
+  const names = [...lines.filter((l) => !l.medicine), ...lines.filter((l) => l.medicine)].map((l) => l.name);
+  const unique = [...new Set(names)].slice(0, 4);
+  return unique.length ? unique : [preset.title];
+}
+
+export function toBasketSummary(preset: Preset, photos = basketPhotos(preset, 4, true)): BasketSummary {
   return {
     slug: preset.slug,
     market: preset.market,
@@ -43,7 +117,8 @@ export function toBasketSummary(preset: Preset): BasketSummary {
     savingsPct: preset.savingsPct,
     currency: preset.currency,
     itemCount: preset.lines.length,
-    photos: basketPhotos(preset, 4, true),
+    photos,
+    tileNames: tileNames(preset),
   };
 }
 

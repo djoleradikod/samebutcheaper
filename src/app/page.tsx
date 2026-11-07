@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { assignBasketPhotos, cutOutCount, photoCount, toBasketSummary } from "@/lib/basket-view";
 import {
+  bestPhoto,
   getAllPairs,
   getCategoryStats,
   getClaims,
@@ -9,18 +11,20 @@ import {
   getPresetsFor,
   getShelfLife,
   getSiteStats,
+  NO_PHOTO_STANDING,
   photoStanding,
   pickByPhotos,
+  showsOnlyCutOuts,
   toSummary,
 } from "@/lib/catalog";
-import type { BasketSummary } from "@/components/BasketCard";
+import { AisleTile } from "@/components/CategoryIcon";
 import { FeaturedBaskets, FeaturedPairs } from "@/components/FeaturedPairs";
 import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
 import { MARKET_CODES, type MarketCode } from "@/lib/markets";
-import type { CategorySlug, Claim, Preset, ShelfLife } from "@/lib/types";
+import type { CategorySlug, Claim, PairSummary, Preset, ShelfLife } from "@/lib/types";
 
 const MEDICINE: CategorySlug = "otc-medicine";
 
@@ -39,51 +43,53 @@ function isMedicine(line: Preset["lines"][number]) {
   return getPair(line.pair)?.category === MEDICINE;
 }
 
-/** Cheaper packs first, then the brands they replace. Medicine stays off the first screens, so its photos never go in a collage. */
-function toBasketSummary(p: Preset): BasketSummary {
-  const lines = p.lines.filter((l) => !isMedicine(l));
-  const photos: BasketSummary["photos"] = [
-    ...lines.flatMap((l) => (l.altPhoto ? [{ src: l.altPhoto, name: getPair(l.pair)?.alternative.product ?? l.altName }] : [])),
-    ...lines.flatMap((l) => (l.brandPhoto ? [{ src: l.brandPhoto, name: getPair(l.pair)?.brand.product ?? l.brandName }] : [])),
-  ];
-  return {
-    slug: p.slug,
-    market: p.market,
-    title: p.title,
-    audience: p.audience,
-    brandTotal: p.brandTotal,
-    altTotal: p.altTotal,
-    savings: p.savings,
-    savingsPct: p.savingsPct,
-    currency: p.currency,
-    itemCount: p.lines.length,
-    photos: photos.slice(0, 4),
-  };
-}
-
-/** The shopper's market first, then the baskets with enough photos for a full collage. */
+/**
+ * The shopper's market first, then the baskets with enough cut-outs for a full collage, then any with a
+ * photo. Across the row no picture shows twice (see assignBasketPhotos).
+ */
 function basketsFor(market: MarketCode) {
-  const rank = (b: BasketSummary) => (b.market === market ? 0 : 2) + (b.photos.length >= 3 ? 0 : 1);
-  return getPresetsFor(market)
+  const photoRank = (p: Preset) => (cutOutCount(p) >= 3 ? 0 : photoCount(p) > 0 ? 1 : 2);
+  const rank = (p: Preset) => (p.market === market ? 0 : 3) + photoRank(p);
+  const chosen = getPresetsFor(market)
     .filter((p) => p.icon !== "pill" && p.lines.filter(isMedicine).length * 2 <= p.lines.length)
-    .map(toBasketSummary)
     .sort((a, b) => rank(a) - rank(b))
     .slice(0, 6);
+  const photos = assignBasketPhotos(chosen);
+  return chosen.map((p) => toBasketSummary(p, photos.get(p.slug)));
 }
 
 /**
- * Never medicine, including remedies filed under another aisle such as infant gas relief.
- * Photos fill the grid first (see pickByPhotos), with a cap per aisle and per shelf so it shows
- * the range of the site, and within a photo standing it reads as a ranking: biggest saving first.
+ * Never medicine, including remedies filed under another aisle such as infant gas relief, and never a swap
+ * with no photo. Cut-outs fill the grid first (see pickByPhotos), with a cap per aisle and per shelf so it
+ * shows the range of the site, and within a photo standing it reads as a ranking: biggest saving first.
  */
 function biggestSavings(market: MarketCode, limit = 12) {
-  const pool = getFeaturedPairs(48, market).filter((p) => !/relief|remed|fever|allerg|cough/i.test(p.subcategory));
+  const pool = getFeaturedPairs(48, market).filter(
+    (p) => photoStanding(p) < NO_PHOTO_STANDING && !/relief|remed|fever|allerg|cough/i.test(p.subcategory),
+  );
   return pickByPhotos(pool, limit, (p) => [
     { key: p.category, max: p.category === "supplements" ? 2 : 6 },
     { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 2 },
-  ])
-    .sort((a, b) => photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct)
-    .map(toSummary);
+  ]).sort((a, b) => photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);
+}
+
+/**
+ * One list per market, using the shopper's own prices when there are at least three swaps to show, filled
+ * up from the US list. A raw snapshot only shows when there's no swap left without one, even from the US.
+ */
+function featuredLists(limit = 12) {
+  const ranked = perMarket((m) => biggestSavings(m, limit));
+  const us = ranked.US ?? [];
+  const lists: Partial<Record<MarketCode, PairSummary[]>> = {};
+  for (const m of MARKET_CODES) {
+    const own = ranked[m] ?? [];
+    if (m !== "US" && own.length < 3) continue;
+    const merged = m === "US" ? own : [...own, ...us];
+    lists[m] = [...merged.filter(showsOnlyCutOuts), ...merged.filter((p) => !showsOnlyCutOuts(p))]
+      .slice(0, limit)
+      .map(toSummary);
+  }
+  return lists;
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;
@@ -137,29 +143,19 @@ function bulkRows(advice: ShelfLife["advice"], limit = 5) {
     .filter((r) => r.advice === advice)
     .map((r) => {
       const swaps = pairs.filter((p) => p.shelfLife?.id === r.id);
-      const withPhoto = swaps.find((p) => p.alternative.photo);
+      const best = bestPhoto(swaps);
       return {
         id: r.id,
         label: r.label,
         keeps: keepsFor(r.unopened),
         swaps: swaps.length,
-        href: swaps[0] ? `/compare/${(withPhoto ?? swaps[0]).slug}` : null,
-        photo: withPhoto?.alternative.photo?.src ?? null,
-        photoName: withPhoto?.alternative.product ?? r.label,
+        href: swaps[0] ? `/compare/${(best?.pair ?? swaps[0]).slug}` : null,
+        photo: best?.photo.src ?? null,
+        photoName: best?.name ?? r.label,
       };
     })
     .sort((a, b) => b.swaps - a.swaps)
     .slice(0, limit);
-}
-
-/** The aisle's top swap with a real photo: the cheaper product if we can, else the brand. */
-function aislePhoto(category: CategorySlug) {
-  const pairs = getPairsByCategory(category);
-  const alt = pairs.find((p) => p.alternative.photo);
-  if (alt) return { src: alt.alternative.photo?.src ?? null, name: alt.alternative.product };
-  const brand = pairs.find((p) => p.brand.photo);
-  if (brand) return { src: brand.brand.photo?.src ?? null, name: brand.brand.product };
-  return { src: null, name: "" };
 }
 
 function buildFaq(aisles: string[]) {
@@ -204,7 +200,7 @@ export default function Home() {
   const categories = getCategoryStats().filter((c) => c.count > 0);
   const baskets = perMarket(basketsFor);
   const hasBaskets = Object.keys(baskets).length > 0;
-  const featured = perMarket(biggestSavings);
+  const featured = featuredLists();
   const findings = pickFindings();
   const hasShelfLife = getShelfLife().length > 0;
   const faq = buildFaq(categories.map((c) => c.name));
@@ -294,7 +290,7 @@ export default function Home() {
                               <span className="block text-sm font-semibold">{r.label}</span>
                               <span className="block text-[13px] text-ink-2">{r.keeps}</span>
                             </span>
-                            {r.photo && <ProductThumb size="xs" image={r.photo} brand={r.photoName} />}
+                            {r.photo && <ProductThumb size="md" image={r.photo} brand={r.photoName} />}
                           </>
                         );
                         return (
@@ -323,7 +319,7 @@ export default function Home() {
           <SectionHeading title="All aisles" />
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5">
             {categories.map((c) => {
-              const photo = aislePhoto(c.slug);
+              const best = bestPhoto(getPairsByCategory(c.slug));
               return (
                 <Link
                   key={c.slug}
@@ -331,15 +327,18 @@ export default function Home() {
                   className="card group flex flex-col p-2 transition-colors hover:border-ink-2"
                 >
                   <div className="aspect-[4/3]">
-                    <ProductThumb
-                      size="fill"
-                      image={photo.src}
-                      brand={c.name}
-                      alt={photo.name || c.name}
-                      category={c.slug}
-                      className="border-0!"
-                      sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
-                    />
+                    {best ? (
+                      <ProductThumb
+                        size="fill"
+                        image={best.photo.src}
+                        brand={c.name}
+                        alt={best.name}
+                        className="border-0!"
+                        sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                      />
+                    ) : (
+                      <AisleTile icon={c.icon} name={c.name} />
+                    )}
                   </div>
                   <p className="mt-1.5 text-sm leading-snug font-semibold group-hover:underline">{c.name}</p>
                   <p className="text-xs font-medium text-muted">

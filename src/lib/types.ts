@@ -1,4 +1,4 @@
-import type { BundleInput, ClaimInput, ImageRecord, PairInput, PresetInput, ShelfLifeInput } from "./schema";
+import type { BundleInput, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairInput, PresetInput, ShelfLifeInput } from "./schema";
 import type { Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
 
@@ -18,11 +18,13 @@ export type ProductSide = PairInput["brand"] & {
   /** Price per single unit (e.g. per tablet, per fl oz). */
   ppu: number;
   photo: Photo | null;
+  /** Open Food Facts record, for food only. Null when there is none on file. */
+  nutrition: NutritionRecord | null;
 };
 
 export type Claim = ClaimInput;
 export type ShelfLife = ShelfLifeInput;
-export type { ImageRecord };
+export type { ImageRecord, NutritionRecord, NutritionSource };
 
 /** What a bigger pack does for you. All from sourced prices. */
 export type BulkView = {
@@ -50,6 +52,8 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   bulkView: BulkView;
   /** The price record is more than a year old when the catalogue was built. */
   priceOld: boolean;
+  /** Who to credit for the nutrition records on this swap. Null when neither side has one. */
+  nutritionSource: NutritionSource | null;
 };
 
 export type PresetLine = {

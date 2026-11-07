@@ -7,8 +7,8 @@ import { BasketCard, type BasketSummary } from "./BasketCard";
 import { PairCard } from "./PairCard";
 
 /**
- * The homepage's top swaps, using prices from the shopper's own country when
- * we have enough of them. Everyone else sees the US list, our largest.
+ * The homepage's top swaps. The page builds one list per market that has enough swaps of its
+ * own, filled up from the US list. Everyone else sees the US list, our largest.
  */
 export function FeaturedPairs({
   lists,
@@ -21,9 +21,8 @@ export function FeaturedPairs({
   eagerFirst?: boolean;
 }) {
   const country = useCountry();
-  const us = lists.US ?? [];
-  const own = isMarket(country) && country !== "US" ? (lists[country] ?? []) : [];
-  const shown = own.length >= 3 ? [...own, ...us].slice(0, limit) : us.slice(0, limit);
+  const list = (isMarket(country) ? lists[country] : undefined) ?? lists.US ?? [];
+  const shown = list.slice(0, limit);
   return (
     <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
       {shown.map((p, i) => (

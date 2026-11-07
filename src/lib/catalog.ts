@@ -4,6 +4,7 @@ import type { Bundle, Catalog, CategorySlug, Claim, Pair, PairSummary, Preset } 
 import { CATEGORIES } from "./categories";
 import { APPROX_USD, type MarketCode } from "./markets";
 import { dupeActives, dupeSlugFor } from "./dupes";
+import { isCutOut } from "./photos";
 
 const catalog = catalogJson as unknown as Catalog;
 
@@ -20,10 +21,44 @@ export function getPairsByCategory(category: CategorySlug): Pair[] {
   return catalog.pairs.filter((p) => p.category === category);
 }
 
-/** 0: photos on both sides. 1: a photo of the cheaper product. 2: anything else. */
-export function photoStanding(p: Pair): 0 | 1 | 2 {
-  if (!p.alternative.photo) return 2;
-  return p.brand.photo ? 0 : 1;
+/** The worst standing: no photo on either side. */
+export const NO_PHOTO_STANDING = 5;
+
+/**
+ * How a swap looks on the home page. A raw snapshot is the last thing we want beside a clean pack,
+ * so one cut-out and a typographic tile beats one cut-out and a snapshot.
+ * 0: two cut-outs. 1: one cut-out, one tile. 2: one cut-out, one snapshot. 3: two snapshots.
+ * 4: one snapshot, one tile. 5: no photos.
+ */
+export function photoStanding(p: Pair): number {
+  const sides = [p.brand.photo, p.alternative.photo];
+  const photos = sides.filter(Boolean).length;
+  const cutOuts = sides.filter(isCutOut).length;
+  if (cutOuts === 2) return 0;
+  if (cutOuts === 1) return photos === 1 ? 1 : 2;
+  if (photos === 2) return 3;
+  return photos === 1 ? 4 : NO_PHOTO_STANDING;
+}
+
+/** No raw snapshot on this card: at most a cut-out and a typographic tile. */
+export function showsOnlyCutOuts(p: Pair) {
+  return photoStanding(p) <= 1;
+}
+
+/**
+ * The best photo among these swaps, in their order: a cut-out of a cheaper product, a cut-out of
+ * a brand, then a snapshot of either. Null when none of them has a photo.
+ */
+export function bestPhoto(pairs: Pair[]) {
+  for (const cutOut of [true, false]) {
+    for (const side of ["alternative", "brand"] as const) {
+      for (const pair of pairs) {
+        const { photo, product } = pair[side];
+        if (photo && isCutOut(photo) === cutOut) return { pair, photo, name: product };
+      }
+    }
+  }
+  return null;
 }
 
 /**
@@ -36,7 +71,7 @@ export function pickByPhotos(
   capsFor: (p: Pair) => { key: string; max: number }[],
 ): Pair[] {
   const picked: Pair[] = [];
-  for (const standing of [0, 1, 2]) {
+  for (let standing = 0; standing <= NO_PHOTO_STANDING; standing++) {
     const tier = pool.filter((p) => !p.priceOld && photoStanding(p) === standing);
     const counts = new Map<string, number>();
     for (const p of tier) {

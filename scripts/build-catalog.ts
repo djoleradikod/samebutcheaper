@@ -13,12 +13,15 @@ import {
   imageRecordSchema,
   migrateLegacyPrices,
   normalizeUnit,
+  nutritionFileSchema,
   pairSchema,
   presetSchema,
   shelfLifeSchema,
   type BundleInput,
   type ImageRecord,
   type MatchType,
+  type NutritionRecord,
+  type NutritionSource,
   type PairInput,
   type PresetInput,
 } from "../src/lib/schema";
@@ -133,7 +136,12 @@ const claimById = new Map(claims.map((c) => [c.id, c]));
 const shelfById = new Map(shelfLives.map((s) => [s.id, s]));
 const lower = (s: string) => s.toLowerCase().trim();
 
-/** Findings for a swap: named ones first, then subcategory matches, then category, then general. */
+/**
+ * Findings for a swap: named ones first, then ones listing this subcategory, then ones for the whole
+ * category. A finding that lists subcategories is about those and no others, and "general" on its own
+ * doesn't put a finding on a swap page: a soup page must not show a claim about batteries. A swap that
+ * should show one anyway names it in `claims`. Every finding still appears on /why.
+ */
 function claimsFor(p: PairInput): Claim[] {
   const picked: Claim[] = [];
   const add = (c: Claim) => {
@@ -149,8 +157,33 @@ function claimsFor(p: PairInput): Claim[] {
   for (const c of claims)
     if (inMarket(c) && c.categories.includes(p.category) && c.subcategories.some((s) => lower(s) === sub)) add(c);
   for (const c of claims) if (inMarket(c) && c.categories.includes(p.category) && !c.subcategories.length) add(c);
-  for (const c of claims) if (inMarket(c) && c.categories.includes("general")) add(c);
   return picked.slice(0, 4);
+}
+
+/* --------------------------------------------------------------- nutrition */
+
+/** Aisles where a nutrition table means something. Medicine and supplements never get one. */
+const NUTRITION_CATEGORIES: ReadonlySet<string> = new Set(["food-pantry"]);
+
+const nutritionItems: Record<string, NutritionRecord> = {};
+let nutritionSource: NutritionSource | null = null;
+{
+  const path = join(EVIDENCE_DIR, "nutrition.json");
+  if (existsSync(path)) {
+    const parsed = nutritionFileSchema.safeParse(JSON.parse(readFileSync(path, "utf8")));
+    if (parsed.success) {
+      const { items, ...source } = parsed.data;
+      Object.assign(nutritionItems, items);
+      nutritionSource = source;
+    } else {
+      errors.push(`nutrition.json: ${parsed.error.issues.map((iss) => `${iss.path.join(".")}: ${iss.message}`).join("; ")}`);
+    }
+  }
+}
+
+function nutritionFor(category: string, side: { brand: string; product: string }): NutritionRecord | null {
+  if (!NUTRITION_CATEGORIES.has(category)) return null;
+  return nutritionItems[`${side.brand}|${side.product}`] ?? null;
 }
 
 function shelfFor(p: PairInput): ShelfLife | null {
@@ -245,10 +278,19 @@ function derive(p: PairInput): Pair {
   // Rank in rough US dollars so savings in different currencies compare fairly.
   const score = savingsPct * (1 + Math.log10(1 + savingsPerPack * APPROX_USD[currency])) * confidence;
   const unit = normalizeUnit(p.brand.unit);
+  const brandNutrition = nutritionFor(p.category, p.brand);
+  const altNutrition = nutritionFor(p.category, p.alternative);
   return {
     ...p,
-    brand: { ...p.brand, unit, ppu: round(brandPpu), photo: photoFor(p.brand.brand, p.brand.product) },
-    alternative: { ...p.alternative, unit, ppu: round(altPpu), photo: photoFor(p.alternative.brand, p.alternative.product) },
+    brand: { ...p.brand, unit, ppu: round(brandPpu), photo: photoFor(p.brand.brand, p.brand.product), nutrition: brandNutrition },
+    alternative: {
+      ...p.alternative,
+      unit,
+      ppu: round(altPpu),
+      photo: photoFor(p.alternative.brand, p.alternative.product),
+      nutrition: altNutrition,
+    },
+    nutritionSource: brandNutrition || altNutrition ? nutritionSource : null,
     savingsPct: round(savingsPct, 1),
     savingsPerPack: round(savingsPerPack, 2),
     score: round(score, 2),

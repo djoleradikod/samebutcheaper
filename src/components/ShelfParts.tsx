@@ -5,10 +5,11 @@ import { firstScreenSlugs, SWAP_GRID, type BrowseRow } from "@/lib/browse";
 import { toSummary } from "@/lib/catalog";
 import { monthYear } from "@/lib/format";
 import { APPROX_USD } from "@/lib/markets";
+import { NO_PHOTO_TIER, photoTier } from "@/lib/photos";
 import type { CategorySlug, Pair, PairSummary } from "@/lib/types";
 import { unitDisplay } from "@/lib/unit-format";
 import { PairBrowser } from "./PairBrowser";
-import { PairCard } from "./PairCard";
+import { PairCard, PairRow, PairRows } from "./PairCard";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, Ticket } from "./Ticket";
 
@@ -33,7 +34,7 @@ function toRow(p: Pair): BrowseRow {
     match: p.match_type,
     market: p.market,
     photo: Boolean(p.brand.photo || p.alternative.photo),
-    bothPhotos: Boolean(p.brand.photo && p.alternative.photo),
+    tier: photoTier(p.brand.photo, p.alternative.photo),
     pct: Math.round(p.savingsPct * 10) / 10,
     unit: Number((p.alternative.ppu * unitDisplay(p.brand.unit).factor * APPROX_USD[p.currency]).toPrecision(4)),
     checked: p.price_checked,
@@ -156,17 +157,36 @@ export function ShelfHead({
   );
 }
 
-/** A plain grid with no client code of its own, for lists too short to need filtering. */
+/**
+ * A plain list with no client code of its own, for lists too short to need filtering. Keeps the order
+ * it's given inside each photo tier, with cards first and swaps with no photo as text rows after them.
+ */
 export function SwapGrid({ pairs, lazy = false }: { pairs: Pair[]; lazy?: boolean }) {
-  const firstPhoto = lazy ? -1 : pairs.findIndex((p) => p.brand.photo || p.alternative.photo);
+  const tier = (p: Pair) => photoTier(p.brand.photo, p.alternative.photo);
+  const ordered = [...pairs].sort((a, b) => tier(a) - tier(b));
+  const cards = ordered.filter((p) => tier(p) !== NO_PHOTO_TIER);
+  const rows = ordered.filter((p) => tier(p) === NO_PHOTO_TIER);
   return (
-    <ul className={SWAP_GRID}>
-      {pairs.map((p, i) => (
-        <li key={p.slug} className="min-w-0">
-          <PairCard pair={toCard(p)} eager={i === firstPhoto && i < 4} />
-        </li>
-      ))}
-    </ul>
+    <>
+      {cards.length > 0 && (
+        <ul className={SWAP_GRID}>
+          {cards.map((p, i) => (
+            <li key={p.slug} className="min-w-0">
+              <PairCard pair={toCard(p)} eager={!lazy && i === 0} />
+            </li>
+          ))}
+        </ul>
+      )}
+      {rows.length > 0 && (
+        <PairRows headed={cards.length > 0}>
+          {rows.map((p) => (
+            <li key={p.slug} className="min-w-0">
+              <PairRow pair={toCard(p)} />
+            </li>
+          ))}
+        </PairRows>
+      )}
+    </>
   );
 }
 

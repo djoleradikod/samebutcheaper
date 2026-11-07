@@ -1,4 +1,3 @@
-import { CATEGORY_MAP } from "@/lib/categories";
 import type { CategorySlug } from "@/lib/types";
 
 /**
@@ -19,10 +18,13 @@ const SIZES = {
   fill: { box: "h-full w-full", pixels: 480, sizes: "(min-width: 768px) 90px, 130px" },
 } as const;
 
-/** Font size for the name on a label, as a share of the tile: short names large, long ones small enough to fit. */
-function labelScale(name: string) {
+/**
+ * Font size for the name on a tile, as a share of the tile. The longest word has to fit across it, and all
+ * the wrapped lines above the caption. The display face runs about 0.62em a letter.
+ */
+function nameScale(name: string) {
   const longestWord = Math.max(...name.split(/\s+/).map((w) => w.length));
-  return Math.min(24, 170 / longestWord, 300 / name.length);
+  return Math.min(26, 140 / longestWord, 90 / Math.sqrt(name.length));
 }
 
 /** "Member's Mark" gives "MM". */
@@ -36,16 +38,14 @@ function initials(name: string) {
 }
 
 /**
- * The real photo, or with no licensed photo a shelf label: the name set large on a quiet tint and
- * a line saying there's no photo, so it can't pass for a pack. Photos are checked to exist when the
- * catalogue is built, so this needs no client code and works on the server.
+ * The real photo, or with no licensed photo a typographic tile: the brand name set large on white under
+ * a plain ink band, like a no-frills own-label pack, and a small caption saying there's no photo, so it
+ * can't pass for one. Photos are checked to exist when the catalogue is built, so this needs no client
+ * code and works on the server.
  */
 export function ProductThumb({
   image,
   brand,
-  category,
-  unit,
-  kind,
   size = "md",
   className = "",
   alt,
@@ -60,17 +60,17 @@ export function ProductThumb({
   alt?: string;
   /** Set for the largest image on the page so it isn't lazy-loaded. */
   eager?: boolean;
-  /** The aisle, named on a label when `kind` isn't given. */
+  /** Still accepted from callers. The tile prints only the brand name now. */
   category?: CategorySlug;
-  /** The pack unit (tablet, fl oz, oz...), named on a label when there's nothing better. */
+  /** Still accepted from callers. The tile prints only the brand name now. */
   unit?: string;
-  /** What the product is ("Cookware"), for the label's second line. */
+  /** Still accepted from callers. The tile prints only the brand name now. */
   kind?: string;
   size?: keyof typeof SIZES;
   className?: string;
   /** Overrides the `sizes` attribute when the tile's width is known. */
   sizes?: string;
-  /** Initials only on a label, for tiles too small to fit the name. */
+  /** Initials only on the tile, for tiles too small to fit the name. */
   quiet?: boolean;
   /** No line or corners of its own, for tiles set edge to edge inside a card. */
   flush?: boolean;
@@ -100,40 +100,36 @@ export function ProductThumb({
   }
 
   const label = `${alt ?? brand}: no photo yet`;
-  const tint = `${box} bg-canvas [container-type:size]`;
+  const tile = `${box} bg-white [container-type:size]`;
+  const band = <span aria-hidden="true" className="absolute inset-x-0 top-0 bg-ink" style={{ height: "max(3px, 3.5cqmin)" }} />;
 
   if (quiet || size === "xs" || size === "sm") {
     return (
-      <div role="img" aria-label={label} className={`${tint} grid place-items-center`}>
-        <span className="price text-ink-2" style={{ fontSize: "38cqmin" }}>
+      <div role="img" aria-label={label} className={`${tile} grid place-items-center`}>
+        {band}
+        <span className="display text-ink" style={{ fontSize: "36cqmin" }}>
           {initials(brand)}
         </span>
       </div>
     );
   }
 
-  const detail = kind ?? (category ? CATEGORY_MAP[category].name : unit);
   return (
-    <div role="img" aria-label={label} className={`${tint} flex flex-col text-left`} style={{ padding: "6cqmin" }}>
-      <span
-        className="price min-h-0 overflow-hidden text-ink [overflow-wrap:anywhere]"
-        style={{ fontSize: `clamp(10px, ${labelScale(brand)}cqmin, 44px)`, lineHeight: 1.05 }}
-      >
-        {brand}
-      </span>
-      {detail && detail !== brand && (
+    <div role="img" aria-label={label} className={tile}>
+      {band}
+      <span className="absolute inset-0 flex flex-col text-left" style={{ padding: "10cqmin 7cqmin 6cqmin" }}>
         <span
-          className="mt-[0.3em] truncate leading-tight font-medium text-ink-2"
-          style={{ fontSize: "clamp(10px, 9cqmin, 15px)" }}
+          className="display min-h-0 overflow-hidden text-ink [overflow-wrap:anywhere]"
+          style={{ fontSize: `clamp(11px, ${nameScale(brand)}cqmin, 64px)`, lineHeight: 1.06 }}
         >
-          {detail}
+          {brand}
         </span>
-      )}
-      <span
-        className="mt-auto shrink-0 pt-[0.3em] leading-tight text-muted"
-        style={{ fontSize: "clamp(9px, 7.5cqmin, 12px)" }}
-      >
-        No photo yet
+        <span
+          className="mt-auto shrink-0 pt-[0.3em] leading-tight text-muted"
+          style={{ fontSize: "clamp(9px, 6.5cqmin, 11px)" }}
+        >
+          no photo yet
+        </span>
       </span>
     </div>
   );

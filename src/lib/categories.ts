@@ -197,10 +197,10 @@ export const MATCH_TYPE_META: Record<
     strength: 3,
   },
   equivalent_spec: {
-    label: "Equivalent spec",
-    short: "Same spec",
+    label: "Does the same job",
+    short: "Same job",
     description:
-      "Published specs, certifications and independent tests show they do the same job to a comparable standard.",
+      "Published specs, certifications or independent tests show they do the same job to a comparable standard.",
     strength: 3,
   },
 };

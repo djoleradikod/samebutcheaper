@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps<"/basket/[slug]">):
 
 /**
  * One big photo with the rest around it, short on a phone and taller where it sits beside the
- * text. A plain grid for fewer than five. Empty tiles if no photo is licensed yet.
+ * text. A plain grid for fewer than five. Name tiles if no photo is licensed yet.
  */
 function Collage({ preset }: { preset: Preset }) {
   const photos = basketPhotos(preset, 6, true);
@@ -72,7 +72,11 @@ function Collage({ preset }: { preset: Preset }) {
               <ProductThumb size="fill" image={p.src} brand={p.name} eager={i === 0} sizes="(min-width: 1024px) 300px, 50vw" />
             </div>
           ))
-        : [0, 1, 2, 3].map((i) => <span key={i} className="rounded-tile border border-dashed border-line-strong bg-canvas" />)}
+        : preset.lines.slice(0, 4).map((l) => (
+            <div key={l.pair} className="min-h-0 min-w-0">
+              <ProductThumb size="fill" brand={l.altName} />
+            </div>
+          ))}
     </div>
   );
 }

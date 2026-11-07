@@ -19,8 +19,10 @@ export type BasketSummary = {
   savingsPct: number;
   currency: Currency;
   itemCount: number;
-  /** Up to four real photos: the cheaper items first, then the brands they replace. */
+  /** Up to four real photos. */
   photos: { src: string; name: string }[];
+  /** Brand names for typographic tiles, for a basket with no photos to show. */
+  tileNames: string[];
 };
 
 /** Which grid cell each photo takes, by how many photos there are. */
@@ -31,32 +33,19 @@ export const COLLAGE_CELLS: Record<number, string[]> = {
   4: ["", "", "", ""],
 };
 
-function Collage({ photos, eager }: { photos: BasketSummary["photos"]; eager: boolean }) {
-  const shown = photos.slice(0, 4);
-  const cells = COLLAGE_CELLS[shown.length];
+function Collage({ basket, eager }: { basket: BasketSummary; eager: boolean }) {
+  const photos = basket.photos.slice(0, 4);
+  // A basket with no photos to show gets typographic tiles, which say so. The cells fit however many there are.
+  const tiles = photos.length ? photos : basket.tileNames.slice(0, 4).map((name) => ({ src: null, name }));
+  const cells = COLLAGE_CELLS[tiles.length] ?? [];
+  const sizes = tiles.length === 1 ? "(min-width: 768px) 180px, 300px" : "(min-width: 768px) 90px, 150px";
   return (
     <div className="grid aspect-[4/3] w-full grid-cols-2 grid-rows-2 gap-px overflow-hidden rounded-tile border border-line bg-line md:aspect-square">
-      {cells ? (
-        shown.map((p, i) => (
-          <div key={p.src} className={`min-h-0 min-w-0 ${cells[i]}`}>
-            <ProductThumb
-              flush
-              size="fill"
-              image={p.src}
-              brand={p.name}
-              eager={eager && i === 0}
-              sizes="(min-width: 768px) 90px, 150px"
-            />
-          </div>
-        ))
-      ) : (
-        // A basket with no photos yet: plain tinted tiles, with nothing drawn to pass for a product.
-        <>
-          {[0, 1, 2, 3].map((i) => (
-            <span key={i} className="bg-canvas" />
-          ))}
-        </>
-      )}
+      {tiles.map((p, i) => (
+        <div key={p.src ?? p.name} className={`min-h-0 min-w-0 ${cells[i]}`}>
+          <ProductThumb flush size="fill" image={p.src} brand={p.name} eager={eager && i === 0 && !!p.src} sizes={sizes} />
+        </div>
+      ))}
     </div>
   );
 }
@@ -69,7 +58,7 @@ export function BasketCard({ basket: b, eager = false }: { basket: BasketSummary
       className="card group flex h-full flex-col gap-2.5 p-2.5 transition-colors hover:border-ink-2 md:flex-row md:gap-3.5 md:p-3"
     >
       <div className="w-full shrink-0 md:w-36 lg:w-40 xl:w-44">
-        <Collage photos={b.photos} eager={eager} />
+        <Collage basket={b} eager={eager} />
       </div>
       <div className="flex min-w-0 flex-1 flex-col">
         <h3 className="display text-lg leading-tight group-hover:underline">{b.title}</h3>

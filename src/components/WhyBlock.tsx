@@ -64,17 +64,69 @@ function FindingGrid({ claims }: { claims: Claim[] }) {
   );
 }
 
+/** Longer than this and a result reads better in the table than in one line. */
+const SHORT_RESULT = 24;
+/** A summary that names a test or a score, worth showing even when the record has its own "why". */
+const NAMES_A_TEST = /\b(Which\?|Stiftung Warentest|Öko-Test|Auto Express|Consumer Reports|scored?|test)\b/;
+
+/** The test's name and both results, where they're seen first, with the link beside them. */
+function TestLine({ test, brandName, altName }: { test: CompareRow; brandName: string; altName: string }) {
+  return (
+    <p className="mt-2 text-[15px] text-ink">
+      <span className="font-semibold">{test.aspect}</span>
+      {test.detail && <span className="text-ink-2"> ({test.detail})</span>}:{" "}
+      <span className="font-semibold">
+        {altName} {test.alternative}, {brandName} {test.brand}.
+      </span>
+      {test.source && (
+        <>
+          {" "}
+          <a
+            href={test.source}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label={`Source for ${test.aspect}`}
+            className="inline-flex min-h-11 items-center text-sm font-medium text-cobalt underline underline-offset-2 md:min-h-0"
+          >
+            Source
+          </a>
+        </>
+      )}
+    </p>
+  );
+}
+
 /**
- * Why the extra money buys little: this swap's own reasoning, then the cited findings, each a title
- * and two lines. What we checked and each finding's sources open in place. General findings about
- * store brands don't appear on things you buy once, such as a charger, where they say little.
+ * Why the extra money buys little: this swap's own reasoning and any test result, what we checked,
+ * then the cited findings, each a title and two lines. Findings that name this subcategory come first,
+ * then those about the whole aisle, which don't appear on things you buy once, such as a charger.
  */
-export function WhyBlock({ pair, className = "" }: { pair: Pair; className?: string }) {
-  const own = pair.evidence_claims.filter((c) => c.categories.includes(pair.category) || pair.claims.includes(c.id));
+export function WhyBlock({
+  pair,
+  tests,
+  caveats,
+  className = "",
+}: {
+  pair: Pair;
+  /** Test rows from the same-or-different table. */
+  tests: CompareRow[];
+  /** The record's own notes on price dates, panels and what wasn't checked. */
+  caveats: string[];
+  className?: string;
+}) {
+  const sub = pair.subcategory.toLowerCase();
+  const own = pair.evidence_claims.filter(
+    (c) => pair.claims.includes(c.id) || c.subcategories.some((s) => s.toLowerCase() === sub),
+  );
   const general = buysOnce(pair.alternative.unit, pair.alternative.size)
     ? []
     : pair.evidence_claims.filter((c) => !own.includes(c));
   const hasFindings = own.length + general.length > 0;
+  // "Cost per wash in the test" is detail for the table, not the test's result.
+  const short = tests.filter(
+    (t) => !/\bin the test$/.test(t.aspect) && t.brand.length <= SHORT_RESULT && t.alternative.length <= SHORT_RESULT,
+  );
+  const showSummary = pair.why && short.length === 0 && NAMES_A_TEST.test(pair.summary);
   return (
     <section aria-labelledby="why" className={className}>
       <div
@@ -87,12 +139,22 @@ export function WhyBlock({ pair, className = "" }: { pair: Pair; className?: str
             Why the extra money buys little
           </h2>
           <p className="mt-2 text-[17px] leading-snug text-ink">{pair.why ?? pair.summary}</p>
-          <details className="group/checked mt-2">
+          {showSummary && <p className="mt-2 text-[15px] text-ink">{pair.summary}</p>}
+          {short.map((t) => (
+            <TestLine key={t.aspect} test={t} brandName={pair.brand.brand} altName={pair.alternative.brand} />
+          ))}
+          <details open className="group/checked mt-2">
             <summary className="flex min-h-11 cursor-pointer list-none items-center gap-1 text-[15px] font-semibold hover:underline [&::-webkit-details-marker]:hidden">
               What we checked
               <ChevronDown className="h-4 w-4 shrink-0 group-open/checked:rotate-180" aria-hidden="true" />
             </summary>
             <p className="text-sm text-ink-2">{pair.evidence}</p>
+            {caveats.length > 0 && (
+              <p className="mt-2 text-sm text-ink-2">
+                <span className="font-semibold text-ink">Worth knowing: </span>
+                {caveats.join(" ")}
+              </p>
+            )}
           </details>
           {hasFindings && (
             <Link href="/why" className="inline-flex min-h-11 items-center text-sm font-medium text-cobalt underline underline-offset-2">
@@ -105,7 +167,7 @@ export function WhyBlock({ pair, className = "" }: { pair: Pair; className?: str
             {own.length > 0 && <FindingGrid claims={own} />}
             {general.length > 0 && (
               <div>
-                <p className="pb-1.5 text-[13px] font-medium text-muted">On store brands in general</p>
+                <p className="pb-1.5 text-[13px] font-medium text-muted">Across this aisle</p>
                 <FindingGrid claims={general} />
               </div>
             )}
@@ -133,6 +195,7 @@ export function BrandWins({
   wins: CompareRow[];
   className?: string;
 }) {
+  if (wins.length === 0 && points.length === 0) return null;
   return (
     <section
       id={id}
@@ -164,16 +227,12 @@ export function BrandWins({
               ))}
             </ul>
           )}
-          {points.length > 0 ? (
+          {points.length > 0 && (
             <ul className="max-w-[70ch] list-disc space-y-2 pl-5 text-[17px] leading-snug text-ink marker:text-brand-better md:text-lg">
               {points.map((p) => (
                 <li key={p}>{p}</li>
               ))}
             </ul>
-          ) : (
-            wins.length === 0 && (
-              <p className="text-[17px] leading-snug text-ink">The records we checked list no differences.</p>
-            )
           )}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { CATEGORIES, CATEGORY_MAP, MATCH_TYPE_META } from "./categories";
 import { isMarket, MARKET_CODES, MARKET_LABEL, type MarketCode } from "./markets";
+import type { PhotoTier } from "./photos";
 import type { Bundle, CategorySlug, MatchType, PairSummary } from "./types";
 
 /**
@@ -25,8 +26,8 @@ export type BrowseRow = {
   market: MarketCode;
   /** A real photo on at least one side. */
   photo: boolean;
-  /** Real photos on both sides. */
-  bothPhotos: boolean;
+  /** Which group of the list it goes in, see photoTier. */
+  tier: PhotoTier;
   /** Saving per unit, 0 to 100. */
   pct: number;
   /** The cheaper unit price as the card shows it, in rough dollars so markets can rank together. */
@@ -150,12 +151,12 @@ const COMPARE: Record<SortKey, (a: BrowseRow, b: BrowseRow) => number> = {
 };
 
 /**
- * The rows the shopper should see, in order: swaps with both photos first, then the ones still missing a
- * picture. Each group follows the chosen sort, and the list prints a heading where the second group starts.
+ * The rows the shopper should see, in tiers: both photos cut out, then both photos, then one photo, then
+ * none. Each tier follows the chosen sort, and the list prints a heading before the no-photo rows.
  */
 export function matchRows(rows: BrowseRow[], s: BrowseState, scope: Scope) {
-  const sorted = rows.filter((r) => passes(r, s, scope)).sort(COMPARE[s.sort]);
-  return [...sorted.filter((r) => r.bothPhotos), ...sorted.filter((r) => !r.bothPhotos)];
+  const compare = COMPARE[s.sort];
+  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || compare(a, b));
 }
 
 /**

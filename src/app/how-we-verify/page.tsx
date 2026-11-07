@@ -132,7 +132,7 @@ export default function HowWeVerifyPage() {
       </p>
       <p>
         Product photos come from open databases such as Open Food Facts, and each is listed with its licence on the{" "}
-        <Link href="/credits">credits page</Link>. Where we have no photo we can use, we draw an outline and say so.
+        <Link href="/credits">credits page</Link>. Where we have no photo we can use, we print the name on a plain tile and say so. Many photos have the background removed or the pack straightened, and the credit says which.
       </p>
 
       <h2>Found a mistake?</h2>
