@@ -1,12 +1,15 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { CategoryIcon } from "@/components/CategoryIcon";
 import { MarketNote } from "@/components/CountryPicker";
 import { ProductThumb } from "@/components/ProductThumb";
 import { Ticket } from "@/components/Ticket";
 import { ToArrow } from "@/components/UnitPrice";
 import { defaultMarket, marketsIn, parseState, stateToQuery, type BrowseRow } from "@/lib/browse";
+import { CATEGORY_MAP } from "@/lib/categories";
 import { useCountry } from "@/lib/client/country";
 import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
 import { MARKET_LABEL, type MarketCode } from "@/lib/markets";
@@ -40,6 +43,8 @@ export type BulkItem = BrowseRow & {
   biggerPack: string;
   normalPrice: string;
   biggerPrice: string;
+  /** The bigger pack's price as a number, for sorting. */
+  biggerPriceValue: number;
   biggerUrl: string;
   biggerAt: string;
   extraSavingPct: number;
@@ -78,6 +83,15 @@ const GROUPS: { advice: BulkItem["advice"]; id: string; title: string; body: str
 
 const swaps = (n: number) => `${n} swap${n === 1 ? "" : "s"}`;
 
+const ORDERS = [
+  { value: "bulk", label: "Most saved by going bigger", compare: (a: BulkItem, b: BulkItem) => b.extraSavingPct - a.extraSavingPct },
+  { value: "brand", label: "Most saved against the brand", compare: (a: BulkItem, b: BulkItem) => b.pct - a.pct },
+  { value: "pack", label: "Lowest pack price", compare: (a: BulkItem, b: BulkItem) => a.biggerPriceValue - b.biggerPriceValue },
+];
+
+const SELECT =
+  "h-11 w-full cursor-pointer appearance-none rounded-tile border border-line-strong bg-paper pr-8 pl-3 text-sm font-semibold text-ink";
+
 /** Prices follow the shopper's country as on every other list, and a choice here lives in the URL. */
 export function BulkList({ items }: { items: BulkItem[] }) {
   const query = useUrlQuery(PATH);
@@ -87,8 +101,17 @@ export function BulkList({ items }: { items: BulkItem[] }) {
   const setMarket = (next: MarketCode | "all") =>
     writeUrlQuery(PATH, stateToQuery({ ...state, market: next }, window.location.search), "push");
 
-  const shown = items.filter((i) => market === "all" || i.market === market);
-  const groups = GROUPS.map((g) => ({ ...g, items: shown.filter((i) => i.advice === g.advice) })).filter(
+  const [aisle, setAisle] = useState("all");
+  const [orderBy, setOrderBy] = useState(ORDERS[0].value);
+
+  const inMarket = items.filter((i) => market === "all" || i.market === market);
+  const aisles = [...new Set(inMarket.map((i) => i.aisle))].sort((a, b) => CATEGORY_MAP[a].name.localeCompare(CATEGORY_MAP[b].name));
+  // A choice of aisle can outlive a change of country that has none of it.
+  const activeAisle = aisles.some((a) => a === aisle) ? aisle : "all";
+  const compare = ORDERS.find((o) => o.value === orderBy)?.compare ?? ORDERS[0].compare;
+  const shown = inMarket.filter((i) => activeAisle === "all" || i.aisle === activeAisle);
+  const ordered = [...shown].sort((a, b) => a.tier - b.tier || compare(a, b) || a.slug.localeCompare(b.slug));
+  const groups = GROUPS.map((g) => ({ ...g, items: ordered.filter((i) => i.advice === g.advice) })).filter(
     (g) => g.items.length > 0,
   );
   // Each group is in photo order, so the first row of the first group is the page's first photo, if it has any.
@@ -99,10 +122,41 @@ export function BulkList({ items }: { items: BulkItem[] }) {
     <>
       <MarketChoice items={items} market={market} onChange={setMarket} />
 
-      <p className="mt-2 text-sm text-ink-2" aria-live="polite">
-        <span className="num font-semibold text-ink">{swaps(shown.length)}</span>
-        {market === "all" ? " with a bigger pack, each priced in its own country." : ` with a bigger pack and ${MARKET_LABEL[market]} prices.`}
-      </p>
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <p className="text-sm text-ink-2" aria-live="polite">
+          <span className="num font-semibold text-ink">{swaps(shown.length)}</span>
+          {market === "all" ? " with a bigger pack, each priced in its own country." : ` with a bigger pack and ${MARKET_LABEL[market]} prices.`}
+        </p>
+        <div className="grid w-full grid-cols-2 gap-2 md:flex md:w-auto md:items-center">
+          <label className="block min-w-0">
+            <span className="sr-only">Aisle</span>
+            <span className="relative block md:w-44">
+              <select value={activeAisle} onChange={(e) => setAisle(e.target.value)} className={SELECT}>
+                <option value="all">All aisles</option>
+                {aisles.map((a) => (
+                  <option key={a} value={a}>
+                    {CATEGORY_MAP[a].name}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="pointer-events-none absolute top-1/2 right-2.5 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden="true" />
+            </span>
+          </label>
+          <label className="block min-w-0">
+            <span className="sr-only">Sort by</span>
+            <span className="relative block md:w-64">
+              <select value={orderBy} onChange={(e) => setOrderBy(e.target.value)} className={SELECT}>
+                {ORDERS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="pointer-events-none absolute top-1/2 right-2.5 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden="true" />
+            </span>
+          </label>
+        </div>
+      </div>
 
       {groups.length > 1 && (
         <nav aria-label="On this page" className="mt-1 flex flex-wrap gap-x-4 text-sm font-medium">
@@ -249,18 +303,24 @@ function CompactRow({ item }: { item: BulkItem }) {
     <li
       className={`group relative grid min-h-11 min-w-0 grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 gap-y-0.5 px-2.5 py-2 transition-colors hover:bg-canvas ${COMPACT_COLUMNS}`}
     >
-      <div className="col-start-1 row-start-1 min-w-0">
-        <p className="text-sm leading-snug font-semibold">
-          <Link href={`/compare/${item.slug}`} className="after:absolute after:inset-0 group-hover:underline">
-            {item.brandName}
-            <ToArrow />
-            {item.altName}
-          </Link>
-        </p>
-        <p className="text-xs leading-snug text-ink-2">
-          {item.biggerProduct}
-          <MarketNote market={item.market} className="ml-2 font-medium" />
-        </p>
+      <div className="col-start-1 row-start-1 flex min-w-0 items-start gap-2.5">
+        {/* No photo on file: the aisle's mark keeps the rows scannable, and doesn't pass for a picture of the pack. */}
+        <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-tile border border-line bg-white">
+          <CategoryIcon icon={CATEGORY_MAP[item.aisle].icon} className="h-5 w-5 text-ink-2" strokeWidth={1.5} />
+        </span>
+        <div className="min-w-0">
+          <p className="text-sm leading-snug font-semibold">
+            <Link href={`/compare/${item.slug}`} className="after:absolute after:inset-0 group-hover:underline">
+              {item.brandName}
+              <ToArrow />
+              {item.altName}
+            </Link>
+          </p>
+          <p className="text-xs leading-snug text-ink-2">
+            {item.biggerProduct}
+            <MarketNote market={item.market} className="ml-2 font-medium" />
+          </p>
+        </div>
       </div>
 
       {extra > 0 ? (

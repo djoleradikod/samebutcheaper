@@ -724,7 +724,7 @@
    "product": "Duracell Plus Power Boost AA LR6 Alkaline, pack of 12",
    "size": 12,
    "unit": "cell",
-   "price": 16.99,
+   "price": 20.39,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/duracell-batteries-duracell-plus-aa-lr6-alkaline-pack-of-12-p-1270619",
@@ -740,7 +740,7 @@
    "product": "Energizer Max Plus AA LR6 Alkaline, pack of 12",
    "size": 12,
    "unit": "cell",
-   "price": 12.39,
+   "price": 14.87,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/energizer-alkaline-batteries-aa-alkaline-batteries-max-plus-lr6-1-5v-pack-of-12-p-1206695",
@@ -754,8 +754,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Same 12-cell AA alkaline pack count at the same shop, with Energizer Max Plus 27% cheaper at Viking's single-pack price.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, as Viking shows them by default. Single-pack tier: Duracell GBP 16.99, Energizer GBP 12.39. At 20% VAT that comes to about GBP 20.39 and GBP 14.87. Barcodes on the pages: Duracell 5000394176324, Energizer 7638900437386, neither in Open Facts, so no photo.",
-  "differences": "Prices exclude VAT, so add 20% if you are not VAT-registered. Viking lists a storage life of up to 12 years for the Energizer and none for Duracell. Which? reports that Energizer's top-scoring batteries beat Duracell's Best Buy, without naming these exact packs in what we read. Viking's Black Friday offers may change prices.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, as Viking shows them by default. Single-pack tier: Duracell GBP 16.99, Energizer GBP 12.39. At 20% VAT that comes to about GBP 20.39 and GBP 14.87. Barcodes on the pages: Duracell 5000394176324, Energizer 7638900437386, neither in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Viking lists a storage life of up to 12 years for the Energizer and none for Duracell. Which? reports that Energizer's top-scoring batteries beat Duracell's Best Buy, without naming these exact packs in what we read. Viking's Black Friday offers may change prices.",
   "why": "On Viking's listing the Energizer has the same size and chemistry with more documented detail, at a lower price, and Which? does not rank Duracell above Energizer.",
   "aspects": [
    {
@@ -775,9 +775,9 @@
   ],
   "price_checked": "2026-11",
   "bulk": {
-   "product": "Energizer Max Plus AA LR6 Alkaline, 3 packs of 12, price without VAT",
+   "product": "Energizer Max Plus AA LR6 Alkaline, 3 packs of 12, with VAT",
    "size": 36,
-   "price": 31.17,
+   "price": 37.4,
    "retailer": "viking",
    "url": "https://www.viking-direct.co.uk/en/energizer-alkaline-batteries-aa-alkaline-batteries-max-plus-lr6-1-5v-pack-of-12-p-1206695"
   }
@@ -793,7 +793,7 @@
    "product": "Duracell Plus Power Boost AAA LR03 Alkaline, pack of 12",
    "size": 12,
    "unit": "cell",
-   "price": 16.99,
+   "price": 20.39,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/duracell-batteries-duracell-plus-aaa-lr03-alkaline-pack-of-12-p-1270620",
@@ -809,7 +809,7 @@
    "product": "Energizer Max Plus AAA LR03 Alkaline, pack of 20",
    "size": 20,
    "unit": "cell",
-   "price": 15.49,
+   "price": 18.59,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/energizer-battery-max-plus-aaa-20-pieces-p-1001607",
@@ -823,8 +823,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both are AAA alkaline cells at the same shop, and the Energizer 20-pack costs about 45% less per cell than the Duracell 12-pack.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. Single-pack tier: Duracell GBP 16.99 for 12 (about GBP 1.42 a cell), Energizer GBP 15.49 for 20 (about 77p a cell). The Energizer page has a Black Friday badge, and its tier prices are what we use. Barcodes on the pages: Duracell 5000394176911, Energizer 7638900423174, neither in Open Facts, so no photo.",
-  "differences": "Prices exclude VAT. Pack sizes differ: a smaller Energizer 8-pack is GBP 9.29, about GBP 1.16 a cell, 18% less than Duracell. Viking's Duracell description also mentions AA in one line, though its title and specification say AAA. Energizer lists up to 12 years of storage. Duracell lists none.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. Single-pack tier: Duracell GBP 16.99 for 12 (about GBP 1.42 a cell), Energizer GBP 15.49 for 20 (about 77p a cell). The Energizer page has a Black Friday badge, and its tier prices are what we use. Barcodes on the pages: Duracell 5000394176911, Energizer 7638900423174, neither in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Pack sizes differ: a smaller Energizer 8-pack is GBP 9.29 before VAT, about GBP 1.16 a cell, 18% less than Duracell. Viking's Duracell description also mentions AA in one line, though its title and specification say AAA. Energizer lists up to 12 years of storage. Duracell lists none.",
   "why": "Size and chemistry match, the larger Energizer pack costs less per cell, and Which? does not rank Duracell above Energizer.",
   "aspects": [
    {
@@ -862,7 +862,7 @@
    "product": "Duracell Plus 6LR61 9V Alkaline, pack of 2",
    "size": 2,
    "unit": "cell",
-   "price": 12.39,
+   "price": 14.87,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/duracell-batteries-6lr61-pack-of-2-p-1138916",
@@ -878,7 +878,7 @@
    "product": "Energizer Max 9V 6LR61 Alkaline, pack of 2",
    "size": 2,
    "unit": "cell",
-   "price": 9.29,
+   "price": 11.15,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/energizer-batteries-max-9v-2-pieces-p-1039570",
@@ -894,8 +894,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Same two-pack of 6LR61 alkaline 9 V cells at the same shop, with Energizer 25% cheaper at Viking's single-pack price.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. Single-pack tier: Duracell GBP 12.39, Energizer GBP 9.29. Both pages state up to 5 years in storage. The Duracell barcode 5000394142268 is not in Open Facts, so that side has no photo.",
-  "differences": "Prices exclude VAT. Viking lists 21000 mAh for this Energizer 9 V, which can't be right for a cell this size, so we ignore it. Duracell lists no capacity, so we can't compare capacity from these pages. No test we read covers these two.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. Single-pack tier: Duracell GBP 12.39, Energizer GBP 9.29. Both pages state up to 5 years in storage. The Duracell barcode 5000394142268 is not in Open Facts, so that side has no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Viking lists 21000 mAh for this Energizer 9 V, which can't be right for a cell this size, so we ignore it. Duracell lists no capacity, so we can't compare capacity from these pages. No test we read covers these two.",
   "why": "Both are the same standard 6LR61 type with the same stated storage life, so nothing on the listings accounts for paying a third more for the Duracell.",
   "claims": [],
   "sources": [
@@ -906,9 +906,9 @@
   ],
   "price_checked": "2026-11",
   "bulk": {
-   "product": "Energizer Max 9V 6LR61 Alkaline, 3 packs of 2, price without VAT",
+   "product": "Energizer Max 9V 6LR61 Alkaline, 3 packs of 2, with VAT",
    "size": 6,
-   "price": 24.87,
+   "price": 29.84,
    "retailer": "viking",
    "url": "https://www.viking-direct.co.uk/en/energizer-batteries-max-9v-2-pieces-p-1039570"
   }
@@ -1254,7 +1254,7 @@
    "product": "BIC Cristal Original Ballpoint Pen Black, medium, pack of 50",
    "size": 50,
    "unit": "pen",
-   "price": 8.79,
+   "price": 10.55,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/bic-ballpoint-pen-cristal-0-4-mm-black-pack-50-p-nd538216",
@@ -1270,7 +1270,7 @@
    "product": "Viking SBM1.0 Ballpoint Pen Black, medium, pack of 50",
    "size": 50,
    "unit": "pen",
-   "price": 6.49,
+   "price": 7.79,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/viking-medium-ballpoint-pens-black-box-of-50-p-1601440",
@@ -1284,8 +1284,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Same nib, line width, ink type and pack of 50, with Viking's own pen about 26% cheaper even with the BIC on Black Friday offer.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. BIC GBP 8.79, marked Black Friday minus 20%, with no regular price stated. Viking GBP 6.49 at the single-pack tier. Both pages give a 1.0 mm nib, 0.4 mm line and oil-based black ink. The same BIC product and barcode 0070330129665 appear on Viking's Irish site. Barcodes not in Open Facts, so no photo.",
-  "differences": "Prices exclude VAT. BIC's price is a promotion and may rise, which would widen the gap. BIC's page says the ball is tungsten carbide, and Viking's page doesn't name the ball material. One BIC spec line says 0.32 mm line width while the table says 0.4 mm. No writing test we read covers these.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. BIC GBP 8.79, marked Black Friday minus 20%, with no regular price stated. Viking GBP 6.49 at the single-pack tier. Both pages give a 1.0 mm nib, 0.4 mm line and oil-based black ink. The same BIC product and barcode 0070330129665 appear on Viking's Irish site. Barcodes not in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "BIC's price is a promotion and may rise, which would widen the gap. BIC's page says the ball is tungsten carbide, and Viking's page doesn't name the ball material. One BIC spec line says 0.32 mm line width while the table says 0.4 mm. No writing test we read covers these.",
   "why": "On paper these are the same pen specification, and the own-brand pack costs less even when the branded one is reduced.",
   "claims": [],
   "sources": [
@@ -1295,9 +1295,9 @@
   ],
   "price_checked": "2026-11",
   "bulk": {
-   "product": "Viking SBM1.0 Ballpoint Pen Black, 3 packs of 50, price without VAT",
+   "product": "Viking SBM1.0 Ballpoint Pen Black, 3 packs of 50, with VAT",
    "size": 150,
-   "price": 16.47,
+   "price": 19.76,
    "retailer": "viking",
    "url": "https://www.viking-direct.co.uk/en/viking-medium-ballpoint-pens-black-box-of-50-p-1601440"
   }
@@ -1313,7 +1313,7 @@
    "product": "Post-it Super Sticky Notes 76 x 76 mm Carnival, 6 pads of 90 sheets",
    "size": 540,
    "unit": "sheet",
-   "price": 9.49,
+   "price": 11.39,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/post-it-super-sticky-notes-76-x-76-mm-blue-green-orange-pink-yellow-squared-plain-6-pads-of-90-sheets-p-1222135",
@@ -1329,7 +1329,7 @@
    "product": "Viking Extra Sticky Notes 76 x 76 mm Assorted, 6 pads of 90 sheets",
    "size": 540,
    "unit": "sheet",
-   "price": 6.69,
+   "price": 8.03,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852",
@@ -1343,8 +1343,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Same size, pad count and sheet count in an extra-sticky type, with Viking's own notes about 30% cheaper at the single-pack price.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the 1 to 2 pack tier: Post-it GBP 9.49, Viking GBP 6.69. Post-it barcode 4054596927322 is confirmed on Viking's Irish site. Barcodes not in Open Facts, so no photo.",
-  "differences": "Prices exclude VAT. Post-it claims twice the sticking power of its regular notes and easy repositioning without residue. Viking claims it suits hard-to-stick surfaces, leaves no residue and is FSC certified, with no number for sticking strength. No test we read compares how well they hold, so Post-it could hold longer.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the 1 to 2 pack tier: Post-it GBP 9.49, Viking GBP 6.69. Post-it barcode 4054596927322 is confirmed on Viking's Irish site. Barcodes not in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Post-it claims twice the sticking power of its regular notes and easy repositioning without residue. Viking claims it suits hard-to-stick surfaces, leaves no residue and is FSC certified, with no number for sticking strength. No test we read compares how well they hold, so Post-it could hold longer.",
   "why": "Both are sold for surfaces where normal notes fall off, in the same size and quantity. Without a holding test, try a pack before stocking up.",
   "claims": [],
   "sources": [
@@ -1354,9 +1354,9 @@
   ],
   "price_checked": "2026-11",
   "bulk": {
-   "product": "Viking Extra Sticky Notes 76 x 76 mm Assorted, 6 packs of 6 pads of 90 sheets, price without VAT",
+   "product": "Viking Extra Sticky Notes 76 x 76 mm Assorted, 6 packs of 6 pads of 90 sheets, with VAT",
    "size": 3240,
-   "price": 34.14,
+   "price": 40.97,
    "retailer": "viking",
    "url": "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852"
   }
@@ -1372,7 +1372,7 @@
    "product": "STABILO BOSS ORIGINAL 70/8 Highlighter Assorted, pack of 8",
    "size": 8,
    "unit": "pen",
-   "price": 7.99,
+   "price": 9.59,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/stabilo-boss-highlighters-assorted-8-pack-p-708",
@@ -1390,7 +1390,7 @@
    "product": "Viking HC1-5 Highlighter Assorted, pack of 8",
    "size": 8,
    "unit": "pen",
-   "price": 5.19,
+   "price": 6.23,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/viking-highlighter-hc1-5-assorted-pack-8-p-9413673",
@@ -1404,8 +1404,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both are water-based chisel-tip highlighters in packs of 8 assorted colours, with Viking's own about 35% cheaper at the single-pack price.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the single-pack tier: STABILO GBP 7.99, Viking GBP 5.19. STABILO barcode 4006381215718 is confirmed on Viking's Irish site and matches the Open Facts photo. Viking's barcode 8717868162307 isn't in Open Facts, so that side has no photo.",
-  "differences": "Prices exclude VAT. STABILO is refillable. Viking's specification lists both refillable and non-refillable, so assume it isn't. STABILO's colours include lilac and turquoise. Viking's include teal and purple. No test we read compares bleed or fade.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the single-pack tier: STABILO GBP 7.99, Viking GBP 5.19. STABILO barcode 4006381215718 is confirmed on Viking's Irish site and matches the Open Facts photo. Viking's barcode 8717868162307 isn't in Open Facts, so that side has no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "STABILO is refillable. Viking's specification lists both refillable and non-refillable, so assume it isn't. STABILO's colours include lilac and turquoise. Viking's include teal and purple. No test we read compares bleed or fade.",
   "why": "They do the same job with the same type of ink and a similar tip. The STABILO only pays back if you actually refill it.",
   "aspects": [
    {
@@ -1424,9 +1424,9 @@
   ],
   "price_checked": "2026-11",
   "bulk": {
-   "product": "Viking HC1-5 Highlighter Assorted, 3 packs of 8, price without VAT",
+   "product": "Viking HC1-5 Highlighter Assorted, 3 packs of 8, with VAT",
    "size": 24,
-   "price": 14.07,
+   "price": 16.88,
    "retailer": "viking",
    "url": "https://www.viking-direct.co.uk/en/viking-highlighter-hc1-5-assorted-pack-8-p-9413673"
   }
@@ -1442,7 +1442,7 @@
    "product": "Pritt Glue Stick 43 g, value pack 4 + 1 free (5 sticks)",
    "size": 215,
    "unit": "g",
-   "price": 12.39,
+   "price": 14.87,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/pritt-glue-stick-transparent-5-pieces-of-43-g-p-1013295",
@@ -1458,7 +1458,7 @@
    "product": "Viking Glue Stick Permanent, pack of 5 of 40 g",
    "size": 200,
    "unit": "g",
-   "price": 6.69,
+   "price": 8.03,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/viking-glue-stick-5-pieces-of-40-g-p-1051100",
@@ -1472,8 +1472,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both are large glue sticks in five-packs, with Viking's own about 42% cheaper per gram at the single-pack price.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the lowest-quantity tier: Pritt GBP 12.39 for 215 g (about 5.8p a gram), Viking GBP 6.69 for 200 g (about 3.3p a gram). The Pritt pack and barcode 5010305053033 are confirmed on Viking's Irish site. Neither barcode is in Open Facts, so no photo.",
-  "differences": "Prices exclude VAT. Pritt says solvent-free and doesn't mention washing out. Viking says machine washable and doesn't say solvent-free. Pritt has a Black Friday free-gift tag when you buy three. No test we read compares how well they bond.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the lowest-quantity tier: Pritt GBP 12.39 for 215 g (about 5.8p a gram), Viking GBP 6.69 for 200 g (about 3.3p a gram). The Pritt pack and barcode 5010305053033 are confirmed on Viking's Irish site. Neither barcode is in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Pritt says solvent-free and doesn't mention washing out. Viking says machine washable and doesn't say solvent-free. Pritt has a Black Friday free-gift tag when you buy three. No test we read compares how well they bond.",
   "why": "They do the same desk job, and the price per gram is well under two-thirds. Check the solvent-free point if that matters for children's use.",
   "aspects": [
    {
@@ -1497,9 +1497,9 @@
   ],
   "price_checked": "2026-11",
   "bulk": {
-   "product": "Viking Glue Stick Permanent, 5 packs of 5 of 40 g, price without VAT",
+   "product": "Viking Glue Stick Permanent, 5 packs of 5 of 40 g, with VAT",
    "size": 1000,
-   "price": 25.95,
+   "price": 31.14,
    "retailer": "viking",
    "url": "https://www.viking-direct.co.uk/en/viking-glue-stick-5-pieces-of-40-g-p-1051100"
   }
@@ -1515,7 +1515,7 @@
    "product": "Scotch Magic 810 Tape 19 mm x 33 m, pack of 8",
    "size": 8,
    "unit": "roll",
-   "price": 26.79,
+   "price": 32.15,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/scotch-magic-tape-19mm-x-33m-value-pack-7-rolls-1-roll-free-p-3969954",
@@ -1531,7 +1531,7 @@
    "product": "Viking Office Tape Invisible 19 mm x 33 m, pack of 6",
    "size": 6,
    "unit": "roll",
-   "price": 9.79,
+   "price": 11.75,
    "retailer": "viking",
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/viking-office-tape-invisible-transparent-19-mm-w-x-33-m-l-bopp-biaxially-oriented-polypropylene-film-pack-of-6-rolls-of-33-m-p-1266331",
@@ -1545,8 +1545,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both are 19 mm by 33 m invisible tapes you can write on, with Viking's own about 51% cheaper per roll at the single-pack price.",
-  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the lowest-quantity tier: Scotch GBP 26.79 for 8 rolls (about GBP 3.35 a roll), Viking GBP 9.79 for 6 rolls (about GBP 1.63 a roll). The Scotch pack and barcode 4046719205936 are confirmed on Viking's Irish site. Neither barcode is in Open Facts, so no photo.",
-  "differences": "Prices exclude VAT. The materials differ. Viking lists polypropylene and Scotch lists fibre. Scotch also claims quiet unwinding and invisibility on most paper, and Viking doesn't. Viking says you can write on it with a ballpoint. No test we read compares them, so finish and tearing may differ.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the lowest-quantity tier: Scotch GBP 26.79 for 8 rolls (about GBP 3.35 a roll), Viking GBP 9.79 for 6 rolls (about GBP 1.63 a roll). The Scotch pack and barcode 4046719205936 are confirmed on Viking's Irish site. Neither barcode is in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "The materials differ. Viking lists polypropylene and Scotch lists fibre. Scotch also claims quiet unwinding and invisibility on most paper, and Viking doesn't. Viking says you can write on it with a ballpoint. No test we read compares them, so finish and tearing may differ.",
   "why": "For everyday sealing and repairing, the size and the stated features match. If invisibility on documents is the point, Scotch's stated claim is the stronger one.",
   "aspects": [
    {
@@ -1564,9 +1564,9 @@
   ],
   "price_checked": "2026-11",
   "bulk": {
-   "product": "Viking Office Tape Invisible 19 mm x 33 m, 5 packs of 6 rolls, price without VAT",
+   "product": "Viking Office Tape Invisible 19 mm x 33 m, 5 packs of 6 rolls, with VAT",
    "size": 30,
-   "price": 43.95,
+   "price": 52.74,
    "retailer": "viking",
    "url": "https://www.viking-direct.co.uk/en/viking-office-tape-invisible-transparent-19-mm-w-x-33-m-l-bopp-biaxially-oriented-polypropylene-film-pack-of-6-rolls-of-33-m-p-1266331"
   }

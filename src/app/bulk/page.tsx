@@ -36,6 +36,7 @@ function toItem(p: Pair): Omit<BulkItem, keyof BrowseRow> {
     biggerPack: packText(bigger.size, a.unit),
     normalPrice: money(a.price, currency),
     biggerPrice: money(bigger.price, currency),
+    biggerPriceValue: bigger.price,
     biggerUrl: bigger.url,
     biggerAt: atStore(bigger.retailer),
     extraSavingPct: bigger.extraSavingPct,
