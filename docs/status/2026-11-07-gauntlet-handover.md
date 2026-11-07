@@ -27,7 +27,29 @@ What I found for it:
 - Other fallback countries have no verified table. Footprint searches didn't give usable lists for Lidl, Aldi, dm, Rossmann or Müller. Opening each chain's national site and matching its title is the cheap way. Without a table the same rule leaves them only their Amazon rows, so say so rather than guess.
 - A shape that fits: `sellers` on Pair, Bundle and Preset, worked out when `catalog.ts` loads and carried on the summaries in `/search/index.json`; `forCountry` takes the country plus a show-others flag from a cookie; the control lives in `FallbackBand`.
 
-**Still open after that.** Items 2 to 4 of the brief (rating floor, research, clothing) and real Irish prices haven't started. Tesco Ireland, Dunnes, Aldi Ireland and Boots Ireland search links aren't added, because they refused automated checks. `/why` and swap evidence text can still cite US sources, and a US swap opened by direct link still works, in euro with no US store offered in its price table. The independent review of `45858a2` was still running when this was written.
+**Still open after that.** Items 2 to 4 of the brief (rating floor, research, clothing) and real Irish prices haven't started. Tesco Ireland, Dunnes, Aldi Ireland and Boots Ireland search links aren't added, because they refused automated checks. `/why` and swap evidence text can still cite US sources, and a US swap opened by direct link still works, in euro with no US store offered in its price table.
+
+**Independent review of `45858a2`: fix 1 to 6 before any PR.** "Seen" means I confirmed it on the served preview or in the source; the rest are the reviewer's reading, unchecked. `country_http.py` missed these because it only looks for store names and `$`, so widen it too.
+
+1. **Seen: Ireland's home page still shows US products.** `bulkRows` (`src/app/page.tsx:135`) uses all pairs, and the aisle tiles (`page.tsx:320`) use `bestPhoto` on an unfiltered aisle. The IE response contains Charmin, Jif, Kirkland, Equate and Parent's Choice, with a link to a Charmin swap. Wrap both in `forCountry`.
+2. **Seen in source: My List adds currencies 1:1 for a visitor with no country.** `MyList.tsx:45`: a £10 and a €5 swap read "Save $15". Total per currency when `!local.known`.
+3. Prices in written catalogue text stay in the record's currency, unmarked: summaries, heroes, differences and researched rows (`WhyBlock.tsx:141`, `dupe/[slug]/page.tsx:131,133,180`, `compare/[slug]/page.tsx:68-72,518`, `bundle/[slug]/page.tsx:94,276`). About 50 of 120 UK summaries. Suggested: drop a sentence holding a price when `local.converts(currency)`, through one helper.
+4. `/check`. **Seen in source:** `check/page.tsx:130` reads only the cookie, so a first visit misses the detected country; use `getCountry()`. Not checked: `ProductReport.tsx:229` shows FDA panel lines naming Walgreens or Costco; limit it to the US and Canada.
+5. `/ingredient`, `/brand`, `/dupe`. **Seen:** `/ingredient/loratadine` in IE still names Equate, and `/brand/frontline` shows its counts and then "haven't priced". Not checked: about 105 of 278 brands have nothing visible in IE, and `/dupe` falls back to US cards when nothing's near (about 19 pages). Compute counts from filtered records, and guard the `reduce` at `ingredient/[slug]/page.tsx:29`, which throws on an empty list once filtered.
+6. **Seen, and caused by this round: `/brand/nope`, `/ingredient/nope` and `/category/nope` return 200, not 404.** `notFound()` now runs after the status is sent. Add those three to `known-slugs.json` (`scripts/build-catalog.ts:551`) and to `KNOWN` in `src/proxy.ts`.
+
+Not checked, smaller:
+- Search says 440 swaps and lists brands with nothing in IE (`search/page.tsx:16-21,48`).
+- Short lists can lead with German records in IE (`ShelfParts.tsx:220`, `lookup/index.ts:97`).
+- `bundle/[slug]/page.tsx:302` links to `#where-to-buy`, which has no target.
+- Another tab doesn't refresh when it picks up a new country on focus (`client/country.ts:22`).
+- `isKnownCountry` accepts `constructor` through `in` (`markets.ts:126`), which breaks the page for that sender only. Use `Object.hasOwn`.
+- `LocalSearch.tsx:41` offers Woodie's for paracetamol, because it passes no aisle.
+
+**Three choices for the owner.**
+- The root Suspense has a cost. **Seen:** every page's body, `/about` and `/privacy` included, now arrives in a hidden wrapper plus a script, so it stays blank without JavaScript, and crawlers that don't run scripts get hidden content. Fixing that means moving the Suspense down to the parts that need the country. Recommendation: keep it for this fix, since nothing's public, and move it down before go-live.
+- Own-label names: 35 UK and German cheaper products carry a store in the name, next to "A UK store". The seller filter above covers this.
+- My List and shared links keep US records. Filtering them makes saved items vanish, so if they're filtered the page should say how many were hidden.
 
 **Needs the owner:** `EnterWorktree` on this worktree was auto-denied at the start. Working in it by path did the job, so nothing is blocked.
 
