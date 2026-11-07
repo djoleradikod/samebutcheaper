@@ -136,12 +136,14 @@ export function localClaim<T extends { markets: MarketCode[]; title: string; fin
 }
 
 /** Whether a cited finding shows here. A US finding names US stores, and from elsewhere a finding only shows if the chains it names sell here. */
-export function findingShows(claim: { markets: MarketCode[]; title: string; finding: string }, local: Local) {
-  if (!local.known || local.others) return true;
+export function findingShows(claim: { markets: MarketCode[]; title: string; finding: string; caveat: string; sources: { title: string }[] }, local: Local) {
+  if (!local.known) return true;
   if (claim.markets.includes(local.country as MarketCode)) return true;
   const seen: readonly string[] = visibleMarkets(local.country);
   if (claim.markets.length && !claim.markets.some((m) => seen.includes(m))) return false;
-  return namedSellers(`${claim.title} ${claim.finding}`).every((s) => sellsIn(s, local.country));
+  if (local.others) return true;
+  const written = [claim.title, claim.finding, claim.caveat, ...claim.sources.map((s) => s.title)].join(" ");
+  return namedSellers(written).every((s) => sellsIn(s, local.country));
 }
 
 /** One unit of `from` in `to`, at the committed rates. Throws if either has no rate: a silent 1:1 would be a false price. */

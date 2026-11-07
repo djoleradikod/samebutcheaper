@@ -270,11 +270,14 @@ test("written prices: the forms the catalogue uses, and the things that aren't p
 });
 
 test("a finding shows where its chains sell, or in its own market", () => {
-  const finding = (markets: MarketCode[], finding: string) => ({ markets, title: "A finding", finding });
+  const finding = (markets: MarketCode[], finding: string) => ({ markets, title: "A finding", finding, caveat: "", sources: [] });
   assert.ok(findingShows(finding(["GB"], "Which? gave Tesco 78%"), localFor("IE")));
   assert.ok(!findingShows(finding(["GB"], "Which? gave Sainsbury's 77%"), localFor("IE")));
   assert.ok(findingShows(finding(["GB"], "Which? gave Sainsbury's 77%"), localFor("GB")), "its own market");
   assert.ok(!findingShows(finding(["US"], "Nothing named"), localFor("IE")), "US findings stay in North America");
   assert.ok(findingShows(finding(["GB"], "Which? gave Sainsbury's 77%"), localFor("IE", true)), "the control brings it back");
   assert.ok(findingShows(finding(["US"], "Kirkland"), localFor(null)));
+  assert.ok(!findingShows(finding(["US"], "Kirkland"), localFor("IE", true)), "the control never brings back the US");
+  assert.ok(!findingShows({ ...finding(["GB"], "Own label did well"), caveat: "Asda lost" }, localFor("IE")), "a caveat counts");
+  assert.ok(!findingShows({ ...finding(["DE"], "Own label did well"), sources: [{ title: "Bei Netto" }] }, localFor("GB")), "a cited title counts");
 });

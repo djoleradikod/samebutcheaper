@@ -24,9 +24,18 @@ const OWN_LABEL: [RegExp, string][] = [
 
 type Sold = { brand: string; product: string; retailer: string; url?: string | null };
 
+/** Chains writing can name that have no own-label names of ours to catch. Case-sensitive, because a penny isn't Penny. */
+const ALSO_NAMED: [RegExp, string][] = [
+  [/\bNetto\b/, "netto"],
+  [/\bEdeka\b|\bEDEKA\b/, "edeka"],
+  [/\bRewe\b|\bREWE\b/, "rewe"],
+  [/\bKaufland\b/, "kaufland"],
+  [/\bPenny\b/, "penny"],
+];
+
 /** The chains a piece of writing names by name. */
 export function namedSellers(text: string) {
-  return OWN_LABEL.filter(([pattern]) => pattern.test(text)).map(([, seller]) => seller);
+  return [...OWN_LABEL, ...ALSO_NAMED].filter(([pattern]) => pattern.test(text)).map(([, seller]) => seller);
 }
 
 function hostOf(url: string | null | undefined) {
