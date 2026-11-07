@@ -1,4 +1,4 @@
-import { ppu, type Currency } from "./format";
+import { hasCents, ppu, type Currency } from "./format";
 
 /** How a unit reads on a shelf ticket, and what to multiply the per-unit price by to match. */
 export type UnitDisplay = { label: string; factor: number };
@@ -78,7 +78,8 @@ export function unitPrice(pricePerUnit: number, unit: string, currency: Currency
   // From 10 cents up, a tenth of a cent is noise.
   const rounded = Math.round(n * 100) / 100;
   if (rounded < 0.1) return ppu(n, currency);
-  return rounded < 1 ? ppu(rounded, currency).replace(/\.\d/, "") : ppu(rounded, currency);
+  // The tenth only goes from "37.0 ct", never from "CHF 0.37".
+  return rounded < 1 && hasCents(currency) ? ppu(rounded, currency).replace(/\.\d/, "") : ppu(rounded, currency);
 }
 
 /** For two close prices, such as a pack and its bigger pack: a tenth of a cent can be the whole difference, so it stays. */

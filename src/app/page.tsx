@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { linksEarn } from "@/lib/affiliate";
 import { assignBasketPhotos, cutOutCount, photoCount, toBasketSummary } from "@/lib/basket-view";
 import {
   bestPhoto,
   getAllPairs,
+  getAllPresets,
   getCategoryStats,
   getClaims,
   getFeaturedPairs,
@@ -10,7 +12,6 @@ import {
   getPairsByCategory,
   getPresetsFor,
   getShelfLife,
-  getSiteStats,
   NO_PHOTO_STANDING,
   photoStanding,
   pickByPhotos,
@@ -24,22 +25,15 @@ import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
-import { MARKET_CODES, type MarketCode } from "@/lib/markets";
+import { findingShows, forCountry, isThinMarket, localClaim, type Local } from "@/lib/localize";
+import type { MarketCode } from "@/lib/markets";
+import { getLocal } from "@/lib/server-country";
 import { jsonLdText } from "@/lib/site";
-import type { CategorySlug, Claim, PairSummary, Preset, ShelfLife } from "@/lib/types";
+import type { CategorySlug, Claim, Pair as PairT, PairSummary, Preset, ShelfLife } from "@/lib/types";
 
 const MEDICINE: CategorySlug = "otc-medicine";
 
 /* ------------------------------------------------------------ what the page shows */
-
-function perMarket<T>(pick: (market: MarketCode) => T[]) {
-  const out: Partial<Record<MarketCode, T[]>> = {};
-  for (const m of MARKET_CODES) {
-    const list = pick(m);
-    if (list.length) out[m] = list;
-  }
-  return out;
-}
 
 function isMedicine(line: Preset["lines"][number]) {
   return getPair(line.pair)?.category === MEDICINE;
@@ -49,12 +43,14 @@ function isMedicine(line: Preset["lines"][number]) {
  * The shopper's market first, then the baskets with enough cut-outs for a full collage, then any with a
  * photo. Across the row no picture shows twice (see assignBasketPhotos).
  */
-function basketsFor(market: MarketCode) {
+function basketsFor(local: Local) {
+  const market = local.listMarket;
   const photoRank = (p: Preset) => (cutOutCount(p) >= 3 ? 0 : photoCount(p) > 0 ? 1 : 2);
   const rank = (p: Preset) => (p.market === market ? 0 : 3) + photoRank(p);
-  const chosen = getPresetsFor(market)
+  const unrated = (p: Preset) => p.lines.filter((l) => !getPair(l.pair)?.alternative.rating).length / p.lines.length;
+  const chosen = getPresetsFor(market, forCountry(getAllPresets(), local))
     .filter((p) => p.icon !== "pill" && p.lines.filter(isMedicine).length * 2 <= p.lines.length)
-    .sort((a, b) => rank(a) - rank(b))
+    .sort((a, b) => rank(a) - rank(b) || unrated(a) - unrated(b))
     .slice(0, 6);
   const photos = assignBasketPhotos(chosen);
   return chosen.map((p) => toBasketSummary(p, photos.get(p.slug)));
@@ -65,47 +61,58 @@ function basketsFor(market: MarketCode) {
  * with no photo. Cut-outs fill the grid first (see pickByPhotos), with a cap per aisle and per shelf so it
  * shows the range of the site, and within a photo standing it reads as a ranking: biggest saving first.
  */
-function biggestSavings(market: MarketCode, limit = 12) {
-  const pool = getFeaturedPairs(48, market).filter(
-    (p) => photoStanding(p) < NO_PHOTO_STANDING && !/relief|remed|fever|allerg|cough/i.test(p.subcategory),
-  );
-  // The shop window shows both products where it can, so nobody's told to buy something they can't see.
-  const both = pool.filter((p) => p.brand.photo && p.alternative.photo);
-  return pickByPhotos(both.length >= limit ? both : pool, limit, (p) => [
+function biggestSavings(market: MarketCode, local: Local, limit = 12) {
+  const fit = (p: PairT) => photoStanding(p) < NO_PHOTO_STANDING && !/relief|remed|fever|allerg|cough/i.test(p.subcategory);
+  const caps = (p: PairT) => [
     { key: p.category, max: p.category === "supplements" ? 2 : 6 },
     { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 2 },
-  ]).sort((a, b) => photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);
+  ];
+  // Rated swaps come first, so an unrated product only fills what they leave.
+  const rated = getFeaturedPairs(48, market, (pairs) => forCountry(pairs, local).filter((p) => p.alternative.rating)).filter(fit);
+  const first = pickByPhotos(rated, limit, caps);
+  const pool = getFeaturedPairs(48, market, (pairs) => forCountry(pairs, local)).filter((p) => fit(p) && !first.includes(p));
+  // The shop window shows both products where it can, so nobody's told to buy something they can't see.
+  const both = pool.filter((p) => p.brand.photo && p.alternative.photo);
+  const room = limit - first.length;
+  const fill = room > 0 ? pickByPhotos(both.length >= room ? both : pool, room, caps) : [];
+  const unrated = (p: PairT) => Number(!p.alternative.rating);
+  return [...first, ...fill].sort((a, b) => unrated(a) - unrated(b) || photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);
 }
 
 /**
- * One list per market, using the shopper's own prices when there are at least three swaps to show, filled
- * up from the US list. A raw snapshot only shows when there's no swap left without one, even from the US.
+ * The market that leads for this shopper. Only Canada, with too few of its own, fills up from the US: US and
+ * Canadian records never show elsewhere. A raw snapshot only shows when there's no swap left without one.
  */
-function featuredLists(limit = 12) {
-  const ranked = perMarket((m) => biggestSavings(m, limit));
-  const us = ranked.US ?? [];
-  const lists: Partial<Record<MarketCode, PairSummary[]>> = {};
-  for (const m of MARKET_CODES) {
-    const own = ranked[m] ?? [];
-    if (m !== "US" && own.length < 3) continue;
-    const merged = m === "US" ? own : [...own, ...us];
-    lists[m] = [...merged.filter(showsOnlyCutOuts), ...merged.filter((p) => !showsOnlyCutOuts(p))]
-      .slice(0, limit)
-      .map(toSummary);
-  }
-  return lists;
+function featuredFor(local: Local, limit = 12): PairSummary[] {
+  const market = local.listMarket;
+  const own = biggestSavings(market, local, limit);
+  const merged = market === "CA" ? [...own, ...biggestSavings("US", local, limit)] : own;
+  // A market too thin to lead still opens with what we've priced there, photo or not.
+  const home = isThinMarket(local.country)
+    ? getAllPairs()
+        .filter((p) => p.market === local.country && p.category !== MEDICINE)
+        .slice(0, 4)
+    : [];
+  // Rated first, then what shows only cut-outs. See biggestSavings.
+  const order = (p: PairT) => (p.alternative.rating ? 0 : 2) + (showsOnlyCutOuts(p) ? 0 : 1);
+  return [...home, ...[...merged].sort((a, b) => order(a) - order(b))].slice(0, limit).map(toSummary);
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;
 const ABOUT_SWITCHING = /own[- ]label|own[- ]brand|store[- ]brand|cheap|beat/i;
 
-/** Findings about switching, newest first, spread across publishers and countries. */
-function pickFindings(limit = 3) {
+/**
+ * Findings about switching, newest first, spread across publishers and countries, as findingShows allows. Prices follow the shopper's currency.
+ */
+function pickFindings(local: Local, limit = 3) {
   const date = (c: Claim) => (/^\d/.test(c.sources[0].date) ? c.sources[0].date : "");
   const ranked = getClaims()
     .filter(
       (c) =>
-        !c.categories.includes(MEDICINE) && !MENTIONS_MEDICINE.test(`${c.title} ${findingExcerpt(c.finding)}`),
+        !c.categories.includes(MEDICINE) &&
+        !MENTIONS_MEDICINE.test(`${c.title} ${findingExcerpt(c.finding)}`) &&
+        c.markets.length > 0 &&
+        findingShows(c, local),
     )
     .sort(
       (a, b) =>
@@ -126,7 +133,7 @@ function pickFindings(limit = 3) {
     if (picked.length >= limit) break;
     if (!picked.includes(c)) picked.push(c);
   }
-  return picked;
+  return picked.map((c) => localClaim(c, local));
 }
 
 const BULK_COLUMNS: { advice: ShelfLife["advice"]; title: string; body: string }[] = [
@@ -141,8 +148,8 @@ function keepsFor(unopened: string) {
   return clause.length > 60 ? clause.split(":")[0] : clause;
 }
 
-function bulkRows(advice: ShelfLife["advice"], limit = 5) {
-  const pairs = getAllPairs().filter((p) => p.category !== MEDICINE);
+function bulkRows(advice: ShelfLife["advice"], local: Local, limit = 5) {
+  const pairs = forCountry(getAllPairs(), local).filter((p) => p.category !== MEDICINE);
   return getShelfLife()
     .filter((r) => r.advice === advice)
     .map((r) => {
@@ -184,7 +191,7 @@ function buildFaq(aisles: string[]) {
     },
     {
       q: "How do you make money?",
-      a: "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you. No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.",
+      a: `${linksEarn() ? "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you." : "We don't, for now. No link on this site earns us anything."} No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.`,
     },
     {
       q: "Are the prices current?",
@@ -199,13 +206,14 @@ function buildFaq(aisles: string[]) {
 
 /* --------------------------------------------------------------------- the page */
 
-export default function Home() {
-  const stats = getSiteStats();
-  const categories = getCategoryStats().filter((c) => c.count > 0);
-  const baskets = perMarket(basketsFor);
-  const hasBaskets = Object.keys(baskets).length > 0;
-  const featured = featuredLists();
-  const findings = pickFindings();
+export default async function Home() {
+  const local = await getLocal();
+  const swapCount = forCountry(getAllPairs(), local).length;
+  const categories = getCategoryStats((list) => forCountry(list, local)).filter((c) => c.count > 0);
+  const baskets = basketsFor(local);
+  const hasBaskets = baskets.length > 0;
+  const featured = featuredFor(local);
+  const findings = pickFindings(local);
   const hasShelfLife = getShelfLife().length > 0;
   const faq = buildFaq(categories.map((c) => c.name));
 
@@ -228,10 +236,10 @@ export default function Home() {
             <h1 className="display text-[1.75rem] md:text-[2.5rem]">Same job. Lower price.</h1>
             <div className="text-[13px] leading-snug text-ink-2 md:pb-1 md:text-right">
               <p className="text-sm font-medium text-ink">
-                <span className="num">{stats.pairs}</span> swaps, each with at least two sources.
+                <span className="num">{swapCount}</span> swaps, each with at least two sources.
               </p>
               <p className="hidden md:block">
-                No brand pays to be listed. Some links earn us a commission.{" "}
+                No brand pays to be listed. {linksEarn() ? "Some links earn us a commission." : "No link earns us anything today."}{" "}
                 <Link href="/how-we-verify" className="text-cobalt underline underline-offset-2">
                   How we check
                 </Link>
@@ -242,7 +250,7 @@ export default function Home() {
           {hasBaskets && (
             <section className="mt-4">
               <SectionHeading title="Swap a whole basket" />
-              <FeaturedBaskets lists={baskets} />
+              <FeaturedBaskets list={baskets} />
             </section>
           )}
 
@@ -254,7 +262,7 @@ export default function Home() {
                 { href: "/credits", label: "Photos" },
               ]}
             />
-            <FeaturedPairs lists={featured} eagerFirst={!hasBaskets} />
+            <FeaturedPairs list={featured} eagerFirst={!hasBaskets} />
           </section>
         </div>
       </div>
@@ -283,7 +291,7 @@ export default function Home() {
             />
             <div className="grid gap-6 md:grid-cols-3 md:gap-8">
               {BULK_COLUMNS.map((col) => {
-                const rows = bulkRows(col.advice);
+                const rows = bulkRows(col.advice, local);
                 if (!rows.length) return null;
                 return (
                   <div key={col.advice}>
@@ -326,7 +334,7 @@ export default function Home() {
           <SectionHeading title="All aisles" />
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5">
             {categories.map((c) => {
-              const best = bestPhoto(getPairsByCategory(c.slug));
+              const best = bestPhoto(forCountry(getPairsByCategory(c.slug), local));
               return (
                 <Link
                   key={c.slug}

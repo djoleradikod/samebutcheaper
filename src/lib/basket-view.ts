@@ -7,6 +7,7 @@ import { monthYear } from "./format";
 import { isCutOut } from "./photos";
 import type { Preset } from "./types";
 import { isPerAmountRecord, packSize } from "./unit-format";
+import { MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 
 export { packSize };
 
@@ -125,9 +126,13 @@ export function toBasketSummary(preset: Preset, photos = basketPhotos(preset, 4,
 }
 
 /** Where a line's cheaper side is sold. */
-function altStore(slug: string) {
-  const alt = getPair(slug)?.alternative;
-  return alt ? storeName(alt.retailer, alt.url) : "Other stores";
+function altStore(slug: string, local?: Local) {
+  const pair = getPair(slug);
+  if (!pair) return "Other stores";
+  const alt = pair.alternative;
+  // We never name a store that doesn't sell where the shopper is.
+  if (local && !local.sells(alt.retailer, pair.market)) return `${MARKET_ADJECTIVE[pair.market]} stores`;
+  return storeName(alt.retailer, alt.url);
 }
 
 /** The stores the cheaper side comes from, biggest share of the cheaper total first. */
@@ -142,7 +147,7 @@ export function isMedicineBasket(preset: Preset) {
 }
 
 /** What the stepper needs, and the product names the alt text uses. */
-export function basketLines(preset: Preset): BasketLineView[] {
+export function basketLines(preset: Preset, local?: Local): BasketLineView[] {
   return preset.lines.map((l) => {
     const pair = getPair(l.pair);
     return {
@@ -157,7 +162,7 @@ export function basketLines(preset: Preset): BasketLineView[] {
       altProduct: pair?.alternative.product ?? l.altName,
       brandPhoto: l.brandPhoto,
       altPhoto: l.altPhoto,
-      altStore: altStore(l.pair),
+      altStore: altStore(l.pair, local),
       brandCost: l.brandCost,
       altCost: l.altCost,
       savingsPct: l.savingsPct,

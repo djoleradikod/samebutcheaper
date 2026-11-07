@@ -4,6 +4,8 @@ import { getIngredient, getIngredients, ingredientSlugFor } from "@/lib/catalog"
 import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
 import { atLeastOneParam, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
 import { inSentence } from "@/lib/format";
+import { forCountry } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 
 export function generateStaticParams() {
   return atLeastOneParam(getIngredients().map((i) => i.slug));
@@ -25,8 +27,8 @@ export default async function IngredientPage({ params }: PageProps<"/ingredient/
   const { slug } = await params;
   const ing = getIngredient(slug);
   if (!ing) notFound();
-  const pairs = ing.pairs;
-  const top = pairs.reduce((a, b) => (b.savingsPct > a.savingsPct ? b : a));
+  const pairs = forCountry(ing.pairs, await getLocal());
+  const top = pairs.length ? pairs.reduce((a, b) => (b.savingsPct > a.savingsPct ? b : a)) : null;
   const strengths = Array.from(
     new Set(
       pairs.flatMap((p) =>
@@ -44,14 +46,19 @@ export default async function IngredientPage({ params }: PageProps<"/ingredient/
         title={`${ing.name}: ${swapCount(pairs.length)}`}
         intro={
           <>
-            The same {inSentence(ing.name)} is sold under many names at very different prices. These are the brand products
-            we&apos;ve checked that contain it, each beside a cheaper one. The biggest saving is {top.alternative.brand} instead
-            of {top.brand.brand}.
+            The same {inSentence(ing.name)} is sold under many names at very different prices.
+            {top && (
+              <>
+                {" "}
+                These are the brand products we&apos;ve checked that contain it, each beside a cheaper one. The biggest saving is{" "}
+                {top.alternative.brand} instead of {top.brand.brand}.
+              </>
+            )}
             {strengths.length > 0 && <> Strengths on file: {strengths.join(", ")}.</>}
           </>
         }
         best={bestSaving(pairs)}
-        facts={<PriceFacts pairs={pairs} />}
+        facts={pairs.length > 0 && <PriceFacts pairs={pairs} />}
       />
       {pairs.some((p) => HEALTH_CATEGORIES.has(p.category)) && (
         <div className="container-page mb-4">

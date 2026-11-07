@@ -51,27 +51,27 @@ with sync_playwright() as p:
     page.goto(f"{BASE}/bulk", wait_until="networkidle")
     page.get_by_role("radio", name=re.compile(r"^UK")).check()
     page.wait_for_timeout(200)
-    aisle = page.get_by_role("combobox", name="Aisle", exact=True)
+    aisle = page.get_by_role("group", name="Aisle", exact=True).get_by_role("radio")
     order = page.get_by_role("combobox", name="Sort by", exact=True)
     count = lambda: page.locator("p[aria-live=polite]").first.inner_text()
     all_text = count()
-    options = aisle.locator("option").all_inner_texts()
-    check("aisle filter lists aisles", len(options) > 2, str(options))
-    aisle.select_option(index=1)
+    options = aisle.count()
+    check("aisle filter lists aisles", options > 2, str(options))
+    aisle.nth(1).check()
     page.wait_for_timeout(200)
     one = count()
     check("aisle filter narrows the list", one != all_text, f"{all_text[:32]} to {one[:32]}")
-    aisle.select_option("all")
+    aisle.nth(0).check()
     order.select_option("pack")
     page.wait_for_timeout(300)
-    # Every group shows photo rows, then text rows, each in the chosen order. Read the text rows of each group.
+    # One list in the chosen order, so reading it top to bottom has to come out sorted.
     sorted_ok = True
     seen = 0
     for table in page.locator("div.card:has(ul.divide-y)").all():
         vals = []
         for row in table.locator("li").all():
             text = row.inner_text()
-            m = re.search(r"(\d[\d,]*(?:\.\d+)?) ?[a-z ]*, £(\d[\d,]*(?:\.\d\d)?)", text) or re.search(r", £(\d[\d,]*(?:\.\d\d)?)", text)
+            m = re.search(r"£(\d[\d,]*(?:\.\d\d)?) for ", text)
             if m:
                 vals.append(float(m.groups()[-1].replace(",", "")))
         seen += len(vals)

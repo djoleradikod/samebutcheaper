@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown, Globe } from "lucide-react";
+import { MARKET_ADJECTIVE } from "@/lib/localize";
 import { COUNTRY_OPTIONS, MARKET_LABEL, countryName, type MarketCode } from "@/lib/markets";
 import { setCountry, useCountry } from "@/lib/client/country";
 
@@ -25,7 +26,11 @@ export function CountryPicker({ className = "", withName = false }: { className?
         aria-label="Country you shop in"
         title="Country you shop in"
         value={country ?? ""}
-        onChange={(e) => e.target.value && setCountry(e.target.value)}
+        onChange={(e) => {
+          if (!e.target.value) return;
+          // Prices on the page follow at once. CountryProvider then asks the server for the lists and stores.
+          setCountry(e.target.value);
+        }}
         className="absolute inset-0 cursor-pointer opacity-0"
       >
         <option value="" disabled>
@@ -47,7 +52,7 @@ export function MarketNote({ market, className = "" }: { market: MarketCode; cla
   if (country === market) return null;
   return (
     <span className={`whitespace-nowrap text-muted ${className}`} title={`Prices checked in ${MARKET_LABEL[market]} stores`}>
-      {MARKET_LABEL[market]} prices
+      {MARKET_ADJECTIVE[market]} prices
     </span>
   );
 }

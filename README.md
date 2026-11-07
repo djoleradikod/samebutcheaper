@@ -101,9 +101,9 @@ Add pairs to any JSON file in `data/pairs/`. The format and rules are in [`data/
 
 1. Join [Amazon Associates](https://affiliate-program.amazon.com/) and put your tracking ID in `AMAZON_ASSOCIATE_TAG`. Amazon runs a separate program per country; put the UK, Canada and Germany tags in `AMAZON_TAGS` (format in `.env.example`).
 2. Optional: Walmart and Target run through Impact. Put their deep-link templates (with `{url}`) in `WALMART_AFFILIATE_TEMPLATE` and `TARGET_AFFILIATE_TEMPLATE`.
-3. Rebuild or restart. No code changes are needed.
+3. Rebuild. A restart isn't enough, because the tags are read at build time. No code changes are needed.
 
-Amazon requires the disclosure that's already on `/disclosure` and in the footer.
+Amazon requires a disclosure. `/disclosure` and the footer show it once an Amazon tag is set, and until then they say no link earns anything.
 
 ## Scripts
 

@@ -80,6 +80,14 @@ A cutout is an adaptation, so CC BY-SA asks us to say so: `apply-cutouts.ts` add
 reviews every cut. Tools, car parts, office goods and most tech still have no licensed photo. An affiliate feed is the likely route,
 and that is the owner's decision.
 
+Round 2, 7 Nov: no new web scout. `gather.py` found candidates for 117 of the 163 sides without a photo in tools, car, tech, garden and
+office, all brand-name matches in the local Open Facts index. Reading them as text left 7 that could be the product. None passed by eye:
+SanDisk is one drive against a pack of 2, UGREEN is the Nexode 65W and not the Nexode Pro, Scotch reads narrower than 19 mm on the contact sheet, Rexel is No.10
+staples and not No.56, BIC is a blue 5-pack against black 50s, Kingston is the Exodia Onyx and not the Exodia S, and the Apple keyboard was
+already rejected. So Open Facts adds nothing to these aisles at this standard, and coverage stays where it was. Only the owner's cards can
+move it: `sbc-affiliate-network`, Open Icecat's written answer, or, for SanDisk alone, allowing a one-unit photo on a multipack. The coverage
+the first two would reach hasn't been measured.
+
 ## Images: commercial sources
 
 | Candidate | URL | Licence or terms | Stars, last push | Verdict | Why |

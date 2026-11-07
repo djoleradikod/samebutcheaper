@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { money, type Currency } from "@/lib/format";
+import type { Currency } from "@/lib/format";
+import { Money } from "./Money";
 
 export type TicketSize = "sm" | "md" | "lg";
 
@@ -73,7 +74,7 @@ export function SaveTicket({
 }) {
   return (
     <Ticket size={size} sub={sub} className={className}>
-      Save {money(amount, currency)}
+      Save <Money n={amount} from={currency} prose />
     </Ticket>
   );
 }

@@ -64,12 +64,20 @@
    }
   ],
   "claims": [],
+  "bulk": {
+   "product": "Ansmann Mignon-Batterie-Set Alkaline, 84 Stück",
+   "size": 84,
+   "price": 14.99,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-84-stueck-273756"
+  },
   "sources": [
    "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-energy-30-stueck-272634",
    "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-20-stueck-in-einer-box-1-5-v-272290",
    "https://world.openproductsfacts.org/product/4008496978199",
    "https://world.openproductsfacts.org/product/4013674005482",
-   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
+   "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-84-stueck-273756"
   ],
   "price_checked": "2026-11"
  },
@@ -138,12 +146,20 @@
    }
   ],
   "claims": [],
+  "bulk": {
+   "product": "Ansmann Mignon-Batterie-Set Alkaline, 84 Stück",
+   "size": 84,
+   "price": 14.99,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-84-stueck-273756"
+  },
   "sources": [
    "https://www.pollin.de/p/duracell-alkaline-mignon-batterie-lr06-1-5v-plus-power-boost-4-stueck-273631",
    "https://www.pollin.de/p/duracell-alkaline-mignon-batterie-lr06-1-5v-plus-power-boost-16-stueck-273634",
    "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-20-stueck-in-einer-box-1-5-v-272290",
    "https://world.openfoodfacts.org/product/5000394176027",
-   "https://world.openproductsfacts.org/product/4013674005482"
+   "https://world.openproductsfacts.org/product/4013674005482",
+   "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-84-stueck-273756"
   ],
   "price_checked": "2026-11"
  },

@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  // Fixed at build time, so links can't start earning under pages built saying they don't. See src/lib/affiliate.ts.
+  env: {
+    AMAZON_ASSOCIATE_TAG: process.env.AMAZON_ASSOCIATE_TAG ?? "",
+    AMAZON_TAGS: process.env.AMAZON_TAGS ?? "",
+    WALMART_AFFILIATE_TEMPLATE: process.env.WALMART_AFFILIATE_TEMPLATE ?? "",
+    TARGET_AFFILIATE_TEMPLATE: process.env.TARGET_AFFILIATE_TEMPLATE ?? "",
+  },
   experimental: {
     // One static-generation worker per CPU overruns a 4 GB build cage on a 20-core host.
     cpus: 4,

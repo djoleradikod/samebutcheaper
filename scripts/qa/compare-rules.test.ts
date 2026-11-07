@@ -447,12 +447,22 @@ test("a line set to zero leaves the store split", () => {
   assert.deepEqual(storeSplit([{ store: "Tesco", cost: 0 }]), []);
 });
 
-test("any Amazon link counts as earning, whichever retailer the record names", () => {
-  assert.equal(mayEarn({ retailer: "other", url: "https://www.amazon.co.uk/dp/1" }), true);
-  assert.equal(mayEarn({ retailer: "apple", url: "https://www.amazon.com/dp/1" }), true);
-  assert.equal(mayEarn({ retailer: "walmart", url: "https://www.walmart.com/ip/1" }), true);
-  assert.equal(mayEarn({ retailer: "other", url: "https://www.uline.com/p/1" }), false);
-  assert.equal(mayEarn({ retailer: "other", url: "not a url" }), false);
+test("a tagged Amazon link counts as earning, whichever retailer the record names", () => {
+  // scripts/qa/affiliate-copy.test.ts covers the same links with no tag set, when none of them earns.
+  process.env.AMAZON_ASSOCIATE_TAG = "mine-20";
+  process.env.AMAZON_TAGS = "amazon.co.uk:mine-21";
+  process.env.WALMART_AFFILIATE_TEMPLATE = "https://goto.walmart.com/c/1/2/3?u={url}";
+  try {
+    assert.equal(mayEarn({ retailer: "other", url: "https://www.amazon.co.uk/dp/1" }), true);
+    assert.equal(mayEarn({ retailer: "apple", url: "https://www.amazon.com/dp/1" }), true);
+    assert.equal(mayEarn({ retailer: "walmart", url: "https://www.walmart.com/ip/1" }), true);
+    assert.equal(mayEarn({ retailer: "other", url: "https://www.uline.com/p/1" }), false);
+    assert.equal(mayEarn({ retailer: "other", url: "not a url" }), false);
+  } finally {
+    delete process.env.AMAZON_ASSOCIATE_TAG;
+    delete process.env.AMAZON_TAGS;
+    delete process.env.WALMART_AFFILIATE_TEMPLATE;
+  }
 });
 
 test("withCelsius adds Celsius to Fahrenheit figures", () => {

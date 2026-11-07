@@ -4,6 +4,71 @@ Owner push of 6 Nov. Brief: `~/ops/owner-push-20261106/samebutcheaper.md` and `s
 
 The critic has not picked ours on every piece, so the gauntlet is not finished. This branch is landing because the week's budget is running out, on the coordinator's instruction. See "Where it stands".
 
+## Country round, 7 Nov (read this first)
+
+samebutcheaper-96, brief `~/ops/owner-push-20261107/samebutcheaper.md`. Branch `worktree-country`, worktree `.claude/worktrees/country`. samebutcheaper-95's first part is `45858a2`. `:8851` serves this branch, not main, until it merges.
+
+**Done and passing in a real browser** (lane job at `36f8d0e`: gate exit 0, `country_check.py` failed 0, `interact_check.py` failed 0; `country_http.py` failed 0 on every later build):
+
+- **Picker.** Not a page bug. `router.refresh()` replaces the list about 0.2 s after the change, on `/`, `/bulk` and an aisle. The old check read at 0.04 s, because `wait_for_load_state("networkidle")` returns at once on a page that was already idle. The page now dims and sets `data-updating` until the server's answer arrives, and the check waits for that. Proved by choosing Ireland from the US in the picker.
+- **Seller filter.** Each swap, kit and basket carries `sellers`, worked out in `build-catalog.ts` by `sellerOf`: own-label name first, then `retailer`, then the link's host. A record from another market lists only where its seller operates, per `data/sellers/footprint.json`. That file comes from `scripts/qa/seller_footprint.py`, which opens each chain's national site and keeps it only if it stays on that country's address and names the chain in its title. A kit or basket needs every seller to pass. A fallback country gets one control in the band, "Show N swaps from other countries", cookie `sbc_others`. US and Canadian records stay out even then. The rule lives in `Local.shows`, and `forCountry` takes a `Local`.
+- **Written prices.** `Local.prose` converts prices in catalogue text and keeps the original beside them: "about EUR 5.26 (GBP 4.39)" in the catalogue's own symbols. Through `localText` on swaps, kits and dupes and `localClaim` on findings. compare.ts still reads the raw wording. The reported 50 of 120 UK summaries was true.
+- **Other review faults.** Home bulk rows and aisle tiles, `/ingredient`, `/brand`, `/brands`, `/ingredients`, `/search`, `/dupe` and `/why` follow the rule. A record that wouldn't list still opens from a direct link and says so (`NotListedHere`). `/brand/x`, `/ingredient/x` and `/category/x` answer 404. My List totals per currency when there's no country. `/check` uses the detected country. FDA label lines naming US store brands stay with the US and Canada. `isKnownCountry` no longer accepts `constructor`.
+- **Checks that can catch this.** `country_http.py` now fails on US-only brands and on chains absent from each of IE, GB, DE and HR, on nine list pages, with controls that must trip: the same patterns have to fire on the US and UK home pages and the German bulk page. The three false failures in `country_check.py` are gone.
+- **Rating floor.** `src/lib/rating.ts`, scales in `data/README.md`. `npm run catalog` fails a cheaper product under 0.6. German grades run backwards, so grade 3.0 sits on the floor with 3 stars. `scripts/qa/mine_ratings.py` writes `data/evidence/ratings.json` from scores the catalogue already quoted. Nothing failed the floor. Swap pages and cards show the rating or "No rating found yet", unrated sorts behind rated, and an unrated product doesn't lead the home page once a market has 12 rated.
+
+**Ireland.** `IE` is a real market now, too thin to lead (`THIN_MARKETS` in `localize.ts`): it still falls back to UK prices under the seller rule, the band says it has only started checking, and its own records list too and open the home page. Eight pet swaps carry real Irish prices and ratings from zooplus.ie, in `data/pairs/2026-11-ie-pet.json`. I opened every product page behind them on 7 Nov, not just the scouts. Royal Canin shows 4.8 of 5 from 61 on two different products, so the brand's rating is left off those two. Five of them have an economy pack as a bigger pack.
+
+**Numbers, from `scripts/qa/country_counts.ts`.** Before, Ireland listed 270 swaps by default, every one from the UK and Germany, or 440 with US and Canadian records earlier on 7 Nov. Rated cheaper products went from 22 to 86 of 448. Bigger packs went from 63 to 70. No clothing.
+
+| Country | Swaps | With control | Rated (would survive hiding unrated) | Baskets | Kits | Bulk rows |
+|---|---|---|---|---|---|---|
+| IE | 116 | 278 | 46 | 5 | 1 | 26 |
+| GB | 153 | 153 | 56 | 11 | 1 | 30 |
+| DE | 200 | 200 | 59 | 11 | 2 | 37 |
+| US | 224 | 224 | 47 | 9 | 37 | 18 |
+| CA | 186 | 186 | 30 | 9 | 37 | 17 |
+| HR | 71 | 278 | 34 | 1 | 0 | 15 |
+
+**Research: why so little came back.** Scouts on 7 Nov. Refusals and clauses are what they saw. I read SuperValu's clause myself and opened the zooplus.ie and Pollin pages used. Other terms quotes are the scouts', unchecked.
+
+- **Irish stores.** Tesco and Aldi refuse automated requests, so they stay the owner's hand check. Dunnes and Harvey Norman answer 403, Boots shows a bot check. SuperValu's prices are readable, but clause 1.2 of `shop.supervalu.ie/terms` says "intended solely for personal, non-commercial use" and bars reproducing content, so its prices are out. Woodie's terms bar copying without written approval. Lidl's pages opened with no readable price. Viking Ireland's prices default to ex VAT with quantity tiers and its terms are an unreadable PDF, so it's not used. zooplus.ie's terms show no bar, read through a summarising fetch.
+- **Open Prices** has 55 Irish rows, 51 since 2025, scattered across unrelated products, so no pairs.
+- **Bigger packs.** 0 rows from 26 candidates at mytime.de, Toolstation and Viking: those pages show quantity discounts on one pack. Two rows from Pollin (Ansmann 84 cells) and five economy packs from zooplus.ie. New battery pairs at Pollin were left out: the Ansmann 42 is out of stock and the 84 has no rating, and new pairs ship with a rating.
+- **Clothing.** No aisle, because no store could be used. Decathlon, Primark, H&M, Tesco, Adidas and Levi's refuse. M&S's terms bar crawling and commercial use, Dunnes's bar automated extraction, Regatta's bar copying. Lidl's clothing pages returned 404 to the fetcher, Mountain Warehouse's terms didn't load and its Irish site prices in pounds. The only independent test found is Stiftung Warentest on functional underwear, 2018. No public OEKO-TEX API. The GitHub clothing datasets are stale or unlicensed. This needs an affiliate or merchant feed, or prices checked by hand.
+- **Viking record prices may be stale.** A scout read A4 paper at GBP 3.83 against our 5.15, staples at GBP 1.55 against 2.39, and a kitchen roll whose URL says 42 sheets and page says 50. Not checked by me.
+- **Scout conduct, for the owner to know.** One scout fetched six pollin.de and one batteryjunction.com search pages against their robots rules, then stopped. Battery Junction answered 429. No price came from those pages. Another read one M&S category page and three Viking product pages before reading their terms; nothing from them is used. A scout reported that a mytime.de product page (Jeden Tag Babywindeln Maxi) carried embedded instructions aimed at agents, and ignored them. Treat that site's pages as data.
+- M&S's entries in the seller table come from one visit to each home page, before its terms were read. The script no longer opens it.
+
+**Independent review of `d603f3d` (Opus, high), and what happened to each finding.**
+- Fixed: /why and the header skipping the rule (1). Lists staying on the old country after Back or in another tab (2), Back now has a browser check. A rating row denying the brand a score the page quotes, and one-sided ratings counting as proof (3, 8). Written prices in GBP/EUR-code, cents, range, pair and German-comma forms (4, 5). Prices in spec names (6, the UK ones). Listed Tesco and Aldi records pointing only at other stores (9). Rated products not leading (10). The checks' gaps (11). Rating sources and wording (12).
+- Not fixed, each direct-link US or Canadian pages only: a raw `$` in `bulkView.bigger.product`, bundle extras and `lookFor` text, 13 on 10 pages (6). A CDN copy of `/search/index.json` from before `sellers` existed would throw in search (2); nothing's public yet, so **purge the cache at go-live**.
+- Owner's choice, unchanged: My List and shared links keep records from anywhere, because filtering makes saved items vanish, and the My List payload carries every record (7).
+- `fairy-max-power-original-vs-aldi` and any like it drop to "same kind" now a one-sided rating isn't proof. That's the rule working.
+
+**Left as they are, on reasoning.**
+- Swap pages can name chains as evidence ("at Morrisons, Manchester"), with the price converted beside them. That's where a price was seen, not where to buy, and those pages also offer Irish store searches.
+- A finding tagged for both the UK and Germany can name chains from each and keeps its pence, because it has no single currency. `country_http.py` skips `/why` for GB and DE for this reason.
+- Root Suspense stays for now: every page's body, `/about` and `/privacy` included, arrives in a hidden wrapper plus a script, so it's blank without JavaScript and crawlers that don't run scripts get hidden content. **Move it down to the parts that need the country before go-live.**
+- Rated-first sorting means "Biggest saving" can show a smaller saving above a bigger unrated one. That's the owner's accepted rule; it can read as a bug, so watch for it.
+
+**Evidence quality to know.** Tesco and Aldi in Ireland rest on Kantar's published Irish grocery shares of 20 Oct 2025, because tesco.ie and aldi.ie refuse automated requests. The owner's hand check of both is still open. Other countries' footprints come only from sites that opened: `refused` in the data file lists the ones that answered 403, such as Kaufland in Poland, Czechia and Slovakia, so those show fewer swaps than they might.
+
+**Needs the owner.**
+- One command was auto-denied: a local read-only script listing findings by market with a scan of the preview (`node .../claims.mjs` and `.../ie_scan.py`, job a323fc74). Nothing depends on it. I got the same facts with grep.
+- Whether to cite SuperValu's shelf prices with a link despite clause 1.2, and which affiliate or merchant feed to use for clothing and Irish groceries (card `sbc-affiliate-network`).
+
+## Round 2, 7 Nov
+
+The owner's "keep going and merge", brief `~/ops/owner-push-20261106/round2.md`, lead samebutcheaper-94. No critic round this time, so the verdicts below are from before these changes.
+
+- **Disclosure.** No affiliate tag is set, so the site now says no link earns anything. Footer, home, `/about`, `/how-we-verify`, `/disclosure`, swap and bundle pages all follow `linksEarn`, `amazonEarns` and `mayEarn` in `src/lib/affiliate.ts`. The old wording comes back by itself once a tag is set. `next.config.ts` fixes the tags at build time, so links can't start earning under pages built saying they don't: a tag set only at run time now does nothing, and setting one means a rebuild. The Dockerfile and compose pass them as build args. That part hasn't been run, because docker is refused here.
+- **`/bulk`.** One list with one row format, sorted as the shopper picks. Before, shelf-life sections broke the sort, so "Most saved" could open on -11% with -39% further down. Shelf life is now a filter with counts and a line on each row. New on each row: what that pack costs less than the same amount in normal packs, and how much less per unit it costs than the brand. "Most saved against the brand" now sorts on that bigger-pack figure. Desktop gets a filter rail, phone gets selects.
+- **Photos.** None added. All 7 Open Facts records that could match in tools, car, tech, garden and office failed by eye (reasons in `docs/research/R2-reuse.md`). Those aisles stay at 0/18, 0/11, 1/32, 1/9 and 2/9.
+- **Card `sbc-same-job-proof`.** The lists are in `docs/status/2026-11-07-same-job-proof-list.md` and on the page https://claude.ai/artifact/NYr41rifBRCJH5Tdyp4XdG, regenerated with `scripts/qa/same_job_list.ts`. Today's catalogue gives 30 and 26, against the card's 38 and 26, and 58 on a strict reading. The rule is unchanged.
+
+Left as they are, for the coordinator or the owner: the privacy page still says retailer cookies are "how affiliate purchases are credited". It's a general statement and legal text, so it wasn't touched. Store links still carry `rel="sponsored"` with no tag set, which readers don't see. The tags-set `/disclosure` keeps Amazon's program wording naming Amazon.com, even if only another storefront has a tag. Links on `/bulk` go to the store with no tag even once tags are set, which is honest but earns nothing. PR 2 touches the same disclosure, affiliate, swap, basket, Docker and compose files, so it will need a merge by hand when it lands.
+
 ## Where it stands
 
 Each page's last blind verdict, with labels stripped. Overall is the critic's pick; looks is a second pick on appearance alone.
@@ -40,8 +105,8 @@ Checks on this final code, through the lane: catalog, typegen, typecheck, lint, 
 
 ## Where things are
 
-- Branch `worktree-owner-push`, worktree `~/src/samebutcheaper/.claude/worktrees/owner-push`.
-- Preview: http://192.168.0.62:8851, served without docker by `~/ops/sbc-push-20261106/serve-preview.sh` from `/mnt/fast-storage/samebutcheaper-qa/preview/current`. That loop exits by itself 72 hours after it started, so about 9 Nov. It runs on until then without any session, and it isn't a system service, so it won't survive a reboot. Restart it with `nohup bash ~/ops/sbc-push-20261106/serve-preview.sh > /mnt/fast-storage/samebutcheaper-qa/preview/serve.log 2>&1 &`. Rebuild with `capped --mem 4G --name sbc-build -- ~/ops/sbc-push-20261106/build-preview.sh`; the loop reloads by itself.
+- Round 2 worktree `~/src/samebutcheaper/.claude/worktrees/round2`. The older `owner-push` worktree is merged and locked.
+- Preview: http://192.168.0.62:8851, served without docker by `~/ops/sbc-push-20261106/serve-preview.sh` from `/mnt/fast-storage/samebutcheaper-qa/preview/current`. That loop exits by itself 72 hours after it started, so about 9 Nov. It runs on until then without any session, and it isn't a system service, so it won't survive a reboot. Restart it with `nohup bash ~/ops/sbc-push-20261106/serve-preview.sh > /mnt/fast-storage/samebutcheaper-qa/preview/serve.log 2>&1 &`. Rebuild with `capped --mem 4G --name sbc-build -- bash scripts/qa/build-preview.sh` from a checkout at origin/main; the loop reloads by itself. The older script in `~/ops` builds the owner-push worktree, so don't use it.
 - Progress page: https://claude.ai/artifact/TMAnEFmEmY54BensNE7XmU. Its data are JSON assets. Upload a file with Artifact `asset: true`, then ArtifactData `update` on `datasets/<id>` with the new `source.url`.
 - Blind rounds: `~/ops/sbc-push-20261106/capture-round.sh`, `make-round.sh`, `reveal.py`. Keys in `blind-keys/`, captures in `/mnt/fast-storage/samebutcheaper-qa/`.
 - Gate: `kucni-heavy venture bash scripts/qa/gate.sh <log dir>`.
@@ -49,7 +114,7 @@ Checks on this final code, through the lane: catalog, typegen, typecheck, lint, 
 
 ## Port 3000
 
-It serves an old image. Containers are owner-only. The order matters. `owner-unblock.sh` stops unless the shared checkout is exactly at `1f0acc2`, and it also adds the tailnet routes, so it has to run before the pull:
+The owner's command hasn't changed in round 2. It serves an old image. Containers are owner-only. The order matters. `owner-unblock.sh` stops unless the shared checkout is exactly at `1f0acc2`, and it also adds the tailnet routes, so it has to run before the pull:
 
 ```
 bash ~/ops/test-access-20261105/owner-unblock.sh
@@ -69,7 +134,7 @@ The database volume is kept. `up -d` alone isn't enough, because main has moved 
 ## Still open
 
 - Photos: home and category lose on looks to idealo's studio renders. Community snapshots are the limit. 51 of the 308 cut photos are marked weak and sort after sharper ones; they still show.
-- `/bulk` loses to geizhals. Most rows have no photo and the catalogue has 63 bigger packs against its 1,639 listings.
+- `/bulk` lost to geizhals in round 10, before the round 2 rebuild, and hasn't been judged since. Most rows still have no photo, and the catalogue has 63 bigger packs against its 1,639 listings.
 - Baskets: the big total isn't one receipt. It's split by store now, and there's no one-store option.
 - Thin swaps: where the product you're told to buy has no photo, the page says so, and critics mark that down.
 - `sharp` is used by the image scripts and comes in only through Next. Add it as a direct dev dependency in a lane install.

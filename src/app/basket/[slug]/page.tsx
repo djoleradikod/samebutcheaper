@@ -12,6 +12,9 @@ import { money } from "@/lib/format";
 import { MARKET_LABEL, MARKETS } from "@/lib/markets";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Preset } from "@/lib/types";
+import { forCountry } from "@/lib/localize";
+import { NotListedHere } from "@/components/ShelfParts";
+import { getLocal } from "@/lib/server-country";
 
 const NEEDS_HEALTH_NOTE = new Set(["otc-medicine", "supplements", "baby", "pet"]);
 
@@ -86,9 +89,10 @@ export default async function BasketPage({ params }: PageProps<"/basket/[slug]">
   const p = getPreset(slug);
   if (!p) notFound();
 
-  const lines = basketLines(p);
+  const local = await getLocal();
+  const lines = basketLines(p, local);
   const dates = priceDates(p);
-  const all = getAllPresets();
+  const all = forCountry(getAllPresets(), local);
   const otherMarkets = all.filter((x) => x.family === p.family && x.slug !== p.slug);
   const related = all
     .filter((x) => x.family !== p.family)
@@ -109,6 +113,7 @@ export default async function BasketPage({ params }: PageProps<"/basket/[slug]">
   return (
     <BasketProvider lines={lines} currency={p.currency}>
       <article>
+        {!local.shows(p) && <NotListedHere market={p.market} local={local} />}
         <div className="border-b border-line bg-canvas">
           <div className="container-page pt-1 pb-6 md:pt-3 md:pb-8">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-ink-2">

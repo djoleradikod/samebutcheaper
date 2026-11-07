@@ -38,7 +38,10 @@ export function LocalSearch({
             <p className="text-xs leading-relaxed text-muted">{pharmacyNote(country)}</p>
           )}
           <ul className="grid gap-2 sm:grid-cols-2">
-            {storesFor(country).map((s) => (
+            {/* This product has no aisle, so a store that only suits some aisles stays out. */}
+            {storesFor(country)
+              .filter((s) => !s.aisles)
+              .map((s) => (
               <li key={s.id}>
                 <a
                   href={`/out?s=${s.id}&c=${country}&q=${encodeURIComponent(lookForQuery(lookFor, country))}&from=${from}`}

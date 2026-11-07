@@ -8,6 +8,8 @@ import { BundleCard } from "./BundleCard";
 import { LocalSearch } from "./LocalSearch";
 import { PairCard } from "./PairCard";
 import { ProductImage } from "./ProductImage";
+import { forCountry } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 
 const KIND_LABEL = {
   medicine: "Over-the-counter medicine",
@@ -19,8 +21,14 @@ const KIND_LABEL = {
 };
 
 /** Everything we know about one looked-up product, and what to buy instead. */
-export function ProductReport({ detail, from }: { detail: LookupDetail; from: string }) {
-  const { product: p, verified, sameActive, bundles, labelMatches, lookFor } = detail;
+export async function ProductReport({ detail, from }: { detail: LookupDetail; from: string }) {
+  const { product: p, labelMatches, lookFor } = detail;
+  const local = await getLocal();
+  const verified = forCountry(detail.verified, local);
+  const sameActive = forCountry(detail.sameActive, local);
+  const bundles = forCountry(detail.bundles, local);
+  // These lines name US store brands, so they stay with shoppers who can buy them.
+  const showLabels = labelMatches.length > 0 && (!local.known || local.country === "US" || local.country === "CA");
   const hasSwaps = verified.length + sameActive.length + bundles.length > 0;
   const matched = verified.filter((x) => x.match_type !== "same_kind");
   const sameKind = verified.filter((x) => x.match_type === "same_kind");
@@ -220,7 +228,7 @@ export function ProductReport({ detail, from }: { detail: LookupDetail; from: st
             }
           />
 
-          {labelMatches.length > 0 && (
+          {showLabels && (
             <div className="card p-5">
               <p className="flex items-center gap-2 font-semibold">
                 <Store className="h-4 w-4 text-accent" /> Same active ingredients on the official US label

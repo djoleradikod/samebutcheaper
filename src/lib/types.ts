@@ -1,6 +1,7 @@
 import type { BundleInput, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairInput, PresetInput, ShelfLifeInput } from "./schema";
-import type { Currency } from "./format";
+import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
+import type { RatingScale } from "./rating";
 
 export type MatchType = PairInput["match_type"];
 export type CategorySlug = PairInput["category"];
@@ -16,7 +17,21 @@ export type Photo = {
   weak?: boolean;
 };
 
-export type ProductSide = PairInput["brand"] & {
+/** A rating after the catalogue build: the raw score and scale, what it comes to as a share, and how it reads. */
+export type Rating = {
+  score: number;
+  scale: RatingScale;
+  count?: number;
+  source: string;
+  date?: string;
+  publisher?: string;
+  wording?: string;
+  share: number;
+  label: string;
+};
+
+export type ProductSide = Omit<PairInput["brand"], "rating"> & {
+  rating: Rating | null;
   /** Price per single unit (e.g. per tablet, per fl oz). */
   ppu: number;
   photo: Photo | null;
@@ -46,6 +61,8 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   /** Ranking score used for "biggest savings" ordering. */
   score: number;
   currency: Currency;
+  /** Who sells the cheaper product, for the seller rule in localize.ts. */
+  sellers: string[];
   /** What to search for in countries where this listing doesn't deliver. */
   lookFor: LookFor;
   /** Findings that apply to this swap, most specific first. */
@@ -81,6 +98,8 @@ export type PresetLine = {
 
 export type Preset = Omit<PresetInput, "items"> & {
   lines: PresetLine[];
+  /** Every line's seller. A basket only lists where all of them sell. */
+  sellers: string[];
   brandTotal: number;
   altTotal: number;
   savings: number;
@@ -105,6 +124,8 @@ export type Bundle = Omit<BundleInput, "components"> & {
   /** The brand kit's own photo, when one is on file. */
   photo: Photo | null;
   components: BundleComponent[];
+  /** Every component's seller. A kit only lists where all of them sell. */
+  sellers: string[];
   /** Sum of equivalentCost over all components. */
   equivalentTotal: number;
   /** Sum of full-pack prices (what you pay at the register to build it). */
@@ -141,6 +162,9 @@ export type PairSummary = {
   slug: string;
   title: string;
   market: MarketCode;
+  sellers: string[];
+  /** How the cheaper product rates, as it reads on a card. Null when we have no rating. */
+  altRating: string | null;
   currency: Currency;
   category: CategorySlug;
   subcategory: string;

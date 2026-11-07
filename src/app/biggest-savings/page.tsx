@@ -3,6 +3,8 @@ import { getAllPairs, getSiteStats } from "@/lib/catalog";
 import { MEDICINE } from "@/lib/browse";
 import { PairBrowser } from "@/components/PairBrowser";
 import { bestSaving, browseProps, PriceFacts, ShelfHead, swapCount } from "@/components/ShelfParts";
+import { forCountry } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 
 export const metadata: Metadata = {
   title: "Biggest savings: every swap, ranked",
@@ -11,8 +13,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/biggest-savings" },
 };
 
-export default function BiggestSavingsPage() {
-  const pairs = getAllPairs();
+export default async function BiggestSavingsPage() {
+  const local = await getLocal();
+  const pairs = forCountry(getAllPairs(), local);
   const stats = getSiteStats();
   // The list leaves medicine out until it's added, so the headline figures do too.
   const everyday = pairs.filter((p) => p.category !== MEDICINE);
@@ -26,7 +29,7 @@ export default function BiggestSavingsPage() {
         facts={<PriceFacts pairs={everyday} />}
       />
       <div className="container-page">
-        <PairBrowser path="/biggest-savings" {...browseProps(pairs, { hideMedicine: true })} showRank />
+        <PairBrowser path="/biggest-savings" {...browseProps(pairs, { hideMedicine: true, local })} showRank />
       </div>
     </div>
   );

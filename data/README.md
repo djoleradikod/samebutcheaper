@@ -16,9 +16,9 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 - `brand.unit` and `alternative.unit` must be the same unit, because savings are computed per unit.
 - At least 2 real `sources` URLs.
 - The alternative must be at least 5% cheaper per unit, or the build rejects it.
-- `market` is the country the prices were checked in: `US` (default), `GB`, `CA` or `DE`. `price` is in
+- `market` is the country the prices were checked in: `US` (default), `GB`, `CA`, `DE` or `IE`. `price` is in
   that country's currency (USD, GBP, CAD, EUR), and both sides of a pair must be priced in the same market.
-  Slugs for non-US pairs end in `-gb`, `-ca` or `-de`. (Older files use `price_usd`; it still works and means USD.)
+  Slugs for non-US pairs end in `-gb`, `-ca`, `-de` or `-ie`. (Older files use `price_usd`; it still works and means USD.)
 - `retailer` is one of the stores in `RETAILERS` in `src/lib/markets.ts`, or `other`.
 - `asin` is optional. When it is set, Amazon links go to that market's Amazon store (`amazon.com`, `amazon.co.uk`,
   `amazon.ca`, `amazon.de`) with the matching affiliate tag.
@@ -150,3 +150,37 @@ when both sides have one, credited and linked. Medicine and other aisles never g
   "price_checked": "2026-11"
 }
 ```
+
+## Country, currency and exchange rates
+
+The selected country (picker, or the geo cookie) sets the currency, the prices that lead and the stores we name. The rules live in `src/lib/localize.ts` and are tested in `scripts/qa/country-rules.test.ts`.
+
+- **Rates:** `data/fx/ecb-reference-rates.json`, from the [ECB's euro reference rates](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html), which are for information only. Refresh by saving `eurofxref-daily.xml` to an empty folder and running `python3 -I scripts/fx/ecb-to-json.py <saved file> data/fx/ecb-reference-rates.json`. The date in the file shows on the site.
+- **A converted price always says so:** "about €11.98 (£9.99 at a UK store, Nov 2026)". Cards have room for "about" and "UK prices", and the swap page shows the full form. Records hold a month, not a day, so that's the date shown.
+- **Fallback:** a country with no market of its own leads with the nearest one, and a band at the top of each page says so. The UK for Ireland and the countries in `NEAREST_IS_UK`, Germany for the rest. US and Canadian records never show in a list outside the US and Canada.
+- **No published rate:** Serbia, Bosnia, North Macedonia, Albania, Ukraine (German prices, in euro), the UAE, Saudi Arabia and Argentina (UK prices, in pounds). The band names the reason.
+- **Stores:** a store that doesn't sell in the selected country isn't named or linked; the row says "A UK store" and points to the local search. Every link added to `LOCAL_STORES` must have been opened and returned a results page. On 7 Nov 2026 Tesco Ireland, Dunnes, Aldi Ireland and Boots Ireland refused automated checks, so they aren't listed.
+- **Not localised, on purpose:** `<title>`, meta descriptions, social images and JSON-LD keep the record's own currency. Crawlers have no country, and those values have to match the record.
+
+## Ratings
+
+Owner's rule: nothing we recommend sits under 3 of 5 or 6 of 10. `npm run catalog` fails on a cheaper product under 0.6. The floor applies to the product we tell people to buy, not the brand it's compared with.
+
+A `rating` stores the score as the source gives it: `{ "score", "scale", "count", "source", "date", "publisher" }`. `stars` is the older spelling of a `stars-5` score. Scales, in `src/lib/rating.ts`:
+
+| Scale | Source's range | Share | Floor |
+|---|---|---|---|
+| `stars-5` | 0 to 5, higher is better | score / 5 | 3.0 |
+| `out-of-10` | 0 to 10, higher is better | score / 10 | 6.0 |
+| `percent` | 0 to 100, higher is better (Which?) | score / 100 | 60% |
+| `de-grade` | 1.0 best to 5 or 6 worst (Stiftung Warentest, Öko-Test words: sehr gut = 1, gut = 2, befriedigend = 3) | (6 - score) / 5 | 3.0 |
+
+German grades run backwards, so they can't share a formula. Grade 1 reads as 5 stars and grade 5 as 1 star, which puts grade 3.0 on the floor with 3 stars.
+
+Scores the catalogue already quoted in its text live in `data/evidence/ratings.json`, written by `scripts/qa/mine_ratings.py`. A rating in a pair's own record wins over that file. New pairs carry their rating in the record. Ratings follow the same rights rules as photos: quote the score and link the source, and don't copy review text.
+
+An unrated product stays listed and reads "No rating found yet". It sorts behind rated ones, and doesn't lead the home page or baskets once a market has enough rated swaps. The owner can still choose to hide unrated products outright.
+
+## Ireland
+
+`IE` is a market with too few swaps of its own to lead (`THIN_MARKETS` in `src/lib/localize.ts`): it still falls back to UK prices under the seller rule, says so, and lists its own records as well. Take it out of `THIN_MARKETS` once it can fill the home page. Irish records so far come from zooplus.ie, whose terms show no bar on reading prices. Left out on purpose: Tesco and Aldi Ireland, Dunnes, Boots and Harvey Norman refuse automated requests; SuperValu's terms (clause 1.2) say personal, non-commercial use only; Woodie's terms bar copying without written approval. A new Irish record ships with a rating.

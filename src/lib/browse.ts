@@ -1,4 +1,5 @@
 import { CATEGORIES, CATEGORY_MAP, MATCH_TYPE_META } from "./categories";
+import { isThinMarket, listMarketFor } from "./localize";
 import { isMarket, MARKET_CODES, MARKET_LABEL, type MarketCode } from "./markets";
 import type { PhotoTier } from "./photos";
 import type { Bundle, CategorySlug, MatchType, PairSummary } from "./types";
@@ -28,6 +29,8 @@ export type BrowseRow = {
   photo: boolean;
   /** Which group of the list it goes in, see photoTier. */
   tier: PhotoTier;
+  /** The cheaper product has a rating on file. Unrated ones sort behind it. */
+  rated: boolean;
   /** Saving per unit, 0 to 100. */
   pct: number;
   /** The cheaper unit price as the card shows it, in rough dollars so markets can rank together. */
@@ -37,7 +40,7 @@ export type BrowseRow = {
 };
 
 /** The fields BundleCard reads. A whole bundle is about ten times bigger. */
-export type BundleSummary = Pick<Bundle, "slug" | "title" | "category" | "match_type" | "savingsPct" | "equivalentTotal" | "currency"> & {
+export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers" | "category" | "match_type" | "savingsPct" | "equivalentTotal" | "currency"> & {
   bundle: Pick<Bundle["bundle"], "brand" | "name" | "price"> & { items: { name: string }[] };
   photo: { src: string } | null;
   components: (Pick<Bundle["components"][number], "brand" | "product" | "unit" | "replaces"> & {
@@ -108,13 +111,15 @@ export function shelfKey(label: string) {
 }
 
 /**
- * Until the shopper picks, show their own country's prices when the list has some to show.
- * Before the cookie is read, assume the US.
+ * Until the shopper picks, show their own country's prices, or the nearest market's when it has none.
+ * "all" means every row the server sent, and it leaves out US and Canadian records outside those two countries
+ * (see forCountry). With no country at all, assume the US.
  */
 export function defaultMarket(rows: BrowseRow[], country: string | null, hideMedicine = false): MarketCode | "all" {
-  const home = country ?? "US";
-  const hasSome = rows.some((r) => r.market === home && !(hideMedicine && r.aisle === MEDICINE));
-  return isMarket(home) && hasSome ? home : "all";
+  // A market too thin to lead shows its own records beside the fallback's.
+  if (isThinMarket(country)) return "all";
+  const lead = listMarketFor(country);
+  return rows.some((r) => r.market === lead && !(hideMedicine && r.aisle === MEDICINE)) ? lead : "all";
 }
 
 export function marketsIn(rows: BrowseRow[]) {
@@ -157,7 +162,7 @@ const COMPARE: Record<SortKey, (a: BrowseRow, b: BrowseRow) => number> = {
  */
 export function matchRows(rows: BrowseRow[], s: BrowseState, scope: Scope) {
   const compare = COMPARE[s.sort];
-  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || compare(a, b));
+  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || Number(b.rated) - Number(a.rated) || compare(a, b));
 }
 
 /** Cards already in tier order, split where the first tier ends. The second part is empty with only one tier. */

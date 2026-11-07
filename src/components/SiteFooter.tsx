@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { amazonEarns, linksEarn } from "@/lib/affiliate";
 import { getCategoryStats } from "@/lib/catalog";
 import { Logo } from "./Logo";
 
@@ -15,7 +16,7 @@ const LINKS = [
   { href: "/suggest", label: "Suggest a swap" },
   { href: "/about", label: "About" },
   { href: "/credits", label: "Photo credits" },
-  { href: "/disclosure", label: "Affiliate disclosure" },
+  { href: "/disclosure", label: linksEarn() ? "Affiliate disclosure" : "Disclosure" },
   { href: "/privacy", label: "Privacy" },
 ];
 
@@ -31,8 +32,11 @@ export function SiteFooter() {
             No brand pays to be listed or ranked.
           </p>
           <p className="mt-3 text-[13px] text-ink-2">
-            As an Amazon Associate we earn from qualifying purchases. That never changes which swaps we list or how we
-            rank them.{" "}
+            {amazonEarns()
+              ? "As an Amazon Associate we earn from qualifying purchases. That never changes which swaps we list or how we rank them."
+              : linksEarn()
+                ? "Some links are affiliate links. That never changes which swaps we list or how we rank them."
+                : "No link on this site earns us anything today."}{" "}
             <Link href="/disclosure" className="text-cobalt underline underline-offset-2">
               Read our disclosure
             </Link>

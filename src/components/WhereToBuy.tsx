@@ -12,6 +12,7 @@ import {
   type MarketCode,
 } from "@/lib/markets";
 import { useCountry } from "@/lib/client/country";
+import { sellsIn } from "@/lib/sellers";
 import { CountryPicker } from "./CountryPicker";
 
 /**
@@ -26,6 +27,7 @@ export function WhereToBuy({
   lookFor,
   health = false,
   compareWith,
+  aisle,
 }: {
   slug: string;
   market: MarketCode;
@@ -36,6 +38,8 @@ export function WhereToBuy({
   health?: boolean;
   /** Brand-name product to compare labels against, for non-ingredient matches. */
   compareWith?: string;
+  /** Leaves out specialist stores for other aisles. */
+  aisle?: string;
 }) {
   const country = useCountry();
 
@@ -60,7 +64,7 @@ export function WhereToBuy({
 
   const query = lookForQuery(lookFor, country);
   const amazon = COUNTRIES[country]?.amazon;
-  const stores = storesFor(country);
+  const stores = storesFor(country, aisle);
   return (
     <div className="card overflow-hidden" aria-live="polite">
       <div className="flex items-center justify-between gap-2 border-b border-line bg-canvas px-4 py-2.5">
@@ -72,7 +76,9 @@ export function WhereToBuy({
           <p className="text-ink-2">
             {delivery === "maybe"
               ? `${retailerLabel} in ${MARKETS[market].short} ships many items abroad, so check delivery and import fees at checkout. It's usually cheaper to buy locally. Look for:`
-              : `${retailerLabel} in ${MARKETS[market].short} doesn't deliver to ${countryInSentence(country)}. Look for this locally:`}
+              : sellsIn(retailer, country)
+                ? `We priced this at ${retailerLabel} in ${MARKETS[market].short}. ${retailerLabel} sells in ${countryInSentence(country)} too, so look for it there and check the price, as its range and prices can differ.`
+                : `The store we priced this at in ${MARKETS[market].short} doesn't deliver to ${countryInSentence(country)}. Look for this locally:`}
           </p>
           <p className="rounded-tile border border-line-strong bg-canvas px-3 py-2 font-semibold break-words">{query}</p>
           <p className="text-[13px] text-muted">

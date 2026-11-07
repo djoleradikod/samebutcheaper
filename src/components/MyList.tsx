@@ -5,7 +5,10 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Check, Copy, Trash2 } from "lucide-react";
 import { setSavedList, toggleSaved, useSavedList } from "@/lib/client/savedList";
-import { money, moneyTotals, type Currency } from "@/lib/format";
+import { useLocal } from "@/lib/client/country";
+import { money, type Currency } from "@/lib/format";
+import type { Local } from "@/lib/localize";
+import { Money } from "./Money";
 import type { CategorySlug } from "@/lib/types";
 import { ProductThumb } from "./ProductThumb";
 import { Ticket } from "./Ticket";
@@ -29,6 +32,20 @@ export type ListItem = {
   toAlt: string;
 };
 
+/**
+ * One figure in the shopper's currency, marked as approximate if any line had to be converted. With no country there's
+ * no currency to convert into, so each currency keeps its own total rather than adding pounds to euros.
+ */
+function restockText(list: ListItem[], local: Local) {
+  if (!local.known) {
+    const totals = new Map<Currency, number>();
+    for (const i of list) totals.set(i.currency, (totals.get(i.currency) ?? 0) + i.savings);
+    return [...totals].map(([currency, total]) => money(total, currency)).join(" + ");
+  }
+  const total = money(list.reduce((sum, i) => sum + local.amount(i.savings, i.currency), 0), local.currency);
+  return list.some((i) => local.converts(i.currency)) ? `about ${total}` : total;
+}
+
 export function MyList({ items }: { items: ListItem[] }) {
   const params = useSearchParams();
   const saved = useSavedList();
@@ -38,7 +55,8 @@ export function MyList({ items }: { items: ListItem[] }) {
   const slugs = viewingShared ? shared : saved;
   const byslug = new Map(items.map((i) => [i.slug, i]));
   const list = slugs.map((s) => byslug.get(s)).filter((x): x is ListItem => Boolean(x));
-  const perRestock = moneyTotals(list.map((i) => ({ amount: i.savings, currency: i.currency })));
+  const local = useLocal();
+  const perRestock = restockText(list, local);
 
   if (!list.length) {
     return (
@@ -93,7 +111,7 @@ export function MyList({ items }: { items: ListItem[] }) {
               </p>
             </div>
             <p className="col-start-2 row-start-2 md:col-start-3 md:row-start-1 md:text-right">
-              <span className="price text-[1.375rem] text-ink">{money(i.savings, i.currency)}</span>
+              <span className="price text-[1.375rem] text-ink"><Money n={i.savings} from={i.currency} /></span>
               <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{Math.round(i.savingsPct)}% less</span>
             </p>
             {!viewingShared && (

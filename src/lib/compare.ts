@@ -1,3 +1,4 @@
+import { NO_RATING } from "./rating";
 import { formatSize, inSentence, ppu } from "./format";
 import { differentSalts, ingredientKey, slugify } from "./ingredient-key";
 import type { CategorySlug, Pair, ProductSide } from "./types";
@@ -106,9 +107,9 @@ const listKey = (s: string) =>
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, "");
 
-function ratingText(p: ProductSide) {
-  if (!p.rating) return "Not rated";
-  return `${p.rating.stars.toFixed(1)} ★ (${p.rating.count.toLocaleString("en-US")})`;
+/** The cheaper product reads "No rating found yet". For a brand, that would contradict a test named elsewhere on the page. */
+function ratingText(p: ProductSide, missing: string) {
+  return p.rating?.label ?? missing;
 }
 
 /** What "inactive ingredients" means for this kind of product. */
@@ -540,13 +541,13 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
   }
 
   if (b.rating || a.rating) {
-    const diff = (a.rating?.stars ?? 0) - (b.rating?.stars ?? 0);
+    const diff = (a.rating?.share ?? 0) - (b.rating?.share ?? 0);
     rows.push({
-      aspect: "Shopper rating",
-      brand: ratingText(b),
-      alternative: ratingText(a),
+      aspect: a.rating?.publisher ? `${a.rating.publisher} score` : "Shopper rating",
+      brand: ratingText(b, "Not compared here"),
+      alternative: ratingText(a, NO_RATING),
       verdict:
-        !b.rating || !a.rating ? "unknown" : Math.abs(diff) <= 0.2 ? "same" : diff > 0 ? "alt_better" : "brand_better",
+        !b.rating || !a.rating ? "unknown" : Math.abs(diff) <= 0.04 ? "same" : diff > 0 ? "alt_better" : "brand_better",
       source: a.rating?.source ?? b.rating?.source,
       kind: "rating",
     });
@@ -604,7 +605,7 @@ export function hasProof(c: Comparison) {
 
 const CONTAINER = "pack|packet|bag|bottle|can|box|tub|tin|jar|tube|pouch|roll|carton|container";
 /** A researched row with one of these names only restates the pack size, which compares nothing: "Bag size", "Length per roll". */
-const RESTATES_PACK = new RegExp(
+export const RESTATES_PACK = new RegExp(
   `^(?:(?:${CONTAINER})(?: (?:size|count|contents))?|(?:size|length|weight|volume|contents|count|amount) (?:of|per) (?:the |a )?(?:${CONTAINER}))$`,
   "i",
 );
@@ -624,7 +625,8 @@ function proofOnFile(c: Comparison) {
     ...researched.slice(0, RESEARCHED_NAMED),
     ...(others > 0 ? [`${others} other ${others === 1 ? "point" : "points"}`] : []),
     ...(has("licence") ? ["licence numbers"] : []),
-    ...(has("rating") ? ["shopper ratings"] : []),
+    // As above, a rating on one side only compares nothing.
+    ...(c.rows.some((r) => r.kind === "rating" && r.verdict !== "unknown") ? ["ratings"] : []),
   ];
 }
 

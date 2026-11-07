@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import { citationDate, Finding } from "@/components/Finding";
 import { ProductThumb } from "@/components/ProductThumb";
 import { getAllPairs, getClaims, getPairsByCategory, getShelfLife } from "@/lib/catalog";
+import { findingShows, forCountry, localClaim, type Local } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 import { CATEGORIES, CATEGORY_MAP } from "@/lib/categories";
 import { withCelsius } from "@/lib/format";
 import type { CategorySlug, Claim, ShelfLife } from "@/lib/types";
@@ -40,7 +42,7 @@ type AisleGroup = { id: string; name: string; findings: Claim[]; alsoHere: Claim
  * "general" first, then the aisles in shop order, medicine last. A finding prints once, in the
  * first place it belongs; later aisles link back to it so nothing reads twice.
  */
-function groupByAisle(claims: Claim[]) {
+function groupByAisle(claims: Claim[], local: Local) {
   const sorted = [...claims].sort((a, b) => latest(b).localeCompare(latest(a)));
   const known = CATEGORIES.map((c) => c.slug as string);
   const others = [...new Set(sorted.flatMap((c) => c.categories))].filter((s) => s !== GENERAL && !known.includes(s));
@@ -54,7 +56,7 @@ function groupByAisle(claims: Claim[]) {
       name: id === GENERAL ? "Across every aisle" : aisleName(id),
       findings: here.filter((c) => !printed.has(c.id)),
       alsoHere: here.filter((c) => printed.has(c.id)),
-      swaps: known.includes(id) ? getPairsByCategory(id as CategorySlug).length : 0,
+      swaps: known.includes(id) ? forCountry(getPairsByCategory(id as CategorySlug), local).length : 0,
     });
     here.forEach((c) => printed.add(c.id));
   }
@@ -82,8 +84,8 @@ function lostFrom(claim: Claim) {
 
 /* --------------------------------------------------------------- shelf-life rows */
 
-function shelfRows(records: ShelfLife[]) {
-  const pairs = getAllPairs();
+function shelfRows(records: ShelfLife[], local: Local) {
+  const pairs = forCountry(getAllPairs(), local);
   return records
     .map((record) => {
       const swaps = pairs.filter((p) => p.shelfLife?.id === record.id);
@@ -118,7 +120,7 @@ function Cell({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-function ShelfTable({ records }: { records: ShelfLife[] }) {
+function ShelfTable({ records, local }: { records: ShelfLife[]; local: Local }) {
   return (
     <table role="table" className="card block w-full lg:table lg:table-fixed lg:border-separate lg:border-spacing-0">
       <caption className="sr-only">How long things keep, grouped by whether to stock up, buy to use or buy small</caption>
@@ -132,7 +134,7 @@ function ShelfTable({ records }: { records: ShelfLife[] }) {
         </tr>
       </thead>
       {ADVICE.map((group) => {
-        const rows = shelfRows(records.filter((r) => r.advice === group.advice));
+        const rows = shelfRows(records.filter((r) => r.advice === group.advice), local);
         if (!rows.length) return null;
         return (
           <tbody key={group.advice} id={`advice-${group.advice}`} role="rowgroup" className="block scroll-mt-24 lg:table-row-group">
@@ -185,10 +187,13 @@ function ShelfTable({ records }: { records: ShelfLife[] }) {
 
 /* --------------------------------------------------------------------- the page */
 
-export default function WhyPage() {
-  const claims = getClaims();
+export default async function WhyPage() {
+  const local = await getLocal();
+  const claims = getClaims()
+    .filter((c) => findingShows(c, local))
+    .map((c) => localClaim(c, local));
   const shelfLife = getShelfLife();
-  const groups = groupByAisle(claims);
+  const groups = groupByAisle(claims, local);
   const lost = claims.map((claim) => ({ claim, text: lostFrom(claim) })).filter((x) => x.text);
   const publishers = new Set(claims.flatMap((c) => c.sources.map((s) => s.publisher))).size;
 
@@ -288,7 +293,7 @@ export default function WhyPage() {
                 Photos
               </Link>
             </div>
-            <ShelfTable records={shelfLife} />
+            <ShelfTable records={shelfLife} local={local} />
           </div>
         </section>
       )}

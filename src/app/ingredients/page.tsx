@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getIngredients, type IngredientEntry } from "@/lib/catalog";
 import { AzIndex, bestSaving, ListLinks, ShelfHead, type IndexEntry } from "@/components/ShelfParts";
+import { forCountry } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 
 export const metadata: Metadata = {
   title: "Browse by ingredient",
@@ -26,8 +28,11 @@ function toEntry(i: IngredientEntry): IndexEntry {
   };
 }
 
-export default function IngredientsPage() {
-  const ingredients = getIngredients();
+export default async function IngredientsPage() {
+  const local = await getLocal();
+  const ingredients = getIngredients()
+    .map((i) => ({ ...i, pairs: forCountry(i.pairs, local) }))
+    .filter((i) => i.pairs.length > 0);
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead

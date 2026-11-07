@@ -10,13 +10,17 @@ import { HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Eviden
 import { ProductThumb } from "@/components/ProductThumb";
 import { SaveButton } from "@/components/SaveButton";
 import { SaveTicket } from "@/components/Ticket";
-import { mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
+import { linksEarn, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
 import { money, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
-import { unitDisplay, unitPrice } from "@/lib/unit-format";
+import { unitDisplay } from "@/lib/unit-format";
+import { forCountry, localText, MARKET_ADJECTIVE } from "@/lib/localize";
+import { NotListedHere } from "@/components/ShelfParts";
+import { getLocal } from "@/lib/server-country";
+import { Money, UnitAmount } from "@/components/Money";
 import type { Bundle } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -47,11 +51,14 @@ function eagerTarget(b: Bundle) {
 
 export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">) {
   const { slug } = await params;
-  const b = getBundle(slug);
-  if (!b) notFound();
+  const record = getBundle(slug);
+  if (!record) notFound();
 
+  const local = await getLocal();
+  const b = localText(record, local);
+  const sells = (retailer: string) => local.sells(retailer, b.market);
   const cat = CATEGORY_MAP[b.category];
-  const related = getAllBundles()
+  const related = forCountry(getAllBundles(), local)
     .filter((x) => x.slug !== b.slug)
     .sort((x, y) => Number(y.category === b.category) - Number(x.category === b.category) || y.score - x.score)
     .slice(0, 4);
@@ -59,7 +66,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
     b.bundle.billing === "subscription" && b.bundle.supply_days ? (b.savings / b.bundle.supply_days) * 30 : null;
   const pieces = b.components.slice(0, 4);
   const eager = eagerTarget(b);
-  const earns = b.components.some((c) => mayEarn(c)) || mayEarn(b.bundle);
+  const earns = b.components.some((c) => mayEarn(c, b.market)) || mayEarn(b.bundle, b.market);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,6 +80,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
 
   return (
     <article>
+      {!local.shows(record) && <NotListedHere market={record.market} local={local} />}
       <div className="border-b border-line bg-canvas">
         <div className="container-page pt-1 pb-6 md:pt-3 md:pb-8">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-ink-2">
@@ -104,7 +112,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                   />
                 </div>
                 <p className="mt-2 text-[13px] font-medium text-ink-2">The {b.bundle.brand} kit</p>
-                <p className="price mt-1 text-[1.75rem] font-semibold text-muted md:text-[2rem]">{money(b.bundle.price, b.currency)}</p>
+                <p className="price mt-1 text-[1.75rem] font-semibold text-muted md:text-[2rem]"><Money n={b.bundle.price} from={b.currency} /></p>
                 <p className="mt-1 text-xs text-muted">
                   {b.bundle.billing === "subscription" ? "Per shipment" : "One price"}
                   {b.bundle.supply_days ? `, about ${b.bundle.supply_days} days' supply` : ""}
@@ -116,7 +124,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                   size="lg"
                   amount={b.savings}
                   currency={b.currency}
-                  sub={perMonth ? `about ${money(perMonth, b.currency)} a month` : `${Math.round(b.savingsPct)}% less`}
+                  sub={perMonth ? `about ${local.bare(perMonth, b.currency)} a month` : `${Math.round(b.savingsPct)}% less`}
                 />
               </div>
 
@@ -141,7 +149,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                 <p className="mt-2 text-[13px] font-medium text-ink-2">
                   Built from {b.components.length} cheaper item{b.components.length === 1 ? "" : "s"}
                 </p>
-                <p className="price mt-1 text-[2.25rem] text-ink md:text-[2.75rem]">{money(b.equivalentTotal, b.currency)}</p>
+                <p className="price mt-1 text-[2.25rem] text-ink md:text-[2.75rem]"><Money n={b.equivalentTotal} from={b.currency} /></p>
                 <p className="mt-1 text-xs text-muted">The same amount as the kit holds</p>
               </div>
             </div>
@@ -166,7 +174,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                 </div>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3">
                   <dt className="text-ink-2">Buying every full pack</dt>
-                  <dd className="price text-base">{money(b.upfrontTotal, b.currency)}</dd>
+                  <dd className="price text-base"><Money n={b.upfrontTotal} from={b.currency} /></dd>
                 </div>
               </dl>
               {b.upfrontTotal > b.bundle.price && (
@@ -176,14 +184,16 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
               )}
               <div className="mt-3 space-y-2">
                 <SaveButton slug={b.slug} />
-                <a
-                  href={`/go/${b.slug}/brand`}
-                  target="_blank"
-                  rel="sponsored nofollow noopener"
-                  className="btn btn-ghost w-full"
-                >
-                  See the kit at {storeName(b.bundle.retailer, b.bundle.url)} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                </a>
+                {sells(b.bundle.retailer) && (
+                  <a
+                    href={`/go/${b.slug}/brand`}
+                    target="_blank"
+                    rel="sponsored nofollow noopener"
+                    className="btn btn-ghost w-full"
+                  >
+                    See the kit at {storeName(b.bundle.retailer, b.bundle.url)} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                  </a>
+                )}
               </div>
             </aside>
           </div>
@@ -218,11 +228,11 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                         <p className="mt-1 text-[15px] leading-snug font-semibold">{withBrand(c.brand, c.product)}</p>
                         <p className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[13px] text-ink-2">
                           <span>
-                            <span className="price text-[15px] text-ink">{unitPrice(c.ppu, c.unit, b.currency)}</span>{" "}
+                            <span className="price text-[15px] text-ink"><UnitAmount ppu={c.ppu} unit={c.unit} from={b.currency} /></span>{" "}
                             {unitDisplay(c.unit).label}
                           </span>
                           <span>
-                            Pack of {packSize(c.size, c.unit)}, <span className="num">{money(c.price, b.currency)}</span>
+                            Pack of {packSize(c.size, c.unit)}, <span className="num"><Money n={c.price} from={b.currency} /></span>
                           </span>
                           <MatchBadge type={c.match_type} />
                         </p>
@@ -239,16 +249,18 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                       <div className="col-span-2 flex items-center justify-between gap-3 md:col-span-1 md:flex-col md:items-end md:justify-start">
                         <p className="md:text-right">
                           <span className="block text-xs font-medium text-muted">Same amount</span>
-                          <span className="price mt-0.5 block text-[1.375rem] text-ink">{money(c.equivalentCost, b.currency)}</span>
+                          <span className="price mt-0.5 block text-[1.375rem] text-ink"><Money n={c.equivalentCost} from={b.currency} /></span>
                         </p>
-                        <a
-                          href={`/go/${b.slug}/item-${i}`}
-                          target="_blank"
-                          rel="sponsored nofollow noopener"
-                          className="btn btn-ghost text-sm"
-                        >
-                          {c.retailer === "other" ? "Go to the store" : RETAILER_LABEL[c.retailer]} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                        </a>
+                        {sells(c.retailer) && (
+                          <a
+                            href={`/go/${b.slug}/item-${i}`}
+                            target="_blank"
+                            rel="sponsored nofollow noopener"
+                            className="btn btn-ghost text-sm"
+                          >
+                            {c.retailer === "other" ? "Go to the store" : RETAILER_LABEL[c.retailer]} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                          </a>
+                        )}
                       </div>
                     </li>
                   );
@@ -256,7 +268,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
               </ol>
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-b-card border-t border-line-strong bg-canvas px-3 py-3 md:px-4">
                 <p className="text-sm font-medium">Same amount as the kit</p>
-                <p className="price text-[1.375rem] text-ink">{money(b.equivalentTotal, b.currency)}</p>
+                <p className="price text-[1.375rem] text-ink"><Money n={b.equivalentTotal} from={b.currency} /></p>
               </div>
             </div>
           </section>
@@ -290,15 +302,15 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
               {b.components.map((c, i) => (
                 <li key={c.replaces}>
                   <a
-                    href={`/go/${b.slug}/item-${i}`}
-                    target="_blank"
+                    href={sells(c.retailer) ? `/go/${b.slug}/item-${i}` : "#where-to-buy"}
+                    target={sells(c.retailer) ? "_blank" : undefined}
                     rel="sponsored nofollow noopener"
                     className="group flex min-h-11 items-center justify-between gap-3 py-2 text-sm"
                   >
                     <span className="min-w-0">
                       <span className="block truncate font-medium group-hover:underline">{c.brand}</span>
                       <span className="block text-xs text-muted">
-                        <span className="num">{money(c.price, b.currency)}</span> at {storeName(c.retailer, c.url)}
+                        <span className="num"><Money n={c.price} from={b.currency} /></span> at {sells(c.retailer) ? storeName(c.retailer, c.url) : `a ${MARKET_ADJECTIVE[b.market]} store`}
                       </span>
                     </span>
                     <ExternalLink className="h-3.5 w-3.5 shrink-0 text-cobalt" aria-hidden="true" />
@@ -308,22 +320,28 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
             </ul>
           </div>
           <p className="text-xs text-muted">
-            {earns ? "Some of these are affiliate links, so we may earn a commission at no extra cost to you." : "We don't earn anything from these links."}{" "}
+            {earns
+              ? "Some of these are affiliate links, so we may earn a commission at no extra cost to you."
+              : linksEarn()
+                ? "These links don't earn us anything. A store search further down may."
+                : "We don't earn anything from these links."}{" "}
             <Link href="/disclosure" className="underline underline-offset-2">
               Details
             </Link>
           </p>
-          <BundleWhereToBuy
-            slug={b.slug}
-            market={b.market}
-            health={HEALTH_CATEGORIES.has(b.category)}
-            items={b.components.map((c) => ({
-              retailer: c.retailer,
-              retailerLabel: storeName(c.retailer, c.url),
-              replaces: b.bundle.items[c.replaces].name,
-              lookFor: c.lookFor,
-            }))}
-          />
+          <div id="where-to-buy" className="scroll-mt-20">
+            <BundleWhereToBuy
+              slug={b.slug}
+              market={b.market}
+              health={HEALTH_CATEGORIES.has(b.category)}
+              items={b.components.map((c) => ({
+                retailer: c.retailer,
+                retailerLabel: storeName(c.retailer, c.url),
+                replaces: b.bundle.items[c.replaces].name,
+                lookFor: c.lookFor,
+              }))}
+            />
+          </div>
         </aside>
       </div>
 

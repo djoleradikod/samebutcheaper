@@ -1,11 +1,11 @@
 import Link from "next/link";
 import type { Currency } from "@/lib/format";
-import { money } from "@/lib/format";
 import type { MarketCode } from "@/lib/markets";
 import { MarketNote } from "./CountryPicker";
 import { ProductThumb } from "./ProductThumb";
 import { SaveTicket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
+import { Money } from "./Money";
 
 /** All a basket card needs, so the home page doesn't ship whole presets to the browser. */
 export type BasketSummary = {
@@ -86,9 +86,9 @@ export function BasketCard({ basket: b, eager = false }: { basket: BasketSummary
             <MarketNote market={b.market} />
           </p>
           <p className="mt-1 flex items-baseline whitespace-nowrap">
-            <span className="price text-base leading-none font-semibold text-muted">{money(b.brandTotal, b.currency)}</span>
+            <span className="price text-base leading-none font-semibold text-muted"><Money n={b.brandTotal} from={b.currency} /></span>
             <ToArrow className="text-muted" />
-            <span className="price text-xl leading-none text-ink">{money(b.altTotal, b.currency)}</span>
+            <span className="price text-xl leading-none text-ink"><Money n={b.altTotal} from={b.currency} /></span>
           </p>
           <SaveTicket size="md" amount={b.savings} currency={b.currency} className="mt-2" />
         </div>
