@@ -17,37 +17,46 @@ samebutcheaper-96, brief `~/ops/owner-push-20261107/samebutcheaper.md`. Branch `
 - **Checks that can catch this.** `country_http.py` now fails on US-only brands and on chains absent from each of IE, GB, DE and HR, on nine list pages, with controls that must trip: the same patterns have to fire on the US and UK home pages and the German bulk page. The three false failures in `country_check.py` are gone.
 - **Rating floor.** `src/lib/rating.ts`, scales in `data/README.md`. `npm run catalog` fails a cheaper product under 0.6. German grades run backwards, so grade 3.0 sits on the floor with 3 stars. `scripts/qa/mine_ratings.py` writes `data/evidence/ratings.json` from scores the catalogue already quoted. Nothing failed the floor. Swap pages and cards show the rating or "No rating found yet", unrated sorts behind rated, and an unrated product doesn't lead the home page once a market has 12 rated.
 
-**Numbers, from `scripts/qa/country_counts.ts`.** Ireland lists 108 swaps by default against 270 before. Rated cheaper products went from 22 of 440 to 73 of 440.
+**Ireland.** `IE` is a real market now, too thin to lead (`THIN_MARKETS` in `localize.ts`): it still falls back to UK prices under the seller rule, the band says it has only started checking, and its own records list too and open the home page. Eight pet swaps carry real Irish prices and ratings from zooplus.ie, in `data/pairs/2026-11-ie-pet.json`. I opened every product page behind them on 7 Nov, not just the scouts. Royal Canin shows 4.8 of 5 from 61 on two different products, so the brand's rating is left off those two. Five of them have an economy pack as a bigger pack.
+
+**Numbers, from `scripts/qa/country_counts.ts`.** Before, Ireland listed 270 swaps by default, every one from the UK and Germany, or 440 with US and Canadian records earlier on 7 Nov. Rated cheaper products went from 22 to 86 of 448. Bigger packs went from 63 to 70. No clothing.
 
 | Country | Swaps | With control | Rated (would survive hiding unrated) | Baskets | Kits | Bulk rows |
 |---|---|---|---|---|---|---|
-| IE | 108 | 270 | 35 | 5 | 1 | 21 |
-| GB | 145 | 145 | 45 | 11 | 1 | 25 |
-| DE | 192 | 192 | 46 | 11 | 2 | 32 |
-| US | 224 | 224 | 44 | 9 | 37 | 18 |
+| IE | 116 | 278 | 46 | 5 | 1 | 26 |
+| GB | 153 | 153 | 56 | 11 | 1 | 30 |
+| DE | 200 | 200 | 59 | 11 | 2 | 37 |
+| US | 224 | 224 | 47 | 9 | 37 | 18 |
 | CA | 186 | 186 | 30 | 9 | 37 | 17 |
-| HR | 63 | 270 | 23 | 1 | 0 | 10 |
+| HR | 71 | 278 | 34 | 1 | 0 | 15 |
 
-**Research: why so little came back.** Scouts on 7 Nov, each claim of a refusal or clause below is what they saw, and the SuperValu clause I read myself.
+**Research: why so little came back.** Scouts on 7 Nov. Refusals and clauses are what they saw. I read SuperValu's clause myself and opened the zooplus.ie and Pollin pages used. Other terms quotes are the scouts', unchecked.
 
-- Irish stores: Tesco and Aldi refuse automated requests. Dunnes and Harvey Norman answer 403, Boots shows a bot check. SuperValu's prices are readable, but clause 1.2 of `shop.supervalu.ie/terms` says "intended solely for personal, non-commercial use" and bars reproducing content, so I left them out. Woodie's terms bar copying without written approval. Lidl's pages opened with no readable price.
-- Open Prices has 55 Irish rows, 51 since 2025, scattered across unrelated products, so no pairs.
-- Bigger packs: 0 new rows from 26 candidates at mytime.de, Toolstation and Viking. Those pages show quantity discounts on one pack, not bigger packs. The same scout read Viking prices that differ from our records (A4 paper GBP 3.83 against 5.15, staples GBP 1.55 against 2.39), and a Viking kitchen roll whose URL says 42 sheets and page says 50. Not checked by me.
-- Clothing: Decathlon, Primark, H&M and Tesco refuse, Uniqlo didn't connect. The only independent test found is Stiftung Warentest on functional underwear, 2018. No public OEKO-TEX API. The GitHub clothing datasets are stale or unlicensed.
-- A scout reported that a mytime.de product page (Jeden Tag Babywindeln Maxi) carried embedded instructions aimed at agents. It ignored them. Anyone scouting that site should treat its pages as data.
+- **Irish stores.** Tesco and Aldi refuse automated requests, so they stay the owner's hand check. Dunnes and Harvey Norman answer 403, Boots shows a bot check. SuperValu's prices are readable, but clause 1.2 of `shop.supervalu.ie/terms` says "intended solely for personal, non-commercial use" and bars reproducing content, so its prices are out. Woodie's terms bar copying without written approval. Lidl's pages opened with no readable price. Viking Ireland's prices default to ex VAT with quantity tiers and its terms are an unreadable PDF, so it's not used. zooplus.ie's terms show no bar, read through a summarising fetch.
+- **Open Prices** has 55 Irish rows, 51 since 2025, scattered across unrelated products, so no pairs.
+- **Bigger packs.** 0 rows from 26 candidates at mytime.de, Toolstation and Viking: those pages show quantity discounts on one pack. Two rows from Pollin (Ansmann 84 cells) and five economy packs from zooplus.ie. New battery pairs at Pollin were left out: the Ansmann 42 is out of stock and the 84 has no rating, and new pairs ship with a rating.
+- **Clothing.** No aisle, because no store could be used. Decathlon, Primark, H&M, Tesco, Adidas and Levi's refuse. M&S's terms bar crawling and commercial use, Dunnes's bar automated extraction, Regatta's bar copying. Lidl's clothing pages returned 404 to the fetcher, Mountain Warehouse's terms didn't load and its Irish site prices in pounds. The only independent test found is Stiftung Warentest on functional underwear, 2018. No public OEKO-TEX API. The GitHub clothing datasets are stale or unlicensed. This needs an affiliate or merchant feed, or prices checked by hand.
+- **Viking record prices may be stale.** A scout read A4 paper at GBP 3.83 against our 5.15, staples at GBP 1.55 against 2.39, and a kitchen roll whose URL says 42 sheets and page says 50. Not checked by me.
+- **Scout conduct, for the owner to know.** One scout fetched six pollin.de and one batteryjunction.com search pages against their robots rules, then stopped. Battery Junction answered 429. No price came from those pages. Another read one M&S category page and three Viking product pages before reading their terms; nothing from them is used. A scout reported that a mytime.de product page (Jeden Tag Babywindeln Maxi) carried embedded instructions aimed at agents, and ignored them. Treat that site's pages as data.
+- M&S's entries in the seller table come from one visit to each home page, before its terms were read. The script no longer opens it.
 
-**Not done.** See the end of this section for the current state of the Irish market and clothing.
-
-**Still open from the review, unchecked and smaller.** Another tab doesn't refresh when it picks up a new country on focus (`client/country.ts`). My List and shared links keep US records, because filtering would make saved items vanish.
+**Independent review of `d603f3d` (Opus, high), and what happened to each finding.**
+- Fixed: /why and the header skipping the rule (1). Lists staying on the old country after Back or in another tab (2), Back now has a browser check. A rating row denying the brand a score the page quotes, and one-sided ratings counting as proof (3, 8). Written prices in GBP/EUR-code, cents, range, pair and German-comma forms (4, 5). Prices in spec names (6, the UK ones). Listed Tesco and Aldi records pointing only at other stores (9). Rated products not leading (10). The checks' gaps (11). Rating sources and wording (12).
+- Not fixed, each direct-link US or Canadian pages only: a raw `$` in `bulkView.bigger.product`, bundle extras and `lookFor` text, 13 on 10 pages (6). A CDN copy of `/search/index.json` from before `sellers` existed would throw in search (2); nothing's public yet, so **purge the cache at go-live**.
+- Owner's choice, unchanged: My List and shared links keep records from anywhere, because filtering makes saved items vanish, and the My List payload carries every record (7).
+- `fairy-max-power-original-vs-aldi` and any like it drop to "same kind" now a one-sided rating isn't proof. That's the rule working.
 
 **Left as they are, on reasoning.**
 - Swap pages can name chains as evidence ("at Morrisons, Manchester"), with the price converted beside them. That's where a price was seen, not where to buy, and those pages also offer Irish store searches.
+- A finding tagged for both the UK and Germany can name chains from each and keeps its pence, because it has no single currency. `country_http.py` skips `/why` for GB and DE for this reason.
 - Root Suspense stays for now: every page's body, `/about` and `/privacy` included, arrives in a hidden wrapper plus a script, so it's blank without JavaScript and crawlers that don't run scripts get hidden content. **Move it down to the parts that need the country before go-live.**
 - Rated-first sorting means "Biggest saving" can show a smaller saving above a bigger unrated one. That's the owner's accepted rule; it can read as a bug, so watch for it.
 
 **Evidence quality to know.** Tesco and Aldi in Ireland rest on Kantar's published Irish grocery shares of 20 Oct 2025, because tesco.ie and aldi.ie refuse automated requests. The owner's hand check of both is still open. Other countries' footprints come only from sites that opened: `refused` in the data file lists the ones that answered 403, such as Kaufland in Poland, Czechia and Slovakia, so those show fewer swaps than they might.
 
-**Needs the owner:** one command was auto-denied at 19:0x UTC: a local read-only script listing findings by market, with a scan of the preview (`node .../claims.mjs` and `.../ie_scan.py`). Nothing depends on it. I got the same facts with grep.
+**Needs the owner.**
+- One command was auto-denied: a local read-only script listing findings by market with a scan of the preview (`node .../claims.mjs` and `.../ie_scan.py`, job a323fc74). Nothing depends on it. I got the same facts with grep.
+- Whether to cite SuperValu's shelf prices with a link despite clause 1.2, and which affiliate or merchant feed to use for clothing and Irish groceries (card `sbc-affiliate-network`).
 
 ## Round 2, 7 Nov
 
