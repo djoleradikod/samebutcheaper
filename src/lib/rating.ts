@@ -7,6 +7,13 @@
  */
 export const RATING_FLOOR = 0.6;
 
+/** Below this many shoppers a rating says nothing, in either direction. A named test isn't a headcount, so it's exempt. See data/README.md. */
+export const MIN_RATINGS = 5;
+
+export function ratingCounts(r: { count?: number | null; publisher?: string | null }) {
+  return Boolean(r.publisher) || (r.count ?? 0) >= MIN_RATINGS;
+}
+
 export const RATING_SCALES = ["stars-5", "out-of-10", "percent", "de-grade"] as const;
 export type RatingScale = (typeof RATING_SCALES)[number];
 

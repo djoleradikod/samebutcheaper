@@ -5,8 +5,19 @@ import catalog from "../../src/generated/catalog.json";
 import { defaultMarket, type BrowseRow } from "../../src/lib/browse";
 import { COUNTRY_CURRENCY, fallbackNotice, findingShows, forCountry, listMarketFor, localFor, NO_RATE, oneOfEachSwap, rate, visibleMarkets } from "../../src/lib/localize";
 import { COUNTRIES, deliversTo, isKnownCountry, storesFor, type MarketCode } from "../../src/lib/markets";
-import { inRange, RATING_FLOOR, ratingLabel, ratingShare } from "../../src/lib/rating";
+import { inRange, MIN_RATINGS, RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../../src/lib/rating";
 import { sellerOf, sellsIn } from "../../src/lib/sellers";
+
+test("a shopper rating from too few people doesn't count as rated, and a named test does", () => {
+  assert.equal(ratingCounts({ count: MIN_RATINGS }), true);
+  assert.equal(ratingCounts({ count: MIN_RATINGS - 1 }), false, "two people giving five stars isn't evidence");
+  assert.equal(ratingCounts({ count: 1, publisher: "Which?" }), true, "a test isn't a headcount");
+  assert.equal(ratingCounts({ publisher: "Stiftung Warentest" }), true);
+  assert.equal(ratingCounts({}), false, "a shopper rating with no count can't be judged");
+  const pairs = catalog.pairs as unknown as { slug: string; alternative: { rating: { count?: number; publisher?: string } | null } }[];
+  const under = pairs.filter((p) => p.alternative.rating && !ratingCounts(p.alternative.rating)).map((p) => p.slug);
+  assert.deepEqual(under, [], "the catalogue holds a rating that shouldn't count");
+});
 
 test("one swap lists once: the record nearest the shopper wins", () => {
   const de = { slug: "x-de", market: "DE" as MarketCode, sellers: ["zooplus"], twin: { slug: "x-ie", market: "IE" as MarketCode } };

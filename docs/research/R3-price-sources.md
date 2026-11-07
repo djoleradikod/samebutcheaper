@@ -277,6 +277,8 @@ https://prices.openfoodfacts.org/api/v1/prices.
 
 ## Added during the November research rounds
 
+**Corrected 7 Nov: see R4.** zooplus and Pollin bar this in their imprints, and Crocus restricts reuse in its terms. This document read only sales terms for German stores and missed those clauses, so read `R4-source-audit.md` before relying on any status here.
+
 Researchers read these sites' robots rules and terms before citing them. This table records what they found; nobody has read the
 terms again since. Prices were read through a summarising fetch, so a price on the site is the record, and each swap carries its date.
 

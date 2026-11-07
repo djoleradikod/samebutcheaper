@@ -167,6 +167,8 @@ The selected country (picker, or the geo cookie) sets the currency, the prices t
 
 Owner's rule: nothing we recommend sits under 3 of 5 or 6 of 10. `npm run catalog` fails on a cheaper product under 0.6. The floor applies to the product we tell people to buy, not the brand it's compared with.
 
+A shopper rating needs at least 5 ratings to count (`MIN_RATINGS`). Under that, the build treats the product as unrated on either side: it reads "No rating found yet", sorts behind rated products and isn't proof of anything, and the floor doesn't apply. Two or three people giving 5 stars isn't evidence. A rating with no count can't be judged, so it doesn't count either. A named test such as Which? or Stiftung Warentest is exempt, because it isn't a headcount. Keep a thin rating in the record: it counts once a re-read finds enough ratings.
+
 A `rating` stores the score as the source gives it: `{ "score", "scale", "count", "source", "date", "publisher" }`. `stars` is the older spelling of a `stars-5` score. Scales, in `src/lib/rating.ts`:
 
 | Scale | Source's range | Share | Floor |
