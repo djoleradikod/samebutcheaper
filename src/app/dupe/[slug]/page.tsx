@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: PageProps<"/dupe/[slug]">): P
 /** What the comparison found, in the semantic colours of the same-or-different table. */
 function MatchCounts({ pair }: { pair: Pair }) {
   const m = matchParts(comparison(pair));
-  const spec = pair.match_type === "equivalent_spec";
+  const spec = pair.match_type === "equivalent_spec" || pair.match_type === "same_kind";
   const cells = [
     { n: m.same, label: "the same", tone: "bg-same-soft text-same" },
     { n: m.differ, label: "differ or to check", tone: "bg-different-soft text-different" },

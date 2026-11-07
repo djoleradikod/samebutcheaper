@@ -17,6 +17,8 @@ export const MATCH_TYPES = [
   "identical_formula",
   "same_manufacturer",
   "equivalent_spec",
+  // Not written by hand: the catalogue build sets it on an equivalent_spec swap with nothing on file beyond pack and price.
+  "same_kind",
 ] as const;
 
 const ingredient = z.object({

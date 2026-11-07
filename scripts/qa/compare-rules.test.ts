@@ -5,7 +5,7 @@
  */
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { comparison, nutrientVerdict, onFileIntro, sideNamed, sortDifferences } from "../../src/lib/compare";
+import { comparison, hasProof, nutrientVerdict, onFileIntro, sideNamed, sortDifferences } from "../../src/lib/compare";
 import type { Pair } from "../../src/lib/types";
 
 const side = (brand: string, product: string) => ({
@@ -238,6 +238,10 @@ test("a safety warning stays in the differences even when it reads like a caveat
   ]) {
     assert.deepEqual(sortDifferences(s), { points: [s], caveats: [] }, s);
   }
+});
+
+test("a swap with only pack and price on file has no proof", () => {
+  assert.equal(hasProof(comparison(pair({}))), false);
 });
 
 test("records too far apart on energy lose their figures", () => {

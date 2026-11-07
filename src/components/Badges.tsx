@@ -11,7 +11,7 @@ export function SavingsBadge({ pct, size = "md" }: { pct: number; size?: "md" | 
 export function MatchBadge({ type, long = false }: { type: MatchType; long?: boolean }) {
   const meta = MATCH_TYPE_META[type];
   return (
-    <span title={meta.description} className="text-[13px] font-medium text-same">
+    <span title={meta.description} className={`text-[13px] font-medium ${type === "same_kind" ? "text-muted" : "text-same"}`}>
       {long ? meta.label : meta.short}
     </span>
   );

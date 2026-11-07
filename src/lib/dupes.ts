@@ -19,7 +19,7 @@ export function dupeSlugify(s: string) {
 
 /** The active ingredients in plain form, or null for spec matches such as chargers. */
 export function dupeActives(p: DupeInput): string[] | null {
-  if (p.match_type === "equivalent_spec") return null;
+  if (p.match_type === "equivalent_spec" || p.match_type === "same_kind") return null;
   const names = p.brand.key_ingredients.map((i) => i.name.replace(/\s*\(.*?\)/g, "").trim()).filter(Boolean);
   return names.length ? names : null;
 }

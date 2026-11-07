@@ -53,7 +53,7 @@ export default function AboutPage() {
       <h2>How a swap gets listed</h2>
       <p>
         We read labels, ingredient lists and spec sheets, look for independent tests, and link to at least two sources. Each swap says which
-        of our <Link href="/how-we-verify">four standards</Link> it meets. Where the brand is better, the swap says that too.
+        of our <Link href="/how-we-verify">standards</Link> it meets. Where the brand is better, the swap says that too.
       </p>
       <p>
         Medicines and supplements are in the catalogue as well, with a health note on those pages. Nothing here is medical advice, so read

@@ -203,4 +203,10 @@ export const MATCH_TYPE_META: Record<
       "Published specs, certifications or independent tests show they do the same job to a comparable standard.",
     strength: 3,
   },
+  same_kind: {
+    label: "Same kind of product",
+    short: "Same kind",
+    description: "The same kind of product, priced from real sources. Nothing we have compares what's inside or how well it works.",
+    strength: 1,
+  },
 };

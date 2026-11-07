@@ -103,7 +103,7 @@ function ingredientRows(pair: Pair, slugFor?: (name: string) => string | undefin
     if (row) row.alt = i.amount;
     else rows.set(key, { name: i.name, alt: i.amount });
   }
-  const chemistry = pair.match_type !== "equivalent_spec";
+  const chemistry = pair.match_type !== "equivalent_spec" && pair.match_type !== "same_kind";
   return [...rows.values()].map((r) => {
     const both = r.brand !== undefined && r.alt !== undefined;
     const same = both && norm(r.brand!) === norm(r.alt!);
@@ -529,7 +529,7 @@ export function comparison(pair: Pair, slugFor?: (name: string) => string | unde
   const ordered = leadsWithFormula ? [first, ...researched, ...rest] : [...researched, ...generated];
   // A test result is the proof a doubtful shopper is looking for, so it goes first.
   return {
-    label: pair.match_type === "equivalent_spec" ? "Specs" : "Active ingredients",
+    label: pair.match_type === "equivalent_spec" || pair.match_type === "same_kind" ? "Specs" : "Active ingredients",
     ingredients,
     rows: [...ordered.filter((r) => r.kind === "test"), ...ordered.filter((r) => r.kind !== "test")],
     nutrition: nutritionGroup(pair),
@@ -544,11 +544,22 @@ const RESEARCHED_NAMED = 3;
  * promise specs, certifications or tests the table doesn't show.
  */
 export function onFileIntro(c: Comparison) {
+  const proof = proofOnFile(c);
+  if (proof.length === 0) return "All we have on file for this swap is the pack size and the unit price. Nothing here compares what's inside.";
+  return `On file for this swap: ${proof.join(", ")}, pack size and unit price.`;
+}
+
+/** Whether anything on file goes beyond pack and price. Without it a swap can't claim to do the same job. */
+export function hasProof(c: Comparison) {
+  return proofOnFile(c).length > 0;
+}
+
+function proofOnFile(c: Comparison) {
   const has = (kind: RowKind) => c.rows.some((r) => r.kind === kind);
   const tests = c.rows.filter((r) => r.kind === "test").map((r) => r.aspect);
   const researched = c.rows.filter((r) => r.kind === "researched" && norm(r.aspect) !== "pack").map((r) => inSentence(r.aspect));
   const others = researched.length - RESEARCHED_NAMED;
-  const proof = [
+  return [
     ...(tests.length === 1 ? [`the ${tests[0]} result`] : tests.length > 1 ? [`${tests.length} test results`] : []),
     ...(c.nutrition ? [c.nutrition.rows.some((r) => r.aspect !== "Ingredients") ? "nutrition and ingredients from community records" : "ingredients from community records"] : []),
     ...(c.ingredients.length ? [inSentence(c.label)] : []),
@@ -559,8 +570,6 @@ export function onFileIntro(c: Comparison) {
     ...(has("licence") ? ["licence numbers"] : []),
     ...(has("rating") ? ["shopper ratings"] : []),
   ];
-  if (proof.length === 0) return "All we have on file for this swap is the pack size and the unit price. Nothing here compares what's inside.";
-  return `On file for this swap: ${proof.join(", ")}, pack size and unit price.`;
 }
 
 /** Words that end in a full stop without ending the sentence. */

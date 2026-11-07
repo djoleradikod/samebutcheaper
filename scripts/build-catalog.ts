@@ -26,6 +26,7 @@ import {
   type PresetInput,
 } from "../src/lib/schema";
 import { APPROX_USD, MARKETS, type LookFor } from "../src/lib/markets";
+import { comparison, hasProof } from "../src/lib/compare";
 import { dupeSlugFor } from "../src/lib/dupes";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, ShelfLife } from "../src/lib/types";
 
@@ -367,6 +368,8 @@ for (const file of files) {
       return;
     }
     seen.add(pair.slug);
+    // A swap with only pack and price on file can't claim to do the same job, whatever its record says.
+    if (pair.match_type === "equivalent_spec" && !hasProof(comparison(pair))) pair.match_type = "same_kind";
     pairs.push(pair);
   });
 }

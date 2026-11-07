@@ -136,7 +136,7 @@ export function WhyBlock({
       >
         <div className="min-w-0 max-w-3xl">
           <h2 id="why" className="display text-[22px] md:text-2xl">
-            Why the extra money buys little
+            {pair.match_type === "same_kind" ? "What we know so far" : "Why the extra money buys little"}
           </h2>
           <p className="mt-2 text-[17px] leading-snug text-ink">{pair.why ?? pair.summary}</p>
           {showSummary && <p className="mt-2 text-[15px] text-ink">{pair.summary}</p>}

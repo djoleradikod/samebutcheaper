@@ -132,7 +132,7 @@ export function SiteHeader() {
                   <Link
                     href={`/category/${a.slug}`}
                     title={a.name}
-                    className="flex h-11 items-center px-2 text-sm focus-visible:outline-offset-[-2px] font-medium text-ink-2 hover:text-ink hover:underline md:h-10"
+                    className="flex h-11 items-center px-2 text-sm lg:px-1.5 focus-visible:outline-offset-[-2px] font-medium text-ink-2 hover:text-ink hover:underline md:h-10"
                   >
                     {AISLE_LABEL[a.slug]}
                   </Link>

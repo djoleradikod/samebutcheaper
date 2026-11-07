@@ -8,7 +8,7 @@ import type { MatchType } from "@/lib/types";
 export const metadata: Metadata = {
   title: "How we check every swap",
   description:
-    "The four standards a cheaper product has to meet before we list it, where our prices come from, how savings are worked out, and what we leave out.",
+    "The standards behind each swap we list, where our prices come from, how savings are worked out, and what we leave out.",
   alternates: { canonical: "/how-we-verify" },
 };
 
@@ -34,6 +34,11 @@ const STANDARDS: { type: MatchType; detail: string }[] = [
     detail:
       "For skincare, hair care, pet treatments, supplements and over-the-counter medicines. We read the facts panel or label on both products, from the maker or a public label database. The active ingredient, the amount per dose and the form all have to match.",
   },
+  {
+    type: "same_kind",
+    detail:
+      "The weakest label, and we say so. Both are the same kind of product with prices from real sources, but nothing we have compares what's inside or how well it works, so it's a cheaper option to try and not a proven match. Any swap with only pack and price on file gets this label automatically.",
+  },
 ];
 
 export default function HowWeVerifyPage() {
@@ -43,9 +48,9 @@ export default function HowWeVerifyPage() {
   return (
     <ProsePage
       title="How we check every swap"
-      intro={`A swap only goes live when its evidence meets one of four standards. Each one says which standard it meets, lists what differs and links to at least two sources. There are ${stats.pairs} swaps in ${stats.categories} aisles today.`}
+      intro={`Each swap carries a label saying how far its evidence goes, lists what differs and links to at least two sources. There are ${stats.pairs} swaps in ${stats.categories} aisles today.`}
     >
-      <h2>The four standards</h2>
+      <h2>What each label means</h2>
       {STANDARDS.map(({ type, detail }) => (
         <div key={type} className="card my-3 px-4 py-3">
           <p className="my-0 flex flex-wrap items-baseline justify-between gap-x-3">

@@ -154,6 +154,7 @@ export function PairBrowser({
   const cardRows = firstText < 0 ? shown : shown.slice(0, firstText);
   const textRows = firstText < 0 ? [] : shown.slice(firstText);
   const explainSameJob = path.startsWith("/category/") && matched.some((r) => r.match === "equivalent_spec");
+  const explainSameKind = path.startsWith("/category/") && matched.some((r) => r.match === "same_kind");
   const multiMarket = facets.markets.length > 1;
   const medicineLeftOut =
     hideMedicine && !state.medicine && !state.aisles.length
@@ -261,9 +262,10 @@ export function PairBrowser({
           </p>
         )}
 
-        {explainSameJob && (
+        {(explainSameJob || explainSameKind) && (
           <p className="mt-1 max-w-[68ch] text-[13px] text-ink-2 lg:mt-2">
-            {MATCH_TYPE_META.equivalent_spec.short}: {MATCH_TYPE_META.equivalent_spec.description}{" "}
+            {explainSameJob && `${MATCH_TYPE_META.equivalent_spec.short}: ${MATCH_TYPE_META.equivalent_spec.description} `}
+            {explainSameKind && `${MATCH_TYPE_META.same_kind.short}: ${MATCH_TYPE_META.same_kind.description} `}
             <Link
               href="/how-we-verify"
               className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"

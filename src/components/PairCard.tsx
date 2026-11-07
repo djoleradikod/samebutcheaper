@@ -101,7 +101,7 @@ export function PairRow({ pair }: { pair: PairSummary }) {
       <div className="col-span-2 flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 md:contents">
         <UnitPrice size="sm" unit={pair.unit} alt={pair.altPpu} brand={pair.brandPpu} currency={pair.currency} />
         <p className="flex flex-wrap items-baseline gap-x-2 text-xs font-medium">
-          <span className="text-same" title={MATCH_TYPE_META[pair.matchType].description}>
+          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={MATCH_TYPE_META[pair.matchType].description}>
             {matchText(pair.matchType)}
           </span>
           <MarketNote market={pair.market} />

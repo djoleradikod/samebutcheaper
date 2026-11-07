@@ -134,7 +134,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
 
             <p className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5">
               <MatchBadge type={pair.match_type} long />
-              <ConfidenceBadge confidence={pair.confidence} />
+              {pair.match_type !== "same_kind" && <ConfidenceBadge confidence={pair.confidence} />}
               {sameLicence && (
                 <span className="text-[13px] font-medium text-same">Same licensed medicine, {sameLicence}</span>
               )}
@@ -452,6 +452,7 @@ function verdict(pair: Pair) {
     identical_formula: `has the same formula as ${b.brand}`,
     same_manufacturer: `comes from the same manufacturer as ${b.brand}`,
     equivalent_spec: `does the same job as ${b.brand}`,
+    same_kind: `is the same kind of product as ${b.brand}`,
   }[pair.match_type];
   return `${a.brand} ${what} and costs ${Math.round(pair.savingsPct)}% less${label === "each" ? "" : ` ${label}`}.`;
 }

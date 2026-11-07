@@ -108,8 +108,10 @@ export function getBiggestDollarSavings(limit = 6): Pair[] {
 export function getRelatedPairs(pair: Pair, limit = 4): Pair[] {
   // Same country's prices first, then the closest product type.
   const rank = (p: Pair) => (p.market === pair.market ? 0 : 2) + (p.subcategory === pair.subcategory ? 0 : 1);
-  return catalog.pairs
-    .filter((p) => p.slug !== pair.slug && p.category === pair.category)
+  const others = catalog.pairs.filter((p) => p.slug !== pair.slug && p.category === pair.category);
+  // These are image cards, so swaps with a photo go first and text-only cards show only in an aisle with no photos at all.
+  const withPhoto = others.filter((p) => p.brand.photo || p.alternative.photo);
+  return (withPhoto.length ? withPhoto : others)
     .map((p, i) => ({ p, r: rank(p), i }))
     .sort((a, b) => a.r - b.r || a.i - b.i)
     .slice(0, limit)
