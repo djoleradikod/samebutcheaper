@@ -8,8 +8,8 @@ const COUNTRY_HEADER = "x-sbc-country";
 
 /**
  * 1. HTTP Basic auth for /admin (ADMIN_PASSWORD; the user name is "admin").
- * 2. Remembers the shopper's country in a cookie the first time we see them. Pages render per request
- *    for the selected country (see the root layout), so this also hands the detected country to that
+ * 2. Remembers the shopper's country in a cookie the first time we see them. Parts of a page render per request
+ *    for the selected country (see CountryPart), so this also hands the detected country to that
  *    first render, when the cookie isn't on the request yet.
  */
 export function proxy(request: NextRequest) {
