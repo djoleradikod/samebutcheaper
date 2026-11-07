@@ -36,15 +36,27 @@ function readOthers() {
   }
 }
 
-/** The server's reading of the country, so the first render already matches it. See CountryProvider. */
-export const CountryContext = createContext<string | null>(null);
+/** The server's reading of the country, so the first render already matches it. Undefined outside a CountryPart: nobody has read it. */
+export const CountryContext = createContext<string | null | undefined>(undefined);
 /** The same for the shopper's choice to see other countries' swaps. */
 export const OthersContext = createContext(false);
 
-/** The shopper's country, or null when unknown. */
+/**
+ * The shopper's country, or null when unknown. Outside a CountryPart the server hasn't read the country, and rendering
+ * as if it were unknown would put records' own prices in the static HTML for everyone, so that fails the build instead.
+ */
 export function useCountry(): string | null {
   const fromServer = useContext(CountryContext);
-  return useSyncExternalStore(subscribe, read, () => fromServer);
+  return useSyncExternalStore(subscribe, read, () => {
+    if (fromServer === undefined) throw new Error("useCountry was server-rendered outside a CountryPart, so it would show every country the same prices.");
+    return fromServer;
+  });
+}
+
+/** For what's fine blank until the browser reads the cookie, and so can sit in the static HTML: the header's picker, which names no price. */
+export function useCountryOrBlank(): string | null {
+  const fromServer = useContext(CountryContext);
+  return useSyncExternalStore(subscribe, read, () => fromServer ?? null);
 }
 
 /** Currency, conversions, fallback and which records list for the shopper's country. */

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { getBrands, type BrandEntry } from "@/lib/catalog";
 import { AzIndex, bestSaving, ListLinks, ShelfHead, type IndexEntry } from "@/components/ShelfParts";
-import { forCountry } from "@/lib/localize";
-import { getLocal } from "@/lib/server-country";
+import { forCountry, type Local } from "@/lib/localize";
+import { CountryPart } from "@/components/ForCountry";
 
 export const metadata: Metadata = {
   title: "Brands we've found cheaper alternatives for",
@@ -28,22 +28,39 @@ function toEntry(b: BrandEntry): IndexEntry {
   };
 }
 
-export default async function BrandsPage() {
-  const local = await getLocal();
-  // Only what lists for this shopper counts, and a brand with nothing left drops out.
-  const brands = getBrands()
+/** Only what lists for this shopper counts, and a brand with nothing left drops out. */
+function brandsFor(local: Local) {
+  return getBrands()
     .map((b) => ({ ...b, pairs: forCountry(b.pairs, local), bundles: forCountry(b.bundles, local) }))
     .filter((b) => b.pairs.length + b.bundles.length > 0);
+}
+
+export default function BrandsPage() {
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead
         crumbs={[{ href: "/", label: "Home" }, { label: "Brands" }]}
-        title={`Cheaper swaps by brand: ${brands.length} brand${brands.length === 1 ? "" : "s"}`}
+        title={
+          <>
+            Cheaper swaps by brand
+            <CountryPart fallback={null}>
+              {(local) => {
+                const n = brandsFor(local).length;
+                return `: ${n} brand${n === 1 ? "" : "s"}`;
+              }}
+            </CountryPart>
+          </>
+        }
         intro="Pick a brand you buy and see what does the same job for less."
         facts={<ListLinks />}
       />
       <div className="container-page">
-        {brands.length ? <AzIndex entries={brands.map(toEntry)} /> : <p className="card p-5">No brands listed yet.</p>}
+        <CountryPart>
+          {(local) => {
+            const brands = brandsFor(local);
+            return brands.length ? <AzIndex entries={brands.map(toEntry)} /> : <p className="card p-5">No brands listed yet.</p>;
+          }}
+        </CountryPart>
       </div>
     </div>
   );

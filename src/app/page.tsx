@@ -27,7 +27,7 @@ import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
 import { findingShows, forCountry, isThinMarket, localClaim, type Local } from "@/lib/localize";
 import type { MarketCode } from "@/lib/markets";
-import { getLocal } from "@/lib/server-country";
+import { CountryPart } from "@/components/ForCountry";
 import { jsonLdText } from "@/lib/site";
 import type { CategorySlug, Claim, Pair as PairT, PairSummary, Preset, ShelfLife } from "@/lib/types";
 
@@ -206,9 +206,38 @@ function buildFaq(aisles: string[]) {
 
 /* --------------------------------------------------------------------- the page */
 
-export default async function Home() {
-  const local = await getLocal();
-  const swapCount = forCountry(getAllPairs(), local).length;
+export default function Home() {
+  return (
+    <>
+      <div className="bg-canvas">
+        <div className="container-page pt-4 md:pt-5">
+          {/* The first screen is the shop: one line, then the baskets. */}
+          <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between md:gap-8">
+            <h1 className="display text-[1.75rem] md:text-[2.5rem]">Same job. Lower price.</h1>
+            <div className="text-[13px] leading-snug text-ink-2 md:pb-1 md:text-right">
+              <CountryPart fallback={<p className="text-sm font-medium">&nbsp;</p>}>
+                {(local) => (
+                  <p className="text-sm font-medium text-ink">
+                    <span className="num">{forCountry(getAllPairs(), local).length}</span> swaps, each with at least two sources.
+                  </p>
+                )}
+              </CountryPart>
+              <p className="hidden md:block">
+                No brand pays to be listed. {linksEarn() ? "Some links earn us a commission." : "No link earns us anything today."}{" "}
+                <Link href="/how-we-verify" className="text-cobalt underline underline-offset-2">
+                  How we check
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <CountryPart>{(local) => <HomeBody local={local} />}</CountryPart>
+    </>
+  );
+}
+
+function HomeBody({ local }: { local: Local }) {
   const categories = getCategoryStats((list) => forCountry(list, local)).filter((c) => c.count > 0);
   const baskets = basketsFor(local);
   const hasBaskets = baskets.length > 0;
@@ -230,23 +259,7 @@ export default async function Home() {
   return (
     <>
       <div className="bg-canvas">
-        <div className="container-page pt-4 pb-8 md:pt-5 md:pb-10">
-          {/* The first screen is the shop: one line, then the baskets. */}
-          <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between md:gap-8">
-            <h1 className="display text-[1.75rem] md:text-[2.5rem]">Same job. Lower price.</h1>
-            <div className="text-[13px] leading-snug text-ink-2 md:pb-1 md:text-right">
-              <p className="text-sm font-medium text-ink">
-                <span className="num">{swapCount}</span> swaps, each with at least two sources.
-              </p>
-              <p className="hidden md:block">
-                No brand pays to be listed. {linksEarn() ? "Some links earn us a commission." : "No link earns us anything today."}{" "}
-                <Link href="/how-we-verify" className="text-cobalt underline underline-offset-2">
-                  How we check
-                </Link>
-              </p>
-            </div>
-          </div>
-
+        <div className="container-page pb-8 md:pb-10">
           {hasBaskets && (
             <section className="mt-4">
               <SectionHeading title="Swap a whole basket" />

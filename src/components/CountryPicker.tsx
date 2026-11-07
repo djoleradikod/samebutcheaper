@@ -3,14 +3,14 @@
 import { ChevronDown, Globe } from "lucide-react";
 import { MARKET_ADJECTIVE } from "@/lib/localize";
 import { COUNTRY_OPTIONS, MARKET_LABEL, countryName, type MarketCode } from "@/lib/markets";
-import { setCountry, useCountry } from "@/lib/client/country";
+import { setCountry, useCountry, useCountryOrBlank } from "@/lib/client/country";
 
 /**
  * Country picker. A transparent native <select> sits over a styled label, so
  * it stays accessible and opens the platform picker on phones.
  */
 export function CountryPicker({ className = "", withName = false }: { className?: string; withName?: boolean }) {
-  const country = useCountry();
+  const country = useCountryOrBlank();
   return (
     <span
       className={`relative inline-flex h-11 items-center gap-1.5 rounded-tile border border-line bg-paper px-2.5 text-sm font-medium text-ink-2 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cobalt hover:border-ink-2 hover:text-ink md:h-9 ${className}`}

@@ -123,12 +123,24 @@ export function PriceFacts({ pairs }: { pairs: { savingsPct: number; price_check
   );
 }
 
+/** The biggest saving as a shelf ticket. Nothing at 0. */
+export function BestTicket({ best }: { best: number }) {
+  const n = Math.round(best);
+  if (n <= 0) return null;
+  return (
+    <Ticket size="lg" sub="biggest saving" label={`Up to ${n}% cheaper per unit`}>
+      −{n}%
+    </Ticket>
+  );
+}
+
 /** Breadcrumb, H1 and what the list is on the left. The biggest saving as a shelf ticket on the right. */
 export function ShelfHead({
   crumbs,
   title,
   intro,
   best = 0,
+  ticket,
   facts,
 }: {
   crumbs: Crumb[];
@@ -136,9 +148,12 @@ export function ShelfHead({
   intro?: ReactNode;
   /** The biggest saving, 0 to 100. Leaves the ticket off at 0. */
   best?: number;
+  /** The same ticket where the saving depends on the country: a CountryPart around a BestTicket. */
+  ticket?: ReactNode;
   facts?: ReactNode;
 }) {
   const n = Math.round(best);
+  const shown = ticket ?? (n > 0 ? <BestTicket best={best} /> : null);
   return (
     <header className="container-page pb-4 md:pb-5">
       <Crumbs crumbs={crumbs} />
@@ -147,16 +162,10 @@ export function ShelfHead({
           <h1 className="display text-[1.75rem] md:text-[2.5rem]">{title}</h1>
           {intro && <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2 md:text-base">{intro}</p>}
         </div>
-        {(n > 0 || facts) && (
+        {(shown || facts) && (
           <div className="flex items-center gap-3 md:max-w-60 md:flex-col md:items-end md:gap-2 md:text-right">
             {/* On a phone every line above the first product costs a card, and each card carries its own saving. */}
-            {n > 0 && (
-              <div className="hidden shrink-0 md:block">
-                <Ticket size="lg" sub="biggest saving" label={`Up to ${n}% cheaper per unit`}>
-                  −{n}%
-                </Ticket>
-              </div>
-            )}
+            {shown && <div className="hidden shrink-0 md:block">{shown}</div>}
             {facts && <p className="text-[13px] leading-snug text-ink-2">{facts}</p>}
           </div>
         )}

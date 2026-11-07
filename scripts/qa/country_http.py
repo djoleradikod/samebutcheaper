@@ -228,6 +228,58 @@ text = visible(body)
 check("See the same swap at Irish prices" in text, "IE on the German record of a swap: points to the Irish one")
 check("couldn't confirm you can buy it" not in text, "IE on the German record of a swap: doesn't say it can't be bought there")
 
+# Text the server sends straight into the page, before any script. React parks streamed content in <div hidden id="S:n"> at the end
+# of the body and a script moves it into place, so a shopper without scripts and a crawler that doesn't run them never see it.
+def outside_hidden(body: str) -> str:
+    """The HTML with every hidden streaming wrapper and script cut out."""
+    out = re.sub(r"<(script|style)\b.*?</\1>", " ", body, flags=re.S | re.I)
+    while True:
+        start = re.search(r'<div hidden id="S:[^"]*">', out)
+        if not start:
+            break
+        depth, i = 1, start.end()
+        for tag in re.finditer(r"<(/?)div\b[^>]*>", out[i:]):
+            depth += -1 if tag.group(1) else 1
+            if depth == 0:
+                i += tag.end()
+                break
+        else:
+            i = len(out)
+        out = out[: start.start()] + out[i:]
+    return visible(out)
+
+
+ABOUT_TEXT = "A price comparison site shows who sells one product for the least."
+PRIVACY_H1 = re.compile(r"<h1\b[^>]*>(.*?)</h1>", re.S)
+for country in ("IE", "US", None):
+    _, body, _ = get("/about", country)
+    check(ABOUT_TEXT in outside_hidden(body), f"/about for {country}: its text is in the HTML, outside any hidden wrapper")
+    _, body, _ = get("/privacy", country)
+    check(bool(PRIVACY_H1.search(body)) and len(outside_hidden(body)) > 1500, f"/privacy for {country}: its text is in the HTML, outside any hidden wrapper", str(len(outside_hidden(body))))
+# The control: the shape this check exists to catch, the whole page parked in a hidden wrapper, has to fail it.
+parked = f'<main><!--$?--><template id="B:0"></template><div class="min-h-[70vh]"></div><!--/$--></main><div hidden id="S:0"><div><h1>About</h1><p>{ABOUT_TEXT}</p></div></div><script>$RC("B:0","S:0")</script>'
+check(ABOUT_TEXT not in outside_hidden(parked), "control: a page parked in a hidden wrapper does fail the /about check")
+check(ABOUT_TEXT in visible(parked), "control: that same page still counts as visible once scripts run")
+
+# On list and swap pages, the heading and intro don't wait for the country. Named by hand, for the same reason as US_ONLY.
+for page, expected in (
+    ("/", "Same job. Lower price."),
+    ("/category/household", "Cheaper household"),
+    ("/bulk", "A bigger pack only saves money if you use it before it goes off."),
+    ("/brand/heinz", "Cheaper alternatives to Heinz"),
+    ("/search", "Find it cheaper"),
+    (f"/compare/{uk_swap}", " vs "),
+):
+    for country in ("IE", "US"):
+        _, body, _ = get(page, country)
+        shell = outside_hidden(body)
+        check(expected in shell, f"{page} for {country}: the heading is in the HTML, outside any hidden wrapper")
+        # What's outside a wrapper is the same for every country, so it can't carry a price or a list of swaps.
+        main = shell[shell.find("Skip to content") :]
+        check(not re.search(r"[$£€]\s?\d", main), f"{page} for {country}: no price outside a hidden wrapper", str(re.findall(r"[$£€]\s?\d", main)[:3]))
+_, body, _ = get("/", "IE")
+check("swaps, each with at least two sources" in visible(body) and "swaps, each with at least two sources" not in outside_hidden(body), "IE home: the count, which depends on the country, is behind its own boundary")
+
 # Unknown slugs are real 404s.
 for missing in ["/brand/nope", "/ingredient/nope", "/category/nope", "/compare/nope", "/dupe/nope", "/bundle/nope", "/basket/nope"]:
     status, _, _ = get(missing, "IE")

@@ -24,7 +24,7 @@ import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
 import { forCountry, localClaim, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
-import { getLocal } from "@/lib/server-country";
+import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 
 export function generateStaticParams() {
@@ -56,8 +56,49 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
   const { slug } = await params;
   const record = getPair(slug);
   if (!record) notFound();
+  const cat = CATEGORY_MAP[record.category];
+  return (
+    <article>
+      <CountryPart fallback={null}>
+        {(local) => {
+          if (local.shows(record)) return null;
+          const twin = record.twin ? getPair(record.twin.slug) : undefined;
+          return twin && local.shows(twin) ? <SameSwapHere market={record.market} twin={twin} /> : <NotListedHere market={record.market} local={local} />;
+        }}
+      </CountryPart>
+      <div className="container-page pt-1 md:pt-4">
+        <nav aria-label="Breadcrumb">
+          <ol className="flex flex-wrap items-center gap-x-1 text-[13px] text-muted">
+            <li>
+              <Link href="/" className="inline-flex min-h-11 items-center hover:text-ink md:min-h-0">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-3 w-3" />
+            </li>
+            <li>
+              <Link href={`/category/${cat.slug}`} className="inline-flex min-h-11 items-center hover:text-ink md:min-h-0">
+                {cat.name}
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-3 w-3" />
+            </li>
+            <li className="text-ink-2">{record.subcategory}</li>
+          </ol>
+        </nav>
 
-  const local = await getLocal();
+        <h1 className="display text-[28px] break-words md:mt-1.5 md:text-[40px]">
+          {record.brand.brand} vs {record.alternative.brand}
+        </h1>
+      </div>
+      <CountryPart>{(local) => <CompareBody record={record} local={local} />}</CountryPart>
+    </article>
+  );
+}
+
+function CompareBody({ record, local }: { record: Pair; local: Local }) {
   // What the page reads out. comparison() below reads the catalogue's own wording.
   const pair = { ...localText(record, local), evidence_claims: record.evidence_claims.map((c) => localClaim(c, local)) };
   const { brand: b, alternative: a, currency } = pair;
@@ -104,39 +145,9 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
     })),
   ];
 
-  const twin = record.twin ? getPair(record.twin.slug) : undefined;
-
   return (
-    <article>
-      {!local.shows(record) &&
-        (twin && local.shows(twin) ? <SameSwapHere market={record.market} twin={twin} /> : <NotListedHere market={record.market} local={local} />)}
-      <div className="container-page pt-1 pb-8 md:pt-4 md:pb-10">
-        <nav aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-x-1 text-[13px] text-muted">
-            <li>
-              <Link href="/" className="inline-flex min-h-11 items-center hover:text-ink md:min-h-0">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true">
-              <ChevronRight className="h-3 w-3" />
-            </li>
-            <li>
-              <Link href={`/category/${cat.slug}`} className="inline-flex min-h-11 items-center hover:text-ink md:min-h-0">
-                {cat.name}
-              </Link>
-            </li>
-            <li aria-hidden="true">
-              <ChevronRight className="h-3 w-3" />
-            </li>
-            <li className="text-ink-2">{pair.subcategory}</li>
-          </ol>
-        </nav>
-
-        <h1 className="display text-[28px] break-words md:mt-1.5 md:text-[40px]">
-          {b.brand} vs {a.brand}
-        </h1>
-
+    <>
+      <div className="container-page pb-8 md:pb-10">
         <div className="mt-4 grid gap-x-10 gap-y-5 md:mt-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
           <Shelf pair={pair} />
 
@@ -258,7 +269,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }}
       />
-    </article>
+    </>
   );
 }
 
