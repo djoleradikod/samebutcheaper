@@ -27,7 +27,14 @@
      "name": "Crude fat",
      "amount": "15%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 791,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126956?activeVariant=126956.16",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Smilla",
@@ -116,7 +123,14 @@
      "name": "Crude fat",
      "amount": "13%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.4,
+    "scale": "stars-5",
+    "count": 1154,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126953?activeVariant=126953.13",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Concept for Life",
@@ -201,7 +215,14 @@
      "name": "Dried poultry protein, rice, animal fat, maize",
      "amount": ""
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 1581,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126951?activeVariant=126951.13",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Sanabelle",
@@ -282,7 +303,14 @@
      "name": "Crude fat",
      "amount": "18%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 2254,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/kitten/126963?activeVariant=126963.22",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "PURINA ONE",
@@ -371,7 +399,14 @@
      "name": "Crude fat",
      "amount": "5.2%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.8,
+    "scale": "stars-5",
+    "count": 32,
+    "source": "https://www.zooplus.ie/shop/dogs/canned_dog_food/royal_canin/size/696976?activeVariant=696976.4",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Pedigree",
@@ -448,7 +483,14 @@
      "name": "Crude fat",
      "amount": "5.5%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.1,
+    "scale": "stars-5",
+    "count": 37,
+    "source": "https://www.zooplus.ie/shop/dogs/canned_dog_food/pedigree_pur/adult_cans_jelly/586553?activeVariant=586553.4",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Rocco",
@@ -513,7 +555,14 @@
      "name": "Maize (corn)",
      "amount": "100%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.0,
+    "scale": "stars-5",
+    "count": 683,
+    "source": "https://www.zooplus.ie/shop/cats/cat_litter/worlds_best_cat_litter/136600?activeVariant=136600.5",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Super Benek",
@@ -587,7 +636,14 @@
      "name": "Crude fat",
      "amount": "4%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.4,
+    "scale": "stars-5",
+    "count": 278,
+    "source": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/1668639?activeVariant=1668639.6",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Felix",
@@ -672,7 +728,14 @@
      "name": "Minerals, vegetable by-products, sugar",
      "amount": ""
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.3,
+    "scale": "stars-5",
+    "count": 1378,
+    "source": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/gourmet/gourmet_saver_packs/298663?activeVariant=298663.9",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Whiskas",
@@ -757,7 +820,14 @@
      "name": "Crude fat",
      "amount": "14.9%"
     }
-   ]
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 454,
+    "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/hills_science_plan/adult/128123",
+    "date": "2026-11-07"
+   }
   },
   "alternative": {
    "brand": "Eukanuba",
