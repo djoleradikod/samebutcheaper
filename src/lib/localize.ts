@@ -350,9 +350,7 @@ export function fallbackNotice(local: Local): { text: string; rate: string | nul
       rate: null,
     };
   }
-  const shown = isThinMarket(local.country)
-    ? `We've only started checking prices in ${where}, so most of these are ${market} prices, shown in ${currencyName(local.currency)}.`
-    : `We haven't checked prices in ${where} yet, so these are ${market} prices, shown in ${currencyName(local.currency)}.`;
+  const shown = `We haven't checked prices in ${where} yet, so these are ${market} prices, shown in ${currencyName(local.currency)}.`;
   if (from === local.currency) return { text: shown, rate: null };
   return { text: shown, rate: `Converted at the ECB rate of ${rateDate()}, ${rateText(from, local.currency)}, so treat them as approximate.` };
 }

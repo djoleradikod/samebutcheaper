@@ -1204,41 +1204,5 @@
         "note": "Verbraucherzentrale says softener doesn't get clothes cleaner, so you can skip it. Lenor warns against using it on children's nightwear."
       }
     ]
-  },
-  {
-    "family": "cat-care",
-    "slug": "cat-care-de",
-    "market": "DE",
-    "title": "Cat care",
-    "audience": "Cat owners, new and existing",
-    "blurb": "Clumping litter, dry food, wet food and washing-up liquid for the litter tray.",
-    "icon": "paw",
-    "research": "The list follows the ASPCA's general cat care guide, which covers litter and washing the tray with mild detergent, and VetPartners' new kitten checklist and the RSPCA's diet page, which cover food and cleaning. We kept one swap for each need, so treats and dental sticks aren't in it yet.",
-    "sources": [
-      "https://www.aspca.org/pet-care/cat-care/general-cat-care",
-      "https://www.vetpartners.co.uk/pet-advice/cat-advice/cat-ownership/new-kitten-checklist/",
-      "https://www.rspca.org.uk/adviceandwelfare/pets/cats/diet"
-    ],
-    "items": [
-      {
-        "pair": "catsan-ultra-plus-vs-biokats-micro-classic-de",
-        "qty": 1
-      },
-      {
-        "pair": "sheba-filets-huhn-vs-miamor-feine-filets-huhn-pur-de",
-        "qty": 1,
-        "note": "Both are complementary food, so feed them alongside a complete diet."
-      },
-      {
-        "pair": "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de",
-        "qty": 1,
-        "note": "The ASPCA says to wash the tray weekly with mild detergent and avoid scents, especially lemon, so check the label."
-      },
-      {
-        "pair": "royal-canin-indoor-27-vs-concept-for-life-indoor-cats-de",
-        "qty": 1,
-        "note": "Both are complete foods for adult indoor cats. Change food gradually, and ask your vet if your cat has a special diet."
-      }
-    ]
   }
 ]

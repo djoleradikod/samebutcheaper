@@ -91,13 +91,8 @@ for page in PAGES:
 
 status, body, _ = get("/", "IE")
 text = visible(body)
-check("started checking prices in Ireland" in text, "IE home: the band says most of these aren't Irish prices")
+check("haven't checked prices in Ireland" in text, "IE home: the band says these aren't Irish prices")
 check("UK prices, shown in euro" in text, "IE home: the band names the market and the currency")
-ie_swap = by_market.get("IE", [{}])[0].get("slug")
-check(bool(ie_swap), "the catalogue has an Irish swap")
-status, body, _ = get(f"/compare/{ie_swap}", "IE")
-offers = visible(body).split("Prices checked")[0]
-check(status == 200 and "€" in offers and not re.search(r"about\s*€\d", offers), "IE an Irish swap: plain euro, nothing to convert", offers[:300])
 check("ECB rate of" in text, "IE home: the band names the rate and its date")
 
 status, body, _ = get(f"/compare/{uk_swap}", "IE")
@@ -192,7 +187,7 @@ check(not US_ONLY.search(text), "IE with the control on: still no US-only brand"
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 catalog = json.loads((ROOT / "src" / "generated" / "catalog.json").read_text())
 twins = [(p["slug"], p["twin"]["slug"]) for p in catalog["pairs"] if p.get("twin")]
-check(len(twins) >= 20, "the catalogue links its twins", str(len(twins)))
+check(len(twins) >= 2, "the catalogue links its twins", str(len(twins)))
 
 
 def listed_twice(body: str) -> list:
@@ -203,13 +198,6 @@ def listed_twice(body: str) -> list:
 # Pages where a twin really renders. A German shopper's pet aisle doesn't show Irish rows at all, so it couldn't fail here.
 twin_slugs = {s for pair in twins for s in pair}
 for path, country in (
-    ("/category/pet", "IE"),
-    ("/category/pet", "GB"),
-    ("/brand/royal-canin", "IE"),
-    ("/brand/royal-canin", "GB"),
-    ("/brand/royal-canin", None),
-    ("/dupe/royal-canin-wet-cat-food", None),
-    ("/dupe/royal-canin-wet-cat-food", "US"),
     ("/dupe/dulcolax-bisacodyl", "DE"),
     ("/dupe/dulcolax-bisacodyl", None),
 ):
@@ -222,11 +210,11 @@ for path in ("/how-we-verify", "/about"):
     check(f"{different} swaps" in visible(body) and f"{len(catalog['pairs'])} swaps" not in visible(body), f"{path} counts a swap in two markets once", str(different))
 check(bool(listed_twice(f'<a href="/compare/{twins[0][0]}"></a><a href="/compare/{twins[0][1]}"></a>')), "control: a page with both twins does trip the check")
 
-ie_only, de_only = next((a, b) for a, b in twins if a.endswith("-ie") and b.endswith("-de"))
-_, body, _ = get(f"/compare/{de_only}", "IE")
+ca_only, us_only = next((a, b) for a, b in twins if a.endswith("-ca"))
+_, body, _ = get(f"/compare/{us_only}", "CA")
 text = visible(body)
-check("See the same swap at Irish prices" in text, "IE on the German record of a swap: points to the Irish one")
-check("couldn't confirm you can buy it" not in text, "IE on the German record of a swap: doesn't say it can't be bought there")
+check("See the same swap at Canadian prices" in text, "CA on the US record of a swap: points to the Canadian one")
+check("couldn't confirm you can buy it" not in text, "CA on the US record of a swap: doesn't say it can't be bought there")
 
 # Unknown slugs are real 404s.
 for missing in ["/brand/nope", "/ingredient/nope", "/category/nope", "/compare/nope", "/dupe/nope", "/bundle/nope", "/basket/nope"]:

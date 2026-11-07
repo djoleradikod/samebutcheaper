@@ -1094,63 +1094,6 @@
   "price_checked": "2025-11"
  },
  {
-  "slug": "royal-canin-medium-adult-vs-4paws-sunny-hills-softbrocken-de",
-  "market": "DE",
-  "category": "pet",
-  "subcategory": "Dry dog food",
-  "title": "Royal Canin Medium Adult vs 4Paws Sunny Hills Premium Softbrocken",
-  "brand": {
-   "brand": "Royal Canin",
-   "product": "Royal Canin Medium Adult, cost per day (mid-range)",
-   "size": 1,
-   "unit": "day",
-   "price": 1.14,
-   "retailer": "zooplus",
-   "asin": null,
-   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/medium/1983704",
-   "key_ingredients": [
-    {
-     "name": "Type",
-     "amount": "Complete dry food for adult dogs"
-    }
-   ]
-  },
-  "alternative": {
-   "brand": "4Paws",
-   "product": "4Paws Sunny Hills Premium Softbrocken Huhn, cost per day (mid-range)",
-   "size": 1,
-   "unit": "day",
-   "price": 0.58,
-   "retailer": "edeka",
-   "asin": null,
-   "url": "https://www.edeka.de/",
-   "gtin": "4311596625079",
-   "image": "https://images.openfoodfacts.org/images/products/431/159/662/5079/front_de.3.400.jpg",
-   "key_ingredients": [
-    {
-     "name": "Type",
-     "amount": "Complete dry food for adult dogs"
-    }
-   ]
-  },
-  "match_type": "equivalent_spec",
-  "confidence": "medium",
-  "summary": "Both were rated very good by Öko-Test in November 2024, and the Sunny Hills cost about half as much per day.",
-  "evidence": "Hundeo's summary of Öko-Test's November 2024 dry dog food test reports both as very good, with Royal Canin Medium Adult at EUR 0.98 to 1.29 a day and 4Paws Sunny Hills Huhn at EUR 0.50 to 0.66 a day. We use the midpoint of each range. Sunny Hills was also the only food rated very good by Stiftung Warentest in 8/2025 (1.3 per Herz für Tiere), where test.de lists it at about EUR 0.70 a day as of 16 April 2025.",
-  "differences": "Royal Canin is made for medium dogs, and the Sunny Hills is not, so kibble size and recipe differ. The daily cost depends on your dog's weight. The Hundeo summary does not give the dog size for its ranges. Royal Canin was not in the Stiftung Warentest test, so only one test covers both.",
-  "why": "One test rated both very good, and the cheaper food has a second very good result from another tester.",
-  "claims": [
-   "dry-dog-food-test-sensitive-extra-cost-2025",
-   "complete-pet-food-standard-fediaf-aafco"
-  ],
-  "sources": [
-   "https://www.hundeo.com/hundefutter/stiftung-warentest",
-   "https://www.test.de/Hundefutter-trocken-im-Test-5020107-tabelle/",
-   "https://herz-fuer-tiere.de/haustiere/hunde/hunde-ernaehrung/bestes-hunde-trockenfutter-stiftung-warentest"
-  ],
-  "price_checked": "2024-11"
- },
- {
   "slug": "whiskas-mit-gefluegel-in-sauce-vs-lidl-coshida-schlemmerhappen-de",
   "market": "DE",
   "category": "pet",
