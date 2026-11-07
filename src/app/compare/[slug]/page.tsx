@@ -74,7 +74,9 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
   const winNames = wins.map((r) => (r.kind === "test" ? r.aspect : inSentence(r.aspect)));
   const against = wins.length > 0 ? `the brand wins on ${listWords(winNames)}.` : drawbacks(points)[0];
   const hasDifferences = wins.length + points.length > 0;
-  const fullComparison = { ...compared, rows };
+  // Spec names can carry a price too ("about 80p a wash in the test").
+  const speak = (r: CompareRow): CompareRow => ({ ...r, aspect: local.prose(r.aspect, currency), brand: local.prose(r.brand, currency), alternative: local.prose(r.alternative, currency) });
+  const fullComparison = { ...compared, ingredients: compared.ingredients.map(speak), rows };
   const sources = [...new Set([...pair.sources, ...(compared.nutrition?.records.map((r) => r.page) ?? [])])];
 
   const jsonLd = [

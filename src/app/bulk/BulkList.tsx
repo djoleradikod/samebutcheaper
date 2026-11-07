@@ -112,7 +112,7 @@ export function BulkList({ items }: { items: BulkItem[] }) {
   const matchesKeep = (i: BulkItem) => !chosenKeep || i.advice === chosenKeep.advice;
 
   const compare = ORDERS.find((o) => o.value === orderBy)?.compare ?? ORDERS[0].compare;
-  const shown = inAisle.filter(matchesKeep).sort((a, b) => compare(a, b) || a.slug.localeCompare(b.slug));
+  const shown = inAisle.filter(matchesKeep).sort((a, b) => Number(b.rated) - Number(a.rated) || compare(a, b) || a.slug.localeCompare(b.slug));
   // The first row with a photo holds the page's first photo.
   const eagerSlug = shown.find((i) => i.tier !== NO_PHOTO_TIER)?.slug ?? null;
 

@@ -39,21 +39,23 @@ def visible(body: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(text))
 
 
-US_STORES = re.compile(r"\b(walmart|target\.com|costco|walgreens|cvs|kroger|safeway)\b", re.I)
+US_STORES = re.compile(r"\b(walmart|target\.com|costco|walgreens|cvs|kroger|safeway|sam's club|chewy)\b", re.I)
 DOLLAR_PRICE = re.compile(r"(?<![A-Za-z])\$\s?\d")
 # In the raw response, React's own references read "$2": a quote before the $ means it isn't a price.
-RAW_DOLLAR_PRICE = re.compile(r"(?<![\"\\\w])\$\s?\d")
+# React's references never have cents, so "$12.34" after a quote is still a price, as it sits in the page's flight data.
+RAW_DOLLAR_PRICE = re.compile(r"(?<![\"\\\w])\$\s?\d|\$\d+\.\d\d(?!\d)")
 # Named by hand, apart from the site's own rules, because a check built on those rules can't see them being wrong.
 # Both earlier versions of this file looked only for store names and $, and US products went straight past them.
-US_ONLY = re.compile(r"\b(Charmin|Kirkland|Equate|Jif|Parent's Choice|Great Value|Member's Mark|Up&Up|Signature Select)\b")
+# "Great Value" alone is also a Which? badge, so it needs a product name after it. "Best Buy" is too, so that store stays out.
+US_ONLY = re.compile(r"\b(Charmin|Kirkland|Equate|Jif|Parent's Choice|Great Value [A-Z]\w+|Member's Mark|(?i:up&up)|Signature Select|Good & Gather|Market Pantry|Lucerne|Uline|Bounty|Target)\b")
 # No sign these sell in the country, see data/sellers/footprint.json. A swap page may still cite them as evidence, so lists only.
 ABSENT = {
     "IE": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Co-op|Crocus|7dayshop|Toolstation|Kaufland|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate)\b"),
     "GB": re.compile(r"\b(Kaufland|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate|Walmart)\b"),
-    "DE": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Crocus|7dayshop|Toolstation|Walmart)\b"),
-    "HR": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Crocus|Toolstation|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate|Walmart)\b"),
+    "DE": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Crocus|7dayshop|Toolstation|Tesco|Boots|Superdrug|Walmart)\b"),
+    "HR": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Crocus|Toolstation|Tesco|Aldi|Boots|Superdrug|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate|Walmart)\b"),
 }
-LIST_PAGES = ["/", "/category/household", "/category/food-pantry", "/bulk", "/bundles", "/biggest-savings", "/brands", "/ingredients", "/search"]
+LIST_PAGES = ["/", "/category/household", "/category/food-pantry", "/bulk", "/bundles", "/biggest-savings", "/brands", "/ingredients", "/search", "/why", "/ingredient/loratadine", "/brand/heinz"]
 failures = 0
 
 
@@ -107,6 +109,7 @@ status, body, _ = get(f"/compare/{us_swap}", "IE")
 text = visible(body)
 check(status == 200, "IE opening a US swap by its link still works", str(status))
 # The evidence further down may cite a US source. What matters is the part that tells someone where to buy.
+check("Prices checked" in text, "IE US swap: the offers section is where this check looks for it")
 offers = text[text.find("Prices checked") : text.find("Does the same job") if "Does the same job" in text else None]
 check(not DOLLAR_PRICE.search(re.sub(r"\(\$[\d.,]+ at a US store[^)]*\)|\(\$1 = [^)]*\)", "", offers)), "IE US swap: in the offers, dollars only as the marked original", offers[:400])
 check(not US_STORES.search(offers), "IE US swap: no US store offered", offers[:400])

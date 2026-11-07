@@ -11,11 +11,11 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
-# slug start: (score, scale, publisher, host of the source that carries it, wording to show instead of the score)
+# slug start: (score, scale, publisher, part of the link that carries the score, then optionally the source's own word and the test's date)
 QUOTED = {
     "nescafe-gold-blend-vs-aldi": (68, "percent", "Which?", "which.co.uk"),
-    "fairy-max-power-eucalyptus-vs-aldi": (78, "percent", "Which?", "which.co.uk"),
-    "fairy-max-power-original-vs-aldi": (78, "percent", "Which?", "which.co.uk"),
+    "fairy-max-power-eucalyptus-vs-aldi": (78, "percent", "Which?", "own-brand-best-buys"),
+    "fairy-max-power-original-vs-aldi": (78, "percent", "Which?", "own-brand-best-buys"),
     "heinz-tomato-ketchup-vs-waitrose": (77, "percent", "Which?", "which.co.uk"),
     "lurpak-spreadable-vs-aldi": (75, "percent", "Which?", "which.co.uk"),
     "baxters-cream-of-tomato-soup-vs-tesco": (78, "percent", "Which?", "which.co.uk"),
@@ -27,7 +27,8 @@ QUOTED = {
     "haagen-dazs-vanilla-vs-aldi": (77, "percent", "Which?", "which.co.uk"),
     "heinz-cream-of-tomato-soup-vs-s": (78, "percent", "Which?", "which.co.uk"),
     "tetley-original-vs-morrisons": (73, "percent", "Which?", "which.co.uk"),
-    "duracell-recharge-ultra-aa": (84, "percent", "Which?", "which.co.uk"),
+    "duracell-recharge-ultra-aa": (84, "percent", "Which?", "own-brand-best-buys"),
+    "fairy-original-washing-up-liquid-vs-aldi": (78, "percent", "Which?", "own-brand-best-buys"),
     "tims-dairy-greek-yogurt-vs-aldi": (77, "percent", "Which?", "which.co.uk"),
     "aunt-bessies-beef-dripping": (76, "percent", "Which?", "which.co.uk"),
     "pg-tips-original-vs-sainsburys": (75, "percent", "Which?", "which.co.uk"),
@@ -44,10 +45,14 @@ QUOTED = {
     "whiskas-mit-gefluegel-in-sauce-vs-lidl": (1.3, "de-grade", "Stiftung Warentest", "test.de"),
     "whiskas-1-plus-knackits-vs-netto": (1.3, "de-grade", "Stiftung Warentest", "t-online.de"),
     "lenor-universalwaschmittel-aprilfrisch": (2.5, "de-grade", "Stiftung Warentest", "mydealz.de"),
-    "royal-canin-medium-adult-vs-4paws": (1.3, "de-grade", "Stiftung Warentest", "herz-fuer-tiere.de"),
-    "koelln-bluetenzarte-koellnflocken": (1.0, "de-grade", "Öko-Test", "oekotest.de"),
-    "alnatura-haferflocken-feinblatt-vs": (1.0, "de-grade", "Öko-Test", "oekotest.de"),
-    "fairy-konzentrat-vs-rewe-ja": (1.0, "de-grade", "Öko-Test", "echo24.de"),
+    "royal-canin-medium-adult-vs-4paws": (1.3, "de-grade", "Stiftung Warentest", "herz-fuer-tiere.de", None, "2025-08"),
+    "blend-a-med-3d-white-luxe-charcoal-vs": (1.3, "de-grade", "Stiftung Warentest", "joyn.de"),
+    "frosch-all-in-1-spuel-tabs-vs-rossmann": (2.1, "de-grade", "Stiftung Warentest", "joyn.de"),
+    "persil-universal-megaperls-vs-denkmit": (1.6, "de-grade", "Stiftung Warentest", "mydealz.de"),
+    "persil-universal-megaperls-vs-lidl": (1.6, "de-grade", "Stiftung Warentest", "mydealz.de"),
+    "koelln-bluetenzarte-koellnflocken": (1.0, "de-grade", "Öko-Test", "oekotest.de", "very good"),
+    "alnatura-haferflocken-feinblatt-vs": (1.0, "de-grade", "Öko-Test", "oekotest.de", "very good"),
+    "fairy-konzentrat-vs-rewe-ja": (1.0, "de-grade", "Öko-Test", "echo24.de", "very good"),
 }
 TEST_ROWS = {"Auto Express score": "Auto Express", "Shopper rating": None, "zooplus rating": None}
 
@@ -62,17 +67,21 @@ for name in sorted(glob.glob(str(ROOT / "data" / "pairs" / "*.json"))):
 
 out = {}
 missing = []
-for start, (score, scale, publisher, where) in QUOTED.items():
+for start, (score, scale, publisher, where, *extra) in QUOTED.items():
     found = [p for p in pairs if p["slug"].startswith(start)]
     if len(found) != 1:
         missing.append(f"{start}: {len(found)} records")
         continue
     p = found[0]
-    source = next((s for s in p["sources"] if host(s).endswith(where)), None)
+    source = next((s for s in p["sources"] if where in s), None)
     if not source:
         missing.append(f"{start}: no source at {where}")
         continue
-    out[p["slug"]] = {"score": score, "scale": scale, "publisher": publisher, "source": source, "date": p.get("price_checked")}
+    wording, date = (extra + [None, None])[:2]
+    rating = {"score": score, "scale": scale, "publisher": publisher, "source": source, "date": date or p.get("price_checked")}
+    if wording:
+        rating["wording"] = wording
+    out[p["slug"]] = rating
 
 for p in pairs:
     if p["slug"] in out or (p["alternative"].get("rating") or {}).get("stars") is not None:

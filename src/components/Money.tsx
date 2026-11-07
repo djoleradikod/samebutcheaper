@@ -2,7 +2,7 @@
 
 import type { Currency } from "@/lib/format";
 import type { MarketCode } from "@/lib/markets";
-import { setShowOthers, useCountryRefresh, useLocal } from "@/lib/client/country";
+import { setShowOthers, useLocal } from "@/lib/client/country";
 import { FX_SOURCE, fallbackNotice } from "@/lib/localize";
 import { countryInSentence } from "@/lib/markets";
 
@@ -59,13 +59,8 @@ export function OriginalPrice({
 /** Says whose prices these are and, where we've left out stores we can't place in this country, offers them back. */
 export function FallbackBand({ hidden }: { hidden: number }) {
   const local = useLocal();
-  const refresh = useCountryRefresh();
   const notice = fallbackNotice(local);
   if (!notice) return null;
-  const toggle = (show: boolean) => {
-    setShowOthers(show);
-    refresh();
-  };
   const buttonClass = "cursor-pointer font-semibold text-cobalt underline underline-offset-2";
   return (
     <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
@@ -82,7 +77,7 @@ export function FallbackBand({ hidden }: { hidden: number }) {
         <>
           {" "}
           This includes stores we couldn&apos;t confirm sell in {countryInSentence(local.country)}.{" "}
-          <button type="button" className={buttonClass} onClick={() => toggle(false)}>
+          <button type="button" className={buttonClass} onClick={() => setShowOthers(false)}>
             Hide swaps from other countries
           </button>
         </>
@@ -91,7 +86,7 @@ export function FallbackBand({ hidden }: { hidden: number }) {
           <>
             {" "}
             We list only stores we could confirm sell in {countryInSentence(local.country)}.{" "}
-            <button type="button" className={buttonClass} onClick={() => toggle(true)}>
+            <button type="button" className={buttonClass} onClick={() => setShowOthers(true)}>
               Show {hidden} swaps from other countries
             </button>
           </>

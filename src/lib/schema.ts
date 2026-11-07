@@ -74,6 +74,8 @@ export const ratingSchema = z
     date: z.string().optional(),
     /** A test's publisher, "Which?". Left out for shopper ratings. */
     publisher: z.string().optional(),
+    /** The source's own word when it gives no figure, "very good". */
+    wording: z.string().optional(),
   })
   .refine((r) => (r.score ?? r.stars) !== undefined, "a rating needs a score")
   .refine((r) => inRange(r.score ?? r.stars ?? 0, r.scale), "score is outside its scale");

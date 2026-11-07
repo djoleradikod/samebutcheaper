@@ -16,7 +16,7 @@ HOST = re.sub(r"^https?://", "", BASE).split(":")[0]
 DOLLAR_PRICE = re.compile(r"(?<![A-Za-z])\$\s?\d")
 US_STORES = re.compile(r"\b(walmart|target\.com|costco|walgreens|cvs|kroger|safeway)\b", re.I)
 # Both tables are written by hand, apart from the site's own rules, so they can disagree with them. Same list as country_http.py.
-US_ONLY = re.compile(r"\b(Charmin|Kirkland|Equate|Jif|Parent's Choice|Great Value|Member's Mark|Up&Up|Signature Select|Bounty|Scott 1000)\b")
+US_ONLY = re.compile(r"\b(Charmin|Kirkland|Equate|Jif|Parent's Choice|Great Value [A-Z]\w+|Member's Mark|(?i:up&up)|Signature Select|Good & Gather|Market Pantry|Lucerne|Uline|Bounty|Target)\b")
 ABSENT = {
     "IE": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Co-op|Crocus|7dayshop|Toolstation|Kaufland|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate)\b"),
 }
@@ -74,6 +74,28 @@ with sync_playwright() as p:
     check(not US_STORES.search(text), "picker: no US store after the change", str(sorted(set(US_STORES.findall(text)))))
     found = US_ONLY.findall(text) + ABSENT["IE"].findall(text)
     check(not found, "picker: no US-only brand or chain absent from Ireland after the change", str(sorted(set(found))))
+    ctx.close()
+
+    # Back: router.refresh() only clears the current route, so a page kept from before the change must still catch up.
+    ctx = browser.new_context(viewport={"width": 1280, "height": 900})
+    ctx.add_cookies([{"name": "sbc_country", "value": "US", "domain": HOST, "path": "/"}])
+    page = ctx.new_page()
+    page.goto(BASE + "/category/household", wait_until="networkidle", timeout=60000)
+    check(bool(US_ONLY.search(page.inner_text("main"))), "back: starts on a list with US products")
+    page.locator('main a[href^="/compare/"]').first.click()
+    page.wait_for_url("**/compare/**", timeout=30000)
+    page.wait_for_load_state("networkidle")
+    page.locator('select[aria-label="Country you shop in"]').first.select_option("IE")
+    page.wait_for_function("document.querySelector('main').innerText.includes('started checking prices in Ireland')", timeout=30000)
+    page.wait_for_function("!document.documentElement.hasAttribute('data-updating')", timeout=30000)
+    page.go_back()
+    page.wait_for_url("**/category/household", timeout=30000)
+    page.wait_for_timeout(300)
+    page.wait_for_function("!document.documentElement.hasAttribute('data-updating')", timeout=30000)
+    text = page.inner_text("main")
+    found = US_ONLY.findall(text) + US_STORES.findall(text)
+    check(not found, "back: the kept list has caught up with Ireland", str(sorted(set(found))))
+    check(not DOLLAR_PRICE.search(text), "back: no $ on the kept list", str(DOLLAR_PRICE.findall(text)[:3]))
     ctx.close()
     browser.close()
 

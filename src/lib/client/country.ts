@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useMemo, useSyncExternalStore, useTransition } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { createContext, useContext, useEffect, useMemo, useRef, useSyncExternalStore, useTransition } from "react";
 import { localFor } from "@/lib/localize";
 import { isKnownCountry } from "@/lib/markets";
 
@@ -55,26 +55,51 @@ export function useLocal() {
   return useMemo(() => localFor(country, others), [country, others]);
 }
 
+/** Marks the page as updating straight away, so nothing can read the old list as the new one before the server answers. */
+function changing() {
+  document.documentElement.setAttribute("data-updating", "");
+}
+
 export function setCountry(code: string) {
+  if (code === read()) return;
   document.cookie = `${COUNTRY_COOKIE}=${code}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  changing();
   window.dispatchEvent(new Event(EVENT));
 }
 
 export function setShowOthers(show: boolean) {
   document.cookie = `${OTHERS_COOKIE}=${show ? "1" : "0"}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  changing();
   window.dispatchEvent(new Event(EVENT));
 }
 
 /**
- * Asks the server for the page again after one of those changes. Lists and stores come from the server, so until
- * the answer arrives the page is marked as updating (see html[data-updating] in globals.css) rather than passing old lists off as new.
+ * Lists and stores come from the server, so whenever the browser's choice differs from what the server last rendered, ask again:
+ * the picker, the band's control, and a change made in another tab, read on focus. router.refresh() only clears the current route,
+ * so after a change in this visit every later page asks again as well. Back and forward land on pages kept from before it.
+ * Until the answer arrives the page reads as updating (html[data-updating] in globals.css) instead of passing old lists off as new.
  */
-export function useCountryRefresh() {
+export function useFollowCountry(country: string | null, others: boolean) {
   const router = useRouter();
+  const pathname = usePathname();
   const [pending, startTransition] = useTransition();
+  const current = useCountry();
+  const local = useLocal();
+  const changed = useRef(false);
+  const differs = (current !== null && current !== country) || local.others !== others;
+
   useEffect(() => {
-    document.documentElement.toggleAttribute("data-updating", pending);
-    document.getElementById("main")?.setAttribute("aria-busy", String(pending));
-  }, [pending]);
-  return () => startTransition(() => router.refresh());
+    if (!differs) return;
+    changed.current = true;
+    startTransition(() => router.refresh());
+  }, [differs, current, local.others, country, others, router]);
+
+  useEffect(() => {
+    if (changed.current) startTransition(() => router.refresh());
+  }, [pathname, router]);
+
+  useEffect(() => {
+    document.documentElement.toggleAttribute("data-updating", pending || differs);
+    document.getElementById("main")?.setAttribute("aria-busy", String(pending || differs));
+  }, [pending, differs]);
 }

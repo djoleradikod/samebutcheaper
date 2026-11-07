@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import fx from "../../data/fx/ecb-reference-rates.json";
 import { defaultMarket, type BrowseRow } from "../../src/lib/browse";
-import { COUNTRY_CURRENCY, fallbackNotice, forCountry, listMarketFor, localFor, NO_RATE, rate, visibleMarkets } from "../../src/lib/localize";
+import { COUNTRY_CURRENCY, fallbackNotice, findingShows, forCountry, listMarketFor, localFor, NO_RATE, rate, visibleMarkets } from "../../src/lib/localize";
 import { COUNTRIES, deliversTo, isKnownCountry, storesFor, type MarketCode } from "../../src/lib/markets";
 import { inRange, RATING_FLOOR, ratingLabel, ratingShare } from "../../src/lib/rating";
 import { sellerOf, sellsIn } from "../../src/lib/sellers";
@@ -248,4 +248,33 @@ test("Ireland is a market too thin to lead: it still falls back, its own records
   assert.match(fallbackNotice(ie)?.text ?? "", /only started checking prices in Ireland, so most of these are UK prices/);
   assert.equal(defaultMarket([row("IE"), row("GB")], "IE"), "all");
   assert.equal(defaultMarket([row("DE"), row("GB")], "DE"), "DE");
+});
+
+test("written prices: the forms the catalogue uses, and the things that aren't prices", () => {
+  const ie = localFor("IE");
+  const gb = localFor("GB");
+  assert.match(ie.prose("around GBP 32.95 a tin", "GBP"), /^about €[\d.]+ \(GBP 32\.95\) a tin$/, "a currency code before the number");
+  assert.match(gb.prose("EUR 11.00 per 100 ml", "EUR"), /^about £[\d.]+ \(EUR 11\.00\) per 100 ml$/);
+  assert.match(gb.prose("between 16 and 34 cents a wash", "EUR"), /^between about [\d.]+p to [\d.]+p \(16 and 34 cents\) a wash$/, "a pair before one unit");
+  assert.match(gb.prose("15.79 and 33.49 EUR", "EUR"), /^about £[\d.]+ to £[\d.]+ \(15\.79 and 33\.49 EUR\)$/);
+  assert.match(ie.prose("around £4, without", "GBP"), /^about €[\d.]+ \(£4\), without$/, "a trailing comma stays outside");
+  assert.match(gb.prose("3,50 €", "EUR"), /^about £2\.\d\d \(3,50 €\)$/);
+  assert.match(gb.prose("€1,99", "EUR"), /^about £1\.\d\d \(€1,99\)$/, "a German decimal comma isn't thousands");
+  assert.match(ie.prose("£1,500", "GBP"), /^about €1\d\d\d\.\d\d \(£1,500\)$/, "real thousands");
+  assert.match(ie.prose("£2-3", "GBP"), /^about €[\d.]+ to €[\d.]+ \(£2-3\)$/, "a range");
+  assert.match(ie.prose("10-20p", "GBP"), /^about [\d.]+ ct to [\d.]+ ct \(10-20p\)$/);
+  assert.equal(ie.prose("£1.5m in sales", "GBP"), "£1.5m in sales", "a figure with a word stuck to it isn't a shelf price");
+  assert.equal(ie.prose("shoots 1080p and 720p", "GBP"), "shoots 1080p and 720p");
+  assert.equal(ie.prose("save 20%, 3 packs of 4", "GBP"), "save 20%, 3 packs of 4");
+  assert.match(localFor("IE").prose("US$5 or $5", "USD"), /^about €[\d.]+ \(US\$5\) or about €[\d.]+ \(\$5\)$/);
+});
+
+test("a finding shows where its chains sell, or in its own market", () => {
+  const finding = (markets: MarketCode[], finding: string) => ({ markets, title: "A finding", finding });
+  assert.ok(findingShows(finding(["GB"], "Which? gave Tesco 78%"), localFor("IE")));
+  assert.ok(!findingShows(finding(["GB"], "Which? gave Sainsbury's 77%"), localFor("IE")));
+  assert.ok(findingShows(finding(["GB"], "Which? gave Sainsbury's 77%"), localFor("GB")), "its own market");
+  assert.ok(!findingShows(finding(["US"], "Nothing named"), localFor("IE")), "US findings stay in North America");
+  assert.ok(findingShows(finding(["GB"], "Which? gave Sainsbury's 77%"), localFor("IE", true)), "the control brings it back");
+  assert.ok(findingShows(finding(["US"], "Kirkland"), localFor(null)));
 });

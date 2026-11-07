@@ -25,9 +25,8 @@ import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
-import { forCountry, isThinMarket, localClaim, visibleMarkets, type Local } from "@/lib/localize";
+import { findingShows, forCountry, isThinMarket, localClaim, type Local } from "@/lib/localize";
 import type { MarketCode } from "@/lib/markets";
-import { namedSellers, sellsIn } from "@/lib/sellers";
 import { getLocal } from "@/lib/server-country";
 import { jsonLdText } from "@/lib/site";
 import type { CategorySlug, Claim, Pair as PairT, PairSummary, Preset, ShelfLife } from "@/lib/types";
@@ -63,19 +62,21 @@ function basketsFor(local: Local) {
  * shows the range of the site, and within a photo standing it reads as a ranking: biggest saving first.
  */
 function biggestSavings(market: MarketCode, local: Local, limit = 12) {
-  const pool = getFeaturedPairs(48, market, (pairs) => forCountry(pairs, local)).filter(
-    (p) => photoStanding(p) < NO_PHOTO_STANDING && !/relief|remed|fever|allerg|cough/i.test(p.subcategory),
-  );
-  // The shop window shows both products where it can, so nobody's told to buy something they can't see.
-  const both = pool.filter((p) => p.brand.photo && p.alternative.photo);
-  const framed = both.length >= limit ? both : pool;
-  // Once a market has enough rated swaps to fill the window, an unrated product doesn't lead it.
-  const rated = framed.filter((p) => p.alternative.rating);
-  const rank = (p: PairT) => Number(!p.alternative.rating);
-  return pickByPhotos(rated.length >= limit ? rated : framed, limit, (p) => [
+  const fit = (p: PairT) => photoStanding(p) < NO_PHOTO_STANDING && !/relief|remed|fever|allerg|cough/i.test(p.subcategory);
+  const caps = (p: PairT) => [
     { key: p.category, max: p.category === "supplements" ? 2 : 6 },
     { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 2 },
-  ]).sort((a, b) => rank(a) - rank(b) || photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);
+  ];
+  // Rated swaps come first, so an unrated product only fills what they leave.
+  const rated = getFeaturedPairs(48, market, (pairs) => forCountry(pairs, local).filter((p) => p.alternative.rating)).filter(fit);
+  const first = pickByPhotos(rated, limit, caps);
+  const pool = getFeaturedPairs(48, market, (pairs) => forCountry(pairs, local)).filter((p) => fit(p) && !first.includes(p));
+  // The shop window shows both products where it can, so nobody's told to buy something they can't see.
+  const both = pool.filter((p) => p.brand.photo && p.alternative.photo);
+  const room = limit - first.length;
+  const fill = room > 0 ? pickByPhotos(both.length >= room ? both : pool, room, caps) : [];
+  const unrated = (p: PairT) => Number(!p.alternative.rating);
+  return [...first, ...fill].sort((a, b) => unrated(a) - unrated(b) || photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);
 }
 
 /**
@@ -92,26 +93,26 @@ function featuredFor(local: Local, limit = 12): PairSummary[] {
         .filter((p) => p.market === local.country && p.category !== MEDICINE)
         .slice(0, 4)
     : [];
-  return [...home, ...merged.filter(showsOnlyCutOuts), ...merged.filter((p) => !showsOnlyCutOuts(p))].slice(0, limit).map(toSummary);
+  // Rated first, then what shows only cut-outs. See biggestSavings.
+  const order = (p: PairT) => (p.alternative.rating ? 0 : 2) + (showsOnlyCutOuts(p) ? 0 : 1);
+  return [...home, ...[...merged].sort((a, b) => order(a) - order(b))].slice(0, limit).map(toSummary);
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;
 const ABOUT_SWITCHING = /own[- ]label|own[- ]brand|store[- ]brand|cheap|beat/i;
 
 /**
- * Findings about switching, newest first, spread across publishers and countries. A US finding names US stores, so it stays with US shoppers,
- * and from elsewhere a finding only shows if the chains it names sell here. Its prices follow the shopper's currency.
+ * Findings about switching, newest first, spread across publishers and countries, as findingShows allows. Prices follow the shopper's currency.
  */
 function pickFindings(local: Local, limit = 3) {
-  const seen = visibleMarkets(local.country);
   const date = (c: Claim) => (/^\d/.test(c.sources[0].date) ? c.sources[0].date : "");
   const ranked = getClaims()
     .filter(
       (c) =>
         !c.categories.includes(MEDICINE) &&
         !MENTIONS_MEDICINE.test(`${c.title} ${findingExcerpt(c.finding)}`) &&
-        c.markets.some((m) => (seen as string[]).includes(m)) &&
-        (!local.known || c.markets.includes(local.country as MarketCode) || namedSellers(`${c.title} ${c.finding}`).every((s) => sellsIn(s, local.country))),
+        c.markets.length > 0 &&
+        findingShows(c, local),
     )
     .sort(
       (a, b) =>

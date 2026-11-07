@@ -25,6 +25,7 @@ export type Rating = {
   source: string;
   date?: string;
   publisher?: string;
+  wording?: string;
   share: number;
   label: string;
 };

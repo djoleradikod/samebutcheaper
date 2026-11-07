@@ -13,7 +13,7 @@
 import fx from "../../data/fx/ecb-reference-rates.json";
 import { money, ppu, type Currency } from "./format";
 import { countryInSentence, deliversTo, isKnownCountry, isMarket, MARKET_CODES, MARKETS, type MarketCode } from "./markets";
-import { sellsIn } from "./sellers";
+import { namedSellers, sellsIn } from "./sellers";
 import { unitPrice, unitPriceFine } from "./unit-format";
 
 /** Euro-based: one euro buys this much of each currency. */
@@ -135,6 +135,15 @@ export function localClaim<T extends { markets: MarketCode[]; title: string; fin
   return { ...claim, title: local.prose(claim.title, from), finding: local.prose(claim.finding, from), caveat: local.prose(claim.caveat, from) };
 }
 
+/** Whether a cited finding shows here. A US finding names US stores, and from elsewhere a finding only shows if the chains it names sell here. */
+export function findingShows(claim: { markets: MarketCode[]; title: string; finding: string }, local: Local) {
+  if (!local.known || local.others) return true;
+  if (claim.markets.includes(local.country as MarketCode)) return true;
+  const seen: readonly string[] = visibleMarkets(local.country);
+  if (claim.markets.length && !claim.markets.some((m) => seen.includes(m))) return false;
+  return namedSellers(`${claim.title} ${claim.finding}`).every((s) => sellsIn(s, local.country));
+}
+
 /** One unit of `from` in `to`, at the committed rates. Throws if either has no rate: a silent 1:1 would be a false price. */
 export function rate(from: Currency, to: Currency) {
   if (from === to) return 1;
@@ -177,15 +186,39 @@ export type Local = {
   prose(text: string, from: Currency): string;
 };
 
-/** Prices as the catalogue's writers put them. Group 1 is whole currency, group 2 the smaller unit. */
-const WRITTEN: Partial<Record<Currency, RegExp>> = {
-  GBP: /£\s?(\d[\d,]*(?:\.\d+)?)|(?<![\w.£])(\d+(?:\.\d+)?)p\b/g,
-  EUR: /€\s?(\d[\d,]*(?:\.\d+)?)|(?<![\w.,€])(\d+(?:\.\d+)?)\s?(?:EUR\b|€)/g,
-  USD: /(?<![A-Za-z])\$\s?(\d[\d,]*(?:\.\d+)?)/g,
-  CAD: /(?:CA?\$|(?<![A-Za-z])\$)\s?(\d[\d,]*(?:\.\d+)?)/g,
+/** A number as the catalogue's writers put it: 1,500 or 1,500.50, 4.39 or 4,39, 29. */
+const NUM = String.raw`\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+[.,]\d{1,2}(?!\d)|\d+`;
+const SMALL = String.raw`\d{1,2}(?:\.\d+)?`;
+const JOIN = String.raw`(?:\s(?:and|to|or)\s|\s?[-–]\s?)`;
+const ABOUT = "(?:(?:about|around|roughly|approximately) )?";
+/** Not part of a longer figure or word, so £1.5m, 16:9 and 1080p stay as they are. */
+const ENDS = String.raw`(?![\w%]|[.,]\d)`;
+
+/** Written forms of each record currency: before the number, after it, and the smaller unit after it. */
+const WRITTEN_FORMS: Partial<Record<Currency, { before: string; after: string; small?: string }>> = {
+  GBP: { before: "£|GBP\\s?", after: "GBP\\b|pounds?\\b", small: "p\\b" },
+  EUR: { before: "€|EUR\\s?", after: "EUR\\b|€|[Ee]uros?\\b", small: "\\s?cents?\\b" },
+  USD: { before: "US\\$|USD\\s?|(?<![A-Za-z])\\$", after: "USD\\b|dollars?\\b", small: "\\s?cents?\\b|¢" },
+  CAD: { before: "CA?\\$|CAD\\s?|(?<![A-Za-z])\\$", after: "CAD\\b", small: "\\s?cents?\\b|¢" },
 };
-/** The smaller unit in group 2 is worth a hundredth only in pounds. In euro, group 2 is "33.49 EUR". */
-const GROUP_2_SCALE: Partial<Record<Currency, number>> = { GBP: 0.01, EUR: 1 };
+
+/** One pattern per currency. Groups: a price and a range's end after a symbol, a pair before a word, one before a word, then the same two in the smaller unit. */
+function writtenPattern(from: Currency) {
+  const form = WRITTEN_FORMS[from];
+  if (!form) return null;
+  const start = String.raw`(?<![\w.,£€$])`;
+  const parts = [
+    `${ABOUT}(?:${form.before})\\s?(${NUM})(?:\\s?[-–]\\s?(?:${form.before})?\\s?(${NUM}))?${ENDS}`,
+    `${ABOUT}${start}(${NUM})${JOIN}(${NUM})\\s?(?:${form.after})`,
+    `${ABOUT}${start}(${NUM})\\s?(?:${form.after})`,
+  ];
+  if (form.small) {
+    parts.push(`${ABOUT}${start}(${SMALL})${JOIN}(${SMALL})(?:${form.small})`, `${ABOUT}${start}(${SMALL})(?:${form.small})`);
+  }
+  return new RegExp(parts.join("|"), "g");
+}
+
+const toNumber = (written: string) => (/,\d{3}/.test(written) ? Number(written.replaceAll(",", "")) : Number(written.replace(",", ".")));
 
 /** "Nov 2026" from the catalogue's "2026-11" or "2026-11-06". The same on server and client. */
 export function shortMonth(iso: string) {
@@ -228,11 +261,17 @@ function build(country: string, askedForOthers: boolean): Local {
     original: (n, from, market, checked) =>
       from === currency ? null : `${money(n, from)} at a ${MARKET_ADJECTIVE[market]} store, ${shortMonth(checked)}`,
     prose: (text, from) => {
-      const pattern = WRITTEN[from];
-      if (from === currency || !pattern) return text;
-      return text.replace(pattern, (written, whole: string | undefined, small: string | undefined) => {
-        const n = whole ? Number(whole.replaceAll(",", "")) : Number(small) * (GROUP_2_SCALE[from] ?? 1);
-        return `about ${ppu(amount(n, from), currency)} (${written.trim()})`;
+      const pattern = from === currency ? null : writtenPattern(from);
+      if (!pattern) return text;
+      return text.replace(pattern, (written: string, ...groups: (string | undefined)[]) => {
+        const [a, b, c, d, e, f, g, h] = groups;
+        const scale = f || g || h ? 0.01 : 1;
+        const first = a ?? c ?? e ?? f ?? h;
+        const second = b ?? d ?? g;
+        if (!first) return written;
+        const show = (n: string) => ppu(amount(toNumber(n) * scale, from), currency);
+        const shown = second ? `${show(first)} to ${show(second)}` : show(first);
+        return `about ${shown} (${written.replace(/^(?:about|around|roughly|approximately) /, "").trim()})`;
       });
     },
   };

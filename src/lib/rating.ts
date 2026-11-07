@@ -49,8 +49,9 @@ function scoreText(score: number, scale: RatingScale) {
   }
 }
 
-/** What a shopper reads: "4.4 of 5", "4.4 of 5 from 1,253 ratings", "Which? 75%". */
-export function ratingLabel(r: { score: number; scale: RatingScale; publisher?: string; count?: number }) {
+/** What a shopper reads: "4.4 of 5", "4.4 of 5 from 1,253 ratings", "Which? 75%", "Öko-Test: very good". */
+export function ratingLabel(r: { score: number; scale: RatingScale; publisher?: string; count?: number; wording?: string }) {
+  if (r.wording) return r.publisher ? `${r.publisher}: ${r.wording}` : r.wording;
   const score = scoreText(r.score, r.scale);
   if (r.publisher) return `${r.publisher} ${score}`;
   return r.count ? `${score} from ${r.count.toLocaleString("en-US")} ratings` : score;

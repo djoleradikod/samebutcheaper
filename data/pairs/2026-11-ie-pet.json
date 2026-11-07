@@ -80,7 +80,14 @@
     "claims": [
       "complete-pet-food-standard-fediaf-aafco"
     ],
-    "why": "The labels show the same everyday job. The sources read don't show whether Royal Canin's extra protein and fat or its sized kibble change results for a healthy dog of this size."
+    "why": "The labels show the same everyday job. The sources read don't show whether Royal Canin's extra protein and fat or its sized kibble change results for a healthy dog of this size.",
+    "bulk": {
+      "product": "Josera Daily Menu Adult Duck, Economy Pack 2 x 12.5 kg",
+      "size": 25,
+      "price": 99.99,
+      "retailer": "zooplus",
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/josera/2473762"
+    }
   },
   {
     "slug": "royal-canin-instinctive-in-jelly-vs-felix-as-good-as-it-looks-ie",
@@ -160,5 +167,450 @@
       "complete-pet-food-standard-fediaf-aafco"
     ],
     "why": "The labels show the same everyday job, and even after Felix's bigger portions it comes to about half the cost per day. No taste or feeding test covers this pair."
+  },
+  {
+    "slug": "royal-canin-sterilised-37-vs-concept-for-life-sterilised-salmon-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Dry cat food",
+    "title": "Royal Canin Sterilised 37 vs Concept for Life Sterilised Cats Salmon",
+    "brand": {
+      "brand": "Royal Canin",
+      "product": "Royal Canin Sterilised 37, 4 kg",
+      "size": 4,
+      "unit": "kg",
+      "price": 47.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126952?activeVariant=126952.12",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "37%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "12%"
+        }
+      ],
+      "gtin": "3182550737616"
+    },
+    "alternative": {
+      "brand": "Concept for Life",
+      "product": "Concept for Life Sterilised Cats Salmon, 3 kg",
+      "size": 3,
+      "unit": "kg",
+      "price": 23.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_specialised/1095645",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "35%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "11%"
+        }
+      ],
+      "rating": {
+        "score": 4.3,
+        "scale": "stars-5",
+        "count": 117,
+        "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_specialised/1095645",
+        "date": "2026-11-07"
+      },
+      "gtin": "4062911013414"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete dry foods for adult sterilised cats on zooplus.ie, and the Concept for Life costs about a third less per kg.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Sterilised 37 4 kg is EUR 47.99 (EUR 12.00/kg). Concept for Life Sterilised Cats Salmon 3 kg is EUR 23.99 (EUR 8.00/kg). Both pages call the food complete.",
+    "differences": "Royal Canin has slightly more protein and fat, 37% and 12% against 35% and 11%. Concept for Life is zooplus's own label. Their packs differ, 4 kg against 3 kg. At 10 kg the gap is wider: EUR 10.00/kg against EUR 5.60/kg.",
+    "sources": [
+      "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126952?activeVariant=126952.12",
+      "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_specialised/1095645",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "The protein and fat are close, and both are sold as complete food for the same cat. The sources read don't show that Royal Canin's extra points change results for a healthy cat.",
+    "bulk": {
+      "product": "Concept for Life Sterilised Cats Salmon, Economy Pack 2 x 10 kg",
+      "size": 20,
+      "price": 107.99,
+      "retailer": "zooplus",
+      "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_specialised/1095645"
+    }
+  },
+  {
+    "slug": "hills-science-plan-adult-chicken-vs-concept-for-life-all-cats-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Dry cat food",
+    "title": "Hill's Science Plan Adult Chicken vs Concept for Life All Cats",
+    "brand": {
+      "brand": "Hill's Science Plan",
+      "product": "Hill's Science Plan Adult 1-6 Chicken, 3 kg",
+      "size": 3,
+      "unit": "kg",
+      "price": 41.49,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/hills_feline/adult/126883?activeVariant=126883.16",
+      "key_ingredients": [],
+      "gtin": "052742030838"
+    },
+    "alternative": {
+      "brand": "Concept for Life",
+      "product": "Concept for Life All Cats, 3 kg",
+      "size": 3,
+      "unit": "kg",
+      "price": 19.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/adult/1336509",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "32%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "20%"
+        }
+      ],
+      "rating": {
+        "score": 4.2,
+        "scale": "stars-5",
+        "count": 221,
+        "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/adult/1336509",
+        "date": "2026-11-07"
+      },
+      "gtin": "4062911064331"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete dry foods for adult cats in the same 3 kg pack on zooplus.ie, and the Concept for Life costs about 52% less.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Hill's Science Plan Adult 1-6 Chicken 3 kg is EUR 41.49 (EUR 13.83/kg). Concept for Life All Cats 3 kg is EUR 19.99 (EUR 6.66/kg). Both pages call the food complete. The Concept for Life page title says wet food, while its description and the pack are dry food.",
+    "differences": "Hill's page on zooplus.ie prints no protein or fat figure, so we can't compare those. Concept for Life states 32% protein and 20% fat. Concept for Life is zooplus's own label.",
+    "sources": [
+      "https://www.zooplus.ie/shop/cats/dry_cat_food/hills_feline/adult/126883?activeVariant=126883.16",
+      "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/adult/1336509",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "Both are sold as complete food for the same cat, at less than half the price per kg. We have no test comparing the two."
+  },
+  {
+    "slug": "royal-canin-maxi-adult-vs-concept-for-life-large-adult-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Dry dog food",
+    "title": "Royal Canin Maxi Adult vs Concept for Life Large Adult",
+    "brand": {
+      "brand": "Royal Canin",
+      "product": "Royal Canin Maxi Adult, 15 kg",
+      "size": 15,
+      "unit": "kg",
+      "price": 91.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/maxi/128339?activeVariant=128339.19",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "26%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "17%"
+        }
+      ],
+      "gtin": "3182550401937"
+    },
+    "alternative": {
+      "brand": "Concept for Life",
+      "product": "Concept for Life Large Adult, 12 kg",
+      "size": 12,
+      "unit": "kg",
+      "price": 46.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561474?activeVariant=561474.0",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "26%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "17%"
+        }
+      ],
+      "rating": {
+        "score": 4.5,
+        "scale": "stars-5",
+        "count": 242,
+        "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561474?activeVariant=561474.0",
+        "date": "2026-11-07"
+      },
+      "gtin": "4062911064614"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete dry foods for large adult dogs on zooplus.ie, with the same protein and fat, and the Concept for Life costs about 36% less per kg.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Maxi Adult 15 kg is EUR 91.99 (EUR 6.13/kg). Concept for Life Large Adult 12 kg is EUR 46.99 (EUR 3.92/kg). Both state 26% protein and 17% fat, and both pages call the food complete.",
+    "differences": "The packs differ, 15 kg against 12 kg. The Concept for Life page marks this as a new recipe, so some of its reviews are of the older one. The ingredient lists differ. Concept for Life is zooplus's own label.",
+    "sources": [
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/maxi/128339?activeVariant=128339.19",
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561474?activeVariant=561474.0",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "The protein and fat figures match exactly, and both are sold as complete food for the same size of dog. For a big dog that eats a lot, the difference per kilo adds up.",
+    "bulk": {
+      "product": "Concept for Life Large Adult, Economy Pack 2 x 12 kg",
+      "size": 24,
+      "price": 90.99,
+      "retailer": "zooplus",
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561474?activeVariant=561474.0"
+    }
+  },
+  {
+    "slug": "royal-canin-maxi-puppy-vs-concept-for-life-large-puppy-junior-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Dry dog food",
+    "title": "Royal Canin Maxi Puppy vs Concept for Life Large Puppy & Junior",
+    "brand": {
+      "brand": "Royal Canin",
+      "product": "Royal Canin Maxi Puppy, 15 kg",
+      "size": 15,
+      "unit": "kg",
+      "price": 94.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/maxi/128338?activeVariant=128338.14",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "30%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "16%"
+        }
+      ],
+      "gtin": "3182550402163"
+    },
+    "alternative": {
+      "brand": "Concept for Life",
+      "product": "Concept for Life Large Puppy & Junior, 12 kg",
+      "size": 12,
+      "unit": "kg",
+      "price": 47.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561475?activeVariant=561475.0",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "31%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "15%"
+        }
+      ],
+      "rating": {
+        "score": 4.3,
+        "scale": "stars-5",
+        "count": 177,
+        "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561475?activeVariant=561475.0",
+        "date": "2026-11-07"
+      },
+      "gtin": "4062911011601"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete dry foods for growing large-breed puppies on zooplus.ie, and the Concept for Life costs about 37% less per kg.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Maxi Puppy 15 kg is EUR 94.99 (EUR 6.33/kg). Concept for Life Large Puppy & Junior 12 kg is EUR 47.99 (EUR 4.00/kg). Both pages describe a complete food for growing dogs.",
+    "differences": "Protein and fat differ by a point each way, 30% and 16% against 31% and 15%. The packs differ, 15 kg against 12 kg. A large-breed puppy's growth food is worth checking with a vet whichever brand you buy. Concept for Life is zooplus's own label.",
+    "sources": [
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/maxi/128338?activeVariant=128338.14",
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561475?activeVariant=561475.0",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "The protein and fat are within a point of each other, and both are sold as complete food for the same growing dog.",
+    "bulk": {
+      "product": "Concept for Life Large Puppy & Junior, Economy Pack 2 x 12 kg",
+      "size": 24,
+      "price": 92.99,
+      "retailer": "zooplus",
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_large/561475?activeVariant=561475.0"
+    }
+  },
+  {
+    "slug": "royal-canin-mini-adult-vs-concept-for-life-mini-adult-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Dry dog food",
+    "title": "Royal Canin Mini Adult vs Concept for Life Mini Adult",
+    "brand": {
+      "brand": "Royal Canin",
+      "product": "Royal Canin Mini Adult, 8 kg",
+      "size": 8,
+      "unit": "kg",
+      "price": 59.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/mini/128322?activeVariant=128322.15",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "27%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "16%"
+        }
+      ],
+      "gtin": "3182551055733"
+    },
+    "alternative": {
+      "brand": "Concept for Life",
+      "product": "Concept for Life Mini Adult, Economy Pack 2 x 4 kg",
+      "size": 8,
+      "unit": "kg",
+      "price": 30.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561527?activeVariant=561527.4",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "26%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "16%"
+        }
+      ],
+      "rating": {
+        "score": 4.7,
+        "scale": "stars-5",
+        "count": 299,
+        "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561527?activeVariant=561527.4",
+        "date": "2026-11-07"
+      },
+      "gtin": "4062911011861"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete dry foods for small adult dogs, 8 kg each on zooplus.ie, and the Concept for Life costs about 48% less.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Mini Adult 8 kg is EUR 59.99 (EUR 7.50/kg). Concept for Life Mini Adult, Economy Pack 2 x 4 kg, is EUR 30.99 (EUR 3.87/kg). Both pages call the food complete.",
+    "differences": "Royal Canin has a point more protein, 27% against 26%, with the same 16% fat. The Concept for Life price is for two 4 kg bags, not one 8 kg bag. Concept for Life is zooplus's own label.",
+    "sources": [
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/mini/128322?activeVariant=128322.15",
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561527?activeVariant=561527.4",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "The protein and fat are about the same, and both are sold as complete food for the same small dog, at about half the price per kilo."
+  },
+  {
+    "slug": "royal-canin-mini-adult-8-vs-concept-for-life-mini-senior-ie",
+    "market": "IE",
+    "category": "pet",
+    "subcategory": "Dry dog food",
+    "title": "Royal Canin Mini Adult 8+ vs Concept for Life Mini Senior",
+    "brand": {
+      "brand": "Royal Canin",
+      "product": "Royal Canin Mini Adult 8+, 8 kg",
+      "size": 8,
+      "unit": "kg",
+      "price": 59.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/mini/128324?activeVariant=128324.16",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "27%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "16%"
+        }
+      ],
+      "gtin": "3182550831383"
+    },
+    "alternative": {
+      "brand": "Concept for Life",
+      "product": "Concept for Life Mini Senior, 3 kg",
+      "size": 3,
+      "unit": "kg",
+      "price": 13.99,
+      "retailer": "zooplus",
+      "asin": null,
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561529",
+      "key_ingredients": [
+        {
+          "name": "Crude protein",
+          "amount": "26%"
+        },
+        {
+          "name": "Crude fat",
+          "amount": "14%"
+        }
+      ],
+      "rating": {
+        "score": 4.7,
+        "scale": "stars-5",
+        "count": 10,
+        "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561529",
+        "date": "2026-11-07"
+      },
+      "gtin": "4062911012417"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are complete dry foods for older small dogs on zooplus.ie, and the Concept for Life costs about 38% less per kg.",
+    "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Mini Adult 8+ 8 kg is EUR 59.99 (EUR 7.50/kg). Concept for Life Mini Senior 3 kg is EUR 13.99 (EUR 4.66/kg). Both pages call the food complete.",
+    "differences": "Royal Canin has more protein and fat, 27% and 16% against 26% and 14%. The packs differ, 8 kg against 3 kg. The Concept for Life rating is from only 10 reviews. Concept for Life is zooplus's own label.",
+    "sources": [
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/mini/128324?activeVariant=128324.16",
+      "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561529",
+      "https://europeanpetfood.org/nutritional-guidelines"
+    ],
+    "price_checked": "2026-11",
+    "claims": [
+      "complete-pet-food-standard-fediaf-aafco"
+    ],
+    "why": "Both are sold as complete food for the same older small dog. The sources read don't show that Royal Canin's extra points change results for a healthy dog.",
+    "bulk": {
+      "product": "Concept for Life Mini Senior, Economy Pack 2 x 3 kg",
+      "size": 6,
+      "price": 26.99,
+      "retailer": "zooplus",
+      "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561529"
+    }
   }
 ]

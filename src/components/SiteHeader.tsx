@@ -4,7 +4,7 @@ import { SavedCount } from "./SaveButton";
 import { Logo } from "./Logo";
 import { Dropdown } from "./Dropdown";
 import { CountryPicker } from "./CountryPicker";
-import { getCategoryStats, getSiteStats } from "@/lib/catalog";
+import { getCategoryStats } from "@/lib/catalog";
 import type { CategorySlug } from "@/lib/types";
 
 const MENU = [
@@ -49,7 +49,6 @@ const AISLE_LABEL: Record<CategorySlug, string> = {
 export function SiteHeader() {
   // CATEGORIES is in display order: everyday shopping first, medicine last.
   const aisles = getCategoryStats().filter((c) => c.count > 0);
-  const { pairs } = getSiteStats();
   return (
     <>
       <header className="z-40 border-b border-line bg-paper md:sticky md:top-0">
@@ -66,7 +65,7 @@ export function SiteHeader() {
             <input
               name="q"
               type="search"
-              placeholder={`Search ${pairs} swaps by brand or product`}
+              placeholder="Search swaps by brand or product"
               aria-label="Search swaps by brand or product"
               className="h-11 w-full rounded-search border border-line-strong bg-paper pr-[4.75rem] pl-9 text-base placeholder:text-muted focus:border-cobalt focus:outline-none md:h-10 md:text-[15px]"
             />

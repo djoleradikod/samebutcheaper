@@ -281,7 +281,7 @@ const quotedRatings: Record<string, unknown> = existsSync(join(EVIDENCE_DIR, "ra
 function toRating(raw: PairInput["brand"]["rating"], fallbackDate: string): Rating | null {
   if (!raw) return null;
   const score = raw.score ?? raw.stars ?? 0;
-  const base = { score, scale: raw.scale, count: raw.count, publisher: raw.publisher };
+  const base = { score, scale: raw.scale, count: raw.count, publisher: raw.publisher, wording: raw.wording };
   return { ...base, source: raw.source, date: raw.date ?? fallbackDate, share: round(ratingShare(score, raw.scale), 3), label: ratingLabel(base) };
 }
 
