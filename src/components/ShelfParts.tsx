@@ -144,10 +144,13 @@ export function ShelfHead({
         </div>
         {(n > 0 || facts) && (
           <div className="flex items-center gap-3 md:max-w-60 md:flex-col md:items-end md:gap-2 md:text-right">
+            {/* On a phone every line above the first product costs a card, and each card carries its own saving. */}
             {n > 0 && (
-              <Ticket size="lg" sub="biggest saving" label={`Up to ${n}% cheaper per unit`} className="shrink-0">
-                −{n}%
-              </Ticket>
+              <div className="hidden shrink-0 md:block">
+                <Ticket size="lg" sub="biggest saving" label={`Up to ${n}% cheaper per unit`}>
+                  −{n}%
+                </Ticket>
+              </div>
             )}
             {facts && <p className="text-[13px] leading-snug text-ink-2">{facts}</p>}
           </div>

@@ -279,7 +279,7 @@ export function PairBrowser({
         )}
 
         {(explainSameJob || explainSameKind) && (
-          <p className="mt-1 max-w-[68ch] text-[13px] text-ink-2 lg:mt-2">
+          <p className="mt-1 hidden max-w-[68ch] text-[13px] text-ink-2 md:block lg:mt-2">
             {explainSameJob && `${MATCH_TYPE_META.equivalent_spec.short}: ${MATCH_TYPE_META.equivalent_spec.description} `}
             {explainSameKind && `${MATCH_TYPE_META.same_kind.short}: ${MATCH_TYPE_META.same_kind.description} `}
             <Link
