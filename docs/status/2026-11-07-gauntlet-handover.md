@@ -59,7 +59,7 @@ The database volume is kept. `up -d` alone isn't enough, because main has moved 
 
 ## Still open
 
-- Photos: home and category lose on looks to idealo's studio renders. Community snapshots are the limit. 51 of the 306 cut photos are marked weak and sort after sharper ones; they still show.
+- Photos: home and category lose on looks to idealo's studio renders. Community snapshots are the limit. 51 of the 308 cut photos are marked weak and sort after sharper ones; they still show.
 - `/bulk` loses to geizhals. Most rows have no photo and the catalogue has 63 bigger packs against its 1,639 listings.
 - Baskets: the big total isn't one receipt. It's split by store now, and there's no one-store option.
 - Thin swaps: where the product you're told to buy has no photo, the page says so, and critics mark that down.
