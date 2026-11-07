@@ -4,6 +4,33 @@ Owner push of 6 Nov. Brief: `~/ops/owner-push-20261106/samebutcheaper.md` and `s
 
 The critic has not picked ours on every piece, so the gauntlet is not finished. This branch is landing because the week's budget is running out, on the coordinator's instruction. See "Where it stands".
 
+## Country round, 7 Nov (read this first)
+
+samebutcheaper-95, brief `~/ops/owner-push-20261107/samebutcheaper.md`, "country fix only". Stopped at the week's 85% line, so **this round isn't finished and has no PR.** Branch `worktree-country`, worktree `.claude/worktrees/country`, pushed. Round 2's review fixes are `7a50d04`, the country work is `45858a2`. `:8851` serves `45858a2` for the owner's Ireland test, not main, until this merges.
+
+**Done.** The selected country sets the currency, the prices that lead and the stores we link, on every page that shows a price. Rules are in `src/lib/localize.ts` and at the end of `data/README.md`. Pages now render per request under one Suspense in the root layout, so the first paint is right. Rates are the ECB's of 6 Nov 2026. Ireland gets Amazon.ie, SuperValu, Lidl Ireland and, in tools and garden, Woodie's, each opened and returning results.
+
+**Checks on `45858a2`, through the lane.** Catalog, typegen, typecheck, lint, rules and build all exit 0. `country_http.py` 58 of 58. `interact_check.py` failed 0. LCP on the throttled profile, with no country cookie: 0.85 s on `/`, 0.84 s on `/bulk`, against a 0.74 s worst median on the round 10 build, which isn't the same page set.
+
+**`country_check.py` failed 4, exit 1. Clear these before any PR.**
+- `DE`, `GB` and `HR` on `/category/household`: "shows the symbol" failed, and that's the check's fault. The served page has 96 small-unit prices such as "37 ct" and "37p" and no symbol. Let `country_check.py` accept those.
+- **Picker, the one that matters: after choosing Ireland from the US in a real browser, the page still named a US store.** The band and euro had changed. Not diagnosed. It may be `router.refresh()` not replacing the list, or the check reading too early. This is the flow the owner will use. Reproduce it first.
+
+**Asked for by the coordinator and not started: the seller filter.** Ireland still lists swaps it can't buy, such as "Tony's Chocolonely to Sainsbury's", because the chain is in the product name. The ask: by default a fallback country lists a swap only if the cheaper product's seller operates in or ships to that country, everything else sits behind one plain control ("Show swaps from other countries"), `country_http.py` fails on a named UK-only or German-only chain on IE pages, and the new numbers get reported. Fewer honest swaps beat more wrong ones.
+
+What I found for it:
+- The seller isn't always `retailer`. 15 UK `other` rows are on amazon.co.uk, 32 German `other` rows are myTime's Jeden Tag on mytime.de, and the one Ocado row is Marks & Spencer's.
+- Sells in Ireland, seen on an Irish site that opened: Lidl (lidl.ie), Viking (vikingdirect.ie), zooplus (zooplus.ie), IKEA (ikea.com/ie), Marks & Spencer (marksandspencer.com/ie), Amazon (amazon.ie).
+- Weaker: tesco.ie and aldi.ie exist but answer automated requests with 403. A tesco.ie help page turned up in search and an Irish Times piece names Tesco among Ireland's biggest chains; Aldi Ireland rests on the host alone. Someone should open both.
+- No evidence it sells in Ireland, so hide it by default: Sainsbury's, Asda, Morrisons, Waitrose, Ocado, Co-op, Crocus, Seven Day Shop, Toolstation and the German chains. Superdrug's delivery page says "UK & Ireland only" for one offer, which is unclear. alternate.ie just redirects to alternate.de. The only source on Sainsbury's and Asda is from 2009, so this is absence of evidence, not proof they don't.
+- A whitelist on that evidence would leave Ireland about 108 of 270 swaps: UK 83 (Tesco 24, Viking 17, Aldi 16, Amazon 15, Lidl 9, IKEA 1, M&S 1), Germany 25 (zooplus 12, Lidl 7, Aldi 6). Counted from the catalogue by seller, not built. Baskets aren't counted: one with any hidden line would have to go.
+- Other fallback countries have no verified table. Footprint searches didn't give usable lists for Lidl, Aldi, dm, Rossmann or Müller. Opening each chain's national site and matching its title is the cheap way. Without a table the same rule leaves them only their Amazon rows, so say so rather than guess.
+- A shape that fits: `sellers` on Pair, Bundle and Preset, worked out when `catalog.ts` loads and carried on the summaries in `/search/index.json`; `forCountry` takes the country plus a show-others flag from a cookie; the control lives in `FallbackBand`.
+
+**Still open after that.** Items 2 to 4 of the brief (rating floor, research, clothing) and real Irish prices haven't started. Tesco Ireland, Dunnes, Aldi Ireland and Boots Ireland search links aren't added, because they refused automated checks. `/why` and swap evidence text can still cite US sources, and a US swap opened by direct link still works, in euro with no US store offered in its price table. The independent review of `45858a2` was still running when this was written.
+
+**Needs the owner:** `EnterWorktree` on this worktree was auto-denied at the start. Working in it by path did the job, so nothing is blocked.
+
 ## Round 2, 7 Nov
 
 The owner's "keep going and merge", brief `~/ops/owner-push-20261106/round2.md`, lead samebutcheaper-94. No critic round this time, so the verdicts below are from before these changes.
