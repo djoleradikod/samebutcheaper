@@ -310,6 +310,19 @@ export function TagLinks({ links }: { links: { href: string; label: ReactNode; k
 }
 
 /** For a swap, kit or basket opened by a direct link that wouldn't list for this shopper. It still opens, and says so. */
+/** On a swap page whose record gives way to the same swap in another market. */
+export function SameSwapHere({ market, twin }: { market: MarketCode; twin: { slug: string; market: MarketCode } }) {
+  return (
+    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+      We priced this one at {MARKET_ADJECTIVE[market]} stores.{" "}
+      <Link href={`/compare/${twin.slug}`} className="underline">
+        See the same swap at {MARKET_ADJECTIVE[twin.market]} prices
+      </Link>
+      .
+    </p>
+  );
+}
+
 export function NotListedHere({ market, local }: { market: MarketCode; local: Local }) {
   return (
     <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">

@@ -1,11 +1,50 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import fx from "../../data/fx/ecb-reference-rates.json";
+import catalog from "../../src/generated/catalog.json";
 import { defaultMarket, type BrowseRow } from "../../src/lib/browse";
-import { COUNTRY_CURRENCY, fallbackNotice, findingShows, forCountry, listMarketFor, localFor, NO_RATE, rate, visibleMarkets } from "../../src/lib/localize";
+import { COUNTRY_CURRENCY, fallbackNotice, findingShows, forCountry, listMarketFor, localFor, NO_RATE, oneOfEachSwap, rate, visibleMarkets } from "../../src/lib/localize";
 import { COUNTRIES, deliversTo, isKnownCountry, storesFor, type MarketCode } from "../../src/lib/markets";
 import { inRange, RATING_FLOOR, ratingLabel, ratingShare } from "../../src/lib/rating";
 import { sellerOf, sellsIn } from "../../src/lib/sellers";
+
+test("one swap lists once: the record nearest the shopper wins", () => {
+  const de = { slug: "x-de", market: "DE" as MarketCode, sellers: ["zooplus"], twin: { slug: "x-ie", market: "IE" as MarketCode } };
+  const ie = { slug: "x-ie", market: "IE" as MarketCode, sellers: ["zooplus"], twin: { slug: "x-de", market: "DE" as MarketCode } };
+  const listed = (country: string, others = false) => forCountry([de, ie], localFor(country, others)).map((r) => r.slug);
+  assert.deepEqual(listed("IE"), ["x-ie"], "a shopper's own market wins");
+  assert.deepEqual(listed("DE"), ["x-de"], "in Germany too");
+  assert.deepEqual(listed("AT"), ["x-de"], "the market a country leads with wins next");
+  assert.deepEqual(listed("GB"), ["x-ie"], "with neither, the one with English names");
+  assert.deepEqual(listed("IE", true), ["x-ie"], "the control doesn't bring the twin back");
+  assert.deepEqual(forCountry([de, ie], localFor(null)).map((r) => r.slug), ["x-ie"], "with no country at all, still once");
+  assert.deepEqual(oneOfEachSwap([de, ie]).map((r) => r.slug), ["x-ie"], "and on a page that lists whatever a brand has");
+  // A twin the shopper can't see can't take a record's place: nothing would list.
+  const seenByNobodyHere = { slug: "y-de", market: "DE" as MarketCode, sellers: ["amazon"], twin: { slug: "y-us", market: "US" as MarketCode } };
+  assert.equal(forCountry([seenByNobodyHere], localFor("GB")).length, 1, "the UK can't see a US record, so the German one lists");
+  // Control: without the link, both would list. This is what shoppers saw.
+  assert.equal(forCountry([{ ...de, twin: null }, { ...ie, twin: null }], localFor("IE")).length, 2);
+});
+
+test("every twin in the catalogue points back, and no country lists both", () => {
+  const pairs = catalog.pairs as unknown as { slug: string; market: MarketCode; sellers: string[]; twin: { slug: string; market: MarketCode } | null }[];
+  const bySlug = new Map(pairs.map((p) => [p.slug, p]));
+  const twinned = pairs.filter((p) => p.twin);
+  assert.ok(twinned.length >= 20, `only ${twinned.length} twinned records`);
+  for (const p of twinned) {
+    const other = bySlug.get(p.twin!.slug);
+    assert.equal(other?.twin?.slug, p.slug, `${p.slug} and its twin disagree`);
+    assert.equal(other?.market, p.twin!.market, p.slug);
+  }
+  for (const country of [null, ...Object.keys(COUNTRIES)]) {
+    for (const others of [false, true]) {
+      const listed = new Set(forCountry(pairs, localFor(country, others)).map((p) => p.slug));
+      const twice = twinned.filter((p) => listed.has(p.slug) && listed.has(p.twin!.slug)).map((p) => p.slug);
+      assert.deepEqual(twice, [], `${country} lists a swap twice, others ${others}`);
+    }
+  }
+  assert.equal(oneOfEachSwap(pairs).length, pairs.length - twinned.length / 2);
+});
 
 const row = (market: MarketCode, aisle: BrowseRow["aisle"] = "household"): BrowseRow => ({
   slug: `${market}-${aisle}`,

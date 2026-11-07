@@ -8,6 +8,7 @@ price or a US store. Exits 1 if anything fails. Needs no browser, so it doesn't 
 """
 import html
 import json
+import pathlib
 import re
 import sys
 import urllib.error
@@ -186,6 +187,46 @@ shown_all = re.search(r"(\d+)\s*swaps, each with at least two sources", text)
 check(bool(shown_ie and shown_all and int(shown_all.group(1)) > int(shown_ie.group(1))), "IE with the control on: more swaps", f"{shown_ie and shown_ie.group(1)} and {shown_all and shown_all.group(1)}")
 check("Hide swaps from other countries" in text, "IE with the control on: the band offers to hide them")
 check(not US_ONLY.search(text), "IE with the control on: still no US-only brand", str(sorted(set(US_ONLY.findall(text)))))
+
+# One swap lists once. An Irish and a German record of the same swap used to sit side by side.
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+catalog = json.loads((ROOT / "src" / "generated" / "catalog.json").read_text())
+twins = [(p["slug"], p["twin"]["slug"]) for p in catalog["pairs"] if p.get("twin")]
+check(len(twins) >= 20, "the catalogue links its twins", str(len(twins)))
+
+
+def listed_twice(body: str) -> list:
+    slugs = set(re.findall(r'href="/compare/([^"?#]+)"', body))
+    return [a for a, b in twins if a in slugs and b in slugs]
+
+
+# Pages where a twin really renders. A German shopper's pet aisle doesn't show Irish rows at all, so it couldn't fail here.
+twin_slugs = {s for pair in twins for s in pair}
+for path, country in (
+    ("/category/pet", "IE"),
+    ("/category/pet", "GB"),
+    ("/brand/royal-canin", "IE"),
+    ("/brand/royal-canin", "GB"),
+    ("/brand/royal-canin", None),
+    ("/dupe/royal-canin-wet-cat-food", None),
+    ("/dupe/royal-canin-wet-cat-food", "US"),
+    ("/dupe/dulcolax-bisacodyl", "DE"),
+    ("/dupe/dulcolax-bisacodyl", None),
+):
+    status, body, _ = get(path, country)
+    check(status == 200 and not listed_twice(body), f"{path} for {country}: no swap twice", str(listed_twice(body)[:2]))
+    check(bool(twin_slugs & set(re.findall(r'href="/compare/([^"?#]+)"', body))), f"{path} for {country}: the page does show a twinned swap, so this can fail")
+different = len(catalog["pairs"]) - len(twins) // 2
+for path in ("/how-we-verify", "/about"):
+    _, body, _ = get(path, "IE")
+    check(f"{different} swaps" in visible(body) and f"{len(catalog['pairs'])} swaps" not in visible(body), f"{path} counts a swap in two markets once", str(different))
+check(bool(listed_twice(f'<a href="/compare/{twins[0][0]}"></a><a href="/compare/{twins[0][1]}"></a>')), "control: a page with both twins does trip the check")
+
+ie_only, de_only = next((a, b) for a, b in twins if a.endswith("-ie") and b.endswith("-de"))
+_, body, _ = get(f"/compare/{de_only}", "IE")
+text = visible(body)
+check("See the same swap at Irish prices" in text, "IE on the German record of a swap: points to the Irish one")
+check("couldn't confirm you can buy it" not in text, "IE on the German record of a swap: doesn't say it can't be bought there")
 
 # Unknown slugs are real 404s.
 for missing in ["/brand/nope", "/ingredient/nope", "/category/nope", "/compare/nope", "/dupe/nope", "/bundle/nope", "/basket/nope"]:

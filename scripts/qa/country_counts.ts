@@ -14,7 +14,7 @@ const catalog = JSON.parse(readFileSync(join(import.meta.dirname, "..", "..", "s
   presets: Listed[];
 };
 
-console.log(`catalogue: ${catalog.pairs.length} swaps, ${catalog.pairs.filter((p) => p.alternative.rating).length} rated, ${catalog.pairs.filter((p) => p.bulkView.bigger).length} with a bigger pack, ${catalog.pairs.filter((p) => p.category === "clothing").length} clothing`);
+console.log(`catalogue: ${catalog.pairs.length} records, ${catalog.pairs.length - catalog.pairs.filter((p) => p.twin).length / 2} different swaps, ${catalog.pairs.filter((p) => p.alternative.rating).length} rated, ${catalog.pairs.filter((p) => p.bulkView.bigger).length} with a bigger pack, ${catalog.pairs.filter((p) => p.category === "clothing").length} clothing`);
 console.log("country | swaps | with control | rated (survive hiding unrated) | baskets | kits | bulk");
 for (const code of ["IE", "GB", "DE", "US", "CA", "HR", "AT", "FR", "NL", "PL"]) {
   const local = localFor(code);

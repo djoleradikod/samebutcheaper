@@ -4,6 +4,7 @@ import { linksEarn } from "@/lib/affiliate";
 import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
 import { ProsePage } from "@/components/ProsePage";
 import { getAllPairs, getSiteStats } from "@/lib/catalog";
+import { oneOfEachSwap } from "@/lib/localize";
 import type { MatchType } from "@/lib/types";
 
 export const metadata: Metadata = {
@@ -44,7 +45,7 @@ const STANDARDS: { type: MatchType; detail: string }[] = [
 
 export default function HowWeVerifyPage() {
   const stats = getSiteStats();
-  const pairs = getAllPairs();
+  const pairs = oneOfEachSwap(getAllPairs());
   const count = (type: MatchType) => pairs.filter((p) => p.match_type === type).length;
   return (
     <ProsePage

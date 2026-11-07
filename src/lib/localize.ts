@@ -108,8 +108,18 @@ export function visibleMarkets(country: string | null): MarketCode[] {
   return MARKET_CODES.filter((m) => m !== "US" && m !== "CA");
 }
 
-/** Anything a list can show: a swap, kit or basket, with who sells it. */
-export type Listed = { market: MarketCode; sellers: readonly string[] };
+/** Anything a list can show: a swap, kit or basket, with who sells it, and the same swap's record in another market if it has one. */
+export type Listed = { market: MarketCode; sellers: readonly string[]; twin?: { market: MarketCode } | null };
+
+/** When neither record of a swap is from the shopper's market, the one whose names read in English lists. */
+const TWIN_ORDER: MarketCode[] = ["GB", "IE", "US", "CA", "DE"];
+
+/** For a shopper we can't place, or a page that lists whatever a brand has: one record of each swap. */
+const firstOfTwins = (item: Listed) => !item.twin || TWIN_ORDER.indexOf(item.market) < TWIN_ORDER.indexOf(item.twin.market);
+
+export function oneOfEachSwap<T extends Listed>(items: readonly T[]): T[] {
+  return items.filter(firstOfTwins);
+}
 
 /** The items this shopper sees, keeping their order. */
 export function forCountry<T extends Listed>(items: readonly T[], local: Local): T[] {
@@ -245,6 +255,12 @@ function build(country: string, askedForOthers: boolean): Local {
     shows: (item) => {
       if (item.market === country) return true;
       if (!markets.includes(item.market)) return false;
+      // One swap lists once: the record from this shopper's market, then from the market they lead with. A twin they can't see doesn't count.
+      const twin = item.twin?.market;
+      if (twin && markets.includes(twin)) {
+        if (twin === country) return false;
+        if (item.market !== listMarket && (twin === listMarket || TWIN_ORDER.indexOf(twin) < TWIN_ORDER.indexOf(item.market))) return false;
+      }
       // Canada has too few of its own and fills up from the US, and the two share most stores.
       if (northAmerica && (item.market === "US" || item.market === "CA")) return true;
       return others || item.sellers.every((s) => sellsIn(s, country));
@@ -287,7 +303,7 @@ const UNKNOWN: Local = {
   ...build("US", false),
   known: false,
   sells: () => true,
-  shows: () => true,
+  shows: firstOfTwins,
   converts: () => false,
   amount: (n) => n,
   bare: (n, from) => money(n, from),

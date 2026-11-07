@@ -5,6 +5,7 @@ import { CATEGORIES } from "./categories";
 import { APPROX_USD, type MarketCode } from "./markets";
 import { dupeActives, dupeSlugFor } from "./dupes";
 import { INGREDIENT_MATCHES, ingredientKey, ingredientPageKey, slugify } from "./ingredient-key";
+import { oneOfEachSwap } from "./localize";
 import { isCutOut } from "./photos";
 
 const catalog = catalogJson as unknown as Catalog;
@@ -137,7 +138,8 @@ export function getCategoryStats(pick: (pairs: Pair[]) => Pair[] = (pairs) => pa
 }
 
 export function getSiteStats() {
-  const pairs = catalog.pairs;
+  // A swap priced in two markets is one swap.
+  const pairs = oneOfEachSwap(catalog.pairs);
   const avg = pairs.length ? pairs.reduce((s, p) => s + p.savingsPct, 0) / pairs.length : 0;
   const sources = pairs.reduce((s, p) => s + p.sources.length, 0);
   return {
@@ -169,6 +171,7 @@ export function toSummary(p: Pair): PairSummary {
     savingsPct: p.savingsPct,
     savingsPerPack: p.savingsPerPack,
     sellers: p.sellers,
+    twin: p.twin,
     altRating: p.alternative.rating?.label ?? null,
     matchType: p.match_type,
     confidence: p.confidence,

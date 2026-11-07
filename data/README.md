@@ -38,6 +38,7 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 - `why`: one or two plain sentences on why this brand's premium isn't worth paying, specific to this swap.
 - `claims`: ids from `data/evidence/claims.json` to show on this swap. Claims matching the category apply anyway.
 - `shelf_life`: an id from `data/evidence/shelf-life.json`, when the subcategory match isn't the right record.
+- `same_swap`: the slug of this same swap priced in another market. Set it on one of the two, and the build links both. A list shows one of them: the shopper's own market's first, then the market they lead with, then the one with English names.
 - `bulk`: a bigger pack of the alternative, same unit: `{ "product", "size", "price", "retailer", "url" }`. Its price is
   checked the same way as the others, and its URL goes in `sources`.
 - `rating`: `{ "stars": 4.6, "count": 12400, "source": "<the product page the rating is from>" }`. Use the same

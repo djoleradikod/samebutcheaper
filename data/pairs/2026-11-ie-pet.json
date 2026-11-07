@@ -1,6 +1,7 @@
 [
   {
     "slug": "royal-canin-medium-adult-vs-josera-daily-menu-adult-duck-ie",
+    "same_swap": "royal-canin-medium-adult-vs-josera-daily-menu-adult-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Dry dog food",
@@ -91,6 +92,7 @@
   },
   {
     "slug": "royal-canin-instinctive-in-jelly-vs-felix-as-good-as-it-looks-ie",
+    "same_swap": "royal-canin-instinctive-in-gelee-vs-felix-so-gut-wie-es-aussieht-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Wet cat food",
@@ -178,6 +180,7 @@
   },
   {
     "slug": "royal-canin-sterilised-37-vs-concept-for-life-sterilised-salmon-ie",
+    "same_swap": "royal-canin-sterilised-37-vs-concept-for-life-sterilised-lachs-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Dry cat food",
@@ -256,6 +259,7 @@
   },
   {
     "slug": "hills-science-plan-adult-chicken-vs-concept-for-life-all-cats-ie",
+    "same_swap": "hills-science-plan-adult-huhn-vs-concept-for-life-all-cats-adult-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Dry cat food",
@@ -318,6 +322,7 @@
   },
   {
     "slug": "royal-canin-maxi-adult-vs-concept-for-life-large-adult-ie",
+    "same_swap": "royal-canin-maxi-adult-vs-concept-for-life-large-adult-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Dry dog food",
@@ -396,6 +401,7 @@
   },
   {
     "slug": "royal-canin-maxi-puppy-vs-concept-for-life-large-puppy-junior-ie",
+    "same_swap": "royal-canin-maxi-puppy-vs-concept-for-life-large-puppy-junior-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Dry dog food",
@@ -474,6 +480,7 @@
   },
   {
     "slug": "royal-canin-mini-adult-vs-concept-for-life-mini-adult-ie",
+    "same_swap": "royal-canin-mini-adult-vs-concept-for-life-mini-adult-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Dry dog food",
@@ -545,6 +552,7 @@
   },
   {
     "slug": "royal-canin-mini-adult-8-vs-concept-for-life-mini-senior-ie",
+    "same_swap": "royal-canin-mini-adult-8-vs-concept-for-life-mini-senior-de",
     "market": "IE",
     "category": "pet",
     "subcategory": "Dry dog food",

@@ -153,6 +153,8 @@ export const pairSchema = z
     why: z.string().min(20).optional(),
     /** Evidence claim ids (data/evidence/claims.json). Claims matching the category apply anyway. */
     claims: z.array(z.string()).default([]),
+    /** The slug of this same swap in another market, so a list shows it once. Set on one of the two; the build links both. */
+    same_swap: z.string().optional(),
     /** Shelf-life record id (data/evidence/shelf-life.json), when the subcategory match isn't right. */
     shelf_life: z.string().optional(),
     /** A bigger pack of the alternative, for the bulk view. Same unit as the pair. */
