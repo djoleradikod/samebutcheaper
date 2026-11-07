@@ -200,9 +200,26 @@ def listed_twice(body: str) -> list:
     return [a for a, b in twins if a in slugs and b in slugs]
 
 
-for country in ("IE", "GB", "DE", "HR"):
-    status, body, _ = get("/category/pet", country)
-    check(status == 200 and not listed_twice(body), f"{country}: the pet aisle lists no swap twice", str(listed_twice(body)[:2]))
+# Pages where a twin really renders. A German shopper's pet aisle doesn't show Irish rows at all, so it couldn't fail here.
+twin_slugs = {s for pair in twins for s in pair}
+for path, country in (
+    ("/category/pet", "IE"),
+    ("/category/pet", "GB"),
+    ("/brand/royal-canin", "IE"),
+    ("/brand/royal-canin", "GB"),
+    ("/brand/royal-canin", None),
+    ("/dupe/royal-canin-wet-cat-food", None),
+    ("/dupe/royal-canin-wet-cat-food", "US"),
+    ("/dupe/dulcolax-bisacodyl", "DE"),
+    ("/dupe/dulcolax-bisacodyl", None),
+):
+    status, body, _ = get(path, country)
+    check(status == 200 and not listed_twice(body), f"{path} for {country}: no swap twice", str(listed_twice(body)[:2]))
+    check(bool(twin_slugs & set(re.findall(r'href="/compare/([^"?#]+)"', body))), f"{path} for {country}: the page does show a twinned swap, so this can fail")
+different = len(catalog["pairs"]) - len(twins) // 2
+for path in ("/how-we-verify", "/about"):
+    _, body, _ = get(path, "IE")
+    check(f"{different} swaps" in visible(body) and f"{len(catalog['pairs'])} swaps" not in visible(body), f"{path} counts a swap in two markets once", str(different))
 check(bool(listed_twice(f'<a href="/compare/{twins[0][0]}"></a><a href="/compare/{twins[0][1]}"></a>')), "control: a page with both twins does trip the check")
 
 ie_only, de_only = next((a, b) for a, b in twins if a.endswith("-ie") and b.endswith("-de"))

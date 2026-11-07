@@ -20,7 +20,7 @@ import { ConfidenceBadge } from "@/components/Badges";
 import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
 import { PairCard } from "@/components/PairCard";
 import { atLeastOneParam, ListLinks, ShelfHead, SwapGrid, TagLinks, NotListedHere } from "@/components/ShelfParts";
-import { forCountry, localText, type Local } from "@/lib/localize";
+import { forCountry, localText, oneOfEachSwap, type Local } from "@/lib/localize";
 import { getLocal } from "@/lib/server-country";
 
 export function generateStaticParams() {
@@ -115,7 +115,7 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
   const local = await getLocal();
   // A brand with nothing that lists here still opens from a direct link, in the shopper's currency, and says so.
   const near = forCountry(d.pairs, local);
-  const shown = (near.length ? near : d.pairs).map((p) => localText(p, local));
+  const shown = (near.length ? near : oneOfEachSwap(d.pairs)).map((p) => localText(p, local));
   const top = shown[0];
   const others = shown.slice(1);
   const cat = CATEGORY_MAP[top.category];
