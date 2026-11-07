@@ -2,7 +2,8 @@
 """Write data/evidence/ratings.json: scores the catalogue already quotes for its cheaper products, as ratings.
 
 Two kinds. Researched rows ("Auto Express score", "Shopper rating", "zooplus rating") are parsed. Scores quoted only in a swap's
-written text are listed below by hand, each read from that text. Run after changing either: python3 -I scripts/qa/mine_ratings.py
+written text are listed below by hand, each read from that text. Ratings read off a product page are in ratings-read.json and are
+copied in unchanged. Run after changing any of them: python3 -I scripts/qa/mine_ratings.py
 """
 import glob
 import json
@@ -109,6 +110,13 @@ for p in pairs:
         if quoted and any("autoexpress" in s for s in p["sources"]):
             source = next(s for s in p["sources"] if "autoexpress" in s)
             out[p["slug"]] = {"score": float(quoted.group(1)), "scale": "stars-5", "publisher": "Auto Express", "source": source, "date": p.get("price_checked")}
+
+known = {p["slug"] for p in pairs}
+for slug, rating in json.loads((ROOT / "data" / "evidence" / "ratings-read.json").read_text()).items():
+    if slug not in known or slug in out:
+        missing.append(f"{slug}: ratings-read.json, no such swap or already rated")
+        continue
+    out[slug] = rating
 
 path = ROOT / "data" / "evidence" / "ratings.json"
 path.write_text(json.dumps(dict(sorted(out.items())), indent=1, ensure_ascii=False) + "\n")

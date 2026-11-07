@@ -19,18 +19,22 @@ samebutcheaper-96, brief `~/ops/owner-push-20261107/samebutcheaper.md`. Branch `
 
 **Ireland.** `IE` is a real market now, too thin to lead (`THIN_MARKETS` in `localize.ts`): it still falls back to UK prices under the seller rule, the band says it has only started checking, and its own records list too and open the home page. Eight pet swaps carry real Irish prices and ratings from zooplus.ie, in `data/pairs/2026-11-ie-pet.json`. I opened every product page behind them on 7 Nov, not just the scouts. Royal Canin shows 4.8 of 5 from 61 on two different products, so the brand's rating is left off those two. Five of them have an economy pack as a bigger pack.
 
-**Second batch of Irish swaps, after PR 5.** Ten more in `data/pairs/2026-11-ie-pet-2.json`, including the first wet dog food, from own labels and cheaper brands: Smilla, Concept for Life, Sanabelle, PURINA ONE, Pedigree, Rocco, Felix, Whiskas, Eukanuba and Super Benek. I read every price, rating and pack on its product page on 7 Nov, through a fetch tool that summarises the page, so nothing is byte-checked. Seven have a bigger pack, and the existing Felix swap gained the 132-pouch pack. Left out: prescription diets, because they're a vet's decision; Cat's Best, because I found no second site for it; Wolf of Wilderness, because its page doesn't call the food complete; IAMS, because its page gives no protein or fat; the All Cats 10 kg pack, sold out. Zooplus shows EUR 8.75/kg for Royal Canin Mini in Gravy 48 x 85 g, which doesn't match the pack, so we use our own sum, EUR 10.29/kg. The Rocco price carries an offer ending 1 December, and that swap only saves 14%, so it may not last.
+**Second batch of Irish swaps, after PR 5.** Ten more in `data/pairs/2026-11-ie-pet-2.json`, including the first wet dog food, from own labels and cheaper brands: Smilla, Concept for Life, Sanabelle, PURINA ONE, Pedigree, Rocco, Felix, Whiskas, Eukanuba and Super Benek. I read every price, rating and pack on its product page on 7 Nov, through a fetch tool that summarises the page, so nothing is byte-checked. Seven have a bigger pack, and the existing Felix swap gained the 132-pouch pack. Left out: prescription diets, because they're a vet's decision; Cat's Best, because I found no second site for it; Wolf of Wilderness, because its page doesn't call the food complete; IAMS, because its page gives no protein or fat; the All Cats 10 kg pack, sold out. A separate read of all ten against the live pages (Haiku, 29 pages) found no wrong price, pack or rating, and I fixed the wording it flagged: age limits, varieties, cans against pouches, and a claim about zooplus's own label that the page doesn't support. The Rocco price carries an offer ending 1 December, and that swap only saves 14%, so it may not last. The Felix price carries one ending 10 November.
 
-**Numbers, from `scripts/qa/country_counts.ts`.** Before, Ireland listed 270 swaps by default, every one from the UK and Germany, or 440 with US and Canadian records earlier on 7 Nov. Rated cheaper products went from 22 to 96 of 458. Bigger packs went from 63 to 78. No clothing. These are the numbers after the second batch of Irish swaps, below; at PR 5 they were 86 of 448, 70, and 116 swaps in Ireland.
+**Ratings on swaps already listed, after PR 5.** Scans read the product page behind 84 unrated swaps, and 21 got a rating, in `data/evidence/ratings-read.json`: 11 at zooplus.de, 9 at Pollin, 1 at Alternate. All clear the floor. I re-read five of them myself, and the zooplus scores match the same products on zooplus.ie. Three are worth knowing: Pollin pools its AA and AAA Intenso reviews, so both show 4.87 from 194; several Ansmann and Goobay ratings rest on 2 or 3 people, which the count shows; and zooplus's rating count is larger than its written reviews, so we say "ratings". The other 63 stay blank. mytime.de shows no ratings, Alternate's and many others show 0, and Aponeo, Toolstation and Crocus draw stars with no number the fetch tool can read, so those can't be read without a browser.
+
+**Prices the scans found had moved.** Hydrotalcit's 100-pack is fixed: EUR 15.91, not 15.31, and the PZN we quoted is the 50-tablet pack. Four are left for the next price round, because only the cheaper side was re-read and all four moved in the buyer's favour: Cetirizin ADGC EUR 9.74 (10.04 on file), Panto Aristo EUR 2.99 (4.49), Loratadin axicur EUR 9.22 (9.44, shown as a quantity discount), and Soudal sanitary silicone GBP 5.30 (5.95). The other 79 of 84 prices matched. Roughly 30 mytime.de pages carried text aimed at AI agents, which the scan ignored.
+
+**Numbers, from `scripts/qa/country_counts.ts`.** Before, Ireland listed 270 swaps by default, every one from the UK and Germany, or 440 with US and Canadian records earlier on 7 Nov. Rated cheaper products went from 22 to 117 of 458. Bigger packs went from 63 to 78. No clothing. These are the numbers after the second batch of Irish swaps, below; at PR 5 they were 86 of 448, 70, and 116 swaps in Ireland.
 
 | Country | Swaps | With control | Rated (would survive hiding unrated) | Baskets | Kits | Bulk rows |
 |---|---|---|---|---|---|---|
-| IE | 126 | 288 | 56 | 5 | 1 | 34 |
-| GB | 163 | 163 | 66 | 11 | 1 | 38 |
-| DE | 210 | 210 | 69 | 11 | 2 | 47 |
+| IE | 126 | 288 | 67 | 5 | 1 | 34 |
+| GB | 163 | 163 | 77 | 11 | 1 | 38 |
+| DE | 210 | 210 | 90 | 11 | 2 | 47 |
 | US | 224 | 224 | 47 | 9 | 37 | 18 |
 | CA | 186 | 186 | 30 | 9 | 37 | 17 |
-| HR | 81 | 288 | 44 | 1 | 0 | 23 |
+| HR | 81 | 288 | 55 | 1 | 0 | 23 |
 
 **Research: why so little came back.** Scouts on 7 Nov. Refusals and clauses are what they saw. I read SuperValu's clause myself and opened the zooplus.ie and Pollin pages used. Other terms quotes are the scouts', unchecked.
 
