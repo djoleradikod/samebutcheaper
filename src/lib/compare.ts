@@ -604,7 +604,7 @@ export function hasProof(c: Comparison) {
 
 const CONTAINER = "pack|packet|bag|bottle|can|box|tub|tin|jar|tube|pouch|roll|carton|container";
 /** A researched row with one of these names only restates the pack size, which compares nothing: "Bag size", "Length per roll". */
-const RESTATES_PACK = new RegExp(
+export const RESTATES_PACK = new RegExp(
   `^(?:(?:${CONTAINER})(?: (?:size|count|contents))?|(?:size|length|weight|volume|contents|count|amount) (?:of|per) (?:the |a )?(?:${CONTAINER}))$`,
   "i",
 );

@@ -59,7 +59,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
     b.bundle.billing === "subscription" && b.bundle.supply_days ? (b.savings / b.bundle.supply_days) * 30 : null;
   const pieces = b.components.slice(0, 4);
   const eager = eagerTarget(b);
-  const earns = b.components.some((c) => mayEarn(c)) || mayEarn(b.bundle);
+  const earns = b.components.some((c) => mayEarn(c, b.market)) || mayEarn(b.bundle, b.market);
 
   const jsonLd = {
     "@context": "https://schema.org",

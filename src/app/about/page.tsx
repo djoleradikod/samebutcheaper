@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { linksEarn } from "@/lib/affiliate";
 import { ProsePage } from "@/components/ProsePage";
 import { getCategoryStats, getClaims, getMarketCounts, getSiteStats } from "@/lib/catalog";
 import { inSentence } from "@/lib/format";
@@ -79,9 +80,12 @@ export default function AboutPage() {
 
       <h2>How we&apos;re funded</h2>
       <p>
-        Some links are affiliate links. If you buy through one, the retailer may pay us a small commission at no extra cost to you. No brand
+        {linksEarn()
+          ? "Some links are affiliate links. If you buy through one, the retailer may pay us a small commission at no extra cost to you."
+          : "Nothing funds this site today: no link earns us anything."}{" "}
+        No brand
         or store pays to be listed or ranked. Swaps are ranked by how much you save and how strong the evidence is. See the{" "}
-        <Link href="/disclosure">affiliate disclosure</Link>.
+        <Link href="/disclosure">{linksEarn() ? "affiliate disclosure" : "disclosure"}</Link>.
       </p>
 
       <h2>If we get something wrong</h2>

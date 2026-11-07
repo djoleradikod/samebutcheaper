@@ -41,6 +41,8 @@ function toItem(p: Pair): Omit<BulkItem, keyof BrowseRow> {
     biggerUrl: bigger.url,
     biggerAt: atStore(bigger.retailer, bigger.url),
     extraSavingPct: bigger.extraSavingPct,
+    packSaving: money((a.ppu - bigger.ppu) * bigger.size, currency),
+    againstBrandPct: Math.round((1 - bigger.ppu / b.ppu) * 100),
     advice: shelf?.advice ?? null,
     unopened: shelf?.unopened ?? "",
     opened: shelf?.opened ?? "",
@@ -59,7 +61,7 @@ export default function BulkPage() {
       <ShelfHead
         crumbs={[{ href: "/", label: "Home" }, { label: "Buy in bulk" }]}
         title="Buy in bulk: is the bigger pack worth it?"
-        intro="A bigger pack only saves money if you use it before it goes off. Each swap here has a bigger pack of the cheaper product, with its unit price against the normal pack, how much less it costs per unit, and how long it keeps where we have a record."
+        intro="A bigger pack only saves money if you use it before it goes off. Each row shows the unit price, what you pay up front, what that saves and how long it keeps."
         facts={
           <>
             {latest && <>Prices last checked {monthYear(latest)}.</>}

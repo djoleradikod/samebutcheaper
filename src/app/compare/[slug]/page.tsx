@@ -468,7 +468,7 @@ function sameAmount(pair: Pair) {
 }
 
 function disclosure(pair: Pair) {
-  const earning = [pair.alternative, pair.brand].filter((p) => mayEarn(p));
+  const earning = [pair.alternative, pair.brand].filter((p) => mayEarn(p, pair.market));
   if (earning.length === 0) return "We don't earn anything from these links.";
   if (earning.length === 2) return "Affiliate links. We may earn a commission at no cost to you.";
   return `The ${linkStoreName(earning[0])} link is an affiliate link. We may earn a commission at no cost to you.`;

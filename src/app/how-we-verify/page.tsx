@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { linksEarn } from "@/lib/affiliate";
 import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
 import { ProsePage } from "@/components/ProsePage";
 import { getAllPairs, getSiteStats } from "@/lib/catalog";
@@ -132,8 +133,16 @@ export default function HowWeVerifyPage() {
 
       <h2>Rankings and photos</h2>
       <p>
-        Swaps are ranked by how much you save and how strong the evidence is. No brand or store pays to be listed or ranked. Some links are{" "}
-        <Link href="/disclosure">affiliate links</Link>.
+        Swaps are ranked by how much you save and how strong the evidence is. No brand or store pays to be listed or ranked.{" "}
+        {linksEarn() ? (
+          <>
+            Some links are <Link href="/disclosure">affiliate links</Link>.
+          </>
+        ) : (
+          <>
+            No link earns us anything today, as our <Link href="/disclosure">disclosure</Link> says.
+          </>
+        )}
       </p>
       <p>
         Product photos come from open databases such as Open Food Facts, and each is listed with its licence on the{" "}

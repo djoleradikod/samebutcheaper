@@ -4,6 +4,17 @@ Owner push of 6 Nov. Brief: `~/ops/owner-push-20261106/samebutcheaper.md` and `s
 
 The critic has not picked ours on every piece, so the gauntlet is not finished. This branch is landing because the week's budget is running out, on the coordinator's instruction. See "Where it stands".
 
+## Round 2, 7 Nov
+
+The owner's "keep going and merge", brief `~/ops/owner-push-20261106/round2.md`, lead samebutcheaper-94. No critic round this time, so the verdicts below are from before these changes.
+
+- **Disclosure.** No affiliate tag is set, so the site now says no link earns anything. Footer, home, `/about`, `/how-we-verify`, `/disclosure`, swap and basket pages all follow `linksEarn`, `amazonEarns` and `mayEarn` in `src/lib/affiliate.ts`. The old wording comes back by itself once a tag is set. `next.config.ts` fixes the tags at build time, so the words can't disagree with the links: a tag set only at run time now does nothing, and setting one means a rebuild. The Dockerfile and compose pass them as build args. That part hasn't been run, because docker is refused here.
+- **`/bulk`.** One list with one row format, sorted as the shopper picks. Before, shelf-life sections broke the sort, so "Most saved" could open on -11% with -39% further down. Shelf life is now a filter with counts and a line on each row. New on each row: what that pack saves in money, and how much less per unit it costs than the brand. "Most saved against the brand" now sorts on that bigger-pack figure. Desktop gets a filter rail, phone gets selects.
+- **Photos.** None added. All 7 Open Facts records that could match in tools, car, tech, garden and office failed by eye (reasons in `docs/research/R2-reuse.md`). Those aisles stay at 0/18, 0/11, 1/32, 1/9 and 2/9.
+- **Card `sbc-same-job-proof`.** The lists are in `docs/status/2026-11-07-same-job-proof-list.md` and on the page https://claude.ai/artifact/NYr41rifBRCJH5Tdyp4XdG, regenerated with `scripts/qa/same_job_list.ts`. Today's catalogue gives 30 and 26, against the card's 38 and 26, and 58 on a strict reading. The rule is unchanged.
+
+Left as they are, for the coordinator or the owner: the privacy page still says retailer cookies are "how affiliate purchases are credited". It's a general statement and legal text, so it wasn't touched. Links on `/bulk` go to the store with no tag even once tags are set, which is honest but earns nothing. PR 2 touches the same disclosure, affiliate, swap, basket, Docker and compose files, so it will need a merge by hand when it lands.
+
 ## Where it stands
 
 Each page's last blind verdict, with labels stripped. Overall is the critic's pick; looks is a second pick on appearance alone.
@@ -40,8 +51,8 @@ Checks on this final code, through the lane: catalog, typegen, typecheck, lint, 
 
 ## Where things are
 
-- Branch `worktree-owner-push`, worktree `~/src/samebutcheaper/.claude/worktrees/owner-push`.
-- Preview: http://192.168.0.62:8851, served without docker by `~/ops/sbc-push-20261106/serve-preview.sh` from `/mnt/fast-storage/samebutcheaper-qa/preview/current`. That loop exits by itself 72 hours after it started, so about 9 Nov. It runs on until then without any session, and it isn't a system service, so it won't survive a reboot. Restart it with `nohup bash ~/ops/sbc-push-20261106/serve-preview.sh > /mnt/fast-storage/samebutcheaper-qa/preview/serve.log 2>&1 &`. Rebuild with `capped --mem 4G --name sbc-build -- ~/ops/sbc-push-20261106/build-preview.sh`; the loop reloads by itself.
+- Round 2 worktree `~/src/samebutcheaper/.claude/worktrees/round2`. The older `owner-push` worktree is merged and locked.
+- Preview: http://192.168.0.62:8851, served without docker by `~/ops/sbc-push-20261106/serve-preview.sh` from `/mnt/fast-storage/samebutcheaper-qa/preview/current`. That loop exits by itself 72 hours after it started, so about 9 Nov. It runs on until then without any session, and it isn't a system service, so it won't survive a reboot. Restart it with `nohup bash ~/ops/sbc-push-20261106/serve-preview.sh > /mnt/fast-storage/samebutcheaper-qa/preview/serve.log 2>&1 &`. Rebuild with `capped --mem 4G --name sbc-build -- bash scripts/qa/build-preview.sh` from a checkout at origin/main; the loop reloads by itself. The older script in `~/ops` builds the owner-push worktree, so don't use it.
 - Progress page: https://claude.ai/artifact/TMAnEFmEmY54BensNE7XmU. Its data are JSON assets. Upload a file with Artifact `asset: true`, then ArtifactData `update` on `datasets/<id>` with the new `source.url`.
 - Blind rounds: `~/ops/sbc-push-20261106/capture-round.sh`, `make-round.sh`, `reveal.py`. Keys in `blind-keys/`, captures in `/mnt/fast-storage/samebutcheaper-qa/`.
 - Gate: `kucni-heavy venture bash scripts/qa/gate.sh <log dir>`.
@@ -49,7 +60,7 @@ Checks on this final code, through the lane: catalog, typegen, typecheck, lint, 
 
 ## Port 3000
 
-It serves an old image. Containers are owner-only. The order matters. `owner-unblock.sh` stops unless the shared checkout is exactly at `1f0acc2`, and it also adds the tailnet routes, so it has to run before the pull:
+The owner's command hasn't changed in round 2. It serves an old image. Containers are owner-only. The order matters. `owner-unblock.sh` stops unless the shared checkout is exactly at `1f0acc2`, and it also adds the tailnet routes, so it has to run before the pull:
 
 ```
 bash ~/ops/test-access-20261105/owner-unblock.sh
@@ -69,7 +80,7 @@ The database volume is kept. `up -d` alone isn't enough, because main has moved 
 ## Still open
 
 - Photos: home and category lose on looks to idealo's studio renders. Community snapshots are the limit. 51 of the 308 cut photos are marked weak and sort after sharper ones; they still show.
-- `/bulk` loses to geizhals. Most rows have no photo and the catalogue has 63 bigger packs against its 1,639 listings.
+- `/bulk` lost to geizhals in round 10, before the round 2 rebuild, and hasn't been judged since. Most rows still have no photo, and the catalogue has 63 bigger packs against its 1,639 listings.
 - Baskets: the big total isn't one receipt. It's split by store now, and there's no one-store option.
 - Thin swaps: where the product you're told to buy has no photo, the page says so, and critics mark that down.
 - `sharp` is used by the image scripts and comes in only through Next. Add it as a direct dev dependency in a lane install.

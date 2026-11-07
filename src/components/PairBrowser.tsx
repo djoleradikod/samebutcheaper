@@ -29,6 +29,7 @@ import { MARKET_LABEL, type MarketCode } from "@/lib/markets";
 import { NO_PHOTO_TIER } from "@/lib/photos";
 import type { PairSummary } from "@/lib/types";
 import { FilterSheet } from "./FilterSheet";
+import { Group, OptionRow } from "./FilterOption";
 import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
 
 /** With this many shelves or fewer the whole list shows. Past it, the biggest few and a button. */
@@ -566,17 +567,6 @@ function FilterPanel({
   );
 }
 
-function Group({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <div className="py-2.5 first:pt-0 last:pb-0">
-      <fieldset>
-        <legend className="mb-0.5 text-[13px] font-bold [font-stretch:112%]">{title}</legend>
-        {children}
-      </fieldset>
-    </div>
-  );
-}
-
 function Checks<V extends string>({
   options,
   selected,
@@ -599,42 +589,4 @@ function Checks<V extends string>({
       onChange={() => onToggle(o.value)}
     />
   ));
-}
-
-function OptionRow({
-  type,
-  name,
-  label,
-  count,
-  checked,
-  title,
-  onChange,
-}: {
-  type: "checkbox" | "radio";
-  name?: string;
-  label: string;
-  count: number;
-  checked: boolean;
-  title?: string;
-  onChange: () => void;
-}) {
-  // An option that would empty the list can't be picked, so filters don't lead to a dead end.
-  const dead = count === 0 && !checked;
-  return (
-    <label
-      title={title}
-      className={`flex min-h-11 items-center gap-2 py-1 text-sm leading-snug lg:min-h-8 ${dead ? "text-muted" : "cursor-pointer hover:underline"}`}
-    >
-      <input
-        type={type}
-        name={name}
-        checked={checked}
-        disabled={dead}
-        onChange={onChange}
-        className="h-4 w-4 shrink-0 accent-ink"
-      />
-      <span className="min-w-0 flex-1">{label}</span>
-      <span className="num text-[13px] font-medium text-muted">{count}</span>
-    </label>
-  );
 }

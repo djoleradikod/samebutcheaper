@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { linksEarn } from "@/lib/affiliate";
 import { assignBasketPhotos, cutOutCount, photoCount, toBasketSummary } from "@/lib/basket-view";
 import {
   bestPhoto,
@@ -184,7 +185,7 @@ function buildFaq(aisles: string[]) {
     },
     {
       q: "How do you make money?",
-      a: "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you. No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.",
+      a: `${linksEarn() ? "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you." : "We don't, for now. No link on this site earns us anything."} No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.`,
     },
     {
       q: "Are the prices current?",
@@ -231,7 +232,7 @@ export default function Home() {
                 <span className="num">{stats.pairs}</span> swaps, each with at least two sources.
               </p>
               <p className="hidden md:block">
-                No brand pays to be listed. Some links earn us a commission.{" "}
+                No brand pays to be listed. {linksEarn() ? "Some links earn us a commission." : "No link earns us anything today."}{" "}
                 <Link href="/how-we-verify" className="text-cobalt underline underline-offset-2">
                   How we check
                 </Link>

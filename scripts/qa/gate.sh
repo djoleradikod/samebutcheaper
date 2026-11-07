@@ -19,7 +19,7 @@ step catalog npm run catalog
 step typegen npx next typegen
 step typecheck npm run typecheck
 step lint npm run lint
-step rules npx tsx --test scripts/qa/compare-rules.test.ts
+step rules npx tsx --test scripts/qa/compare-rules.test.ts scripts/qa/affiliate-copy.test.ts
 step build npm run build
 echo "gate finished, fail=$fail"
 exit "$fail"
