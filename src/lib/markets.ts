@@ -57,7 +57,7 @@ export const COUNTRIES: Record<string, CountryInfo> = {
   CA: { name: "Canada", amazon: "amazon.ca" },
   GB: { name: "United Kingdom", amazon: "amazon.co.uk" },
   DE: { name: "Germany", amazon: "amazon.de" },
-  IE: { name: "Ireland", amazon: "amazon.co.uk", amazonCrossBorder: true },
+  IE: { name: "Ireland", amazon: "amazon.ie" },
   AT: { name: "Austria", ...EU_VIA_DE },
   CH: { name: "Switzerland", ...EU_VIA_DE },
   FR: { name: "France", amazon: "amazon.fr" },
@@ -228,7 +228,13 @@ export function pharmacyNote(country: string): string | null {
   return null;
 }
 
-export type Store = { id: string; name: string; search: string };
+export type Store = {
+  id: string;
+  name: string;
+  search: string;
+  /** Only worth searching in these aisles. Everything else searches everywhere. */
+  aisles?: string[];
+};
 
 /** Stores with a reliable search URL. `{q}` is the URL-encoded query. */
 const STORES: Record<string, Store> = {
@@ -241,6 +247,11 @@ const STORES: Record<string, Store> = {
   "dm-de": { id: "dm-de", name: "dm", search: "https://www.dm.de/search?query={q}" },
   rossmann: { id: "rossmann", name: "Rossmann", search: "https://www.rossmann.de/de/search/?text={q}" },
   "dm-at": { id: "dm-at", name: "dm Österreich", search: "https://www.dm.at/search?query={q}" },
+  // Opened on 7 Nov 2026: each returned a results page naming the query. Tesco, Dunnes, Aldi and Boots Ireland refuse
+  // automated checks, so none of them is listed until someone has opened the link.
+  supervalu: { id: "supervalu", name: "SuperValu", search: "https://shop.supervalu.ie/sm/delivery/rsid/5550/results?q={q}" },
+  "lidl-ie": { id: "lidl-ie", name: "Lidl Ireland", search: "https://www.lidl.ie/q/search?q={q}" },
+  woodies: { id: "woodies", name: "Woodie's", search: "https://www.woodies.ie/catalogsearch/result/?q={q}", aisles: ["tools-diy", "garden"] },
 };
 
 const LOCAL_STORES: Record<string, string[]> = {
@@ -249,17 +260,21 @@ const LOCAL_STORES: Record<string, string[]> = {
   GB: ["boots", "superdrug", "tesco"],
   DE: ["dm-de", "rossmann"],
   AT: ["dm-at"],
+  IE: ["supervalu", "lidl-ie", "woodies"],
 };
 
 /** Stores to search in a country: its Amazon storefront, local chains, then Google Shopping. */
-export function storesFor(country: string): Store[] {
+export function storesFor(country: string, aisle?: string): Store[] {
   const out: Store[] = [];
   const c = COUNTRIES[country];
   if (c?.amazon) {
     const label = c.amazon.charAt(0).toUpperCase() + c.amazon.slice(1);
     out.push({ id: "amazon", name: label, search: `https://www.${c.amazon}/s?k={q}` });
   }
-  for (const id of LOCAL_STORES[country] ?? []) out.push(STORES[id]);
+  for (const id of LOCAL_STORES[country] ?? []) {
+    const store = STORES[id];
+    if (!aisle || !store.aisles || store.aisles.includes(aisle)) out.push(store);
+  }
   out.push({
     id: "google",
     name: "Google Shopping",

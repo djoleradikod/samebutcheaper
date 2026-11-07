@@ -126,9 +126,10 @@ export function getMarketCounts(): Partial<Record<MarketCode, number>> {
   return counts;
 }
 
-export function getCategoryStats() {
+/** `pick` narrows each aisle first, for a shopper who only sees some markets. */
+export function getCategoryStats(pick: (pairs: Pair[]) => Pair[] = (pairs) => pairs) {
   return CATEGORIES.map((c) => {
-    const pairs = getPairsByCategory(c.slug);
+    const pairs = pick(getPairsByCategory(c.slug));
     const avg = pairs.length ? pairs.reduce((s, p) => s + p.savingsPct, 0) / pairs.length : 0;
     const max = pairs.reduce((m, p) => Math.max(m, p.savingsPct), 0);
     return { ...c, count: pairs.length, avgSavings: avg, maxSavings: max };
@@ -198,9 +199,9 @@ export function getPreset(slug: string): Preset | undefined {
 }
 
 /** One card per family, in the shopper's market when it exists there, else the biggest saving. */
-export function getPresetsFor(market: MarketCode): Preset[] {
+export function getPresetsFor(market: MarketCode, pool: Preset[] = getAllPresets()): Preset[] {
   const byFamily = new Map<string, Preset[]>();
-  for (const p of getAllPresets()) byFamily.set(p.family, [...(byFamily.get(p.family) ?? []), p]);
+  for (const p of pool) byFamily.set(p.family, [...(byFamily.get(p.family) ?? []), p]);
   return [...byFamily.values()]
     .map((list) => list.find((p) => p.market === market) ?? [...list].sort((a, b) => b.score - a.score)[0])
     .sort((a, b) => Number(b.market === market) - Number(a.market === market) || b.score - a.score);

@@ -1,6 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { createContext, useContext, useMemo, useSyncExternalStore } from "react";
+import { localFor } from "@/lib/localize";
 import { isKnownCountry } from "@/lib/markets";
 
 /** Set by src/proxy.ts from the visitor's location, and by the country picker. */
@@ -25,9 +26,19 @@ function subscribe(cb: () => void) {
   };
 }
 
-/** The shopper's country, or null before hydration / when unknown. */
+/** The server's reading of the country, so the first render already matches it. See CountryProvider. */
+export const CountryContext = createContext<string | null>(null);
+
+/** The shopper's country, or null when unknown. */
 export function useCountry(): string | null {
-  return useSyncExternalStore(subscribe, read, () => null);
+  const fromServer = useContext(CountryContext);
+  return useSyncExternalStore(subscribe, read, () => fromServer);
+}
+
+/** Currency, conversions and fallback for the shopper's country. */
+export function useLocal() {
+  const country = useCountry();
+  return useMemo(() => localFor(country), [country]);
 }
 
 export function setCountry(code: string) {

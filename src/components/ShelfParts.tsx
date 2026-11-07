@@ -12,6 +12,9 @@ import { PairBrowser } from "./PairBrowser";
 import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, Ticket } from "./Ticket";
+import { forCountry } from "@/lib/localize";
+import { countryInSentence } from "@/lib/markets";
+import { getCountry } from "@/lib/server-country";
 
 /**
  * The one system behind every list of swaps: category, biggest savings, brand, ingredient and
@@ -42,10 +45,11 @@ function toRow(p: Pair): BrowseRow {
 }
 
 /** Props for PairBrowser: a light row for every swap, and card data for the first screen only. */
-export function browseProps(pairs: Pair[], { hideMedicine = false }: { hideMedicine?: boolean } = {}) {
-  const rows = pairs.map(toRow);
+export function browseProps(pairs: Pair[], { hideMedicine = false, country }: { hideMedicine?: boolean; country: string | null }) {
+  const visible = forCountry(pairs, country);
+  const rows = visible.map(toRow);
   const first = firstScreenSlugs(rows, hideMedicine);
-  return { rows, cards: pairs.filter((p) => first.has(p.slug)).map(toCard), hideMedicine };
+  return { rows, cards: visible.filter((p) => first.has(p.slug)).map(toCard), hideMedicine };
 }
 
 /** Cache Components needs at least one param. A placeholder with no catalogue row falls through to notFound(). */
@@ -208,9 +212,12 @@ export function SwapGrid({ pairs, lazy = false }: { pairs: Pair[]; lazy?: boolea
 }
 
 /** Biggest saving first. Long lists get the filters, short ones stay plain. */
-export function SwapList({ path, pairs }: { path: string; pairs: Pair[] }) {
-  if (pairs.length >= FILTER_FROM) return <PairBrowser path={path} {...browseProps(pairs)} />;
-  return <SwapGrid pairs={[...pairs].sort((a, b) => b.savingsPct - a.savingsPct)} />;
+export async function SwapList({ path, pairs }: { path: string; pairs: Pair[] }) {
+  const country = await getCountry();
+  const visible = forCountry(pairs, country);
+  if (!visible.length) return <p className="card p-4 text-sm text-ink-2">We haven&apos;t priced any of these near {countryInSentence(country ?? "US")} yet.</p>;
+  if (visible.length >= FILTER_FROM) return <PairBrowser path={path} {...browseProps(visible, { country })} />;
+  return <SwapGrid pairs={[...visible].sort((a, b) => b.savingsPct - a.savingsPct)} />;
 }
 
 export type IndexEntry = {

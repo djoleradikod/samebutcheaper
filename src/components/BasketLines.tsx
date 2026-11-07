@@ -5,12 +5,13 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from "re
 import { Minus, Plus } from "lucide-react";
 import { storeSplit } from "@/lib/affiliate";
 import { setSavedList, useSavedList } from "@/lib/client/savedList";
-import { money, type Currency } from "@/lib/format";
+import type { Currency } from "@/lib/format";
 import type { CategorySlug } from "@/lib/types";
 import { packSize } from "@/lib/unit-format";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, SaveTicket } from "./Ticket";
 import { ToArrow, UnitPrice } from "./UnitPrice";
+import { Money } from "./Money";
 
 export type BasketLineView = {
   /** The swap's slug. */
@@ -121,14 +122,14 @@ export function BasketTotals() {
       <div className="flex flex-wrap items-end gap-x-3 gap-y-2">
         <p>
           <span className="block text-[13px] font-medium text-ink-2">Brand names</span>
-          <span className="price mt-1 block text-[1.75rem] font-semibold text-muted md:text-[2rem]">{money(brandTotal, currency)}</span>
+          <span className="price mt-1 block text-[1.75rem] font-semibold text-muted md:text-[2rem]"><Money n={brandTotal} from={currency} /></span>
         </p>
         <span className="pb-1 text-xl text-muted">
           <ToArrow />
         </span>
         <p>
           <span className="block text-[13px] font-medium text-ink-2">Cheaper swaps</span>
-          <span className="price mt-1 block text-[2.5rem] text-ink md:text-[3rem]">{money(altTotal, currency)}</span>
+          <span className="price mt-1 block text-[2.5rem] text-ink md:text-[3rem]"><Money n={altTotal} from={currency} /></span>
         </p>
       </div>
       <SaveTicket
@@ -156,7 +157,7 @@ export function BasketStoreSplit() {
         <ul className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5 text-sm text-ink-2">
           {stores.map((s) => (
             <li key={s.label}>
-              {s.label} <span className="num font-semibold text-ink">{money(s.total, currency)}</span>
+              {s.label} <span className="num font-semibold text-ink"><Money n={s.total} from={currency} /></span>
             </li>
           ))}
         </ul>
@@ -291,12 +292,12 @@ function Line({ line, index }: { line: BasketLineView; index: number }) {
             <>
               <p className="flex flex-wrap items-baseline justify-end gap-x-1 leading-none">
                 <span className="sr-only">Brand name </span>
-                <span className="price text-sm font-semibold text-muted">{money(cost.brand, currency)}</span>
+                <span className="price text-sm font-semibold text-muted"><Money n={cost.brand} from={currency} /></span>
                 <ToArrow className="text-muted" />
-                <span className="price text-[1.375rem] text-ink">{money(cost.alt, currency)}</span>
+                <span className="price text-[1.375rem] text-ink"><Money n={cost.alt} from={currency} /></span>
               </p>
               <p className="mt-1.5 flex items-center justify-end gap-2 text-xs font-medium text-ink-2">
-                <span>Saves {money(cost.brand - cost.alt, currency)}</span>
+                <span>Saves <Money n={cost.brand - cost.alt} from={currency} /></span>
                 <PctTicket pct={line.savingsPct} size="sm" />
               </p>
             </>
@@ -328,9 +329,9 @@ export function BasketLines() {
             Total for these amounts, {items} item{items === 1 ? "" : "s"}
           </p>
           <p className="mt-1 flex flex-wrap items-baseline gap-x-1 leading-none">
-            <span className="price text-base font-semibold text-muted">{money(brandTotal, currency)}</span>
+            <span className="price text-base font-semibold text-muted"><Money n={brandTotal} from={currency} /></span>
             <ToArrow className="text-muted" />
-            <span className="price text-[1.375rem] text-ink">{money(altTotal, currency)}</span>
+            <span className="price text-[1.375rem] text-ink"><Money n={altTotal} from={currency} /></span>
           </p>
         </div>
         <div className="flex items-center gap-3">

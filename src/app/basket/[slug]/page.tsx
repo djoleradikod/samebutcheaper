@@ -12,6 +12,8 @@ import { money } from "@/lib/format";
 import { MARKET_LABEL, MARKETS } from "@/lib/markets";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Preset } from "@/lib/types";
+import { forCountry } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 
 const NEEDS_HEALTH_NOTE = new Set(["otc-medicine", "supplements", "baby", "pet"]);
 
@@ -86,9 +88,10 @@ export default async function BasketPage({ params }: PageProps<"/basket/[slug]">
   const p = getPreset(slug);
   if (!p) notFound();
 
-  const lines = basketLines(p);
+  const local = await getLocal();
+  const lines = basketLines(p, local);
   const dates = priceDates(p);
-  const all = getAllPresets();
+  const all = forCountry(getAllPresets(), local.country);
   const otherMarkets = all.filter((x) => x.family === p.family && x.slug !== p.slug);
   const related = all
     .filter((x) => x.family !== p.family)

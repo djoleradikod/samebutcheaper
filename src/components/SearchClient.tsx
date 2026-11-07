@@ -10,6 +10,8 @@ import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
 import type { Bundle, PairSummary } from "@/lib/types";
 import { BundleCard } from "./BundleCard";
 import { PairCard } from "./PairCard";
+import { useCountry } from "@/lib/client/country";
+import { forCountry } from "@/lib/localize";
 
 const PATH = "/search";
 
@@ -82,6 +84,7 @@ export function SearchClient({ total, children }: { total: number; children: Rea
     return () => clearTimeout(timer);
   }, [term, urlTerm]);
 
+  const country = useCountry();
   const [engine, setEngine] = useState<Engine | null>(null);
   const [failed, setFailed] = useState(false);
   const start = useCallback(() => loadEngine().then(setEngine, () => setFailed(true)), []);
@@ -92,10 +95,10 @@ export function SearchClient({ total, children }: { total: number; children: Rea
   const results = useMemo(() => {
     if (!engine || !term) return null;
     return {
-      pairs: engine.pairs.search(term).map((r) => r.item),
-      bundles: engine.bundles.search(term).map((r) => r.item),
+      pairs: forCountry(engine.pairs.search(term).map((r) => r.item), country),
+      bundles: forCountry(engine.bundles.search(term).map((r) => r.item), country),
     };
-  }, [engine, term]);
+  }, [engine, term, country]);
   const count = results ? results.pairs.length + results.bundles.length : 0;
 
   return (

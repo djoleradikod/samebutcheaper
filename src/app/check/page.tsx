@@ -22,6 +22,7 @@ import {
 } from "@/lib/lookup";
 import { logLookup } from "@/lib/lookup/log";
 import type { CategorySlug } from "@/lib/types";
+import { forCountry } from "@/lib/localize";
 
 export const metadata: Metadata = {
   title: "Check any product: ingredients, uses and cheaper swaps",
@@ -184,16 +185,17 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
   if (q) {
     const outcome = await searchProducts(q);
     after(() => logLookup({ kind: "text", query: q, verified: outcome.catalog.length > 0 }, reqHeaders, country));
-    if (!outcome.catalog.length && !outcome.candidates.length) {
+    const swaps = forCountry(outcome.catalog, country);
+    if (!swaps.length && !outcome.candidates.length) {
       return <NothingFound failed={outcome.failed} what={`“${q}”`} />;
     }
     return (
       <div className="space-y-10">
-        {outcome.catalog.length > 0 && (
+        {swaps.length > 0 && (
           <section>
             <h2 className="display text-2xl font-medium">Swaps already in our catalogue</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {outcome.catalog.map((p) => (
+              {swaps.map((p) => (
                 <PairCard key={p.slug} pair={toSummary(p)} />
               ))}
             </div>

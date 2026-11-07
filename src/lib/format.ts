@@ -1,9 +1,21 @@
 import type { Market } from "./markets";
 
-export type Currency = Market["currency"];
+/** What a catalogue record is priced in. */
+export type MarketCurrency = Market["currency"];
 
-const SYMBOL: Record<Currency, string> = { USD: "$", GBP: "£", CAD: "CA$", EUR: "€" };
-const CENTS: Record<Currency, string> = { USD: "¢", GBP: "p", CAD: "¢", EUR: " ct" };
+/** What a shopper can be shown a price in. */
+export type Currency =
+  | MarketCurrency
+  | "AUD" | "BRL" | "CHF" | "CZK" | "DKK" | "HUF" | "ILS" | "INR" | "JPY" | "MXN" | "MYR"
+  | "NOK" | "NZD" | "PHP" | "PLN" | "RON" | "SEK" | "SGD" | "TRY" | "ZAR";
+
+const SYMBOL: Record<Currency, string> = {
+  USD: "$", GBP: "£", CAD: "CA$", EUR: "€", AUD: "A$", BRL: "R$", CHF: "CHF ", CZK: "CZK ", DKK: "DKK ", HUF: "HUF ",
+  ILS: "₪", INR: "₹", JPY: "¥", MXN: "MX$", MYR: "RM", NOK: "NOK ", NZD: "NZ$", PHP: "PHP ", PLN: "PLN ", RON: "RON ",
+  SEK: "SEK ", SGD: "S$", TRY: "TRY ", ZAR: "R ",
+};
+/** Only where shoppers read small amounts in the smaller unit. Everywhere else stays in whole currency. */
+const CENTS: Partial<Record<Currency, string>> = { USD: "¢", GBP: "p", CAD: "¢", EUR: " ct" };
 
 /** A price in its own currency: $12.34, £12.34, CA$12.34, €12.34. Whole units from 100 up. */
 const celsius = (f: string) => Math.round(((Number(f) - 32) * 5) / 9);
@@ -32,17 +44,15 @@ export function money(n: number, currency: Currency) {
 
 /** Price per unit: cents (or pence) for tiny values, whole currency otherwise. */
 export function ppu(n: number, currency: Currency) {
-  if (n < 0.01) return `${(n * 100).toFixed(2)}${CENTS[currency]}`;
-  if (n < 1) return `${(n * 100).toFixed(1)}${CENTS[currency]}`;
-  return `${SYMBOL[currency]}${n.toFixed(2)}`;
+  const small = CENTS[currency];
+  if (small && n < 0.01) return `${(n * 100).toFixed(2)}${small}`;
+  if (small && n < 1) return `${(n * 100).toFixed(1)}${small}`;
+  return `${SYMBOL[currency]}${n.toFixed(n < 0.1 ? 3 : 2)}`;
 }
 
-/** Sums amounts per currency: "$120 + £40". */
-export function moneyTotals(items: { amount: number; currency: Currency }[]) {
-  const totals = new Map<Currency, number>();
-  for (const i of items) totals.set(i.currency, (totals.get(i.currency) ?? 0) + i.amount);
-  if (!totals.size) return money(0, "USD");
-  return [...totals].map(([c, n]) => money(n, c)).join(" + ");
+/** True when `ppu` writes small amounts in cents or pence. */
+export function hasCents(currency: Currency) {
+  return Boolean(CENTS[currency]);
 }
 
 export function pct(n: number) {

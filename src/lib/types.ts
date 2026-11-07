@@ -1,5 +1,5 @@
 import type { BundleInput, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairInput, PresetInput, ShelfLifeInput } from "./schema";
-import type { Currency } from "./format";
+import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
 
 export type MatchType = PairInput["match_type"];

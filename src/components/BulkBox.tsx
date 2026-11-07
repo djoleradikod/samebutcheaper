@@ -1,7 +1,9 @@
 import { atStore, tagUrl } from "@/lib/affiliate";
-import { inSentence, money, withCelsius } from "@/lib/format";
+import { inSentence, withCelsius } from "@/lib/format";
+import type { Local } from "@/lib/localize";
+import { Money, UnitAmount } from "./Money";
 import type { Pair, ShelfLife } from "@/lib/types";
-import { unitDisplay, unitPrice } from "@/lib/unit-format";
+import { unitDisplay } from "@/lib/unit-format";
 import { HEALTH_CATEGORIES } from "./Evidence";
 import { citationDate } from "./Finding";
 import { SavingsCalculator } from "./SavingsCalculator";
@@ -163,16 +165,19 @@ function BreakEven({ pair }: { pair: Pair }) {
         <span className="flex-1 rounded-r-tile bg-ticket" />
       </div>
       <p className="mt-2 text-sm text-ink-2">
-        At {b.brand}&apos;s unit price, {money(a.price, currency)} buys {shown} {Number(shown) === 1 ? unitWords(a.unit).one : many}.
+        At {b.brand}&apos;s unit price, <Money n={a.price} from={currency} prose /> buys {shown} {Number(shown) === 1 ? unitWords(a.unit).one : many}.
         Everything after that in this pack is the saving.
         {a.price > b.price &&
-          ` You pay ${money(a.price - b.price, currency)} more at the till than for the ${b.brand} pack, for ${amount(a.size / b.size)} times as much.`}
+          <>
+            {" "}
+            You pay <Money n={a.price - b.price} from={currency} prose /> more at the till than for the {b.brand} pack, for {amount(a.size / b.size)} times as much.
+          </>}
       </p>
     </div>
   );
 }
 
-function BiggerPack({ pair }: { pair: Pair }) {
+function BiggerPack({ pair, local }: { pair: Pair; local: Local }) {
   const { brand: b, alternative: a, bulkView, currency } = pair;
   const bigger = bulkView.bigger;
   if (!bigger) return null;
@@ -185,9 +190,9 @@ function BiggerPack({ pair }: { pair: Pair }) {
         <div className="min-w-0">
           <p className="text-sm text-ink-2">{bigger.product}</p>
           <p className="mt-1.5 flex flex-wrap items-baseline gap-x-2">
-            <span className="price text-[1.75rem]">{money(bigger.price, currency)}</span>
+            <span className="price text-[1.75rem]"><Money n={bigger.price} from={currency} /></span>
             <span className="text-sm font-medium text-ink-2">{packText(bigger.size, a.unit)}</span>
-            <span className="price text-lg">{unitPrice(bigger.ppu, a.unit, currency)}</span>
+            <span className="price text-lg"><UnitAmount ppu={bigger.ppu} unit={a.unit} from={currency} /></span>
             <span className="text-[13px] font-medium text-muted">{label}</span>
           </p>
           <p className="mt-1.5 text-sm text-ink-2">
@@ -196,14 +201,16 @@ function BiggerPack({ pair }: { pair: Pair }) {
               : `It costs no less ${label} than the ${packText(a.size, a.unit)} pack.`}
           </p>
         </div>
-        <a
-          href={tagUrl(bigger.url)}
-          target="_blank"
-          rel="sponsored nofollow noopener"
-          className="btn btn-ghost w-full sm:w-auto"
-        >
-          {bigger.retailer === "other" ? "See it online" : `See it ${atStore(bigger.retailer)}`}
-        </a>
+        {local.sells(bigger.retailer, pair.market) && (
+          <a
+            href={tagUrl(bigger.url)}
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            className="btn btn-ghost w-full sm:w-auto"
+          >
+            {bigger.retailer === "other" ? "See it online" : `See it ${atStore(bigger.retailer)}`}
+          </a>
+        )}
       </div>
     </div>
   );
@@ -213,7 +220,7 @@ function BiggerPack({ pair }: { pair: Pair }) {
  * Whether buying more makes sense: when the pack pays for itself, the bigger pack, how long it
  * keeps, and a slider that turns all of that into months and a year's cost.
  */
-export function BulkBox({ pair, className = "" }: { pair: Pair; className?: string }) {
+export function BulkBox({ pair, local, className = "" }: { pair: Pair; local: Local; className?: string }) {
   const { brand: b, alternative: a, bulkView, shelfLife: shelf, currency } = pair;
   const once = buysOnce(a.unit, a.size);
   if (once && !bulkView.bigger && !shelf) return null;
@@ -229,7 +236,7 @@ export function BulkBox({ pair, className = "" }: { pair: Pair; className?: stri
           <div className="card min-w-0 divide-y divide-line self-start">
             {/* A pack that costs less at the till has nothing to pay back. */}
             {!once && a.price > b.price && <BreakEven pair={pair} />}
-            <BiggerPack pair={pair} />
+            <BiggerPack pair={pair} local={local} />
             {shelf ? (
               <ShelfRecord record={shelf} />
             ) : (

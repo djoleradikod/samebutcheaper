@@ -5,7 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Check, Copy, Trash2 } from "lucide-react";
 import { setSavedList, toggleSaved, useSavedList } from "@/lib/client/savedList";
-import { money, moneyTotals, type Currency } from "@/lib/format";
+import { useLocal } from "@/lib/client/country";
+import { money, type Currency } from "@/lib/format";
+import { Money } from "./Money";
 import type { CategorySlug } from "@/lib/types";
 import { ProductThumb } from "./ProductThumb";
 import { Ticket } from "./Ticket";
@@ -38,7 +40,10 @@ export function MyList({ items }: { items: ListItem[] }) {
   const slugs = viewingShared ? shared : saved;
   const byslug = new Map(items.map((i) => [i.slug, i]));
   const list = slugs.map((s) => byslug.get(s)).filter((x): x is ListItem => Boolean(x));
-  const perRestock = moneyTotals(list.map((i) => ({ amount: i.savings, currency: i.currency })));
+  const local = useLocal();
+  // One figure in the shopper's currency, marked as approximate if any line had to be converted.
+  const restockTotal = money(list.reduce((sum, i) => sum + local.amount(i.savings, i.currency), 0), local.currency);
+  const perRestock = list.some((i) => local.converts(i.currency)) ? `about ${restockTotal}` : restockTotal;
 
   if (!list.length) {
     return (
@@ -93,7 +98,7 @@ export function MyList({ items }: { items: ListItem[] }) {
               </p>
             </div>
             <p className="col-start-2 row-start-2 md:col-start-3 md:row-start-1 md:text-right">
-              <span className="price text-[1.375rem] text-ink">{money(i.savings, i.currency)}</span>
+              <span className="price text-[1.375rem] text-ink"><Money n={i.savings} from={i.currency} /></span>
               <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{Math.round(i.savingsPct)}% less</span>
             </p>
             {!viewingShared && (

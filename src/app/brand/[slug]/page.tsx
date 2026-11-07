@@ -4,6 +4,8 @@ import { getBrand, getBrands } from "@/lib/catalog";
 import { matchSentence } from "@/lib/categories";
 import { BundleCard } from "@/components/BundleCard";
 import { atLeastOneParam, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
+import { forCountry } from "@/lib/localize";
+import { getCountry } from "@/lib/server-country";
 
 export function generateStaticParams() {
   return atLeastOneParam(getBrands().map((b) => b.slug));
@@ -26,6 +28,7 @@ export default async function BrandPage({ params }: PageProps<"/brand/[slug]">) 
   const { slug } = await params;
   const brand = getBrand(slug);
   if (!brand) notFound();
+  const kits = forCountry(brand.bundles, await getCountry());
   const n = brand.pairs.length + brand.bundles.length;
 
   return (
@@ -43,11 +46,11 @@ export default async function BrandPage({ params }: PageProps<"/brand/[slug]">) 
       />
       <div className="container-page">
         {brand.pairs.length > 0 && <SwapList path={`/brand/${brand.slug}`} pairs={brand.pairs} />}
-        {brand.bundles.length > 0 && (
+        {kits.length > 0 && (
           <section className={brand.pairs.length ? "mt-8" : ""}>
             <h2 className="display mb-3 text-xl md:text-2xl">{brand.name} bundles, rebuilt for less</h2>
             <ul className="grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
-              {brand.bundles.map((b) => (
+              {kits.map((b) => (
                 <li key={b.slug} className="min-w-0">
                   <BundleCard bundle={b} />
                 </li>

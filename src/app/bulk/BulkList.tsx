@@ -317,6 +317,7 @@ function MarketGroup({
 
 /** Where the bigger pack's price came from. It sits above the link stretched over the row, so it stays its own target. */
 function StoreLink({ item }: { item: BulkItem }) {
+  if (!item.biggerUrl) return null;
   return (
     <a
       href={item.biggerUrl}

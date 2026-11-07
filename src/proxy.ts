@@ -3,12 +3,14 @@ import { isKnownCountry } from "@/lib/markets";
 import knownSlugs from "@/generated/known-slugs.json";
 
 const COUNTRY_COOKIE = "sbc_country";
+/** Read by src/lib/server-country.ts. */
+const COUNTRY_HEADER = "x-sbc-country";
 
 /**
  * 1. HTTP Basic auth for /admin (ADMIN_PASSWORD; the user name is "admin").
- * 2. Remembers the shopper's country in a cookie the first time we see them,
- *    so pages can show stores that deliver there. Pages stay static; the
- *    client reads the cookie.
+ * 2. Remembers the shopper's country in a cookie the first time we see them. Pages render per request
+ *    for the selected country (see the root layout), so this also hands the detected country to that
+ *    first render, when the cookie isn't on the request yet.
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -18,12 +20,14 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL("/page-not-found", request.url), { status: 404 });
   }
 
-  const response = NextResponse.next();
-  if (!request.cookies.has(COUNTRY_COOKIE)) {
-    const country = detectCountry(request.headers);
-    if (country) {
-      response.cookies.set(COUNTRY_COOKIE, country, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
-    }
+  // Only this proxy may say what it detected: a visitor's own copy of the header goes no further.
+  const forward = new Headers(request.headers);
+  forward.delete(COUNTRY_HEADER);
+  const detected = request.cookies.has(COUNTRY_COOKIE) ? null : detectCountry(request.headers);
+  if (detected) forward.set(COUNTRY_HEADER, detected);
+  const response = NextResponse.next({ request: { headers: forward } });
+  if (detected) {
+    response.cookies.set(COUNTRY_COOKIE, detected, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
   }
   return response;
 }

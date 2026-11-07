@@ -1,11 +1,11 @@
 import Link from "next/link";
 import type { Bundle } from "@/lib/types";
 import { MATCH_TYPE_META } from "@/lib/categories";
-import { money } from "@/lib/format";
 import { COLLAGE_CELLS } from "./BasketCard";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
+import { Money } from "./Money";
 
 /** A brand's kit on the left, the cheaper pieces that replace it on the right. */
 export function BundleCard({ bundle }: { bundle: Bundle }) {
@@ -60,10 +60,10 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
         </ul>
         <p className="mt-auto flex flex-wrap items-baseline gap-x-1 pt-2.5 leading-none">
           <span className="text-[13px] font-medium text-muted">Kit</span>
-          <span className="price text-base leading-none font-semibold text-muted">{money(bundle.bundle.price, bundle.currency)}</span>
+          <span className="price text-base leading-none font-semibold text-muted"><Money n={bundle.bundle.price} from={bundle.currency} /></span>
           <ToArrow className="text-muted" />
           <span className="text-[13px] font-medium text-muted">built yourself</span>
-          <span className="price text-xl leading-none text-ink">{money(bundle.equivalentTotal, bundle.currency)}</span>
+          <span className="price text-xl leading-none text-ink"><Money n={bundle.equivalentTotal} from={bundle.currency} /></span>
         </p>
         <p className="mt-1.5 text-xs font-medium text-same" title={match.description}>
           {match.short}

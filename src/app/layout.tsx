@@ -1,6 +1,10 @@
+import { Suspense, type ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
+import { CountryProvider } from "@/components/CountryProvider";
+import { FallbackBand } from "@/components/Money";
+import { getCountry } from "@/lib/server-country";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { jsonLdText, SITE } from "@/lib/site";
@@ -42,6 +46,20 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+/**
+ * Everything under here renders per request for the selected country, so the first paint has the right
+ * currency, prices and stores and no US page ever reaches a shopper elsewhere. Header and footer stay static.
+ */
+async function ForCountry({ children }: { children: ReactNode }) {
+  const country = await getCountry();
+  return (
+    <CountryProvider country={country}>
+      <FallbackBand />
+      {children}
+    </CountryProvider>
+  );
+}
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -65,7 +83,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <SiteHeader />
         <main id="main" className="flex-1">
-          {children}
+          <Suspense fallback={<div className="min-h-[70vh]" />}>
+            <ForCountry>{children}</ForCountry>
+          </Suspense>
         </main>
         <SiteFooter />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />

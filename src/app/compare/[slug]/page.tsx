@@ -18,10 +18,13 @@ import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredie
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
 import { dupeSlugFor } from "@/lib/dupes";
-import { inSentence, money, monthYear } from "@/lib/format";
+import { inSentence, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
+import { forCountry, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
+import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 
 export function generateStaticParams() {
   const params = getAllPairs().map((p) => ({ slug: p.slug }));
@@ -56,10 +59,11 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
   const { brand: b, alternative: a, currency } = pair;
   const cat = CATEGORY_MAP[pair.category];
   const health = HEALTH_CATEGORIES.has(pair.category);
-  const related = getRelatedPairs(pair, 4).map(toSummary);
+  const local = await getLocal();
+  const related = forCountry(getRelatedPairs(pair, 24), local.country).slice(0, 4).map(toSummary);
   const brandCount = getBrand(brandSlugFor(b.brand))?.pairs.length ?? 0;
   const compared = comparison(pair, ingredientSlugFor);
-  const rows = readableRows(compared.rows, pair);
+  const rows = readableRows(compared.rows, pair, local);
   const wins = [...compared.ingredients, ...rows].filter((r) => r.verdict === "brand_better");
   const { points, caveats } = sortDifferences(pair.differences);
   const sameLicence = sameLicenceNumber(pair);
@@ -130,7 +134,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
           <div className="min-w-0">
             <p className="text-[22px] leading-[1.2] font-semibold tracking-[-0.01em] md:text-[28px]">{verdict(pair)}</p>
 
-            <Offers pair={pair} />
+            <Offers pair={pair} local={local} />
 
             <p className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5">
               <MatchBadge type={pair.match_type} long />
@@ -140,7 +144,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
               )}
             </p>
             <SaveButton slug={pair.slug} className="mt-3 sm:w-56" />
-            <p className="mt-3 text-[15px] text-ink-2">{sameAmount(pair)}</p>
+            <p className="mt-3 text-[15px] text-ink-2">{sameAmount(pair, local)}</p>
             {hasDifferences && (
               <p className="mt-1.5 text-[15px] text-ink-2">
                 {against && (
@@ -178,7 +182,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
         <SameOrDifferent comparison={fullComparison} brandName={b.brand} altName={a.brand} intro={onFileIntro(fullComparison)} />
       </div>
 
-      <BulkBox pair={pair} className={BAND} />
+      <BulkBox pair={pair} local={local} className={BAND} />
 
       <section id={WHERE_TO_BUY} aria-labelledby={`${WHERE_TO_BUY}-title`} className="container-page scroll-mt-16 py-8 md:py-10">
         <h2 id={`${WHERE_TO_BUY}-title`} className="display text-[22px] md:text-2xl">
@@ -189,6 +193,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
             slug={pair.slug}
             market={pair.market}
             retailer={a.retailer}
+            aisle={pair.category}
             retailerLabel={a.retailer === "other" ? "This store" : (RETAILER_LABEL[a.retailer] ?? "This store")}
             lookFor={pair.lookFor}
             health={health}
@@ -297,13 +302,14 @@ function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductS
       <p
         className={`price mt-1.5 self-end ${cheaper ? "text-[2rem] text-ink min-[360px]:text-[2.5rem] md:text-[3.5rem] lg:text-[2.75rem]" : "text-[1.75rem] text-ink-2 min-[360px]:text-[2rem] md:text-[2.75rem] lg:text-[2.25rem]"}`}
       >
-        {money(p.price, pair.currency)}
+        <Money n={p.price} from={pair.currency} />
+        <OriginalPrice n={p.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
       </p>
       <div className="mt-1.5 hidden min-w-0 md:block">
         <p className="text-sm font-medium text-ink-2">{packText(p.size, p.unit)}</p>
         <p className="mt-0.5 flex flex-wrap items-baseline gap-x-1">
           <span className={`price text-xl md:text-2xl ${cheaper ? "text-ink" : "text-ink-2"}`}>
-            {unitPrice(p.ppu, p.unit, pair.currency)}
+            <UnitAmount ppu={p.ppu} unit={p.unit} from={pair.currency} />
           </span>
           <span className="text-[13px] leading-tight font-medium text-muted">{label}</span>
         </p>
@@ -319,7 +325,8 @@ type Offer = {
   price: number;
   size: number;
   ppu: number;
-  href: string;
+  /** Null when that store doesn't sell in the selected country: we neither name it nor link to it. */
+  href: string | null;
   buttonLabel: string;
   primary: boolean;
 };
@@ -327,15 +334,17 @@ type Offer = {
 /** The columns once there's room for them. Under that, each offer stacks and nothing scrolls sideways. */
 const OFFER_COLUMNS = "@2xl:grid-cols-[minmax(0,1fr)_5.5rem_5.5rem_5rem_6.5rem_6.5rem]";
 
-function offersFor(pair: Pair): Offer[] {
+function offersFor(pair: Pair, local: Local): Offer[] {
   const { brand: b, alternative: a, bulkView } = pair;
+  const sells = (retailer: string) => local.sells(retailer, pair.market);
+  const elsewhere = `A ${MARKET_ADJECTIVE[pair.market]} store`;
   const side = (p: ProductSide, which: "brand" | "alternative"): Offer => ({
     name: fullName(p),
-    store: storeName(p.retailer, p.url),
+    store: sells(p.retailer) ? storeName(p.retailer, p.url) : elsewhere,
     price: p.price,
     size: p.size,
     ppu: p.ppu,
-    href: `/go/${pair.slug}/${which}`,
+    href: sells(p.retailer) ? `/go/${pair.slug}/${which}` : null,
     buttonLabel: seeLabel(p),
     primary: which === "alternative",
   });
@@ -345,11 +354,11 @@ function offersFor(pair: Pair): Offer[] {
     offers.push({
       name: big.product,
       note: "The bigger pack",
-      store: storeName(big.retailer, big.url),
+      store: sells(big.retailer) ? storeName(big.retailer, big.url) : elsewhere,
       price: big.price,
       size: big.size,
       ppu: big.ppu,
-      href: tagUrl(big.url),
+      href: sells(big.retailer) ? tagUrl(big.url) : null,
       buttonLabel: big.retailer === "other" ? "See it online" : `See it ${atStore(big.retailer)}`,
       primary: false,
     });
@@ -358,7 +367,7 @@ function offersFor(pair: Pair): Offer[] {
 }
 
 /** The offer list: every price with its store, pack, unit price and date, on the first screen. */
-function Offers({ pair }: { pair: Pair }) {
+function Offers({ pair, local }: { pair: Pair; local: Local }) {
   const unit = pair.alternative.unit;
   const { label } = unitDisplay(unit);
   const checked = monthYear(pair.price_checked);
@@ -385,7 +394,7 @@ function Offers({ pair }: { pair: Pair }) {
             Link
           </span>
         </div>
-        {offersFor(pair).map((o) => (
+        {offersFor(pair, local).map((o) => (
           <div
             key={o.name}
             role="row"
@@ -405,32 +414,39 @@ function Offers({ pair }: { pair: Pair }) {
               role="cell"
               className={`price col-start-2 row-span-2 row-start-1 text-right text-[1.375rem] @2xl:col-start-3 @2xl:row-span-1 @2xl:text-left ${o.primary ? "text-ink" : "text-ink-2"}`}
             >
-              {money(o.price, pair.currency)}
+              <Money n={o.price} from={pair.currency} />
+              <OriginalPrice n={o.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
             </p>
             <div className="col-span-2 col-start-1 row-start-3 flex flex-wrap items-baseline gap-x-2 @md:col-span-1 @2xl:contents">
               <p role="cell" className="text-[13px] font-medium text-ink-2 @2xl:col-start-4 @2xl:row-start-1">
                 {packText(o.size, unit)}
               </p>
               <p role="cell" className="text-[13px] leading-tight font-medium text-muted @2xl:col-start-5 @2xl:row-start-1">
-                <span className="price text-[15px] text-ink">{unitPrice(o.ppu, unit, pair.currency)}</span> {label}
+                <span className="price text-[15px] text-ink"><UnitAmount ppu={o.ppu} unit={unit} from={pair.currency} /></span> {label}
               </p>
             </div>
             <div
               role="cell"
               className="col-span-2 col-start-1 row-start-4 mt-1 @md:col-span-1 @md:col-start-3 @md:row-span-3 @md:row-start-1 @md:mt-0 @md:self-center @2xl:col-start-6 @2xl:row-span-1"
             >
-              <a
-                href={o.href}
-                target="_blank"
-                rel="sponsored nofollow noopener"
-                className={`btn w-full text-center ${o.primary ? "btn-primary" : "btn-ghost"}`}
-              >
-                <span className="@md:hidden">{o.buttonLabel}</span>
-                <span className="hidden @md:inline">
-                  See it<span className="sr-only">: {o.buttonLabel}</span>
-                </span>
-                <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
-              </a>
+              {o.href ? (
+                <a
+                  href={o.href}
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  className={`btn w-full text-center ${o.primary ? "btn-primary" : "btn-ghost"}`}
+                >
+                  <span className="@md:hidden">{o.buttonLabel}</span>
+                  <span className="hidden @md:inline">
+                    See it<span className="sr-only">: {o.buttonLabel}</span>
+                  </span>
+                  <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
+                </a>
+              ) : (
+                <a href={`#${WHERE_TO_BUY}`} className="btn btn-ghost w-full text-center">
+                  Where to buy
+                </a>
+              )}
             </div>
           </div>
         ))}
@@ -454,17 +470,17 @@ function verdict(pair: Pair) {
 }
 
 /** What the saving comes to for the same amount, since packs are often different sizes. */
-function sameAmount(pair: Pair) {
+function sameAmount(pair: Pair, local: Local) {
   const { brand: b, alternative: a, savingsPerPack: saved, currency } = pair;
   if (a.size === b.size) {
     // "Price per cell" is a unit of something you keep buying, whatever its size says.
-    if (/\bper\b/i.test(a.product)) return `Each ${b.unit} costs ${money(saved, currency)} less.`;
-    if (buysOnce(a.unit, a.size)) return `You buy it once, so you save ${money(saved, currency)} once.`;
-    return `A pack this size costs ${money(saved, currency)} less.`;
+    if (/\bper\b/i.test(a.product)) return `Each ${b.unit} costs ${local.money(saved, currency)} less.`;
+    if (buysOnce(a.unit, a.size)) return `You buy it once, so you save ${local.money(saved, currency)} once.`;
+    return `A pack this size costs ${local.money(saved, currency)} less.`;
   }
   // The cheaper pack is a different size, so this is its unit price times the brand's pack.
   const forSameAmount = (a.price / a.size) * b.size;
-  return `For the same ${packText(b.size, b.unit)} you pay about ${money(forSameAmount, currency)} with ${a.brand} and ${money(b.price, currency)} with ${b.brand}.`;
+  return `For the same ${packText(b.size, b.unit)} you pay about ${local.bare(forSameAmount, currency)} with ${a.brand} and ${local.money(b.price, currency)} with ${b.brand}.`;
 }
 
 function disclosure(pair: Pair) {
@@ -495,7 +511,7 @@ function fullName(p: ProductSide) {
 }
 
 /** Puts the generated pack and price rows in the same words as the shelf label. Researched rows stay as written. */
-function readableRows(rows: CompareRow[], pair: Pair): CompareRow[] {
+function readableRows(rows: CompareRow[], pair: Pair, local: Local): CompareRow[] {
   const { brand: b, alternative: a, currency } = pair;
   const researched = new Set((pair.aspects ?? []).map((r) => r.aspect));
   return rows.map((r) => {
@@ -505,8 +521,8 @@ function readableRows(rows: CompareRow[], pair: Pair): CompareRow[] {
       return {
         ...r,
         aspect: `Price ${unitDisplay(b.unit).label}`,
-        brand: unitPrice(b.ppu, b.unit, currency),
-        alternative: `${unitPrice(a.ppu, a.unit, currency)} (${Math.round(pair.savingsPct)}% less)`,
+        brand: local.unit(b.ppu, b.unit, currency),
+        alternative: `${local.unit(a.ppu, a.unit, currency)} (${Math.round(pair.savingsPct)}% less)`,
       };
     }
     return r;

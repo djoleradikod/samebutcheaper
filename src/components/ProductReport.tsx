@@ -8,6 +8,8 @@ import { BundleCard } from "./BundleCard";
 import { LocalSearch } from "./LocalSearch";
 import { PairCard } from "./PairCard";
 import { ProductImage } from "./ProductImage";
+import { forCountry } from "@/lib/localize";
+import { getCountry } from "@/lib/server-country";
 
 const KIND_LABEL = {
   medicine: "Over-the-counter medicine",
@@ -19,8 +21,12 @@ const KIND_LABEL = {
 };
 
 /** Everything we know about one looked-up product, and what to buy instead. */
-export function ProductReport({ detail, from }: { detail: LookupDetail; from: string }) {
-  const { product: p, verified, sameActive, bundles, labelMatches, lookFor } = detail;
+export async function ProductReport({ detail, from }: { detail: LookupDetail; from: string }) {
+  const { product: p, labelMatches, lookFor } = detail;
+  const country = await getCountry();
+  const verified = forCountry(detail.verified, country);
+  const sameActive = forCountry(detail.sameActive, country);
+  const bundles = forCountry(detail.bundles, country);
   const hasSwaps = verified.length + sameActive.length + bundles.length > 0;
   const matched = verified.filter((x) => x.match_type !== "same_kind");
   const sameKind = verified.filter((x) => x.match_type === "same_kind");

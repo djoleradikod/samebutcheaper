@@ -4,6 +4,7 @@ import { assignBasketPhotos, cutOutCount, photoCount, toBasketSummary } from "@/
 import {
   bestPhoto,
   getAllPairs,
+  getAllPresets,
   getCategoryStats,
   getClaims,
   getFeaturedPairs,
@@ -11,7 +12,6 @@ import {
   getPairsByCategory,
   getPresetsFor,
   getShelfLife,
-  getSiteStats,
   NO_PHOTO_STANDING,
   photoStanding,
   pickByPhotos,
@@ -25,22 +25,15 @@ import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
-import { MARKET_CODES, type MarketCode } from "@/lib/markets";
+import { forCountry, listMarketFor, visibleMarkets } from "@/lib/localize";
+import type { MarketCode } from "@/lib/markets";
+import { getCountry } from "@/lib/server-country";
 import { jsonLdText } from "@/lib/site";
 import type { CategorySlug, Claim, PairSummary, Preset, ShelfLife } from "@/lib/types";
 
 const MEDICINE: CategorySlug = "otc-medicine";
 
 /* ------------------------------------------------------------ what the page shows */
-
-function perMarket<T>(pick: (market: MarketCode) => T[]) {
-  const out: Partial<Record<MarketCode, T[]>> = {};
-  for (const m of MARKET_CODES) {
-    const list = pick(m);
-    if (list.length) out[m] = list;
-  }
-  return out;
-}
 
 function isMedicine(line: Preset["lines"][number]) {
   return getPair(line.pair)?.category === MEDICINE;
@@ -50,10 +43,11 @@ function isMedicine(line: Preset["lines"][number]) {
  * The shopper's market first, then the baskets with enough cut-outs for a full collage, then any with a
  * photo. Across the row no picture shows twice (see assignBasketPhotos).
  */
-function basketsFor(market: MarketCode) {
+function basketsFor(country: string | null) {
+  const market = listMarketFor(country);
   const photoRank = (p: Preset) => (cutOutCount(p) >= 3 ? 0 : photoCount(p) > 0 ? 1 : 2);
   const rank = (p: Preset) => (p.market === market ? 0 : 3) + photoRank(p);
-  const chosen = getPresetsFor(market)
+  const chosen = getPresetsFor(market, forCountry(getAllPresets(), country))
     .filter((p) => p.icon !== "pill" && p.lines.filter(isMedicine).length * 2 <= p.lines.length)
     .sort((a, b) => rank(a) - rank(b))
     .slice(0, 6);
@@ -79,34 +73,29 @@ function biggestSavings(market: MarketCode, limit = 12) {
 }
 
 /**
- * One list per market, using the shopper's own prices when there are at least three swaps to show, filled
- * up from the US list. A raw snapshot only shows when there's no swap left without one, even from the US.
+ * The market that leads for this shopper. Only Canada, with too few of its own, fills up from the US: US and
+ * Canadian records never show elsewhere. A raw snapshot only shows when there's no swap left without one.
  */
-function featuredLists(limit = 12) {
-  const ranked = perMarket((m) => biggestSavings(m, limit));
-  const us = ranked.US ?? [];
-  const lists: Partial<Record<MarketCode, PairSummary[]>> = {};
-  for (const m of MARKET_CODES) {
-    const own = ranked[m] ?? [];
-    if (m !== "US" && own.length < 3) continue;
-    const merged = m === "US" ? own : [...own, ...us];
-    lists[m] = [...merged.filter(showsOnlyCutOuts), ...merged.filter((p) => !showsOnlyCutOuts(p))]
-      .slice(0, limit)
-      .map(toSummary);
-  }
-  return lists;
+function featuredFor(country: string | null, limit = 12): PairSummary[] {
+  const market = listMarketFor(country);
+  const own = biggestSavings(market, limit);
+  const merged = market === "CA" ? [...own, ...biggestSavings("US", limit)] : own;
+  return [...merged.filter(showsOnlyCutOuts), ...merged.filter((p) => !showsOnlyCutOuts(p))].slice(0, limit).map(toSummary);
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;
 const ABOUT_SWITCHING = /own[- ]label|own[- ]brand|store[- ]brand|cheap|beat/i;
 
-/** Findings about switching, newest first, spread across publishers and countries. */
-function pickFindings(limit = 3) {
+/** Findings about switching, newest first, spread across publishers and countries. A US finding names US stores, so it stays with US shoppers. */
+function pickFindings(country: string | null, limit = 3) {
+  const seen = visibleMarkets(country);
   const date = (c: Claim) => (/^\d/.test(c.sources[0].date) ? c.sources[0].date : "");
   const ranked = getClaims()
     .filter(
       (c) =>
-        !c.categories.includes(MEDICINE) && !MENTIONS_MEDICINE.test(`${c.title} ${findingExcerpt(c.finding)}`),
+        !c.categories.includes(MEDICINE) &&
+        !MENTIONS_MEDICINE.test(`${c.title} ${findingExcerpt(c.finding)}`) &&
+        c.markets.some((m) => (seen as string[]).includes(m)),
     )
     .sort(
       (a, b) =>
@@ -200,13 +189,14 @@ function buildFaq(aisles: string[]) {
 
 /* --------------------------------------------------------------------- the page */
 
-export default function Home() {
-  const stats = getSiteStats();
-  const categories = getCategoryStats().filter((c) => c.count > 0);
-  const baskets = perMarket(basketsFor);
-  const hasBaskets = Object.keys(baskets).length > 0;
-  const featured = featuredLists();
-  const findings = pickFindings();
+export default async function Home() {
+  const country = await getCountry();
+  const swapCount = forCountry(getAllPairs(), country).length;
+  const categories = getCategoryStats((list) => forCountry(list, country)).filter((c) => c.count > 0);
+  const baskets = basketsFor(country);
+  const hasBaskets = baskets.length > 0;
+  const featured = featuredFor(country);
+  const findings = pickFindings(country);
   const hasShelfLife = getShelfLife().length > 0;
   const faq = buildFaq(categories.map((c) => c.name));
 
@@ -229,7 +219,7 @@ export default function Home() {
             <h1 className="display text-[1.75rem] md:text-[2.5rem]">Same job. Lower price.</h1>
             <div className="text-[13px] leading-snug text-ink-2 md:pb-1 md:text-right">
               <p className="text-sm font-medium text-ink">
-                <span className="num">{stats.pairs}</span> swaps, each with at least two sources.
+                <span className="num">{swapCount}</span> swaps, each with at least two sources.
               </p>
               <p className="hidden md:block">
                 No brand pays to be listed. {linksEarn() ? "Some links earn us a commission." : "No link earns us anything today."}{" "}
@@ -243,7 +233,7 @@ export default function Home() {
           {hasBaskets && (
             <section className="mt-4">
               <SectionHeading title="Swap a whole basket" />
-              <FeaturedBaskets lists={baskets} />
+              <FeaturedBaskets list={baskets} />
             </section>
           )}
 
@@ -255,7 +245,7 @@ export default function Home() {
                 { href: "/credits", label: "Photos" },
               ]}
             />
-            <FeaturedPairs lists={featured} eagerFirst={!hasBaskets} />
+            <FeaturedPairs list={featured} eagerFirst={!hasBaskets} />
           </section>
         </div>
       </div>

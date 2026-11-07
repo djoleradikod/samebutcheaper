@@ -20,6 +20,8 @@ import { ConfidenceBadge } from "@/components/Badges";
 import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
 import { PairCard } from "@/components/PairCard";
 import { atLeastOneParam, ListLinks, ShelfHead, SwapGrid, TagLinks } from "@/components/ShelfParts";
+import { forCountry, type Local } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 
 export function generateStaticParams() {
   return atLeastOneParam(getDupes().map((d) => d.slug));
@@ -37,10 +39,10 @@ function heading(d: DupeEntry) {
 }
 
 /** "37¢ against £1.20 for Nurofen, per tablet" in pieces, at the unit the shelf ticket reads in. */
-function unitPrices(p: Pair) {
+function unitPrices(p: Pair, local?: Local) {
   return {
-    cheaper: unitPrice(p.alternative.ppu, p.brand.unit, p.currency),
-    dearer: unitPrice(p.brand.ppu, p.brand.unit, p.currency),
+    cheaper: local ? local.unit(p.alternative.ppu, p.brand.unit, p.currency) : unitPrice(p.alternative.ppu, p.brand.unit, p.currency),
+    dearer: local ? local.unit(p.brand.ppu, p.brand.unit, p.currency) : unitPrice(p.brand.ppu, p.brand.unit, p.currency),
     per: unitDisplay(p.brand.unit).label,
   };
 }
@@ -110,11 +112,14 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
   const d = getDupe(slug);
   if (!d) notFound();
   const h = heading(d);
-  const top = d.pairs[0];
-  const others = d.pairs.slice(1);
+  const local = await getLocal();
+  // A brand priced only in the US or Canada still opens from a direct link, in the shopper's currency.
+  const near = forCountry(d.pairs, local.country);
+  const top = near[0] ?? d.pairs[0];
+  const others = near.length ? near.slice(1) : d.pairs.slice(1);
   const cat = CATEGORY_MAP[top.category];
   const related = getRelatedDupes(d);
-  const { cheaper, dearer, per } = unitPrices(top);
+  const { cheaper, dearer, per } = unitPrices(top, local);
 
   const faq = [
     {

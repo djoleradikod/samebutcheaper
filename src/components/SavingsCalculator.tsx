@@ -1,7 +1,8 @@
 "use client";
 
 import { useId, useState } from "react";
-import { money as fmt, type Currency } from "@/lib/format";
+import { useLocal } from "@/lib/client/country";
+import type { Currency } from "@/lib/format";
 import { SaveTicket } from "./Ticket";
 
 /** Slider positions. Low usage gets most of the track, because a light user needs the precision. */
@@ -70,7 +71,8 @@ export function SavingsCalculator({
   currency: Currency;
 }) {
   const id = useId();
-  const money = (n: number) => fmt(n, currency);
+  const local = useLocal();
+  const money = (n: number) => local.money(n, currency);
   const { min, max, step, start } = usage;
 
   const toValue = (pos: number) => {

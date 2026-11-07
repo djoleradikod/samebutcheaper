@@ -1,6 +1,8 @@
 "use client";
 
 import { ChevronDown, Globe } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { MARKET_ADJECTIVE } from "@/lib/localize";
 import { COUNTRY_OPTIONS, MARKET_LABEL, countryName, type MarketCode } from "@/lib/markets";
 import { setCountry, useCountry } from "@/lib/client/country";
 
@@ -10,6 +12,7 @@ import { setCountry, useCountry } from "@/lib/client/country";
  */
 export function CountryPicker({ className = "", withName = false }: { className?: string; withName?: boolean }) {
   const country = useCountry();
+  const router = useRouter();
   return (
     <span
       className={`relative inline-flex h-11 items-center gap-1.5 rounded-tile border border-line bg-paper px-2.5 text-sm font-medium text-ink-2 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cobalt hover:border-ink-2 hover:text-ink md:h-9 ${className}`}
@@ -25,7 +28,12 @@ export function CountryPicker({ className = "", withName = false }: { className?
         aria-label="Country you shop in"
         title="Country you shop in"
         value={country ?? ""}
-        onChange={(e) => e.target.value && setCountry(e.target.value)}
+        onChange={(e) => {
+          if (!e.target.value) return;
+          // Prices on the page follow at once; the server then sends the lists and stores for the new country.
+          setCountry(e.target.value);
+          router.refresh();
+        }}
         className="absolute inset-0 cursor-pointer opacity-0"
       >
         <option value="" disabled>
@@ -47,7 +55,7 @@ export function MarketNote({ market, className = "" }: { market: MarketCode; cla
   if (country === market) return null;
   return (
     <span className={`whitespace-nowrap text-muted ${className}`} title={`Prices checked in ${MARKET_LABEL[market]} stores`}>
-      {MARKET_LABEL[market]} prices
+      {MARKET_ADJECTIVE[market]} prices
     </span>
   );
 }
