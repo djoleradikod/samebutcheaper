@@ -914,9 +914,9 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Which? scored Aldi's liquid slightly above Fairy Original, at 12p against 31p per 100ml.",
-  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Aldi Magnum Original 62p for 500ml (12p per 100ml), in store only. Fairy Original 320ml at 31p per 100ml. Which? prints no shelf price for Fairy, so the 99p is our sum from 31p per 100ml. Which?'s 29 October 2026 roundup gives Aldi 78%, a Best Buy and Great Value, and says that beats Fairy Original slightly, without printing the Fairy score.",
-  "differences": "Prices are from July 2026, and Fairy's is worked out from the per-100ml figure, so it may be a penny or two off. Price per 100ml doesn't show how far each goes, and Which?'s plates-washed figures are members-only. The photo shows a 1015ml bottle of the Fairy Original.",
-  "why": "Which? rated the Aldi liquid slightly higher, and the Fairy bottle costs over twice as much per 100ml.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Aldi Magnum Original 62p for 500ml (12p per 100ml), in store only. Fairy Original 320ml at 31p per 100ml. Which? prints no shelf price for Fairy, so the 99p is our sum from 31p per 100ml. Which?'s 29 October 2026 roundup gives Aldi 78%, a Best Buy and Great Value. It says the Aldi liquid impressed on fat and baked-on grease, scoring slightly higher than Fairy Original. It doesn't print the Fairy score, which is locked to members.",
+  "differences": "Which?'s sentence follows its point about grease, and doesn't say whether the slight lead is the overall score or the grease result. Prices are from July 2026, and Fairy's is worked out from the per-100ml figure, so it may be a penny or two off. Price per 100ml doesn't show how far each goes, and Which?'s plates-washed figures are members-only. The photo shows a 1015ml bottle of the Fairy Original.",
+  "why": "Which? says the Aldi liquid scored slightly higher and rates it a Best Buy, and the Fairy bottle costs over twice as much per 100ml.",
   "claims": [
    "which-2026-own-label-beats-brands-several-categories"
   ],
@@ -960,9 +960,9 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Fairy Max Power beat Aldi's liquid slightly in Which?'s test but cost 48p against 12p per 100ml.",
-  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Aldi Magnum Original 62p for 500ml (12p per 100ml), in store only. Fairy Max Power Original 730ml at 48p per 100ml. Which? prints no shelf price for Fairy, so the £3.50 is our sum from 48p per 100ml. Which?'s 29 October 2026 roundup gives Aldi 78%, a Best Buy and Great Value, and says it was slightly below the two Fairy Max Power Best Buys, without printing their scores.",
-  "differences": "Fairy Max Power scored higher, and we can't say by how much. It may go further per squirt, since Which?'s plates-washed figures are members-only, so the saving per wash-up may be smaller than per 100ml. Fairy's price is from July 2026 and worked out from the per-100ml figure.",
-  "why": "The brand won on the test, slightly. It costs four times as much per 100ml, so check that you need the extra cleaning power.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Aldi Magnum Original 62p for 500ml (12p per 100ml), in store only. Fairy Max Power Original 730ml at 48p per 100ml. Which? prints no shelf price for Fairy, so the £3.50 is our sum from 48p per 100ml. Which?'s 29 October 2026 roundup gives Aldi 78%, a Best Buy and Great Value. It says the Aldi liquid almost kept pace with the two Fairy Max Power Best Buys, without printing the score for this one, and that switching saves around £21 a year.",
+  "differences": "Fairy Max Power scored higher, and we can't say by how much. Which? says you won't get the very best liquid it tested with Aldi's. Fairy may go further per squirt, since Which?'s plates-washed figures are members-only, so the saving per wash-up may be smaller than per 100ml. Fairy's price is from July 2026 and worked out from the per-100ml figure.",
+  "why": "The brand won on the test, slightly. It costs four times as much per 100ml, and Which? still rates Aldi's a Best Buy, so check that you need the extra cleaning power.",
   "claims": [
    "which-2026-own-label-beats-brands-several-categories"
   ],
@@ -1145,66 +1145,13 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Which? lists both alkaline AAs: Duracell £6.99 for 12, Aldi £2.49 for 10. The scores are locked.",
-  "evidence": "Which? best AA and AAA batteries, published 12 October 2026, page checked October 2026. Aldi Activ Energy AA £2.49 for 10, in store only (25p a cell). Duracell Original AA £6.99 for 12 at B&M (58p a cell), and £9.35 at Home Bargains. Aldi's page confirms the £2.49 price and the name Super Alkaline Batteries AA, and Which? gives the count of 10. Both scores are locked to members, so we saw neither.",
+  "evidence": "Which? best AA and AAA batteries, published 12 October 2026, page checked October 2026. Aldi Activ Energy AA £2.49 for 10, in store only (25p a cell). Duracell Original AA £6.99 for 12 at B&M (58p a cell), and £9.35 at Home Bargains. Both scores are locked to members, so we saw neither.",
   "differences": "We can't say which lasts longer, and that decides real value: Duracell could last long enough to close some of the gap. B&M's page calls it Duracell Classic and we didn't see a price there, so the £6.99 is Which?'s figure. Prices are from October 2026.",
   "why": "Same size and chemistry from the same test, for less than half the price per cell.",
   "claims": [],
   "sources": [
    "https://www.which.co.uk/reviews/batteries/article/how-to-buy-the-best-batteries-a0JRf6d3M52H",
-   "https://www.aldi.co.uk/product/activ-energy-super-alkaline-batteries-aa-000000000585909001",
    "https://www.bmstores.co.uk/products/duracell-original-aa-batteries-12pk-376674"
-  ],
-  "price_checked": "2026-10"
- },
- {
-  "slug": "duracell-original-aaa-vs-aldi-activ-energy-aaa-gb",
-  "market": "GB",
-  "category": "batteries",
-  "subcategory": "AAA batteries",
-  "title": "Duracell Original AAA vs Aldi Activ Energy AAA",
-  "brand": {
-   "brand": "Duracell",
-   "product": "Duracell Original AAA alkaline batteries, 12 pack",
-   "size": 12,
-   "unit": "cell",
-   "price": 6.49,
-   "retailer": "other",
-   "asin": null,
-   "url": "https://home.bargains/product/1e39513d-829f-4f7a-9c3b-b7af8797efa7/duracell-original-aaa-batteries-12-pack",
-   "key_ingredients": [
-    {
-     "name": "Alkaline",
-     "amount": "AAA"
-    }
-   ]
-  },
-  "alternative": {
-   "brand": "Activ Energy (Aldi)",
-   "product": "Aldi Activ Energy AAA super alkaline batteries, pack of 10",
-   "size": 10,
-   "unit": "cell",
-   "price": 2.49,
-   "retailer": "aldi",
-   "asin": null,
-   "url": "https://www.aldi.co.uk/product/activ-energy-super-alkaline-batteries-aaa-000000000585909002",
-   "key_ingredients": [
-    {
-     "name": "Alkaline",
-     "amount": "AAA"
-    }
-   ]
-  },
-  "match_type": "equivalent_spec",
-  "confidence": "medium",
-  "summary": "Which? lists both alkaline AAAs. Duracell is £6.49 for 12 at Home Bargains and Aldi is £2.49 for 10. The scores are locked.",
-  "evidence": "Which? best AA and AAA batteries, published 12 October 2026, page checked October 2026. Aldi Activ Energy AAA £2.49 for 10, in store only (25p a cell). Duracell Original AAA £9.35 for 12 at Home Bargains on Which?'s page. Home Bargains' own page, read on 6 November 2026, shows £6.49 beside £9.35, and we used the lower price (54p a cell). Aldi's page confirms the £2.49 price, and Which? gives the count of 10. Both scores are locked to members, so we saw neither.",
-  "differences": "We can't say which lasts longer, and Duracell may last long enough to close some of the gap. The £6.49 may be a temporary price. At £9.35 the saving would be larger. Prices are from October and November 2026.",
-  "why": "Same size and chemistry from the same test, for under half the price per cell even at Duracell's lower price.",
-  "claims": [],
-  "sources": [
-   "https://www.which.co.uk/reviews/batteries/article/how-to-buy-the-best-batteries-a0JRf6d3M52H",
-   "https://www.aldi.co.uk/product/activ-energy-super-alkaline-batteries-aaa-000000000585909002",
-   "https://home.bargains/product/1e39513d-829f-4f7a-9c3b-b7af8797efa7/duracell-original-aaa-batteries-12-pack"
   ],
   "price_checked": "2026-10"
  },

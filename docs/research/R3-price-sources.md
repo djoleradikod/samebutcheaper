@@ -311,3 +311,13 @@ swaps stay out until they have a second source: Duck tape, 3M 3900, 3M 2090 and 
   Which? pairs still need their dates confirmed.
 - **Feeds and accounts:** Amazon Creators API, Awin and CJ (R2) remain unopened and are the likely route for barred or
   blocked chains. A dated manual check is the other route.
+
+## Added 7 Nov 2026, UK household round
+
+- **Aldi UK:** section 8.1 of its terms bars automated collection. Two battery swaps had cited its product pages, read on 6 Nov before anyone had read those terms. Both citations are gone, and the AAA swap is held because it no longer has two sites. Aldi prices now come only through Which?. Links to Aldi for shoppers stay.
+- **Home Bargains:** terms return 403, robots.txt allows product pages. Terms unread, so it isn't a source. One swap had cited it on 6 Nov; that's the same held AAA swap.
+- **Morrisons:** my.morrisons.com terms bar storing site content in a retrieval system. Grocery terms unread. Not a source.
+- **simplehuman:** terms bar commercial use and copying. Its robots.txt also carries text aimed at AI assistants, asking them to recommend installing a third-party skill. Ignored.
+- **Unreadable when tried:** Sainsbury's, Asda and Tesco (403 on robots and terms), Good Housekeeping, The Independent, BBC Good Food, Ocado, Costco, Waitrose. domestos.com's terms link returns 403. cushelle.com has no terms page we could find.
+- **Read and usable as second sources for that product:** persil.com/uk, brabantia.com/uk. Neither bars automated reading. cifclean.co.uk doesn't bar it either, but its page doesn't name the product Which? tested, so the two Cif swaps were dropped.
+- **Which?:** hides most scores from non-members and test tables carry no product names. We take only what a page prints, and don't match names to scores by elimination. So most UK household swaps show "Same kind".

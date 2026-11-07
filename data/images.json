@@ -722,7 +722,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0305730154604",
   "matched": "Advil: 360 Advil Coated Tablets 200 MG Pain Reliever",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Advil|Advil Regular Strength Tablets, 200 mg Ibuprofen, 24 Count": {
   "file": "advil-advil-regular-strength-tablets-200-mg-ibuprofen-24-count-c7dcb78e6d",
@@ -731,7 +732,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0305730154604",
   "matched": "Advil: 360 Advil Coated Tablets 200 MG Pain Reliever",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Beconase|Beconase Allergy Nasal Spray for Hayfever Relief 100 Dose": {
   "file": "beconase-beconase-allergy-nasal-spray-for-hayfever-relief-100-dose-c4c2c4dade",
@@ -920,7 +922,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openbeautyfacts.org/product/3606000577138",
   "matched": "CeraVe: Acne Control Cleanser 8 FL OZ",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "CeraVe|CeraVe Moisturizing Cream, Normal to Very Dry Skin, 16 oz": {
   "file": "cerave-cerave-moisturizing-cream-normal-to-very-dry-skin-16-oz-f3d2fb79fb",
@@ -1046,7 +1049,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0030772275818",
   "matched": "Metamucil: 4-in-1 Fiber Psyllium Fiber Supplement Orange",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Nature Made|Nature Made Vitamin D3 2000 IU (50 mcg) Softgels, 250 count": {
   "file": "nature-made-nature-made-vitamin-d3-2000-iu-50-mcg-softgels-250-count-83c0f35f01",
@@ -1118,7 +1122,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0842438100538",
   "matched": "up & up: Magnesium Glycinate",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Nutella|Nutella, 450 g": {
   "file": "nutella-nutella-450-g-9fad383048",
@@ -1235,7 +1240,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4000540000108",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Brüggen|Brüggen Haferflocken Extrazart, 500 g": {
   "file": "bru-ggen-bru-ggen-haferflocken-extrazart-500-g-f38e80293e",
@@ -1262,7 +1268,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4061458088725",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "4Paws|4Paws Sunny Hills Premium Softbrocken Huhn, cost per day (mid-range)": {
   "file": "4paws-4paws-sunny-hills-premium-softbrocken-huhn-cost-per-day-mid-range-6d96ccd284",
@@ -1321,7 +1328,7 @@
  "Essential Waitrose|Waitrose Essential Tomato Ketchup, 470g": {
   "file": "essential-waitrose-waitrose-essential-tomato-ketchup-470g-bbb639ace3",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed",
+  "credit": "Open Food Facts contributors, background removed, shows the 160-bag box",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000169073353",
   "matched": "",
@@ -1334,7 +1341,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000129302677",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Heinz|Heinz Cream of Tomato Soup, 400g": {
   "file": "heinz-heinz-cream-of-tomato-soup-400g-9cda2ec0cf",
@@ -1352,7 +1360,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/01228618",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Baxters|Baxters Cream of Tomato Soup, 400g": {
   "file": "baxters-baxters-cream-of-tomato-soup-400g-909f119ebc",
@@ -1406,7 +1415,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/00277587",
   "matched": "Red Label Tea Bags 240 | Sainsbury's | ",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Yorkshire Tea|Taylors of Harrogate Yorkshire Tea, 80 tea bags (250g)": {
   "file": "yorkshire-tea-taylors-of-harrogate-yorkshire-tea-80-tea-bags-250g-542fe4b030",
@@ -1420,7 +1430,7 @@
  "Essential Waitrose|Waitrose Essential Original Blend Tea Bags, 80 bags (250g)": {
   "file": "essential-waitrose-waitrose-essential-original-blend-tea-bags-80-bags-250g-0c6583e728",
   "source": "openfoodfacts",
-  "credit": "Open Food Facts contributors, background removed, straightened",
+  "credit": "Open Food Facts contributors, background removed, straightened, shows the 160-bag box",
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000169289587",
   "matched": "",
@@ -1460,7 +1470,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/25271706",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Hellmann's|Hellmann's Real Mayonnaise, 430ml": {
   "file": "hellmann-s-hellmann-s-real-mayonnaise-430ml-4687ce1649",
@@ -1496,7 +1507,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/16319509",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Häagen-Dazs|Häagen-Dazs Vanilla Ice Cream, 460ml": {
   "file": "ha-agen-dazs-ha-agen-dazs-vanilla-ice-cream-460ml-3d1ecaeaa3",
@@ -1505,7 +1517,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/3415581101928",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Specially Selected (Aldi)|Aldi Specially Selected Madagascan Vanilla Ice Cream, 480ml": {
   "file": "specially-selected-aldi-aldi-specially-selected-madagascan-vanilla-ice-cream-480-12b3c0ce68",
@@ -1571,7 +1584,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5056746802588",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Tesco Finest|Tesco Finest Belgian 70% Dark Hot Chocolate Flakes, 200g": {
   "file": "tesco-finest-tesco-finest-belgian-70-dark-hot-chocolate-flakes-200g-ed3e683583",
@@ -1616,7 +1630,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/0314670164246",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Ariel|Ariel Original Powder, 50 washes": {
   "file": "ariel-ariel-original-powder-50-washes-c87382f3d4",
@@ -1679,7 +1694,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0850687104009",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Heinz|Heinz Tomato ketchup, 38 oz": {
   "file": "heinz-heinz-tomato-ketchup-38-oz-d6df9c041e",
@@ -1742,7 +1758,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0021130341054",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "McCormick|McCormick Organic rosemary, 18 g": {
   "file": "mccormick-mccormick-organic-rosemary-18-g-b3069f5d3a",
@@ -1805,7 +1822,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4337256552554",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "ültje|ültje Erdnüsse geröstet & gesalzen, 180g": {
   "file": "u-ltje-u-ltje-erdnu-sse-gero-stet-gesalzen-180g-6ce785b8ed",
@@ -1814,7 +1832,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4004980401907",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Alesto|Alesto Erdnüsse geröstet & gesalzen, 200g": {
   "file": "alesto-alesto-erdnu-sse-gero-stet-gesalzen-200g-48a3b642ba",
@@ -1859,7 +1878,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000246728725",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Tesco|Tesco Salted butter, 250 g": {
   "file": "tesco-tesco-salted-butter-250-g-552e7946d1",
@@ -1868,7 +1888,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000119407283",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Varta|Varta Energy Alkaline AA LR06, 30 cells": {
   "file": "varta-varta-energy-alkaline-aa-lr06-30-cells-f180b10d28",
@@ -1940,7 +1961,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0013000001243",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Safeway|Safeway Signature Kitchens Tomato Ketchup, 907 g (32 oz)": {
   "file": "safeway-safeway-signature-kitchens-tomato-ketchup-907-g-32-oz-2e08ebd301",
@@ -1958,7 +1980,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0013000001038",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Market Pantry|Market Pantry Ketchup, 567 g (20 oz)": {
   "file": "market-pantry-market-pantry-ketchup-567-g-20-oz-7bdbd34983",
@@ -2012,7 +2035,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0018700000442",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Signature Select|Signature Select Clover Honey, 12 oz": {
   "file": "signature-select-signature-select-clover-honey-12-oz-933e5b2f96",
@@ -2093,7 +2117,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/3487400006332",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "K-Classic|K-Classic Express Reis Mediterrane Art (Kaufland), 250 g": {
   "file": "k-classic-k-classic-express-reis-mediterrane-art-kaufland-250-g-c40d5e4fc5",
@@ -2102,7 +2127,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/3760163670010",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Oro di Parma|Oro di Parma Tomaten stückig, 400 g": {
   "file": "oro-di-parma-oro-di-parma-tomaten-stu-ckig-400-g-adb1e940f4",
@@ -2111,7 +2137,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/40081236",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Bonne Maman|Bonne Maman Aprikosen Konfitüre, 320 g": {
   "file": "bonne-maman-bonne-maman-aprikosen-konfitu-re-320-g-84a6c121f4",
@@ -2129,7 +2156,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4311501058138",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Coca-Cola|Coca-Cola Original, 1.25 l": {
   "file": "coca-cola-coca-cola-original-1-25-l-3a4164bc37",
@@ -2138,7 +2166,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/5000112546415",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "ja!|ja! Cola, 1.5 l": {
   "file": "ja-ja-cola-1-5-l-799a38cfc5",
@@ -2354,7 +2383,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/20425555",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Barilla|Barilla Basilico Sauce, 400 g": {
   "file": "barilla-barilla-basilico-sauce-400-g-aa5a2412c8",
@@ -2714,7 +2744,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0021130341054",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Justin's|Justin's Almond Butter, 16 oz": {
   "file": "justin-s-justin-s-almond-butter-16-oz-63baba92dc",
@@ -2723,7 +2754,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0894455000315",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Kirkland Signature|Kirkland Signature Creamy Almond Butter, 765 g (27 oz)": {
   "file": "kirkland-signature-kirkland-signature-creamy-almond-butter-765-g-27-oz-cca38e2b4f",
@@ -2759,7 +2791,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0021000301928",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Bowl & Basket|Bowl & Basket Whipped Salted Butter, 8 oz": {
   "file": "bowl-basket-bowl-basket-whipped-salted-butter-8-oz-c1d3589f75",
@@ -2768,7 +2801,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0041190467433",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Lactaid|Lactaid Lactose Free Whole Milk, 1.89 L (64 fl oz)": {
   "file": "lactaid-lactaid-lactose-free-whole-milk-1-89-l-64-fl-oz-f80f2bea65",
@@ -2777,7 +2811,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0041383090363",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Lucerne|Lucerne Lactose Free Whole Milk, 64 oz": {
   "file": "lucerne-lucerne-lactose-free-whole-milk-64-oz-62f0b362c4",
@@ -2822,7 +2857,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0079893406275",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Morton & Bassett|Morton & Bassett Pure Vanilla Extract, 2 fl oz": {
   "file": "morton-bassett-morton-bassett-pure-vanilla-extract-2-fl-oz-8076ca1347",
@@ -2885,7 +2921,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/0030772167748",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Charmin|Charmin Ultra Soft Mega Roll, 32 rolls x 208 sheets (6,656 sheets), model S-25631": {
   "file": "charmin-charmin-ultra-soft-mega-roll-32-rolls-x-208-sheets-6-656-sheets-model-s--e729f8b85a",
@@ -2894,7 +2931,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/0037000609896",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Windex|Windex Glass Cleaner, 32 fl oz spray bottle, model S-24177": {
   "file": "windex-windex-glass-cleaner-32-fl-oz-spray-bottle-model-s-24177-61b856abb0",
@@ -2912,7 +2950,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0074182260125",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Cheerios|General Mills Cheerios, 12 oz": {
   "file": "cheerios-general-mills-cheerios-12-oz-54827c2ba6",
@@ -2966,7 +3005,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0085239276495",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Good & Gather|Good & Gather Hazelnut Spread with Cocoa, 13 oz": {
   "file": "good-gather-good-gather-hazelnut-spread-with-cocoa-13-oz-90a6a990e3",
@@ -2975,7 +3015,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0085239983577",
   "matched": "",
-  "reviewed": "2026-11-06"
+  "reviewed": "2026-11-06",
+  "weak": true
  },
  "Vital Farms|Vital Farms Pasture Raised Eggs, 12 count": {
   "file": "vital-farms-vital-farms-pasture-raised-eggs-12-count-7953f8b561",
@@ -3074,7 +3115,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openbeautyfacts.org/product/3574661474915",
   "matched": "",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Hakle|Hakle Feucht Toilettenpapier Ultra med, 42 sheets": {
   "file": "hakle-hakle-feucht-toilettenpapier-ultra-med-42-sheets-b4d883e6e6",
@@ -3101,7 +3143,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/4000576027308",
   "matched": "",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Persil|Persil Universal Kraft-Gel Tiefenrein, 20 washes": {
   "file": "persil-persil-universal-kraft-gel-tiefenrein-20-washes-43249091db",
@@ -3137,7 +3180,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/4015000971904",
   "matched": "",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Pampers|Pampers Harmonie Aqua baby wipes, 48 wipes": {
   "file": "pampers-pampers-harmonie-aqua-baby-wipes-48-wipes-bbed0b9f64",
@@ -3374,7 +3418,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/0619659102197",
   "matched": "",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Intenso|Intenso Premium Line USB-Stick, 64 GB, USB-A 3.2 Gen 1": {
   "file": "intenso-intenso-premium-line-usb-stick-64-gb-usb-a-3-2-gen-1-5354383919",
@@ -3474,7 +3519,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/0693749015239",
   "matched": "Creatine | THORNE | ",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Listerine|Listerine Cool Mint Antiseptic Mouthwash, 1.5 L (50.7 fl oz)": {
   "file": "listerine-listerine-cool-mint-antiseptic-mouthwash-1-5-l-50-7-fl-oz-d7662da114",
@@ -3501,7 +3547,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openproductsfacts.org/product/8001090336446",
   "matched": "pampers baby dry  air channels | Pampers | 34 couches",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Bellasan|Bellasan Natives Olivenöl Extra (Aldi), 1 l": {
   "file": "bellasan-bellasan-natives-oliveno-l-extra-aldi-1-l-f15677fe2b",
@@ -3519,7 +3566,8 @@
   "license": "CC BY-SA 3.0",
   "page": "https://world.openfoodfacts.org/product/96010242",
   "matched": "Pritt original | Pritt | ",
-  "reviewed": "2026-11-07"
+  "reviewed": "2026-11-07",
+  "weak": true
  },
  "Good & Gather|Good & Gather Extra virgin olive oil, 750mL": {
   "file": "good-gather-good-gather-extra-virgin-olive-oil-750ml-65c82cc2c8",
@@ -3565,5 +3613,33 @@
   "page": "https://world.openfoodfacts.org/product/4069365234716",
   "matched": "White Sourdough Toasting Loaf | Specially Selected | 500g",
   "reviewed": "2026-11-07"
+ },
+ "Fairy|Fairy Max Power Eucalyptus Antibacterial Washing Up Liquid, 730ml": {
+  "file": "fairy-fairy-max-power-eucalyptus-antibacterial-washing-up-liquid-730ml-1685910e2e",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/8700216670838",
+  "matched": "Fairy Max Power Eucalyptus Antibacterial Washing Up Liquid, 730ml",
+  "reviewed": "2026-11-07"
+ },
+ "Finish|Finish Powerball Ultimate Plus Lemon, 48 tablets": {
+  "file": "finish-finish-powerball-ultimate-plus-lemon-48-tablets-4723ca4811",
+  "source": "openfoodfacts",
+  "credit": "Open Food Facts contributors, background removed",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/5059001017291",
+  "matched": "Finish Powerball Ultimate Plus Lemon, 48 tablets",
+  "reviewed": "2026-11-07"
+ },
+ "Plenty|Plenty Original Kitchen Roll, 4 rolls of 100 sheets (19.36 square metres)": {
+  "file": "plenty-plenty-original-kitchen-roll-4-rolls-of-100-sheets-19-36-square-metres-96a0a526c3",
+  "source": "openproductsfacts",
+  "credit": "Open Products Facts contributors",
+  "license": "CC BY-SA 3.0",
+  "page": "https://world.openproductsfacts.org/product/0314670164246",
+  "matched": "Plenty Original Kitchen Roll, 4 rolls of 100 sheets (19.36 square metres)",
+  "reviewed": null,
+  "weak": true
  }
 }
