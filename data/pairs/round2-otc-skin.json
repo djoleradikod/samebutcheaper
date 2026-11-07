@@ -110,7 +110,8 @@
     "sources": [
       "https://www.walmart.com/ip/753496797",
       "https://www.walmart.com/ip/seort/16238900515",
-      "https://www.walmart.com/c/kp/pataday"
+      "https://www.walmart.com/c/kp/pataday",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3ffd2bec-c5d1-47ff-ae5f-bc20e9c1de84"
     ],
     "price_checked": "2026-11",
     "aspects": [
@@ -263,70 +264,6 @@
     ]
   },
   {
-    "slug": "zzzquil-liquid-vs-equate-nighttime-sleep-aid-liquid",
-    "category": "otc-medicine",
-    "subcategory": "Sleep",
-    "title": "ZzzQuil Liquid vs Equate Nighttime Sleep Aid Liquid",
-    "brand": {
-      "brand": "ZzzQuil",
-      "product": "ZzzQuil Liquid Sleep Aid, Diphenhydramine HCl 50 mg per 30 mL, Calming Vanilla Cherry, 12 fl oz",
-      "size": 12,
-      "unit": "fl oz",
-      "price_usd": 10.44,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/49196067",
-      "key_ingredients": [
-        {
-          "name": "Diphenhydramine HCl",
-          "amount": "50 mg per 30 mL"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Equate",
-      "product": "Equate Alcohol-Free Nighttime Sleep Aid Liquid, Diphenhydramine HCl 50 mg per 30 mL, 12 fl oz",
-      "size": 12,
-      "unit": "fl oz",
-      "price_usd": 6.22,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/Equate-Alcohol-Free-Berry-Flavor-Nighttime-Sleep-Aid-12-fl-oz/512108714",
-      "key_ingredients": [
-        {
-          "name": "Diphenhydramine HCl",
-          "amount": "50 mg per 30 mL"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "high",
-    "summary": "Both deliver 50 mg diphenhydramine HCl per 30 mL dose, ZzzQuil's only active ingredient.",
-    "evidence": "Walmart's ZzzQuil listing states that each 30 mL dose cup contains 50 mg diphenhydramine HCl. The Equate listing gives diphenhydramine HCl 50 mg per 30 mL (2 Tbsp), and says 'Compare to VICKS ZzzQuil Nighttime Sleep-Aid Active Ingredient'.",
-    "differences": "The flavour differs (the Equate listing calls it both berry and cherry vanilla). The Equate version is alcohol-free. Other inactive ingredients were not compared.",
-    "sources": [
-      "https://www.walmart.com/ip/49196067",
-      "https://www.walmart.com/ip/Equate-Alcohol-Free-Berry-Flavor-Nighttime-Sleep-Aid-12-fl-oz/512108714"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Inactive ingredients",
-        "brand": "ZzzQuil: alcohol, sorbitol, saccharin, sucralose, sodium benzoate, xanthan gum, FD&C Blue 1 and Red 40, no sugar",
-        "alternative": "Equate alcohol-free: sucrose and high-fructose corn syrup, propylene glycol, sucralose, sodium benzoate, xanthan gum, same two dyes, no alcohol or sorbitol",
-        "verdict": "different",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6e398d21-6cfa-4f9b-9219-0cd949e88266"
-      },
-      {
-        "aspect": "Regulatory status",
-        "brand": "ZzzQuil is an OTC monograph drug (M010)",
-        "alternative": "Equate liquid is an OTC monograph drug (M010), same 50 mg diphenhydramine per 30 mL",
-        "verdict": "same",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=5ef35ab9-b6e8-4c88-a623-35ac9d6bd359"
-      }
-    ]
-  },
-  {
     "slug": "dulcolax-vs-equate-gentle-laxative-bisacodyl-5mg",
     "category": "otc-medicine",
     "subcategory": "Digestive health",
@@ -389,70 +326,6 @@
         "alternative": "Equate is listed as an OTC monograph drug too: same active, same dose rules, made to the monograph",
         "verdict": "same",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d285651b-7ccc-4ae5-a862-7a38dffefa28"
-      }
-    ]
-  },
-  {
-    "slug": "lotrimin-af-vs-equate-clotrimazole-1-cream",
-    "category": "otc-medicine",
-    "subcategory": "Antifungal",
-    "title": "Lotrimin AF vs Equate Clotrimazole 1% Cream",
-    "brand": {
-      "brand": "Lotrimin AF",
-      "product": "Lotrimin AF Athlete's Foot Antifungal Cream, Clotrimazole 1%, 30 g",
-      "size": 30,
-      "unit": "g",
-      "price_usd": 15.97,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/p/1706360729",
-      "key_ingredients": [
-        {
-          "name": "Clotrimazole",
-          "amount": "1%"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Equate",
-      "product": "Equate Athlete's Foot Antifungal Cream, Clotrimazole USP 1%, 2 oz (56.7 g)",
-      "size": 56.7,
-      "unit": "g",
-      "price_usd": 7.84,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/10324685",
-      "key_ingredients": [
-        {
-          "name": "Clotrimazole USP",
-          "amount": "1%"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "high",
-    "summary": "Both are 1% clotrimazole antifungal creams for athlete's foot, jock itch and ringworm.",
-    "evidence": "Walmart's Lotrimin AF listing states 1% clotrimazole, 30 g tube, $15.97. The Equate listing shows clotrimazole USP 1%, 2 oz tube, $7.84, 'Compare to Lotrimin AF active ingredient'.",
-    "differences": "The cream base and inactive ingredients may differ. The Equate tube is almost twice as large. Don't confuse this with Lotrimin Ultra (butenafine), a different drug.",
-    "sources": [
-      "https://www.walmart.com/ip/p/1706360729",
-      "https://www.walmart.com/ip/10324685"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Inactive ingredients",
-        "brand": "Lotrimin clotrimazole 1% cream: benzyl alcohol, cetyl alcohol, cetyl esters wax, octyldodecanol, polysorbate 60, sorbitan monostearate, stearyl alcohol, water",
-        "alternative": "Equate: benzyl alcohol (1%), cetostearyl alcohol, cetyl esters wax, 2-octyldodecanol, polysorbate 60, sorbitan monostearate, purified water",
-        "verdict": "same",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1440cf4d-e075-4137-a8ee-f41bd449c998"
-      },
-      {
-        "aspect": "Regulatory status",
-        "brand": "Lotrimin cream (Bayer) is an OTC monograph drug (M005)",
-        "alternative": "Equate clotrimazole cream (Walmart) is an OTC monograph drug (M005)",
-        "verdict": "same",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b584e17f-ed43-43bd-b643-dfa48edd78c6"
       }
     ]
   },
@@ -1152,7 +1025,8 @@
         "verdict": "same",
         "source": "https://dermatologytimes.com/view/breaking-news-benzene-found-in-various-acne-products-valisure-files-petition-with-fda-to-recall-treatments"
       }
-    ]
+    ],
+    "why": "Both are 10% benzoyl peroxide foaming washes in the same 5.5 oz size, and both are OTC monograph drugs. The inactive lists overlap but are not the same, so the feel on the skin may differ."
   },
   {
     "slug": "neutrogena-t-gel-extra-strength-vs-equate-extra-strength-coal-tar",
@@ -1199,7 +1073,8 @@
     "sources": [
       "https://www.walmart.com/ip/Neutrogena-T-Gel-Extra-Strength-Therapeutic-Dandruff-Shampoo-6-fl-oz/24511841",
       "https://www.walmart.com/ip/135087374",
-      "https://www.walmart.com/ip/104778618"
+      "https://www.walmart.com/ip/104778618",
+      "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e1785351-518c-4688-a3ea-61a0d42139a0"
     ],
     "price_checked": "2026-11"
   },

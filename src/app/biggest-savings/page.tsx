@@ -1,35 +1,33 @@
 import type { Metadata } from "next";
-import { getAllPairs, getSiteStats, toSummary } from "@/lib/catalog";
+import { getAllPairs, getSiteStats } from "@/lib/catalog";
+import { MEDICINE } from "@/lib/browse";
 import { PairBrowser } from "@/components/PairBrowser";
+import { bestSaving, browseProps, PriceFacts, ShelfHead, swapCount } from "@/components/ShelfParts";
 
 export const metadata: Metadata = {
   title: "Biggest savings: every verified swap, ranked",
   description:
-    "Every verified cheaper alternative to a brand-name product, ranked by how much you save per unit and per pack.",
+    "Every verified cheaper alternative to a brand-name product, ranked by how much you save per unit.",
   alternates: { canonical: "/biggest-savings" },
 };
 
 export default function BiggestSavingsPage() {
-  const pairs = getAllPairs().map(toSummary);
+  const pairs = getAllPairs();
   const stats = getSiteStats();
+  // The list leaves medicine out until it's added, so the headline figures do too.
+  const everyday = pairs.filter((p) => p.category !== MEDICINE);
   return (
-    <>
-      <section className="hero-wash border-b border-line">
-        <div className="container-page py-10 md:py-14">
-          <p className="text-sm font-medium text-accent">Leaderboard</p>
-          <h1 className="display mt-1 text-4xl font-medium sm:text-5xl">The biggest savings, ranked</h1>
-          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">
-            Every swap we&apos;ve verified, ranked by how much cheaper it is per unit and how much it saves on
-            each pack. Swaps backed by the strongest evidence rank a little higher.
-          </p>
-          <p className="num mt-4 text-sm text-muted">
-            {stats.pairs} swaps · {Math.round(stats.avgSavings)}% average saving · {stats.sources} sources cited
-          </p>
-        </div>
-      </section>
-      <section className="container-page py-10">
-        <PairBrowser pairs={pairs} showRank />
-      </section>
-    </>
+    <div className="bg-canvas pb-8 md:pb-10">
+      <ShelfHead
+        crumbs={[{ href: "/", label: "Home" }, { label: "Biggest savings" }]}
+        title={`Biggest savings: ${swapCount(pairs.length)}`}
+        intro={`Every swap we've checked, with the biggest saving per unit first. ${stats.sources} sources back them up.`}
+        best={bestSaving(everyday)}
+        facts={<PriceFacts pairs={everyday} />}
+      />
+      <div className="container-page">
+        <PairBrowser path="/biggest-savings" {...browseProps(pairs, { hideMedicine: true })} showRank />
+      </div>
+    </div>
   );
 }

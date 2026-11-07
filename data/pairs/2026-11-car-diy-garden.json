@@ -1,0 +1,2255 @@
+[
+ {
+  "slug": "autoglym-ultimate-screenwash-vs-prestone-extreme-screenwash-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Screenwash",
+  "title": "Autoglym Ultimate Screenwash vs Prestone Extreme Performance Screenwash",
+  "brand": {
+   "brand": "Autoglym",
+   "product": "Autoglym Ultimate Screenwash concentrate, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 7.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=autoglym+ultimate+screenwash",
+   "key_ingredients": [
+    {
+     "name": "Screenwash concentrate, 1:9 for general use, claimed to -45 C neat",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Prestone",
+   "product": "Prestone Extreme Performance Concentrated Screen Wash, 2.5 litres",
+   "size": 2500,
+   "unit": "ml",
+   "price": 4.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=prestone+extreme+performance+screen+wash",
+   "key_ingredients": [
+    {
+     "name": "Screenwash concentrate, up to 1:19 in summer, usable neat in winter",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are strong screenwash concentrates, and Prestone won the test Autoglym came second in while costing about 86% less per ml.",
+  "evidence": "Auto Express, 1 September 2026, tested both at 1:4. Rounded prices: around GBP 7 for 500 ml of Autoglym (1.4p per ml) and around GBP 4.75 for 2.5 litres of Prestone (0.19p per ml). Prestone scored 5 of 5 and Autoglym 4.5 of 5. The pack sizes differ five times over, and we checked the sum: mixed at the same 1:4, a litre of washer fluid uses 200 ml of concentrate, which costs about GBP 2.80 with Autoglym and about 38p with Prestone. These are the magazine's prices, and we did not see them on a shelf.",
+  "differences": "Autoglym's bottle is much smaller and easier to store. It stayed fluid and squirting after two hours in the freezer at 1:4, and it claims -45 C neat. Auto Express tested Prestone's freezing neat, where it stayed fluid, and reported its cleaning at 1:4, so we can't compare the two for frost at 1:4. Auto Express suggested the Autoglym best suits being a back-up. A Hagerty test from January 2023 gave the Autoglym 7 of 10 and it partly froze at -18 C.",
+  "why": "Auto Express put Prestone first on freeze resistance and cleaning at a much lower cost per litre. Autoglym's main gain is a smaller bottle.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4.5 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Bottle size",
+    "brand": "500 ml",
+    "alternative": "2.5 litres",
+    "verdict": "different"
+   }
+  ],
+  "claims": [
+   "screenwash-own-brand-cleaned-best-cheap-froze"
+  ],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-reviews/65265/best-car-screen-wash",
+   "https://www.hagerty.co.uk/articles/maintenance-and-gear/reviewed-rated-the-best-screenwash-tested/"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "autoglym-bodywork-shampoo-vs-simoniz-shampoo-and-wax-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Car shampoo",
+  "title": "Autoglym Bodywork Shampoo vs Simoniz Shampoo & Wax",
+  "brand": {
+   "brand": "Autoglym",
+   "product": "Autoglym Bodywork Shampoo Conditioner, 1 litre",
+   "size": 1000,
+   "unit": "ml",
+   "price": 10.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.autoglym.com/bsc-bodywork-shampoo-conditioner.html",
+   "key_ingredients": [
+    {
+     "name": "pH neutral car shampoo, 2 capfuls per 10 litres, about 30p a wash in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Simoniz",
+   "product": "Simoniz Shampoo & Wax, 2 litres",
+   "size": 2000,
+   "unit": "ml",
+   "price": 8.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=simoniz+shampoo+and+wax+2+litre",
+   "key_ingredients": [
+    {
+     "name": "Car shampoo with wax, about 13p a wash in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are car shampoos from one Auto Express test, and the Simoniz scored higher for about 59% less per ml and 57% less per wash.",
+  "evidence": "Auto Express, 8 January 2026, tested seven shampoos for foam, lubrication and oil-cutting, with cost per wash worked out for a 10 litre bucket. Rounded prices: around GBP 10.49 for 1 litre of Autoglym (30p a wash, 3.5 of 5) and around GBP 8.50 for 2 litres of Simoniz (13p a wash, 4 of 5). Autoglym's own site lists the shampoo from GBP 10.49 and doses 2 capfuls per 10 litres.",
+  "differences": "Simoniz contains wax. Autoglym says its shampoo leaves existing wax or sealant intact, and the magazine did not test how either treats a protective coat. Auto Express said Autoglym's lubrication was just behind the leaders and Simoniz had a reasonable foam and a surprising level of lubrication. Neither won: Bilt-Hamber did. Tesco's cheaper shampoo scored lowest, with the worst lubrication, so we don't suggest it.",
+  "why": "Auto Express scored the Simoniz higher overall at less than half the cost per wash. The score includes value, and the article doesn't rank the two against each other on lubrication alone.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "3.5 of 5",
+    "alternative": "4 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Cost per wash in the test",
+    "brand": "30p",
+    "alternative": "13p",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/86454/best-car-shampoo",
+   "https://www.autoglym.com/bsc-bodywork-shampoo-conditioner.html"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "autoglym-polar-blast-vs-carplan-polar-white-snow-foam-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Snow foam",
+  "title": "Autoglym Polar Blast vs CarPlan Polar White Snow Foam",
+  "brand": {
+   "brand": "Autoglym",
+   "product": "Autoglym Polar Blast snow foam, 2.5 litres",
+   "size": 2500,
+   "unit": "ml",
+   "price": 23.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.autoglym.com/pb002-5-polar-blast.html",
+   "key_ingredients": [
+    {
+     "name": "pH neutral snow foam, about 80p a wash in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "CarPlan",
+   "product": "CarPlan Polar White snow foam, 2.5 litres",
+   "size": 2500,
+   "unit": "ml",
+   "price": 10.55,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=carplan+polar+white+snow+foam",
+   "key_ingredients": [
+    {
+     "name": "Snow foam, about 21p a wash in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 2.5 litre snow foams for a pressure washer, and the CarPlan scored higher for about 56% less per ml and 74% less per wash.",
+  "evidence": "Auto Express, 30 March 2026, sprayed each foam through the same lance onto a van unwashed for six months, left it 10 minutes and rinsed. Rounded prices: around GBP 23.99 for Autoglym (80p a wash, 3 of 5) and around GBP 10.55 for CarPlan (21p a wash, 4.5 of 5). Autoglym's own site lists GBP 23.99 for 2.5 litres.",
+  "differences": "Autoglym states pH neutral and that it won't strip wax. The test article doesn't give CarPlan's pH, so if your car is waxed, check its label. Auto Express credited the Autoglym with strong cleaning and said the CarPlan cleans almost as well as the top two. Neither came first: Bilt-Hamber did.",
+  "why": "Auto Express called the CarPlan the cheapest way to get a clean among the foams it tested, and it outscored the Autoglym.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "3 of 5",
+    "alternative": "4.5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "pH stated",
+    "brand": "pH neutral",
+    "alternative": "Not stated in the test",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/95857/best-snow-foams",
+   "https://www.autoglym.com/pb002-5-polar-blast.html"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "sonax-actifoam-energy-vs-triplewax-vortex-blast-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Snow foam",
+  "title": "Sonax ActiFoam Energy vs Triplewax Vortex Blast",
+  "brand": {
+   "brand": "Sonax",
+   "product": "Sonax ActiFoam Energy snow foam, 1 litre",
+   "size": 1000,
+   "unit": "ml",
+   "price": 14.29,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=sonax+actifoam+energy+1+litre",
+   "key_ingredients": [
+    {
+     "name": "Snow foam, 1:10 to 1:20 in a lance, about 76p a wash in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Triplewax",
+   "product": "Triplewax Vortex Blast snow foam, 1 litre",
+   "size": 1000,
+   "unit": "ml",
+   "price": 5.27,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=triplewax+vortex+blast",
+   "key_ingredients": [
+    {
+     "name": "Snow foam, about 26p a wash in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1 litre snow foams, and in one Auto Express test the Triplewax scored higher for about 63% less.",
+  "evidence": "Auto Express, 30 March 2026. Rounded prices: around GBP 14.29 for Sonax (76p a wash, 3.5 of 5) and around GBP 5.27 for Triplewax (26p a wash, 4.5 of 5). The magazine said Sonax's foam was decent at 1:10 but its cleaning trailed the best, and that Triplewax cleans just as well as CarPlan Polar White, which scored 4.5.",
+  "differences": "Sonax says ActiFoam Energy also works as a shampoo, insect remover and wheel rim cleaner, and it sells a 5 litre pack. The test covered only snow foam use. We have no price on file for a bigger Triplewax pack.",
+  "why": "Auto Express rated the Triplewax a full star above the Sonax for cleaning power and value, at about a third of the cost per wash.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "3.5 of 5",
+    "alternative": "4.5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Other stated uses",
+    "brand": "Shampoo, insect remover, wheel cleaner",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/95857/best-snow-foams",
+   "https://www.sonax.com/en/care-products/actifoam-energy-5-l-06185050"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "autoglym-intensive-tar-remover-vs-angelwax-nemesis-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Tar remover",
+  "title": "Autoglym Intensive Tar Remover vs Angelwax Nemesis",
+  "brand": {
+   "brand": "Autoglym",
+   "product": "Autoglym Intensive Tar Remover, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 17.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.autoglym.com/intensive-tar-remover-500ml.html",
+   "key_ingredients": [
+    {
+     "name": "Tar remover, apply with a cloth, leave 1 to 2 minutes",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Angelwax",
+   "product": "Angelwax Nemesis tar remover, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 10.95,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=angelwax+nemesis+tar+remover",
+   "key_ingredients": [
+    {
+     "name": "Tar remover",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 500 ml tar removers, and Angelwax won the test the Autoglym came second in, for about 39% less.",
+  "evidence": "Auto Express, 18 August 2026, tested ten on bitumen hardened on a scrap wing. Rounded prices: around GBP 17.99 for Autoglym (4.5 of 5) and around GBP 10.95 for Angelwax (5 of 5). Autoglym's own site also lists GBP 17.99. The magazine said the Angelwax was the fastest to melt the blobs and that the Autoglym was almost as quick but hard to justify at the higher cost.",
+  "differences": "The Autoglym has a mild scent and is gentler on plastics, though its own FAQ says not to use it on interior plastics. The Angelwax smells strongly, so use it outdoors, and take care near plastic trim and matte paint. If your job is close to trim, the Autoglym has a real advantage.",
+  "why": "On speed at dissolving tar the Angelwax beat the Autoglym in this test, and it costs about GBP 7 less. What the extra money buys is a milder smell and gentler treatment of plastic.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4.5 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Plastic trim and smell",
+    "brand": "Gentler on plastics, mild scent",
+    "alternative": "Strong smell, care near trim",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/370240/best-tar-removers-2026",
+   "https://www.autoglym.com/intensive-tar-remover-500ml.html"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "autoglym-active-insect-remover-vs-carplan-no1-super-bug-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Bug remover",
+  "title": "Autoglym Active Insect Remover vs CarPlan No1 Super Bug",
+  "brand": {
+   "brand": "Autoglym",
+   "product": "Autoglym Active Insect Remover, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 11.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.autoglym.com/air500-active-insect-remover.html",
+   "key_ingredients": [
+    {
+     "name": "Foam insect remover, leave about 30 seconds",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "CarPlan",
+   "product": "CarPlan No1 Super Bug, 600 ml",
+   "size": 600,
+   "unit": "ml",
+   "price": 11.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=carplan+no1+super+bug",
+   "key_ingredients": [
+    {
+     "name": "Gel insect remover",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are bug removers that Auto Express says are safe on wax, and CarPlan won the test at about 24% less per ml with a bigger bottle.",
+  "evidence": "Auto Express, 1 June 2026, tested fourteen on a scrap bonnet with real flies and a homemade stand-in baked on. It gave around GBP 11 for 600 ml of CarPlan (around GBP 1.83 per 100 ml, 5 of 5) and around GBP 12 for Autoglym (around GBP 2.40 per 100 ml, 3.5 of 5). Autoglym's own site lists GBP 11.99 for 500 ml, which we used here.",
+  "differences": "Autoglym is a foam that clings without dribbling, and CarPlan is a gel that stayed put. Auto Express said the test paint was almost completely clear after one wipe of the CarPlan and called the Autoglym wax-safe but pricey. It didn't test either on glass or plastic, and Autoglym's site lists those surfaces as safe. We left out cheaper removers in this test that strip wax.",
+  "why": "Auto Express rated the CarPlan a star and a half above the Autoglym, and both are described as safe on wax, so the Autoglym's higher price per ml brought no better result in this test.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "3.5 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Safe on wax, per Auto Express",
+    "brand": "Yes",
+    "alternative": "Yes",
+    "verdict": "same"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/car-care/91350/best-car-bug-cleaner",
+   "https://www.autoglym.com/air500-active-insect-remover.html"
+  ],
+  "price_checked": "2026-06"
+ },
+ {
+  "slug": "turtle-wax-clearvue-vs-rain-x-2-in-1-rain-repellent-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Rain repellent",
+  "title": "Turtle Wax Clearvue vs Rain-X 2-in-1 Glass Cleaner + Repellent",
+  "brand": {
+   "brand": "Turtle Wax",
+   "product": "Turtle Wax Clearvue rain repellent, 300 ml",
+   "size": 300,
+   "unit": "ml",
+   "price": 7.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=turtle+wax+clearvue+rain+repellent",
+   "key_ingredients": [
+    {
+     "name": "Rain repellent, needs two coats",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Rain-X",
+   "product": "Rain-X 2-in-1 Glass Cleaner + Rain Repellent, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 4.98,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=rain-x+2-in-1+glass+cleaner+rain+repellent",
+   "key_ingredients": [
+    {
+     "name": "Glass cleaner and rain repellent, spray on and wipe off",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Auto Express gave both rain repellents the same score, and the Rain-X costs about 60% less per ml in a bigger bottle.",
+  "evidence": "Auto Express, 8 April 2026, applied each to half a windscreen and a side window on four cars and drove them in the wet for four weeks. Rounded prices: around GBP 7.50 for 300 ml of Turtle Wax and around GBP 4.98 for 500 ml of Rain-X, both 4.5 of 5. It called the Rain-X superb value, and said the Turtle Wax was arguably slightly better but costs more for what you get.",
+  "differences": "The Turtle Wax was one of only three still working well at the end of four weeks. The Rain-X was starting to wear away by then, so expect to apply it more often. The Turtle Wax needs two coats. The Rain-X also cleans the glass. Both lost to Gtechniq G5, which lasted better than either.",
+  "why": "The magazine scored them level and the Rain-X is far cheaper per ml. The Turtle Wax's lead is lasting longer, so the swap suits anyone happy to reapply.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4.5 of 5",
+    "alternative": "4.5 of 5",
+    "verdict": "same"
+   },
+   {
+    "aspect": "After four weeks",
+    "brand": "Still performing well",
+    "alternative": "Starting to wear away",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/accessories-tyres/65649/best-rain-repellents",
+   "https://rainx.co.uk/rain-x-products/rain-x-2-in-1-glass-cleaner-rain-repellent"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "ring-ultrainflate-20-vs-rac-12v-digital-air-compressor-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Tyre inflators",
+  "title": "Ring Ultrainflate 20 vs RAC 12V Digital Air Compressor",
+  "brand": {
+   "brand": "Ring",
+   "product": "Ring Ultrainflate 20 digital tyre inflator (RTI120)",
+   "size": 1,
+   "unit": "inflator",
+   "price": 39.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=ring+ultrainflate+20",
+   "key_ingredients": [
+    {
+     "name": "12V digital inflator, 3 m cable, 60 cm hose, stops at set pressure",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "RAC",
+   "product": "RAC 12V Digital Air Compressor",
+   "size": 1,
+   "unit": "inflator",
+   "price": 16.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=rac+12v+digital+air+compressor",
+   "key_ingredients": [
+    {
+     "name": "12V digital inflator, over-read by half a PSI in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 12V digital tyre inflators from one Auto Express test, and the RAC came second for about 60% less than the winning Ring.",
+  "evidence": "Auto Express, 8 October 2025, timed each on a 15 inch wheel from 10 to 35 PSI and checked the display against a calibrated gauge. Rounded prices: around GBP 39.99 for Ring (5 of 5) and around GBP 16 for RAC (4.5 of 5). The RAC over-read by half a PSI and the Ring read 1 PSI out. The magazine said the RAC does all you need at a good price. Ring's own site confirms the 3 m cable and 60 cm hose.",
+  "differences": "The Ring is faster, second quickest in the test, while the RAC took three minutes exactly. The Ring's cable and hose are among the longest in the test and are stored inside. The RAC's reach around a car was judged long enough, and its leads wrap around the back. When buying, check that the listing really is this RAC model, because the magazine's shop link had a different brand name in its address.",
+  "why": "The RAC was closer to the true pressure than the Ring in this test and reaches round a car, so what the extra GBP 24 buys is speed and tidier storage.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "5 of 5",
+    "alternative": "4.5 of 5",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Gauge error in the test",
+    "brand": "1 PSI",
+    "alternative": "0.5 PSI",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/353933/best-12v-tyre-inflators",
+   "https://www.ringautomotive.com/en/product/RTI120"
+  ],
+  "price_checked": "2025-10"
+ },
+ {
+  "slug": "ring-ultracharge-10-vs-draper-12v-intelligent-charger-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Battery chargers",
+  "title": "Ring Ultra Charge 10 vs Draper 12V Intelligent Charger",
+  "brand": {
+   "brand": "Ring",
+   "product": "Ring Ultra Charge 10 smart battery charger (RSC1010), 10 A",
+   "size": 1,
+   "unit": "charger",
+   "price": 99.98,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=ring+ultracharge+10",
+   "key_ingredients": [
+    {
+     "name": "10 A output, 4.3 m cable, LCD, alternator test",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Draper",
+   "product": "Draper 12V Intelligent Charger, 10 A",
+   "size": 1,
+   "unit": "charger",
+   "price": 71.98,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=draper+12v+intelligent+battery+charger",
+   "key_ingredients": [
+    {
+     "name": "10 A output, 3 m reach, IP65",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 10 A smart car battery chargers, and the Draper won the Auto Express test for about 28% less than the Ring.",
+  "evidence": "Auto Express, 24 November 2025, charged a 68 Ah battery from 10.5 V, timed it to 80%, and tried a flat 95 Ah pack and a dead 5 Ah battery. Rounded prices: around GBP 99.98 for Ring (4.5 of 5) and around GBP 71.98 for Draper (5 of 5). The magazine's product awards of 15 April 2026 listed the Draper at around GBP 53, so its price may be lower now. We used the higher, older figure.",
+  "differences": "The Ring was the fastest to 80%, by a few minutes. It has a longer 4.3 m cable, a colour LCD and an alternator tester, which the Draper is not described as having. Auto Express felt those extras don't justify the premium, and Ring quotes the same article saying it would pick the Ring if money were no object.",
+  "why": "The output is the same 10 A and the Draper was narrowly behind on charging speed, so the extra GBP 28 mainly buys the Ring's longer cable and alternator test.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4.5 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Cable reach",
+    "brand": "4.3 m",
+    "alternative": "3 m",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/36236/best-battery-chargers",
+   "https://www.ringautomotive.com/en/ultracharge-10-rsc1010-ae-25",
+   "https://www.autoexpress.co.uk/awards/91484/car-product-awards-2026-very-best-kit-your-car"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "bosch-aerotwin-vs-lucas-airflex-wiper-blades-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Wiper blades",
+  "title": "Bosch AeroTwin vs Lucas Airflex Wiper Blades",
+  "brand": {
+   "brand": "Bosch",
+   "product": "Bosch AeroTwin wiper blades, pair for a Fiat Panda (23 and 16 inch)",
+   "size": 1,
+   "unit": "pair",
+   "price": 25.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=bosch+aerotwin+wiper+blades",
+   "key_ingredients": [
+    {
+     "name": "Flat wiper blades",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Lucas",
+   "product": "Lucas Airflex wiper blades, pair for a Fiat Panda (23 and 16 inch)",
+   "size": 1,
+   "unit": "pair",
+   "price": 21.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=lucas+airflex+wiper+blades",
+   "key_ingredients": [
+    {
+     "name": "Wiper blades",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Bosch won the Auto Express wiper test and the Lucas Airflex came close behind, for about 16% less a pair.",
+  "evidence": "Auto Express, 4 September 2025, fitted seven pairs to a Fiat Panda after chilling them to -20 C and scored fitting, noise, judder and smearing on wet and dry screens. Rounded prices: around GBP 25 for Bosch (5 of 5) and around GBP 21 for Lucas (4.5 of 5). The magazine said the Lucas came close to toppling the Bosch, with a smear-free wipe. Prices are for this car's sizes and will differ for yours.",
+  "differences": "Bosch is better here. The AeroTwin was quiet and steady with no judder, and the Lucas was noisier, with a louder thump when changing direction. Fit depends on your car's arms, so check the Lucas fits before buying. The test didn't measure how long either lasts.",
+  "why": "The Lucas wiped without smearing in the same test, so if a louder sweep doesn't bother you, the Bosch's premium buys quietness more than a clearer screen.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "5 of 5",
+    "alternative": "4.5 of 5",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Noise",
+    "brand": "Quiet",
+    "alternative": "Louder thump on the turn",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/36172/best-wiper-blades",
+   "https://ap.boschaftermarket.com/ph/en/parts/wiper-blades/"
+  ],
+  "price_checked": "2025-09"
+ },
+ {
+  "slug": "angelwax-enigma-aio-vs-sonax-xtreme-ceramic-polish-gb",
+  "market": "GB",
+  "category": "car",
+  "subcategory": "Car polish",
+  "title": "Angelwax Enigma AiO vs Sonax Xtreme Ceramic Polish All-in-One",
+  "brand": {
+   "brand": "Angelwax",
+   "product": "Angelwax Enigma AiO all-in-one polish, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 32.95,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=angelwax+enigma+aio",
+   "key_ingredients": [
+    {
+     "name": "All-in-one polish",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sonax",
+   "product": "Sonax Xtreme Ceramic Polish All-in-One, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 21.6,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=sonax+xtreme+ceramic+polish+all-in-one",
+   "key_ingredients": [
+    {
+     "name": "All-in-one polish and seal, by hand or machine",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 500 ml all-in-one polishes, and Sonax ranked above Angelwax on the final score for about 34% less.",
+  "evidence": "Auto Express, 15 January 2026, worked each across a panel of a worn MG by hand and machine and scored shine, ease and value. Rounded prices: around GBP 32.95 for Angelwax (4 of 5) and around GBP 21.60 for Sonax (4.5 of 5). The verdict named Sonax second and Angelwax third. Sonax's own page says it polishes, smooths and seals in one step by hand or machine.",
+  "differences": "Angelwax is better on results. It topped the points table for this test and matched the winner's shine, and the magazine said it would be its pick if cost were no concern. Sonax's page gives two figures for protection, up to two months and up to three months, and the test did not measure how long protection lasts.",
+  "why": "Sonax's polish does the same one-step job and the magazine called it a great job at a relatively low price for a ceramic formula. Pay for the Angelwax if the last bit of shine matters more than the GBP 11.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4 of 5",
+    "alternative": "4.5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Raw points in the test",
+    "brand": "Topped the table",
+    "alternative": "Behind Angelwax",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/car-care/106864/best-car-polish",
+   "https://www.sonax.com/en/care-products/xtreme-ceramic-polish-all-in-one-500-ml-02472000"
+  ],
+  "price_checked": "2026-01"
+ },
+ {
+  "slug": "wd-40-specialist-penetrant-vs-rocket-tt-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Penetrating oil",
+  "title": "WD-40 Specialist Penetrant vs Rocket TT",
+  "brand": {
+   "brand": "WD-40",
+   "product": "WD-40 Specialist Penetrant Smart Straw, 400 ml",
+   "size": 400,
+   "unit": "ml",
+   "price": 9.49,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/wd-40-specialist-penetrant-smart-straw/p20970",
+   "key_ingredients": [
+    {
+     "name": "Penetrating spray with nozzle and straw",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Rocket",
+   "product": "Rocket TT penetrating spray, 450 ml",
+   "size": 450,
+   "unit": "ml",
+   "price": 5.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=rocket+tt+penetrating+spray+450ml",
+   "key_ingredients": [
+    {
+     "name": "Penetrating spray",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are penetrating sprays for seized fixings, and Rocket TT won the Auto Express test for about 49% less per ml than WD-40's penetrant.",
+  "evidence": "Auto Express, 25 February 2026, soaked nuts and bolts in salt water and left them outdoors for over a year, sprayed each fluid on, and measured the torque to free them. Rounded prices: around GBP 9.48 for 400 ml of WD-40 (4 of 5) and around GBP 5.49 for 450 ml of Rocket TT (5 of 5). Toolstation listed the WD-40 at GBP 9.49 on 6 November 2026, the price we used here. The magazine's awards of 15 April 2026 listed Rocket TT at around GBP 6, which still leaves it about 44% cheaper per ml.",
+  "differences": "The WD-40 was the easiest to use, with a praised nozzle and straw, and gave the third-lowest torque. Rocket TT climbed highest up the test nail, seeped quickly and freed the nut at the lowest torque, level with the much dearer Bulldog. We have no second test of Rocket TT, and the magazine's published results are rankings, without the torque figures.",
+  "why": "Rocket TT beat the WD-40 on freeing a rusted nut in this test and costs about half as much per ml, so what the extra buys is an easier nozzle.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Torque to free the nut",
+    "brand": "Third lowest",
+    "alternative": "Joint lowest",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/369047/best-penetrating-fluids",
+   "https://www.toolstation.com/automotive/lubricants-sprays/c264",
+   "https://www.autoexpress.co.uk/awards/91484/car-product-awards-2026-very-best-kit-your-car"
+  ],
+  "price_checked": "2026-02"
+ },
+ {
+  "slug": "knipex-assembly-combination-set-vs-minotaur-hi-leverage-pliers-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Pliers",
+  "title": "Knipex Assembly Combination Set vs Minotaur Hi-Leverage Pliers Set",
+  "brand": {
+   "brand": "KNIPEX",
+   "product": "Knipex Assembly Combination Set, 3 pieces",
+   "size": 1,
+   "unit": "set",
+   "price": 79.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=knipex+assembly+combination+set+3+piece",
+   "key_ingredients": [
+    {
+     "name": "Three-piece plier set",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Minotaur",
+   "product": "Minotaur Hi-Leverage Pliers Set, 3 pieces",
+   "size": 1,
+   "unit": "set",
+   "price": 14.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/minotaur-hi-leverage-pliers-set/p40054",
+   "key_ingredients": [
+    {
+     "name": "160 mm combination, 160 mm diagonal, 200 mm long-nose, chrome vanadium steel, TPR grips",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are three-piece plier sets, and the Minotaur won the Auto Express test at about 81% less than the Knipex.",
+  "evidence": "Auto Express, 13 October 2026, cut 6 mm wire and a large cable tie, gripped a hardened bolt and tried to hold a sheet of paper. It gave around GBP 79.99 for Knipex (3.5 of 5) and around GBP 14.99 for Minotaur (5 of 5). Toolstation listed the Minotaur at GBP 14.99 including VAT on 6 November 2026, with over 20 available. The saving is large, so we checked: both are priced per three-piece set in the article.",
+  "differences": "Knipex's cutters were the best in the test, gliding through the tie and wire with the least effort. Its standard pliers were stiff and failed to grip the paper. The Minotaur tools are smaller than some rivals and were described as gripping and cutting as hard as bigger ones. The article doesn't report a long-term wear test, so we can't say how either set lasts over years. If you cut wire all day, the Knipex cutters are worth a look.",
+  "why": "For the jobs in this test the Minotaur set scored higher overall at less than a fifth of the price, though Knipex still had the best cutters.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "3.5 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Cutters",
+    "brand": "Best in the test",
+    "alternative": "Good",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/370666/best-pliers",
+   "https://www.toolstation.com/minotaur-hi-leverage-pliers-set/p40054"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "hammerite-kurust-vs-nitromors-rust-converter-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Rust converter",
+  "title": "Hammerite Kurust vs Nitromors Rust Converter",
+  "brand": {
+   "brand": "Hammerite",
+   "product": "Hammerite Kurust, 250 ml",
+   "size": 250,
+   "unit": "ml",
+   "price": 13.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.hammerite.co.uk/en/products/hammerite-kurust",
+   "key_ingredients": [
+    {
+     "name": "Rust converter, turns rust blue or black, topcoat after 3 hours",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Nitromors",
+   "product": "Nitromors Rust Converter, 500 ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 17.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=nitromors+rust+converter+500ml",
+   "key_ingredients": [
+    {
+     "name": "Rust converter, best painted over",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both convert rust before painting, and the Nitromors won the Auto Express test the Kurust came sixth in, for about 31% less per ml.",
+  "evidence": "Auto Express, 3 November 2026, treated rusted 1 mm steel, painted one face, then left the samples outside for four months with daily salt spray. Rounded prices: around GBP 13 for 250 ml of Hammerite (2.5 of 5) and around GBP 17.99 for 500 ml of Nitromors (4.5 of 5). The bottle costs more, and the cost per ml is lower.",
+  "differences": "The Kurust worked fastest, turning rust black almost at once, and Hammerite sells a 90 ml size for small jobs. Hammerite says it's sold through selected stores and not online. The Nitromors had the lightest corrosion on the painted face, but its unpainted side showed clear rust, so paint over it. The Kurust's sample was rusty on the bare side and worn on the painted side. If you only have a stone chip, the small Kurust bottle may be all you need.",
+  "why": "In four months of salt spray the Nitromors protected painted steel far better than the Kurust, and it costs less per ml.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "2.5 of 5",
+    "alternative": "4.5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Speed of reaction",
+    "brand": "Almost instant",
+    "alternative": "Not reported",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/354923/best-rust-converters",
+   "https://www.hammerite.co.uk/en/products/hammerite-kurust"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "dremel-8150-vs-vonhaus-cordless-rotary-tool-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Rotary tools",
+  "title": "Dremel 8150 vs Vonhaus Cordless Rotary Tool",
+  "brand": {
+   "brand": "Dremel",
+   "product": "Dremel 8150 cordless rotary tool, 7.2 V",
+   "size": 1,
+   "unit": "tool",
+   "price": 79.01,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=dremel+8150",
+   "key_ingredients": [
+    {
+     "name": "7.2 V, 2.0 Ah battery",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Vonhaus",
+   "product": "Vonhaus Cordless Rotary Tool with Carry Case, 8 V",
+   "size": 1,
+   "unit": "tool",
+   "price": 29.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=vonhaus+cordless+rotary+tool",
+   "key_ingredients": [
+    {
+     "name": "8 V, 2.5 Ah battery, 164 accessories, carry case",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are cordless rotary tools, and the Vonhaus won the Auto Express test at about 62% less than the Dremel, which came third.",
+  "evidence": "Auto Express, 10 September 2026, drilled mild steel, cut a bolt, cleaned rust and buffed aluminium with each tool, and based value on the lowest online prices it found. Rounded prices: around GBP 79.01 for Dremel (4 of 5) and around GBP 29.99 for Vonhaus (5 of 5). Dremel's UK blog confirms the 7.2 V brushless motor.",
+  "differences": "The Dremel is stronger, with particularly impressive metal cutting, and the magazine said it feels built to last. The Vonhaus was described as not the most powerful, though it did well in every task. The Vonhaus comes with 164 accessories and the best carry case. The Dremel lacks a case and has few attachments for the price. Heavy metal work favours the Dremel.",
+  "why": "For the mix of jobs tested the Vonhaus was the magazine's all-round pick at well under half the price, with more accessories. The Dremel's extra money buys power and a sturdier feel.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Metal cutting",
+    "brand": "Particularly impressive",
+    "alternative": "Not the most powerful",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Carry case",
+    "brand": "None",
+    "alternative": "Included",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/90576/best-rotary-multitools",
+   "https://www.dremel.com/gb/en/blogs/meet-the-dremel-8150"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "ansell-touchntuff-vs-toolstation-blue-nitrile-gloves-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Disposable gloves",
+  "title": "Ansell TouchNTuff vs Toolstation Blue Nitrile Gloves",
+  "brand": {
+   "brand": "Ansell",
+   "product": "Ansell TouchNTuff disposable gloves, box of 100",
+   "size": 100,
+   "unit": "glove",
+   "price": 24.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=ansell+touchntuff+gloves",
+   "key_ingredients": [
+    {
+     "name": "Disposable workshop gloves, thinner than most rivals in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Toolstation",
+   "product": "Disposable Blue Powder-Free Nitrile Gloves, Large, box of 100",
+   "size": 100,
+   "unit": "glove",
+   "price": 13.28,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/disposable-blue-powder-free-nitrile-gloves/p36781",
+   "key_ingredients": [
+    {
+     "name": "Nitrile, powder-free, fully textured, EN ISO 374-5 and EN ISO 374-1 Type B",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are disposable workshop gloves in boxes of 100, and the Toolstation ones won the Auto Express test at about 47% less per glove.",
+  "evidence": "Auto Express, 8 October 2026, ordered each in large, tested them against petrol, WD-40, carburettor cleaner, engine oil and wheel cleaner, then dropped water-filled gloves onto a blunt nail. It gave around GBP 24.99 per 100 for Ansell (25p each, 4 of 5) and around GBP 13.28 per 100 for Toolstation (13p each, 5 of 5). Toolstation's page showed GBP 13.28 including VAT on 6 November 2026, listed as unbranded, and out of stock for delivery that day, so check a branch.",
+  "differences": "The Toolstation gloves are thick, and the magazine said they give slightly less grip when wet than textured rivals. The Ansell gloves are thinner and survived the nail drop. Both gave up to carburettor cleaner, the Toolstation ones only after several minutes.",
+  "why": "The Toolstation gloves did well on every test in the article at about half the Ansell's cost per glove, and the magazine noted the Ansell's price had gone up by a tenner in two years.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "4 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Cost per glove in the test",
+    "brand": "25p",
+    "alternative": "13p",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/35953/best-disposable-workshop-gloves",
+   "https://www.toolstation.com/disposable-blue-powder-free-nitrile-gloves/p36781"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "big-wipes-vs-hygimax-heavy-duty-wipes-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Hand wipes",
+  "title": "Big Wipes vs Hygimax Heavy Duty Cleaning Wipes",
+  "brand": {
+   "brand": "Big Wipes",
+   "product": "Big Wipes hand-cleaning wipes, 80 wipes",
+   "size": 80,
+   "unit": "wipe",
+   "price": 13.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=big+wipes+heavy+duty",
+   "key_ingredients": [
+    {
+     "name": "Hand-cleaning wipes, about 17p each in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Hygimax",
+   "product": "Hygimax Heavy Duty Cleaning Wipes, 100 wipes",
+   "size": 100,
+   "unit": "wipe",
+   "price": 8.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.amazon.co.uk/s?k=hygimax+heavy+duty+cleaning+wipes",
+   "key_ingredients": [
+    {
+     "name": "Heavy-duty cleaning wipes, about 9p each in the test",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are workshop hand-cleaning wipes, and Hygimax won the Auto Express test for about half the price per wipe.",
+  "evidence": "Auto Express, 4 June 2025, tried each on grease, diesel soot and bitumen underseal on a hard panel and on fabric, and on hands. It gave GBP 13.49 for 80 Big Wipes (17p each, 3 of 5) and around GBP 8 for 100 Hygimax (9p each, 5 of 5). The magazine said Hygimax alone made a real impact on the tar spots, and that Big Wipes struggled on fabric and made no dent on the tar. This is the oldest price in this batch.",
+  "differences": "Big Wipes' own site now describes a reusable Pro+ wipe, washable and sold in tubs of 100 and buckets of 240, so its range may have changed since the test. It lists skin conditioners and says the wipes are dermatologically tested. Hands felt good after Big Wipes once the first stickiness faded. We read nothing similar about skin testing for Hygimax.",
+  "why": "On the tar and fabric tests the Hygimax did clearly better than Big Wipes in this test and it costs about half as much per wipe.",
+  "aspects": [
+   {
+    "aspect": "Auto Express score",
+    "brand": "3 of 5",
+    "alternative": "5 of 5",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Reusable",
+    "brand": "Pro+ version, per the maker",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.autoexpress.co.uk/product-group-tests/366994/best-hand-cleaning-wipes",
+   "https://bigwipes.com/product/heavy-duty/"
+  ],
+  "price_checked": "2025-06"
+ },
+ {
+  "slug": "evo-stik-interior-resin-wood-glue-vs-sikabond-pva-wood-adhesive-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Wood glue",
+  "title": "Evo-Stik Interior Resin Wood Glue vs SikaBond PVA Wood Adhesive+",
+  "brand": {
+   "brand": "Evo-Stik",
+   "product": "Evo-Stik Interior Resin Wood Glue, 1 litre",
+   "size": 1000,
+   "unit": "ml",
+   "price": 13.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/evo-stik-interior-resin-wood-glue/p70077",
+   "key_ingredients": [
+    {
+     "name": "Wood glue, EN 204 D1, interior only, dries clear",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sika",
+   "product": "SikaBond PVA Wood Adhesive+, 1 litre",
+   "size": 1000,
+   "unit": "ml",
+   "price": 10.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/sikabond-pva-wood-adhesive/p31670",
+   "key_ingredients": [
+    {
+     "name": "Wood glue, EN 204 D3, indoors and outdoors, dries clear",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1 litre resin wood glues at the same shop, and the Sika costs about 21% less and has the higher listed water rating.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT, with no reduction shown: Evo-Stik GBP 13.99 and Sika GBP 10.99 for 1 litre. Toolstation lists Evo-Stik's as complying with EN 204 D1 and Sika's as conforming to D3. Soudal's guide explains D1 as interior use only with wood moisture up to 15%, and D3 as interior use with frequent short exposure to water, with outdoor use allowed where the bond is sheltered. The Sika was GBP 33.99 for 5 litres the same day (GBP 6.80 a litre).",
+  "differences": "The Sika listings have a product description and pack contents naming Everbuild 502, which doesn't match the Sika title, so check the label when it arrives. Neither page gives a clamp time, and the Sika page gives a 10 minute initial cure. No test we read covers these two.",
+  "why": "The Sika carries the higher D3 rating at a lower price on the same shelf, so the Evo-Stik's D1 rating gives no documented reason to pay more.",
+  "aspects": [
+   {
+    "aspect": "EN 204 rating",
+    "brand": "D1",
+    "alternative": "D3",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Listed for",
+    "brand": "Interior only",
+    "alternative": "Indoors and outdoors",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/evo-stik-interior-resin-wood-glue/p70077",
+   "https://www.toolstation.com/sikabond-pva-wood-adhesive/p31670",
+   "https://www.toolstation.com/sikabond-pva-wood-adhesive/p63775",
+   "https://www.soudal.co.uk/pro/faq/what-does-d-stand-wood-adhesives"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "SikaBond PVA Wood Adhesive+, 5 litres",
+   "size": 5000,
+   "price": 33.99,
+   "retailer": "toolstation",
+   "url": "https://www.toolstation.com/sikabond-pva-wood-adhesive/p63775"
+  }
+ },
+ {
+  "slug": "dowsil-785-sanitary-silicone-vs-soudal-trade-sanitary-silicone-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Silicone sealant",
+  "title": "Dowsil DC785+ Sanitary Silicone vs Soudal Trade Sanitary Silicone",
+  "brand": {
+   "brand": "Dow",
+   "product": "Dowsil DC785+ Sanitary Silicone Sealant, white, 310 ml",
+   "size": 310,
+   "unit": "ml",
+   "price": 10.6,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/dowsil-dc785-sanitary-silicone-sealant/p50988",
+   "key_ingredients": [
+    {
+     "name": "Acetoxy sanitary silicone, mildew and fungus resistant, bacteriostatic, plus or minus 20% movement",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Soudal",
+   "product": "Soudal Trade Sanitary Silicone, white, 290 ml",
+   "size": 290,
+   "unit": "ml",
+   "price": 5.95,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/soudal-trade-sanitary-silicone/p33967",
+   "key_ingredients": [
+    {
+     "name": "Acetoxy sanitary silicone, mould resistant",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are white acetoxy sanitary silicones at the same shop, and the Soudal costs about 40% less per ml at its regular price.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT. Dowsil GBP 10.60 for 310 ml (3.4p per ml), no reduction shown. Soudal GBP 5.30 on offer, down from GBP 5.95 for 290 ml, and we used the regular GBP 5.95 (2.1p per ml). The 12 cartridge Soudal multipack was GBP 59.99 on offer, down from GBP 69.39, and we used GBP 69.39. Both makers' sites confirm acetoxy cure. Dow's site names the product 785 and does not mention a plus version.",
+  "differences": "Dow documents more: plus or minus 20% joint movement and bacteriostatic claims. Soudal says mould resistant and gives no movement figure, and neither Toolstation page lists a standard. The Soudal cartridge is 20 ml smaller. No test we read covers these two. For a joint that moves a lot, the Dowsil's stated figure is reassuring.",
+  "why": "Both are the same cure type sold for baths, sinks and showers, and the Soudal costs far less per ml. The Dowsil's premium buys published movement and bacteria claims that Soudal doesn't make.",
+  "aspects": [
+   {
+    "aspect": "Cure type",
+    "brand": "Acetoxy",
+    "alternative": "Acetoxy",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Joint movement stated",
+    "brand": "Plus or minus 20%",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/dowsil-dc785-sanitary-silicone-sealant/p50988",
+   "https://www.toolstation.com/soudal-trade-sanitary-silicone/p33967",
+   "https://www.toolstation.com/soudal-trade-sanitary-silicone-multipack/p31707",
+   "https://www.soudal.co.uk/diy/products/trade-range/bathroom-and-kitchen/trade-sanitary-silicone",
+   "https://www.dow.com/en-us/pdp.dowsil-785-sanitary-acetoxy-silicone.03279120h.html"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Soudal Trade Sanitary Silicone Multipack, white, 12 x 290 ml",
+   "size": 3480,
+   "price": 69.39,
+   "retailer": "toolstation",
+   "url": "https://www.toolstation.com/soudal-trade-sanitary-silicone-multipack/p31707"
+  }
+ },
+ {
+  "slug": "dulux-trade-vinyl-matt-vs-leyland-trade-vinyl-matt-5l-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Paint",
+  "title": "Dulux Trade Vinyl Matt vs Leyland Trade Vinyl Matt, 5 litres",
+  "brand": {
+   "brand": "Dulux Trade",
+   "product": "Dulux Trade Vinyl Matt Emulsion, Pure Brilliant White, 5 litres",
+   "size": 85,
+   "unit": "square metre",
+   "price": 46.59,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/dulux-trade-vinyl-matt-emulsion-paint/p45146",
+   "key_ingredients": [
+    {
+     "name": "Interior matt emulsion, up to 17 sq m per litre, recoat in 2 to 4 hours",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Leyland Trade",
+   "product": "Leyland Trade Vinyl Matt Emulsion, Brilliant White, 5 litres",
+   "size": 70,
+   "unit": "square metre",
+   "price": 26.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/leyland-trade-vinyl-matt-emulsion-paint-5l/p96819",
+   "key_ingredients": [
+    {
+     "name": "Interior matt emulsion, up to 14 sq m per litre, recoat in 2 to 4 hours",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 5 litre white vinyl matt trade emulsions at the same shop, and the Leyland costs about 42% less per tin and about 30% less per square metre covered.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT, with no reduction shown: Dulux GBP 46.59 and Leyland GBP 26.99 for 5 litres. We priced by coverage because the stated rates differ: up to 17 sq m per litre for Dulux (85 sq m a tin, about 55p per sq m) and up to 14 for Leyland (70 sq m a tin, about 39p per sq m). Dulux's own site gives the same 17. Toolstation's Leyland page showed out of stock for delivery, with collection offered.",
+  "differences": "The Dulux is rated to cover more and is listed as washable, while Leyland's page says wipeable and leaves washable blank. Colours differ in name: Pure Brilliant White against Brilliant White. If you need 10 litres, Toolstation's Dulux Trade Vinyl Matt White at GBP 49 for 10 litres (store collection only) is cheaper per litre than this Leyland, so buy that instead. No test we read covers these two.",
+  "why": "Even after allowing for the Dulux's better stated coverage, the Leyland works out about 30% cheaper per square metre for a job that fits in one 5 litre tin.",
+  "aspects": [
+   {
+    "aspect": "Stated coverage",
+    "brand": "Up to 17 sq m per litre",
+    "alternative": "Up to 14 sq m per litre",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Cleaning",
+    "brand": "Washable, wipeable",
+    "alternative": "Wipeable",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/dulux-trade-vinyl-matt-emulsion-paint/p45146",
+   "https://www.toolstation.com/leyland-trade-vinyl-matt-emulsion-paint-5l/p96819",
+   "https://www.toolstation.com/dulux-trade-vinyl-matt-emulsion-paint/p94109",
+   "https://www.duluxtradepaintexpert.co.uk/en/products/dulux-trade-vinyl-matt"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "dulux-trade-diamond-matt-vs-leyland-trade-hardwearing-matt-5l-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Paint",
+  "title": "Dulux Trade Diamond Matt vs Leyland Trade Hardwearing Matt, 5 litres",
+  "brand": {
+   "brand": "Dulux Trade",
+   "product": "Dulux Trade Diamond Matt Emulsion, Pure Brilliant White, 5 litres",
+   "size": 80,
+   "unit": "square metre",
+   "price": 65.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/dulux-trade-diamond-matt-emulsion-paint-5l/p57857",
+   "key_ingredients": [
+    {
+     "name": "Durable interior matt, up to 16 sq m per litre, Class 1 scrub (ISO 11998)",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Leyland Trade",
+   "product": "Leyland Trade Hardwearing Matt Paint, Brilliant White, 5 litres",
+   "size": 60,
+   "unit": "square metre",
+   "price": 36.79,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/leyland-trade-hardwearing-matt-paint-5l/p31297",
+   "key_ingredients": [
+    {
+     "name": "Durable interior matt, up to 12 sq m per litre, listed as scrubbable",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are hard-wearing 5 litre white matt paints for busy rooms at the same shop, and the Leyland costs about 26% less per square metre, with less documented durability.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT, with no reduction shown: Dulux GBP 65.99 and Leyland GBP 36.79. Priced by stated coverage: up to 16 sq m per litre for Dulux (80 sq m, about 82p per sq m) and up to 12 for Leyland (60 sq m, about 61p per sq m). Dulux's own site confirms 16 and its scrub ratings. Toolstation lists the Leyland for kitchens, bathrooms and high-traffic areas.",
+  "differences": "Dulux is much better documented: Class 1 under ISO 11998, Type C under BS 7719, tested to 10,000 scrubs, plus stain-repellent technology. Leyland lists washable, wipeable and scrubbable with no numbered class, and the Toolstation page claims up to ten times tougher than its vinyl matt alternative. Dulux also covers a third more per litre. No test we read compares them. If you need a proven scrub rating, stay with the Dulux.",
+  "why": "For a kitchen or busy hallway the Leyland is sold for the same job and is cheaper even per square metre. The Dulux premium buys a published scrub class and better coverage.",
+  "aspects": [
+   {
+    "aspect": "Scrub rating",
+    "brand": "Class 1, ISO 11998",
+    "alternative": "No class stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Stated coverage",
+    "brand": "Up to 16 sq m per litre",
+    "alternative": "Up to 12 sq m per litre",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/dulux-trade-diamond-matt-emulsion-paint-5l/p57857",
+   "https://www.toolstation.com/leyland-trade-hardwearing-matt-paint-5l/p31297",
+   "https://www.duluxtradepaintexpert.co.uk/en/products/dulux-trade-diamond-matt"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "bosch-professional-hss-co-19-vs-metabo-hss-co-19-de",
+  "market": "DE",
+  "category": "tools-diy",
+  "subcategory": "Drill bits",
+  "title": "Bosch Professional HSS-Co Set vs Metabo HSS-Co Set, 19 Pieces",
+  "brand": {
+   "brand": "Bosch Professional",
+   "product": "Bosch Professional PRO Stainless Steel HSS-Co Metallbohrer-Satz, 19-teilig",
+   "size": 19,
+   "unit": "bit",
+   "price": 38.69,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Bosch-Professional/PRO-Stainless-Steel-HSS-Co-Metallbohrer-Satz-19-teilig/html/product/1184280",
+   "key_ingredients": [
+    {
+     "name": "HSS-Co (5% cobalt), DIN 338, 135 degree tip, 1 to 10 mm in 0.5 mm steps, plastic box",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Metabo",
+   "product": "Metabo HSS-CO Bohrerkassette SP, 19-teilig",
+   "size": 19,
+   "unit": "bit",
+   "price": 29.9,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Metabo/HSS-CO-Bohrerkassette-SP-19-teilig-Bohrer-Satz/html/product/100204766",
+   "key_ingredients": [
+    {
+     "name": "HSS-Co, DIN 338, 135 degree cross-point, 1 to 10 mm in 0.5 mm steps, metal case",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 19-piece cobalt drill sets to DIN 338 with the same sizes and tip angle, and the Metabo costs about 23% less at the same shop.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, shipping from EUR 7.99. Bosch EUR 38.69, shown against EUR 94.61, not in stock and available 5 to 9 working days after ordering. Metabo EUR 29.90, shown against EUR 47.00, available immediately. Both list 1 to 10 mm in 0.5 mm steps, DIN 338 and a 135 degree tip. Metabo's own site confirms the order number 627157000, the sizes and the metal case. Barcodes on the pages: Bosch 3165140689786, Metabo 4007430175861, neither in Open Facts, so no photo.",
+  "differences": "Bosch states 5% cobalt, and Metabo says cobalt-alloyed without a percentage, so we can't compare the alloy. Metabo has a bronze finish and comes in a metal case, while Bosch has a plastic box. No test we read covers these two.",
+  "why": "The listed sizes, standard and tip match, and the Metabo adds a metal case for less money, so the Bosch's stated gain is the cobalt figure it publishes.",
+  "aspects": [
+   {
+    "aspect": "Standard and tip",
+    "brand": "DIN 338, 135 degrees",
+    "alternative": "DIN 338, 135 degrees",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Case",
+    "brand": "Plastic",
+    "alternative": "Metal",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Cobalt share stated",
+    "brand": "5%",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/Bosch-Professional/PRO-Stainless-Steel-HSS-Co-Metallbohrer-Satz-19-teilig/html/product/1184280",
+   "https://www.alternate.de/Metabo/HSS-CO-Bohrerkassette-SP-19-teilig-Bohrer-Satz/html/product/100204766",
+   "https://www.metabo.com/uk/en/accessories/drilling-chiselling/drill-bit-assortments/metal-drill-bit-assortments/hss-sp/hss-co-drill-bit-storage-case-sp-19-pieces/627157000"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "compo-bio-tomatenduenger-vs-dehner-bio-tomaten-duenger-1l-de",
+  "market": "DE",
+  "category": "garden",
+  "subcategory": "Plant feed",
+  "title": "Compo Bio Tomatendünger vs Dehner Bio Tomaten-Dünger, 1 Liter",
+  "brand": {
+   "brand": "Compo",
+   "product": "COMPO BIO Tomatendünger, flüssig, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 11.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.dehner.de/product/compo-bio-tomatenduenger-fluessig-1-l-X005345723",
+   "gtin": "4008398122478",
+   "image": "https://images.openproductsfacts.org/images/products/400/839/812/2478/front_de.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Liquid organic-mineral feed, NK 3+5",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Dehner",
+   "product": "Dehner Bio Tomaten-Dünger, flüssig, 1 l",
+   "size": 1000,
+   "unit": "ml",
+   "price": 8.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.dehner.de/product/dehner-bio-tomaten-duenger-fluessig-1-l-X006639512?sku=6639512",
+   "key_ingredients": [
+    {
+     "name": "Liquid organic feed, NK 3.5+6, makes about 150 litres",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1 litre organic liquid tomato feeds at Dehner, and the own-label one costs 25% less and lists slightly more nitrogen and potassium.",
+  "evidence": "Both read on dehner.de on 6 November 2026, including VAT, shipping extra. Compo EUR 11.99 per litre, shown as not available online. Dehner EUR 8.99 per litre, available online in 2 to 3 working days. The pages list NK 3+5 for Compo and NK 3.5+6 for Dehner. Dehner's page says the bottle makes about 150 litres of feed, at one cap to 3 litres of water. Compo's page gives one dosing level per litre of water and no total, and the Open Facts photo for the barcode shows the same COMPO BIO Tomatendünger bottle, though its record doesn't state the size.",
+  "differences": "Compo's page doesn't give a bottle yield, so we can't compare cost per litre of feed exactly. Dehner calls its feed organic, and Compo describes its feed as organic-mineral made entirely from natural ingredients. No test we read covers these two. Dehner's page shows the Compo as not available online, so check a store.",
+  "why": "The Dehner feed lists a bit more nitrogen and potassium per bottle at a quarter less, and it's for the same job, so the pages show no reason to pay the extra.",
+  "aspects": [
+   {
+    "aspect": "Listed NK",
+    "brand": "3+5",
+    "alternative": "3.5+6",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Yield stated",
+    "brand": "Not stated",
+    "alternative": "About 150 litres",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.dehner.de/product/compo-bio-tomatenduenger-fluessig-1-l-X005345723",
+   "https://www.dehner.de/product/dehner-bio-tomaten-duenger-fluessig-1-l-X006639512?sku=6639512",
+   "https://world.openproductsfacts.org/product/4008398122478"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "neudorff-ferramol-schneckenkorn-vs-dehner-schneckenkorn-de",
+  "market": "DE",
+  "category": "garden",
+  "subcategory": "Slug control",
+  "title": "Neudorff Ferramol Schneckenkorn vs Dehner Schneckenkorn",
+  "brand": {
+   "brand": "Neudorff",
+   "product": "Neudorff Ferramol Schneckenkorn, 2 kg",
+   "size": 2000,
+   "unit": "g",
+   "price": 25.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.dehner.de/product/neudorff-ferramol-schneckenkorn-M510000002",
+   "key_ingredients": [
+    {
+     "name": "Iron(III) phosphate",
+     "amount": "9.9 g/kg"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Dehner",
+   "product": "Dehner Schneckenkorn, 1.2 kg",
+   "size": 1200,
+   "unit": "g",
+   "price": 13.49,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.dehner.de/product/dehner-schneckenkorn-12-kg-X20010012976",
+   "key_ingredients": [
+    {
+     "name": "Iron(III) phosphate",
+     "amount": "strength not stated on the page"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are slug pellets with iron(III) phosphate spread at 5 g per square metre, and the Dehner costs about 13% less per kilo at the same shop.",
+  "evidence": "Both read on dehner.de on 6 November 2026, including VAT, shipping extra, both available online. Ferramol EUR 25.99 for 2 kg (EUR 13.00 per kg). Dehner EUR 13.49 for 1.2 kg (EUR 11.24 per kg). Neudorff's own page gives 9.9 g/kg of iron(III) phosphate and 5 g per sq m. Dehner's page gives the same active and the same rate without a strength. The approval numbers differ: 034496-00 for Ferramol and 008016-62 for Dehner.",
+  "differences": "Because Dehner's page doesn't state the strength, we can't call these the same active at the same strength. Neudorff sells smaller packs, down to 200 g, and we didn't see their prices. The UK's Royal Horticultural Society advises against slug pellets, including organic ones, because of harm to garden wildlife, so try other ways first. No test we read covers these two.",
+  "why": "Same active ingredient and same application rate on both pages, and the Dehner costs less per kilo in the pack sizes we could price. The saving is modest, so it mainly matters if you use a lot.",
+  "aspects": [
+   {
+    "aspect": "Active ingredient",
+    "brand": "Iron(III) phosphate, 9.9 g/kg",
+    "alternative": "Iron(III) phosphate, strength not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Rate",
+    "brand": "5 g per sq m",
+    "alternative": "5 g per sq m",
+    "verdict": "same"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.dehner.de/product/neudorff-ferramol-schneckenkorn-M510000002",
+   "https://www.dehner.de/product/dehner-schneckenkorn-12-kg-X20010012976",
+   "https://www.neudorff.de/produkte/ferramol-schneckenkorn",
+   "https://www.rhs.org.uk/biodiversity/slugs-and-snails"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "gorilla-duct-tape-vs-uline-heavy-duty-duct-tape",
+  "market": "US",
+  "category": "tools-diy",
+  "subcategory": "Duct tape",
+  "title": "Gorilla Duct Tape vs Uline Heavy Duty Duct Tape",
+  "brand": {
+   "brand": "Gorilla",
+   "product": "Gorilla Duct Tape, 2 in x 30 yds, silver",
+   "size": 30,
+   "unit": "yard",
+   "price": 16.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-13786SIL/Duct-Tape/Gorilla-Duct-Tape-2-x-30-yds-Silver",
+   "key_ingredients": [
+    {
+     "name": "16 mil, natural rubber adhesive, 50 lb tensile, actual width 1.88 in",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Heavy Duty Duct Tape, 2 in x 60 yds, silver",
+   "size": 60,
+   "unit": "yard",
+   "price": 19.45,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-9686/Duct-Tape/Uline-Heavy-Duty-Duct-Tape-2-x-60-yds-Silver",
+   "key_ingredients": [
+    {
+     "name": "14.5 mil, high-tack natural rubber adhesive, 30 lb tensile",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are thick silver duct tapes at Uline, and Uline's heavy-duty roll costs about 39% less per yard, with a lower tensile rating than Gorilla.",
+  "evidence": "Both read on uline.com on 6 November 2026, both in stock. Gorilla $16 for 30 yards at one roll (53 cents a yard). Uline $19.45 for 60 yards at the 4 roll minimum (32 cents a yard). A half case of 12 Uline rolls is $18.70 a roll, $224.40 in all, a count we worked out from the 24 per case. Thickness is 16 mil against 14.5 mil, and both use natural rubber adhesive.",
+  "differences": "Gorilla is stronger on paper: 50 lb tensile against 30 lb, and slightly thicker. It has a two-year shelf life against one year, and you can buy a single roll, while Uline needs four, which is $77.80 before shipping. Gorilla's maker also claims double-thick adhesive and UV resistance. For jobs needing the most strength, stay with the Gorilla.",
+  "why": "If you get through a lot of heavy tape, the Uline gives twice the length per roll at a lower cost per yard and is nearly as thick. The Gorilla's extra money buys higher tensile strength and a longer shelf life.",
+  "aspects": [
+   {
+    "aspect": "Tensile strength",
+    "brand": "50 lb",
+    "alternative": "30 lb",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Shelf life",
+    "brand": "2 years",
+    "alternative": "1 year",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Length per roll",
+    "brand": "30 yds",
+    "alternative": "60 yds",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-13786SIL/Duct-Tape/Gorilla-Duct-Tape-2-x-30-yds-Silver",
+   "https://www.uline.com/Product/Detail/S-9686/Duct-Tape/Uline-Heavy-Duty-Duct-Tape-2-x-60-yds-Silver",
+   "https://gorillatough.com/product/silver-gorilla-tape"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Heavy Duty Duct Tape, half case of 12 rolls, 2 in x 60 yds",
+   "size": 720,
+   "price": 224.4,
+   "retailer": "other",
+   "url": "https://www.uline.com/Product/Detail/S-9686/Duct-Tape/Uline-Heavy-Duty-Duct-Tape-2-x-60-yds-Silver"
+  }
+ },
+ {
+  "slug": "mechanix-original-vs-uline-utility-gloves",
+  "market": "US",
+  "category": "tools-diy",
+  "subcategory": "Work gloves",
+  "title": "Mechanix Original vs Uline Utility Gloves",
+  "brand": {
+   "brand": "Mechanix",
+   "product": "Mechanix Original gloves MG-05, black, medium",
+   "size": 1,
+   "unit": "pair",
+   "price": 23.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.mechanix.com/us-en/all-work-gloves/MG-05.html",
+   "key_ingredients": [
+    {
+     "name": "Synthetic leather palm, stretch back, touchscreen compatible",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Utility Gloves, black, medium",
+   "size": 1,
+   "unit": "pair",
+   "price": 15.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/Product/Detail/S-19190BL-M/Performance-Gloves/Uline-Utility-Gloves-Black-Medium",
+   "key_ingredients": [
+    {
+     "name": "Synthetic leather palm, 2-way stretch spandex back, hook and loop closure",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are synthetic-leather-palm work gloves with a stretch back, and Uline's own pair costs about 37% less than Mechanix's sale price.",
+  "evidence": "Read on 6 November 2026. Mechanix's own US site listed the MG-05 at $23.99, reduced from $33.99, and we used that lower price. Uline sold the same MG-05 for $30 a pair, $28 for three or more, and its own glove for $15 a pair, $12 for three or more, so three pairs are $36. Against Uline's own Mechanix price the saving is 50%. Both Uline listings were in stock.",
+  "differences": "Mechanix is better documented. Its maker gives a 0.8 mm palm, and Uline's page lists touchscreen use and cut and scrape protection for it. Uline's page mentions neither for its own glove, which is lighter by listed weight (0.13 lb against 0.21 lb). No test we read covers these two, so we can't compare how long they last.",
+  "why": "The materials on both pages are the same in kind, a synthetic leather palm with a stretch back and a similar closure, so for general jobs the Uline pair does the same work. Mechanix's extras are touchscreen use and stated protection.",
+  "aspects": [
+   {
+    "aspect": "Touchscreen",
+    "brand": "Yes",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Palm",
+    "brand": "Synthetic leather",
+    "alternative": "Synthetic leather",
+    "verdict": "same"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/Product/Detail/S-10441BL-M/Performance-Gloves/Mechanix-Original-Gloves-Black-Medium",
+   "https://www.uline.com/Product/Detail/S-19190BL-M/Performance-Gloves/Uline-Utility-Gloves-Black-Medium",
+   "https://www.mechanix.com/us-en/all-work-gloves/MG-05.html"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Utility Gloves, 3 pairs at the multi-pair price",
+   "size": 3,
+   "price": 36.0,
+   "retailer": "other",
+   "url": "https://www.uline.com/Product/Detail/S-19190BL-M/Performance-Gloves/Uline-Utility-Gloves-Black-Medium"
+  }
+ },
+ {
+  "slug": "3m-spray-silicone-lubricant-vs-uline-silicone-lubricant",
+  "market": "US",
+  "category": "tools-diy",
+  "subcategory": "Silicone lubricant",
+  "title": "3M Spray Silicone Lubricant vs Uline Silicone Lubricant",
+  "brand": {
+   "brand": "3M",
+   "product": "3M Spray Silicone Lubricant, 12 oz can",
+   "size": 12,
+   "unit": "oz",
+   "price": 30.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_1310/3M-Silicone-Lubricants",
+   "key_ingredients": [
+    {
+     "name": "Silicone spray for hinges, gears, locks and conveyors",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Uline",
+   "product": "Uline Silicone Lubricant, 10.5 oz can",
+   "size": 10.5,
+   "unit": "oz",
+   "price": 12.0,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.uline.com/BL_46/Uline-Silicone-Lubricants",
+   "key_ingredients": [
+    {
+     "name": "Silicone spray for conveyors, hinges, gears and locks",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are silicone spray lubricants listed for the same uses at Uline, and Uline's own costs about 54% less per ounce.",
+  "evidence": "Both read on uline.com on 6 November 2026, minimum 2 cans. 3M S-26111: $30 at 2 cans, $27 at 12, 12 oz ($2.50 an ounce at 2 cans). Uline S-19036: $12 at 2 cans, $10 at 12, 10.5 oz ($1.14 an ounce at 2 cans). Twelve Uline cans at $10 are $120 for 126 oz. Both pages list lubricating moving parts, sealing out moisture, resisting rust, and use on conveyors, hinges, gears and locks.",
+  "differences": "Uline's listed uses and its low-VOC and food-grade notes are written for the whole range, so don't assume the low-VOC or food-grade notes cover this model. 3M also says quick drying and that it quiets squeaks. The can is smaller at Uline. Neither page gives a test result, and no independent test we read compares them.",
+  "why": "The listed uses match at less than half the price per ounce, and neither page documents a performance gap that would justify paying more.",
+  "aspects": [
+   {
+    "aspect": "Listed uses",
+    "brand": "Conveyors, hinges, gears, locks",
+    "alternative": "Conveyors, hinges, gears, locks",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Can size",
+    "brand": "12 oz",
+    "alternative": "10.5 oz",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.uline.com/BL_1310/3M-Silicone-Lubricants",
+   "https://www.uline.com/BL_46/Uline-Silicone-Lubricants",
+   "https://www.wd40.com/article/common-applications-of-silicone-lube-for-facility-equipment-maintenance/"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Uline Silicone Lubricant, 12 cans of 10.5 oz",
+   "size": 126,
+   "price": 120.0,
+   "retailer": "other",
+   "url": "https://www.uline.com/BL_46/Uline-Silicone-Lubricants"
+  }
+ },
+ {
+  "slug": "hozelock-select-30m-vs-reinforced-pvc-water-hose-30m-gb",
+  "market": "GB",
+  "category": "garden",
+  "subcategory": "Hoses",
+  "title": "Hozelock Select Hose vs Reinforced PVC Water Hose, 30 m",
+  "brand": {
+   "brand": "Hozelock",
+   "product": "Hozelock Select Hose, 12.5 mm x 30 m",
+   "size": 30,
+   "unit": "metre",
+   "price": 30.29,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/hozelock-select-hose/p27373",
+   "key_ingredients": [
+    {
+     "name": "Braided PVC, 12.5 mm bore, UV and frost protection, 10 year guarantee",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Unbranded",
+   "product": "Reinforced PVC Water Hose, 1/2 in x 30 m",
+   "size": 30,
+   "unit": "metre",
+   "price": 19.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/reinforced-pvc-water-hose/p34003",
+   "key_ingredients": [
+    {
+     "name": "PVC with polyester cord, 12.7 mm bore, 12 bar maximum",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are reinforced half-inch 30 m garden hoses at the same shop with no fittings, and the unbranded one costs about 34% less, with no stated guarantee.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT, with no reduction shown: Hozelock GBP 30.29 and unbranded GBP 19.99 for 30 m (about GBP 1.01 and 67p a metre). The 50 m unbranded hose was GBP 29.99 (60p a metre). Toolstation lists 12 bar maximum on the 30 m hose and 17 bar on the 50 m, which is an odd gap for the same line, so check the label. Which?'s hose guide says it tested hoses for kinks, crushing and leaks in March 2022, with scores behind a login.",
+  "differences": "Hozelock is clearly better documented, with a 10 year guarantee and UV and frost protection. The unbranded hose mentions neither. Anti-kink behaviour isn't stated for either, and kinks are what makes a cheap hose annoying. Neither is in the Which? results we could see, so we can't say how they compare in use.",
+  "why": "Bore, length and reinforced PVC match for about GBP 10 less. The Hozelock's premium buys a stated guarantee and weather protection, which matters if the hose lives outdoors.",
+  "aspects": [
+   {
+    "aspect": "Guarantee",
+    "brand": "10 years",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "UV and frost",
+    "brand": "Stated",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/hozelock-select-hose/p27373",
+   "https://www.toolstation.com/reinforced-pvc-water-hose/p34003",
+   "https://www.toolstation.com/reinforced-pvc-water-hose/p29511",
+   "https://www.which.co.uk/reviews/garden-equipment/article/best-garden-hoses-and-hose-guns-arPGV5E48G15"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Reinforced PVC Water Hose, 1/2 in x 50 m",
+   "size": 50,
+   "price": 29.99,
+   "retailer": "toolstation",
+   "url": "https://www.toolstation.com/reinforced-pvc-water-hose/p29511"
+  }
+ },
+ {
+  "slug": "felco-2-vs-darlac-expert-bypass-pruner-gb",
+  "market": "GB",
+  "category": "garden",
+  "subcategory": "Secateurs",
+  "title": "Felco Model 2 vs Darlac Expert Bypass Pruner",
+  "brand": {
+   "brand": "Felco",
+   "product": "Felco original secateurs, model no 2",
+   "size": 1,
+   "unit": "pair",
+   "price": 74.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/felco-original-secateurs-model-no-2/classid.200601/",
+   "key_ingredients": [
+    {
+     "name": "21.5 cm bypass, hardened steel, sap groove, wire notch, all parts replaceable",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Darlac",
+   "product": "Darlac expert bypass pruner",
+   "size": 1,
+   "unit": "pair",
+   "price": 34.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/darlac-expert-bypass-pruner/classid.2000029363/",
+   "key_ingredients": [
+    {
+     "name": "21.5 cm bypass, SK5 carbon steel, 25 mm cut, sap groove, wire notch, replaceable blades and spring",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 21.5 cm bypass secateurs with a sap groove and wire notch at the same shop, and the Darlac costs about 53% less, with no guarantee listed.",
+  "evidence": "Both read on crocus.co.uk on 6 November 2026, with no reduction shown and both in stock: Felco GBP 74.99 and Darlac GBP 34.99. Both pages give 21.5 cm, a sap groove and a wire notch. Which?'s guide of 3 November 2026 tested 29 bypass models with 15 gardeners at Capel Manor College and lists Felco Model 2 among those on its page. Scores are behind a login, and we couldn't see how either model did.",
+  "differences": "Felco is better documented: a lifetime guarantee against manufacturing defects, every part replaceable and a shock-absorbing cushion. Darlac lists replaceable blades and spring and no guarantee on this page, though it does state a 25 mm cutting capacity, which Felco's page omits. If you prune often, the Felco's guarantee and replaceable parts are the reason to pay more.",
+  "why": "For occasional pruning the Darlac has the same length, same type of cut and the same blade features at under half the price. The Felco's premium buys a lifetime guarantee and full repairability.",
+  "aspects": [
+   {
+    "aspect": "Guarantee on the page",
+    "brand": "Lifetime, manufacturing defects",
+    "alternative": "Not listed",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Replaceable parts",
+    "brand": "All parts",
+    "alternative": "Blades and spring",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Length",
+    "brand": "21.5 cm",
+    "alternative": "21.5 cm",
+    "verdict": "same"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.crocus.co.uk/product/_/felco-original-secateurs-model-no-2/classid.200601/",
+   "https://www.crocus.co.uk/product/_/darlac-expert-bypass-pruner/classid.2000029363/",
+   "https://www.which.co.uk/reviews/garden-equipment/article/best-secateurs-apq5i5F4ysw7"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "vitax-q4-vs-growmore-general-fertiliser-gb",
+  "market": "GB",
+  "category": "garden",
+  "subcategory": "Fertiliser",
+  "title": "Vitax Q4 vs Growmore General Fertiliser",
+  "brand": {
+   "brand": "Vitax",
+   "product": "Vitax Q4 fertiliser, 2.5 kg",
+   "size": 2500,
+   "unit": "g",
+   "price": 11.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/vitax-q4-fertiliser/classid.2000009519/",
+   "key_ingredients": [
+    {
+     "name": "Granular general feed, NPK 5.3-7.5-10 with trace elements",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Growmore",
+   "product": "Growmore fertiliser, 4 kg",
+   "size": 4000,
+   "unit": "g",
+   "price": 9.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/growmore/classid.2000035324/",
+   "key_ingredients": [
+    {
+     "name": "Granular general feed, NPK 7-7-7, up to 46 sq m per pack",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "The RHS names both as general-purpose garden fertilisers, and at Crocus the Growmore costs about 48% less per kilo, with less potash than the Q4.",
+  "evidence": "Both read on crocus.co.uk on 6 November 2026, with no reduction shown, both in stock: Vitax Q4 GBP 11.99 for 2.5 kg (GBP 4.80 a kg) and Growmore GBP 9.99 for 4 kg (GBP 2.50 a kg). The RHS growing guide for asters says to use a general-purpose fertiliser such as Growmore or Vitax Q4. Crocus lists NPK 5.3-7.5-10 with trace elements for Q4 and 7-7-7 for Growmore.",
+  "differences": "The analysis isn't the same. Q4 has more potash and trace elements, and Crocus suggests it for roses and for tomatoes and chrysanthemums every 3 to 4 weeks. Growmore has more nitrogen. For fruit and flowers that want potash, stay with Q4 or use a potash feed. Crocus names no maker for this Growmore. Crocus gives no weight-per-area rate for either. The RHS guide says a handful per square metre.",
+  "why": "For a general spring feed the RHS aster guide names either one, and the Growmore is about half the price per kilo. Crocus suggests Q4 for tomatoes and roses, so keep it for those.",
+  "aspects": [
+   {
+    "aspect": "NPK",
+    "brand": "5.3-7.5-10",
+    "alternative": "7-7-7",
+    "verdict": "different"
+   },
+   {
+    "aspect": "Trace elements stated",
+    "brand": "Yes",
+    "alternative": "Not listed",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.crocus.co.uk/product/_/vitax-q4-fertiliser/classid.2000009519/",
+   "https://www.crocus.co.uk/product/_/growmore/classid.2000035324/",
+   "https://www.rhs.org.uk/plants/aster/growing-guide"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "gorilla-super-glue-vs-everbuild-gp-super-glue-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Super glue",
+  "title": "Gorilla Super Glue vs Everbuild GP Super Glue",
+  "brand": {
+   "brand": "Gorilla Glue",
+   "product": "Gorilla Super Glue, 15 g",
+   "size": 15,
+   "unit": "g",
+   "price": 7.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gorilla-super-glue/p54493",
+   "key_ingredients": [
+    {
+     "name": "Super glue, Impact-Tough formula, dries in 10 to 45 seconds",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Everbuild",
+   "product": "Everbuild GP Super Glue, 20 g",
+   "size": 20,
+   "unit": "g",
+   "price": 2.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gp-super-glue/p86374",
+   "key_ingredients": [
+    {
+     "name": "Medium-viscosity super glue, sets in about 5 to 15 seconds, for plastics, metals, PVCu, EPDM and glass",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are super glues at the same shop, and the Everbuild costs about 72% less per gram in a bigger pack.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT, with no reduction shown on either page: Gorilla GBP 7.99 for 15 g (53p a gram) and Everbuild GBP 2.99 for 20 g (15p a gram). The 50 g Everbuild was GBP 4.59 (9p a gram). Neither page names the chemistry. The name super glue generally means cyanoacrylate.",
+  "differences": "Gorilla says its glue is formulated to resist impact, and it's sold for household repairs. Everbuild's page lists an industrial-grade adhesive for non-porous surfaces. It doesn't claim impact resistance, comes in a cartridge with a nozzle, and is sold only to over-18s. No test we read covers these two. If the repair will take knocks, Gorilla's documented claim may be worth having.",
+  "why": "For a small repair on hard plastic, metal or glass the Everbuild is listed for those materials and sets faster by its page, at under a third of the price per gram. Gorilla's main documented extra is impact resistance.",
+  "aspects": [
+   {
+    "aspect": "Impact resistance claimed",
+    "brand": "Yes, Impact-Tough",
+    "alternative": "Not claimed",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Set time, per the pages",
+    "brand": "10 to 45 seconds",
+    "alternative": "About 5 to 15 seconds",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/gorilla-super-glue/p54493",
+   "https://www.toolstation.com/gp-super-glue/p86374",
+   "https://www.toolstation.com/gp-super-glue/p16435",
+   "https://irl.sika.com/en/diy-markets/67416/superglue-activators/everbuild-stick2supergluegp.html"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Everbuild GP Super Glue, 50 g",
+   "size": 50,
+   "price": 4.59,
+   "retailer": "toolstation",
+   "url": "https://www.toolstation.com/gp-super-glue/p16435"
+  }
+ },
+ {
+  "slug": "hamilton-prestige-vs-pinnacle-synthetic-paintbrush-set-5-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Paint brushes",
+  "title": "Hamilton Prestige vs Pinnacle Synthetic Paintbrush Set, 5 Piece",
+  "brand": {
+   "brand": "Hamilton",
+   "product": "Hamilton Prestige Synthetic Paintbrush Set, 5 pieces",
+   "size": 5,
+   "unit": "brush",
+   "price": 17.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/hamilton-prestige-synthetic-paintbrush-set/p55606",
+   "key_ingredients": [
+    {
+     "name": "1 x 1 in, 2 x 1.5 in, 2 x 2 in, synthetic filament, stainless ferrule, FSC wood handle",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Pinnacle",
+   "product": "Pinnacle Synthetic Paintbrush Set, 5 pieces",
+   "size": 5,
+   "unit": "brush",
+   "price": 9.98,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/pinnacle-synthetic-paintbrush-set/p24025",
+   "key_ingredients": [
+    {
+     "name": "1 x 1 in, 1 x 1.5 in, 2 x 2 in, 1 x 3 in, synthetic filament, FSC birch handle",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are five-brush synthetic sets at the same shop with general-purpose brushes, and the Pinnacle costs about 45% less.",
+  "evidence": "Both read on toolstation.com on 6 November 2026, including VAT. Hamilton GBP 17.99 on offer, down from GBP 19.99, and we used the lower offer price, so the saving is on the cautious side. Pinnacle GBP 9.98 with no reduction shown. Both are listed as general purpose with synthetic filaments and beavertail wooden handles. Synthetic bristles are generally suited to water-based paint.",
+  "differences": "The sets aren't identical: Pinnacle swaps one 1.5 inch for a 3 inch, which helps on larger areas and is less handy for fine work. Hamilton states rust-resistant stainless steel ferrules, and Pinnacle's page doesn't state the ferrule. No test we read covers these two, so we can't say how they compare in use.",
+  "why": "For painting a room at home both sets cover the same job with synthetic brushes, and the Hamilton's stated extra is the ferrule. The Pinnacle costs little over half as much.",
+  "aspects": [
+   {
+    "aspect": "Brush sizes",
+    "brand": "1, 1.5, 1.5, 2, 2 in",
+    "alternative": "1, 1.5, 2, 2, 3 in",
+    "verdict": "different"
+   },
+   {
+    "aspect": "Ferrule",
+    "brand": "Stainless steel stated",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/hamilton-prestige-synthetic-paintbrush-set/p55606",
+   "https://www.toolstation.com/pinnacle-synthetic-paintbrush-set/p24025",
+   "https://hss.com/buy/p/prestige-synthetic-5pc-brush-set-1-x-1in-2-x-1-5in-2-x-2in"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "stanley-powerlock-5m-vs-einhell-bandmass-5m-de",
+  "market": "DE",
+  "category": "tools-diy",
+  "subcategory": "Tape measures",
+  "title": "Stanley Powerlock 5 m vs Einhell Bandmaß 5 m",
+  "brand": {
+   "brand": "Stanley",
+   "product": "Stanley Bandmaß Powerlock, 5 m, 19 mm",
+   "size": 1,
+   "unit": "tape",
+   "price": 12.09,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Stanley/Bandmass-Powerlock-5-Meter/html/product/1533262",
+   "key_ingredients": [
+    {
+     "name": "5 m, 19 mm blade, accuracy class II, belt clip, Mylar-coated blade",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Einhell",
+   "product": "EINHELL Bandmaß, 5 m, 19 mm",
+   "size": 1,
+   "unit": "tape",
+   "price": 9.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/EINHELL/Bandmass-5-Meter/html/product/100173070",
+   "key_ingredients": [
+    {
+     "name": "5 m, 19 mm blade, accuracy class II, magnetic hook, double-sided scale",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 5 m tapes with a 19 mm blade and accuracy class II at the same shop, and the Einhell costs about 17% less.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, shipping from EUR 7.99. Stanley EUR 12.09, shown against EUR 26.12, with 2 in stock. Einhell EUR 9.99 with no reference price shown, available immediately. Barcodes on the pages: Stanley 3253560331948, Einhell 4009313705509, neither in Open Facts, so no photo. Class II is the EU's middle accuracy class, the most common one.",
+  "differences": "The Stanley has a Mylar-coated blade, a chrome-plated case and a triple-riveted sliding hook. The Einhell has a magnetic hook, a double-sided scale and two brake buttons. Its blade coating isn't stated. No test we read covers these two, so we can't say how long either blade lasts.",
+  "why": "Same length, width and accuracy class on the same shop page, so for measuring at home the Stanley's premium buys a blade coating and a chrome-plated case.",
+  "aspects": [
+   {
+    "aspect": "Accuracy class",
+    "brand": "II",
+    "alternative": "II",
+    "verdict": "same"
+   },
+   {
+    "aspect": "Blade coating stated",
+    "brand": "Mylar",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Hook",
+    "brand": "Sliding, triple rivet",
+    "alternative": "Magnetic",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/Stanley/Bandmass-Powerlock-5-Meter/html/product/1533262",
+   "https://www.alternate.de/EINHELL/Bandmass-5-Meter/html/product/100173070",
+   "https://www.stanleytools.ca/product/33-158/powerlock-5-m-16-ft-x-19-mm-tape"
+  ],
+  "price_checked": "2026-11"
+ }
+]

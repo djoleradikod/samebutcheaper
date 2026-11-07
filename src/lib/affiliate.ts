@@ -1,3 +1,4 @@
+import { hostname } from "./format";
 import { MARKETS, type MarketCode } from "./markets";
 import type { ProductSide } from "./types";
 
@@ -53,17 +54,31 @@ export function affiliateUrl(p: Pick<ProductSide, "retailer" | "asin" | "url">, 
 /** Whether we're in an affiliate program for this link at all, so the page can say so honestly. */
 export function mayEarn(p: Pick<ProductSide, "retailer" | "url">): boolean {
   if (p.retailer === "amazon") return true;
-  try {
-    const host = new URL(p.url).hostname.replace(/^www\./, "");
-    return host === "walmart.com" || host === "target.com";
-  } catch {
-    return false;
-  }
+  // tagUrl tags any Amazon link, whichever retailer the record names.
+  const host = hostname(p.url);
+  return host.startsWith("amazon.") || host === "walmart.com" || host === "target.com";
 }
 
-/** "on Amazon", "at Tesco". */
-export function atStore(retailer: string) {
-  return retailer === "amazon" ? "on Amazon" : `at ${RETAILER_LABEL[retailer] ?? "the store"}`;
+/** A store's name: ours when we have one, or else its web address, so two unnamed shops stay two shops. */
+export function storeName(retailer: string, url: string) {
+  return RETAILER_LABEL[retailer] ?? hostname(url);
+}
+
+/** "on Amazon", "at Tesco", "at uline.com". Without a URL an unnamed store is "the store". */
+export function atStore(retailer: string, url?: string) {
+  if (retailer === "amazon") return "on Amazon";
+  return `at ${url ? storeName(retailer, url) : (RETAILER_LABEL[retailer] ?? "the store")}`;
+}
+
+/** What each store comes to, biggest first. A line that costs nothing, such as one set to zero, leaves its store out. */
+export function storeSplit(lines: { store: string; cost: number }[]) {
+  const totals = new Map<string, number>();
+  for (const { store, cost } of lines) {
+    if (cost > 0) totals.set(store, (totals.get(store) ?? 0) + cost);
+  }
+  return [...totals.entries()]
+    .map(([label, total]) => ({ label, total }))
+    .sort((a, b) => b.total - a.total || a.label.localeCompare(b.label));
 }
 
 export const RETAILER_LABEL: Record<string, string> = {
@@ -90,5 +105,50 @@ export const RETAILER_LABEL: Record<string, string> = {
   docmorris: "DocMorris",
   aponeo: "Aponeo",
   "medikamente-per-klick": "medikamente-per-klick",
-  other: "retailer",
+  homedepot: "Home Depot",
+  lowes: "Lowe's",
+  staples: "Staples",
+  officedepot: "Office Depot",
+  autozone: "AutoZone",
+  kroger: "Kroger",
+  aldi: "Aldi",
+  lidl: "Lidl",
+  morrisons: "Morrisons",
+  waitrose: "Waitrose",
+  ocado: "Ocado",
+  wilko: "Wilko",
+  argos: "Argos",
+  screwfix: "Screwfix",
+  toolstation: "Toolstation",
+  bandq: "B&Q",
+  halfords: "Halfords",
+  ryman: "Ryman",
+  rewe: "REWE",
+  edeka: "EDEKA",
+  kaufland: "Kaufland",
+  hornbach: "Hornbach",
+  obi: "OBI",
+  bauhaus: "Bauhaus",
+  atu: "A.T.U",
+  ikea: "IKEA",
+  chewy: "Chewy",
+  petsathome: "Pets at Home",
+  fressnapf: "Fressnapf",
+  safeway: "Safeway",
+  wholefoods: "Whole Foods Market",
+  sprouts: "Sprouts",
+  winco: "WinCo Foods",
+  batteryjunction: "Battery Junction",
+  netto: "Netto",
+  penny: "Penny",
+  tegut: "tegut",
+  zooplus: "zooplus",
+  pollin: "Pollin",
+  alternate: "Alternate",
+  sevendayshop: "7dayshop",
+  viking: "Viking",
+  crocus: "Crocus",
+  coop: "Co-op",
+  marksandspencer: "Marks & Spencer",
+  iceland: "Iceland",
 };

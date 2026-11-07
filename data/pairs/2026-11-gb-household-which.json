@@ -1,0 +1,830 @@
+[
+ {
+  "slug": "fairy-max-power-eucalyptus-vs-aldi-magnum-original-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Max Power Eucalyptus vs Aldi Magnum Original Washing Up Liquid",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Max Power Eucalyptus Antibacterial Washing Up Liquid, 730ml",
+   "size": 730,
+   "unit": "ml",
+   "price": 3.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fairy+max+power+eucalyptus",
+   "gtin": "8700216670838",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Magnum (Aldi)",
+   "product": "Aldi Magnum Original Washing Up Liquid, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.62,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=washing+up+liquid",
+   "gtin": "4061463080424",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Fairy beat Aldi 84% to 78% in Which?'s test, and costs 48p against 12p per 100ml.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: 14 products listed. Fairy Max Power Eucalyptus 84%, 48p per 100ml for 730ml. Aldi Magnum Original 78%, 62p for 500ml (12p per 100ml), in store only. Which? prints no shelf price for Fairy, so the £3.50 is our sum from 48p per 100ml. The test table is locked to members, so the Fairy score comes from Which?'s article of 3 August 2026 and the Aldi score from its roundup of 29 October 2026. The two prices may be from different chains.",
+  "differences": "Fairy won by six points and Which? calls it the top performer in its tests. Which? says it cleaned 46 plates at 35°C and 65 at 45°C, more than any other liquid, so it may go further per squirt, and the saving per wash-up may be smaller than per 100ml. Aldi's plate count is members-only. Which? also says the Fairy contains substances harmful to aquatic life. The Fairy is sold as antibacterial and the Aldi liquid isn't.",
+  "why": "The brand won here, by six points, at four times the price per 100ml. Which? also says there's no need to buy a special antibacterial washing-up liquid, and it rates Aldi's a Best Buy too.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-up-liquid/article/best-washing-up-liquids-a4eZl9w6HtO7",
+   "https://www.which.co.uk/news/article/boring-kitchen-essentials-you-dont-want-to-get-wrong-aElUL0Y0C8zE",
+   "https://www.which.co.uk/news/article/things-we-love-for-less-than-10-ao7rP6P5QJtQ",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://world.openproductsfacts.org/product/8700216670838",
+   "https://world.openbeautyfacts.org/product/4061463080424"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "fairy-original-vs-lidl-w5-original-washing-up-liquid-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Original vs Lidl W5 Original Washing Up Liquid",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Original Washing Up Liquid, 320ml",
+   "size": 320,
+   "unit": "ml",
+   "price": 0.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fairy+original+washing+up+liquid",
+   "gtin": "8006540994269",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "W5 (Lidl)",
+   "product": "Lidl W5 Original Washing Up Liquid, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.62,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/",
+   "gtin": null,
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s washing-up test Fairy Original cost 31p per 100ml and Lidl's W5 12p. The scores are locked.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Lidl W5 Original 62p for 500ml (12p per 100ml), in store only. Fairy Original 320ml at 31p per 100ml. Which? prints no shelf price for Fairy, so the 99p is our sum from 31p per 100ml. Both scores are locked to members, so we saw neither. The two prices may be from different chains.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Fairy may have scored higher. Which? says the top scorer can clean more than three times as many plates as the lowest, so how far each goes matters, and those figures are members-only. Fairy's price is worked out from the per-100ml figure, so it may be a penny or two off.",
+  "why": "Both are original washing-up liquids from the same test, and Fairy costs over twice as much per 100ml. Try the W5 for a bottle and see if you use more of it.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-up-liquid/article/best-washing-up-liquids-a4eZl9w6HtO7",
+   "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+   "https://world.openproductsfacts.org/product/8006540994269"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "fairy-original-vs-sainsburys-original-washing-up-liquid-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Original vs Sainsbury's Original Washing Up Liquid",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Original Washing Up Liquid, 320ml",
+   "size": 320,
+   "unit": "ml",
+   "price": 0.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fairy+original+washing+up+liquid",
+   "gtin": "8006540994269",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Original Washing Up Liquid, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.7,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/product/sainsburys-original-washing-up-liquid-500ml",
+   "gtin": "5063334043872",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s washing-up test Fairy Original cost 31p per 100ml and Sainsbury's 14p. The scores are locked.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Sainsbury's Original 70p for 500ml (14p per 100ml). Fairy Original 320ml at 31p per 100ml. Which? prints no shelf price for Fairy, so the 99p is our sum from 31p per 100ml. Both scores are locked to members, so we saw neither. The two prices may be from different chains. Open Facts confirms the Sainsbury's product and its 500ml size.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Fairy may have scored higher. Which?'s plates-washed figures are members-only, so the saving per wash-up may be smaller than per 100ml. Fairy's price is worked out from the per-100ml figure.",
+  "why": "Both are original washing-up liquids from the same test, and Fairy costs over twice as much per 100ml. Try the Sainsbury's for a bottle and see if you use more of it.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-up-liquid/article/best-washing-up-liquids-a4eZl9w6HtO7",
+   "https://world.openproductsfacts.org/product/5063334043872",
+   "https://world.openproductsfacts.org/product/8006540994269"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "fairy-original-vs-asda-original-washing-up-liquid-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Original vs Asda Original Washing Up Liquid",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Original Washing Up Liquid, 320ml",
+   "size": 320,
+   "unit": "ml",
+   "price": 0.99,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fairy+original+washing+up+liquid",
+   "gtin": "8006540994269",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Asda",
+   "product": "Asda Original Washing-Up Liquid, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.69,
+   "retailer": "asda",
+   "asin": null,
+   "url": "https://www.asda.com/groceries/product/washing-up-liquid/asda-original-washing-up-liquid-500ml/6417463",
+   "gtin": null,
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s washing-up test Fairy Original cost 31p per 100ml and Asda's 14p. The scores are locked.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Asda Original 69p for 500ml (14p per 100ml). Fairy Original 320ml at 31p per 100ml. Which? prints no shelf price for Fairy, so the 99p is our sum from 31p per 100ml. Both scores are locked to members, so we saw neither. The two prices may be from different chains.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Fairy may have scored higher. Which?'s plates-washed figures are members-only, so the saving per wash-up may be smaller than per 100ml. Fairy's price is worked out from the per-100ml figure.",
+  "why": "Both are original washing-up liquids from the same test, and Fairy costs over twice as much per 100ml. Try the Asda for a bottle and see if you use more of it.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-up-liquid/article/best-washing-up-liquids-a4eZl9w6HtO7",
+   "https://world.openproductsfacts.org/product/8006540994269"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "fairy-max-power-original-vs-sainsburys-original-washing-up-liquid-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Washing-up liquid",
+  "title": "Fairy Max Power Original vs Sainsbury's Original Washing Up Liquid",
+  "brand": {
+   "brand": "Fairy",
+   "product": "Fairy Max Power Original Washing Up Liquid, 730ml",
+   "size": 730,
+   "unit": "ml",
+   "price": 3.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=fairy+max+power+original",
+   "gtin": "8700216671798",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Original Washing Up Liquid, 500ml",
+   "size": 500,
+   "unit": "ml",
+   "price": 0.7,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/product/sainsburys-original-washing-up-liquid-500ml",
+   "gtin": "5063334043872",
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which? rates Fairy Max Power a Best Buy at 48p per 100ml. Sainsbury's costs 14p, and its score is locked.",
+  "evidence": "Which? washing-up liquid test, tested April 2026, page checked July 2026: Sainsbury's Original 70p for 500ml (14p per 100ml). Fairy Max Power Original 730ml at 48p per 100ml. Which? prints no shelf price for Fairy, so the £3.50 is our sum from 48p per 100ml. Which?'s 29 October 2026 roundup calls the two Fairy Max Power liquids Best Buys. Both scores on the test page are locked to members. The two prices may be from different chains.",
+  "differences": "Fairy Max Power is a Which? Best Buy, and we don't know whether the Sainsbury's is, so it may well clean better and go further per squirt. The saving per wash-up may be much smaller than per 100ml. Fairy's price is worked out from the per-100ml figure.",
+  "why": "Fairy costs over three times as much per 100ml, and it has a test result behind it where this one has none we can read. Try the cheaper bottle if your washing-up isn't heavy.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-up-liquid/article/best-washing-up-liquids-a4eZl9w6HtO7",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://world.openproductsfacts.org/product/5063334043872",
+   "https://world.openproductsfacts.org/product/8700216671798"
+  ],
+  "price_checked": "2026-07"
+ },
+ {
+  "slug": "finish-powerball-ultimate-all-in-one-vs-lidl-w5-all-in-one-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Finish Powerball Ultimate All In One vs Lidl W5 All In One",
+  "brand": {
+   "brand": "Finish",
+   "product": "Finish Powerball Ultimate All In One Lemon, 55 tablets",
+   "size": 55,
+   "unit": "wash",
+   "price": 13.2,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=finish+powerball+ultimate+all+in+one",
+   "gtin": "5059001015297",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "W5 (Lidl)",
+   "product": "Lidl W5 All In One Fresh Lemon Dishwasher Tablets, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 3.99,
+   "retailer": "lidl",
+   "asin": null,
+   "url": "https://www.lidl.co.uk/",
+   "gtin": null,
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s April 2026 list these all-in-one lemon tablets cost 24p and 10p a wash. The scores are members-only.",
+  "evidence": "Which? dishwasher tablets test, tested April 2026, page checked April 2026: Lidl W5 All In One Fresh Lemon £3.99 for 40 washes (10p a wash), in store only. Finish Powerball Ultimate All In One Lemon 55 tablets at 24p a wash. Which? prints no shelf price for Finish, so the £13.20 is our sum from 24p a wash. Both scores are locked to members, so we saw neither. Which?'s article of 11 June 2026 says it found some decent options for around £4, without naming them here. The two prices may be from different chains.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Finish may have scored higher. Which? says performance on tea stains varies between tablets, so check your cups. Finish's price is worked out from a rounded per-wash figure and dates from April 2026.",
+  "why": "Both are all-in-one lemon tablets from the same test, and the Finish costs over twice as much a wash. If your dishes come out clean on the W5, the extra buys you nothing you need.",
+  "claims": [
+   "dishwasher-tablets-aldi-lidl-under-half-price-per-wash"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/dishwasher-tablets/article/full-dishwasher-detergent-test-results-ahYsX3O3Mm9Z",
+   "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+   "https://world.openproductsfacts.org/product/5059001015297"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "finish-powerball-ultimate-all-in-one-vs-sainsburys-ultimate-all-in-one-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Finish Powerball Ultimate All In One vs Sainsbury's Ultimate All In One",
+  "brand": {
+   "brand": "Finish",
+   "product": "Finish Powerball Ultimate All In One Lemon, 55 tablets",
+   "size": 55,
+   "unit": "wash",
+   "price": 13.2,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=finish+powerball+ultimate+all+in+one",
+   "gtin": "5059001015297",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Ultimate All In One Lemon Dishwasher Tablets, 50 washes",
+   "size": 50,
+   "unit": "wash",
+   "price": 6.35,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/SearchResults/ultimate%20all%20in%20one%20dishwasher%20tablets",
+   "gtin": null,
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s April 2026 list these all-in-one lemon tablets cost 24p and 13p a wash. The scores are members-only.",
+  "evidence": "Which? dishwasher tablets test, tested April 2026, page checked April 2026: Sainsbury's Ultimate All In One Lemon £6.35 for 50 washes (13p a wash). Finish Powerball Ultimate All In One Lemon 55 tablets at 24p a wash. Which? prints no shelf price for Finish, so the £13.20 is our sum from 24p a wash. Both scores are locked to members, so we saw neither. The two prices may be from different chains.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Finish may have scored higher. Which? says performance on tea stains varies between tablets, so check your cups. Finish's price is worked out from a rounded per-wash figure and dates from April 2026.",
+  "why": "Both are all-in-one lemon tablets from the same test, and the Finish costs nearly twice as much a wash. If your dishes come out clean on Sainsbury's, the extra buys you nothing you need.",
+  "claims": [
+   "dishwasher-tablets-aldi-lidl-under-half-price-per-wash"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/dishwasher-tablets/article/full-dishwasher-detergent-test-results-ahYsX3O3Mm9Z",
+   "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+   "https://world.openproductsfacts.org/product/5059001015297"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "finish-powerball-ultimate-all-in-one-vs-asda-ultimate-all-in-one-citrus-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Finish Powerball Ultimate All In One vs Asda Ultimate All in One Citrus",
+  "brand": {
+   "brand": "Finish",
+   "product": "Finish Powerball Ultimate All In One Lemon, 55 tablets",
+   "size": 55,
+   "unit": "wash",
+   "price": 13.2,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=finish+powerball+ultimate+all+in+one",
+   "gtin": "5059001015297",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Asda",
+   "product": "Asda Ultimate All in One Citrus Dishwasher Tablets, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 4.84,
+   "retailer": "asda",
+   "asin": null,
+   "url": "https://www.asda.com/groceries/search/dishwasher%20tablets",
+   "gtin": null,
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s April 2026 list these all-in-one tablets cost 24p and 12p a wash. The scores are members-only.",
+  "evidence": "Which? dishwasher tablets test, tested April 2026, page checked April 2026: Asda Ultimate All in One Citrus £4.84 for 40 washes (12p a wash). Finish Powerball Ultimate All In One Lemon 55 tablets at 24p a wash. Which? prints no shelf price for Finish, so the £13.20 is our sum from 24p a wash. Both scores are locked to members, so we saw neither. The two prices may be from different chains.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Finish may have scored higher. The Finish is lemon and the Asda citrus. Which? says performance on tea stains varies between tablets. Finish's price is worked out from a rounded per-wash figure and dates from April 2026.",
+  "why": "Both are all-in-one tablets from the same test, and the Finish costs about twice as much a wash. If your dishes come out clean on Asda's, the extra buys you nothing you need.",
+  "claims": [
+   "dishwasher-tablets-aldi-lidl-under-half-price-per-wash"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/dishwasher-tablets/article/full-dishwasher-detergent-test-results-ahYsX3O3Mm9Z",
+   "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+   "https://world.openproductsfacts.org/product/5059001015297"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "finish-powerball-ultimate-plus-vs-tesco-ultra-lemon-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Dishwasher tablets",
+  "title": "Finish Powerball Ultimate Plus vs Tesco Ultra Lemon",
+  "brand": {
+   "brand": "Finish",
+   "product": "Finish Powerball Ultimate Plus Lemon, 48 tablets",
+   "size": 48,
+   "unit": "wash",
+   "price": 11.04,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=finish+powerball+ultimate+plus",
+   "gtin": "5059001017291",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Tesco",
+   "product": "Tesco Ultra Lemon Dishwasher Tablets, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 5.1,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=tesco+ultra+lemon+dishwasher+tablets",
+   "gtin": null,
+   "key_ingredients": []
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s April 2026 list these lemon tablets cost 23p and 13p a wash. The scores are members-only.",
+  "evidence": "Which? dishwasher tablets test, tested April 2026, page checked April 2026: Tesco Ultra Lemon £5.10 for 40 washes (13p a wash). Finish Powerball Ultimate Plus Lemon 48 tablets at 23p a wash. Which? prints no shelf price for Finish, so the £11.04 is our sum from 23p a wash. Both scores are locked to members, so we saw neither. Tesco's price is at Tesco, and Which? doesn't say where it priced Finish.",
+  "differences": "This swap rests on price and product type only: we can't tell you which cleaned better, and Finish may have scored higher. Which? says performance on tea stains varies between tablets. Finish's price is worked out from a rounded per-wash figure and dates from April 2026.",
+  "why": "Both are lemon tablets from the same test, and the Finish costs nearly twice as much a wash. If your dishes come out clean on Tesco's, the extra buys you nothing you need.",
+  "claims": [
+   "dishwasher-tablets-aldi-lidl-under-half-price-per-wash"
+  ],
+  "sources": [
+   "https://www.which.co.uk/reviews/dishwasher-tablets/article/full-dishwasher-detergent-test-results-ahYsX3O3Mm9Z",
+   "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+   "https://world.openproductsfacts.org/product/5059001017291"
+  ],
+  "price_checked": "2026-04"
+ },
+ {
+  "slug": "persil-bio-powder-vs-aldi-almat-bio-powder-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Bio Powder vs Aldi Almat Bio Powder",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Bio Powder, 42 washes",
+   "size": 42,
+   "unit": "wash",
+   "price": 7.56,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.persil.com/uk/laundry/detergent/products/bio-washing-powder.html",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Bio washing powder"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Almat (Aldi)",
+   "product": "Aldi Almat Bio For Brilliant Whites Powder, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 3.89,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/product/almat-washing-powder-000000000555564001",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Bio washing powder"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are bio powders in Which?'s laundry test, at 18p and 10p a wash. The scores are locked.",
+  "evidence": "Which? laundry detergent test, tested May 2026, page checked September 2026: Aldi Almat Bio £3.89 for 40 washes (10p a wash), in store only. Persil Bio Powder 42 washes at 18p a wash. Which? prints no shelf price for Persil, so the £7.56 is our sum from 18p a wash. Persil's own UK page lists a 42-wash pack. Both scores are locked to members, so we saw neither. Which?'s article of 11 June 2026 says some of the most expensive detergents were beaten by cheaper ones, without naming these two. The two prices may be from different chains.",
+  "differences": "We can't say which removes stains better, and Persil may have scored higher. Almat is sold for whites, so check the pack before washing colours. Persil's price is worked out from a rounded per-wash figure, from September 2026.",
+  "why": "Same form and both bio, from the same test, and Persil costs nearly twice as much a wash. Try Aldi's on a normal wash first.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-powder-and-laundry-detergent/article/full-laundry-detergent-test-ratings-aIVZc3D36seF",
+   "https://www.which.co.uk/news/article/everyday-household-items-it-pays-to-get-right-ax3CV4w2cqJw",
+   "https://www.persil.com/uk/laundry/detergent/products/bio-washing-powder.html"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "persil-bio-powder-vs-sainsburys-bio-powder-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Bio Powder vs Sainsbury's Bio Powder",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Bio Powder, 42 washes",
+   "size": 42,
+   "unit": "wash",
+   "price": 7.56,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.persil.com/uk/laundry/detergent/products/bio-washing-powder.html",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Bio washing powder"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Bio Powder, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 5.25,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/product/sainsburys-laundry-powder-bio-40-washes-2kg",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Bio washing powder"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are bio powders in Which?'s laundry test, at 18p and 13p a wash. The scores are locked.",
+  "evidence": "Which? laundry detergent test, tested May 2026, page checked September 2026: Sainsbury's Bio Powder £5.25 for 40 washes (13p a wash). Persil Bio Powder 42 washes at 18p a wash. Which? prints no shelf price for Persil, so the £7.56 is our sum from 18p a wash. Persil's own UK page lists a 42-wash pack. Both scores are locked to members, so we saw neither. Which? says bio powders were tested and that bios need 71% for a Best Buy, without naming which passed. The two prices may be from different chains.",
+  "differences": "We can't say which removes stains better, and Persil may have scored higher. Persil's price is worked out from a rounded per-wash figure, from September 2026. The saving is smaller here than with the discounter powders.",
+  "why": "Same form and both bio, from the same test, and Persil costs about a third more a wash. Try Sainsbury's on a normal wash first.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-powder-and-laundry-detergent/article/full-laundry-detergent-test-ratings-aIVZc3D36seF",
+   "https://www.persil.com/uk/laundry/detergent/products/bio-washing-powder.html"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "persil-bio-powder-vs-tesco-tropical-sunshine-bio-powder-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Persil Bio Powder vs Tesco Tropical Sunshine Bio Powder",
+  "brand": {
+   "brand": "Persil",
+   "product": "Persil Bio Powder, 42 washes",
+   "size": 42,
+   "unit": "wash",
+   "price": 7.56,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.persil.com/uk/laundry/detergent/products/bio-washing-powder.html",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Bio washing powder"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Tesco",
+   "product": "Tesco Tropical Sunshine Bio Powder, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 4.8,
+   "retailer": "tesco",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=tesco+bio+powder",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Bio washing powder"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are bio powders in Which?'s laundry test, at 18p and 12p a wash. The scores are locked.",
+  "evidence": "Which? laundry detergent test, tested May 2026, page checked September 2026: Tesco Tropical Sunshine Bio Powder 40 washes at 12p a wash. Persil Bio Powder 42 washes at 18p a wash. Which? prints no shelf price for either, so £4.80 and £7.56 are our sums from the per-wash figures. Persil's own UK page lists a 42-wash pack. Both scores are locked to members, so we saw neither. The two prices may be from different chains.",
+  "differences": "We can't say which removes stains better, and Persil may have scored higher. Both prices are worked out from rounded per-wash figures, from September 2026, so check the shelf before you trust the exact gap. The Tesco one is sold with a tropical scent.",
+  "why": "Same form and both bio, from the same test, and Persil costs about half as much again a wash. Try Tesco's on a normal wash first.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-powder-and-laundry-detergent/article/full-laundry-detergent-test-ratings-aIVZc3D36seF",
+   "https://www.persil.com/uk/laundry/detergent/products/bio-washing-powder.html"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "ariel-original-powder-vs-sainsburys-bio-powder-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Laundry detergent",
+  "title": "Ariel Original Powder vs Sainsbury's Bio Powder",
+  "brand": {
+   "brand": "Ariel",
+   "product": "Ariel Original Powder, 50 washes",
+   "size": 50,
+   "unit": "wash",
+   "price": 10.5,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.tesco.com/groceries/en-GB/search?query=ariel+original+powder",
+   "gtin": "8001841699356",
+   "key_ingredients": []
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Bio Powder, 40 washes",
+   "size": 40,
+   "unit": "wash",
+   "price": 5.25,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/product/sainsburys-laundry-powder-bio-40-washes-2kg",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Form",
+     "amount": "Bio washing powder"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are powders in Which?'s laundry test, at 21p and 13p a wash. The scores are locked.",
+  "evidence": "Which? laundry detergent test, tested May 2026, page checked September 2026: Sainsbury's Bio Powder £5.25 for 40 washes (13p a wash). Ariel Original Powder 50 washes at 21p a wash. Which? prints no shelf price for Ariel, so the £10.50 is our sum from 21p a wash. Both scores are locked to members, so we saw neither. The two prices may be from different chains.",
+  "differences": "We can't say which removes stains better, and Ariel may have scored higher. The Sainsbury's is sold as bio, and Which? doesn't say whether Ariel Original is, so check before using either on wool or silk. Ariel's price is worked out from a rounded per-wash figure, from September 2026.",
+  "why": "Both are washing powders from the same test, and Ariel costs over one and a half times as much a wash. Try Sainsbury's on a normal wash first.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/washing-powder-and-laundry-detergent/article/full-laundry-detergent-test-ratings-aIVZc3D36seF",
+   "https://world.openproductsfacts.org/product/8001841699356"
+  ],
+  "price_checked": "2026-09"
+ },
+ {
+  "slug": "plenty-original-kitchen-roll-vs-asda-shades-kitchen-towels-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Kitchen roll",
+  "title": "Plenty Original Kitchen Roll vs Asda Shades Kitchen Towels",
+  "brand": {
+   "brand": "Plenty",
+   "product": "Plenty Original Kitchen Roll, 4 rolls of 100 sheets",
+   "size": 400,
+   "unit": "sheet",
+   "price": 5,
+   "retailer": "morrisons",
+   "asin": null,
+   "url": "https://groceries.morrisons.com/search?q=plenty+original+kitchen+roll",
+   "gtin": "0314670164246",
+   "key_ingredients": [
+    {
+     "name": "Sheet size",
+     "amount": "22 x 22cm"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Asda",
+   "product": "Asda Shades Kitchen Towels, 4 rolls of 100 sheets",
+   "size": 400,
+   "unit": "sheet",
+   "price": 3.74,
+   "retailer": "asda",
+   "asin": null,
+   "url": "https://www.asda.com/groceries/search/shades%20kitchen%20towels",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Sheet size",
+     "amount": "21.5 x 21cm"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s kitchen roll test both packs had four 100-sheet rolls, at £5 against £3.74. The scores are locked.",
+  "evidence": "Which? best kitchen roll, tested November 2024, page checked March 2026, published 2 April 2026. Plenty Original four-pack £5 at Morrisons (£9.20 at Waitrose), 100 sheets a roll, sheet 22 x 22cm. Asda Shades four-pack £3.74 at Asda, 100 sheets a roll, sheet 21.5 x 21cm. Which? shows the scores to members, so we saw neither. The two prices are from different chains.",
+  "differences": "We can't say which soaks up more or is stronger, and Plenty may have scored higher. Which? doesn't list plies. Asda's sheet is about 7% smaller, so the saving by paper area is about 20% against about 25% per sheet. Prices are from March 2026.",
+  "why": "Same sheet count, and even after allowing for the smaller sheet Asda costs about a fifth less for the same area of paper than Morrisons' price for Plenty.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/toilet-roll/article/best-kitchen-roll-ax8ij8H0j12S",
+   "https://world.openproductsfacts.org/product/0314670164246"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "plenty-original-kitchen-roll-vs-aldi-everyday-essentials-jumbo-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Kitchen roll",
+  "title": "Plenty Original Kitchen Roll vs Aldi Everyday Essentials Jumbo Kitchen Towel",
+  "brand": {
+   "brand": "Plenty",
+   "product": "Plenty Original Kitchen Roll, 4 rolls of 100 sheets",
+   "size": 400,
+   "unit": "sheet",
+   "price": 5,
+   "retailer": "morrisons",
+   "asin": null,
+   "url": "https://groceries.morrisons.com/search?q=plenty+original+kitchen+roll",
+   "gtin": "0314670164246",
+   "key_ingredients": [
+    {
+     "name": "Sheet size",
+     "amount": "22 x 22cm"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Everyday Essentials (Aldi)",
+   "product": "Aldi Everyday Essentials Jumbo Kitchen Towel, 1 roll of 240 sheets",
+   "size": 240,
+   "unit": "sheet",
+   "price": 1.15,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi.co.uk/results?q=kitchen+towel",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Sheet size",
+     "amount": "21 x 19.7cm"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "In Which?'s kitchen roll test Plenty cost 1.25p a sheet and Aldi's jumbo roll about 0.5p, with a smaller sheet. The scores are locked.",
+  "evidence": "Which? best kitchen roll, tested November 2024, page checked March 2026, published 2 April 2026. Plenty Original four-pack £5 at Morrisons, 100 sheets a roll, sheet 22 x 22cm. Aldi Everyday Essentials Jumbo one roll £1.15 in store, 240 sheets, sheet 21 x 19.7cm. Which? shows the scores to members, so we saw neither. The two prices are from different chains.",
+  "differences": "We can't say which soaks up more or is stronger, and Plenty may have scored higher. Which? doesn't list plies. Aldi's sheet is about 15% smaller, so the saving by paper area is about 55% against about 62% per sheet. It's one big roll rather than four. Prices are from March 2026.",
+  "why": "Even by paper area Aldi's roll costs well under half of Morrisons' price for Plenty. It's a cheap roll to try on everyday spills.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/toilet-roll/article/best-kitchen-roll-ax8ij8H0j12S",
+   "https://world.openproductsfacts.org/product/0314670164246"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "plenty-original-kitchen-roll-vs-marks-and-spencer-ultra-absorbent-big-roll-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Kitchen roll",
+  "title": "Plenty Original Kitchen Roll vs M&S Ultra Absorbent Kitchen Towels Big Roll",
+  "brand": {
+   "brand": "Plenty",
+   "product": "Plenty Original Kitchen Roll, 4 rolls of 100 sheets (19.36 square metres)",
+   "size": 19.36,
+   "unit": "square metre",
+   "price": 5,
+   "retailer": "morrisons",
+   "asin": null,
+   "url": "https://groceries.morrisons.com/search?q=plenty+original+kitchen+roll",
+   "gtin": "0314670164246",
+   "key_ingredients": [
+    {
+     "name": "Sheet size",
+     "amount": "22 x 22cm"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Marks & Spencer",
+   "product": "M&S Ultra Absorbent Kitchen Towels Big Roll, 2 rolls of 100 sheets (15.12 square metres)",
+   "size": 15.12,
+   "unit": "square metre",
+   "price": 3.2,
+   "retailer": "ocado",
+   "asin": null,
+   "url": "https://www.ocado.com/search?entry=marks+spencer+kitchen+towels",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Sheet size",
+     "amount": "28 x 27cm"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Which? gave M&S's roll 95% and named it among two Best Buys ahead of Plenty, at about 18% less per square metre.",
+  "evidence": "Which? best kitchen roll, tested November 2024, page checked March 2026, published 2 April 2026. Plenty Original four-pack £5 at Morrisons (£9.20 at Waitrose), 100 sheets a roll, sheet 22 x 22cm. M&S Big Roll two-pack £3.20 at Ocado, 100 sheets a roll, sheet 28 x 27cm. Which?'s 29 October 2026 roundup gives the M&S roll 95%, a Best Buy, calls it the strongest it tested, and says it and Costco's roll beat rolls including Plenty and Regina. It doesn't print Plenty's score, which is locked to members. The two prices are from different chains, and the square metres are our sums from those sheet sizes.",
+  "differences": "Per sheet M&S costs more, 1.6p against 1.25p, because its sheets are much bigger. It only comes out cheaper per square metre, so it pays if you'd use fewer sheets. Which? says 10 M&S sheets soaked up nearly half a litre of water, and Plenty's results are members-only. Prices are from March 2026, and Which? gives a dearer one-roll M&S pack at £2.10.",
+  "why": "Which? named the M&S roll a Best Buy, and by paper area it still costs about 18% less than Morrisons' price for Plenty.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/toilet-roll/article/best-kitchen-roll-ax8ij8H0j12S",
+   "https://www.which.co.uk/news/article/own-brand-best-buys-our-experts-love-aQIQ36N6SxQp",
+   "https://world.openproductsfacts.org/product/0314670164246"
+  ],
+  "price_checked": "2026-03"
+ },
+ {
+  "slug": "brabantia-perfectfit-code-m-vs-sainsburys-tie-top-refuse-sacks-60l-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "Bin bags",
+  "title": "Brabantia PerfectFit Code M 60L vs Sainsbury's Tie Top Refuse Sacks 60L",
+  "brand": {
+   "brand": "Brabantia",
+   "product": "Brabantia PerfectFit Bin Bags Code M, 60 litre, roll of 10 bags",
+   "size": 10,
+   "unit": "bag",
+   "price": 5.75,
+   "retailer": "other",
+   "asin": null,
+   "url": "https://www.brabantia.com/uk/bags-m",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Capacity",
+     "amount": "60L"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Sainsbury's",
+   "product": "Sainsbury's Tie Top Refuse Sacks, 60 litre, 20 bags",
+   "size": 20,
+   "unit": "bag",
+   "price": 2.75,
+   "retailer": "sainsburys",
+   "asin": null,
+   "url": "https://www.sainsburys.co.uk/gol-ui/product/sainsburys-tie-top-refuse-sacks-x20",
+   "gtin": null,
+   "key_ingredients": [
+    {
+     "name": "Capacity",
+     "amount": "60L"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Two 60-litre bags from Which?'s bin bag test, at about 58p against 14p a bag. The scores are locked.",
+  "evidence": "Which? bin bags test, tested June 2025, page checked July 2026: Sainsbury's Tie Top Refuse Sacks 60L £2.75, in packs of 20 or 40. Which? doesn't say which pack the price is for, but its link is to the 20-pack, so we used 20. It prints no price for Brabantia Code M 60L. Brabantia's own UK shop listed a roll of 10 Code M 60-litre bags at £5.75 including VAT when we read it on 7 November 2026. Both scores are locked to members, so we saw neither. The prices are from different sellers and dates.",
+  "differences": "We can't say which is stronger, and Brabantia may have scored higher. Brabantia's listing names these bags for its own Bo bin, and the Sainsbury's are general tie-top sacks, so they may not sit as neatly in one. Which? gave no closure comparison we could read. Brabantia's larger packs cost less a bag, about 40p in its 120-bag set at £47.95.",
+  "why": "Both are 60-litre bags from the same test. Even against Brabantia's biggest pack, the Sainsbury's costs about a third of the price a bag, so try them unless your bin needs the exact fit.",
+  "claims": [],
+  "sources": [
+   "https://www.which.co.uk/reviews/bin-bags/article/best-bin-bags-a6HCC3q1HNGf",
+   "https://www.brabantia.com/uk/bags-m"
+  ],
+  "price_checked": "2026-07"
+ }
+]

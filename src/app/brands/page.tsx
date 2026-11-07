@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getBrands } from "@/lib/catalog";
+import { getBrands, type BrandEntry } from "@/lib/catalog";
+import { AzIndex, bestSaving, ListLinks, ShelfHead, type IndexEntry } from "@/components/ShelfParts";
 
 export const metadata: Metadata = {
   title: "Brands we've found cheaper alternatives for",
@@ -8,34 +8,37 @@ export const metadata: Metadata = {
   alternates: { canonical: "/brands" },
 };
 
+/** The brand's own pack where we have a photo, else the swap for it. */
+function toEntry(b: BrandEntry): IndexEntry {
+  const own = b.pairs.find((p) => p.brand.photo);
+  const alt = b.pairs.find((p) => p.alternative.photo);
+  const first = b.pairs[0];
+  return {
+    key: b.slug,
+    href: `/brand/${b.slug}`,
+    name: b.name,
+    count: b.pairs.length + b.bundles.length,
+    best: bestSaving([...b.pairs, ...b.bundles]),
+    category: first?.category ?? b.bundles[0]?.category,
+    unit: first?.brand.unit,
+    photo: own?.brand.photo?.src ?? alt?.alternative.photo?.src ?? b.bundles[0]?.photo?.src ?? null,
+    photoName: own?.brand.product ?? alt?.alternative.product ?? b.bundles[0]?.bundle.name ?? b.name,
+  };
+}
+
 export default function BrandsPage() {
   const brands = getBrands();
   return (
-    <section className="container-page py-10 md:py-14">
-      <p className="text-sm font-medium text-accent">A–Z</p>
-      <h1 className="display mt-1 text-4xl font-medium sm:text-5xl">Brands, but cheaper</h1>
-      <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">
-        Pick a brand you buy and see what&apos;s the same for less.
-      </p>
-      <ul className="mt-10 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        {brands.map((b) => {
-          const n = b.pairs.length + b.bundles.length;
-          const best = Math.max(0, ...b.pairs.map((p) => p.savingsPct), ...b.bundles.map((x) => x.savingsPct));
-          return (
-            <li key={b.slug}>
-              <Link
-                href={`/brand/${b.slug}`}
-                className="flex items-center justify-between gap-3 rounded-xl border border-line bg-surface px-4 py-3 hover:border-accent"
-              >
-                <span className="font-medium">{b.name}</span>
-                <span className="num text-xs text-muted">
-                  {n} · up to {Math.round(best)}%
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+    <div className="bg-canvas pb-8 md:pb-10">
+      <ShelfHead
+        crumbs={[{ href: "/", label: "Home" }, { label: "Brands" }]}
+        title={`Cheaper swaps by brand: ${brands.length} brand${brands.length === 1 ? "" : "s"}`}
+        intro="Pick a brand you buy and see what does the same job for less."
+        facts={<ListLinks />}
+      />
+      <div className="container-page">
+        {brands.length ? <AzIndex entries={brands.map(toEntry)} /> : <p className="card p-5">No brands listed yet.</p>}
+      </div>
+    </div>
   );
 }

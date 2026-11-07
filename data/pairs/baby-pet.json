@@ -86,7 +86,8 @@
         "verdict": "different",
         "source": "https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts/abbott-voluntarily-recalls-powder-formulas-manufactured-one-plant"
       }
-    ]
+    ],
+    "why": "Perrigo's comparison table, which the record cites, shows the store brand identical to Similac Advance in every nutrient it lists, and both list the same DHA, lutein and vitamin E. The store brand uses FOS as its prebiotic where Similac uses GOS, so ask a pediatrician before any switch."
   },
   {
     "slug": "similac-sensitive-vs-parents-choice-sensitivity-formula",
@@ -171,7 +172,8 @@
         "verdict": "different",
         "source": "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html"
       }
-    ]
+    ],
+    "why": "Both are reduced-lactose, corn-syrup-based formulas that meet the same FDA nutrient rules, and the store brand adds 2'-FL and LNnT HMOs that plain Similac Sensitive does not list. The store brand is benchmarked against Similac Pro-Sensitive, so ask a pediatrician before switching."
   },
   {
     "slug": "enfamil-gentlease-vs-parents-choice-gentle-formula",
@@ -260,7 +262,8 @@
         "verdict": "different",
         "source": "https://news.yahoo.com/exclusive-maker-walmart-amazon-store-172658565.html"
       }
-    ]
+    ],
+    "why": "The store brand matches Enfamil NeuroPro Gentlease nutrient for nutrient per 100 kcal, according to the comparison table Perrigo published, and all US formula must meet the same FDA nutrient rules. Enfamil also lists a prebiotic blend and an immune HMO blend that the store brand may not match exactly, so ask a pediatrician before switching."
   },
   {
     "slug": "childrens-tylenol-vs-equate-childrens-acetaminophen",
@@ -333,7 +336,8 @@
         "verdict": "same",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f15037a5-4e43-4dd6-93b8-b37a1cc22cd6"
       }
-    ]
+    ],
+    "why": "Both are children's acetaminophen liquids at 160 mg per 5 mL. The Equate bubble gum here has dyes and high fructose corn syrup that the dye-free Tylenol lacks, but Equate's dye-free cherry is the record's closest match to the Tylenol, so ask a pharmacist about the right dose for your child."
   },
   {
     "slug": "childrens-motrin-vs-equate-childrens-ibuprofen",
@@ -402,71 +406,6 @@
     ]
   },
   {
-    "slug": "desitin-maximum-strength-vs-parents-choice-diaper-rash-40-zinc",
-    "category": "baby",
-    "subcategory": "Diaper rash",
-    "title": "Desitin Maximum Strength vs Parent's Choice Max Strength Diaper Rash Ointment (40% Zinc Oxide)",
-    "brand": {
-      "brand": "Desitin",
-      "product": "Desitin Maximum Strength Diaper Rash Paste, 40% Zinc Oxide, 4.8 oz",
-      "size": 4.8,
-      "unit": "oz",
-      "price_usd": 7.97,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/16480956226",
-      "key_ingredients": [
-        {
-          "name": "Zinc oxide",
-          "amount": "40%"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Parent's Choice",
-      "product": "Parent's Choice Diaper Rash Ointment, Max Strength, 4 oz",
-      "size": 4,
-      "unit": "oz",
-      "price_usd": 2.08,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.com/ip/53975866",
-      "key_ingredients": [
-        {
-          "name": "Zinc oxide",
-          "amount": "40%"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "high",
-    "summary": "Both are maximum-strength diaper rash pastes with 40% zinc oxide, the highest level the FDA allows.",
-    "evidence": "Walmart's Desitin Maximum Strength listing states 40% zinc oxide. The Parent's Choice Max Strength listing states 40% zinc oxide and is marketed as comparable to Desitin Maximum Strength Diaper Rash Paste.",
-    "differences": "We could not confirm the inactive ingredients of the Parent's Choice version (the listing says it is free of parabens, phthalates and Quaternium-15), so its texture and smell may differ. Tube sizes differ (4 oz vs 4.8 oz).",
-    "sources": [
-      "https://www.walmart.com/ip/53975866",
-      "https://www.walmart.com/ip/16480956226",
-      "https://www.walmart.com/ip/284389604"
-    ],
-    "price_checked": "2026-11",
-    "aspects": [
-      {
-        "aspect": "Inactive ingredients",
-        "brand": "Desitin 4.8 oz tube: petrolatum, cod liver oil, lanolin, corn starch, glycerin, sorbitan sesquioleate, yellow wax, tocopherol acetate (+ antioxidant)",
-        "alternative": "Parent's Choice: same list (petrolatum, cod liver oil, lanolin, corn starch, glycerin, sorbitan sesquioleate, yellow wax, tocopherol acetate)",
-        "verdict": "same",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=320bcbd3-9e91-437f-99c5-066f880a4b32"
-      },
-      {
-        "aspect": "Talc, parabens, phthalates",
-        "brand": "Desitin: paraben-free; the 4.8 oz tube uses corn starch (older 4 oz tubes list talc)",
-        "alternative": "Parent's Choice label: no talc, free of parabens, phthalates and quaternium-15",
-        "verdict": "same",
-        "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=320bcbd3-9e91-437f-99c5-066f880a4b32"
-      }
-    ]
-  },
-  {
     "slug": "aquaphor-baby-vs-equate-advanced-healing-ointment",
     "category": "baby",
     "subcategory": "Baby skin care",
@@ -531,7 +470,8 @@
         "verdict": "same",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0a17bf6f-6114-4647-a509-65999255c37b"
       }
-    ]
+    ],
+    "why": "Both have 41% petrolatum and the same six inactive ingredients, including lanolin alcohols, so people with a lanolin allergy should check with a doctor. Aquaphor Baby carries a diaper rash claim that the Equate label does not, and the Equate is labelled for adult skin care."
   },
   {
     "slug": "pedialyte-vs-parents-choice-electrolyte-solution-unflavored",
@@ -612,7 +552,8 @@
         "verdict": "same",
         "source": "https://www.similac.com/products/rehydration-drink/pedialyte/1l-bottle-8pack.html"
       }
-    ]
+    ],
+    "why": "Both give 45 mEq sodium, 20 mEq potassium and 35 mEq chloride per litre, and the unflavoured versions have no dye or sweetener. The full Parent's Choice ingredient list was not seen, so check with a pharmacist or doctor before giving it to a child who is unwell."
   },
   {
     "slug": "mylicon-vs-equate-infant-gas-relief-drops-simethicone",
@@ -621,7 +562,8 @@
     "title": "Mylicon vs Equate Infants' Gas Relief Drops (Simethicone 20mg)",
     "brand": {
       "brand": "Mylicon",
-      "product": "Mylicon Infants' Gas Relief Drops, Dye Free, 1 fl oz", "image": "https://images.openfoodfacts.org/images/products/081/990/301/0234/front_en.5.400.jpg",
+      "product": "Mylicon Infants' Gas Relief Drops, Dye Free, 1 fl oz",
+      "image": "https://images.openfoodfacts.org/images/products/081/990/301/0234/front_en.5.400.jpg",
       "size": 1,
       "unit": "fl oz",
       "price_usd": 16.32,
@@ -677,6 +619,7 @@
         "verdict": "same",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3324139a-ed22-43af-859d-e7af19a24ee9"
       }
-    ]
+    ],
+    "why": "Both are dye-free simethicone 20 mg per 0.3 mL drops in 1 fl oz bottles, and the record finds the same ten inactive ingredients on both labels. Ask a pharmacist or doctor before giving either to an infant."
   }
 ]

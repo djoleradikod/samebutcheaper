@@ -1,0 +1,887 @@
+[
+ {
+  "slug": "royal-canin-kitten-vs-concept-for-life-kitten-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Royal Canin Kitten vs Concept for Life Kitten",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Kitten, 4 kg",
+   "size": 4,
+   "unit": "kg",
+   "price": 39.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/royal_canin/royal_canin_kaetzchen/4900?activeVariant=4900.41",
+   "gtin": "3182550702447",
+   "image": "https://images.openpetfoodfacts.org/images/products/318/255/070/2447/front_en.19.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein",
+     "amount": ""
+    },
+    {
+     "name": "Rice",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "36%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "18%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Kitten, 3 kg",
+   "size": 3,
+   "unit": "kg",
+   "price": 20.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_kitten/1281886?activeVariant=1281886.3",
+   "gtin": "4062911017245",
+   "key_ingredients": [
+    {
+     "name": "Chicken protein",
+     "amount": "36%"
+    },
+    {
+     "name": "Fresh chicken",
+     "amount": "14%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "38%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "20%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for kittens up to 12 months, sold at zooplus, and Concept for Life costs about 30% less per kilo at the nearest pack sizes.",
+  "evidence": "zooplus.de product pages read on 6 to 7 November 2026, regular shop price without subscription or new-customer discount: Royal Canin Kitten 39.99 for 4 kg, Concept for Life Kitten 20.99 for 3 kg. Both pages call the food complete (Alleinfuttermittel). Analysis: Royal Canin 36% protein, 18% fat, 2.3% fibre. Concept for Life 38% protein, 20% fat, 2.5% fibre.",
+  "differences": "The recipes differ. Royal Canin's page says 4th to 12th month. Concept for Life says up to 12 months and also covers pregnant and nursing cats. At the largest single bags the gap is smaller: Royal Canin 10 kg is 74.99 (7.50 per kg), Concept for Life 10 kg is 56.99 (5.70 per kg), about 24% less. We know of no feeding trial or test comparing these two.",
+  "why": "The label shows a little more protein and fat in Concept for Life, for the same age of kitten, and it costs less per kilo in each size we checked.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "bulk": {
+   "product": "Concept for Life Kitten, 10 kg",
+   "size": 10,
+   "price": 56.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_kitten/1281886?activeVariant=1281886.4"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/royal_canin/royal_canin_kaetzchen/4900?activeVariant=4900.41",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_kitten/1281886?activeVariant=1281886.3",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_kitten/1281886?activeVariant=1281886.4",
+   "https://world.openpetfoodfacts.org/product/3182550702447",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "royal-canin-sterilised-37-vs-concept-for-life-sterilised-lachs-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Royal Canin Sterilised 37 vs Concept for Life Sterilised Cats",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Sterilised 37, 4 kg",
+   "size": 4,
+   "unit": "kg",
+   "price": 37.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/royal_canin/sterilised/47442?activeVariant=47442.20",
+   "gtin": "3182550737616",
+   "image": "https://images.openpetfoodfacts.org/images/products/318/255/073/7616/front_fr.16.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein",
+     "amount": ""
+    },
+    {
+     "name": "Maize",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "37%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "12%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Sterilised Cats Lachs, 3 kg",
+   "size": 3,
+   "unit": "kg",
+   "price": 19.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_spezialfutter_cat/1077721?activeVariant=1077721.1",
+   "gtin": "4062911013414",
+   "key_ingredients": [
+    {
+     "name": "Salmon protein",
+     "amount": "22.5%"
+    },
+    {
+     "name": "Rice",
+     "amount": "20%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "35%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "11%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for adult neutered cats with close protein and fat levels, and Concept for Life costs about 30% less per kilo at the nearest pack sizes.",
+  "evidence": "zooplus.de product pages read on 6 to 7 November 2026, regular shop price without subscription: Royal Canin Sterilised 37 is 37.99 for 4 kg, Concept for Life Sterilised Cats Lachs is 19.99 for 3 kg. Both pages call the food complete for adult neutered cats. Analysis: Royal Canin 37% protein, 12% fat, about 6% fibre. Concept for Life 35% protein, 11% fat, 6% fibre.",
+  "differences": "Royal Canin is poultry based. Concept for Life leads on salmon but also lists poultry protein and poultry fat, so it isn't poultry free even though the category name suggests it. Royal Canin has 2 points more protein. At 10 kg the gap narrows: 72.99 against 54.99, about 25% less. We know of no feeding trial or test comparing these two.",
+  "why": "For an adult neutered cat the protein, fat and fibre on the two labels sit close together, and the Concept for Life bag costs less per kilo in each size we checked.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "bulk": {
+   "product": "Concept for Life Sterilised Cats Lachs, 10 kg",
+   "size": 10,
+   "price": 54.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_spezialfutter_cat/1077721?activeVariant=1077721.1"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/royal_canin/sterilised/47442?activeVariant=47442.20",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_trockenfutter/concept_for_life_cat/concept_for_life_spezialfutter_cat/1077721?activeVariant=1077721.1",
+   "https://world.openpetfoodfacts.org/product/3182550737616",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "royal-canin-mini-adult-vs-concept-for-life-mini-adult-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry dog food",
+  "title": "Royal Canin Mini Adult vs Concept for Life Mini Adult",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Mini Adult, 4 kg",
+   "size": 4,
+   "unit": "kg",
+   "price": 27.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/mini/1983705?activeVariant=1983705.1",
+   "gtin": "3182551055733",
+   "key_ingredients": [
+    {
+     "name": "Wheat flour",
+     "amount": ""
+    },
+    {
+     "name": "Dried poultry protein",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "27%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "16%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Mini Adult, 4 kg",
+   "size": 4,
+   "unit": "kg",
+   "price": 18.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_nach_groessen_hund/497443?activeVariant=497443.5",
+   "gtin": "4062911011861",
+   "key_ingredients": [
+    {
+     "name": "Poultry protein",
+     "amount": "24%"
+    },
+    {
+     "name": "Fresh chicken",
+     "amount": "20%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "26%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "16%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for adult small dogs up to 10 kg with almost the same protein and fat, and the same 4 kg bag costs a third less as Concept for Life.",
+  "evidence": "zooplus.de product pages read on 6 to 7 November 2026, regular shop price: Royal Canin Mini Adult 27.49 for 4 kg, Concept for Life Mini Adult 18.49 for 4 kg. Both are labelled complete for adult dogs of small breeds from 10 months. Analysis: Royal Canin 27% protein, 16% fat, 1.7% fibre. Concept for Life 26% protein, 16% fat, 2% fibre.",
+  "differences": "The first ingredients differ: wheat flour and dried poultry protein for Royal Canin, poultry protein and fresh chicken for Concept for Life. Royal Canin's 8 kg bag at 39.99 (5.00 per kg) is much better value than its 4 kg, so against Concept for Life's 2 x 4 kg at 32.99 (4.12 per kg) the saving falls to about 18%. We know of no feeding trial or test comparing these two.",
+  "why": "Same dog size, same age, the same fat level and one point of protein apart, in the same bag size at the same shop. If you get through a lot, compare with Royal Canin's 8 kg bag first.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "bulk": {
+   "product": "Concept for Life Mini Adult, 2 x 4 kg",
+   "size": 8,
+   "price": 32.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_nach_groessen_hund/497443?activeVariant=497443.4"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/mini/1983705?activeVariant=1983705.1",
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_nach_groessen_hund/497443?activeVariant=497443.5",
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_nach_groessen_hund/497443?activeVariant=497443.4",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "royal-canin-maxi-puppy-vs-concept-for-life-large-puppy-junior-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry dog food",
+  "title": "Royal Canin Maxi Puppy vs Concept for Life Large Puppy & Junior",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Maxi Puppy, 15 kg",
+   "size": 15,
+   "unit": "kg",
+   "price": 73.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/maxi/4902?activeVariant=4902.16",
+   "gtin": "3182550402163",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein",
+     "amount": ""
+    },
+    {
+     "name": "Rice",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "30%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "16%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Large Puppy & Junior, 12 kg",
+   "size": 12,
+   "unit": "kg",
+   "price": 46.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_maxi/497452?activeVariant=497452.7",
+   "gtin": "4062911011601",
+   "key_ingredients": [
+    {
+     "name": "Poultry protein",
+     "amount": "30%"
+    },
+    {
+     "name": "Fresh chicken",
+     "amount": "20%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "31%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "15%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for large-breed puppies heading for 26 to 44 kg, with close protein and fat, and Concept for Life costs about a fifth less per kilo.",
+  "evidence": "zooplus.de product pages read on 6 to 7 November 2026, regular shop price: Royal Canin Maxi Puppy 73.99 for 15 kg, Concept for Life Large Puppy & Junior 46.99 for 12 kg. Both pages call the food complete, for an adult weight of 26 to 44 kg, from about 2 to 15 months. Analysis: Royal Canin 30% protein, 16% fat, 2.8% fibre. Concept for Life 31% protein, 15% fat, 2% fibre.",
+  "differences": "The recipes differ, and Royal Canin lists dried beef and pork proteins as well as poultry. We didn't compare minerals such as calcium, so ask your vet if you are unsure. We know of no feeding trial or test comparing these two.",
+  "why": "Same growth stage, same adult weight band and close analysis at the same shop, for about a fifth less per kilo.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "bulk": {
+   "product": "Concept for Life Large Puppy & Junior, 2 x 12 kg",
+   "size": 24,
+   "price": 88.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_maxi/497452?activeVariant=497452.7"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/maxi/4902?activeVariant=4902.16",
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_maxi/497452?activeVariant=497452.7",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "royal-canin-mini-adult-8-vs-concept-for-life-mini-senior-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Dry dog food",
+  "title": "Royal Canin Mini Adult 8+ vs Concept for Life Mini Senior",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Mini Adult 8+, 2 kg",
+   "size": 2,
+   "unit": "kg",
+   "price": 16.19,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/mini/4923?activeVariant=4923.18",
+   "gtin": "3182550831383",
+   "image": "https://images.openpetfoodfacts.org/images/products/318/255/083/1383/front_fr.33.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein",
+     "amount": ""
+    },
+    {
+     "name": "Maize",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "27%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "16%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Mini Senior, 1.5 kg",
+   "size": 1.5,
+   "unit": "kg",
+   "price": 8.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_nach_groessen_hund/497348?activeVariant=497348.4",
+   "gtin": "4062911012417",
+   "key_ingredients": [
+    {
+     "name": "Fresh chicken",
+     "amount": "20%"
+    },
+    {
+     "name": "Rice",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "26%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "14%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for small dogs of 1 to 10 kg from about 8 years old, and Concept for Life costs about 30% less per kilo.",
+  "evidence": "zooplus.de product pages read on 6 to 7 November 2026, regular shop price: Royal Canin Mini Adult 8+ 16.19 for 2 kg, Concept for Life Mini Senior 8.49 for 1.5 kg. Both pages call the food complete. Analysis: Royal Canin 27% protein, 16% fat, 1.5% fibre. Concept for Life 26% protein, 14% fat, 2.5% fibre.",
+  "differences": "Royal Canin has 2 points more fat and 1 point less fibre, which may suit or not suit an older dog. The recipes differ. Royal Canin also sells 4 kg at 28.99 and 8 kg at 45.49 (5.69 per kg), bigger bags than Concept for Life offers here. We know of no feeding trial or test comparing these two.",
+  "why": "Same size of dog and same age band at the same shop, with a label analysis close enough that the lower price per kilo is the main difference in small bags.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "bulk": {
+   "product": "Concept for Life Mini Senior, 4 x 1.5 kg",
+   "size": 6,
+   "price": 29.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_nach_groessen_hund/497348?activeVariant=497348.4"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/royal_canin_size/mini/4923?activeVariant=4923.18",
+   "https://www.zooplus.de/shop/hunde/hundefutter_trockenfutter/concept_for_life_dog/concept_for_life_nach_groessen_hund/497348?activeVariant=497348.4",
+   "https://world.openpetfoodfacts.org/product/3182550831383",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "sheba-filets-huhn-vs-miamor-feine-filets-huhn-pur-de",
+  "market": "DE",
+  "category": "pet",
+  "subcategory": "Wet cat food",
+  "title": "Sheba Filets Huhn vs Miamor Feine Filets Huhn Pur",
+  "brand": {
+   "brand": "Sheba",
+   "product": "Sheba Filets Huhn, 16 x 60 g",
+   "size": 960,
+   "unit": "g",
+   "price": 19.29,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_dose/sheba/feine_filets/1257789?activeVariant=1257789.2",
+   "gtin": "4008429134197",
+   "image": "https://images.openpetfoodfacts.org/images/products/400/842/913/4197/front_de.7.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chicken breast fillet",
+     "amount": "29%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "10%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "1%"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Miamor",
+   "product": "Miamor Feine Filets in Soße Huhn Pur, 6 x 100 g",
+   "size": 600,
+   "unit": "g",
+   "price": 5.79,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_dose/miamor/miamor_dosen/1898609?activeVariant=1898609.0",
+   "gtin": "4000158748201",
+   "image": "https://images.openfoodfacts.org/images/products/400/015/874/8201/front_de.8.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Chicken breast fillet",
+     "amount": "42%"
+    },
+    {
+     "name": "Tapioca starch",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "14%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "1%"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are chicken fillet portions sold as complementary food for cats, and Miamor costs about half as much per kilo with more chicken on the label.",
+  "evidence": "zooplus.de product pages read on 6 to 7 November 2026: Sheba Filets Huhn 19.29 for 16 x 60 g (20.09 per kg), Miamor Feine Filets in Soße Huhn Pur 5.79 for 6 x 100 g (9.65 per kg). Both pages call it complementary food (Ergänzungsfuttermittel), not a complete meal. Sheba lists 29% chicken breast fillet, 10% protein, 1% fat. Miamor lists 42% chicken breast fillet, 14% protein, 1% fat.",
+  "differences": "Portion sizes differ, 60 g against 100 g. Neither is a complete food, so feed either alongside a complete diet. No taste test we read covers these, and your cat may prefer one.",
+  "why": "The label shows a higher share of chicken breast fillet in the cheaper product, so on this evidence the Sheba price buys nothing extra on the label.",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "bulk": {
+   "product": "Miamor Feine Filets in Soße Huhn Pur, 24 x 100 g",
+   "size": 2400,
+   "price": 22.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.de/shop/katzen/katzenfutter_dose/miamor/miamor_dosen/1898610?activeVariant=1898610.0"
+  },
+  "sources": [
+   "https://www.zooplus.de/shop/katzen/katzenfutter_dose/sheba/feine_filets/1257789?activeVariant=1257789.2",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_dose/miamor/miamor_dosen/1898609?activeVariant=1898609.0",
+   "https://www.zooplus.de/shop/katzen/katzenfutter_dose/miamor/miamor_dosen/1898610?activeVariant=1898610.0",
+   "https://world.openpetfoodfacts.org/product/4008429134197",
+   "https://world.openfoodfacts.org/product/4000158748201"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "sandisk-ultra-64gb-usb-stick-vs-intenso-premium-line-64gb-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "USB sticks",
+  "title": "SanDisk Ultra 64 GB vs Intenso Premium Line 64 GB",
+  "brand": {
+   "brand": "SanDisk",
+   "product": "SanDisk Ultra USB-Stick, 64 GB, USB-A 3.2 Gen 1",
+   "size": 64,
+   "unit": "GB",
+   "price": 15.69,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/SanDisk/Ultra-64-GB-USB-Stick/html/product/1103216",
+   "gtin": "0619659102197",
+   "image": "https://images.openproductsfacts.org/images/products/061/965/910/2197/front_de.4.400.jpg",
+   "key_ingredients": [
+     { "name": "USB-A 3.2 Gen 1", "amount": "64 GB" },
+     { "name": "Read and write speed", "amount": "read up to 130 MB/s, write up to 95 MB/s" }
+   ]
+  },
+  "alternative": {
+   "brand": "Intenso",
+   "product": "Intenso Premium Line USB-Stick, 64 GB, USB-A 3.2 Gen 1",
+   "size": 64,
+   "unit": "GB",
+   "price": 11.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Intenso/Premium-Line-64-GB-USB-Stick/html/product/1159890",
+   "gtin": "4034303020683",
+   "image": "https://images.openproductsfacts.org/images/products/403/430/302/0683/front_de.4.400.jpg",
+   "key_ingredients": [
+     { "name": "USB-A 3.2 Gen 1", "amount": "64 GB" },
+     { "name": "Read and write speed", "amount": "not stated" },
+     { "name": "Metal case", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 64 GB USB-A sticks on the 5 Gbit/s USB 3.2 Gen 1 standard, and Intenso costs about 24% less at alternate.",
+  "evidence": "alternate.de product pages read on 6 to 7 November 2026, including VAT, both available immediately and with no crossed-out price: SanDisk Ultra 64 GB EUR 15.69, Intenso Premium Line 64 GB EUR 11.99. Both list USB-A 3.2 Gen 1 at 5 Gbit/s.",
+  "differences": "SanDisk states read up to 130 MB/s and write up to 95 MB/s, and includes SanDisk SecureAccess encryption software. Alternate's page gives no speed for the Intenso, so it may be slower, especially at writing. Intenso has a metal body and is smaller, at 32 x 5 x 12 mm. Warranty isn't listed for either on these pages. Shipping starts at EUR 7.99, so this pays when added to a bigger order. No test we read covers these two.",
+  "why": "For moving documents and photos now and then, the capacity and connection are the same. If you copy big files often, the SanDisk's stated speed may be worth the difference.",
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/SanDisk/Ultra-64-GB-USB-Stick/html/product/1103216",
+   "https://www.alternate.de/Intenso/Premium-Line-64-GB-USB-Stick/html/product/1159890",
+   "https://world.openproductsfacts.org/product/0619659102197",
+   "https://world.openproductsfacts.org/product/4034303020683"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "sandisk-ultra-usb-c-128gb-vs-adata-uc300-128gb-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "USB sticks",
+  "title": "SanDisk Ultra USB Type-C 128 GB vs ADATA UC300 128 GB",
+  "brand": {
+   "brand": "SanDisk",
+   "product": "SanDisk Ultra USB Type-C USB-Stick, 128 GB",
+   "size": 128,
+   "unit": "GB",
+   "price": 30.49,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/SanDisk/Ultra-USB-Type-C-128-GB-USB-Stick/html/product/1652796",
+   "gtin": "0619659167172",
+   "key_ingredients": [
+     { "name": "USB-C 3.2 Gen 1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 150 MB/s" }
+   ]
+  },
+  "alternative": {
+   "brand": "ADATA",
+   "product": "ADATA UC300 USB-Stick, 128 GB",
+   "size": 128,
+   "unit": "GB",
+   "price": 21.79,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/ADATA/UC300-128-GB-USB-Stick/html/product/1871851",
+   "gtin": "4711085939135",
+   "key_ingredients": [
+     { "name": "USB-C 3.2 Gen 1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 100 MB/s" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 128 GB USB-C sticks on the USB 3.2 Gen 1 standard, and ADATA costs about 29% less, with a lower stated read speed.",
+  "evidence": "alternate.de product pages read on 6 to 7 November 2026, including VAT, both available immediately and with no crossed-out price: SanDisk Ultra USB Type-C 128 GB EUR 30.49, ADATA UC300 128 GB EUR 21.79. SanDisk's own product page confirms the 128 GB Type-C model.",
+  "differences": "SanDisk states read up to 150 MB/s, against up to 100 MB/s for ADATA, so the brand is faster on paper. Neither alternate page lists a write speed or warranty. Shipping starts at EUR 7.99. No test we read covers these two.",
+  "why": "If you mostly carry files between a phone and a laptop, you pay about 29% less for the same capacity and plug. If read speed matters to you, SanDisk's figure is higher.",
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/SanDisk/Ultra-USB-Type-C-128-GB-USB-Stick/html/product/1652796",
+   "https://www.alternate.de/ADATA/UC300-128-GB-USB-Stick/html/product/1871851",
+   "https://www.sandisk.com/products/usb-flash-drives/sandisk-ultra-usb-3-1-type-c"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "sandisk-ultra-128gb-microsd-vs-kingston-canvas-select-plus-128gb-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "microSD cards",
+  "title": "SanDisk Ultra 128 GB microSD vs Kingston Canvas Select Plus 128 GB",
+  "brand": {
+   "brand": "SanDisk",
+   "product": "SanDisk Ultra microSDXC, 128 GB (SDSQUAB-128G-GN6MA)",
+   "size": 128,
+   "unit": "GB",
+   "price": 32.09,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/SanDisk/Ultra-128-GB-microSDXC-Speicherkarte/html/product/1870955",
+   "gtin": "0619659200558",
+   "key_ingredients": [
+     { "name": "Class 10, UHS-I U1, A1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 140 MB/s" }
+   ]
+  },
+  "alternative": {
+   "brand": "Kingston",
+   "product": "Kingston Canvas Select Plus microSDXC, 128 GB (SDCS3/128GBSP)",
+   "size": 128,
+   "unit": "GB",
+   "price": 27.29,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Kingston/Canvas-Select-Plus-128-GB-MicroSDXC-Speicherkarte/html/product/100145687",
+   "gtin": "0740617348484",
+   "key_ingredients": [
+     { "name": "Class 10, UHS-I U1, A1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 150 MB/s" },
+     { "name": "V10", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 128 GB microSDXC cards rated Class 10, U1 and A1, and the Kingston costs about 15% less at alternate.",
+  "evidence": "alternate.de product pages read on 6 to 7 November 2026, including VAT, both available immediately and with no crossed-out price: SanDisk Ultra EUR 32.09, Kingston Canvas Select Plus EUR 27.29. Both list Class 10, UHS-I U1 and A1. The SD Association page sets out that the speed symbols with a number show a minimum write speed.",
+  "differences": "SanDisk's price includes an SD adapter. The Kingston page doesn't list one, so check if you need it. Kingston states read up to 150 MB/s and adds a V10 rating, against up to 140 MB/s for SanDisk. SanDisk lists write up to 10 MB/s. Kingston lists no write speed. No test we read covers these two.",
+  "why": "The speed ratings on the labels match or lean to the Kingston, for a modest saving. The adapter is the one thing to check.",
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/SanDisk/Ultra-128-GB-microSDXC-Speicherkarte/html/product/1870955",
+   "https://www.alternate.de/Kingston/Canvas-Select-Plus-128-GB-MicroSDXC-Speicherkarte/html/product/100145687",
+   "https://www.sdcard.org/developers/sd-standard-overview/speed-class/"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "sandisk-ultra-64gb-twin-vs-kingston-exodia-s-64gb-twin-gb",
+  "market": "GB",
+  "category": "tech-tools",
+  "subcategory": "USB sticks",
+  "title": "SanDisk Ultra 64 GB Twin Pack vs Kingston DataTraveler Exodia S 64 GB Twin Pack",
+  "brand": {
+   "brand": "SanDisk",
+   "product": "SanDisk Ultra USB 3.0 Flash Drive 64 GB, pack of 2",
+   "size": 128,
+   "unit": "GB",
+   "price": 36.99,
+   "retailer": "sevendayshop",
+   "asin": null,
+   "url": "https://www.7dayshop.com/sandisk-ultra-usb-3-0-flash-drive-memory-stick-130-mb-s-64gb-pack-of-2",
+   "gtin": "0619659193508",
+   "key_ingredients": [
+     { "name": "USB 3.2 Gen 1, also called USB 3.0", "amount": "2 x 64 GB" },
+     { "name": "Speed", "amount": "130 MB/s in the title" }
+   ]
+  },
+  "alternative": {
+   "brand": "Kingston",
+   "product": "Kingston DataTraveler Exodia S USB 3.2 64 GB, twin pack",
+   "size": 128,
+   "unit": "GB",
+   "price": 16.99,
+   "retailer": "sevendayshop",
+   "asin": null,
+   "url": "https://www.7dayshop.com/kingston-datatraveler-exodia-s-usb-3-2-memory-flash-drive-64gb-twin-pack",
+   "gtin": "740617348651",
+   "key_ingredients": [
+     { "name": "USB 3.2 Gen 1, also called USB 3.0", "amount": "2 x 64 GB" },
+     { "name": "Speed", "amount": "not stated" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are pairs of 64 GB USB sticks at 7dayshop on USB 3.0 or its later name, USB 3.2 Gen 1, and the Kingston twin pack costs about 54% less.",
+  "evidence": "7dayshop.com product pages read on 6 to 7 November 2026, including VAT, both in stock: SanDisk Ultra 64 GB pack of 2 at GBP 36.99 (shown down from GBP 39.99), Kingston DataTraveler Exodia S 64 GB twin pack at GBP 16.99. Alternate's page for the same SanDisk model notes that USB 3.2 Gen 1 is the current name of USB 3.0.",
+  "differences": "SanDisk's price is reduced, so the gap would be wider at GBP 39.99. SanDisk's title and specification say 130 MB/s and its description says 100 MB/s. The Kingston page states no speed, so it may be slower. No test we read covers these two.",
+  "why": "The capacity and USB generation match, and even at SanDisk's reduced price the Kingston pack is less than half the cost. If you copy large files often, check speeds before buying.",
+  "claims": [],
+  "sources": [
+   "https://www.7dayshop.com/sandisk-ultra-usb-3-0-flash-drive-memory-stick-130-mb-s-64gb-pack-of-2",
+   "https://www.7dayshop.com/kingston-datatraveler-exodia-s-usb-3-2-memory-flash-drive-64gb-twin-pack",
+   "https://www.alternate.de/SanDisk/Ultra-64-GB-USB-Stick/html/product/1103216",
+   "https://www.sandisk.com/en-gb/products/usb-flash-drives/sandisk-ultra-usb-3-0?sku=SDCZ48-064G-U46"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "rexel-no-56-staples-vs-viking-26-6-staples-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Staples",
+  "title": "Rexel No.56 Staples vs Viking 26/6 Staples",
+  "brand": {
+   "brand": "Rexel",
+   "product": "Rexel No.56 26/6 Staples, pack of 5000",
+   "size": 5000,
+   "unit": "staple",
+   "price": 3.71,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/rexel-staples-no.-56-5000-staples-p-06025",
+   "gtin": "5010255060259",
+   "key_ingredients": [
+     { "name": "26/6, 6 mm leg, metal", "amount": "" },
+     { "name": "Staples up to", "amount": "20 sheets" }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Staples 26/6, pack of 5000",
+   "size": 5000,
+   "unit": "staple",
+   "price": 2.39,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/office-depot-staples-26-6-5000-staples-p-5619465",
+   "gtin": "8717868074228",
+   "key_ingredients": [
+     { "name": "26/6, 6 mm leg, metal", "amount": "" },
+     { "name": "Staples up to", "amount": "25 sheets" },
+     { "name": "Also fits No.56, 12.7 mm crown", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are boxes of 5000 metal 26/6 staples, and Viking's costs about 36% less at the single-pack price.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 to 7 November 2026, both excluding VAT, at the 1 to 2 pack tier: Rexel GBP 3.09, Viking GBP 1.99. Viking says its staples fit 26/6 or No.56 staplers. Rexel's details are confirmed on Viking's Irish site. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "At 5 packs, before VAT, Rexel falls to GBP 2.59 and Viking to GBP 1.59. Viking's page states up to 25 sheets and a jam-resistant design, and Rexel's states 20 sheets. Your stapler sets the real limit. No test we read compares jams.",
+  "why": "Both are 26/6, and Viking's page says its staples fit 26/6 or No.56 staplers, so for the same count the main difference on the pages is the price.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/rexel-staples-no.-56-5000-staples-p-06025",
+   "https://www.viking-direct.co.uk/en/office-depot-staples-26-6-5000-staples-p-5619465",
+   "https://www.vikingdirect.ie/en/rexel-staples-no.-56-5000-staples-p-06025"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "avery-l7163-100-vs-viking-multipurpose-labels-99-38-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Address labels",
+  "title": "Avery L7163 Address Labels vs Viking Multipurpose Labels",
+  "brand": {
+   "brand": "Avery",
+   "product": "Avery UltraGrip Address Labels L7163-100, 99.1 x 38.1 mm, 100 sheets of 14",
+   "size": 1400,
+   "unit": "label",
+   "price": 39.59,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/avery-address-labels-l7163-100-white-1400-labels-per-pack-p-l7163",
+   "gtin": "3266550260142",
+   "key_ingredients": [
+     { "name": "99.1 x 38.1 mm, 14 per sheet, laser, white", "amount": "1400 labels" }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Multipurpose Labels, 99.1 x 38.1 mm, 100 sheets of 14",
+   "size": 1400,
+   "unit": "label",
+   "price": 15.59,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-laser-labels-white-1400-labels-per-pack-p-980434",
+   "gtin": "8717868100033",
+   "key_ingredients": [
+     { "name": "99.1 x 38.1 mm, 14 per sheet, laser, white", "amount": "1400 labels" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same label size, sheet layout and label count for laser printers, and Viking's pack costs about 61% less even with Avery on promotion.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 to 7 November 2026, both excluding VAT: Avery L7163-100 GBP 32.99, marked as a Black Friday promo price, with no regular price shown. Viking GBP 12.99 at the 1 to 2 pack tier. Both pages give 99.1 x 38.1 mm, 14 labels per sheet, 100 sheets, for laser printers. Avery's details are confirmed on Viking's Irish site. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Avery's price is a promotion and may rise, which would widen the gap. Avery lists UltraGrip and Quick-Peel sheets and says made in the UK. Both pages say FSC certified. No test we read compares how well they stick or feed through a printer.",
+  "why": "The size, layout and printer type match. Try a pack on your own printer before a big mailing.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/avery-address-labels-l7163-100-white-1400-labels-per-pack-p-l7163",
+   "https://www.viking-direct.co.uk/en/viking-laser-labels-white-1400-labels-per-pack-p-980434",
+   "https://www.vikingdirect.ie/en/avery-address-labels-l7163-100-white-1400-labels-per-pack-p-l7163"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "navigator-universal-a4-80gsm-vs-viking-everyday-a4-80gsm-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Copier paper",
+  "title": "Navigator Universal A4 80 gsm vs Viking Everyday A4 80 gsm",
+  "brand": {
+   "brand": "Navigator",
+   "product": "Navigator Universal A4 Printer Paper 80 gsm, 169 CIE, 500 sheets",
+   "size": 500,
+   "unit": "sheet",
+   "price": 6.95,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/navigator-universal-printer-paper-a4-80gsm-white-500-sheets-p-4194387",
+   "gtin": "5602024006102",
+   "key_ingredients": [
+     { "name": "A4, 80 gsm, smooth", "amount": "500 sheets" },
+     { "name": "Whiteness", "amount": "169 CIE" }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Everyday A4 Printer Paper 80 gsm, 150 CIE, 500 sheets",
+   "size": 500,
+   "unit": "sheet",
+   "price": 5.15,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-everyday-copier-paper-a4-80gsm-white-500-sheets-p-9537",
+   "gtin": "8717868005604",
+   "key_ingredients": [
+     { "name": "A4, 80 gsm, smooth", "amount": "500 sheets" },
+     { "name": "Whiteness", "amount": "150 CIE" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same size, weight, finish and sheet count, with Viking about 26% cheaper per ream and a lower whiteness.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 to 7 November 2026, both excluding VAT, at the 1 to 4 pack tier: Navigator GBP 5.79, Viking GBP 4.29. Both pages give A4, 80 gsm, smooth, 500 sheets. Navigator's details are confirmed on Viking's Irish site. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Navigator is whiter, at 169 CIE. Viking's title says 150 CIE and its specification says 153 CIE. Bulk tiers reduce both prices. No test we read compares jams or print quality.",
+  "why": "For drafts, invoices and letters the size and weight match, and a difference of about GBP 1.80 a ream adds up. Choose Navigator if you need a whiter sheet for reports or colour work.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/navigator-universal-printer-paper-a4-80gsm-white-500-sheets-p-4194387",
+   "https://www.viking-direct.co.uk/en/viking-everyday-copier-paper-a4-80gsm-white-500-sheets-p-9537",
+   "https://www.vikingdirect.ie/en/navigator-universal-printer-paper-a4-80gsm-white-500-sheets-p-4194387"
+  ],
+  "price_checked": "2026-11"
+ }
+]

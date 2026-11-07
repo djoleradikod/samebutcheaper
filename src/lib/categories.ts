@@ -1,3 +1,4 @@
+import { CATEGORY_SLUGS } from "./category-slugs";
 import type { CategorySlug, MatchType } from "./types";
 
 export type CategoryMeta = {
@@ -14,7 +15,13 @@ export type CategoryMeta = {
     | "baby"
     | "paw"
     | "wheat"
-    | "plug";
+    | "plug"
+    | "cooking"
+    | "battery"
+    | "wrench"
+    | "paperclip"
+    | "car"
+    | "sprout";
 };
 
 export const CATEGORIES: CategoryMeta[] = [
@@ -23,7 +30,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "OTC Medicine",
     short: "Pain, allergy, stomach, sleep",
     description:
-      "Store-brand medicines must contain the same active ingredient at the same strength as the brand name. That is an FDA requirement, not a marketing claim.",
+      "Pain, allergy and stomach medicines, compared per tablet or per dose. Each swap says what the labels show. Ask a pharmacist if you're unsure.",
     icon: "pill",
   },
   {
@@ -31,7 +38,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Supplements & Vitamins",
     short: "Creatine, fish oil, multivitamins",
     description:
-      "Same compound, same dose, often third-party tested. Compared per serving or per gram of active ingredient.",
+      "Vitamins, minerals and other supplements, compared per serving. Each swap says what the labels show.",
     icon: "leaf",
   },
   {
@@ -39,38 +46,38 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Skincare & Personal Care",
     short: "Moisturisers, acne, dental, shave",
     description:
-      "Matching ingredient (INCI) lists and the same active percentages, without the department-store markup.",
+      "The same kind of product, with ingredients and active percentages from the label.",
     icon: "droplet",
   },
   {
     slug: "beauty-hair",
     name: "Beauty & Hair",
     short: "Haircare, makeup removers, lip",
-    description: "Formulas that match ingredient for ingredient. No scent-alike “dupes”.",
+    description: "The same kind of product, with both ingredient lists side by side. No scent-alike “dupes”.",
     icon: "sparkles",
   },
   {
     slug: "household",
     name: "Household & Cleaning",
-    short: "Laundry, disinfectant, filters",
+    short: "Laundry, dishes, paper, cleaning",
     description:
-      "The same EPA registration number, the same active chemistry, and independent test results.",
+      "Laundry, dishes, paper and cleaning products, compared per wash, per sheet or per litre, with test results where they exist.",
     icon: "spray",
   },
   {
     slug: "baby",
     name: "Baby",
-    short: "Formula, children’s medicine, care",
+    short: "Formula and skin care",
     description:
-      "FDA nutrient rules apply to every infant formula sold in the US. Store brands meet the same standard for far less.",
+      "The same kind of product, compared per unit. Check with your doctor or health visitor before changing formula.",
     icon: "baby",
   },
   {
     slug: "pet",
     name: "Pet",
-    short: "Flea & tick, joint, cleaning",
+    short: "Food, litter, flea & tick",
     description:
-      "The same active ingredients at the same concentrations, often with matching EPA registrations.",
+      "The same kind of food or treatment, compared per kilo or per dose. Ask your vet if you're unsure.",
     icon: "paw",
   },
   {
@@ -78,16 +85,63 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Food & Pantry",
     short: "Staples, sweeteners, drinks",
     description:
-      "Single-ingredient staples and products made in the same plant, as shown by recalls and USDA establishment codes.",
+      "Own-label food next to the brand, compared per 100 g or per litre, with taste tests where they exist.",
     icon: "wheat",
   },
   {
     slug: "tech-tools",
-    name: "Tech & Tools",
-    short: "Chargers, cables, batteries, tools",
+    name: "Tech accessories",
+    short: "Chargers, cables, keyboards",
     description:
-      "Certified to the same standards (MFi, USB-IF, UL) with matching specs, and backed by independent lab tests.",
+      "Chargers, cables, memory and keyboards, compared per item, with lab tests where they exist.",
     icon: "plug",
+  },
+  {
+    slug: "kitchen",
+    name: "Kitchen",
+    short: "Foil, bags, filters, kettles",
+    description:
+      "Foil, film, bags and basics, compared per metre or per item, with test results where they exist.",
+    icon: "cooking",
+  },
+  {
+    slug: "batteries",
+    name: "Batteries",
+    short: "AA, AAA, button cells, rechargeables",
+    description:
+      "AA, AAA, button cells and rechargeables, compared per cell, with test results where they exist.",
+    icon: "battery",
+  },
+  {
+    slug: "tools-diy",
+    name: "Tools & DIY",
+    short: "Hand tools, glue, sealant, gloves",
+    description:
+      "Hand tools, glue, sealant and gloves, compared per item, with test results where they exist.",
+    icon: "wrench",
+  },
+  {
+    slug: "office",
+    name: "Office & School",
+    short: "Paper, pens, ink, labels",
+    description: "Paper, pens, ink and labels, compared per sheet or per item.",
+    icon: "paperclip",
+  },
+  {
+    slug: "car",
+    name: "Car",
+    short: "Screenwash, wipers, car care",
+    description:
+      "Fluids and car care, compared per litre or per item, with group test results where they exist.",
+    icon: "car",
+  },
+  {
+    slug: "garden",
+    name: "Garden",
+    short: "Compost, feed, hoses, secateurs",
+    description:
+      "The same kind of product, compared per litre or per item, with test results where they exist.",
+    icon: "sprout",
   },
 ];
 
@@ -102,7 +156,16 @@ export const CATEGORY_TONE: Record<CategorySlug, { bg: string; fg: string }> = {
   pet: { bg: "#ffedd5", fg: "#9a3412" },
   "food-pantry": { bg: "#fef9c3", fg: "#854d0e" },
   "tech-tools": { bg: "#e0e7ff", fg: "#3730a3" },
+  kitchen: { bg: "#fee2e2", fg: "#991b1b" },
+  batteries: { bg: "#d1fae5", fg: "#065f46" },
+  "tools-diy": { bg: "#e7e5e4", fg: "#44403c" },
+  office: { bg: "#dbeafe", fg: "#1e40af" },
+  car: { bg: "#e2e8f0", fg: "#334155" },
+  garden: { bg: "#dcfce7", fg: "#166534" },
 };
+
+/** Display order: everyday shopping first, medicine last. */
+CATEGORIES.sort((a, b) => CATEGORY_SLUGS.indexOf(a.slug) - CATEGORY_SLUGS.indexOf(b.slug));
 
 export const CATEGORY_MAP = Object.fromEntries(CATEGORIES.map((c) => [c.slug, c])) as Record<
   CategorySlug,
@@ -130,14 +193,20 @@ export const MATCH_TYPE_META: Record<
     label: "Same manufacturer",
     short: "Same maker",
     description:
-      "Public records (recalls, regulatory filings, plant codes) show the same company makes both.",
+      "Public records (recalls, regulatory filings, plant codes) or an on-record statement from one of the companies show the same company makes both.",
     strength: 3,
   },
   equivalent_spec: {
-    label: "Equivalent spec",
-    short: "Same spec",
+    label: "Does the same job",
+    short: "Same job",
     description:
-      "Published specs, certifications and independent tests show they do the same job to a comparable standard.",
+      "Published specs, certifications or independent tests show they do the same job to a comparable standard.",
     strength: 3,
+  },
+  same_kind: {
+    label: "Same kind of product",
+    short: "Same kind",
+    description: "The same kind of product, priced from real sources. What we have doesn't show that they match on what's inside or how well they work.",
+    strength: 1,
   },
 };

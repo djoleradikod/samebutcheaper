@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ProductThumb } from "@/components/ProductThumb";
 import { notFound } from "next/navigation";
-import { ArrowDown, ArrowRight, ChevronRight, ExternalLink, Package } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
+import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
+import { COLLAGE_CELLS } from "@/components/BasketCard";
+import { BundleCard } from "@/components/BundleCard";
+import { BundleWhereToBuy } from "@/components/BundleWhereToBuy";
+import { HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Evidence";
+import { ProductThumb } from "@/components/ProductThumb";
+import { SaveButton } from "@/components/SaveButton";
+import { SaveTicket } from "@/components/Ticket";
+import { mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
+import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
-import { formatSize, monthYear, ppu, money } from "@/lib/format";
-import { mayEarn, RETAILER_LABEL } from "@/lib/affiliate";
-import { ConfidenceBadge, MatchBadge, SavingsBadge } from "@/components/Badges";
-import { BundleCard } from "@/components/BundleCard";
-import { Differences, HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Evidence";
-import { SITE } from "@/lib/site";
-import { SaveButton } from "@/components/SaveButton";
-import { BundleWhereToBuy } from "@/components/BundleWhereToBuy";
+import { money, monthYear } from "@/lib/format";
+import { jsonLdText, SITE } from "@/lib/site";
+import { unitDisplay, unitPrice } from "@/lib/unit-format";
+import type { Bundle } from "@/lib/types";
 
 export function generateStaticParams() {
   const bundles = getAllBundles();
@@ -23,9 +28,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/bundle/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const b = getBundle(slug);
-  if (!b) return { title: "Bundle not found" };
-  const title = `${b.bundle.name}: build it for ${Math.round(b.savingsPct)}% less`;
-  const description = `${b.summary} ${money(b.equivalentTotal, b.currency)} instead of ${money(b.bundle.price, b.currency)}.`;
+  if (!b) return { title: "Kit not found" };
+  const title = `${b.bundle.name}: rebuilt for ${Math.round(b.savingsPct)}% less`;
+  const description = `${b.summary} ${money(b.equivalentTotal, b.currency)} for the same amount, against ${money(b.bundle.price, b.currency)} for the kit.`;
   return {
     title,
     description,
@@ -34,220 +39,279 @@ export async function generateMetadata({ params }: PageProps<"/bundle/[slug]">):
   };
 }
 
+/** The first image on the page that has a real photo. It loads eagerly. */
+function eagerTarget(b: Bundle) {
+  if (b.photo) return "kit";
+  return b.components.slice(0, 4).findIndex((c) => c.photo);
+}
+
 export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">) {
   const { slug } = await params;
   const b = getBundle(slug);
   if (!b) notFound();
+
   const cat = CATEGORY_MAP[b.category];
   const related = getAllBundles()
     .filter((x) => x.slug !== b.slug)
-    .sort((x, y) => Number(y.category === b.category) - Number(x.category === b.category))
-    .slice(0, 3);
+    .sort((x, y) => Number(y.category === b.category) - Number(x.category === b.category) || y.score - x.score)
+    .slice(0, 4);
   const perMonth =
-    b.bundle.billing === "subscription" && b.bundle.supply_days
-      ? (b.savings / b.bundle.supply_days) * 30
-      : null;
+    b.bundle.billing === "subscription" && b.bundle.supply_days ? (b.savings / b.bundle.supply_days) * 30 : null;
+  const pieces = b.components.slice(0, 4);
+  const eager = eagerTarget(b);
+  const earns = b.components.some((c) => mayEarn(c)) || mayEarn(b.bundle);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      { "@type": "ListItem", position: 2, name: "Bundles", item: `${SITE.url}/bundles` },
-      { "@type": "ListItem", position: 3, name: b.title, item: `${SITE.url}/bundle/${b.slug}` },
+      { "@type": "ListItem", position: 2, name: "Baskets and kits", item: `${SITE.url}/bundles` },
+      { "@type": "ListItem", position: 3, name: b.bundle.name, item: `${SITE.url}/bundle/${b.slug}` },
     ],
   };
 
   return (
     <article>
-      <div className="hero-wash border-b border-line">
-        <div className="container-page py-8 md:py-12">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-muted">
-            <Link href="/" className="hover:text-ink">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/bundles" className="hover:text-ink">Bundles</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href={`/category/${cat.slug}`} className="hover:text-ink">{cat.name}</Link>
+      <div className="border-b border-line bg-canvas">
+        <div className="container-page pt-1 pb-6 md:pt-3 md:pb-8">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-ink-2">
+            <Link href="/bundles" className="inline-flex min-h-11 items-center hover:underline md:min-h-0">
+              Baskets and kits
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 text-muted" aria-hidden="true" />
+            <Link href={`/category/${cat.slug}`} className="inline-flex min-h-11 items-center hover:underline md:min-h-0">
+              {cat.name}
+            </Link>
           </nav>
-          <div className="mt-5 flex flex-wrap items-center gap-2">
-            <MatchBadge type={b.match_type} long />
-            <ConfidenceBadge confidence={b.confidence} />
-            <span className="text-xs text-muted">Prices checked {monthYear(b.price_checked)}</span>
-          </div>
-          <h1 className="display mt-4 max-w-4xl text-4xl leading-tight font-medium sm:text-5xl">
-            {b.bundle.name}
-            <span className="block text-muted">rebuilt for {Math.round(b.savingsPct)}% less</span>
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-2">{b.summary}</p>
 
-          <div className="num mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl border border-line bg-white/85 p-5 shadow-[var(--shadow)] backdrop-blur">
-            <SavingsBadge pct={b.savingsPct} size="lg" />
-            <div>
-              <p className="text-xs text-muted">
-                {b.bundle.brand} {b.bundle.billing === "subscription" ? "per shipment" : "bundle"}
-              </p>
-              <p className="text-lg text-muted line-through">{money(b.bundle.price, b.currency)}</p>
+          <h1 className="display max-w-[30ch] text-[1.75rem] md:mt-3 md:text-[2.5rem]">{b.bundle.name}</h1>
+          <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2 md:text-base">{b.summary}</p>
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-8">
+            {/* The answer first: the kit, the ticket, and the same amount built from cheaper pieces. */}
+            <div className="grid grid-cols-2 items-start gap-x-2 gap-y-3 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-x-4">
+              <div className="min-w-0">
+                <div className="aspect-square md:aspect-[4/3]">
+                  <ProductThumb
+                    size="fill"
+                    image={b.photo?.src ?? null}
+                    brand={b.bundle.brand}
+                    alt={b.bundle.name}
+                    category={b.category}
+                    eager={eager === "kit"}
+                    sizes="(min-width: 1024px) 340px, 45vw"
+                  />
+                </div>
+                <p className="mt-2 text-[13px] font-medium text-ink-2">The {b.bundle.brand} kit</p>
+                <p className="price mt-1 text-[1.75rem] font-semibold text-muted md:text-[2rem]">{money(b.bundle.price, b.currency)}</p>
+                <p className="mt-1 text-xs text-muted">
+                  {b.bundle.billing === "subscription" ? "Per shipment" : "One price"}
+                  {b.bundle.supply_days ? `, about ${b.bundle.supply_days} days' supply` : ""}
+                </p>
+              </div>
+
+              <div className="col-span-2 row-start-2 md:col-span-1 md:row-start-auto md:self-center">
+                <SaveTicket
+                  size="lg"
+                  amount={b.savings}
+                  currency={b.currency}
+                  sub={perMonth ? `about ${money(perMonth, b.currency)} a month` : `${Math.round(b.savingsPct)}% less`}
+                />
+              </div>
+
+              <div className="min-w-0">
+                <div className="grid aspect-square w-full grid-cols-2 grid-rows-2 gap-1 md:aspect-[4/3]">
+                  {pieces.map((c, i) => (
+                    <div key={c.replaces} className={`min-h-0 min-w-0 ${COLLAGE_CELLS[pieces.length]?.[i] ?? ""}`}>
+                      <ProductThumb
+                        size="fill"
+                        quiet
+                        image={c.photo?.src ?? null}
+                        brand={c.brand}
+                        alt={c.product}
+                        category={b.category}
+                        unit={c.unit}
+                        eager={eager === i}
+                        sizes="(min-width: 1024px) 170px, 22vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-2 text-[13px] font-medium text-ink-2">
+                  Built from {b.components.length} cheaper item{b.components.length === 1 ? "" : "s"}
+                </p>
+                <p className="price mt-1 text-[2.25rem] text-ink md:text-[2.75rem]">{money(b.equivalentTotal, b.currency)}</p>
+                <p className="mt-1 text-xs text-muted">The same amount as the kit holds</p>
+              </div>
             </div>
-            <div>
-              <p className="text-xs text-muted">Same amount, built yourself</p>
-              <p className="text-lg font-semibold text-accent">{money(b.equivalentTotal, b.currency)}</p>
-            </div>
-            <div>
-              <p className="text-xs text-muted">
-                {perMonth ? "You save per month" : "You save"}
-              </p>
-              <p className="text-lg font-semibold">{money(perMonth ?? b.savings, b.currency)}</p>
-            </div>
+
+            <aside className="card self-start p-4">
+              <dl className="space-y-1.5 text-sm">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <dt className="text-ink-2">Match</dt>
+                  <dd>
+                    <MatchBadge type={b.match_type} long />
+                  </dd>
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <dt className="text-ink-2">Evidence</dt>
+                  <dd>
+                    <ConfidenceBadge confidence={b.confidence} />
+                  </dd>
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <dt className="text-ink-2">Prices checked</dt>
+                  <dd className="text-[13px] font-medium">{monthYear(b.price_checked)}</dd>
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <dt className="text-ink-2">Buying every full pack</dt>
+                  <dd className="price text-base">{money(b.upfrontTotal, b.currency)}</dd>
+                </div>
+              </dl>
+              {b.upfrontTotal > b.bundle.price && (
+                <p className="mt-2 text-[13px] leading-snug text-ink-2">
+                  The full packs cost more up front. They hold more than the kit, so they last longer.
+                </p>
+              )}
+              <div className="mt-3 space-y-2">
+                <SaveButton slug={b.slug} />
+                <a
+                  href={`/go/${b.slug}/brand`}
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  className="btn btn-ghost w-full"
+                >
+                  See the kit at {storeName(b.bundle.retailer, b.bundle.url)} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
 
-      <div className="container-page grid gap-8 py-10 lg:grid-cols-[1fr_22rem]">
+      <div className="container-page grid gap-8 pt-6 md:pt-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <div className="min-w-0 space-y-8">
-          <section className="card overflow-hidden">
-            <div className="flex items-center gap-4 border-b border-line bg-brand-soft/60 px-5 py-4">
-              {b.bundle.image ? (
-                <ProductThumb image={b.bundle.image} brand={b.bundle.brand} category={b.category} size="sm" />
-              ) : (
-                <Package className="h-5 w-5 text-brand-tone" />
-              )}
-              <div>
-                <h2 className="font-semibold">What&apos;s in the {b.bundle.brand} bundle</h2>
-                <p className="text-sm text-muted">
-                  {money(b.bundle.price, b.currency)}
-                  {b.bundle.billing === "subscription" ? " per shipment" : ""}
-                  {b.bundle.supply_days ? ` · about a ${b.bundle.supply_days}-day supply` : ""}
-                </p>
+          <section>
+            <h2 className="display mb-3 text-xl md:text-2xl">Piece by piece</h2>
+            <div className="card">
+              <ol className="divide-y divide-line">
+                {b.components.map((c, i) => {
+                  const item = b.bundle.items[c.replaces];
+                  return (
+                    <li key={c.replaces} className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-2 p-3 md:grid-cols-[auto_minmax(0,1fr)_auto] md:gap-x-4 md:p-4">
+                      <ProductThumb
+                        image={c.photo?.src ?? null}
+                        brand={c.brand}
+                        alt={c.product}
+                        category={b.category}
+                        unit={c.unit}
+                        size="sm"
+                        sizes="(min-width: 768px) 96px, 64px"
+                        className="md:h-24 md:w-24"
+                      />
+                      <div className="min-w-0">
+                        <p className="text-[13px] leading-snug text-ink-2">
+                          Instead of <span className="font-medium text-ink">{item.name}</span>
+                          {`, ${packSize(item.size, item.unit)}`}
+                        </p>
+                        <p className="mt-1 text-[15px] leading-snug font-semibold">{withBrand(c.brand, c.product)}</p>
+                        <p className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[13px] text-ink-2">
+                          <span>
+                            <span className="price text-[15px] text-ink">{unitPrice(c.ppu, c.unit, b.currency)}</span>{" "}
+                            {unitDisplay(c.unit).label}
+                          </span>
+                          <span>
+                            Pack of {packSize(c.size, c.unit)}, <span className="num">{money(c.price, b.currency)}</span>
+                          </span>
+                          <MatchBadge type={c.match_type} />
+                        </p>
+                        {c.photo && (
+                          <p className="mt-1 text-xs text-muted">
+                            Photo:{" "}
+                            <a href={c.photo.page} target="_blank" rel="noopener nofollow" className="underline underline-offset-2 hover:text-ink">
+                              {c.photo.credit}
+                            </a>
+                            , {c.photo.license}
+                          </p>
+                        )}
+                      </div>
+                      <div className="col-span-2 flex items-center justify-between gap-3 md:col-span-1 md:flex-col md:items-end md:justify-start">
+                        <p className="md:text-right">
+                          <span className="block text-xs font-medium text-muted">Same amount</span>
+                          <span className="price mt-0.5 block text-[1.375rem] text-ink">{money(c.equivalentCost, b.currency)}</span>
+                        </p>
+                        <a
+                          href={`/go/${b.slug}/item-${i}`}
+                          target="_blank"
+                          rel="sponsored nofollow noopener"
+                          className="btn btn-ghost text-sm"
+                        >
+                          {c.retailer === "other" ? "Go to the store" : RETAILER_LABEL[c.retailer]} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                        </a>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-b-card border-t border-line-strong bg-canvas px-3 py-3 md:px-4">
+                <p className="text-sm font-medium">Same amount as the kit</p>
+                <p className="price text-[1.375rem] text-ink">{money(b.equivalentTotal, b.currency)}</p>
               </div>
             </div>
-            <ul className="divide-y divide-line">
-              {b.bundle.items.map((item, i) => (
-                <li key={i} className="flex flex-wrap justify-between gap-2 px-5 py-3 text-sm">
-                  <span className="font-medium">{item.name}</span>
-                  <span className="num text-muted">
-                    {formatSize(item.size, item.unit)}
-                    {item.key_ingredients.length > 0 &&
-                      ` · ${item.key_ingredients.map((k) => `${k.name}${k.amount ? ` ${k.amount}` : ""}`).join(", ")}`}
-                  </span>
-                </li>
-              ))}
-              {b.bundle.extras.length > 0 && (
-                <li className="px-5 py-3 text-xs text-muted">Also includes: {b.bundle.extras.join(", ")}</li>
-              )}
-            </ul>
           </section>
 
-          <div className="flex justify-center text-muted" aria-hidden="true">
-            <ArrowDown className="h-5 w-5" />
-          </div>
-
-          <section className="card overflow-hidden border-accent/30">
-            <div className="border-b border-line bg-accent-soft/50 px-5 py-4">
-              <h2 className="font-semibold text-accent-strong">Build it yourself</h2>
-              <p className="text-sm text-muted">
-                Each item is replaced by a product with the same active ingredients, formula or spec.
-              </p>
-            </div>
-            <ol className="divide-y divide-line">
-              {b.components.map((c, i) => {
-                const item = b.bundle.items[c.replaces];
-                return (
-                  <li key={i} className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 px-5 py-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
-                    <ProductThumb image={c.image} brand={c.brand} category={b.category} unit={c.unit} size="sm" />
-                    <div className="min-w-0">
-                      <p className="text-xs text-muted">Replaces: {item.name}</p>
-                      <p className="mt-0.5 font-semibold">{c.brand}</p>
-                      <p className="text-sm text-ink-2">{c.product}</p>
-                      <div className="num mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
-                        <MatchBadge type={c.match_type} />
-                        <span>{ppu(c.ppu, b.currency)} per {c.unit}</span>
-                        <span>
-                          Pack {formatSize(c.size, c.unit)} for {money(c.price, b.currency)}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="col-span-2 flex items-center gap-4 sm:col-span-1 sm:flex-col sm:items-end sm:gap-2">
-                      <p className="num text-right">
-                        <span className="block text-xs text-muted">Same amount</span>
-                        <span className="font-semibold text-accent">{money(c.equivalentCost, b.currency)}</span>
-                      </p>
-                      <a
-                        href={`/go/${b.slug}/item-${i}`}
-                        target="_blank"
-                        rel="sponsored nofollow noopener"
-                        className="btn btn-ghost px-3 py-2 text-sm"
-                      >
-                        {RETAILER_LABEL[c.retailer]} <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-            <div className="num grid gap-1 border-t border-line bg-surface-2 px-5 py-4 text-sm sm:grid-cols-2">
-              <p>
-                <span className="text-muted">Same amount as the bundle: </span>
-                <span className="font-semibold text-accent">{money(b.equivalentTotal, b.currency)}</span>
-              </p>
-              <p className="sm:text-right">
-                <span className="text-muted">Buying the full packs: </span>
-                <span className="font-semibold">{money(b.upfrontTotal, b.currency)}</span>
-              </p>
-              {b.upfrontTotal > b.bundle.price && (
-                <p className="text-xs text-muted sm:col-span-2">
-                  The full packs cost more up front, but they hold more product, so they last longer than the
-                  bundle.
+          {(b.differences || b.bundle.extras.length > 0) && (
+            <section className="rounded-card border border-different/30 bg-different-soft p-4 md:p-5">
+              <h2 className="display text-xl md:text-2xl">Where the kit differs</h2>
+              {b.differences && <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2">{b.differences}</p>}
+              {b.bundle.extras.length > 0 && (
+                <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2">
+                  <span className="font-semibold text-ink">The kit also comes with: </span>
+                  {b.bundle.extras.join(", ")}
                 </p>
               )}
-            </div>
+            </section>
+          )}
+
+          <section>
+            <h2 className="display text-xl md:text-2xl">How we checked each item</h2>
+            <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2">{b.evidence}</p>
           </section>
 
-          <section className="prose-sbc">
-            <h2>How we checked each item</h2>
-            <p>{b.evidence}</p>
-          </section>
-          <Differences text={b.differences} />
           <SourceList sources={b.sources} />
           {HEALTH_CATEGORIES.has(b.category) && <HealthNotice />}
         </div>
 
         <aside className="space-y-3 lg:sticky lg:top-24 lg:self-start">
-          <div className="card p-5">
-            <p className="text-sm font-semibold">Shopping list</p>
-            <ul className="mt-3 space-y-2">
+          <div className="card p-4">
+            <h2 className="text-base">Shopping list</h2>
+            <ul className="mt-2 divide-y divide-line">
               {b.components.map((c, i) => (
-                <li key={i}>
+                <li key={c.replaces}>
                   <a
                     href={`/go/${b.slug}/item-${i}`}
                     target="_blank"
                     rel="sponsored nofollow noopener"
-                    className="flex items-center justify-between gap-3 rounded-xl border border-line px-3 py-2 text-sm hover:border-accent"
+                    className="group flex min-h-11 items-center justify-between gap-3 py-2 text-sm"
                   >
                     <span className="min-w-0">
-                      <span className="block truncate font-medium">{c.brand}</span>
-                      <span className="num block text-xs text-muted">
-                        {money(c.price, b.currency)} at {RETAILER_LABEL[c.retailer]}
+                      <span className="block truncate font-medium group-hover:underline">{c.brand}</span>
+                      <span className="block text-xs text-muted">
+                        <span className="num">{money(c.price, b.currency)}</span> at {storeName(c.retailer, c.url)}
                       </span>
                     </span>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-accent" />
+                    <ExternalLink className="h-3.5 w-3.5 shrink-0 text-cobalt" aria-hidden="true" />
                   </a>
                 </li>
               ))}
             </ul>
-            <a
-              href={`/go/${b.slug}/brand`}
-              target="_blank"
-              rel="sponsored nofollow noopener"
-              className="mt-4 block text-center text-xs text-muted underline underline-offset-2"
-            >
-              See the {b.bundle.brand} bundle price
-            </a>
           </div>
-          <p className="text-center text-xs text-muted">
-            {b.components.some((c) => mayEarn(c)) || mayEarn(b.bundle)
-              ? "Affiliate links. We may earn a commission at no cost to you."
-              : "We don't earn anything from these links."}{" "}
-            <Link href="/disclosure" className="underline underline-offset-2">Details</Link>
+          <p className="text-xs text-muted">
+            {earns ? "Some of these are affiliate links, so we may earn a commission at no extra cost to you." : "We don't earn anything from these links."}{" "}
+            <Link href="/disclosure" className="underline underline-offset-2">
+              Details
+            </Link>
           </p>
           <BundleWhereToBuy
             slug={b.slug}
@@ -255,26 +319,34 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
             health={HEALTH_CATEGORIES.has(b.category)}
             items={b.components.map((c) => ({
               retailer: c.retailer,
-              retailerLabel: RETAILER_LABEL[c.retailer],
+              retailerLabel: storeName(c.retailer, c.url),
               replaces: b.bundle.items[c.replaces].name,
               lookFor: c.lookFor,
             }))}
           />
-          <SaveButton slug={b.slug} />
         </aside>
       </div>
 
       {related.length > 0 && (
-        <section className="container-page pb-4">
-          <h2 className="display text-2xl font-medium">More bundles</h2>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="container-page pt-8 md:pt-10">
+          <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-6">
+            <h2 className="display text-xl md:text-2xl">More kits</h2>
+            <Link href="/bundles" className="inline-flex min-h-11 items-center text-sm font-medium text-cobalt underline-offset-2 hover:underline md:min-h-0">
+              All baskets and kits
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
             {related.map((x) => (
               <BundleCard key={x.slug} bundle={x} />
             ))}
           </div>
         </section>
       )}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
     </article>
   );
+}
+
+function withBrand(brand: string, product: string) {
+  return product.toLowerCase().startsWith(brand.toLowerCase()) ? product : `${brand} ${product}`;
 }

@@ -50,6 +50,7 @@ export function detectCountry(headers: Headers): string | null {
 const KNOWN: Record<string, Set<string>> = {
   compare: new Set(knownSlugs.compare),
   bundle: new Set(knownSlugs.bundle),
+  basket: new Set(knownSlugs.basket),
   dupe: new Set(knownSlugs.dupe),
 };
 

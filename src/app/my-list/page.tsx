@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { getAllBundles, getAllPairs } from "@/lib/catalog";
 import { MyList, type ListItem } from "@/components/MyList";
-import { formatSize } from "@/lib/format";
+import { packSize } from "@/lib/basket-view";
+import { getAllBundles, getAllPairs } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "My savings list",
-  description: "Add up what switching to the same-but-cheaper products saves you.",
+  description: "Add up what switching to the cheaper products saves you.",
   robots: { index: false, follow: true },
 };
 
@@ -18,30 +18,42 @@ export default function MyListPage() {
       kind: "swap" as const,
       from: p.brand.brand,
       to: p.alternative.brand,
-      detail: `${p.subcategory} · per ${formatSize(p.brand.size, p.brand.unit)} pack`,
+      detail: `${p.subcategory.replace(/\s+-\s+/g, ": ")}, per ${packSize(p.brand.size, p.brand.unit)} pack`,
       savingsPct: p.savingsPct,
       savings: p.savingsPerPack,
       currency: p.currency,
+      category: p.category,
+      unit: p.brand.unit,
+      fromPhoto: p.brand.photo?.src ?? null,
+      fromAlt: p.brand.product,
+      toPhoto: p.alternative.photo?.src ?? null,
+      toAlt: p.alternative.product,
     })),
-    ...getAllBundles().map((b) => ({
-      slug: b.slug,
-      href: `/bundle/${b.slug}`,
-      kind: "bundle" as const,
-      from: b.bundle.name,
-      to: `${b.components.length} cheaper items`,
-      detail: b.title,
-      savingsPct: b.savingsPct,
-      savings: b.savings,
-      currency: b.currency,
-    })),
+    ...getAllBundles().map((b) => {
+      const piece = b.components.find((c) => c.photo) ?? b.components[0];
+      return {
+        slug: b.slug,
+        href: `/bundle/${b.slug}`,
+        kind: "kit" as const,
+        from: b.bundle.brand,
+        to: `${b.components.length} cheaper items`,
+        detail: b.bundle.name,
+        savingsPct: b.savingsPct,
+        savings: b.savings,
+        currency: b.currency,
+        category: b.category,
+        fromPhoto: b.photo?.src ?? null,
+        fromAlt: b.bundle.name,
+        toPhoto: piece.photo?.src ?? null,
+        toAlt: piece.product,
+      };
+    }),
   ];
   return (
-    <section className="container-page py-10 md:py-14">
-      <h1 className="display text-4xl font-medium sm:text-5xl">My savings list</h1>
-      <p className="mt-3 max-w-2xl text-lg text-ink-2">
-        The swaps you&apos;ve saved, and what switching adds up to.
-      </p>
-      <Suspense fallback={<div className="card mt-8 h-40" />}>
+    <section className="container-page pt-4 md:pt-6">
+      <h1 className="display text-[1.75rem] md:text-[2.5rem]">My savings list</h1>
+      <p className="mt-1.5 max-w-[62ch] text-[15px] text-ink-2 md:text-base">The swaps you&apos;ve saved, and what switching adds up to.</p>
+      <Suspense fallback={<div className="card mt-4 h-40 md:mt-6" />}>
         <MyList items={items} />
       </Suspense>
     </section>

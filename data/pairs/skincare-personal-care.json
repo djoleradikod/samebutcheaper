@@ -62,7 +62,8 @@
         "verdict": "same",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0739d631-171b-42a8-bd55-0022b8df2d8a"
       }
-    ]
+    ],
+    "why": "Both are OTC adapalene 0.1% gels in 45 g, the same retinoid at the same strength. The Glenmark gel is paraben-free while the Differin label lists methylparaben, and the other inactives on the two lists match, so ask a pharmacist if you are unsure which suits your skin."
   },
   {
     "slug": "head-and-shoulders-classic-clean-vs-equate-everyday-clean-dandruff-shampoo",
@@ -144,7 +145,8 @@
     "title": "Head & Shoulders 2-in-1 vs Equate 2-in-1 Dandruff Shampoo & Conditioner",
     "brand": {
       "brand": "Head & Shoulders",
-      "product": "Head & Shoulders 2 in 1 Dandruff Shampoo + Conditioner, Classic Clean, 20.7 fl oz", "image": "https://images.openbeautyfacts.org/images/products/408/450/001/5012/front_en.8.400.jpg",
+      "product": "Head & Shoulders 2 in 1 Dandruff Shampoo + Conditioner, Classic Clean, 20.7 fl oz",
+      "image": "https://images.openbeautyfacts.org/images/products/408/450/001/5012/front_en.8.400.jpg",
       "size": 20.7,
       "unit": "fl oz",
       "price_usd": 9.12,
@@ -404,7 +406,8 @@
         "verdict": "same",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0a17bf6f-6114-4647-a509-65999255c37b"
       }
-    ]
+    ],
+    "why": "Both have 41% petrolatum and the same six inactive ingredients in the same order, in 14 oz. Ingredient percentages beyond the active are not published, so the texture may differ slightly."
   },
   {
     "slug": "vaseline-original-vs-equate-petroleum-jelly-13oz",
@@ -413,7 +416,8 @@
     "title": "Vaseline Original Healing Jelly vs Equate Petroleum Jelly",
     "brand": {
       "brand": "Vaseline",
-      "product": "Vaseline Original Healing Jelly, 100% Pure Petroleum Jelly, 13 oz", "image": "https://images.openbeautyfacts.org/images/products/030/521/069/1001/front_en.15.400.jpg",
+      "product": "Vaseline Original Healing Jelly, 100% Pure Petroleum Jelly, 13 oz",
+      "image": "https://images.openbeautyfacts.org/images/products/030/521/069/1001/front_en.15.400.jpg",
       "size": 13,
       "unit": "oz",
       "price_usd": 5.97,
@@ -462,7 +466,8 @@
         "verdict": "same",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bd4418b7-c6aa-5e71-e053-2995a90a4cc4"
       }
-    ]
+    ],
+    "why": "Both are 100% white petrolatum USP, the only ingredient on each label, so the USP grade is the same. Vaseline's extra is its triple-purification claim, and the record notes that refining and odour can vary slightly."
   },
   {
     "slug": "cerave-moisturizing-cream-vs-equate-moisturizing-cream-ceramides",
@@ -552,7 +557,8 @@
         "verdict": "same",
         "source": "https://incidecoder.com/products/equate-beauty-moisturizing-cream-with-ceramides-and-hyaluronic-acid-2"
       }
-    ]
+    ],
+    "why": "Per the ordered ingredient lists on Skinsort, the Equate follows CeraVe's list almost item for item, with the same three ceramides, phytosphingosine, cholesterol and hyaluronate, and both are fragrance-free. It has no cetyl alcohol, and the lists come from a database rather than the packs, so this is a near copy, not an exact one."
   },
   {
     "slug": "sensodyne-extra-whitening-vs-equate-extra-whitening-sensitive-toothpaste",
@@ -628,7 +634,8 @@
     "title": "Sensodyne Repair & Protect Whitening vs Equate Restore and Defend Sensitive Whitening",
     "brand": {
       "brand": "Sensodyne",
-      "product": "Sensodyne Repair and Protect Whitening Sensitive Toothpaste, Mint, 3.4 oz", "image": "https://images.openbeautyfacts.org/images/products/871/046/411/9911/front_fi.11.400.jpg",
+      "product": "Sensodyne Repair and Protect Whitening Sensitive Toothpaste, Mint, 3.4 oz",
+      "image": "https://images.openbeautyfacts.org/images/products/871/046/411/9911/front_fi.11.400.jpg",
       "size": 3.4,
       "unit": "oz",
       "price_usd": 7.47,
@@ -716,11 +723,11 @@
         }
       ]
     },
-    "match_type": "identical_active",
+    "match_type": "same_kind",
     "confidence": "medium",
     "summary": "Both are stannous fluoride 'whole mouth' toothpastes, and Equate is labelled 'Compare to Crest Pro-Health Advanced Deep Clean Mint active ingredient'.",
     "evidence": "Walmart's Equate listing says it is formulated with stannous fluoride and carries the explicit compare-to statement naming Crest Pro-Health Advanced Deep Clean Mint. The same page lists the Crest 5.1 oz at $4.97.",
-    "differences": "We could not confirm the stannous fluoride percentage on either label, which is why this pair is medium. The savings are modest (about 27%). Flavour and inactive ingredients may differ.",
+    "differences": "We could not confirm the stannous fluoride percentage on either label, so these sources do not show the same strength. The savings are modest (about 27%). Flavour and inactive ingredients may differ.",
     "sources": [
       "https://www.walmart.com/ip/Equate-Pro-Advanced-Toothpaste-Deep-Clean-Mint-5-1-oz/13625959089",
       "https://www.walmart.com/ip/Crest-Pro-Health-Advanced-Deep-Clean-Mint-Toothpaste-5-1-oz/196878437",

@@ -1,10 +1,25 @@
 import type { MetadataRoute } from "next";
-import { getAllBundles, getAllPairs, getBrands, getDupes, getIngredients } from "@/lib/catalog";
+import { getAllBundles, getAllPairs, getAllPresets, getBrands, getDupes, getIngredients } from "@/lib/catalog";
 import { CATEGORIES } from "@/lib/categories";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/check", "/biggest-savings", "/bundles", "/ingredients", "/brands", "/how-we-verify", "/suggest", "/about", "/disclosure", "/privacy"];
+  const staticPages = [
+    "",
+    "/check",
+    "/biggest-savings",
+    "/bundles",
+    "/bulk",
+    "/why",
+    "/ingredients",
+    "/brands",
+    "/how-we-verify",
+    "/suggest",
+    "/about",
+    "/credits",
+    "/disclosure",
+    "/privacy",
+  ];
   return [
     ...staticPages.map((p) => ({
       url: `${SITE.url}${p}`,
@@ -15,6 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE.url}/category/${c.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    })),
+    ...getAllPresets().map((p) => ({
+      url: `${SITE.url}/basket/${p.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
     })),
     ...getAllPairs().map((p) => ({
       url: `${SITE.url}/compare/${p.slug}`,

@@ -1,0 +1,380 @@
+[
+ {
+  "slug": "heinz-tomato-ketchup-vs-safeway-tomato-ketchup",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Ketchup",
+  "title": "Heinz Tomato Ketchup vs Safeway Tomato Ketchup",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Tomato Ketchup, 397 g",
+   "size": 397,
+   "unit": "g",
+   "price": 4.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=heinz+tomato+ketchup",
+   "gtin": "0013000001243",
+   "image": "https://images.openfoodfacts.org/images/products/001/300/000/1243/front_es.20.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Distilled vinegar",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Safeway",
+   "product": "Safeway Signature Kitchens Tomato Ketchup, 907 g (32 oz)",
+   "size": 907,
+   "unit": "g",
+   "price": 4.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=safeway+tomato+ketchup",
+   "gtin": "0021130008124",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/000/8124/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato concentrate",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Distilled vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Heinz Tomato Ketchup and Safeway's own-label ketchup list the same ingredients, and at Safeway the own-label bottle costs 56% less per 100 g, though it is the larger pack.",
+  "evidence": "Regular prices at Safeway Mountain View on 11 June 2026 (Open Prices): Heinz 397 g at $4.99 and Safeway 907 g at $4.99, which is $1.26 against $0.55 per 100 g. The Safeway 907 g was also $4.99 there on 23 January 2026. Safeway's only records for the Heinz 910 g bottle are discounted prices. At regular price that bottle was $8.79 at Walgreens Millbrae on 27 July 2026, or $0.97 per 100 g, which would make the Safeway bottle 43% cheaper at nearly the same size, across two different chains.",
+  "differences": "Part of the 56% comes from pack size, because the Heinz bottle here holds less than half as much. Both labels list tomato concentrate, distilled vinegar, high fructose corn syrup, corn syrup, salt, spice, onion powder and natural flavoring, but the order differs: Heinz lists vinegar before the corn syrups and Safeway lists high fructose corn syrup before vinegar, so the proportions are not the same. No taste test covers this pair.",
+  "why": "The two labels share the same ingredients, including the sweeteners. They differ in order, and no source shows how the taste compares.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0013000001243",
+   "https://world.openfoodfacts.org/product/0013000001243",
+   "https://prices.openfoodfacts.org/products/0021130008124",
+   "https://world.openfoodfacts.org/product/0021130008124",
+   "https://prices.openfoodfacts.org/products/0013000006057",
+   "https://world.openfoodfacts.org/product/0013000006057"
+  ],
+  "price_checked": "2026-06"
+ },
+ {
+  "slug": "heinz-tomato-ketchup-twin-pack-vs-market-pantry-ketchup",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Ketchup",
+  "title": "Heinz Tomato Ketchup Twin Pack vs Market Pantry Ketchup",
+  "brand": {
+   "brand": "Heinz",
+   "product": "Heinz Tomato Ketchup, 2 x 50.5 oz (101 oz)",
+   "size": 101,
+   "unit": "oz",
+   "price": 15.99,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=heinz+tomato+ketchup",
+   "gtin": "0013000001038",
+   "image": "https://images.openfoodfacts.org/images/products/001/300/000/1038/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato concentrate",
+     "amount": ""
+    },
+    {
+     "name": "Distilled vinegar",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Market Pantry",
+   "product": "Market Pantry Ketchup, 567 g (20 oz)",
+   "size": 20,
+   "unit": "oz",
+   "price": 1.59,
+   "retailer": "target",
+   "asin": null,
+   "url": "https://www.target.com/s?searchTerm=market+pantry+ketchup",
+   "gtin": "0085239042311",
+   "image": "https://images.openfoodfacts.org/images/products/008/523/904/2311/front_en.19.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato concentrate",
+     "amount": ""
+    },
+    {
+     "name": "High fructose corn syrup",
+     "amount": ""
+    },
+    {
+     "name": "Distilled vinegar",
+     "amount": ""
+    },
+    {
+     "name": "Corn syrup",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Heinz Tomato Ketchup and Target's Market Pantry ketchup list the same ingredients, and at Target the Market Pantry costs about 50% less per ounce than the Heinz twin pack.",
+  "evidence": "Regular prices at Target Cupertino on 23 July 2026 (Open Prices): Heinz twin pack, 101 oz in all, at $15.99 and Market Pantry 567 g at $1.59. 567 g is 20 oz. Per ounce that is 15.8 cents against 8.0 cents. Market Pantry 38 oz was $2.39 the same day, or 6.3 cents per ounce. Each Market Pantry pack has one price record. For a closer size, Heinz 567 g was $3.99 at Target Sunnyvale on 16 January 2026, or about 20 cents per ounce, six months before the Market Pantry price.",
+  "differences": "The Heinz price is for two large bottles, about five times as much ketchup as the 20 oz Market Pantry pack. Both labels list tomato concentrate, distilled vinegar, high fructose corn syrup, corn syrup, salt, spice, onion powder and natural flavoring, but the order differs: Heinz lists vinegar before the corn syrups and Market Pantry lists high fructose corn syrup before vinegar, so the proportions are not the same. No taste test covers this pair.",
+  "why": "The two labels share the same ingredients, including the sweeteners. They differ in order, and no source shows how the taste compares.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0013000001038",
+   "https://world.openfoodfacts.org/product/0013000001038",
+   "https://prices.openfoodfacts.org/products/0085239042311",
+   "https://world.openfoodfacts.org/product/0085239042311",
+   "https://prices.openfoodfacts.org/products/0085239042618",
+   "https://world.openfoodfacts.org/product/0085239042618",
+   "https://prices.openfoodfacts.org/products/01364008",
+   "https://world.openfoodfacts.org/product/01364008"
+  ],
+  "price_checked": "2026-07",
+  "bulk": {
+   "product": "Market Pantry Ketchup, 38 oz",
+   "size": 38,
+   "price": 2.39,
+   "retailer": "target",
+   "url": "https://www.target.com/s?searchTerm=market+pantry+ketchup"
+  }
+ },
+ {
+  "slug": "prego-flavored-with-meat-vs-signature-select-traditional-with-meat",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Pasta sauce",
+  "title": "Prego Flavored with Meat vs Signature Select Traditional with Meat",
+  "brand": {
+   "brand": "Prego",
+   "product": "Prego Flavored with Meat Italian Sauce, 24 oz",
+   "size": 24,
+   "unit": "oz",
+   "price": 4.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=prego+flavored+with+meat",
+   "gtin": "0051000027948",
+   "image": "https://images.openfoodfacts.org/images/products/005/100/002/7948/front_en.25.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato puree",
+     "amount": ""
+    },
+    {
+     "name": "Diced tomatoes",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Beef",
+     "amount": ""
+    },
+    {
+     "name": "Canola oil",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Traditional Pasta Sauce with Meat, 25 oz",
+   "size": 25,
+   "unit": "oz",
+   "price": 2.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+traditional+pasta+sauce+with+meat",
+   "gtin": "0021130494620",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/049/4620/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Tomato puree",
+     "amount": ""
+    },
+    {
+     "name": "Cooked ground beef",
+     "amount": ""
+    },
+    {
+     "name": "Sugar",
+     "amount": ""
+    },
+    {
+     "name": "Salt",
+     "amount": ""
+    },
+    {
+     "name": "Canola oil",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Prego Flavored with Meat and Signature Select Traditional with Meat are both tomato pasta sauces with beef, and at Safeway the Signature Select costs 42% less per ounce.",
+  "evidence": "Regular prices at Safeway Mountain View on 11 August 2026 (Open Prices): Prego 24 oz at $4.99 and Signature Select 25 oz at $2.99. Per ounce that is 20.8 cents against 12.0 cents. Open Facts shows about the same fat and protein for both: 1.25 g and 1.67 g per 100 g for Prego, 1.2 g and 1.6 g for Signature Select. The Signature Select has one price record.",
+  "differences": "Prego lists diced tomatoes, and Signature Select lists none, so the texture may differ. Signature Select lists cooked ground beef second, while Prego lists beef fourth, after the tomatoes and sugar. Neither label gives a beef percentage. Prego also lists beef fat, beef stock, beef extract and yeast extract, which Signature Select doesn't. The Prego ingredient list on Open Facts ends on a comma, so it may be incomplete. No taste test covers this pair.",
+  "why": "Both labels start with tomato puree and include sugar, beef, canola oil, onion and garlic, and the nutrition figures on file are close. No source shows how the taste compares.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0051000027948",
+   "https://world.openfoodfacts.org/product/0051000027948",
+   "https://prices.openfoodfacts.org/products/0021130494620",
+   "https://world.openfoodfacts.org/product/0021130494620"
+  ],
+  "price_checked": "2026-08"
+ },
+ {
+  "slug": "hersheys-natural-cocoa-vs-great-value-baking-cocoa",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Baking",
+  "title": "Hershey's Natural Unsweetened Cocoa vs Great Value Baking Cocoa",
+  "brand": {
+   "brand": "Hershey's",
+   "product": "Hershey's Cocoa 100% Cacao Natural Unsweetened, 8 oz",
+   "size": 8,
+   "unit": "oz",
+   "price": 5.97,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=hershey+natural+unsweetened+cocoa",
+   "gtin": "0034000052004",
+   "image": "https://images.openfoodfacts.org/images/products/003/400/005/2004/front_en.34.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cocoa",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Great Value",
+   "product": "Great Value Baking Cocoa Unsweetened Cocoa Powder, 8 oz",
+   "size": 8,
+   "unit": "oz",
+   "price": 4.96,
+   "retailer": "walmart",
+   "asin": null,
+   "url": "https://www.walmart.com/search?q=great+value+baking+cocoa+unsweetened",
+   "gtin": "0078742141589",
+   "image": "https://images.openfoodfacts.org/images/products/007/874/214/1589/front_en.7.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Cocoa",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Hershey's natural unsweetened cocoa and Great Value baking cocoa are both unsweetened cocoa powders that list cocoa as the ingredient, and at Walmart the Great Value costs 17% less per ounce.",
+  "evidence": "Regular prices at Walmart Supercenter in Mountain View on 30 October 2026 (Open Prices): Hershey's 8 oz at $5.97 and Great Value 8 oz at $4.96. Per ounce that is 74.6 cents against 62.0 cents. Open Facts lists cocoa as the ingredient on both and 10 g of fat per 100 g on both. The Great Value has one price record.",
+  "differences": "Hershey's calls its cocoa natural. The Great Value name doesn't say natural or Dutch-process, and its Open Facts ingredient entry, \"cocoa,\", ends on a comma, so it may be incomplete. Check the Great Value label if your recipe needs natural cocoa. No taste or baking test covers this pair.",
+  "why": "Both ingredient entries on file say cocoa and show the same fat per 100 g. No source shows how they compare in baking.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0034000052004",
+   "https://world.openfoodfacts.org/product/0034000052004",
+   "https://prices.openfoodfacts.org/products/0078742141589",
+   "https://world.openfoodfacts.org/product/0078742141589"
+  ],
+  "price_checked": "2026-10"
+ },
+ {
+  "slug": "sue-bee-clover-honey-vs-signature-select-clover-honey",
+  "market": "US",
+  "category": "food-pantry",
+  "subcategory": "Honey",
+  "title": "Sue Bee Clover Honey vs Signature Select Clover Honey",
+  "brand": {
+   "brand": "Sue Bee",
+   "product": "Sue Bee Pure Premium Clover Honey, 24 oz",
+   "size": 24,
+   "unit": "oz",
+   "price": 13.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=sue+bee+clover+honey",
+   "gtin": "0018700000442",
+   "image": "https://images.openfoodfacts.org/images/products/001/870/000/0442/front_en.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Filtered honey",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Signature Select",
+   "product": "Signature Select Clover Honey, 12 oz",
+   "size": 12,
+   "unit": "oz",
+   "price": 5.99,
+   "retailer": "safeway",
+   "asin": null,
+   "url": "https://www.safeway.com/shop/search-results.html?q=signature+select+clover+honey",
+   "gtin": "0021130006953",
+   "image": "https://images.openfoodfacts.org/images/products/002/113/000/6953/front_en.11.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Honey",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Sue Bee and Signature Select are both clover honey, and at Safeway the Signature Select costs 14% less per ounce even in the smaller jar.",
+  "evidence": "Regular prices at Safeway Mountain View on 18 October 2026 (Open Prices): Sue Bee 24 oz at $13.99 and Signature Select 12 oz at $5.99. Per ounce that is 58.3 cents against 49.9 cents. Two Signature Select jars hold the same 24 oz for $11.98. Each jar has one price record.",
+  "differences": "Sue Bee lists filtered honey. Signature Select lists honey and doesn't say whether it is filtered. The Signature Select jar holds half as much, so one jar costs less but runs out sooner. No taste or purity test covers this pair.",
+  "why": "Honey is the only ingredient on both labels and both are sold as clover honey. No source shows how the taste compares.",
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/0018700000442",
+   "https://world.openfoodfacts.org/product/0018700000442",
+   "https://prices.openfoodfacts.org/products/0021130006953",
+   "https://world.openfoodfacts.org/product/0021130006953"
+  ],
+  "price_checked": "2026-10"
+ }
+]

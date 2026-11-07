@@ -72,7 +72,8 @@
         "verdict": "same",
         "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
       }
-    ]
+    ],
+    "why": "Both list the same two actives at the same strengths, and the record found the same 2.68 mL applicator for the 45-88 lb band on both labels. The PetArmor has a different registrant, so the inactive ingredients may still differ."
   },
   {
     "slug": "frontline-plus-vs-petarmor-plus-dogs-23-44-lbs",
@@ -147,7 +148,8 @@
         "verdict": "same",
         "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
       }
-    ]
+    ],
+    "why": "Both list fipronil 9.8% and (S)-methoprene 8.8%, and the EPA records show the same pest targets for both. The PetArmor has a different registrant (EPA Reg. 2517-134 against Frontline's 65331-5), so its inactive ingredients and applicator may differ, and the dog's weight band should match the pack."
   },
   {
     "slug": "frontline-plus-vs-petarmor-plus-dogs-5-22-lbs",
@@ -222,7 +224,8 @@
         "verdict": "same",
         "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
       }
-    ]
+    ],
+    "why": "Both list fipronil 9.8% and (S)-methoprene 8.8%, and the EPA records show the same pest targets for both. The PetArmor has a different registrant, and the record notes PetArmor labels this band as 4-22 lb on some packs, so check the weight range on the box."
   },
   {
     "slug": "frontline-plus-vs-petarmor-plus-dogs-89-132-lbs",
@@ -296,7 +299,8 @@
         "verdict": "same",
         "source": "https://www.pomerix.com/pesticides/petarmor-plus-for-dogs"
       }
-    ]
+    ],
+    "why": "Both list fipronil 9.8% and (S)-methoprene 8.8%, and the EPA records show the same pest targets for both. The PetArmor has a different registrant, so its inactive ingredients and applicator may differ, and the dog's weight band should match the pack."
   },
   {
     "slug": "frontline-plus-vs-sentry-fiproguard-plus-dogs-45-88-lbs",
@@ -526,6 +530,7 @@
         "verdict": "same",
         "source": "https://www.pomerix.com/pesticides/advecta-3-for-dogs"
       }
-    ]
+    ],
+    "why": "Advecta 3 lists the same three actives at the same strengths as K9 Advantix II (imidacloprid 8.8%, permethrin 44%, pyriproxyfen 0.44%), with the same pest targets on the EPA record. The label checked was the 21-55 lb Advecta, not the XL pack, so the match for the XL rests on that label and Walmart's listing."
   }
 ]

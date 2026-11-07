@@ -1,93 +1,130 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import type { PairSummary } from "@/lib/types";
-import { CATEGORY_MAP } from "@/lib/categories";
-import { ppu, money } from "@/lib/format";
-import { MatchBadge, SavingsBadge } from "./Badges";
-import { MarketTag } from "./MarketTag";
+import type { MatchType, PairSummary } from "@/lib/types";
+import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
+import { MarketNote } from "./CountryPicker";
 import { ProductThumb } from "./ProductThumb";
+import { PctTicket } from "./Ticket";
+import { ToArrow, UnitPrice } from "./UnitPrice";
 
-export function PairCard({ pair, rank }: { pair: PairSummary; rank?: number }) {
-  const cat = CATEGORY_MAP[pair.category];
+/** "Same active" alone is jargon; the other short names read fine. */
+function matchText(type: MatchType) {
+  const match = MATCH_TYPE_META[type];
+  return type === "identical_active" ? match.label : match.short;
+}
+
+/**
+ * Two tiles edge to edge, brand left and cheaper right, with the ticket on the row beneath,
+ * under the cheaper one, so it never covers a pack. A missing side gets a typographic tile.
+ * Dense enough for 4 across at 1320px and 2 across on a phone.
+ *
+ * Lists show a swap with no photo at all as a PairRow. The places that always show a card, such as
+ * search results and related swaps, get this card with no tiles, so there's never a card of two empty ones.
+ */
+export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; rank?: number; eager?: boolean }) {
+  const shelf = pair.subcategory || CATEGORY_MAP[pair.category].name;
+  const kind = shelf.replace(/\s+-\s+/g, ": ");
+  const match = MATCH_TYPE_META[pair.matchType];
   return (
     <Link
       href={`/compare/${pair.slug}`}
-      className="card group relative flex h-full flex-col overflow-hidden transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_14px_34px_-14px_rgba(10,138,82,0.35)]"
+      className="card group flex h-full min-w-0 flex-col overflow-hidden transition-colors hover:border-ink-2"
     >
-      {/* The two products, pictured */}
-      <div className="relative flex items-center justify-center gap-3 bg-gradient-to-br from-tint via-white to-surface-2 px-5 pt-5 pb-4">
-        <div className="relative opacity-80 grayscale-[35%]">
-          <ProductThumb image={pair.brandImage} brand={pair.brandName} category={pair.category} unit={pair.unit} />
-          <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold text-brand-tone shadow-sm ring-1 ring-line">
-            Brand
-          </span>
-        </div>
-        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-accent shadow-sm ring-1 ring-line">
-          <ArrowRight className="h-4 w-4" />
-        </span>
-        <div className="relative">
+      {(pair.brandImage || pair.altImage) && (
+        <div className="grid grid-cols-2 border-b border-line bg-white">
           <ProductThumb
+            flush
+            size="tile"
+            image={pair.brandImage}
+            brand={pair.brandName}
+            alt={pair.brandProduct}
+            eager={eager && !!pair.brandImage}
+          />
+          <ProductThumb
+            flush
+            size="tile"
             image={pair.altImage}
             brand={pair.altName}
-            category={pair.category}
-            unit={pair.unit}
-            className="ring-2 ring-accent/50"
+            alt={pair.altProduct}
+            eager={eager && !pair.brandImage}
           />
-          <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 rounded-full bg-accent px-2 py-0.5 text-[10px] font-semibold whitespace-nowrap text-accent-ink shadow-sm">
-            Cheaper
+        </div>
+      )}
+
+      <div className="flex min-w-0 flex-1 flex-col px-2 pt-1.5 pb-2 md:px-2.5 md:pb-2.5">
+        <div className="flex items-center justify-between gap-1.5">
+          <p className="min-w-0 truncate text-xs font-medium text-muted">
+            {rank ? <span className="num">{rank}. </span> : null}
+            {kind}
+          </p>
+          <PctTicket pct={pair.savingsPct} size="sm" grow className="shrink-0" />
+        </div>
+        <p className="mt-1 line-clamp-2 text-sm leading-snug font-semibold group-hover:underline">
+          {pair.brandName}
+          <ToArrow />
+          {pair.altName}
+        </p>
+        <UnitPrice
+          unit={pair.unit}
+          alt={pair.altPpu}
+          brand={pair.brandPpu}
+          currency={pair.currency}
+          className="mt-auto pt-1.5"
+        />
+        <p className="mt-1 flex flex-wrap items-baseline justify-between gap-x-2 text-xs font-medium">
+          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={match.description}>
+            {matchText(pair.matchType)}
           </span>
-        </div>
-        <span className="absolute top-3 right-3">
-          <SavingsBadge pct={pair.savingsPct} />
-        </span>
-        {rank ? (
-          <span className="num absolute top-3 left-3 rounded-full bg-white px-2 py-0.5 text-xs font-semibold text-ink shadow-sm ring-1 ring-line">
-            #{rank}
-          </span>
-        ) : null}
-      </div>
-
-      <div className="flex flex-1 flex-col p-5 pt-4">
-        <div className="flex items-center justify-between gap-2">
-          <span className="text-xs font-medium tracking-wide text-muted uppercase">{pair.subcategory || cat.name}</span>
-          <MarketTag market={pair.market} />
-        </div>
-
-        <div className="mt-3 space-y-2.5">
-          <div>
-            <p className="text-xs text-brand-tone">Instead of</p>
-            <p className="leading-snug font-medium text-ink-2 line-through decoration-brand-tone/40 decoration-1">
-              {pair.brandName}
-            </p>
-            <p className="line-clamp-1 text-xs text-muted">{pair.brandProduct}</p>
-          </div>
-          <div>
-            <p className="text-xs text-accent">Buy</p>
-            <p className="text-lg leading-snug font-semibold">{pair.altName}</p>
-            <p className="line-clamp-1 text-xs text-muted">{pair.altProduct}</p>
-          </div>
-        </div>
-
-        <div className="mt-auto pt-4">
-          <div className="num flex items-end justify-between border-t border-line pt-4 text-sm">
-            <div>
-              <p className="text-xs text-muted">Per {pair.unit}</p>
-              <p>
-                <span className="text-muted line-through">{ppu(pair.brandPpu, pair.currency)}</span>{" "}
-                <span className="font-semibold text-accent">{ppu(pair.altPpu, pair.currency)}</span>
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-xs text-muted">Saved per pack</p>
-              <p className="font-semibold">{money(pair.savingsPerPack, pair.currency)}</p>
-            </div>
-          </div>
-          <div className="mt-3 flex items-center justify-between">
-            <MatchBadge type={pair.matchType} />
-            <ArrowRight className="h-4 w-4 text-muted transition group-hover:translate-x-0.5 group-hover:text-accent" />
-          </div>
-        </div>
+          <MarketNote market={pair.market} />
+        </p>
       </div>
     </Link>
+  );
+}
+
+/**
+ * A swap with no photo on either side, as one line of text on a desktop and two on a phone:
+ * brand to cheaper name and the saving, then unit price against unit price and the match.
+ */
+export function PairRow({ pair }: { pair: PairSummary }) {
+  return (
+    <Link
+      href={`/compare/${pair.slug}`}
+      className="group grid min-h-11 grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 px-2.5 py-2 transition-colors hover:bg-canvas md:grid-cols-[minmax(0,1fr)_14rem_9rem_3.25rem] md:gap-x-4 md:px-3"
+    >
+      <p className="col-start-1 row-start-1 min-w-0 text-sm leading-snug font-semibold group-hover:underline">
+        {pair.brandName}
+        <ToArrow />
+        {pair.altName}
+      </p>
+      <PctTicket pct={pair.savingsPct} size="sm" className="col-start-2 row-start-1 justify-self-end md:col-start-4" />
+      <div className="col-span-2 flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 md:contents">
+        <UnitPrice size="sm" unit={pair.unit} alt={pair.altPpu} brand={pair.brandPpu} currency={pair.currency} />
+        <p className="flex flex-wrap items-baseline gap-x-2 text-xs font-medium">
+          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={MATCH_TYPE_META[pair.matchType].description}>
+            {matchText(pair.matchType)}
+          </span>
+          <MarketNote market={pair.market} />
+        </p>
+      </div>
+    </Link>
+  );
+}
+
+/** Goes where a list's first photo tier ends, since the chosen sort starts again from the top there. Smaller than a section head. */
+export function MoreSwapsHeading() {
+  return <h2 className="mt-5 mb-2 text-base md:mt-6">More swaps</h2>;
+}
+
+/**
+ * The panel of PairRows that ends a list. `below` means there are cards above it, and `headed` means
+ * those cards are all one tier, so this is where the heading goes. Otherwise the rows just carry on.
+ */
+export function PairRows({ headed, below, children }: { headed: boolean; below: boolean; children: ReactNode }) {
+  return (
+    <>
+      {headed && <MoreSwapsHeading />}
+      <ul className={`card divide-y divide-line overflow-hidden ${below && !headed ? "mt-2 sm:mt-3" : ""}`}>{children}</ul>
+    </>
   );
 }

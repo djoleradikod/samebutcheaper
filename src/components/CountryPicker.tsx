@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, Globe } from "lucide-react";
-import { COUNTRY_OPTIONS, countryName, flag } from "@/lib/markets";
+import { COUNTRY_OPTIONS, MARKET_LABEL, countryName, type MarketCode } from "@/lib/markets";
 import { setCountry, useCountry } from "@/lib/client/country";
 
 /**
@@ -12,16 +12,14 @@ export function CountryPicker({ className = "", withName = false }: { className?
   const country = useCountry();
   return (
     <span
-      className={`relative inline-flex h-9 items-center gap-1.5 rounded-lg border border-line bg-surface px-2.5 text-sm font-medium text-ink-2 focus-within:border-accent hover:text-ink ${className}`}
+      className={`relative inline-flex h-11 items-center gap-1.5 rounded-tile border border-line bg-paper px-2.5 text-sm font-medium text-ink-2 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cobalt hover:border-ink-2 hover:text-ink md:h-9 ${className}`}
     >
+      {(withName || !country) && <Globe className="h-4 w-4 text-muted" aria-hidden="true" />}
       {country ? (
-        <span className="text-base leading-none" aria-hidden="true">
-          {flag(country)}
-        </span>
+        <span className="whitespace-nowrap">{withName ? countryName(country) : country}</span>
       ) : (
-        <Globe className="h-4 w-4 text-muted" aria-hidden="true" />
+        withName && <span className="whitespace-nowrap">Country</span>
       )}
-      <span>{country ? (withName ? countryName(country) : country) : "Country"}</span>
       <ChevronDown className="h-3.5 w-3.5 text-muted" aria-hidden="true" />
       <select
         aria-label="Country you shop in"
@@ -39,6 +37,17 @@ export function CountryPicker({ className = "", withName = false }: { className?
           </option>
         ))}
       </select>
+    </span>
+  );
+}
+
+/** "UK prices", in plain text, on anything priced somewhere other than where the shopper is. */
+export function MarketNote({ market, className = "" }: { market: MarketCode; className?: string }) {
+  const country = useCountry() ?? "US";
+  if (country === market) return null;
+  return (
+    <span className={`whitespace-nowrap text-muted ${className}`} title={`Prices checked in ${MARKET_LABEL[market]} stores`}>
+      {MARKET_LABEL[market]} prices
     </span>
   );
 }

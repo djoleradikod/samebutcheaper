@@ -1,0 +1,1244 @@
+[
+  {
+    "family": "weekly-staples",
+    "slug": "weekly-staples-gb",
+    "market": "GB",
+    "title": "Weekly staples",
+    "audience": "A regular store-cupboard shop",
+    "blurb": "Tea, ketchup, soup, mayonnaise, spread, yogurt, spaghetti, passata, butter and muesli for a regular shop.",
+    "icon": "cart",
+    "research": "The list comes from Which?'s food and drink best buys and its roundup of cheap own-label winners, with pasta, tinned tomatoes and butter from the British Dietetic Association's store cupboard list and cereal from Winchester students' cupboard essentials. We kept one swap for each need, using Which?'s own-label picks where it named them and shop price records for the rest.",
+    "sources": [
+      "https://www.which.co.uk/reviews/food-and-drink/article/best-buy-food-and-drink-aCHpy6l9oPzX",
+      "https://www.which.co.uk/news/article/best-cheap-supermarket-food-and-drink-the-own-labels-that-beat-the-big-brands-aZyW11P2L9ul",
+      "https://www.bda.uk.com/food-health/lets-get-cooking/cooking-at-home/store-cupboard-ingredients.html",
+      "https://www.winchesterstudents.co.uk/your-voice/independent-living/cooking/cupboard-essentials"
+    ],
+    "items": [
+      {
+        "pair": "yorkshire-tea-vs-waitrose-essential-original-blend-tea-bags-gb",
+        "qty": 1
+      },
+      {
+        "pair": "heinz-tomato-ketchup-vs-waitrose-essential-ketchup-gb",
+        "qty": 1
+      },
+      {
+        "pair": "baxters-cream-of-tomato-soup-vs-tesco-cream-of-tomato-soup-gb",
+        "qty": 1
+      },
+      {
+        "pair": "hellmanns-real-mayonnaise-vs-sainsburys-real-mayo-gb",
+        "qty": 1
+      },
+      {
+        "pair": "nutella-vs-tesco-hazelnut-chocolate-spread-gb",
+        "qty": 1
+      },
+      {
+        "pair": "tims-dairy-greek-yogurt-vs-aldi-brooklea-greek-style-yogurt-gb",
+        "qty": 1
+      },
+      {
+        "pair": "barilla-spaghetti-n5-vs-lidl-baresa-spaghetti-gb",
+        "qty": 1
+      },
+      {
+        "pair": "napolina-passata-vs-lidl-baresa-passata-gb",
+        "qty": 1
+      },
+      {
+        "pair": "anchor-salted-butter-vs-tesco-salted-butter-gb",
+        "qty": 1
+      },
+      {
+        "pair": "alpen-original-muesli-vs-aldi-harvest-morn-swiss-style-muesli-gb",
+        "qty": 1,
+        "note": "The recipes differ, and Aldi leads with oats where Alpen leads with wheat."
+      }
+    ]
+  },
+  {
+    "family": "weekly-staples",
+    "slug": "weekly-staples-us",
+    "market": "US",
+    "title": "Weekly staples",
+    "audience": "A regular pantry shop",
+    "blurb": "Oats, canned beans, ketchup, cinnamon, soy sauce and olive oil for a regular pantry shop.",
+    "icon": "cart",
+    "research": "The list comes from a Parkview Health dietitian's pantry guide, which names oats, canned beans, cinnamon, soy sauce and oils, and Consumer Reports' blind taste test, reported by NBC, which rated Target's ketchup very good against Heinz. We kept one swap for each staple we have checked, so plain rice and broth aren't in it yet.",
+    "sources": [
+      "https://parkview.com/blog/the-staples-a-dietitian-says-you-should-have-in-your-pantry",
+      "https://www.nbcdfw.com/news/consumer-reports/buying-store-brands-can-help-you-save-money-on-groceries/3173224/"
+    ],
+    "items": [
+      {
+        "pair": "quaker-old-fashioned-vs-great-value-old-fashioned-oats-42oz",
+        "qty": 1
+      },
+      {
+        "pair": "s-and-w-canned-garbanzos-vs-signature-select-canned-garbanzo-beans",
+        "qty": 1
+      },
+      {
+        "pair": "heinz-tomato-ketchup-twin-pack-vs-market-pantry-ketchup",
+        "qty": 1,
+        "note": "Priced for a Heinz twin pack, though Market Pantry comes in smaller bottles."
+      },
+      {
+        "pair": "mccormick-vs-good-and-gather-ground-cinnamon-2-37oz",
+        "qty": 1
+      },
+      {
+        "pair": "kikkoman-soy-sauce-vs-great-value-soy-sauce-all-purpose-seasoning",
+        "qty": 1
+      },
+      {
+        "pair": "california-olive-ranch-medium-extra-virgin-olive-oil-vs-good-and-gather-extra-virgin-olive-oil",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "weekly-staples",
+    "slug": "weekly-staples-de",
+    "market": "DE",
+    "title": "Weekly staples",
+    "audience": "A regular store-cupboard shop",
+    "blurb": "Butter, long-life milk, coffee, toast, flour, honey and pasta where own-label costs much less.",
+    "icon": "cart",
+    "research": "The list draws on the German government's food supply tables, which name butter, long-life milk, coffee, packaged wholemeal bread, flour, honey and pasta. Stiftung Warentest's 2011 review of 37 food tests found brands no better than discounter products, and we kept one swap for each item.",
+    "sources": [
+      "https://www.ernaehrungsvorsorge.de/private-vorsorge/notvorrat/vorratstabelle/",
+      "https://www.ernaehrungsvorsorge.de/private-vorsorge/notvorrat/sonstige-lebensmittel/",
+      "https://www.test.de/presse/pressemitteilungen/Discounter-gegen-Markenware-Marken-nicht-besser-4295534-0/"
+    ],
+    "items": [
+      {
+        "pair": "kerrygold-irische-butter-vs-frija-irische-butter-de",
+        "qty": 1
+      },
+      {
+        "pair": "weihenstephan-haltbare-milch-vs-gut-guenstig-h-milch-de",
+        "qty": 1
+      },
+      {
+        "pair": "jacobs-meister-roestung-vs-cafet-gold-gemahlen-de",
+        "qty": 1
+      },
+      {
+        "pair": "golden-toast-vollkorn-vs-kornmuehle-vollkorn-toast-de",
+        "qty": 1
+      },
+      {
+        "pair": "kathi-weizenmehl-type-405-vs-rewe-beste-wahl-weizenmehl-405-de",
+        "qty": 1
+      },
+      {
+        "pair": "langnese-fruehlings-bluetenhonig-vs-gut-and-guenstig-bluetenhonig-de",
+        "qty": 1
+      },
+      {
+        "pair": "barilla-fusilli-vs-combino-fusilli-de",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "student-kitchen",
+    "slug": "student-kitchen-gb",
+    "market": "GB",
+    "title": "Student kitchen",
+    "audience": "Students cooking for themselves",
+    "blurb": "Spaghetti, passata, tea, soup, ketchup, butter and washing-up liquid for a shared kitchen.",
+    "icon": "cooking",
+    "research": "Staffordshire University's student money page says to buy pasta in bulk and try own-brand products, and Winchester students' cupboard essentials name dried pasta, tins, soup, tea and sauces. Butter and washing-up liquid are our additions as things a shared kitchen runs through, and we kept one swap for each.",
+    "sources": [
+      "https://www.staffs.ac.uk/students/money-matters/managing-your-money/money-saving-tips-for-students",
+      "https://www.which.co.uk/reviews/food-and-drink/article/best-buy-food-and-drink-aCHpy6l9oPzX",
+      "https://www.which.co.uk/reviews/washing-up-liquid/aldi/brand",
+      "https://www.winchesterstudents.co.uk/your-voice/independent-living/cooking/cupboard-essentials"
+    ],
+    "items": [
+      {
+        "pair": "pg-tips-original-vs-sainsburys-red-label-tea-bags-gb",
+        "qty": 1
+      },
+      {
+        "pair": "heinz-cream-of-tomato-soup-vs-sainsburys-cream-of-tomato-soup-gb",
+        "qty": 1
+      },
+      {
+        "pair": "heinz-tomato-ketchup-vs-co-op-on-the-side-ketchup-gb",
+        "qty": 1
+      },
+      {
+        "pair": "anchor-salted-butter-vs-tesco-salted-butter-gb",
+        "qty": 1
+      },
+      {
+        "pair": "barilla-spaghetti-n5-vs-lidl-baresa-spaghetti-gb",
+        "qty": 1
+      },
+      {
+        "pair": "napolina-passata-vs-lidl-baresa-passata-gb",
+        "qty": 1
+      },
+      {
+        "pair": "fairy-original-washing-up-liquid-vs-aldi-magnum-original-gb",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "student-kitchen",
+    "slug": "student-kitchen-us",
+    "market": "US",
+    "title": "Student kitchen",
+    "audience": "Students cooking for themselves",
+    "blurb": "Pasta, jarred sauce, peanut butter, oats, parmesan and olive oil for cooking on a budget.",
+    "icon": "cooking",
+    "research": "Spoon University's college grocery list names pasta, jars of sauce, parmesan, cooking oil, peanut butter and oats, and Staffordshire University's student money page says to try own-brand products. We kept one swap for each item on that list that we have checked.",
+    "sources": [
+      "https://spoonuniversity.com/lifestyle/college-grocery-list",
+      "https://www.staffs.ac.uk/students/money-matters/managing-your-money/money-saving-tips-for-students",
+      "https://www.nbcdfw.com/news/consumer-reports/buying-store-brands-can-help-you-save-money-on-groceries/3173224/"
+    ],
+    "items": [
+      {
+        "pair": "ronzoni-penne-rigate-vs-bowl-and-basket-penne-rigate",
+        "qty": 1
+      },
+      {
+        "pair": "prego-flavored-with-meat-vs-signature-select-traditional-with-meat",
+        "qty": 1
+      },
+      {
+        "pair": "jif-creamy-peanut-butter-vs-good-and-gather-creamy-peanut-butter",
+        "qty": 1,
+        "note": "Consumer Reports tasters found Target's peanut butter less roasted than Skippy, so try one jar first."
+      },
+      {
+        "pair": "quaker-old-fashioned-vs-great-value-old-fashioned-oats-42oz",
+        "qty": 1
+      },
+      {
+        "pair": "kraft-grated-parmesan-vs-signature-select-grated-parmesan",
+        "qty": 1
+      },
+      {
+        "pair": "california-olive-ranch-medium-extra-virgin-olive-oil-vs-good-and-gather-extra-virgin-olive-oil",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "student-kitchen",
+    "slug": "student-kitchen-de",
+    "market": "DE",
+    "title": "Student kitchen",
+    "audience": "Students cooking for themselves",
+    "blurb": "Pasta sauce, oil, microwave rice, hazelnut spread, pasta and ketchup for cooking on a budget.",
+    "icon": "cooking",
+    "research": "Pasta, jars of sauce and cooking oil come from Spoon University's college grocery list, and Staffordshire University's student money page says to try own-brand products. Microwave rice, hazelnut spread and ketchup are our additions as cheap everyday items, because we read no German student list.",
+    "sources": [
+      "https://spoonuniversity.com/lifestyle/college-grocery-list",
+      "https://www.staffs.ac.uk/students/money-matters/managing-your-money/money-saving-tips-for-students"
+    ],
+    "items": [
+      {
+        "pair": "barilla-basilico-sauce-vs-la-campagna-pasta-sauce-basil-de",
+        "qty": 1
+      },
+      {
+        "pair": "thomy-reines-sonnenblumenoel-vs-vegola-sonnenblumenoel-de",
+        "qty": 1
+      },
+      {
+        "pair": "bens-original-mediterran-vs-k-classic-express-reis-mediterran-de",
+        "qty": 1
+      },
+      {
+        "pair": "nutella-vs-ja-nuss-nougat-creme-de",
+        "qty": 1
+      },
+      {
+        "pair": "barilla-fusilli-vs-combino-fusilli-de",
+        "qty": 1
+      },
+      {
+        "pair": "heinz-tomato-ketchup-vs-le-gusto-tomato-ketchup-de",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "new-flat",
+    "slug": "new-flat-gb",
+    "market": "GB",
+    "title": "A new flat",
+    "audience": "Moving in, first cupboard shop",
+    "blurb": "Tea, washing-up liquid, kitchen roll, washing powder, loo roll and a kettle for the first week.",
+    "icon": "key",
+    "research": "Tea, kitchen roll, loo roll and a kettle come from the Post Office moving-home checklist, and washing-up liquid and laundry powder from Which?'s test lists, which put own-label beside the brands. We kept one swap for each need we have checked, so bin bags and coffee aren't in it yet.",
+    "sources": [
+      "https://www.postoffice.co.uk/home-insurance/guides/moving-home-checklist",
+      "https://www.which.co.uk/reviews/washing-up-liquid/aldi/brand",
+      "https://www.which.co.uk/reviews/washing-powder-and-laundry-detergent/article/full-laundry-detergent-test-ratings-aIVZc3D36seF"
+    ],
+    "items": [
+      {
+        "pair": "tetley-original-vs-morrisons-everyday-tea-bags-gb",
+        "qty": 1
+      },
+      {
+        "pair": "fairy-original-washing-up-liquid-vs-aldi-magnum-original-gb",
+        "qty": 1
+      },
+      {
+        "pair": "plenty-original-kitchen-roll-vs-lidl-floralys-kitchen-towels-gb",
+        "qty": 1
+      },
+      {
+        "pair": "ariel-original-powder-vs-aldi-almat-bio-powder-gb",
+        "qty": 1,
+        "note": "Almat is sold for whites, so check the pack before using it on colours."
+      },
+      {
+        "pair": "cushelle-original-2-ply-vs-viking-toilet-roll-2-ply-gb",
+        "qty": 1,
+        "note": "Both prices here exclude VAT, and Viking's sheets are smaller than Cushelle's."
+      },
+      {
+        "pair": "kenwood-abbey-lux-kettle-vs-igenix-cordless-kettle-gb",
+        "qty": 1,
+        "note": "Both prices here exclude VAT."
+      }
+    ]
+  },
+  {
+    "family": "new-flat",
+    "slug": "new-flat-us",
+    "market": "US",
+    "title": "A new apartment",
+    "audience": "Moving in, first cupboard shop",
+    "blurb": "Dishwasher pacs, laundry detergent, paper towels, toilet paper, pepper, dish soap and trash bags.",
+    "icon": "key",
+    "research": "Every item is named on Capital One's first apartment checklist, and This Old House's checklist also names toilet paper, dish soap and dishwasher detergent. We kept one swap for each need, so sponges and bleach aren't in it yet.",
+    "sources": [
+      "https://www.capitalone.com/learn-grow/life-events/first-apartment-checklist/",
+      "https://www.thisoldhouse.com/moving/first-apartment-checklist"
+    ],
+    "items": [
+      {
+        "pair": "cascade-platinum-vs-kirkland-ultrashine-dishwasher-pacs",
+        "qty": 1,
+        "note": "Kirkland is sold at Costco, which needs a membership."
+      },
+      {
+        "pair": "tide-original-liquid-vs-kirkland-ultra-clean-liquid",
+        "qty": 1
+      },
+      {
+        "pair": "bounty-select-a-size-vs-uline-deluxe-easy-size-paper-towels",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "charmin-ultra-soft-vs-uline-ultra-toilet-tissue",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "mccormick-vs-good-and-gather-ground-black-pepper-3oz",
+        "qty": 1
+      },
+      {
+        "pair": "dawn-liquid-dish-soap-vs-uline-liquid-dish-soap",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "glad-forceflex-vs-kirkland-flex-tech-13-gallon",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "new-flat",
+    "slug": "new-flat-de",
+    "market": "DE",
+    "title": "A new flat",
+    "audience": "Moving in, first cupboard shop",
+    "blurb": "Washing-up liquid, oil, salt, cleaners, toilet paper and a phone charger for the first week.",
+    "icon": "key",
+    "research": "The list follows two German first-flat checklists, from Uniplaces and HanseMerkur, which name washing-up liquid, oil, salt, all-purpose and bathroom cleaner, toilet paper and a charger. We kept one swap for each need, so bin bags and kitchen roll aren't in it yet.",
+    "sources": [
+      "https://www.uniplaces.com/city-explorer/checkliste-erste-wohnung-europa/",
+      "https://www.hansemerkur.de/haus-wohnen/erstausstattung-wohnung"
+    ],
+    "items": [
+      {
+        "pair": "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de",
+        "qty": 1
+      },
+      {
+        "pair": "thomy-reines-sonnenblumenoel-vs-vegola-sonnenblumenoel-de",
+        "qty": 1
+      },
+      {
+        "pair": "bad-reichenhaller-siedesalz-mit-kaliumjodat-vs-k-classic-jodsalz-aus-siedesalz-de",
+        "qty": 1
+      },
+      {
+        "pair": "ajax-frischeduft-vs-jeden-tag-allzweck-reiniger-lemon-de",
+        "qty": 1
+      },
+      {
+        "pair": "bref-power-kalk-schmutz-vs-jeden-tag-badreiniger-de",
+        "qty": 1
+      },
+      {
+        "pair": "zewa-bewaehrt-3-lagig-vs-jeden-tag-soft-3-lagig-de",
+        "qty": 1
+      },
+      {
+        "pair": "apple-20w-usb-c-adapter-vs-goobay-20w-usb-c-pd-gan-nano-de",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "cleaning-cupboard",
+    "slug": "cleaning-cupboard-gb",
+    "market": "GB",
+    "title": "Cleaning cupboard",
+    "audience": "Anyone stocking a cleaning shelf",
+    "blurb": "Washing-up liquid, dishwasher tablets, kitchen roll, washing powder and glass cleaner.",
+    "icon": "spray",
+    "research": "Washing-up liquid, dishwasher tablets and laundry powder come from Which?'s test lists, which put own-label beside the brands, and kitchen roll and cleaning products from the Post Office moving-home checklist. We kept one swap for each job, so all-purpose spray and bin bags aren't in it yet.",
+    "sources": [
+      "https://www.which.co.uk/reviews/washing-up-liquid/aldi/brand",
+      "https://www.which.co.uk/reviews/dishwasher-tablets",
+      "https://www.which.co.uk/reviews/washing-powder-and-laundry-detergent/article/full-laundry-detergent-test-ratings-aIVZc3D36seF",
+      "https://www.postoffice.co.uk/home-insurance/guides/moving-home-checklist"
+    ],
+    "items": [
+      {
+        "pair": "fairy-max-power-original-vs-aldi-magnum-original-gb",
+        "qty": 1
+      },
+      {
+        "pair": "finish-powerball-ultimate-all-in-one-vs-aldi-magnum-premium-gb",
+        "qty": 1
+      },
+      {
+        "pair": "plenty-original-kitchen-roll-vs-lidl-floralys-kitchen-towels-gb",
+        "qty": 1
+      },
+      {
+        "pair": "ariel-original-powder-vs-aldi-almat-bio-powder-gb",
+        "qty": 1,
+        "note": "Almat is sold for whites, so check the pack before using it on colours."
+      },
+      {
+        "pair": "cif-professional-window-multisurface-vs-viking-window-cleaner-gb",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "cleaning-cupboard",
+    "slug": "cleaning-cupboard-us",
+    "market": "US",
+    "title": "Cleaning cupboard",
+    "audience": "Anyone stocking a cleaning shelf",
+    "blurb": "Vinegar, glass cleaner, dishwasher pacs, stain remover, dish soap, all-purpose cleaner, wipes and toilet cleaner.",
+    "icon": "spray",
+    "research": "White vinegar, glass cleaner, dish soap and all-purpose cleaner come from Molly Maid's cleaning supply checklist, and wipes, dishwasher detergent and stain remover from Capital One's first apartment checklist. Toilet cleaner comes from a Philadelphia rental firm's bathroom checklist, and we kept one swap for each job.",
+    "sources": [
+      "https://mollymaid.com/cleaning-tips/schedules-charts-and-checklists/cleaning-supply-checklist",
+      "https://www.capitalone.com/learn-grow/life-events/first-apartment-checklist/",
+      "https://www.phillyaptrentals.com/?p=216590"
+    ],
+    "items": [
+      {
+        "pair": "heinz-vs-great-value-distilled-white-vinegar-gallon",
+        "qty": 1
+      },
+      {
+        "pair": "windex-glass-cleaner-vs-uline-glass-cleaner",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "cascade-platinum-vs-kirkland-ultrashine-dishwasher-pacs",
+        "qty": 1,
+        "note": "Kirkland is sold at Costco, which needs a membership."
+      },
+      {
+        "pair": "oxiclean-versatile-vs-up-up-powder-stain-remover",
+        "qty": 1
+      },
+      {
+        "pair": "dawn-liquid-dish-soap-vs-uline-liquid-dish-soap",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "409-cleaner-degreaser-vs-uline-2in1-cleaner-disinfectant",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "clorox-disinfecting-wipes-lemon-vs-uline-disinfecting-wipes",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "lysol-toilet-bowl-cleaner-vs-uline-toilet-bowl-cleaner",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      }
+    ]
+  },
+  {
+    "family": "cleaning-cupboard",
+    "slug": "cleaning-cupboard-de",
+    "market": "DE",
+    "title": "Cleaning cupboard",
+    "audience": "Anyone stocking a cleaning shelf",
+    "blurb": "Washing-up liquid, all-purpose and bathroom cleaner, scourers, glass cleaner and toilet cleaner.",
+    "icon": "spray",
+    "research": "Washing-up liquid, sponges, glass cleaner, bathroom and toilet cleaner and all-purpose cleaner are all named on HanseMerkur's first-flat checklist, and Uniplaces' checklist names the bathroom and all-purpose cleaners too. We kept one swap for each job.",
+    "sources": [
+      "https://www.hansemerkur.de/haus-wohnen/erstausstattung-wohnung",
+      "https://www.uniplaces.com/city-explorer/checkliste-erste-wohnung-europa/"
+    ],
+    "items": [
+      {
+        "pair": "frosch-spuelmittel-limone-vs-shine-washing-up-liquid-concentrated-de",
+        "qty": 1
+      },
+      {
+        "pair": "ajax-frischeduft-vs-jeden-tag-allzweck-reiniger-lemon-de",
+        "qty": 1
+      },
+      {
+        "pair": "bref-power-kalk-schmutz-vs-jeden-tag-badreiniger-de",
+        "qty": 1
+      },
+      {
+        "pair": "vileda-glitzi-plus-vs-jeden-tag-anti-fett-topfreiniger-de",
+        "qty": 1
+      },
+      {
+        "pair": "sidolin-streifenfrei-cristal-vs-jeden-tag-glasreiniger-de",
+        "qty": 1
+      },
+      {
+        "pair": "null-null-wc-urinstein-kalkloeser-vs-jeden-tag-wc-urin-kalksteinloeser-de",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "bathroom-cabinet",
+    "slug": "bathroom-cabinet-us",
+    "market": "US",
+    "title": "Bathroom shelf",
+    "audience": "Stocking a bathroom shelf",
+    "blurb": "Petroleum jelly, toothpaste, shampoo, moisturizer, hand soap and mouthwash.",
+    "icon": "bath",
+    "research": "The list follows This Old House's first apartment checklist and a Philadelphia rental firm's bathroom checklist, which name toothpaste, shampoo, hand soap, lotion and mouthwash. We kept one swap for each and added petroleum jelly as a skin-care staple.",
+    "sources": [
+      "https://www.thisoldhouse.com/moving/first-apartment-checklist",
+      "https://www.phillyaptrentals.com/?p=216590"
+    ],
+    "items": [
+      {
+        "pair": "vaseline-original-vs-equate-petroleum-jelly-13oz",
+        "qty": 1
+      },
+      {
+        "pair": "crest-pro-health-advanced-deep-clean-vs-equate-pro-advanced-toothpaste",
+        "qty": 1
+      },
+      {
+        "pair": "head-and-shoulders-classic-clean-vs-equate-everyday-clean-dandruff-shampoo",
+        "qty": 1
+      },
+      {
+        "pair": "cerave-moisturizing-cream-vs-equate-moisturizing-cream-ceramides",
+        "qty": 1
+      },
+      {
+        "pair": "softsoap-aloe-refill-vs-uline-aloe-hand-soap-refill",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "listerine-original-vs-equate-antiseptic-original-1-5l",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "bathroom-cabinet",
+    "slug": "bathroom-cabinet-de",
+    "market": "DE",
+    "title": "Bathroom shelf",
+    "audience": "Stocking a bathroom shelf",
+    "blurb": "Mouthwash, toothpaste, shampoo, cotton pads and buds, sun milk and toilet paper.",
+    "icon": "bath",
+    "research": "Toothpaste and shampoo come from This Old House's first apartment checklist, and mouthwash and cotton from a Philadelphia rental firm's bathroom checklist. Sun milk comes from Stiftung Warentest's piece on travel toiletries and toilet paper from HanseMerkur's first-flat checklist, and cotton buds are our addition, with one swap for each.",
+    "sources": [
+      "https://www.thisoldhouse.com/moving/first-apartment-checklist",
+      "https://www.phillyaptrentals.com/?p=216590",
+      "https://www.test.de/Kosmetika-fuer-unterwegs-Selbst-umfuellen-Reisekasse-schonen-5336267-0/",
+      "https://www.hansemerkur.de/haus-wohnen/erstausstattung-wohnung"
+    ],
+    "items": [
+      {
+        "pair": "listerine-cool-mint-mild-vs-dontodent-mundspuelung-de",
+        "qty": 1
+      },
+      {
+        "pair": "sensodyne-sensitivitaet-zahnfleisch-vs-kaufland-bevola-sensitive-de",
+        "qty": 1
+      },
+      {
+        "pair": "pantene-volumen-pur-vs-dm-balea-volumen-shampoo-de",
+        "qty": 3,
+        "note": "Priced for 300 ml."
+      },
+      {
+        "pair": "avene-sonnenmilch-dry-touch-vs-dm-sundance-sonnenmilch-lsf-50-de",
+        "qty": 2,
+        "note": "Priced for 200 ml."
+      },
+      {
+        "pair": "demak-up-expert-wattepads-vs-la-ligne-duo-wattepads-de",
+        "qty": 1
+      },
+      {
+        "pair": "q-tips-pflegestaebchen-papierschaft-vs-la-ligne-wattestaebchen-papierschaft-de",
+        "qty": 1,
+        "note": "La Ligne is a refill bag, so you need your own container."
+      },
+      {
+        "pair": "zewa-bewaehrt-3-lagig-vs-jeden-tag-soft-3-lagig-de",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "babys-first-year",
+    "slug": "babys-first-year-us",
+    "market": "US",
+    "title": "Baby's first year",
+    "audience": "New parents of a baby under one",
+    "blurb": "Formula, petroleum jelly for diaper rash, an ointment for dry skin and electrolyte solution.",
+    "icon": "baby",
+    "research": "Formula, diaper rash care and electrolyte solution come from the American Academy of Pediatrics' guides, and the ointment from its page on dry skin in babies. This is a short list with one medicine, because we have no checked swaps yet for diapers, wipes or baby wash.",
+    "sources": [
+      "https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Choosing-an-Infant-Formula.aspx",
+      "https://www.healthychildren.org/English/ages-stages/baby/diapers-clothing/Pages/Diaper-Rash.aspx",
+      "https://www.healthychildren.org/English/health-issues/conditions/abdominal/Pages/Diarrhea.aspx",
+      "https://www.nhs.uk/baby/caring-for-a-newborn/nappy-rash/",
+      "https://www.healthychildren.org/English/health-issues/conditions/skin/Pages/Avoiding-Dry-Winter-Skin-in-Babies-and-Toddlers.aspx"
+    ],
+    "items": [
+      {
+        "pair": "similac-advance-vs-parents-choice-advantage-formula",
+        "qty": 1,
+        "note": "Check with your pediatrician before switching formula."
+      },
+      {
+        "pair": "vaseline-original-vs-equate-petroleum-jelly-13oz",
+        "qty": 1,
+        "note": "The AAP names petrolatum as a good choice for diaper rash."
+      },
+      {
+        "pair": "aquaphor-baby-vs-equate-advanced-healing-ointment",
+        "qty": 1,
+        "note": "For very dry, irritated patches, which the AAP says ointments help. Same formula on the label, though Equate's is sold for adult skin care."
+      },
+      {
+        "pair": "pedialyte-vs-parents-choice-electrolyte-solution-unflavored",
+        "qty": 1,
+        "note": "For diarrhea or vomiting. Ask your baby's doctor or a pharmacist before giving it."
+      }
+    ]
+  },
+  {
+    "family": "babys-first-year",
+    "slug": "babys-first-year-gb",
+    "market": "GB",
+    "title": "Baby's first year",
+    "audience": "New parents of a baby under one",
+    "blurb": "Nappies, fragrance-free wipes, infant paracetamol and washing-up liquid for bottles.",
+    "icon": "baby",
+    "research": "Nappies come from Which?'s nappy buying guide, wipes from the NHS nappy rash advice, and infant paracetamol and bottle washing from NHS pages. We kept one swap for each need and one medicine, and this is a short list because we have no checked swaps yet for barrier cream or baby wash.",
+    "sources": [
+      "https://www.which.co.uk/reviews/nappies/article/how-to-buy-the-best-disposable-nappies",
+      "https://www.nhs.uk/baby/caring-for-a-newborn/nappy-rash/",
+      "https://www.nhs.uk/medicines/paracetamol-for-children/",
+      "https://www.nhs.uk/best-start-in-life/baby/feeding-your-baby/bottle-feeding/how-to-make-up-a-feed/how-to-sterilise-equipment/"
+    ],
+    "items": [
+      {
+        "pair": "pampers-harmonie-aqua-vs-tesco-fred-and-flo-biodegradable-wipes-gb",
+        "qty": 1,
+        "note": "The NHS says to use water or fragrance-free, alcohol-free wipes."
+      },
+      {
+        "pair": "calpol-infant-vs-tesco-health-paracetamol-120mg-5ml-suspension-gb",
+        "qty": 1,
+        "note": "Tesco's dosing table starts at 3 months, so check the age and dose on the pack. Ask a pharmacist if you're not sure."
+      },
+      {
+        "pair": "fairy-original-washing-up-liquid-vs-aldi-magnum-original-gb",
+        "qty": 1,
+        "note": "For bottle-feeding: the NHS says to clean bottles and teats in hot, soapy water before sterilising."
+      },
+      {
+        "pair": "pampers-baby-dry-size-4-vs-tesco-fred-and-flo-ultra-dry-size-4-gb",
+        "qty": 1,
+        "note": "Priced at size 4, the size Which? tracks. A younger baby needs a smaller size, which we haven't checked."
+      }
+    ]
+  },
+  {
+    "family": "babys-first-year",
+    "slug": "babys-first-year-de",
+    "market": "DE",
+    "title": "Baby's first year",
+    "audience": "New parents of a baby under one",
+    "blurb": "Nappies, sensitive wipes, baby shampoo, cotton pads and washing-up liquid for bottles.",
+    "icon": "baby",
+    "research": "Nappies come from Which?'s nappy buying guide, and wipes, cotton and baby wash from the NHS pages on nappy rash and washing a baby, with bottle washing from its sterilising guide. These are UK guides because we read no German checklist, and we kept one swap for each need with no medicine.",
+    "sources": [
+      "https://www.which.co.uk/reviews/nappies/article/how-to-buy-the-best-disposable-nappies",
+      "https://www.nhs.uk/baby/caring-for-a-newborn/nappy-rash/",
+      "https://www.nhs.uk/baby/caring-for-a-newborn/washing-and-bathing-your-baby/",
+      "https://www.nhs.uk/best-start-in-life/baby/feeding-your-baby/bottle-feeding/how-to-make-up-a-feed/how-to-sterilise-equipment/"
+    ],
+    "items": [
+      {
+        "pair": "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de",
+        "qty": 1,
+        "note": "For bottle-feeding: the NHS says to clean bottles and teats in hot, soapy water before sterilising."
+      },
+      {
+        "pair": "buebchen-baby-shampoo-sensitiv-vs-penaten-baby-shampoo-de",
+        "qty": 1,
+        "note": "The NHS says plain water is fine for a young baby, so this one is optional. Both contain perfume."
+      },
+      {
+        "pair": "demak-up-expert-wattepads-vs-la-ligne-duo-wattepads-de",
+        "qty": 1,
+        "note": "Sold for make-up, but both are 100% cotton. The NHS uses damp cotton wool for topping and tailing."
+      },
+      {
+        "pair": "pampers-baby-dry-gr-4-vs-jeden-tag-babywindeln-maxi-gr-4-de",
+        "qty": 1,
+        "note": "Priced at size 4. A younger baby needs a smaller size, which we haven't checked."
+      },
+      {
+        "pair": "pampers-feuchte-tuecher-sensitive-vs-jeden-tag-baby-feuchttuecher-sensitiv-de",
+        "qty": 1,
+        "note": "Both are sold without added perfume, as the NHS advises for nappy changes."
+      }
+    ]
+  },
+  {
+    "family": "batteries-charging",
+    "slug": "batteries-charging-gb",
+    "market": "GB",
+    "title": "Batteries",
+    "audience": "Homes with torches, remotes and alarms",
+    "blurb": "9V, AA, AAA and rechargeable AA batteries, brand against cheaper.",
+    "icon": "battery",
+    "research": "The Red Cross emergency kit page says to keep a torch and spare batteries for a power cut, and Which?'s battery guide compares big brands with own-label. We kept one swap for each size, so chargers and cables aren't in it yet.",
+    "sources": [
+      "https://www.redcross.org.uk/get-help/prepare-for-emergencies/prepare-an-emergency-kit",
+      "https://www.which.co.uk/reviews/batteries/article/how-to-buy-the-best-batteries-a0JRf6d3M52H"
+    ],
+    "items": [
+      {
+        "pair": "duracell-plus-9v-vs-energizer-max-9v-gb",
+        "qty": 1
+      },
+      {
+        "pair": "duracell-original-aa-vs-aldi-activ-energy-aa-gb",
+        "qty": 1
+      },
+      {
+        "pair": "duracell-plus-power-boost-aaa-12-vs-energizer-max-plus-aaa-20-gb",
+        "qty": 1
+      },
+      {
+        "pair": "duracell-recharge-ultra-aa-2500mah-vs-ikea-ladda-aa-2450mah-gb",
+        "qty": 1,
+        "note": "Ikea's Ladda scored 84% in Which?'s test."
+      }
+    ]
+  },
+  {
+    "family": "batteries-charging",
+    "slug": "batteries-charging-de",
+    "market": "DE",
+    "title": "Batteries and charging",
+    "audience": "Homes with phones, laptops and remotes",
+    "blurb": "AA, AAA, rechargeable and coin batteries, phone and laptop chargers, and a USB-C cable.",
+    "icon": "battery",
+    "research": "The Red Cross emergency kit page names spare batteries and a phone charger, and Which?'s guides to fast chargers and cables at home name USB-C leads and 60W laptop chargers. We kept one swap for each job, so power banks aren't in it yet.",
+    "sources": [
+      "https://www.redcross.org.uk/get-help/prepare-for-emergencies/prepare-an-emergency-kit",
+      "https://www.which.co.uk/news/article/essential-cables-you-should-always-have-at-home-aXaFQ1P16JMs",
+      "https://www.which.co.uk/reviews/mobile-phones/article/how-to-buy-the-best-fast-charger-a8mHV7E8uhh0"
+    ],
+    "items": [
+      {
+        "pair": "duracell-plus-power-boost-aa-vs-ansmann-alkaline-aa-de",
+        "qty": 1
+      },
+      {
+        "pair": "varta-alkaline-aaa-8-vs-gut-und-guenstig-alkaline-aaa-10-de",
+        "qty": 1
+      },
+      {
+        "pair": "panasonic-eneloop-2000-aa-vs-varta-56706-2100-aa-de",
+        "qty": 1
+      },
+      {
+        "pair": "duracell-electronics-cr2032-vs-intenso-cr2032-de",
+        "qty": 1
+      },
+      {
+        "pair": "apple-20w-usb-c-adapter-vs-goobay-20w-usb-c-pd-gan-nano-de",
+        "qty": 1,
+        "note": "Which? warns to be wary of unusually cheap unbranded chargers."
+      },
+      {
+        "pair": "ugreen-nexode-pro-65w-vs-d-link-dcp-651-65w-de",
+        "qty": 1,
+        "note": "Which? says to look for 60W or above to charge a laptop."
+      },
+      {
+        "pair": "apple-usb-c-cable-1m-60w-vs-delock-usb-c-cable-1m-60w-de",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "home-office",
+    "slug": "home-office-gb",
+    "market": "GB",
+    "title": "Home office",
+    "audience": "Working or studying at a desk at home",
+    "blurb": "Highlighters, printer paper, pens, sticky notes, tape, glue sticks and staples, brand against Viking's own.",
+    "icon": "laptop",
+    "research": "The list comes from The Order Expert's office supply checklist, which names pens, highlighters, sticky notes, tape, staples and printer paper, and a published school supply list, which names glue sticks and highlighters. We kept one swap for each, so printer ink and pencils aren't in it yet.",
+    "sources": [
+      "https://www.theorderexpert.com/the-ultimate-office-supply-checklist/",
+      "https://sfes.hcpss.org/school-supply-list/2025-2026/grade-5"
+    ],
+    "items": [
+      {
+        "pair": "stabilo-boss-original-8-vs-viking-hc1-5-highlighter-8-gb",
+        "qty": 1
+      },
+      {
+        "pair": "hp-copy-a4-80gsm-paper-vs-viking-economy-a4-80gsm-paper-gb",
+        "qty": 1
+      },
+      {
+        "pair": "bic-cristal-original-50-vs-viking-sbm-1-ballpoint-50-gb",
+        "qty": 1
+      },
+      {
+        "pair": "post-it-super-sticky-76-vs-viking-extra-sticky-76-gb",
+        "qty": 1
+      },
+      {
+        "pair": "scotch-magic-810-19mm-33m-vs-viking-invisible-tape-19mm-33m-gb",
+        "qty": 1
+      },
+      {
+        "pair": "pritt-stick-43g-5-vs-viking-glue-stick-40g-5-gb",
+        "qty": 1
+      },
+      {
+        "pair": "rexel-no-56-staples-vs-viking-26-6-staples-gb",
+        "qty": 1,
+        "note": "Prices exclude VAT."
+      }
+    ]
+  },
+  {
+    "family": "home-office",
+    "slug": "home-office-us",
+    "market": "US",
+    "title": "Home office",
+    "audience": "Working or studying at a desk at home",
+    "blurb": "A keyboard, USB-C hub, laptop charger, cables and AAA batteries for a laptop desk.",
+    "icon": "laptop",
+    "research": "The keyboard and batteries come from The Order Expert's office supply checklist, and the HDMI cable, USB-C lead, adapter and 60W-plus charger from Which?'s guide to cables worth keeping at home. We kept one swap for each need, so a mouse and printer supplies aren't in it yet.",
+    "sources": [
+      "https://www.theorderexpert.com/the-ultimate-office-supply-checklist/",
+      "https://www.which.co.uk/news/article/essential-cables-you-should-always-have-at-home-aXaFQ1P16JMs"
+    ],
+    "items": [
+      {
+        "pair": "apple-magic-keyboard-usb-c-vs-logitech-pebble-keys-2-k380s",
+        "qty": 1,
+        "note": "The Logitech runs on AAA batteries and has round keys, so it feels different from the Apple."
+      },
+      {
+        "pair": "apple-usb-c-digital-av-multiport-adapter-vs-ugreen-7-in-1-usb-c-hub",
+        "qty": 1,
+        "note": "UGREEN says 4K at 60Hz needs a laptop port with DisplayPort 1.4 Alt Mode."
+      },
+      {
+        "pair": "apple-96w-usb-c-power-adapter-vs-onn-100w-gan-laptop-charger",
+        "qty": 1,
+        "note": "Walmart doesn't state the current rating of the included cable, and a 3A cable caps it at 60W."
+      },
+      {
+        "pair": "belkin-8k-ultra-high-speed-hdmi-2-1-2m-vs-best-buy-essentials-6ft-8k-hdmi-2-1",
+        "qty": 1,
+        "note": "Check the pack for the Ultra High Speed HDMI label."
+      },
+      {
+        "pair": "apple-60w-usb-c-woven-cable-vs-anker-60w-usb-c-cable-2-pack",
+        "qty": 1,
+        "note": "Both are for charging, and neither suits fast file transfer or video."
+      },
+      {
+        "pair": "duracell-coppertop-aaa-vs-kirkland-signature-aaa",
+        "qty": 1,
+        "note": "Kirkland is sold at Costco, which needs a membership."
+      }
+    ]
+  },
+  {
+    "family": "kitchen-basics",
+    "slug": "kitchen-basics-us",
+    "market": "US",
+    "title": "Kitchen basics",
+    "audience": "Stocking a home kitchen",
+    "blurb": "Garlic powder, vinegar, sugar, pepper, paper towels and trash bags, brand against store brand.",
+    "icon": "cooking",
+    "research": "Pepper, paper towels and trash bags come from Capital One's first apartment checklist, garlic powder and vinegar from a Parkview Health dietitian's pantry guide, and sugar from the Post Office moving-home checklist. We kept one swap for each need.",
+    "sources": [
+      "https://www.capitalone.com/learn-grow/life-events/first-apartment-checklist/",
+      "https://parkview.com/blog/the-staples-a-dietitian-says-you-should-have-in-your-pantry",
+      "https://www.postoffice.co.uk/home-insurance/guides/moving-home-checklist"
+    ],
+    "items": [
+      {
+        "pair": "mccormick-vs-good-and-gather-garlic-powder-3-12oz",
+        "qty": 1
+      },
+      {
+        "pair": "heinz-vs-great-value-distilled-white-vinegar-gallon",
+        "qty": 1
+      },
+      {
+        "pair": "domino-vs-great-value-granulated-sugar-4lb",
+        "qty": 1
+      },
+      {
+        "pair": "mccormick-vs-good-and-gather-ground-black-pepper-3oz",
+        "qty": 1
+      },
+      {
+        "pair": "bounty-select-a-size-vs-uline-deluxe-easy-size-paper-towels",
+        "qty": 1,
+        "note": "Uline sells to businesses in bulk, and shipping is extra."
+      },
+      {
+        "pair": "glad-forceflex-vs-kirkland-flex-tech-13-gallon",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "kitchen-basics",
+    "slug": "kitchen-basics-gb",
+    "market": "GB",
+    "title": "Kitchen basics",
+    "audience": "Stocking a home kitchen",
+    "blurb": "Tea, cooking oil, kitchen roll, washing-up liquid, dishwasher tablets, a kettle and foil.",
+    "icon": "cooking",
+    "research": "Tea, a kettle and kitchen roll come from the Post Office moving-home checklist, cooking oil from the British Dietetic Association's store cupboard list, foil from Capital One's first apartment checklist, and washing-up liquid and dishwasher tablets from Which?'s test lists. We kept one swap for each need.",
+    "sources": [
+      "https://www.postoffice.co.uk/home-insurance/guides/moving-home-checklist",
+      "https://www.capitalone.com/learn-grow/life-events/first-apartment-checklist/",
+      "https://www.which.co.uk/reviews/washing-up-liquid/aldi/brand",
+      "https://www.which.co.uk/reviews/dishwasher-tablets",
+      "https://www.bda.uk.com/food-health/lets-get-cooking/cooking-at-home/store-cupboard-ingredients.html"
+    ],
+    "items": [
+      {
+        "pair": "tetley-original-vs-morrisons-everyday-tea-bags-gb",
+        "qty": 1
+      },
+      {
+        "pair": "plenty-original-kitchen-roll-vs-lidl-floralys-kitchen-towels-gb",
+        "qty": 1
+      },
+      {
+        "pair": "fairy-original-washing-up-liquid-vs-aldi-magnum-original-gb",
+        "qty": 1
+      },
+      {
+        "pair": "finish-powerball-ultimate-all-in-one-vs-aldi-magnum-premium-gb",
+        "qty": 1
+      },
+      {
+        "pair": "filippo-berio-100-italian-vs-lidl-deluxe-puglian-extra-virgin-olive-oil-gb",
+        "qty": 1
+      },
+      {
+        "pair": "kenwood-abbey-lux-kettle-vs-igenix-cordless-kettle-gb",
+        "qty": 1,
+        "note": "Both prices here exclude VAT."
+      },
+      {
+        "pair": "bacofoil-professional-catering-foil-vs-caterwrap-catering-foil-gb",
+        "qty": 1,
+        "note": "This is a large catering roll, and neither page lists the foil's thickness."
+      }
+    ]
+  },
+  {
+    "family": "kitchen-basics",
+    "slug": "kitchen-basics-de",
+    "market": "DE",
+    "title": "Kitchen basics",
+    "audience": "Stocking a home kitchen",
+    "blurb": "Coffee filters, washing-up liquid, dishwasher tablets, baking parchment, scourers, foil and freezer bags.",
+    "icon": "cooking",
+    "research": "Baking parchment, foil, scourers, washing-up liquid and a coffee machine come from HanseMerkur's first-flat checklist, and freezer bags and dishwasher detergent from Capital One's first apartment checklist. We kept one swap for each need, with coffee filters added for the machine.",
+    "sources": [
+      "https://www.hansemerkur.de/haus-wohnen/erstausstattung-wohnung",
+      "https://www.capitalone.com/learn-grow/life-events/first-apartment-checklist/"
+    ],
+    "items": [
+      {
+        "pair": "melitta-filtertueten-weiss-1x4-vs-jeden-tag-kaffeefilter-groesse-4-de",
+        "qty": 1
+      },
+      {
+        "pair": "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de",
+        "qty": 1
+      },
+      {
+        "pair": "toppits-backpapier-vs-jeden-tag-backpapier-rolle-de",
+        "qty": 1
+      },
+      {
+        "pair": "vileda-glitzi-plus-vs-jeden-tag-anti-fett-topfreiniger-de",
+        "qty": 1
+      },
+      {
+        "pair": "somat-all-in-1-extra-xxl-vs-jeden-tag-all-in-one-multi-12-de",
+        "qty": 1
+      },
+      {
+        "pair": "toppits-alufolie-extra-reissfest-vs-quickpack-alufolie-premiumline-de",
+        "qty": 1
+      },
+      {
+        "pair": "pely-power-gefrierbeutel-1-liter-vs-jeden-tag-gefrierbeutel-1-liter-de",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "car-care",
+    "slug": "car-care-gb",
+    "market": "GB",
+    "title": "Car care",
+    "audience": "Keeping a car clean and the screen clear",
+    "blurb": "Screenwash, car shampoo, all-in-one polish, rain repellent and bug remover.",
+    "icon": "car",
+    "research": "Screenwash comes from the RAC's winter breakdown kit checklist, and car shampoo and all-in-one polish from the RAC's guide to washing a car. Rain repellent and bug remover are our additions, and Auto Express tested the products in both of those swaps.",
+    "sources": [
+      "https://www.rac.co.uk/drive/advice/winter-driving/winter-breakdown-kit-checklist",
+      "https://www.rac.co.uk/drive/advice/car-maintenance/how-to-wash-a-car"
+    ],
+    "items": [
+      {
+        "pair": "autoglym-ultimate-screenwash-vs-prestone-extreme-screenwash-gb",
+        "qty": 1,
+        "note": "Both are concentrates, so dilute them as the label says."
+      },
+      {
+        "pair": "autoglym-bodywork-shampoo-vs-simoniz-shampoo-and-wax-gb",
+        "qty": 1,
+        "note": "Simoniz contains wax, and Autoglym says it leaves existing wax intact."
+      },
+      {
+        "pair": "angelwax-enigma-aio-vs-sonax-xtreme-ceramic-polish-gb",
+        "qty": 1
+      },
+      {
+        "pair": "turtle-wax-clearvue-vs-rain-x-2-in-1-rain-repellent-gb",
+        "qty": 1,
+        "note": "The Rain-X was wearing off by four weeks, so expect to apply it more often."
+      },
+      {
+        "pair": "autoglym-active-insect-remover-vs-carplan-no1-super-bug-gb",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "family": "garden-shed",
+    "slug": "garden-shed-gb",
+    "market": "GB",
+    "title": "Garden shed",
+    "audience": "Starting out with a garden",
+    "blurb": "Peat-free compost, general fertiliser, a hose and secateurs, one of each.",
+    "icon": "sprout",
+    "research": "Compost and fertiliser come from the RHS peat-free guidance, and secateurs and a hose from Which?'s list of must-have tools for beginners. This is a short list with one swap for each need, because the rest of our garden swaps are more compost.",
+    "sources": [
+      "https://www.rhs.org.uk/soil-composts-mulches/peat-free",
+      "https://www.which.co.uk/news/article/must-have-garden-tools-for-beginners-aiZnG9w59Aoz"
+    ],
+    "items": [
+      {
+        "pair": "melcourt-sylvagrow-multi-purpose-40l-vs-boost-peat-free-46l-gb",
+        "qty": 1
+      },
+      {
+        "pair": "vitax-q4-vs-growmore-general-fertiliser-gb",
+        "qty": 1,
+        "note": "Growmore has less potash, so stay with Q4 for fruit and flowers that want it."
+      },
+      {
+        "pair": "hozelock-select-30m-vs-reinforced-pvc-water-hose-30m-gb",
+        "qty": 1,
+        "note": "Hozelock has a 10 year guarantee, and the unbranded hose lists none."
+      },
+      {
+        "pair": "felco-2-vs-darlac-expert-bypass-pruner-gb",
+        "qty": 1,
+        "note": "Felco has a lifetime guarantee against defects, and Darlac lists none here."
+      }
+    ]
+  },
+  {
+    "family": "tool-drawer",
+    "slug": "tool-drawer-gb",
+    "market": "GB",
+    "title": "Tool drawer",
+    "audience": "First-time DIY at home",
+    "blurb": "Pliers, sanitary silicone, penetrating spray and wood glue, brand against cheaper.",
+    "icon": "wrench",
+    "research": "Pliers, silicone sealant, a spray for stuck parts and wood glue all appear in Which?'s toolbox essentials guide, and toom's basic toolkit guide also lists pliers. This is a short list with one swap for each need, so filler, tape and paintbrushes aren't in it yet.",
+    "sources": [
+      "https://www.which.co.uk/reviews/decorating-and-diy/article/toolbox-essentials-apVQC1Y577yw",
+      "https://toom.de/selbermachen/werkstatt-maschinen/werkzeuge/werkzeugkiste-grundausstattung/"
+    ],
+    "items": [
+      {
+        "pair": "knipex-assembly-combination-set-vs-minotaur-hi-leverage-pliers-gb",
+        "qty": 1
+      },
+      {
+        "pair": "dowsil-785-sanitary-silicone-vs-soudal-trade-sanitary-silicone-gb",
+        "qty": 1
+      },
+      {
+        "pair": "wd-40-specialist-penetrant-vs-rocket-tt-gb",
+        "qty": 1
+      },
+      {
+        "pair": "evo-stik-interior-resin-wood-glue-vs-sikabond-pva-wood-adhesive-gb",
+        "qty": 1,
+        "note": "The Sika listing's description names another product, so check the label when it arrives."
+      }
+    ]
+  },
+  {
+    "family": "laundry",
+    "slug": "laundry-de",
+    "market": "DE",
+    "title": "Laundry",
+    "audience": "Anyone doing their own washing",
+    "blurb": "Detergent for whites, colours and delicates, plus stain salt and softener.",
+    "icon": "shirt",
+    "research": "The three detergents follow Verbraucherzentrale advice that whites, colours and delicates are all most homes need, and Stiftung Warentest found cheap own-label powders among its top washers. Stain salt and softener are our additions as things people commonly buy, with one swap for each job.",
+    "sources": [
+      "https://www.vzhh.de/themen/umwelt-nachhaltigkeit/wasch-reinigungsmittel/welche-waschmittel-brauche-ich",
+      "https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/wohnen/clever-cool-compact-so-wird-auch-oekologisch-sauber-gewaschen-13910",
+      "https://www.test.de/presse/pressemitteilungen/Vollwaschmittel-Pulver-meist-besser-als-Gelkissen-5381155-0/"
+    ],
+    "items": [
+      {
+        "pair": "persil-universal-kraft-gel-vs-jeden-tag-vollwaschmittel-fluessig-de",
+        "qty": 1,
+        "note": "Liquids have no bleach, so Stiftung Warentest still prefers a good powder for whites."
+      },
+      {
+        "pair": "persil-color-kraft-gel-vs-jeden-tag-color-waschmittel-fluessig-de",
+        "qty": 1
+      },
+      {
+        "pair": "perwoll-black-renew-vs-jeden-tag-feinwaschmittel-black-sensation-de",
+        "qty": 1,
+        "note": "Verbraucherzentrale says a separate detergent for dark clothes is not needed, so a plain fine-wash detergent also does the job."
+      },
+      {
+        "pair": "dr-beckmann-fleckensalz-oxi-power-vs-sil-fleckensalz-de",
+        "qty": 1
+      },
+      {
+        "pair": "lenor-weichspueler-aprilfrisch-vs-jeden-tag-weichspueler-meeresfrische-de",
+        "qty": 1,
+        "note": "Verbraucherzentrale says softener doesn't get clothes cleaner, so you can skip it. Lenor warns against using it on children's nightwear."
+      }
+    ]
+  },
+  {
+    "family": "cat-care",
+    "slug": "cat-care-de",
+    "market": "DE",
+    "title": "Cat care",
+    "audience": "Cat owners, new and existing",
+    "blurb": "Clumping litter, dry food, wet food and washing-up liquid for the litter tray.",
+    "icon": "paw",
+    "research": "The list follows the ASPCA's general cat care guide, which covers litter and washing the tray with mild detergent, and VetPartners' new kitten checklist and the RSPCA's diet page, which cover food and cleaning. We kept one swap for each need, so treats and dental sticks aren't in it yet.",
+    "sources": [
+      "https://www.aspca.org/pet-care/cat-care/general-cat-care",
+      "https://www.vetpartners.co.uk/pet-advice/cat-advice/cat-ownership/new-kitten-checklist/",
+      "https://www.rspca.org.uk/adviceandwelfare/pets/cats/diet"
+    ],
+    "items": [
+      {
+        "pair": "catsan-ultra-plus-vs-biokats-micro-classic-de",
+        "qty": 1
+      },
+      {
+        "pair": "sheba-filets-huhn-vs-miamor-feine-filets-huhn-pur-de",
+        "qty": 1,
+        "note": "Both are complementary food, so feed them alongside a complete diet."
+      },
+      {
+        "pair": "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de",
+        "qty": 1,
+        "note": "The ASPCA says to wash the tray weekly with mild detergent and avoid scents, especially lemon, so check the label."
+      },
+      {
+        "pair": "royal-canin-indoor-27-vs-concept-for-life-indoor-cats-de",
+        "qty": 1,
+        "note": "Both are complete foods for adult indoor cats. Change food gradually, and ask your vet if your cat has a special diet."
+      }
+    ]
+  }
+]

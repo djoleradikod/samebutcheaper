@@ -1,0 +1,1851 @@
+[
+ {
+  "slug": "varta-energy-aa-30-vs-ansmann-alkaline-aa-20-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Varta Energy AA vs Ansmann Alkaline AA",
+  "brand": {
+   "brand": "Varta",
+   "product": "Varta Energy Alkaline AA LR06, 30 cells",
+   "size": 30,
+   "unit": "cell",
+   "price": 8.75,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-energy-30-stueck-272634",
+   "gtin": "4008496978199",
+   "image": "https://images.openproductsfacts.org/images/products/400/849/697/8199/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR06), 1.5 V",
+     "amount": "capacity not stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Ansmann",
+   "product": "Ansmann Alkaline AA LR6, box of 20",
+   "size": 20,
+   "unit": "cell",
+   "price": 3.95,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-20-stueck-in-einer-box-1-5-v-272290",
+   "gtin": "4013674005482",
+   "image": "https://images.openproductsfacts.org/images/products/401/367/400/5482/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR6), 1.5 V",
+     "amount": "2800 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V alkaline AA cells at the same shop, and the Ansmann box costs about 20 cents a cell against about 29 cents for Varta Energy, 32% less.",
+  "evidence": "Both prices read on pollin.de on 6 November 2026, including VAT: Varta EUR 8.75 for 30 (no reduction shown), Ansmann EUR 3.95 for 20. Pollin shows a list price of EUR 12.48 next to the Ansmann box, and the shop price is what we use. Pack counts and barcodes were read on each product page and match the Open Facts records. LR6 is the IEC designation for an alkaline AA, as listed on Wikipedia's battery size table.",
+  "differences": "Varta's page gives 5 years of storage and no capacity. Ansmann's page gives 2800 mAh and no storage period, so we cannot compare either figure across the two. No test on this page or in our sources covers these two packs. Both Pollin pages also carry a notice that stock may be short.",
+  "why": "On the shop's own listings, both are the same size and chemistry at the same voltage, and nothing on the Varta page gives a performance figure that the Ansmann lacks.",
+  "aspects": [
+   {
+    "aspect": "Pack",
+    "brand": "30 cells",
+    "alternative": "20 cells",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-energy-30-stueck-272634",
+   "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-20-stueck-in-einer-box-1-5-v-272290",
+   "https://world.openproductsfacts.org/product/4008496978199",
+   "https://world.openproductsfacts.org/product/4013674005482",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-plus-power-boost-aa-vs-ansmann-alkaline-aa-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Duracell Plus Power Boost AA vs Ansmann Alkaline AA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus Power Boost Alkaline AA LR06, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 2.79,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/duracell-alkaline-mignon-batterie-lr06-1-5v-plus-power-boost-4-stueck-273631",
+   "gtin": "5000394176027",
+   "image": "https://images.openfoodfacts.org/images/products/500/039/417/6027/front_es.3.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR06), 1.5 V",
+     "amount": "capacity not stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Ansmann",
+   "product": "Ansmann Alkaline AA LR6, box of 20",
+   "size": 20,
+   "unit": "cell",
+   "price": 3.95,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-20-stueck-in-einer-box-1-5-v-272290",
+   "gtin": "4013674005482",
+   "image": "https://images.openproductsfacts.org/images/products/401/367/400/5482/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR6), 1.5 V",
+     "amount": "2800 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V alkaline AA cells at the same shop, at about 70 cents a cell for the Duracell 4-pack and about 20 cents for the Ansmann box.",
+  "evidence": "Both prices read on pollin.de on 6 November 2026, including VAT: Duracell EUR 2.79 for 4 and Ansmann EUR 3.95 for 20, a 72% gap per cell. The gap is smaller against Duracell's bigger pack: EUR 9.99 for 16 is about 62 cents a cell, and Ansmann is still 68% cheaper than that. Pollin shows a list price of EUR 12.48 next to the Ansmann box, and the shop price is what we use. Barcodes on both product pages match the Open Facts records.",
+  "differences": "You have to buy 20 Ansmann cells to get this price, against 4 Duracell. Duracell's page states no capacity or storage period, and Ansmann's states 2800 mAh with no storage period. No test we read covers these two packs, so run time could differ.",
+  "why": "The listings show the same size, chemistry and voltage, and Duracell's page gives no capacity or run-time figure to set against the lower price.",
+  "aspects": [
+   {
+    "aspect": "Pack",
+    "brand": "4 cells",
+    "alternative": "20 cells",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/duracell-alkaline-mignon-batterie-lr06-1-5v-plus-power-boost-4-stueck-273631",
+   "https://www.pollin.de/p/duracell-alkaline-mignon-batterie-lr06-1-5v-plus-power-boost-16-stueck-273634",
+   "https://www.pollin.de/p/ansmann-mignon-batterie-set-alkaline-20-stueck-in-einer-box-1-5-v-272290",
+   "https://world.openfoodfacts.org/product/5000394176027",
+   "https://world.openproductsfacts.org/product/4013674005482"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "varta-longlife-power-aa-40-vs-intenso-energy-ultra-aa-40-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Varta Longlife Power AA vs Intenso Energy Ultra AA",
+  "brand": {
+   "brand": "Varta",
+   "product": "Varta Longlife Power Alkaline AA LR06, 40 cells",
+   "size": 40,
+   "unit": "cell",
+   "price": 14.99,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-longlife-power-40-stueck-272635",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR06), 1.5 V",
+     "amount": "capacity not stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Intenso",
+   "product": "Intenso Energy Ultra Alkaline AA LR06, 40 cells",
+   "size": 40,
+   "unit": "cell",
+   "price": 7.95,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-40-stueck-272120",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR06), 1.5 V",
+     "amount": "2600 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same 40-cell count, size and chemistry at the same shop, with Intenso about 47% cheaper per cell.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT: Varta EUR 14.99 and Intenso EUR 7.95 for 40. Pollin shows Intenso against a list price of EUR 17.90, and the shop price is what we use. Barcodes on the pages: Varta 4008496987948, Intenso 4034303027408, neither in Open Facts, so no photo.",
+  "differences": "Varta's page states 10 years of storage. Intenso's says only long shelf life with no figure, and one customer review on the page reports two cells leaking in an unopened pack after about a year, in a set rated 4.87 of 5 from 194 reviews. Varta is ahead on documented storage. No test we read covers these two packs.",
+  "why": "For devices you use up batteries in quickly, the stated storage life matters less and the price gap is large. If they will sit in a drawer for years, Varta's stated 10 years is the better documented choice.",
+  "aspects": [
+   {
+    "aspect": "Stated storage life",
+    "brand": "10 years",
+    "alternative": "Not stated in years",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Stated capacity",
+    "brand": "Not stated",
+    "alternative": "2600 mAh",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-longlife-power-40-stueck-272635",
+   "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-40-stueck-272120",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
+   "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-100-stueck-272177"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Intenso Energy Ultra Alkaline AA LR06, 100 cells",
+   "size": 100,
+   "price": 16.99,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-100-stueck-272177"
+  }
+ },
+ {
+  "slug": "varta-longlife-power-aaa-40-vs-intenso-energy-ultra-aaa-40-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "AAA batteries",
+  "title": "Varta Longlife Power AAA vs Intenso Energy Ultra AAA",
+  "brand": {
+   "brand": "Varta",
+   "product": "Varta Longlife Power Alkaline AAA LR03, 40 cells",
+   "size": 40,
+   "unit": "cell",
+   "price": 14.62,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/varta-batterie-alkaline-micro-aaa-lr03-1-5v-longlife-power-40-stueck-272621",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AAA (LR03), 1.5 V",
+     "amount": "capacity not stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Intenso",
+   "product": "Intenso Energy Ultra Alkaline AAA LR03, 40 cells",
+   "size": 40,
+   "unit": "cell",
+   "price": 5.99,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/intenso-micro-batterie-set-energy-ultra-aaa-lr03-alkaline-40-stueck-272121",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AAA (LR03), 1.5 V",
+     "amount": "1250 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same 40-cell count, size and chemistry at the same shop, with Intenso about 59% cheaper per cell.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT: Varta EUR 14.62 and Intenso EUR 5.99 for 40. Pollin shows Intenso against a list price of EUR 14.90, and the shop price is what we use. Barcodes on the pages: Varta 4008496987924, Intenso 4034303027415, neither in Open Facts, so no photo.",
+  "differences": "Varta's page states 10 years of storage, and Intenso's gives no figure, so Varta is ahead on documented storage. Intenso states 1250 mAh and Varta states no capacity. No test we read covers these two packs.",
+  "why": "The two are the same size and chemistry, and Varta's page gives no capacity figure that would justify paying more than double per cell for regular use.",
+  "aspects": [
+   {
+    "aspect": "Stated storage life",
+    "brand": "10 years",
+    "alternative": "Not stated in years",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/varta-batterie-alkaline-micro-aaa-lr03-1-5v-longlife-power-40-stueck-272621",
+   "https://www.pollin.de/p/intenso-micro-batterie-set-energy-ultra-aaa-lr03-alkaline-40-stueck-272121",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
+   "https://www.pollin.de/p/intenso-micro-batterie-set-energy-ultra-aaa-lr03-alkaline-100-stueck-272178"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Intenso Energy Ultra Alkaline AAA LR03, 100 cells",
+   "size": 100,
+   "price": 12.99,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/intenso-micro-batterie-set-energy-ultra-aaa-lr03-alkaline-100-stueck-272178"
+  }
+ },
+ {
+  "slug": "varta-alkaline-aaa-8-vs-gut-und-guenstig-alkaline-aaa-10-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "AAA batteries",
+  "title": "Varta Alkaline AAA vs Gut & Günstig Alkaline AAA",
+  "brand": {
+   "brand": "Varta",
+   "product": "Varta Batterien AAA Alkaline, 8 cells",
+   "size": 8,
+   "unit": "cell",
+   "price": 1.99,
+   "retailer": "aldi",
+   "asin": null,
+   "url": "https://www.aldi-sued.de/",
+   "gtin": "4008496083459",
+   "image": "https://images.openfoodfacts.org/images/products/400/849/608/3459/front_de.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AAA",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Gut & Günstig",
+   "product": "Gut & Günstig Batterien LR03 AAA Alkaline, 10 cells",
+   "size": 10,
+   "unit": "cell",
+   "price": 1.59,
+   "retailer": "edeka",
+   "asin": null,
+   "url": "https://www.edeka.de/suche?q=Gut+%26+G%C3%BCnstig+Batterien",
+   "gtin": "4311501585559",
+   "image": "https://images.openproductsfacts.org/images/products/431/150/158/5559/front_de.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AAA (LR03)",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are alkaline AAA packs seen on German shelves, at about 25 cents a cell for Varta and 16 cents for the EDEKA own label.",
+  "evidence": "Open Prices records, community-submitted with a proof photo and not marked as discounted: Varta EUR 1.99 for 8 at Aldi Süd in München on 8 January 2026, Gut & Günstig EUR 1.59 for 10 at EDEKA in München on 28 November 2025. That is about 36% less per cell. Each barcode has one record, in different chains, about six weeks apart.",
+  "differences": "Different chains and dates, and one record each, so a price today may differ. Neither record gives capacity, storage life or the Varta product line. No test we read covers these two packs.",
+  "why": "Both packs are labelled alkaline AAA, and the records and labels here show no capacity or run-time reason for paying the higher price per cell.",
+  "aspects": [
+   {
+    "aspect": "Pack",
+    "brand": "8 cells",
+    "alternative": "10 cells",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://prices.openfoodfacts.org/products/4008496083459",
+   "https://prices.openfoodfacts.org/products/4311501585559",
+   "https://world.openfoodfacts.org/product/4008496083459",
+   "https://world.openproductsfacts.org/product/4311501585559"
+  ],
+  "price_checked": "2025-11"
+ },
+ {
+  "slug": "duracell-plus-c-vs-ansmann-alkaline-c-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "C batteries",
+  "title": "Duracell Plus C vs Ansmann Alkaline C",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus Alkaline C LR14, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 5.49,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/duracell-alkaline-baby-batterie-lr14-1-5v-plus-4-stueck-272752",
+   "key_ingredients": [
+    {
+     "name": "Alkaline C (LR14), 1.5 V",
+     "amount": "capacity not stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Ansmann",
+   "product": "Ansmann Alkaline C LR14, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 3.45,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/ansmann-baby-batterie-alkaline-c-lr14-1-5-v-4-stueck-272291",
+   "key_ingredients": [
+    {
+     "name": "Alkaline C (LR14), 1.5 V",
+     "amount": "7000 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same four-cell pack, size and chemistry at the same shop, with Ansmann 37% cheaper.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT: Duracell EUR 5.49 for 4, Ansmann EUR 3.45 for 4 (shown down from EUR 3.51). Barcodes on the pages: Duracell 5000394141865, Ansmann 4013674005536, neither in Open Facts, so no photo.",
+  "differences": "Ansmann states 7000 mAh and Duracell states no capacity. Neither page gives a storage period in years. No test we read covers these two packs.",
+  "why": "The listings show the same size, chemistry and voltage in the same pack count, and the Duracell listing gives no capacity figure to compare against the saving.",
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/duracell-alkaline-baby-batterie-lr14-1-5v-plus-4-stueck-272752",
+   "https://www.pollin.de/p/ansmann-baby-batterie-alkaline-c-lr14-1-5-v-4-stueck-272291",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-plus-d-vs-ansmann-alkaline-d-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "D batteries",
+  "title": "Duracell Plus D vs Ansmann Alkaline D",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus Alkaline D LR20, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 6.49,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/duracell-alkaline-mono-batterie-lr20-1-5v-plus-4-stueck-272779",
+   "key_ingredients": [
+    {
+     "name": "Alkaline D (LR20), 1.5 V",
+     "amount": "capacity not stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Ansmann",
+   "product": "Ansmann Alkaline D LR20, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 4.65,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/ansmann-mono-batterie-alkaline-d-lr20-1-5-v-4-stueck-272292",
+   "key_ingredients": [
+    {
+     "name": "Alkaline D (LR20), 1.5 V",
+     "amount": "16000 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same four-cell pack, size and chemistry at the same shop, with Ansmann 28% cheaper.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT: Duracell EUR 6.49 for 4, Ansmann EUR 4.65 for 4. Neither shows a reduction. Barcodes on the pages: Duracell 5000394142039, Ansmann 4013674005543, neither in Open Facts, so no photo.",
+  "differences": "Ansmann states 16000 mAh and Duracell states no capacity. Neither page gives a storage period in years. No test we read covers these two packs.",
+  "why": "The listings show the same size, chemistry and voltage in the same pack count, and the Duracell listing gives no capacity figure to compare against the saving.",
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/duracell-alkaline-mono-batterie-lr20-1-5v-plus-4-stueck-272779",
+   "https://www.pollin.de/p/ansmann-mono-batterie-alkaline-d-lr20-1-5-v-4-stueck-272292",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-electronics-cr2032-vs-intenso-cr2032-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "CR2032 batteries",
+  "title": "Duracell Electronics CR2032 vs Intenso CR2032",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Electronics Lithium CR2032, 3 V, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 3.99,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/duracell-lithium-knopfzelle-cr2032-3v-electronics-4-stueck-272804",
+   "key_ingredients": [
+    {
+     "name": "Lithium CR2032, 3 V",
+     "amount": "capacity not stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Intenso",
+   "product": "Intenso Lithium CR2032, 3 V, 6 cells",
+   "size": 6,
+   "unit": "cell",
+   "price": 1.95,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/intenso-lithium-knopfzelle-cr2032-6-stueck-272252",
+   "key_ingredients": [
+    {
+     "name": "Lithium manganese dioxide CR2032, 3 V",
+     "amount": "220 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 3 V lithium CR2032 coin cells at the same shop, at about 1.00 euro a cell for Duracell and about 33 cents for Intenso.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT, with no reduction shown: Duracell EUR 3.99 for 4, Intenso EUR 1.95 for 6, about 67% less per cell. Barcodes on the pages: Duracell 5000394119376, Intenso 4034303027897, neither in Open Facts, so no photo. CR2032 is a set size of 20 x 3.2 mm in the IEC naming listed on Wikipedia.",
+  "differences": "Intenso states 220 mAh and about 5 years of shelf life. Duracell's page states neither, and it does not say whether either cell has a child-safety coating, so check this if the cell goes in something a small child can reach. No test we read covers these two.",
+  "why": "CR2032 fixes the size and the voltage, and Duracell's page gives no capacity to weigh against paying about three times as much per cell.",
+  "aspects": [
+   {
+    "aspect": "Child-safety coating",
+    "brand": "Not documented on the page",
+    "alternative": "Not documented on the page",
+    "verdict": "same"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/duracell-lithium-knopfzelle-cr2032-3v-electronics-4-stueck-272804",
+   "https://www.pollin.de/p/intenso-lithium-knopfzelle-cr2032-6-stueck-272252",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
+   "https://www.pollin.de/p/intenso-lithium-knopfzellen-set-cr2032-60er-set-272503"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Intenso Lithium CR2032, 3 V, set of 60",
+   "size": 60,
+   "price": 12.75,
+   "retailer": "pollin",
+   "url": "https://www.pollin.de/p/intenso-lithium-knopfzellen-set-cr2032-60er-set-272503"
+  }
+ },
+ {
+  "slug": "varta-longlife-power-9v-vs-ansmann-industrial-9v-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "9V batteries",
+  "title": "Varta Longlife Power 9V vs Ansmann Industrial 9V",
+  "brand": {
+   "brand": "Varta",
+   "product": "Varta Longlife Power 9V block, 2 cells",
+   "size": 2,
+   "unit": "cell",
+   "price": 3.25,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/varta-9v-block-batterie-longlife-power-2-stueck-271683",
+   "gtin": "4008496559909",
+   "image": "https://images.openproductsfacts.org/images/products/400/849/655/9909/front_fr.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline 9 V block",
+     "amount": "580 mAh stated"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Ansmann",
+   "product": "Ansmann Industrial Alkaline 9V block, 10 cells",
+   "size": 10,
+   "unit": "cell",
+   "price": 10.8,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/ansmann-9v-blockbatterie-industrial-alkaline-10-stueck-272051",
+   "key_ingredients": [
+    {
+     "name": "Alkaline 9 V block",
+     "amount": "525 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are alkaline 9 V blocks at the same shop, and the Ansmann 10-pack is about 34% cheaper per cell, or about 27% per mAh after its lower stated capacity.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT: Varta EUR 3.25 for 2 (shown down from EUR 3.27), Ansmann EUR 10.80 for 10 (shown down from EUR 10.84). Per cell that is EUR 1.63 against EUR 1.08. A single Ansmann cell costs EUR 1.39, which is 14% less than Varta per cell. Ansmann's barcode 4013674017287 is not in Open Facts, so that side has no photo.",
+  "differences": "Varta states more capacity, 580 mAh against 525 mAh. The saving depends on buying ten. No test we read covers these two.",
+  "why": "Even after the lower stated capacity, the 10-pack works out cheaper per mAh, so it suits anyone who gets through enough 9 V cells to buy ten, such as for smoke alarms.",
+  "aspects": [
+   {
+    "aspect": "Stated capacity",
+    "brand": "580 mAh",
+    "alternative": "525 mAh",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Pack",
+    "brand": "2 cells",
+    "alternative": "10 cells",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/varta-9v-block-batterie-longlife-power-2-stueck-271683",
+   "https://www.pollin.de/p/ansmann-9v-blockbatterie-industrial-alkaline-10-stueck-272051",
+   "https://www.pollin.de/p/ansmann-9v-blockbatterie-industrial-alkaline-1-stueck-272158",
+   "https://world.openproductsfacts.org/product/4008496559909"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "panasonic-eneloop-2000-aa-vs-varta-56706-2100-aa-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "Rechargeable AA batteries",
+  "title": "Panasonic eneloop 2000 mAh AA vs Varta 2100 mAh AA",
+  "brand": {
+   "brand": "Panasonic eneloop",
+   "product": "Panasonic eneloop NiMH AA 2000 mAh, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 13.85,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/panasonic-eneloop-nimh-mignon-akku-2000mah-4-stueck-273079",
+   "key_ingredients": [
+    {
+     "name": "NiMH AA, 1.2 V",
+     "amount": "2000 mAh"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Varta",
+   "product": "Varta NiMH AA 56706, 2100 mAh, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 7.26,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/varta-nimh-mignon-akku-56706-2100-mah-4-stueck-271654",
+   "key_ingredients": [
+    {
+     "name": "NiMH AA, 1.2 V",
+     "amount": "2100 mAh"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are low self-discharge NiMH AA cells of about 2000 mAh in four-packs at the same shop, with Varta 48% cheaper and slightly higher stated capacity.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT: eneloop EUR 13.85 for 4, Varta EUR 7.26 for 4 (shown down from EUR 7.45). Barcodes on the pages: eneloop 5410853064190, Varta 4008496550692, neither in Open Facts, so no photo.",
+  "differences": "eneloop's page promises up to 2100 recharges and up to 70% of its charge after 10 years of storage. Varta's says very low self-discharge with no figure, and gives no recharge count. So eneloop may last far longer over its life, and the Varta saving could shrink if you recharge often. No test we read covers these two.",
+  "why": "If you recharge only now and then, you may never reach the extra cycles eneloop promises. If you recharge weekly, eneloop's documented cycle count is the stronger case.",
+  "aspects": [
+   {
+    "aspect": "Stated recharge cycles",
+    "brand": "Up to 2100",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Stated capacity",
+    "brand": "2000 mAh",
+    "alternative": "2100 mAh",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/panasonic-eneloop-nimh-mignon-akku-2000mah-4-stueck-273079",
+   "https://www.pollin.de/p/varta-nimh-mignon-akku-56706-2100-mah-4-stueck-271654",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "panasonic-eneloop-2500-aa-vs-varta-5716-2600-aa-de",
+  "market": "DE",
+  "category": "batteries",
+  "subcategory": "Rechargeable AA batteries",
+  "title": "Panasonic eneloop 2500 mAh AA vs Varta 2600 mAh AA",
+  "brand": {
+   "brand": "Panasonic eneloop",
+   "product": "Panasonic eneloop NiMH AA 2500 mAh, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 16.95,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/p/panasonic-eneloop-nimh-mignon-akku-2500mah-4-stueck-273081",
+   "key_ingredients": [
+    {
+     "name": "NiMH AA, 1.2 V",
+     "amount": "2500 mAh"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Varta",
+   "product": "Varta NiMH AA 5716, 2600 mAh, 4 cells",
+   "size": 4,
+   "unit": "cell",
+   "price": 11.5,
+   "retailer": "pollin",
+   "asin": null,
+   "url": "https://www.pollin.de/search?query=4008496745975",
+   "gtin": "4008496745975",
+   "image": "https://images.openproductsfacts.org/images/products/400/849/674/5975/front_fr.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "NiMH AA",
+     "amount": "2600 mAh"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are high-capacity NiMH AA four-packs at the same shop, with Varta 32% cheaper and slightly higher stated capacity.",
+  "evidence": "Both read on pollin.de on 6 November 2026, including VAT, with no reduction shown: eneloop EUR 16.95 for 4, Varta EUR 11.50 for 4 (article 271658, barcode 4008496745975, which also matches the Open Facts record). The eneloop barcode 5410853064152 is not in Open Facts, so that side has no photo.",
+  "differences": "eneloop's page promises up to 500 recharges and up to 70% of its charge after 10 years in storage. Varta's says very low self-discharge with no figure, and gives no recharge count, so eneloop is better documented. No test we read covers these two.",
+  "why": "For high-capacity cells both state about the same mAh, so the premium buys eneloop's documented storage and cycle figures. Whether they matter depends on how you use the cells.",
+  "aspects": [
+   {
+    "aspect": "Stated recharge cycles",
+    "brand": "Up to 500",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Stated capacity",
+    "brand": "2500 mAh",
+    "alternative": "2600 mAh",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.pollin.de/p/panasonic-eneloop-nimh-mignon-akku-2500mah-4-stueck-273081",
+   "https://www.pollin.de/search?query=4008496745975",
+   "https://world.openproductsfacts.org/product/4008496745975"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-plus-power-boost-aa-12-vs-energizer-max-plus-aa-12-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Duracell Plus Power Boost AA vs Energizer Max Plus AA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus Power Boost AA LR6 Alkaline, pack of 12",
+   "size": 12,
+   "unit": "cell",
+   "price": 20.39,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/duracell-batteries-duracell-plus-aa-lr6-alkaline-pack-of-12-p-1270619",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR6), 1.5 V",
+     "amount": "capacity not listed"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Energizer",
+   "product": "Energizer Max Plus AA LR6 Alkaline, pack of 12",
+   "size": 12,
+   "unit": "cell",
+   "price": 14.87,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/energizer-alkaline-batteries-aa-alkaline-batteries-max-plus-lr6-1-5v-pack-of-12-p-1206695",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AA (LR6), 1.5 V",
+     "amount": "2550 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same 12-cell AA alkaline pack count at the same shop, with Energizer Max Plus 27% cheaper at Viking's single-pack price.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, as Viking shows them by default. Single-pack tier: Duracell GBP 16.99, Energizer GBP 12.39. At 20% VAT that comes to about GBP 20.39 and GBP 14.87. Barcodes on the pages: Duracell 5000394176324, Energizer 7638900437386, neither in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Viking lists a storage life of up to 12 years for the Energizer and none for Duracell. Which? reports that Energizer's top-scoring batteries beat Duracell's Best Buy, without naming these exact packs in what we read. Viking's Black Friday offers may change prices.",
+  "why": "On Viking's listing the Energizer has the same size and chemistry with more documented detail, at a lower price, and Which? does not rank Duracell above Energizer.",
+  "aspects": [
+   {
+    "aspect": "Stated storage life",
+    "brand": "Not listed",
+    "alternative": "Up to 12 years",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [
+   "own-brand-batteries-beat-duracell-not-energizer"
+  ],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/duracell-batteries-duracell-plus-aa-lr6-alkaline-pack-of-12-p-1270619",
+   "https://www.viking-direct.co.uk/en/energizer-alkaline-batteries-aa-alkaline-batteries-max-plus-lr6-1-5v-pack-of-12-p-1206695",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Energizer Max Plus AA LR6 Alkaline, 3 packs of 12, with VAT",
+   "size": 36,
+   "price": 37.4,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/energizer-alkaline-batteries-aa-alkaline-batteries-max-plus-lr6-1-5v-pack-of-12-p-1206695"
+  }
+ },
+ {
+  "slug": "duracell-plus-power-boost-aaa-12-vs-energizer-max-plus-aaa-20-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "AAA batteries",
+  "title": "Duracell Plus Power Boost AAA vs Energizer Max Plus AAA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus Power Boost AAA LR03 Alkaline, pack of 12",
+   "size": 12,
+   "unit": "cell",
+   "price": 20.39,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/duracell-batteries-duracell-plus-aaa-lr03-alkaline-pack-of-12-p-1270620",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AAA (LR03)",
+     "amount": "capacity not listed"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Energizer",
+   "product": "Energizer Max Plus AAA LR03 Alkaline, pack of 20",
+   "size": 20,
+   "unit": "cell",
+   "price": 18.59,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/energizer-battery-max-plus-aaa-20-pieces-p-1001607",
+   "key_ingredients": [
+    {
+     "name": "Alkaline AAA (LR03), 1.5 V",
+     "amount": "1200 mAh stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are AAA alkaline cells at the same shop, and the Energizer 20-pack costs about 45% less per cell than the Duracell 12-pack.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. Single-pack tier: Duracell GBP 16.99 for 12 (about GBP 1.42 a cell), Energizer GBP 15.49 for 20 (about 77p a cell). The Energizer page has a Black Friday badge, and its tier prices are what we use. Barcodes on the pages: Duracell 5000394176911, Energizer 7638900423174, neither in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Pack sizes differ: a smaller Energizer 8-pack is GBP 9.29 before VAT, about GBP 1.16 a cell, 18% less than Duracell. Viking's Duracell description also mentions AA in one line, though its title and specification say AAA. Energizer lists up to 12 years of storage. Duracell lists none.",
+  "why": "Size and chemistry match, the larger Energizer pack costs less per cell, and Which? does not rank Duracell above Energizer.",
+  "aspects": [
+   {
+    "aspect": "Pack",
+    "brand": "12 cells",
+    "alternative": "20 cells",
+    "verdict": "different"
+   },
+   {
+    "aspect": "Stated storage life",
+    "brand": "Not listed",
+    "alternative": "Up to 12 years",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [
+   "own-brand-batteries-beat-duracell-not-energizer"
+  ],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/duracell-batteries-duracell-plus-aaa-lr03-alkaline-pack-of-12-p-1270620",
+   "https://www.viking-direct.co.uk/en/energizer-battery-max-plus-aaa-20-pieces-p-1001607",
+   "https://www.viking-direct.co.uk/en/electronics-c-117/batteries-chargers-c-11703/batteries-c-11703001",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-plus-9v-vs-energizer-max-9v-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "9V batteries",
+  "title": "Duracell Plus 9V vs Energizer Max 9V",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus 6LR61 9V Alkaline, pack of 2",
+   "size": 2,
+   "unit": "cell",
+   "price": 14.87,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/duracell-batteries-6lr61-pack-of-2-p-1138916",
+   "key_ingredients": [
+    {
+     "name": "Alkaline 9 V (6LR61)",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Energizer",
+   "product": "Energizer Max 9V 6LR61 Alkaline, pack of 2",
+   "size": 2,
+   "unit": "cell",
+   "price": 11.15,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/energizer-batteries-max-9v-2-pieces-p-1039570",
+   "gtin": "7638900426533",
+   "image": "https://images.openproductsfacts.org/images/products/763/890/042/6533/front_en.5.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Alkaline 9 V (6LR61)",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same two-pack of 6LR61 alkaline 9 V cells at the same shop, with Energizer 25% cheaper at Viking's single-pack price.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. Single-pack tier: Duracell GBP 12.39, Energizer GBP 9.29. Both pages state up to 5 years in storage. The Duracell barcode 5000394142268 is not in Open Facts, so that side has no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Viking lists 21000 mAh for this Energizer 9 V, which can't be right for a cell this size, so we ignore it. Duracell lists no capacity, so we can't compare capacity from these pages. No test we read covers these two.",
+  "why": "Both are the same standard 6LR61 type with the same stated storage life, so nothing on the listings accounts for paying a third more for the Duracell.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/duracell-batteries-6lr61-pack-of-2-p-1138916",
+   "https://www.viking-direct.co.uk/en/energizer-batteries-max-9v-2-pieces-p-1039570",
+   "https://world.openproductsfacts.org/product/7638900426533",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Energizer Max 9V 6LR61 Alkaline, 3 packs of 2, with VAT",
+   "size": 6,
+   "price": 29.84,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/energizer-batteries-max-9v-2-pieces-p-1039570"
+  }
+ },
+ {
+  "slug": "apple-20w-usb-c-adapter-vs-goobay-20w-usb-c-pd-gan-nano-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "USB-C chargers",
+  "title": "Apple 20W USB-C Power Adapter vs goobay 20 W USB-C PD GaN Nano",
+  "brand": {
+   "brand": "Apple",
+   "product": "Apple 20W USB-C Power Adapter MHJE3ZM/A",
+   "size": 1,
+   "unit": "charger",
+   "price": 19.09,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Apple/20W-USB-C-Power-Adapter-Ladegerät/html/product/1687702",
+   "key_ingredients": [
+     { "name": "USB-C wall charger, single port", "amount": "20 W" }
+   ]
+  },
+  "alternative": {
+   "brand": "goobay",
+   "product": "goobay 20 W USB-C PD GaN Schnellladegerät Nano",
+   "size": 1,
+   "unit": "charger",
+   "price": 9.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/goobay/20-W-USB-C-PD-GaN-Schnellladegerät-Nano/html/product/100203948",
+   "key_ingredients": [
+     { "name": "USB-C wall charger, single port", "amount": "20 W" },
+     { "name": "Power Delivery (PD)", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 20 W single-port USB-C wall chargers at the same shop, with goobay about 48% cheaper.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, both shown as available immediately: Apple EUR 19.09, goobay EUR 9.99. Shipping starts at EUR 7.99 on both. Barcodes: Apple 0194252157022, goobay 4040849766916, neither in Open Facts, so no photo.",
+  "differences": "goobay's listing states Power Delivery, 5 to 12 V up to 3 A, and GaN. Apple's listing states up to 20 W and doesn't mention PD or GaN. Apple's listing says no cable is included, and goobay's doesn't say. Warranty isn't stated on either page. Neither page shows USB-IF certification. No test we read covers these two.",
+  "why": "On these listings the two have the same rated output and connector, and Apple's listing gives no extra charging feature to justify nearly double the price.",
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/Apple/20W-USB-C-Power-Adapter-Ladegerät/html/product/1687702",
+   "https://www.alternate.de/goobay/20-W-USB-C-PD-GaN-Schnellladegerät-Nano/html/product/100203948",
+   "https://www.usb.org/usb-charger-pd"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "apple-30w-usb-c-adapter-vs-goobay-30w-usb-c-pd-gan-slim-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "USB-C chargers",
+  "title": "Apple 30W USB-C Power Adapter vs goobay 30 W USB-C PD GaN Slim",
+  "brand": {
+   "brand": "Apple",
+   "product": "Apple USB-C Power Adapter MW2G3ZM, 30 W",
+   "size": 1,
+   "unit": "charger",
+   "price": 40.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Apple/USB-C-Power-Adapter-MW2G3ZM-30-Watt-Ladegerät/html/product/100059907",
+   "key_ingredients": [
+     { "name": "USB-C wall charger, single port", "amount": "30 W" }
+   ]
+  },
+  "alternative": {
+   "brand": "goobay",
+   "product": "goobay USB-C PD GaN Schnellladegerät Slim, 30 W",
+   "size": 1,
+   "unit": "charger",
+   "price": 12.49,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/goobay/USB-C-PD-GaN-Schnellladegerät-Slim-30-W-/html/product/100151990",
+   "key_ingredients": [
+     { "name": "USB-C wall charger, single port", "amount": "30 W" },
+     { "name": "Power Delivery (PD)", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 30 W single-port USB-C wall chargers at the same shop, with goobay about 70% cheaper and in stock.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT: Apple EUR 40.99 on order, available in 16 to 22 days; goobay EUR 12.49, available immediately. Shipping starts at EUR 7.99 on both. Barcodes: Apple 0195949376511, goobay 4040849757365, neither in Open Facts, so no photo.",
+  "differences": "goobay lists 5 to 12 V up to 3 A and PD, and doesn't mention PPS. If a device needs a higher voltage to reach 30 W, the listing doesn't show it. Apple says no cable is included, and goobay doesn't say. Warranty isn't stated on either page. Neither page shows USB-IF certification. No test we read covers these two.",
+  "why": "The rated output and connector match on the listings, and the Apple adapter at this shop costs more than three times as much with a wait of about three weeks.",
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/Apple/USB-C-Power-Adapter-MW2G3ZM-30-Watt-Ladegerät/html/product/100059907",
+   "https://www.alternate.de/goobay/USB-C-PD-GaN-Schnellladegerät-Slim-30-W-/html/product/100151990",
+   "https://www.usb.org/usb-charger-pd"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "ugreen-nexode-pro-65w-vs-d-link-dcp-651-65w-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "USB-C chargers",
+  "title": "UGREEN Nexode Pro 65W Mini vs D-Link DCP-651 65W",
+  "brand": {
+   "brand": "UGREEN",
+   "product": "UGREEN Nexode Pro Wall Charger 65W Mini",
+   "size": 1,
+   "unit": "charger",
+   "price": 36.19,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/UGREEN/Nexode-Pro-Wall-Charger-65W-Mini-Ladegerät/html/product/100202208",
+   "key_ingredients": [
+    {
+     "name": "2 x USB-C (65 W each), 1 x USB-A (22.5 W), PD 3.0",
+     "amount": "65 W total"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "D-Link",
+   "product": "D-Link DCP-651 65W GaN charger",
+   "size": 1,
+   "unit": "charger",
+   "price": 22.79,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/D-Link/65W-GaN-Ladegerät-DCP-651-PD-3-0-QC-3-0/html/product/100152549",
+   "key_ingredients": [
+    {
+     "name": "2 x USB-C (65 W each), 1 x USB-A (22.5 W), PD 3.0, GaN",
+     "amount": "65 W total"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 65 W PD 3.0 wall chargers with two USB-C ports and one USB-A at the same shop, with D-Link about 37% cheaper.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, both available immediately: UGREEN EUR 36.19 (shown against EUR 39.99), D-Link EUR 22.79 (shown against EUR 33.90). Both list 65 W on each USB-C port, 22.5 W on USB-A and 65 W total. Shipping starts at EUR 7.99 on both. Barcodes: UGREEN 6941876228713, D-Link 0790069478765, neither in Open Facts, so no photo.",
+  "differences": "UGREEN includes a 100 W, 1.5 m USB-C cable, and D-Link's listing shows none, which narrows the real gap, since a UGREEN 100 W cable lists at about EUR 10 at this shop. UGREEN lists QC 4.0 and D-Link QC 3.0. D-Link includes US, UK, EU and AU plug adapters. PPS isn't mentioned on either page and warranty isn't stated. No test we read covers these two.",
+  "why": "The stated port layout and wattages match. If you already have a cable, the UGREEN's extra spend buys you little on these listings.",
+  "aspects": [
+   {
+    "aspect": "Cable in the box",
+    "brand": "100 W, 1.5 m USB-C",
+    "alternative": "None listed",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Travel plugs",
+    "brand": "Not listed",
+    "alternative": "US, UK, EU, AU adapters",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/UGREEN/Nexode-Pro-Wall-Charger-65W-Mini-Ladegerät/html/product/100202208",
+   "https://www.alternate.de/D-Link/65W-GaN-Ladegerät-DCP-651-PD-3-0-QC-3-0/html/product/100152549",
+   "https://www.usb.org/usb-charger-pd"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "apple-usb-c-cable-1m-60w-vs-delock-usb-c-cable-1m-60w-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "USB-C cables",
+  "title": "Apple USB-C Cable 1 m 60 W vs DeLOCK USB-C Cable 1 m 60 W",
+  "brand": {
+   "brand": "Apple",
+   "product": "Apple USB 2.0 Ladekabel USB-C to USB-C, 1 m, 60 W",
+   "size": 1,
+   "unit": "cable",
+   "price": 12.79,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Apple/USB-2-0-Ladekabel-USB-C-Stecker-USB-C-Stecker/html/product/100074667",
+   "key_ingredients": [
+     { "name": "USB-C to USB-C, USB 2.0", "amount": "1 m, up to 60 W" },
+     { "name": "Sleeved jacket", "amount": "" }
+   ]
+  },
+  "alternative": {
+   "brand": "DeLOCK",
+   "product": "DeLOCK USB 2.0 USB-C to USB-C cable, 1 m, 60 W",
+   "size": 1,
+   "unit": "cable",
+   "price": 4.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/DeLOCK/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker-mit-verlängertem-Knickschutz/html/product/100105427",
+   "key_ingredients": [
+     { "name": "USB-C to USB-C, USB 2.0", "amount": "1 m, up to 60 W" },
+     { "name": "Extended strain relief", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1 m USB 2.0 USB-C cables rated to 60 W at the same shop, with DeLOCK about 61% cheaper.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT: Apple EUR 12.79 (shown against EUR 25.00, on order with 4 to 8 days' wait), DeLOCK EUR 4.99 (available immediately). Shipping starts at EUR 7.99 on both, so it pays to add these to a bigger order. Barcodes: Apple 0195949371905, DeLOCK 4043619811243, neither in Open Facts, so no photo.",
+  "differences": "Apple's cable has a sleeved jacket. DeLOCK has extended strain relief. Neither listing shows the USB-IF logo or warranty. No test we read covers these two.",
+  "why": "They carry the same data standard and the same stated power at the same length on both listings, and the pages show nothing else that would make the Apple cable charge faster.",
+  "claims": [
+   "usb-if-certified-cable-meaning"
+  ],
+  "sources": [
+   "https://www.alternate.de/Apple/USB-2-0-Ladekabel-USB-C-Stecker-USB-C-Stecker/html/product/100074667",
+   "https://www.alternate.de/DeLOCK/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker-mit-verlängertem-Knickschutz/html/product/100105427",
+   "https://usb.org/node/596"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "samsung-usb-c-cable-1m-100w-vs-adata-usb-c-cable-1m-100w-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "USB-C cables",
+  "title": "Samsung USB-C Cable 1 m 100 W vs ADATA USB-C Cable 1 m 100 W",
+  "brand": {
+   "brand": "Samsung",
+   "product": "Samsung USB 2.0 USB-C to USB-C cable, 1 m, 100 W",
+   "size": 1,
+   "unit": "cable",
+   "price": 8.49,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Samsung/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker/html/product/1795571",
+   "key_ingredients": [
+     { "name": "USB-C to USB-C, USB 2.0, PD", "amount": "1 m, up to 100 W" }
+   ]
+  },
+  "alternative": {
+   "brand": "ADATA",
+   "product": "ADATA USB 2.0 USB-C to USB-C cable, 1 m, 100 W",
+   "size": 1,
+   "unit": "cable",
+   "price": 2.89,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/ADATA/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker/html/product/100058795",
+   "key_ingredients": [
+     { "name": "USB-C to USB-C, USB 2.0, PD", "amount": "1 m, up to 100 W" },
+     { "name": "PD 3.0, QC 3.0", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1 m USB 2.0 USB-C cables rated to 100 W at the same shop, with ADATA about 66% cheaper.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, both available immediately: Samsung EUR 8.49 (shown against EUR 19.90), ADATA EUR 2.89. Shipping starts at EUR 7.99 on both, so it pays to add these to a bigger order. Barcodes: Samsung 8806090144028, ADATA 4711085946225, neither in Open Facts, so no photo.",
+  "differences": "USB 2.0 data at up to 480 Mbit/s on both. Neither listing shows the USB-IF logo or warranty. USB-IF's scheme requires 60W or 240W markings on certified cables, and this 100 W rating is the seller's description. No test we read covers these two.",
+  "why": "The stated rating, length and data speed are the same, and the saving is large for a charging cable you may need several of.",
+  "claims": [
+   "usb-if-certified-cable-meaning"
+  ],
+  "sources": [
+   "https://www.alternate.de/Samsung/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker/html/product/1795571",
+   "https://www.alternate.de/ADATA/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker/html/product/100058795",
+   "https://usb.org/node/596"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "lindy-gold-line-hdmi-2m-vs-goobay-ultra-high-speed-hdmi-2m-de",
+  "market": "DE",
+  "category": "tech-tools",
+  "subcategory": "HDMI cables",
+  "title": "Lindy Gold Line Ultra High Speed HDMI 2 m vs goobay Ultra High Speed HDMI 2 m",
+  "brand": {
+   "brand": "Lindy",
+   "product": "Lindy Ultra High Speed HDMI Kabel Gold Line, 2 m",
+   "size": 1,
+   "unit": "cable",
+   "price": 40.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Lindy/Ultra-High-Speed-HDMI-Kabel-Gold-Line/html/product/1735789",
+   "key_ingredients": [
+     { "name": "HDMI 2.1, Ultra High Speed", "amount": "2 m, 48 Gbit/s" }
+   ]
+  },
+  "alternative": {
+   "brand": "goobay",
+   "product": "goobay Ultra High-Speed HDMI Kabel mit Ethernet, HDMI 2.1, 2 m",
+   "size": 1,
+   "unit": "cable",
+   "price": 9.99,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/goobay/Ultra-High-Speed-HDMI-Kabel-mit-Ethernet-HDMI-2-1/html/product/1768286",
+   "key_ingredients": [
+     { "name": "HDMI 2.1, Ultra High Speed", "amount": "2 m, 48 Gbit/s" },
+     { "name": "With Ethernet, gold-plated contacts", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both listings describe a 2 m Ultra High Speed HDMI 2.1 cable at 48 Gbit/s at the same shop, with goobay about 76% cheaper.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, both available immediately: Lindy EUR 40.99, goobay EUR 9.99 (shown against EUR 14.99). Shipping starts at EUR 7.99 on both. Barcodes: Lindy 4002888376020, goobay 4040849410840, neither in Open Facts, so no photo.",
+  "differences": "Neither page states HDMI certification. HDMI Licensing says certified Ultra High Speed cables carry a label you can scan, and that the logo must be on the jacket, so check the box for it on either cable. No test we read covers these two.",
+  "why": "The listings give the same version, bandwidth and length. If certification is what you want, look for the label on the pack, since neither listing shows it.",
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/Lindy/Ultra-High-Speed-HDMI-Kabel-Gold-Line/html/product/1735789",
+   "https://www.alternate.de/goobay/Ultra-High-Speed-HDMI-Kabel-mit-Ethernet-HDMI-2-1/html/product/1768286",
+   "https://www.hdmi.org/spec21sub/ultrahighspeedcable"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "bic-cristal-original-50-vs-viking-sbm-1-ballpoint-50-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Ballpoint pens",
+  "title": "BIC Cristal Original vs Viking SBM1.0 Ballpoint",
+  "brand": {
+   "brand": "BIC",
+   "product": "BIC Cristal Original Ballpoint Pen Black, medium, pack of 50",
+   "size": 50,
+   "unit": "pen",
+   "price": 10.55,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/bic-ballpoint-pen-cristal-0-4-mm-black-pack-50-p-nd538216",
+   "key_ingredients": [
+    {
+     "name": "Black oil-based ink, 1.0 mm nib, 0.4 mm line, non-refillable",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking SBM1.0 Ballpoint Pen Black, medium, pack of 50",
+   "size": 50,
+   "unit": "pen",
+   "price": 7.79,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-medium-ballpoint-pens-black-box-of-50-p-1601440",
+   "key_ingredients": [
+    {
+     "name": "Black oil-based ink, 1.0 mm nib, 0.4 mm line, non-refillable",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same nib, line width, ink type and pack of 50, with Viking's own pen about 26% cheaper even with the BIC on Black Friday offer.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT. BIC GBP 8.79, marked Black Friday minus 20%, with no regular price stated. Viking GBP 6.49 at the single-pack tier. Both pages give a 1.0 mm nib, 0.4 mm line and oil-based black ink. The same BIC product and barcode 0070330129665 appear on Viking's Irish site. Barcodes not in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "BIC's price is a promotion and may rise, which would widen the gap. BIC's page says the ball is tungsten carbide, and Viking's page doesn't name the ball material. One BIC spec line says 0.32 mm line width while the table says 0.4 mm. No writing test we read covers these.",
+  "why": "On paper these are the same pen specification, and the own-brand pack costs less even when the branded one is reduced.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/bic-ballpoint-pen-cristal-0-4-mm-black-pack-50-p-nd538216",
+   "https://www.viking-direct.co.uk/en/viking-medium-ballpoint-pens-black-box-of-50-p-1601440",
+   "https://www.vikingdirect.ie/en/bic-ballpoint-pen-cristal-0-4-mm-black-pack-50-p-nd538216"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking SBM1.0 Ballpoint Pen Black, 3 packs of 50, with VAT",
+   "size": 150,
+   "price": 19.76,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-medium-ballpoint-pens-black-box-of-50-p-1601440"
+  }
+ },
+ {
+  "slug": "post-it-super-sticky-76-vs-viking-extra-sticky-76-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Sticky notes",
+  "title": "Post-it Super Sticky 76 x 76 vs Viking Extra Sticky 76 x 76",
+  "brand": {
+   "brand": "Post-it",
+   "product": "Post-it Super Sticky Notes 76 x 76 mm Carnival, 6 pads of 90 sheets",
+   "size": 540,
+   "unit": "sheet",
+   "price": 11.39,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/post-it-super-sticky-notes-76-x-76-mm-blue-green-orange-pink-yellow-squared-plain-6-pads-of-90-sheets-p-1222135",
+   "key_ingredients": [
+     { "name": "76 x 76 mm square, plain, assorted", "amount": "6 x 90 sheets" }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Extra Sticky Notes 76 x 76 mm Assorted, 6 pads of 90 sheets",
+   "size": 540,
+   "unit": "sheet",
+   "price": 8.03,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852",
+   "key_ingredients": [
+     { "name": "76 x 76 mm square, plain, assorted", "amount": "6 x 90 sheets" },
+     { "name": "70 gsm", "amount": "" }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Same size, pad count and sheet count in an extra-sticky type, with Viking's own notes about 30% cheaper at the single-pack price.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the 1 to 2 pack tier: Post-it GBP 9.49, Viking GBP 6.69. Post-it barcode 4054596927322 is confirmed on Viking's Irish site. Barcodes not in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Post-it claims twice the sticking power of its regular notes and easy repositioning without residue. Viking claims it suits hard-to-stick surfaces, leaves no residue and is FSC certified, with no number for sticking strength. No test we read compares how well they hold, so Post-it could hold longer.",
+  "why": "Both are sold for surfaces where normal notes fall off, in the same size and quantity. Without a holding test, try a pack before stocking up.",
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/post-it-super-sticky-notes-76-x-76-mm-blue-green-orange-pink-yellow-squared-plain-6-pads-of-90-sheets-p-1222135",
+   "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852",
+   "https://www.vikingdirect.ie/en/post-it-super-sticky-notes-76-x-76-mm-blue-green-orange-pink-yellow-squared-plain-6-pads-of-90-sheets-p-1222135"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Extra Sticky Notes 76 x 76 mm Assorted, 6 packs of 6 pads of 90 sheets, with VAT",
+   "size": 3240,
+   "price": 40.97,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852"
+  }
+ },
+ {
+  "slug": "stabilo-boss-original-8-vs-viking-hc1-5-highlighter-8-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Highlighters",
+  "title": "STABILO BOSS Original vs Viking HC1-5 Highlighter",
+  "brand": {
+   "brand": "STABILO",
+   "product": "STABILO BOSS ORIGINAL 70/8 Highlighter Assorted, pack of 8",
+   "size": 8,
+   "unit": "pen",
+   "price": 9.59,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/stabilo-boss-highlighters-assorted-8-pack-p-708",
+   "gtin": "4006381215718",
+   "image": "https://images.openfoodfacts.org/images/products/400/638/121/5718/front_en.4.400.jpg",
+   "key_ingredients": [
+    {
+     "name": "Water-based ink, chisel tip 2 to 5 mm, refillable",
+     "amount": "8 colours"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking HC1-5 Highlighter Assorted, pack of 8",
+   "size": 8,
+   "unit": "pen",
+   "price": 6.23,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-highlighter-hc1-5-assorted-pack-8-p-9413673",
+   "key_ingredients": [
+    {
+     "name": "Water-based ink, chisel tip 1 to 5 mm",
+     "amount": "8 colours"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are water-based chisel-tip highlighters in packs of 8 assorted colours, with Viking's own about 35% cheaper at the single-pack price.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the single-pack tier: STABILO GBP 7.99, Viking GBP 5.19. STABILO barcode 4006381215718 is confirmed on Viking's Irish site and matches the Open Facts photo. Viking's barcode 8717868162307 isn't in Open Facts, so that side has no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "STABILO is refillable. Viking's specification lists both refillable and non-refillable, so assume it isn't. STABILO's colours include lilac and turquoise. Viking's include teal and purple. No test we read compares bleed or fade.",
+  "why": "They do the same job with the same type of ink and a similar tip. The STABILO only pays back if you actually refill it.",
+  "aspects": [
+   {
+    "aspect": "Refillable",
+    "brand": "Yes",
+    "alternative": "Unclear on the page",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/stabilo-boss-highlighters-assorted-8-pack-p-708",
+   "https://www.viking-direct.co.uk/en/viking-highlighter-hc1-5-assorted-pack-8-p-9413673",
+   "https://www.vikingdirect.ie/en/stabilo-boss-highlighters-assorted-8-pack-p-708",
+   "https://world.openfoodfacts.org/product/4006381215718"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking HC1-5 Highlighter Assorted, 3 packs of 8, with VAT",
+   "size": 24,
+   "price": 16.88,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-highlighter-hc1-5-assorted-pack-8-p-9413673"
+  }
+ },
+ {
+  "slug": "pritt-stick-43g-5-vs-viking-glue-stick-40g-5-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Glue sticks",
+  "title": "Pritt Stick 43 g vs Viking Glue Stick 40 g",
+  "brand": {
+   "brand": "Pritt",
+   "product": "Pritt Glue Stick 43 g, value pack 4 + 1 free (5 sticks)",
+   "size": 215,
+   "unit": "g",
+   "price": 14.87,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/pritt-glue-stick-transparent-5-pieces-of-43-g-p-1013295",
+   "key_ingredients": [
+    {
+     "name": "Solvent-free glue stick",
+     "amount": "5 x 43 g"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Glue Stick Permanent, pack of 5 of 40 g",
+   "size": 200,
+   "unit": "g",
+   "price": 8.03,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-glue-stick-5-pieces-of-40-g-p-1051100",
+   "key_ingredients": [
+    {
+     "name": "Permanent glue stick, machine washable",
+     "amount": "5 x 40 g"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are large glue sticks in five-packs, with Viking's own about 42% cheaper per gram at the single-pack price.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the lowest-quantity tier: Pritt GBP 12.39 for 215 g (about 5.8p a gram), Viking GBP 6.69 for 200 g (about 3.3p a gram). The Pritt pack and barcode 5010305053033 are confirmed on Viking's Irish site. Neither barcode is in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "Pritt says solvent-free and doesn't mention washing out. Viking says machine washable and doesn't say solvent-free. Pritt has a Black Friday free-gift tag when you buy three. No test we read compares how well they bond.",
+  "why": "They do the same desk job, and the price per gram is well under two-thirds. Check the solvent-free point if that matters for children's use.",
+  "aspects": [
+   {
+    "aspect": "Solvent-free",
+    "brand": "Stated",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Washable",
+    "brand": "Not stated",
+    "alternative": "Stated",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/pritt-glue-stick-transparent-5-pieces-of-43-g-p-1013295",
+   "https://www.viking-direct.co.uk/en/viking-glue-stick-5-pieces-of-40-g-p-1051100",
+   "https://www.vikingdirect.ie/en/pritt-glue-stick-transparent-5-pieces-of-43-g-p-1013295"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Glue Stick Permanent, 5 packs of 5 of 40 g, with VAT",
+   "size": 1000,
+   "price": 31.14,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-glue-stick-5-pieces-of-40-g-p-1051100"
+  }
+ },
+ {
+  "slug": "scotch-magic-810-19mm-33m-vs-viking-invisible-tape-19mm-33m-gb",
+  "market": "GB",
+  "category": "office",
+  "subcategory": "Sticky tape",
+  "title": "Scotch Magic 810 vs Viking Office Tape Invisible",
+  "brand": {
+   "brand": "Scotch",
+   "product": "Scotch Magic 810 Tape 19 mm x 33 m, pack of 8",
+   "size": 8,
+   "unit": "roll",
+   "price": 32.15,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/scotch-magic-tape-19mm-x-33m-value-pack-7-rolls-1-roll-free-p-3969954",
+   "key_ingredients": [
+    {
+     "name": "Invisible tape you can write on, 19 mm x 33 m",
+     "amount": "8 rolls"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Viking",
+   "product": "Viking Office Tape Invisible 19 mm x 33 m, pack of 6",
+   "size": 6,
+   "unit": "roll",
+   "price": 11.75,
+   "retailer": "viking",
+   "asin": null,
+   "url": "https://www.viking-direct.co.uk/en/viking-office-tape-invisible-transparent-19-mm-w-x-33-m-l-bopp-biaxially-oriented-polypropylene-film-pack-of-6-rolls-of-33-m-p-1266331",
+   "key_ingredients": [
+    {
+     "name": "Invisible polypropylene tape you can write on, 19 mm x 33 m",
+     "amount": "6 rolls"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 19 mm by 33 m invisible tapes you can write on, with Viking's own about 51% cheaper per roll at the single-pack price.",
+  "evidence": "Both prices read on viking-direct.co.uk on 6 November 2026 and both exclude VAT, at the lowest-quantity tier: Scotch GBP 26.79 for 8 rolls (about GBP 3.35 a roll), Viking GBP 9.79 for 6 rolls (about GBP 1.63 a roll). The Scotch pack and barcode 4046719205936 are confirmed on Viking's Irish site. Neither barcode is in Open Facts, so no photo. The prices on this page include the 20% VAT we added to Viking's prices.",
+  "differences": "The materials differ. Viking lists polypropylene and Scotch lists fibre. Scotch also claims quiet unwinding and invisibility on most paper, and Viking doesn't. Viking says you can write on it with a ballpoint. No test we read compares them, so finish and tearing may differ.",
+  "why": "For everyday sealing and repairing, the size and the stated features match. If invisibility on documents is the point, Scotch's stated claim is the stronger one.",
+  "aspects": [
+   {
+    "aspect": "Material",
+    "brand": "Fibre",
+    "alternative": "Polypropylene",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.viking-direct.co.uk/en/scotch-magic-tape-19mm-x-33m-value-pack-7-rolls-1-roll-free-p-3969954",
+   "https://www.viking-direct.co.uk/en/viking-office-tape-invisible-transparent-19-mm-w-x-33-m-l-bopp-biaxially-oriented-polypropylene-film-pack-of-6-rolls-of-33-m-p-1266331",
+   "https://www.vikingdirect.ie/en/scotch-magic-tape-19mm-x-33m-value-pack-7-rolls-1-roll-free-p-3969954"
+  ],
+  "price_checked": "2026-11",
+  "bulk": {
+   "product": "Viking Office Tape Invisible 19 mm x 33 m, 5 packs of 6 rolls, with VAT",
+   "size": 30,
+   "price": 52.74,
+   "retailer": "viking",
+   "url": "https://www.viking-direct.co.uk/en/viking-office-tape-invisible-transparent-19-mm-w-x-33-m-l-bopp-biaxially-oriented-polypropylene-film-pack-of-6-rolls-of-33-m-p-1266331"
+  }
+ },
+ {
+  "slug": "knipex-alligator-88-01-250-vs-bosch-water-pump-pliers-250-de",
+  "market": "DE",
+  "category": "tools-diy",
+  "subcategory": "Pliers",
+  "title": "Knipex Alligator 250 mm vs Bosch Water Pump Pliers 250 mm",
+  "brand": {
+   "brand": "KNIPEX",
+   "product": "KNIPEX Alligator 88 01 250, 250 mm",
+   "size": 1,
+   "unit": "pair",
+   "price": 17.39,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/KNIPEX/Alligator-88-01-250-250mm-Rohr-Wasserpumpen-Zange/html/product/1265682",
+   "key_ingredients": [
+    {
+     "name": "250 mm, 9 settings, pipes to 50 mm, nuts to 46 mm, chrome vanadium jaw",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Bosch",
+   "product": "Bosch Heimwerken & Garten Wasserpumpenzange 250 mm",
+   "size": 1,
+   "unit": "pair",
+   "price": 12.69,
+   "retailer": "alternate",
+   "asin": null,
+   "url": "https://www.alternate.de/Bosch-Heimwerken-Garten/Wasserpumpenzange-250mm-Rohr-Wasserpumpen-Zange/html/product/100150160",
+   "key_ingredients": [
+    {
+     "name": "250 mm, push-button with 26 teeth, opening to 46 mm, carbon steel",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 250 mm water pump pliers at the same shop, with the Bosch about 27% cheaper and the Knipex ahead on jaw capacity and steel.",
+  "evidence": "Both read on alternate.de on 6 November 2026, including VAT, both available immediately: Knipex EUR 17.39 (shown against EUR 29.21), Bosch EUR 12.69 (shown against EUR 20.81). Shipping starts at EUR 7.99 on both. Barcodes: Knipex 4003773022992, Bosch 4053423302325, neither in Open Facts, so no photo.",
+  "differences": "Knipex is better documented: chrome vanadium jaw and 50 mm pipe capacity. Bosch is carbon steel with a 46 mm maximum opening and a 60 HRC cutting edge. They adjust differently: 9 notched settings on Knipex and a push button with 26 teeth on Bosch. Warranty isn't stated on either page. No test we read covers these two, and tools are where the brand can well be worth it if you use them daily.",
+  "why": "For occasional jobs around the house the Bosch does the same job for less. For regular work the Knipex's stated steel and capacity are worth the extra.",
+  "aspects": [
+   {
+    "aspect": "Max pipe or opening",
+    "brand": "Pipes to 50 mm",
+    "alternative": "Opens to 46 mm",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Adjustment",
+    "brand": "9 notched settings",
+    "alternative": "Push button, 26 teeth",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.alternate.de/KNIPEX/Alligator-88-01-250-250mm-Rohr-Wasserpumpen-Zange/html/product/1265682",
+   "https://www.alternate.de/Bosch-Heimwerken-Garten/Wasserpumpenzange-250mm-Rohr-Wasserpumpen-Zange/html/product/100150160",
+   "https://en.wikipedia.org/wiki/Tongue-and-groove_pliers"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "melcourt-sylvagrow-multi-purpose-40l-vs-boost-peat-free-46l-gb",
+  "market": "GB",
+  "category": "garden",
+  "subcategory": "Compost",
+  "title": "Melcourt SylvaGrow Multi-Purpose vs Boost Peat-Free All-Purpose",
+  "brand": {
+   "brand": "Melcourt",
+   "product": "Melcourt RHS Sylvagrow multi-purpose peat-free compost, 40 litres",
+   "size": 40,
+   "unit": "litre",
+   "price": 11.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-multi-purpose-peat-free-compost/classid.2000049281/",
+   "key_ingredients": [
+    {
+     "name": "Coir, fine bark and wood fibre, peat-free",
+     "amount": "feeds about 4 to 6 weeks"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Boost",
+   "product": "Boost peat-free all-purpose compost, 46 litres",
+   "size": 46,
+   "unit": "litre",
+   "price": 7.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/boost-peat-free-all-purpose-compost/classid.2000050380/",
+   "key_ingredients": [
+    {
+     "name": "Wood fibres, water-retaining granules, wetting agent, starter feed, peat-free",
+     "amount": "feed period not stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are peat-free all-round composts at the same shop, with Boost about 42% cheaper per litre.",
+  "evidence": "Both read on crocus.co.uk on 6 November 2026, with no reduction shown: Melcourt GBP 11.99 for 40 litres (about 30p a litre), Boost GBP 7.99 for 46 litres (about 17p a litre). Which?'s 2026 guide says a high price doesn't guarantee quality, and lists both Melcourt SylvaGrow and Westland Boost, with scores behind its member login.",
+  "differences": "Melcourt is RHS endorsed and states 4 to 6 weeks of feed. Boost says it has starter feed and doesn't state for how long, and Crocus describes it mainly for pots and baskets. We could not see Which?'s scores for either. Delivery on Crocus is extra.",
+  "why": "Both are sold for the same general planting and potting jobs, and Which? finds price a poor guide to results in compost. Melcourt's RHS endorsement is the clearest documented difference.",
+  "aspects": [
+   {
+    "aspect": "RHS endorsement",
+    "brand": "Yes",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [
+   "compost-brand-and-price-do-not-predict-quality"
+  ],
+  "sources": [
+   "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-multi-purpose-peat-free-compost/classid.2000049281/",
+   "https://www.crocus.co.uk/product/_/boost-peat-free-all-purpose-compost/classid.2000050380/",
+   "https://www.which.co.uk/reviews/compost/article/best-composts-for-containers"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "melcourt-sylvagrow-john-innes-no2-22l-vs-john-innes-peat-free-no2-28l-gb",
+  "market": "GB",
+  "category": "garden",
+  "subcategory": "Compost",
+  "title": "Melcourt SylvaGrow John Innes No.2 vs John Innes Peat-Free No.2",
+  "brand": {
+   "brand": "Melcourt",
+   "product": "Melcourt RHS Sylvagrow John Innes no.2 peat-free compost, 22 litres",
+   "size": 22,
+   "unit": "litre",
+   "price": 7.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-john-innes-no2-peat-free-compost/classid.2000042730/",
+   "key_ingredients": [
+    {
+     "name": "Bark, wood fibre, sterilised loam, fine grit or sand, John Innes No.2, peat-free",
+     "amount": ""
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Unbranded listing at Crocus",
+   "product": "John Innes peat-free no.2 potting-on compost, 28 litres",
+   "size": 28,
+   "unit": "litre",
+   "price": 7.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/john-innes-peat-free-no2-potting-on-compost/classid.2000053190/",
+   "key_ingredients": [
+    {
+     "name": "Loam-based mix with sand and grit, potassium humate, biochar, peat-free",
+     "amount": ""
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are peat-free John Innes No.2 type composts at the same price, and the unbranded bag holds 6 litres more, about 21% less per litre.",
+  "evidence": "Both read on crocus.co.uk on 6 November 2026, with no reduction shown: Melcourt GBP 7.99 for 22 litres, the other GBP 7.99 for 28 litres. The RHS says John Innes is a recipe of loam or a peat substitute, sand, fertiliser and chalk, and that manufacturers sell their own versions, with no legally binding standard for ingredients.",
+  "differences": "Without a legal standard the two mixes can differ, and these listings don't give full ingredient lists. Melcourt is RHS endorsed and bark and wood fibre based. The other lists biochar and potassium humate. Crocus doesn't name the maker on the second bag, and its text mentions Westland composts. No test we read covers these two.",
+  "why": "At the same bag price, you simply get more of a compost made to the same named recipe. Melcourt's RHS endorsement is the clearest documented thing you give up.",
+  "claims": [
+   "compost-brand-and-price-do-not-predict-quality"
+  ],
+  "sources": [
+   "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-john-innes-no2-peat-free-compost/classid.2000042730/",
+   "https://www.crocus.co.uk/product/_/john-innes-peat-free-no2-potting-on-compost/classid.2000053190/",
+   "https://www.rhs.org.uk/soil-composts-mulches/john-innes-compost"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "melcourt-sylvagrow-john-innes-no3-22l-vs-john-innes-peat-free-no3-28l-gb",
+  "market": "GB",
+  "category": "garden",
+  "subcategory": "Compost",
+  "title": "Melcourt SylvaGrow John Innes No.3 vs John Innes Peat-Free No.3",
+  "brand": {
+   "brand": "Melcourt",
+   "product": "Melcourt RHS Sylvagrow John Innes no.3 peat-free compost, 22 litres",
+   "size": 22,
+   "unit": "litre",
+   "price": 7.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-john-innes-no3-peat-free-compost/classid.2000052075/",
+   "key_ingredients": [
+    {
+     "name": "Bark, wood fibre, sterilised loam, fine grit, peat-free",
+     "amount": "feeds about 3 to 5 weeks"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Unbranded listing at Crocus",
+   "product": "John Innes peat-free no.3 mature plant compost, 28 litres",
+   "size": 28,
+   "unit": "litre",
+   "price": 7.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/john-innes-peat-free-no3-mature-plant-compost/classid.2000053193/",
+   "key_ingredients": [
+    {
+     "name": "Loam-based mix with biochar and feed, peat-free",
+     "amount": "feeds about 4 months"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are peat-free John Innes No.3 type composts at the same price, and the unbranded bag holds 6 litres more, about 21% less per litre.",
+  "evidence": "Both read on crocus.co.uk on 6 November 2026, with no reduction shown: Melcourt GBP 7.99 for 22 litres, the other GBP 7.99 for 28 litres. Crocus states about 3 to 5 weeks of nutrients for Melcourt and about four months of feed for the other. The RHS says manufacturers sell their own versions of the John Innes recipe, with no legally binding standard for ingredients.",
+  "differences": "Without a legal standard the two mixes can differ, and these listings don't give full ingredient lists. Melcourt says it has no peat or green waste compost. The other lists biochar, and Crocus doesn't name its maker, though its text mentions Westland composts. Melcourt is RHS endorsed. No test we read covers these two.",
+  "why": "At the same bag price you get more compost and, on Crocus's figures, a longer stated feed. Melcourt's RHS endorsement is the clearest documented thing you give up.",
+  "aspects": [
+   {
+    "aspect": "Stated feed",
+    "brand": "About 3 to 5 weeks",
+    "alternative": "About 4 months",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [
+   "compost-brand-and-price-do-not-predict-quality"
+  ],
+  "sources": [
+   "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-john-innes-no3-peat-free-compost/classid.2000052075/",
+   "https://www.crocus.co.uk/product/_/john-innes-peat-free-no3-mature-plant-compost/classid.2000053193/",
+   "https://www.rhs.org.uk/soil-composts-mulches/john-innes-compost"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "melcourt-sylvagrow-ericaceous-15l-vs-rocketgro-ericaceous-40l-gb",
+  "market": "GB",
+  "category": "garden",
+  "subcategory": "Compost",
+  "title": "Melcourt SylvaGrow Ericaceous vs RocketGro Ericaceous",
+  "brand": {
+   "brand": "Melcourt",
+   "product": "Melcourt RHS Sylvagrow ericaceous compost, 15 litres",
+   "size": 15,
+   "unit": "litre",
+   "price": 6.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-ericaceous-compost/classid.2000035920/",
+   "key_ingredients": [
+    {
+     "name": "Fine bark, wood fibre and coir, peat-free",
+     "amount": "feeds about 4 to 6 weeks"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "RocketGro",
+   "product": "RocketGro ericaceous compost, 40 litres",
+   "size": 40,
+   "unit": "litre",
+   "price": 10.99,
+   "retailer": "crocus",
+   "asin": null,
+   "url": "https://www.crocus.co.uk/product/_/rocketgro-ericaceous-compost/classid.2000050164/",
+   "key_ingredients": [
+    {
+     "name": "Green compost, soil improver and organic ingredients, peat-free",
+     "amount": "feed period not stated"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are peat-free ericaceous composts at the same shop, with RocketGro's bigger bag about 41% cheaper per litre.",
+  "evidence": "Both read on crocus.co.uk on 6 November 2026 with no reduction shown: Melcourt GBP 6.99 for 15 litres (about 47p a litre), RocketGro GBP 10.99 for 40 litres (about 27p a litre). Crocus lists the RocketGro 20-litre bag as sold out. Which?'s 2026 guide says a high price doesn't guarantee quality.",
+  "differences": "The base differs: Melcourt uses bark, wood fibre and coir, and RocketGro uses green compost and soil improver, made in Somerset and described as vegan friendly. Neither listing gives a pH figure. You have to buy 40 litres at this price, and 15 litres of Melcourt is easier to carry and suits a pot or two. No test we read covers these two.",
+  "why": "For a bed of acid-loving plants the larger bag costs much less per litre. For a single pot, the small Melcourt bag can still cost less in total.",
+  "aspects": [
+   {
+    "aspect": "Bag size",
+    "brand": "15 litres",
+    "alternative": "40 litres",
+    "verdict": "different"
+   }
+  ],
+  "claims": [
+   "compost-brand-and-price-do-not-predict-quality"
+  ],
+  "sources": [
+   "https://www.crocus.co.uk/product/_/melcourt-rhs-sylvagrow-ericaceous-compost/classid.2000035920/",
+   "https://www.crocus.co.uk/product/_/rocketgro-ericaceous-compost/classid.2000050164/",
+   "https://www.which.co.uk/reviews/compost/article/best-composts-for-containers"
+  ],
+  "price_checked": "2026-11"
+ }
+]

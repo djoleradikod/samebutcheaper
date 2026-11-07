@@ -95,7 +95,8 @@
     "sources": [
       "https://www.walmart.ca/en/c/kp/ibuprofen",
       "https://www.walmart.ca/en/ip/Equate-Ibuprofen-Tablet-200mg-120-Tablets/6000208283848",
-      "https://www.walmart.ca/en/ip/equate-ibuprofen-caplet-200mg-120-caplets/6000208285201"
+      "https://www.walmart.ca/en/ip/equate-ibuprofen-caplet-200mg-120-caplets/6000208285201",
+      "https://www.advil.ca/products/muscle-joint-and-body/advil-caplets/"
     ],
     "price_checked": "2026-11"
   },
@@ -485,10 +486,7 @@
       "asin": null,
       "url": "https://www.loblaws.ca/en/powder-laxative-effective-relief-no-taste-no-grit/p/20938326_EA",
       "key_ingredients": [
-        {
-          "name": "Polyethylene glycol 3350",
-          "amount": "100% (17 g per dose)"
-        }
+        { "name": "Polyethylene glycol 3350", "amount": "100%" }
       ]
     },
     "alternative": {
@@ -511,7 +509,7 @@
     "confidence": "high",
     "summary": "Both are pure polyethylene glycol 3350 powder, the same osmotic laxative, in the same 765 g size.",
     "evidence": "Health Canada's Drug Product Database lists RestoraLAX (DIN 02318164, Bayer) with a single active, polyethylene glycol 3350 at 100% w/w. The Life Brand ClearLax listing names polyethylene glycol 3350 powder for oral solution. Loblaws (loblaws.ca) on 2026-11-02 listed RestoraLAX 45 doses at $37.99 ($4.97/100 g, which is 765 g) and Life Brand ClearLax 765 g at $28.99 ($3.79/100 g). Walmart.ca confirms the RestoraLAX 45-dose pack is 765 g.",
-    "differences": "None in the powder itself. The packaging and measuring cap differ.",
+    "differences": "The packaging and measuring cap differ. RestoraLAX lists 17 g per dose, and the ClearLax record states no dose.",
     "sources": [
       "https://www.loblaws.ca/en/search?search-bar=restoralax",
       "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=restoralax",
@@ -535,105 +533,6 @@
         "source": "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=restoralax"
       }
     ]
-  },
-  {
-    "slug": "nicorette-vs-equate-nicotine-gum-4mg-ca",
-    "market": "CA",
-    "category": "otc-medicine",
-    "subcategory": "Quit smoking",
-    "title": "Nicorette 4mg vs Equate Nicotine Gum 4mg",
-    "brand": {
-      "brand": "Nicorette",
-      "product": "Nicorette Fruit Gum, Nicotine 4 mg, 210 Pieces",
-      "size": 210,
-      "unit": "piece",
-      "price": 64.97,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.ca/en/ip/Nicorette-Fruit-Gum-4-mg-Quit-Smoking-Nicotine-Gum-Smoking-Cessation-Aid-NRT-Reduce-Cravings-210-pieces/6000195954352",
-      "key_ingredients": [
-        {
-          "name": "Nicotine (as nicotine polacrilex)",
-          "amount": "4 mg"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Equate",
-      "product": "Equate Nicotine Gum Ultra Fresh Fruit, Nicotine Polacrilex Gum USP 4 mg, 210 Count",
-      "size": 210,
-      "unit": "piece",
-      "price": 51.97,
-      "retailer": "walmart",
-      "asin": null,
-      "url": "https://www.walmart.ca/en/ip/Equate-Nicotine-Gum-Ultra-Fresh-Fruit-4mg-210ct/6000197566965",
-      "key_ingredients": [
-        {
-          "name": "Nicotine (as nicotine polacrilex)",
-          "amount": "4 mg"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "high",
-    "summary": "Both are 4 mg nicotine polacrilex replacement gum in a 210-piece pack.",
-    "evidence": "Walmart.ca's nicotine gum pages on 2026-11-02 listed Nicorette 4 mg gum, 210 pieces (Fruit, Mint or Peppermint), at $64.97, and Equate Nicotine Gum 4 mg, 210 ct (Ultra Fresh Fruit or Ultra Chill Mint), at $51.97. Walmart.ca titles the Equate gum 'Nicotine Polacrilex Gum USP 4mg', and the Nicorette listings state nicotine 4 mg.",
-    "differences": "Flavours and gum coating differ. The same 210-count Equate gum in Walmart.ca's non-'Ultra' line was $69.97, which is not cheaper, so buy the 'Ultra' 210 ct.",
-    "sources": [
-      "https://www.walmart.ca/en/browse/health/quit-smoking/nicotine-gum/6000199008297_6000196190236_6000205773432",
-      "https://www.walmart.ca/en/browse/health/quit-smoking/nicotine-gum/6000199008297_6000196190236_6000205773432?facet=brand:Equate",
-      "https://www.walmart.ca/en/ip/equate-nicotine-gum-ultra-fresh-fruit-4mg-210ct/6000197566964"
-    ],
-    "price_checked": "2026-11"
-  },
-  {
-    "slug": "aleve-vs-life-brand-naproxen-220mg-ca",
-    "market": "CA",
-    "category": "otc-medicine",
-    "subcategory": "Pain relief",
-    "title": "Aleve vs Life Brand Naproxen 220mg",
-    "brand": {
-      "brand": "Aleve",
-      "product": "Aleve Naproxen Sodium Tablets USP, 220 mg, 24 Count",
-      "size": 24,
-      "unit": "tablet",
-      "price": 6.49,
-      "retailer": "loblaws",
-      "asin": null,
-      "url": "https://www.loblaws.ca/en/naproxen-sodium-tablets-usp-220-mg/p/21693703_EA",
-      "key_ingredients": [
-        {
-          "name": "Naproxen sodium",
-          "amount": "220 mg"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "Life Brand",
-      "product": "Life Brand Naproxen 220 mg Caplets, 24 Count",
-      "size": 24,
-      "unit": "tablet",
-      "price": 5.49,
-      "retailer": "loblaws",
-      "asin": null,
-      "url": "https://www.loblaws.ca/en/naproxen-220-mg-24-caplets/p/21140551_EA",
-      "key_ingredients": [
-        {
-          "name": "Naproxen sodium",
-          "amount": "220 mg"
-        }
-      ]
-    },
-    "match_type": "identical_active",
-    "confidence": "medium",
-    "summary": "Both are 220 mg naproxen pain relievers that last up to 12 hours, in a 24-count pack.",
-    "evidence": "Loblaws (loblaws.ca) on 2026-11-02 listed Aleve Naproxen Sodium Tablets USP 220 mg, 24 ct, at $6.49 and Life Brand Naproxen 220 mg Caplets, 24 ct, at $5.49. The Life Brand listing says 'Naproxen 220 mg' without the word 'sodium'. Non-prescription naproxen in Canada is sold as naproxen sodium 220 mg, but confirm it on the box.",
-    "differences": "Aleve is a tablet and Life Brand is a caplet. The saving is small, about 15%.",
-    "sources": [
-      "https://www.loblaws.ca/en/search?search-bar=naproxen",
-      "https://www.loblaws.ca/en/search?search-bar=ibuprofen"
-    ],
-    "price_checked": "2026-11"
   },
   {
     "slug": "nicorette-vs-life-brand-nicotine-gum-2mg-ca",

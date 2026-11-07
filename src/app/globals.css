@@ -1,73 +1,79 @@
 @import "tailwindcss";
 
-/* ---------- Design tokens ---------- */
+/* ---------- Design tokens: the shelf ticket (docs/design/shelf-ticket.md) ---------- */
 :root {
-  /* Bright, clean light theme. Dark mode is opt-in via data-theme="dark". */
   --paper: #ffffff;
-  --surface: #ffffff;
-  --surface-2: #f3f8f5;
-  --tint: #ecfbf3; /* mint wash behind heroes and highlighted rows */
-  --ink: #0f1a14;
-  --ink-2: #374740;
-  --muted: #64736b;
-  --line: #e3ebe6;
-  --line-strong: #c9d6ce;
-  --accent: #0a8a52; /* money green, 4.6:1 on white */
-  --accent-ink: #ffffff;
-  --accent-soft: #dcf7e8;
-  --accent-strong: #066a3e;
-  --pop: #1fd17f; /* bright green for decoration only, never text */
-  --sky: #38bdf8;
-  --highlight: #d8f75a; /* savings highlighter */
-  --highlight-ink: #1b2a05;
-  --brand-tone: #c2410c; /* brand-name side, warm "expensive" tone */
-  --brand-soft: #fff1e8;
-  --warn: #9a5b00;
-  --warn-soft: #fff6e0;
-  --ring: #0a8a5255;
-  --shadow: 0 1px 2px rgba(15, 26, 20, 0.04), 0 8px 24px -12px rgba(15, 26, 20, 0.12);
-  color-scheme: light;
-}
+  --canvas: #f3f4f1; /* page bands */
+  --ink: #15171c;
+  --ink-2: #40454e;
+  --muted: #6b7079;
+  --line: #e2e4e7;
+  --line-strong: #c9ccd1;
 
-:root[data-theme="dark"] {
-  --paper: #0d120f;
-  --surface: #141b17;
-  --surface-2: #1a231e;
-  --tint: #11251a;
-  --ink: #eef3ef;
-  --ink-2: #c3cdc6;
-  --muted: #8e9a93;
-  --line: #26322b;
-  --line-strong: #364439;
-  --accent: #3fcf8e;
-  --accent-ink: #062014;
-  --accent-soft: #143324;
-  --accent-strong: #6be0a9;
-  --pop: #3fcf8e;
-  --sky: #38bdf8;
-  --highlight: #c8e44f;
-  --highlight-ink: #13200a;
-  --brand-tone: #f0a37a;
-  --brand-soft: #2a1d17;
-  --warn: #f0b75a;
-  --warn-soft: #2c2210;
-  --ring: #3fcf8e55;
-  --shadow: none;
-  color-scheme: dark;
+  /* Ticket yellow is for savings and nothing else. */
+  --ticket: #ffd60a;
+  --ticket-ink: #15171c;
+
+  /* Links and focus. Primary buttons are ink. */
+  --cobalt: #1546d6;
+  --cobalt-strong: #0f36a8;
+  --cobalt-soft: #e9eefc;
+
+  /* Semantic only, for the same-or-different table and match levels. */
+  --same: #0b7a48;
+  --same-soft: #e6f3ed;
+  --different: #8a5a00;
+  --different-soft: #f7f0df;
+  --brand-better: #b3261e;
+  --brand-better-soft: #fbeceb;
+
+  /* Older names that pages not yet redesigned still use. */
+  --surface: var(--paper);
+  --surface-2: var(--canvas);
+  --tint: var(--canvas);
+  --accent: var(--cobalt);
+  --accent-ink: #ffffff;
+  --accent-soft: var(--cobalt-soft);
+  --accent-strong: var(--cobalt-strong);
+  --pop: var(--cobalt);
+  --sky: var(--cobalt);
+  --highlight: var(--ticket);
+  --highlight-ink: var(--ticket-ink);
+  --brand-tone: var(--brand-better);
+  --brand-soft: var(--brand-better-soft);
+  --warn: var(--different);
+  --warn-soft: var(--different-soft);
+  --ring: #1546d655;
+  --shadow: 0 0 #0000;
+
+  color-scheme: light;
 }
 
 @theme inline {
   --color-paper: var(--paper);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-tint: var(--tint);
-  --color-pop: var(--pop);
-  --color-sky: var(--sky);
+  --color-canvas: var(--canvas);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
+  --color-ticket: var(--ticket);
+  --color-ticket-ink: var(--ticket-ink);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-strong: var(--cobalt-strong);
+  --color-cobalt-soft: var(--cobalt-soft);
+  --color-same: var(--same);
+  --color-same-soft: var(--same-soft);
+  --color-different: var(--different);
+  --color-different-soft: var(--different-soft);
+  --color-brand-better: var(--brand-better);
+  --color-brand-better-soft: var(--brand-better-soft);
+
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-tint: var(--tint);
+  --color-pop: var(--pop);
+  --color-sky: var(--sky);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --color-accent-soft: var(--accent-soft);
@@ -78,38 +84,70 @@
   --color-brand-soft: var(--brand-soft);
   --color-warn: var(--warn);
   --color-warn-soft: var(--warn-soft);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-display);
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  /* 4px on tickets and tiles, 8px on cards, 10px on the search box. Nothing larger,
+     so pages not yet redesigned lose their big corners too. */
+  --radius-tile: 4px;
+  --radius-card: 8px;
+  --radius-search: 10px;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-3xl: 8px;
+
+  /* No shadows at rest. Floating menus keep --shadow-xl. */
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
 }
 
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--font-sans);
+  line-height: 1.5;
 }
 
 ::selection {
-  background: var(--highlight);
-  color: var(--highlight-ink);
+  background: var(--cobalt);
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--cobalt);
   outline-offset: 2px;
-  border-radius: 6px;
+}
+
+@layer base {
+  /* Width does the work a second typeface would do: headings wide, prices narrow. */
+  h1,
+  h2,
+  h3 {
+    font-stretch: 112%;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
 }
 
 @layer components {
   .container-page {
     width: 100%;
-    max-width: 72rem;
+    max-width: 1320px;
     margin-inline: auto;
     padding-inline: 1rem;
   }
@@ -118,78 +156,150 @@ body {
       padding-inline: 1.5rem;
     }
   }
+
+  /* Headings: width 112, weight 700. The !important beats font-medium on older pages. */
   .display {
-    font-family: var(--font-display), var(--font-geist-sans), serif;
-    letter-spacing: -0.02em;
+    font-stretch: 112%;
+    font-weight: 700 !important;
+    letter-spacing: -0.012em;
+    line-height: 1.12;
   }
+
+  /* Prices: width 75, weight 800, tabular numerals, tight tracking. */
+  .price {
+    font-stretch: 75%;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.012em;
+    line-height: 1;
+  }
+
   .num {
     font-variant-numeric: tabular-nums;
   }
+
   .card {
-    background: var(--surface);
+    background: var(--paper);
     border: 1px solid var(--line);
-    border-radius: 1rem;
-    box-shadow: var(--shadow);
+    border-radius: 8px;
   }
-  /* Soft colour wash for hero sections. */
-  .hero-wash {
-    background:
-      radial-gradient(60rem 30rem at 85% -10%, color-mix(in srgb, var(--sky) 22%, transparent), transparent 60%),
-      radial-gradient(50rem 28rem at -10% 10%, color-mix(in srgb, var(--pop) 22%, transparent), transparent 60%),
-      radial-gradient(40rem 20rem at 50% 110%, color-mix(in srgb, var(--highlight) 30%, transparent), transparent 70%),
-      var(--paper);
+
+  /* The shelf ticket. */
+  .ticket {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--ticket);
+    color: var(--ticket-ink);
+    border-radius: 4px;
+    font-stretch: 75%;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.012em;
+    line-height: 1;
+    white-space: nowrap;
   }
+  .ticket-sm {
+    padding: 4px 6px;
+    font-size: 0.875rem;
+  }
+  .ticket-md {
+    padding: 5px 8px;
+    font-size: 1.125rem;
+  }
+  .ticket-lg {
+    padding: 8px 12px;
+    font-size: 1.75rem;
+  }
+  /* A small ticket that grows where the card has room. */
+  @media (min-width: 1024px) {
+    .ticket-up {
+      padding: 5px 8px;
+      font-size: 1.125rem;
+    }
+  }
+  .ticket-sub {
+    margin-top: 3px;
+    font-size: 0.75rem;
+    font-stretch: 100%;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  /* Sideways-scrolling rows (aisle links, baskets on a phone). */
+  .rail {
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+  .rail-snap {
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .rail-snap {
+      scroll-padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .rail-snap {
+      scroll-snap-type: none;
+    }
+  }
+
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border-radius: 0.75rem;
-    padding: 0.7rem 1.1rem;
+    min-height: 44px;
+    border-radius: 4px;
+    padding: 0.625rem 1rem;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     transition:
       background-color 150ms,
-      transform 150ms,
       border-color 150ms;
   }
-  .btn:active {
-    transform: translateY(1px);
-  }
   .btn-primary {
-    background: var(--accent);
-    color: var(--accent-ink);
+    background: var(--ink);
+    color: #ffffff;
   }
   .btn-primary:hover {
-    background: var(--accent-strong);
+    background: var(--ink-2);
   }
   .btn-ghost {
     border: 1px solid var(--line-strong);
     color: var(--ink);
-    background: var(--surface);
+    background: var(--paper);
   }
   .btn-ghost:hover {
     border-color: var(--ink-2);
   }
-  .highlight {
-    background: linear-gradient(transparent 55%, var(--highlight) 55%, var(--highlight) 92%, transparent 92%);
-    padding-inline: 0.1em;
+
+  /* Older pages still carry these two. Both are now plain. */
+  .hero-wash {
+    background: var(--canvas);
   }
+  .highlight {
+    background: none;
+  }
+
   .prose-sbc p {
     margin-block: 0.75em;
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--ink-2);
   }
   .prose-sbc h2 {
-    font-family: var(--font-display), serif;
-    font-size: 1.6rem;
+    font-size: 1.375rem;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
   }
   .prose-sbc h3 {
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.0625rem;
     margin-top: 1.5rem;
   }
   .prose-sbc ul {
@@ -199,10 +309,10 @@ body {
   }
   .prose-sbc li {
     margin-block: 0.35em;
-    line-height: 1.65;
+    line-height: 1.6;
   }
   .prose-sbc a {
-    color: var(--accent);
+    color: var(--cobalt);
     text-decoration: underline;
     text-underline-offset: 3px;
   }

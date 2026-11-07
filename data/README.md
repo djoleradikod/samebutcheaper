@@ -9,7 +9,9 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 ## Rules for a pair
 
 - `match_type` is one of `identical_active`, `identical_formula`, `same_manufacturer`, `equivalent_spec`.
-  See `/how-we-verify` on the site for what each one requires.
+  See `/how-we-verify` on the site for what each one requires. `same_kind` is the honest fallback when the records show no more than
+  that. The build fails an `identical_active` pair unless every `key_ingredients` row matches on both sides, and turns an
+  `equivalent_spec` pair into `same_kind` when nothing is compared on both sides, so write rows for the same spec with the same name.
 - `confidence` is `high` (both labels confirmed from primary sources) or `medium` (strong but secondary evidence).
 - `brand.unit` and `alternative.unit` must be the same unit, because savings are computed per unit.
 - At least 2 real `sources` URLs.
@@ -27,11 +29,17 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 
 - `gtin`: the UPC/EAN barcode digits (8 to 14). Used to fetch openly licensed photos
   (`npx tsx scripts/fetch-images.ts`) and, later, to match affiliate feeds.
-- `image`: a product photo. **Only Open Facts photos** (`images.openfoodfacts.org`, `images.openbeautyfacts.org`,
-  `images.openpetfoodfacts.org`, `images.openproductsfacts.org`), which are CC BY-SA and credited on the page.
-  Never paste brand or retailer photos: they are copyrighted. The schema drops any other host to `null`
-  (see `IMAGE_HOSTS` in `src/lib/schema.ts`), and the site draws a colour tile instead. Affiliate API hosts get
-  added there once those APIs are live.
+- `image`: where a product photo was found (older files). The site never loads this URL. `scripts/images/ingest.ts`
+  downloads it, normalises it, and stores `public/products/<file>-160.webp` and `-480.webp` with a licence record in
+  `data/images.json`, keyed by `"<brand>|<product>"`. **Only openly licensed sources**: Open Facts (CC BY-SA, credited on
+  the page) and others listed in `docs/research/R2-reuse.md`. A photo shows only once a person has checked it (`reviewed`).
+  DailyMed label images stay off: they're flat carton artwork and their rights aren't confirmed. Never brand or retailer
+  photos unless their terms allow it. A swap with no record draws a pack tile and doesn't count as covered.
+- `why`: one or two plain sentences on why this brand's premium isn't worth paying, specific to this swap.
+- `claims`: ids from `data/evidence/claims.json` to show on this swap. Claims matching the category apply anyway.
+- `shelf_life`: an id from `data/evidence/shelf-life.json`, when the subcategory match isn't the right record.
+- `bulk`: a bigger pack of the alternative, same unit: `{ "product", "size", "price", "retailer", "url" }`. Its price is
+  checked the same way as the others, and its URL goes in `sources`.
 - `rating`: `{ "stars": 4.6, "count": 12400, "source": "<the product page the rating is from>" }`. Use the same
   retailer for both sides when you can, so the ratings are comparable.
 - `license_id`: the regulator's number printed on the pack: NDC (US), PL (UK), DIN (Canada), PZN (Germany).
@@ -53,7 +61,72 @@ customer service. A row with the same `aspect` name replaces the generated one.
 
 `verdict` is `same`, `alt_better`, `brand_better` or `different`. Be honest about where the brand wins.
 
-## Example
+## Presets (`data/presets/*.json`)
+
+A basket for a life moment, built only from swaps in the catalogue, so a preset makes no new price claims. All its
+items are priced in one market. The total buys the same amount on both sides, using each swap's unit prices.
+
+```json
+{
+  "family": "new-flat",
+  "slug": "new-flat-gb",
+  "market": "GB",
+  "title": "A new flat",
+  "audience": "Moving in, first cupboard shop",
+  "blurb": "One line on what it covers.",
+  "icon": "key",
+  "research": "Which checklists and guides the list of items came from.",
+  "sources": ["https://...", "https://..."],
+  "items": [{ "pair": "<swap slug>", "qty": 1, "note": "optional" }]
+}
+```
+
+`icon` is one of `PRESET_ICONS` in `src/lib/schema.ts`. At least 4 items and 2 sources for the list.
+
+## Evidence (`data/evidence/`)
+
+`claims.json` holds cited findings on why a premium isn't worth paying, and where the cheap option lost. Each has at least
+two sources, written in our own words with the numbers from the source. `categories` may include `"general"`, which puts a
+finding on `/why` but not on swap pages. A swap page shows a finding only when the swap names it in `claims`, when the finding
+lists the swap's subcategory, or when the finding lists the swap's category and no subcategories.
+
+`nutrition.json` holds Open Food Facts records (ODbL) for catalogue products, written by `scripts/qa/extract_nutrition.py`:
+`{source, license, licenseUrl, dump, items: {"<brand>|<product>": {code, page, name, modified, kcal, fat, saturates, sugars, salt, protein, fibre, ingredients}}}`,
+per 100 g or 100 ml, null when unknown. The build attaches a record to each side of a food swap, and the swap page shows it
+when both sides have one, credited and linked. Medicine and other aisles never get nutrition rows.
+
+```json
+{
+  "id": "which-2025-own-label-beans",
+  "title": "Own-label beans beat the brand in blind tests",
+  "finding": "What was tested, by whom, and the result with its numbers.",
+  "categories": ["food-pantry"],
+  "subcategories": ["Canned food"],
+  "markets": ["GB"],
+  "caveat": "Where this stops applying, or what the brand won.",
+  "sources": [{ "url": "https://...", "publisher": "Which?", "title": "...", "date": "2025-03" }]
+}
+```
+
+`shelf-life.json` holds how long things keep, for the bulk view. `advice` is `stock_up` (keeps for years), `buy_to_use`
+(fine if you get through it in time) or `buy_small` (goes off or weakens). Matching is by subcategory name.
+
+```json
+{
+  "id": "alkaline-batteries",
+  "label": "Alkaline batteries",
+  "categories": ["batteries"],
+  "subcategories": ["AA batteries", "AAA batteries"],
+  "unopened": "Up to 10 years in storage",
+  "opened": "",
+  "storage": "Cool and dry, in the pack",
+  "advice": "stock_up",
+  "note": "",
+  "sources": [{ "url": "https://...", "publisher": "...", "title": "...", "date": "2025" }]
+}
+```
+
+## Example swap
 
 ```json
 {
