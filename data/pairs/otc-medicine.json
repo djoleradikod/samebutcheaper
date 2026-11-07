@@ -541,13 +541,16 @@
     "sources": [
       "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353",
       "https://www.walmart.com/ip/Equate-Omeprazole-Delayed-Release-Tablets-20-mg-Acid-Reducer-Frequent-Heartburn-42-Count/10324782",
-      "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=equate+omeprazole"
+      "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=equate+omeprazole",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=77ed80a2-a482-4838-ac55-4865b5c31d9f",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=37291cab-e350-d8e3-e063-6294a90a9cb1",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=dcfe8e94-9c88-464e-9a80-3baa9c4755d9"
     ],
     "price_checked": "2026-11",
     "aspects": [
       {
         "aspect": "FDA application",
-        "brand": "Prilosec OTC tablets cite ANDA206582 (Procter & Gamble).",
+        "brand": "DailyMed has two current P&G tablet labels, one under NDA021229 and one under ANDA206582.",
         "alternative": "Equate omeprazole tablet label cites NDA022032, a separate OTC application.",
         "verdict": "different",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=dcfe8e94-9c88-464e-9a80-3baa9c4755d9"

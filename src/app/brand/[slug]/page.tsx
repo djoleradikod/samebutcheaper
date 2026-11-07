@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBrand, getBrands } from "@/lib/catalog";
+import { matchSentence } from "@/lib/categories";
 import { BundleCard } from "@/components/BundleCard";
 import { atLeastOneParam, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: PageProps<"/brand/[slug]">): 
   const best = bestSaving([...brand.pairs, ...brand.bundles]);
   return {
     title: `Cheaper alternatives to ${brand.name}: save up to ${Math.round(best)}%`,
-    description: `${n} verified cheaper alternative${n === 1 ? "" : "s"} to ${brand.name} with the same ingredients or specs, each with sources.`,
+    description: `${n} cheaper alternative${n === 1 ? "" : "s"} to ${brand.name}, each with sources. ${matchSentence(brand.pairs.map((p) => p.match_type))}`.trim(),
     alternates: { canonical: `/brand/${brand.slug}` },
   };
 }
@@ -32,7 +33,11 @@ export default async function BrandPage({ params }: PageProps<"/brand/[slug]">) 
       <ShelfHead
         crumbs={[{ href: "/", label: "Home" }, { href: "/brands", label: "Brands" }, { label: brand.name }]}
         title={`Cheaper alternatives to ${brand.name}: ${swapCount(n)}`}
-        intro={`Every ${brand.name} product we've matched to a cheaper one with the same ingredients, formula or specs.`}
+        intro={
+          brand.pairs.length
+            ? `Every ${brand.name} product we've priced against a cheaper one. ${matchSentence(brand.pairs.map((p) => p.match_type))}`
+            : `${brand.name} bundles, rebuilt from cheaper products.`
+        }
         best={bestSaving([...brand.pairs, ...brand.bundles])}
         facts={<PriceFacts pairs={[...brand.pairs, ...brand.bundles]} />}
       />

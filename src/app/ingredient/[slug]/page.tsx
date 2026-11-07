@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/ingredient/[slug]
   const brands = Array.from(new Set(ing.pairs.map((p) => p.brand.brand))).slice(0, 3).join(", ");
   return {
     title: `${ing.name}: cheapest products with the same ingredient`,
-    description: `Every brand-name product with ${ing.name} we've verified (${brands}) and the cheaper product with the same ingredient.`,
+    description: `Every brand-name product with ${ing.name} we've checked (${brands}) and the cheaper product with the same ingredient.`,
     alternates: { canonical: `/ingredient/${ing.slug}` },
   };
 }

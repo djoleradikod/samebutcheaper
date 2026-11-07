@@ -19,7 +19,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR06), 1.5 V",
-     "amount": "capacity not stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "not stated"
     }
    ]
   },
@@ -37,7 +41,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR6), 1.5 V",
-     "amount": "2800 mAh stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "2800 mAh"
     }
    ]
   },
@@ -85,7 +93,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR06), 1.5 V",
-     "amount": "capacity not stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "not stated"
     }
    ]
   },
@@ -103,7 +115,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR6), 1.5 V",
-     "amount": "2800 mAh stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "2800 mAh"
     }
    ]
   },
@@ -149,7 +165,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR06), 1.5 V",
-     "amount": "capacity not stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "not stated"
     }
    ]
   },
@@ -165,7 +185,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR06), 1.5 V",
-     "amount": "2600 mAh stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "2600 mAh"
     }
    ]
   },
@@ -223,7 +247,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AAA (LR03), 1.5 V",
-     "amount": "capacity not stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "not stated"
     }
    ]
   },
@@ -239,7 +267,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AAA (LR03), 1.5 V",
-     "amount": "1250 mAh stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "1250 mAh"
     }
    ]
   },
@@ -356,7 +388,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline C (LR14), 1.5 V",
-     "amount": "capacity not stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "not stated"
     }
    ]
   },
@@ -372,7 +408,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline C (LR14), 1.5 V",
-     "amount": "7000 mAh stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "7000 mAh"
     }
    ]
   },
@@ -408,7 +448,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline D (LR20), 1.5 V",
-     "amount": "capacity not stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "not stated"
     }
    ]
   },
@@ -424,7 +468,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline D (LR20), 1.5 V",
-     "amount": "16000 mAh stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "16000 mAh"
     }
    ]
   },
@@ -731,7 +779,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR6), 1.5 V",
-     "amount": "capacity not listed"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "not listed"
     }
    ]
   },
@@ -747,7 +799,11 @@
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR6), 1.5 V",
-     "amount": "2550 mAh stated"
+     "amount": ""
+    },
+    {
+     "name": "Capacity",
+     "amount": "2550 mAh"
     }
    ]
   },
@@ -1830,14 +1886,6 @@
   "evidence": "Both read on crocus.co.uk on 6 November 2026 with no reduction shown: Melcourt GBP 6.99 for 15 litres (about 47p a litre), RocketGro GBP 10.99 for 40 litres (about 27p a litre). Crocus lists the RocketGro 20-litre bag as sold out. Which?'s 2026 guide says a high price doesn't guarantee quality.",
   "differences": "The base differs: Melcourt uses bark, wood fibre and coir, and RocketGro uses green compost and soil improver, made in Somerset and described as vegan friendly. Neither listing gives a pH figure. You have to buy 40 litres at this price, and 15 litres of Melcourt is easier to carry and suits a pot or two. No test we read covers these two.",
   "why": "For a bed of acid-loving plants the larger bag costs much less per litre. For a single pot, the small Melcourt bag can still cost less in total.",
-  "aspects": [
-   {
-    "aspect": "Bag size",
-    "brand": "15 litres",
-    "alternative": "40 litres",
-    "verdict": "different"
-   }
-  ],
   "claims": [
    "compost-brand-and-price-do-not-predict-quality"
   ],

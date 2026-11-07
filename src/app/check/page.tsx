@@ -26,7 +26,7 @@ import type { CategorySlug } from "@/lib/types";
 export const metadata: Metadata = {
   title: "Check any product: ingredients, uses and cheaper swaps",
   description:
-    "Search a product name, scan its barcode or snap the label. See what's in it, what it's for, and cheaper products with the same ingredients that deliver to your country.",
+    "Search a product name, scan its barcode or snap the label. See what's in it, what it's for, and cheaper products that deliver to your country, with what each one matches on.",
   alternates: { canonical: "/check" },
 };
 
@@ -41,7 +41,7 @@ export default function CheckPage({ searchParams }: PageProps<"/check">) {
           </h1>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">
             Type a product, scan its barcode or snap the label. We read the official label data and show cheaper
-            products with the same ingredients, from stores that deliver where you live.
+            products from stores that deliver where you live, with what each one matches on.
           </p>
           <div className="mt-7">
             <Suspense fallback={<div className="h-14 max-w-2xl rounded-2xl border border-line bg-paper" />}>
@@ -191,7 +191,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
       <div className="space-y-10">
         {outcome.catalog.length > 0 && (
           <section>
-            <h2 className="display text-2xl font-medium">Swaps we&apos;ve already verified</h2>
+            <h2 className="display text-2xl font-medium">Swaps already in our catalogue</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {outcome.catalog.map((p) => (
                 <PairCard key={p.slug} pair={toSummary(p)} />
@@ -314,8 +314,8 @@ function HowItWorks() {
     },
     {
       icon: Store,
-      title: "Buy the same thing for less",
-      text: "Our verified swaps, store brands with the same label, and stores that deliver to your country.",
+      title: "Find what costs less",
+      text: "Swaps from our catalogue, store brands with the same active ingredients on the label, and stores that deliver to your country.",
     },
   ];
   const examples = ["Claritin", "Zyrtec", "Centrum Silver", "Mucinex", "Nature Made fish oil", "CeraVe"];

@@ -2,8 +2,9 @@
 
 Usage: python3 -I scripts/qa/extract_nutrition.py <en.openfoodfacts.org.products.csv.gz> <out.json>   (run from the repo root)
 
-A side matches a record through the barcode of its reviewed photo, or through its own gtin. Values are per 100 g or 100 ml, as the dump
-states them. Implausible values are dropped. The data is ODbL, so the site credits Open Food Facts and links each record.
+A side matches a record through its own gtin, or else through the barcode of its reviewed photo, because a photo can come from another
+barcode of the same product. Values are per 100 g or 100 ml, as the dump states them. Implausible values are dropped. The data is ODbL,
+so the site credits Open Food Facts and links each record.
 """
 import csv
 import glob
@@ -19,6 +20,7 @@ csv.field_size_limit(10_000_000)
 
 images = json.load(open("data/images.json"))
 wanted = {}
+own_gtin = {}
 for key, rec in images.items():
     m = re.search(r"openfoodfacts\.org/product/(\d+)", rec.get("page", ""))
     if m and rec.get("reviewed"):
@@ -27,7 +29,8 @@ for path in glob.glob("data/pairs/*.json"):
     for pair in json.load(open(path)):
         for side in (pair["brand"], pair["alternative"]):
             key = f"{side['brand']}|{side['product']}"
-            if side.get("gtin") and key not in images:
+            if side.get("gtin"):
+                own_gtin[key] = str(side["gtin"])
                 wanted.setdefault(str(side["gtin"]), set()).add(key)
 print("barcodes wanted", len(wanted))
 
@@ -83,7 +86,9 @@ with gzip.open(dump, "rt", encoding="utf8", errors="replace", newline="") as f:
             "ingredients": clean_ingredients(row.get("ingredients_text")),
         }
         for key in keys:
-            items[key] = record
+            # The side's own barcode wins over its photo's, whichever row comes first in the dump.
+            if key not in items or row["code"] == own_gtin.get(key):
+                items[key] = record
 meta = {
     "source": "Open Food Facts",
     "license": "ODbL 1.0",

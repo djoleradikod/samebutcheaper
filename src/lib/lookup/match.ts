@@ -1,6 +1,7 @@
 import "server-only";
 import Fuse from "fuse.js";
 import { getAllBundles, getAllPairs, ingredientKey } from "@/lib/catalog";
+import { differentSalts } from "@/lib/ingredient-key";
 import type { LookFor } from "@/lib/markets";
 import type { Bundle, Pair } from "@/lib/types";
 import type { Active, LookupProduct } from "./types";
@@ -10,16 +11,20 @@ import { normAmount, tokens } from "./text";
 
 const ACTIVE_MATCHES = new Set(["identical_active", "identical_formula", "same_manufacturer"]);
 
-function keySet(list: { name: string; amount: string }[]) {
+type ActiveKey = { name: string; key: string; amount: string };
+
+function keySet(list: { name: string; amount: string }[]): ActiveKey[] {
   return list
-    .map((a) => ({ key: ingredientKey(a.name), amount: normAmount(a.amount) }))
+    .map((a) => ({ name: a.name, key: ingredientKey(a.name), amount: normAmount(a.amount) }))
     .filter((a) => a.key);
 }
 
-/** Same ingredient set, and the same strength wherever both sides state one. */
-function sameActives(a: { key: string; amount: string }[], b: { key: string; amount: string }[]) {
+/** Same ingredient set with no two salts named against each other, and the same strength wherever both sides state one. */
+function sameActives(a: ActiveKey[], b: ActiveKey[]) {
   if (!a.length || a.length !== b.length) return false;
-  return a.every((x) => b.some((y) => y.key === x.key && (!x.amount || !y.amount || x.amount === y.amount)));
+  return a.every((x) =>
+    b.some((y) => y.key === x.key && !differentSalts(x.name, y.name) && (!x.amount || !y.amount || x.amount === y.amount)),
+  );
 }
 
 function brandMatches(pairBrand: string, product: LookupProduct) {

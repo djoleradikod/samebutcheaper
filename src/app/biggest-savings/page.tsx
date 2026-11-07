@@ -5,9 +5,9 @@ import { PairBrowser } from "@/components/PairBrowser";
 import { bestSaving, browseProps, PriceFacts, ShelfHead, swapCount } from "@/components/ShelfParts";
 
 export const metadata: Metadata = {
-  title: "Biggest savings: every verified swap, ranked",
+  title: "Biggest savings: every swap, ranked",
   description:
-    "Every verified cheaper alternative to a brand-name product, ranked by how much you save per unit.",
+    "Every cheaper alternative to a brand-name product in our catalogue, ranked by how much you save per unit.",
   alternates: { canonical: "/biggest-savings" },
 };
 

@@ -5,9 +5,12 @@
  */
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { atStore, mayEarn, storeName, storeSplit } from "../../src/lib/affiliate";
+import { atStore, linkStoreName, mayEarn, storeName, storeSplit } from "../../src/lib/affiliate";
+import { matchSentence } from "../../src/lib/categories";
 import { comparison, hasProof, ingredientListLabel, nutrientVerdict, onFileIntro, sideNamed, sortDifferences } from "../../src/lib/compare";
 import { withCelsius } from "../../src/lib/format";
+import { differentSalts } from "../../src/lib/ingredient-key";
+import { normAmount } from "../../src/lib/lookup/text";
 import { jsonLdText } from "../../src/lib/site";
 import type { Pair } from "../../src/lib/types";
 
@@ -303,6 +306,99 @@ test("grade and salt words don't split one ingredient into two rows", () => {
 
 test("different forms of an active stay two rows", () => {
   assert.deepEqual(verdicts(withRows([["Omeprazole magnesium", "20.6 mg"]], [["Omeprazole", "20 mg"]])), ["unknown", "unknown"]);
+});
+
+test("a decimal comma is a decimal, so 1,5% isn't 15%", () => {
+  assert.deepEqual(verdicts(withRows([["Salicylic acid", "1,5%"]], [["Salicylic acid", "15%"]])), ["different"]);
+  assert.deepEqual(verdicts(withRows([["Salicylic acid", "1,5%"]], [["Salicylic acid", "1.5%"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Salicylic acid", "0,50%"]], [["Salicylic acid", "0.5%"]])), ["same"]);
+});
+
+test("a three-digit group is thousands, in either notation", () => {
+  assert.deepEqual(verdicts(withRows([["Vitamin C", "1.000 mg"]], [["Vitamin C", "1 mg"]])), ["different"]);
+  assert.deepEqual(verdicts(withRows([["Vitamin C", "1,000 mg"]], [["Vitamin C", "1.000 mg"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Vitamin C", "1,000 mg"]], [["Vitamin C", "1000 mg"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Vitamin C", "1.000 mg"]], [["Vitamin C", "1000 mg"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Vitamin C", "1,000 mg"]], [["Vitamin C", "1 mg"]])), ["different"]);
+  assert.deepEqual(verdicts(withRows([["Vitamin C", "1.000,5 mg"]], [["Vitamin C", "1000.5 mg"]])), ["same"]);
+});
+
+test("a small decimal with three places stays a decimal", () => {
+  assert.deepEqual(verdicts(withRows([["Thymol", "0.060%"]], [["Thymol", "0.06%"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Stannous fluoride", "0.454%"]], [["Stannous fluoride", "454%"]])), ["different"]);
+  assert.deepEqual(verdicts(withRows([["Ketotifen", "8.80%"]], [["Ketotifen", "8.8%"]])), ["same"]);
+});
+
+test("a lookup doesn't read 1.000 mg as 1 mg, and 5.0 mg is still 5 mg", () => {
+  assert.notEqual(normAmount("1.000 mg"), normAmount("1 mg"));
+  assert.equal(normAmount("5.0 mg"), normAmount("5 mg"));
+  assert.equal(normAmount("5.00 mg"), normAmount("5 mg"));
+});
+
+test("two different salts at one amount stay two rows", () => {
+  const rows = comparison(withRows([["Creatine monohydrate", "5 g"]], [["Creatine HCl", "5 g"]])).ingredients;
+  assert.deepEqual(
+    rows.map((r) => [r.aspect, r.brand, r.alternative, r.verdict]),
+    [
+      ["Creatine monohydrate", "5 g", "Not listed", "unknown"],
+      ["Creatine HCl", "Not listed", "5 g", "unknown"],
+    ],
+  );
+  assert.deepEqual(verdicts(withRows([["Calcium (as calcium citrate)", "400 mg"]], [["Calcium (as calcium carbonate)", "400 mg"]])), ["unknown", "unknown"]);
+  assert.deepEqual(verdicts(withRows([["Omeprazole (as magnesium)", "20 mg"]], [["Omeprazole (as sodium)", "20 mg"]])), ["unknown", "unknown"]);
+});
+
+test("spellings of one salt, or a salt on one side only, stay one row", () => {
+  assert.deepEqual(verdicts(withRows([["Cetirizine HCl", "10 mg"]], [["Cetirizine hydrochloride", "10 mg"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Cetirizine HCl", "10 mg"]], [["Cetirizine", "10 mg"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Creatine monohydrate", "5 g"]], [["Creatine monohydrate (micronized)", "5 g"]])), ["same"]);
+  assert.equal(differentSalts("Calcium (as calcium citrate)", "Calcium (as calcium citrate)"), false);
+});
+
+test("a value that says it isn't stated counts as missing, wherever the words sit", () => {
+  for (const missing of ["capacity not stated", "not stated", "Not listed on the page", "strength not stated on the page", "amount not shown on listing", "None listed", "No class stated", "isn't stated"]) {
+    assert.deepEqual(verdicts(withRows([["Capacity", missing]], [["Capacity", "2800 mAh"]])), ["unknown"], missing);
+    const row = comparison(pair({ aspects: [{ aspect: "Capacity", brand: missing, alternative: "2800 mAh", verdict: "different" }] })).rows.find((r) => r.aspect === "Capacity");
+    assert.equal(row?.verdict, "unknown", missing);
+  }
+});
+
+test("a real value with an aside about something else stays a value", () => {
+  assert.deepEqual(verdicts(withRows([["Cable", "6 ft cable (rating not stated)"]], [["Cable", "2 m cable"]])), ["different"]);
+  assert.deepEqual(verdicts(withRows([["Carbonate", "listed 1st (% not disclosed)"]], [["Carbonate", "listed 1st (% not disclosed)"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Dyes", "Uncoated, no dyes listed"]], [["Dyes", "Coated"]])), ["different"]);
+});
+
+test("a verdict that one side won stays when the other side says it's not stated", () => {
+  const row = comparison(pair({ aspects: [{ aspect: "Guarantee", brand: "10 years", alternative: "Guarantee not stated", verdict: "brand_better" }] })).rows.find((r) => r.aspect === "Guarantee");
+  assert.equal(row?.verdict, "brand_better");
+});
+
+test("a row that only restates the pack size isn't proof", () => {
+  for (const aspect of ["Pack", "Bag size", "Bottle size", "Can size", "Length per roll", "pack count"]) {
+    const c = comparison(pair({ aspects: [{ aspect, brand: "15", alternative: "40", verdict: "different" }] }));
+    assert.equal(hasProof(c), false, aspect);
+  }
+  for (const aspect of ["Length", "Brush sizes", "Cable in the box"]) {
+    const c = comparison(pair({ aspects: [{ aspect, brand: "a", alternative: "b", verdict: "different" }] }));
+    assert.equal(hasProof(c), true, aspect);
+  }
+});
+
+test("an Amazon link is named as Amazon, whichever retailer the record names", () => {
+  assert.equal(linkStoreName({ retailer: "costco", url: "https://www.amazon.com/s?k=duracell" }), "Amazon");
+  assert.equal(linkStoreName({ retailer: "walmart", url: "https://www.walmart.com/ip/1" }), "Walmart");
+  assert.equal(linkStoreName({ retailer: "other", url: "https://www.uline.com/p/1" }), "uline.com");
+});
+
+test("a group of swaps promises no more than its weakest one shows", () => {
+  assert.equal(matchSentence(["identical_active"]), "Each has the same active ingredients.");
+  assert.equal(matchSentence(["identical_active", "equivalent_spec"]), "Each has the same active ingredients, or comparable specs or tests.");
+  const kindOnly = matchSentence(["same_kind", "same_kind"]);
+  assert.match(kindOnly, /same kind of product/);
+  assert.doesNotMatch(kindOnly, /same (active|formula|ingredients)/);
+  assert.equal(matchSentence(["same_kind", "equivalent_spec"]), "Some have comparable specs or tests, and the rest are only the same kind of product. Each swap says which.");
+  assert.equal(matchSentence([]), "");
 });
 
 test("a name the ingredient key drops still gets its own row", () => {

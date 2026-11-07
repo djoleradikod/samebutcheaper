@@ -8,27 +8,33 @@ The critic has not picked ours on every piece, so the gauntlet is not finished. 
 
 Each page's last blind verdict, with labels stripped. Overall is the critic's pick; looks is a second pick on appearance alone.
 
-| Page | Against | Round | Overall | Looks |
-|---|---|---|---|---|
-| Home, desktop | geizhals, live | 9 | ours | ours |
-| Home, desktop | idealo, archive Nov 2026 | 9 | ours | idealo |
-| Home, phone | geizhals, live | 8 | ours | ours |
-| Home, phone | camelcamelcamel, live | 8 | ours | ours |
-| Category, desktop | idealo, archive Oct 2026 | 9 | ours | idealo |
-| Category, phone | idealo, archive Oct 2026 | 9 | ours | idealo |
-| Category, phone | camelcamelcamel, live | 8 | ours | ours |
-| Household aisle, desktop | geizhals, archive Oct 2026 | 9 | ours | geizhals |
-| Bulk, desktop | geizhals, archive Oct 2026 | 9 | geizhals | geizhals |
-| Basket, desktop | idealo product, archive Sep 2026 | 9 | ours | ours |
-| Swap with strong evidence, desktop | idealo product, archive Sep 2026 | 9 | ours | ours |
-| Swap with strong evidence, phone | camelcamelcamel product, live | 7 | ours | ours |
-| Swap with thin evidence, desktop | idealo product, archive Sep 2026 | 9 | idealo | ours |
+Round 10, all 13 pairs, on the build merged as PR 3:
 
-Those verdicts predate the last commit of fixes (`d635c28`), which changed labels, totals and copy. `/why` was never judged on its own. Camelcamelcamel desktop and geizhals product weren't usable as bars: both refused our browser (403).
+| Page | Against | Overall | Looks |
+|---|---|---|---|
+| Home, desktop | geizhals, live | ours | ours |
+| Home, desktop | idealo, archive Nov 2026 | ours | idealo |
+| Home, phone | geizhals, live | ours | ours |
+| Home, phone | camelcamelcamel, live | ours | ours |
+| Category, desktop | idealo, archive Oct 2026 | ours | ours |
+| Category, phone | idealo, archive Oct 2026 | ours | idealo |
+| Category, phone | camelcamelcamel, live | ours | ours |
+| Household aisle, desktop | geizhals, archive Oct 2026 | ours | geizhals |
+| Bulk, desktop | geizhals, archive Oct 2026 | geizhals | geizhals |
+| Basket, desktop | idealo product, archive Sep 2026 | ours | ours |
+| Swap with strong evidence, desktop | idealo product, archive Sep 2026 | ours | ours |
+| Swap with strong evidence, phone | camelcamelcamel product, live | ours | ours |
+| Swap with thin evidence, desktop | idealo product, archive Sep 2026 | idealo | ours |
 
-Numbers on `d635c28`: 440 swaps, 39 brand kits, 29 baskets. Real photo on at least one side 239 (54%), both sides 117 (27%); DailyMed is neither shown nor counted. Medicine 83 (19%) counting remedies in other aisles, 73 (17%) in its own aisle, from 50%. All 440 cite two different sites, in one unit on both sides; 8 more are held back. Labels: 278 does the same job, 104 same active, 14 same formula, 2 same maker, 42 same kind. LCP worst median 0.75 s on the round 8 build, on the throttled LAN profile, target under 2.5 s.
+So 11 of 13 win overall and 8 of 13 win both. Verdicts move between rounds: category desktop against idealo won on looks only in round 10, after losing in rounds 6 to 9, and the thin swap won overall in round 7 and lost it in rounds 6, 9 and 10. Treat one pick as one reader's view, not a measurement.
 
-Gate on `d635c28` through the lane: catalog, typegen, typecheck, lint, 37 rule tests and build all exit 0. There are no other automated tests in this repo's gate. An independent review of the branch found 9 blocking and 2 minor faults; all were fixed and read by the lead, but the fixes had no second independent review. In a browser, nobody has yet exercised the stepper-driven store split or the `/bulk` sort.
+Round 10 predates the second review's fixes, which change labels and copy, not layout or photos. `/why` was never judged on its own. Camelcamelcamel desktop and geizhals product weren't usable as bars: both refused our browser (403). One critic noted that redaction missed camelcamelcamel's name on one screen of the home phone pair.
+
+Numbers: 440 swaps, 39 brand kits, 29 baskets. Real photo on at least one side 239 (54%), both sides 117 (27%), and 32.5% on both sides outside medicine; DailyMed is neither shown nor counted. Medicine 83 (19%) counting remedies in other aisles, 73 (17%) in its own aisle, from 50%. All 440 cite two different sites, in one unit on both sides; 8 more are held back. Labels: 277 does the same job, 103 same active, 14 same formula, 2 same maker, 44 same kind. LCP worst median 0.74 s on the round 10 build, on the throttled LAN profile, target under 2.5 s.
+
+Two independent reviews read the code. The first found 9 blocking and 2 minor faults on the branch. The second read the fix commit and found 4 blocking and 4 minor faults, mostly records and pages the first fixes hadn't reached. All are fixed except the rule below, and the lead read those fixes; the second round of fixes had no third review. `scripts/qa/interact_check.py` tests the stepper-driven store split and the `/bulk` controls in a real browser.
+
+**A rule for the owner:** how much must be on file to say "Does the same job"? Now it needs one row with data on both sides, and that row may show a difference. 38 swaps have no row that reads same or better for the cheaper side, for example Plenty's three swaps with only a differing sheet size. Separately, 26 rest on rows that only name the same thing on both sides, such as "Alkaline AA (LR06), 1.5 V". Tightening either moves those to "Same kind". The lead's recommendation: require at least one row that reads same or better, and keep name-only rows as proof where the name carries the spec. That's a one-line change in `hasProof` plus its test.
 
 ## Where things are
 
@@ -41,13 +47,14 @@ Gate on `d635c28` through the lane: catalog, typegen, typecheck, lint, 37 rule t
 
 ## Port 3000
 
-It serves an old image. Containers are owner-only. After the merge, from the shared checkout, which is on main:
+It serves an old image. Containers are owner-only. The order matters. `owner-unblock.sh` stops unless the shared checkout is exactly at `1f0acc2`, and it also adds the tailnet routes, so it has to run before the pull:
 
 ```
+bash ~/ops/test-access-20261105/owner-unblock.sh
 cd ~/src/samebutcheaper && git pull --ff-only && docker compose up -d --build
 ```
 
-The database volume is kept. `up -d` alone isn't enough, because main has moved past the built image. This Docker build has not been run from this branch, because the kucni cage refuses docker here.
+The database volume is kept. `up -d` alone isn't enough, because main has moved past the built image. This Docker build has not been run from this branch, because the kucni cage refuses docker here. If the checkout has already been pulled, the script stops at its first step and adds no routes, so the routes would need `bash ~/ops/test-access-20261105/install-routes.sh` run on its own.
 
 ## Owner-only
 
@@ -66,7 +73,10 @@ The database volume is kept. `up -d` alone isn't enough, because main has moved 
 - `sharp` is used by the image scripts and comes in only through Next. Add it as a direct dev dependency in a lane install.
 - 8 swaps are held for a second source: `~/ops/sbc-push-20261106/needs-second-source.json`.
 - Two Duracell rows are still imperfect: the AA pair shows "capacity not listed" against 2550 mAh as different, and the AAA name still splits into two rows.
-- Albi's photo record points at a different barcode from the pair's own, and its nutrition now comes from the pair's barcode.
+- The Frucht Stern photo comes from a different barcode's record than the pair's own. It's the same 1 L pack by eye, and its nutrition now comes from the pair's barcode.
+- Prilosec has two current DailyMed labels (NDA021229 and ANDA206582), and we can't tell which one a given pack carries. Both records name both.
+- `duracell-coppertop-aaa-vs-kirkland-signature-aaa` has retailer Costco and an Amazon search link: the disclosure says Amazon, the button still says Costco. Its data needs a Costco link or a retailer change.
+- `differentSalts` only fires when both sides name a salt. A plain "Omeprazole" against "Omeprazole (as magnesium)" would still pass the build check.
 
 ## Things a later reader should know
 

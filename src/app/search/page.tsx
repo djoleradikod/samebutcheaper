@@ -6,7 +6,7 @@ import { TagLinks } from "@/components/ShelfParts";
 
 export const metadata: Metadata = {
   title: "Search swaps",
-  description: "Search verified cheaper alternatives by brand, product or ingredient.",
+  description: "Search cheaper alternatives by brand, product or ingredient.",
   alternates: { canonical: "/search" },
   robots: { index: false, follow: true },
 };

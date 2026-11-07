@@ -906,8 +906,8 @@
       "url": "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353",
       "key_ingredients": [
         {
-          "name": "Omeprazole (as magnesium)",
-          "amount": "20 mg"
+          "name": "Omeprazole magnesium",
+          "amount": "20.6 mg (equal to 20 mg omeprazole)"
         }
       ]
     },
@@ -928,20 +928,23 @@
       ],
       "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9&name=AA793ZYC3+915+Carton+Image+1.jpg"
     },
-    "match_type": "identical_active",
+    "match_type": "same_kind",
     "confidence": "medium",
-    "summary": "Both are 20 mg omeprazole delayed-release tablets, packed as three 14-day courses.",
+    "summary": "Both are omeprazole delayed-release tablets packed as three 14-day courses, and the two records list the ingredient in different forms. Member's Mark is labelled 'Compare to Prilosec OTC'.",
     "evidence": "Sam's Club's Member's Mark listing shows omeprazole 20 mg delayed-release tablets, 42 count (3 x 14), at a regular price of $9.98 ($6.98 on sale until Nov 29), compared to Prilosec OTC. The Prilosec OTC 42 count price ($29.95) comes from the Walmart listing that another research round verified.",
-    "differences": "Sam's Club membership is required. We could not re-check the Prilosec price this round because the fetch budget ran out. Prilosec OTC is omeprazole magnesium (20.6 mg, equal to 20 mg omeprazole); check the Member's Mark salt form on the box.",
+    "differences": "Sam's Club membership is required. We could not re-check the Prilosec price this round because the fetch budget ran out. The Prilosec OTC label lists omeprazole magnesium 20.6 mg, stated as equal to 20 mg omeprazole. The Member's Mark label lists omeprazole 20 mg. The listed forms differ, and our sources do not compare how the two tablets work, so ask a pharmacist before switching.",
     "sources": [
       "https://www.samsclub.com/ip/members-mark-omeprazole-dr-tablets-20-mg-42-count/13887904038",
-      "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353"
+      "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=77ed80a2-a482-4838-ac55-4865b5c31d9f",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=37291cab-e350-d8e3-e063-6294a90a9cb1"
     ],
     "price_checked": "2026-11",
     "aspects": [
       {
         "aspect": "Salt form and approval",
-        "brand": "Prilosec OTC contains omeprazole magnesium (P&G, NDA 021229)",
+        "brand": "Prilosec OTC contains omeprazole magnesium. DailyMed has two current P&G tablet labels, one under NDA021229 and one under ANDA206582",
         "alternative": "Member's Mark contains omeprazole base, approved under its own NDA 022032, not an ANDA copy of Prilosec",
         "verdict": "different",
         "source": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0edfa800-fb14-44dd-9c31-de930b864ef9"

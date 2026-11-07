@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: PageProps<"/category/[slug]">
     };
   }
   return {
-    title: `Cheaper ${cat.name}: ${count} verified swaps`,
-    description: `${cat.description} Browse ${count} verified cheaper alternatives to brand-name ${inSentence(cat.name)}.`,
+    title: `Cheaper ${cat.name}: ${count} swaps`,
+    description: `${cat.description} Browse ${count} cheaper alternatives to brand-name ${inSentence(cat.name)}.`,
     alternates: { canonical: `/category/${cat.slug}` },
   };
 }

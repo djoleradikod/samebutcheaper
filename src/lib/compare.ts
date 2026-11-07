@@ -1,5 +1,5 @@
 import { formatSize, inSentence, ppu } from "./format";
-import { ingredientKey, slugify } from "./ingredient-key";
+import { differentSalts, ingredientKey, slugify } from "./ingredient-key";
 import type { CategorySlug, Pair, ProductSide } from "./types";
 
 /**
@@ -61,11 +61,18 @@ function packVerdict(brandSize: number, altSize: number): Verdict {
   return Math.abs(brandSize - altSize) / Math.max(brandSize, altSize) <= ABOUT_SAME_SHARE ? "about_same" : "different";
 }
 
-const NOT_ON_FILE = /^((amount )?not (listed|recorded|rated|stated|shown|given|published|disclosed|on file)|unknown|n\/a)\b/i;
+const NOT_ON_FILE =
+  /^(unknown|n\/a)\b|(\bnot|n['’]t) (listed|recorded|rated|stated|shown|given|published|disclosed|on file)\b|^none (listed|stated)\b|^no \w+ (listed|stated)\b/i;
+
+/** Whether a value says it isn't stated, wherever the words sit. A bracket is an aside, so "6 ft cable (rating not stated)" still states a value. */
+function notOnFile(value: string) {
+  const text = value.trim();
+  return NOT_ON_FILE.test(text.replace(/\(.*?\)/g, "").trim() || text);
+}
 
 /** A missing value against a real one isn't a difference. A verdict that says the brand or the cheaper one won stays. */
 function withoutFalseDifference(row: CompareRow): CompareRow {
-  const missing = NOT_ON_FILE.test(row.brand.trim()) || NOT_ON_FILE.test(row.alternative.trim());
+  const missing = notOnFile(row.brand) || notOnFile(row.alternative);
   return missing && (row.verdict === "different" || row.verdict === "check") ? { ...row, verdict: "unknown" } : row;
 }
 
@@ -75,13 +82,16 @@ const norm = (s: string) => s.toLowerCase().replace(/[\s,]+/g, "");
 const rowKey = (name: string) => ingredientKey(name) || slugify(name);
 
 /**
- * An amount in a form two labels can agree on: "8.80%" and "8.8%", "1,000 mg" and "1000 mg",
- * "per 2 caplets" and "per 2 tablets" all come out equal. Any other difference stays.
+ * An amount in a form two labels can agree on: "8.80%" and "8.8%", "1,000 mg", "1.000 mg" and "1000 mg",
+ * "1,5%" and "1.5%", "per 2 caplets" and "per 2 tablets" all come out equal. Any other difference stays.
+ * A point before three digits is a thousands separator unless the number starts at zero, as in "0.454%".
  */
 function amountKey(amount: string) {
   return amount
     .toLowerCase()
+    .replace(/(\d),(\d{1,2})(?!\d)/g, "$1.$2")
     .replace(/(\d),(?=\d{3}(?!\d))/g, "$1")
+    .replace(/(?<![\d.])[1-9]\d{0,2}(?:\.\d{3})+(?!\d)/g, (n) => n.replace(/\./g, ""))
     .replace(/\d*\.?\d+/g, (n) => String(Number(n)))
     .replace(/\bcaplet(s?)\b/g, "tablet$1")
     .replace(/[µμ]g\b/g, "mcg")
@@ -120,8 +130,9 @@ function ingredientRows(pair: Pair, slugFor?: (name: string) => string | undefin
   for (const i of pair.alternative.key_ingredients) {
     const key = rowKey(i.name);
     const row = rows.get(key);
-    if (row) row.alt = i.amount;
-    else rows.set(key, { name: i.name, alt: i.amount });
+    // "Creatine monohydrate" and "Creatine HCl" share a key but aren't one row.
+    if (row && !differentSalts(row.name, i.name)) row.alt = i.amount;
+    else rows.set(row ? `${key}|${i.name}` : key, { name: i.name, alt: i.amount });
   }
   const chemistry = pair.match_type !== "equivalent_spec" && pair.match_type !== "same_kind";
   return [...rows.values()].map((r) => {
@@ -139,7 +150,7 @@ function ingredientRows(pair: Pair, slugFor?: (name: string) => string | undefin
 /** Both sides have to state a value for a row to say same or different. A name with an amount only on one side proves neither. */
 function amountVerdict(brand: string | undefined, alt: string | undefined): Verdict {
   if (brand === undefined || alt === undefined) return "unknown";
-  const stated = (amount: string) => amount !== "" && !NOT_ON_FILE.test(amount.trim());
+  const stated = (amount: string) => amount !== "" && !notOnFile(amount);
   if (brand === "" && alt === "") return "same";
   if (!stated(brand) || !stated(alt)) return "unknown";
   return amountKey(brand) === amountKey(alt) ? "same" : "different";
@@ -591,10 +602,17 @@ export function hasProof(c: Comparison) {
   return proofOnFile(c).length > 0;
 }
 
+const CONTAINER = "pack|packet|bag|bottle|can|box|tub|tin|jar|tube|pouch|roll|carton|container";
+/** A researched row with one of these names only restates the pack size, which compares nothing: "Bag size", "Length per roll". */
+const RESTATES_PACK = new RegExp(
+  `^(?:(?:${CONTAINER})(?: (?:size|count|contents))?|(?:size|length|weight|volume|contents|count|amount) (?:of|per) (?:the |a )?(?:${CONTAINER}))$`,
+  "i",
+);
+
 function proofOnFile(c: Comparison) {
   const has = (kind: RowKind) => c.rows.some((r) => r.kind === kind);
   const tests = c.rows.filter((r) => r.kind === "test").map((r) => r.aspect);
-  const researched = c.rows.filter((r) => r.kind === "researched" && norm(r.aspect) !== "pack").map((r) => inSentence(r.aspect));
+  const researched = c.rows.filter((r) => r.kind === "researched" && !RESTATES_PACK.test(r.aspect.trim())).map((r) => inSentence(r.aspect));
   const others = researched.length - RESEARCHED_NAMED;
   return [
     ...(tests.length === 1 ? [`the ${tests[0]} result`] : tests.length > 1 ? [`${tests.length} test results`] : []),
