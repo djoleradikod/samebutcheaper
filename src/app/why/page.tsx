@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import { citationDate, Finding } from "@/components/Finding";
 import { ProductThumb } from "@/components/ProductThumb";
 import { getAllPairs, getClaims, getPairsByCategory, getShelfLife } from "@/lib/catalog";
+import { localClaim, visibleMarkets } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 import { CATEGORIES, CATEGORY_MAP } from "@/lib/categories";
 import { withCelsius } from "@/lib/format";
 import type { CategorySlug, Claim, ShelfLife } from "@/lib/types";
@@ -185,8 +187,13 @@ function ShelfTable({ records }: { records: ShelfLife[] }) {
 
 /* --------------------------------------------------------------------- the page */
 
-export default function WhyPage() {
-  const claims = getClaims();
+export default async function WhyPage() {
+  const local = await getLocal();
+  // A US finding names US stores, so as on the home page it stays with shoppers who can use it.
+  const seen: readonly string[] = visibleMarkets(local.country);
+  const claims = getClaims()
+    .filter((c) => !c.markets.length || c.markets.some((m) => seen.includes(m)))
+    .map((c) => localClaim(c, local));
   const shelfLife = getShelfLife();
   const groups = groupByAisle(claims);
   const lost = claims.map((claim) => ({ claim, text: lostFrom(claim) })).filter((x) => x.text);

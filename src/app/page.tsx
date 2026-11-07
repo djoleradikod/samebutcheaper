@@ -25,8 +25,8 @@ import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
-import { forCountry, visibleMarkets, type Local } from "@/lib/localize";
-import { MARKETS, type MarketCode } from "@/lib/markets";
+import { forCountry, localClaim, visibleMarkets, type Local } from "@/lib/localize";
+import type { MarketCode } from "@/lib/markets";
 import { namedSellers, sellsIn } from "@/lib/sellers";
 import { getLocal } from "@/lib/server-country";
 import { jsonLdText } from "@/lib/site";
@@ -121,10 +121,7 @@ function pickFindings(local: Local, limit = 3) {
     if (picked.length >= limit) break;
     if (!picked.includes(c)) picked.push(c);
   }
-  return picked.map((c) => {
-    const from = MARKETS[c.markets[0]]?.currency;
-    return c.markets.length === 1 && from ? { ...c, title: local.prose(c.title, from), finding: local.prose(c.finding, from) } : c;
-  });
+  return picked.map((c) => localClaim(c, local));
 }
 
 const BULK_COLUMNS: { advice: ShelfLife["advice"]; title: string; body: string }[] = [

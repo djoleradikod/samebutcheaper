@@ -22,7 +22,7 @@ import { inSentence, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
-import { forCountry, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { forCountry, localClaim, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
 import { getLocal } from "@/lib/server-country";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
@@ -59,7 +59,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
 
   const local = await getLocal();
   // What the page reads out. comparison() below reads the catalogue's own wording.
-  const pair = localText(record, local);
+  const pair = { ...localText(record, local), evidence_claims: record.evidence_claims.map((c) => localClaim(c, local)) };
   const { brand: b, alternative: a, currency } = pair;
   const cat = CATEGORY_MAP[pair.category];
   const health = HEALTH_CATEGORIES.has(pair.category);

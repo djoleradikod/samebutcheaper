@@ -120,6 +120,13 @@ export function localText<T extends { currency: Currency; summary: string; evide
   };
 }
 
+/** A cited finding with its prices in this shopper's currency. One that spans markets has no single currency to read, so it stays as written. */
+export function localClaim<T extends { markets: MarketCode[]; title: string; finding: string; caveat: string }>(claim: T, local: Local): T {
+  if (claim.markets.length !== 1) return claim;
+  const from = MARKETS[claim.markets[0]].currency;
+  return { ...claim, title: local.prose(claim.title, from), finding: local.prose(claim.finding, from), caveat: local.prose(claim.caveat, from) };
+}
+
 /** One unit of `from` in `to`, at the committed rates. Throws if either has no rate: a silent 1:1 would be a false price. */
 export function rate(from: Currency, to: Currency) {
   if (from === to) return 1;
