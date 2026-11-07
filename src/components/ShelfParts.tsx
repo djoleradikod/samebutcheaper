@@ -12,9 +12,9 @@ import { PairBrowser } from "./PairBrowser";
 import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, Ticket } from "./Ticket";
-import { forCountry } from "@/lib/localize";
-import { countryInSentence } from "@/lib/markets";
-import { getCountry } from "@/lib/server-country";
+import { forCountry, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { countryInSentence, type MarketCode } from "@/lib/markets";
+import { getLocal } from "@/lib/server-country";
 
 /**
  * The one system behind every list of swaps: category, biggest savings, brand, ingredient and
@@ -45,8 +45,8 @@ function toRow(p: Pair): BrowseRow {
 }
 
 /** Props for PairBrowser: a light row for every swap, and card data for the first screen only. */
-export function browseProps(pairs: Pair[], { hideMedicine = false, country }: { hideMedicine?: boolean; country: string | null }) {
-  const visible = forCountry(pairs, country);
+export function browseProps(pairs: Pair[], { hideMedicine = false, local }: { hideMedicine?: boolean; local: Local }) {
+  const visible = forCountry(pairs, local);
   const rows = visible.map(toRow);
   const first = firstScreenSlugs(rows, hideMedicine);
   return { rows, cards: visible.filter((p) => first.has(p.slug)).map(toCard), hideMedicine };
@@ -213,11 +213,13 @@ export function SwapGrid({ pairs, lazy = false }: { pairs: Pair[]; lazy?: boolea
 
 /** Biggest saving first. Long lists get the filters, short ones stay plain. */
 export async function SwapList({ path, pairs }: { path: string; pairs: Pair[] }) {
-  const country = await getCountry();
-  const visible = forCountry(pairs, country);
-  if (!visible.length) return <p className="card p-4 text-sm text-ink-2">We haven&apos;t priced any of these near {countryInSentence(country ?? "US")} yet.</p>;
-  if (visible.length >= FILTER_FROM) return <PairBrowser path={path} {...browseProps(visible, { country })} />;
-  return <SwapGrid pairs={[...visible].sort((a, b) => b.savingsPct - a.savingsPct)} />;
+  const local = await getLocal();
+  const visible = forCountry(pairs, local);
+  if (!visible.length) return <p className="card p-4 text-sm text-ink-2">We haven&apos;t priced any of these at a store that sells in {countryInSentence(local.country)} yet.</p>;
+  if (visible.length >= FILTER_FROM) return <PairBrowser path={path} {...browseProps(visible, { local })} />;
+  // The market that leads for this shopper first, then the biggest saving.
+  const lead = (p: Pair) => Number(p.market === local.listMarket);
+  return <SwapGrid pairs={[...visible].sort((a, b) => lead(b) - lead(a) || b.savingsPct - a.savingsPct)} />;
 }
 
 export type IndexEntry = {
@@ -302,5 +304,15 @@ export function TagLinks({ links }: { links: { href: string; label: ReactNode; k
         </li>
       ))}
     </ul>
+  );
+}
+
+/** For a swap, kit or basket opened by a direct link that wouldn't list for this shopper. It still opens, and says so. */
+export function NotListedHere({ market, local }: { market: MarketCode; local: Local }) {
+  return (
+    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+      We priced this at {MARKET_ADJECTIVE[market]} stores and couldn&apos;t confirm you can buy it in {countryInSentence(local.country)}, so it isn&apos;t in
+      our lists there.
+    </p>
   );
 }

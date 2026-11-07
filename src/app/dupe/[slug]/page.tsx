@@ -19,8 +19,8 @@ import type { Pair } from "@/lib/types";
 import { ConfidenceBadge } from "@/components/Badges";
 import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
 import { PairCard } from "@/components/PairCard";
-import { atLeastOneParam, ListLinks, ShelfHead, SwapGrid, TagLinks } from "@/components/ShelfParts";
-import { forCountry, type Local } from "@/lib/localize";
+import { atLeastOneParam, ListLinks, ShelfHead, SwapGrid, TagLinks, NotListedHere } from "@/components/ShelfParts";
+import { forCountry, localText, type Local } from "@/lib/localize";
 import { getLocal } from "@/lib/server-country";
 
 export function generateStaticParams() {
@@ -113,18 +113,19 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
   if (!d) notFound();
   const h = heading(d);
   const local = await getLocal();
-  // A brand priced only in the US or Canada still opens from a direct link, in the shopper's currency.
-  const near = forCountry(d.pairs, local.country);
-  const top = near[0] ?? d.pairs[0];
-  const others = near.length ? near.slice(1) : d.pairs.slice(1);
+  // A brand with nothing that lists here still opens from a direct link, in the shopper's currency, and says so.
+  const near = forCountry(d.pairs, local);
+  const shown = (near.length ? near : d.pairs).map((p) => localText(p, local));
+  const top = shown[0];
+  const others = shown.slice(1);
   const cat = CATEGORY_MAP[top.category];
-  const related = getRelatedDupes(d);
+  const related = getRelatedDupes(d).filter((r) => forCountry(r.pairs, local).length > 0);
   const { cheaper, dearer, per } = unitPrices(top, local);
 
   const faq = [
     {
       q: `Is there a ${h.noun} for ${d.brand}?`,
-      a: `${matchCountAnswer(d.pairs)} The biggest saving is ${top.alternative.brand}, ${Math.round(top.savingsPct)}% less ${per} at the prices we checked in ${monthYear(top.price_checked)}.`,
+      a: `${matchCountAnswer(shown)} The biggest saving is ${top.alternative.brand}, ${Math.round(top.savingsPct)}% less ${per} at the prices we checked in ${monthYear(top.price_checked)}.`,
     },
     {
       q: `Is ${top.alternative.brand} the same as ${d.brand}?`,
@@ -138,7 +139,7 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: `${h.title} (${h.what})`,
-      itemListElement: d.pairs.map((p, i) => ({
+      itemListElement: shown.map((p, i) => ({
         "@type": "ListItem",
         position: i + 1,
         name: `${p.alternative.brand}: ${p.alternative.product}`,
@@ -166,6 +167,7 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
 
   return (
     <>
+      {!near.length && <NotListedHere market={top.market} local={local} />}
       <div className="bg-canvas pb-8 md:pb-10">
         <ShelfHead
           crumbs={[
@@ -188,14 +190,14 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
             </>
           }
         />
-        {d.pairs.some((p) => HEALTH_CATEGORIES.has(p.category)) && (
+        {shown.some((p) => HEALTH_CATEGORIES.has(p.category)) && (
           <div className="container-page mb-4">
             <HealthNotice />
           </div>
         )}
 
         <div className="container-page">
-          <h2 className="display mb-3 text-xl md:text-2xl">{listHeading(d.pairs)}</h2>
+          <h2 className="display mb-3 text-xl md:text-2xl">{listHeading(shown)}</h2>
           <div className="grid gap-2 sm:gap-3 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
             <PairCard pair={toSummary(top)} eager />
             <div className="card flex flex-col p-3 md:p-4">

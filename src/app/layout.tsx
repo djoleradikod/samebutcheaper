@@ -4,7 +4,9 @@ import { Archivo } from "next/font/google";
 import "./globals.css";
 import { CountryProvider } from "@/components/CountryProvider";
 import { FallbackBand } from "@/components/Money";
-import { getCountry } from "@/lib/server-country";
+import { getAllPairs } from "@/lib/catalog";
+import { localFor, visibleMarkets } from "@/lib/localize";
+import { getCountry, getLocal } from "@/lib/server-country";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { jsonLdText, SITE } from "@/lib/site";
@@ -52,9 +54,13 @@ export const viewport: Viewport = {
  */
 async function ForCountry({ children }: { children: ReactNode }) {
   const country = await getCountry();
+  const { others } = await getLocal();
+  const strict = localFor(country);
+  const markets = visibleMarkets(country);
+  const hidden = getAllPairs().filter((p) => markets.includes(p.market) && !strict.shows(p)).length;
   return (
-    <CountryProvider country={country}>
-      <FallbackBand />
+    <CountryProvider country={country} others={others}>
+      <FallbackBand hidden={hidden} />
       {children}
     </CountryProvider>
   );

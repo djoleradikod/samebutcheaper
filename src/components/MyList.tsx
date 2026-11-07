@@ -7,6 +7,7 @@ import { Check, Copy, Trash2 } from "lucide-react";
 import { setSavedList, toggleSaved, useSavedList } from "@/lib/client/savedList";
 import { useLocal } from "@/lib/client/country";
 import { money, type Currency } from "@/lib/format";
+import type { Local } from "@/lib/localize";
 import { Money } from "./Money";
 import type { CategorySlug } from "@/lib/types";
 import { ProductThumb } from "./ProductThumb";
@@ -31,6 +32,20 @@ export type ListItem = {
   toAlt: string;
 };
 
+/**
+ * One figure in the shopper's currency, marked as approximate if any line had to be converted. With no country there's
+ * no currency to convert into, so each currency keeps its own total rather than adding pounds to euros.
+ */
+function restockText(list: ListItem[], local: Local) {
+  if (!local.known) {
+    const totals = new Map<Currency, number>();
+    for (const i of list) totals.set(i.currency, (totals.get(i.currency) ?? 0) + i.savings);
+    return [...totals].map(([currency, total]) => money(total, currency)).join(" + ");
+  }
+  const total = money(list.reduce((sum, i) => sum + local.amount(i.savings, i.currency), 0), local.currency);
+  return list.some((i) => local.converts(i.currency)) ? `about ${total}` : total;
+}
+
 export function MyList({ items }: { items: ListItem[] }) {
   const params = useSearchParams();
   const saved = useSavedList();
@@ -41,9 +56,7 @@ export function MyList({ items }: { items: ListItem[] }) {
   const byslug = new Map(items.map((i) => [i.slug, i]));
   const list = slugs.map((s) => byslug.get(s)).filter((x): x is ListItem => Boolean(x));
   const local = useLocal();
-  // One figure in the shopper's currency, marked as approximate if any line had to be converted.
-  const restockTotal = money(list.reduce((sum, i) => sum + local.amount(i.savings, i.currency), 0), local.currency);
-  const perRestock = list.some((i) => local.converts(i.currency)) ? `about ${restockTotal}` : restockTotal;
+  const perRestock = restockText(list, local);
 
   if (!list.length) {
     return (

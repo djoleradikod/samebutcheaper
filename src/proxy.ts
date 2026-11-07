@@ -56,9 +56,12 @@ const KNOWN: Record<string, Set<string>> = {
   bundle: new Set(knownSlugs.bundle),
   basket: new Set(knownSlugs.basket),
   dupe: new Set(knownSlugs.dupe),
+  brand: new Set(knownSlugs.brand),
+  ingredient: new Set(knownSlugs.ingredient),
+  category: new Set(knownSlugs.category),
 };
 
-/** True for /compare/x, /bundle/x and /dupe/x when x isn't in the catalog. */
+/** True for a catalogue page (/compare/x, /brand/x and the rest of KNOWN) when x isn't in the catalogue. */
 export function isMissingPage(pathname: string) {
   const [, section, slug, extra] = pathname.split("/");
   const known = KNOWN[section];

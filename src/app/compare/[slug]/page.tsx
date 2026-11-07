@@ -22,7 +22,8 @@ import { inSentence, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
-import { forCountry, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { forCountry, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { NotListedHere } from "@/components/ShelfParts";
 import { getLocal } from "@/lib/server-country";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 
@@ -53,16 +54,18 @@ const WHAT_DIFFERS = "what-differs";
 
 export default async function ComparePage({ params }: PageProps<"/compare/[slug]">) {
   const { slug } = await params;
-  const pair = getPair(slug);
-  if (!pair) notFound();
+  const record = getPair(slug);
+  if (!record) notFound();
 
+  const local = await getLocal();
+  // What the page reads out. comparison() below reads the catalogue's own wording.
+  const pair = localText(record, local);
   const { brand: b, alternative: a, currency } = pair;
   const cat = CATEGORY_MAP[pair.category];
   const health = HEALTH_CATEGORIES.has(pair.category);
-  const local = await getLocal();
-  const related = forCountry(getRelatedPairs(pair, 24), local.country).slice(0, 4).map(toSummary);
-  const brandCount = getBrand(brandSlugFor(b.brand))?.pairs.length ?? 0;
-  const compared = comparison(pair, ingredientSlugFor);
+  const related = forCountry(getRelatedPairs(record, 24), local).slice(0, 4).map(toSummary);
+  const brandCount = forCountry(getBrand(brandSlugFor(b.brand))?.pairs ?? [], local).length;
+  const compared = comparison(record, ingredientSlugFor);
   const rows = readableRows(compared.rows, pair, local);
   const wins = [...compared.ingredients, ...rows].filter((r) => r.verdict === "brand_better");
   const { points, caveats } = sortDifferences(pair.differences);
@@ -101,6 +104,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
 
   return (
     <article>
+      {!local.shows(record) && <NotListedHere market={record.market} local={local} />}
       <div className="container-page pt-1 pb-8 md:pt-4 md:pb-10">
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-x-1 text-[13px] text-muted">
@@ -515,7 +519,7 @@ function readableRows(rows: CompareRow[], pair: Pair, local: Local): CompareRow[
   const { brand: b, alternative: a, currency } = pair;
   const researched = new Set((pair.aspects ?? []).map((r) => r.aspect));
   return rows.map((r) => {
-    if (researched.has(r.aspect)) return r;
+    if (researched.has(r.aspect)) return { ...r, brand: local.prose(r.brand, currency), alternative: local.prose(r.alternative, currency) };
     if (r.aspect === "Pack") return { ...r, brand: packText(b.size, b.unit), alternative: packText(a.size, a.unit) };
     if (r.aspect === `Price per ${b.unit}`) {
       return {

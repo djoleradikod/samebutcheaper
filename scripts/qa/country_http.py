@@ -43,6 +43,17 @@ US_STORES = re.compile(r"\b(walmart|target\.com|costco|walgreens|cvs|kroger|safe
 DOLLAR_PRICE = re.compile(r"(?<![A-Za-z])\$\s?\d")
 # In the raw response, React's own references read "$2": a quote before the $ means it isn't a price.
 RAW_DOLLAR_PRICE = re.compile(r"(?<![\"\\\w])\$\s?\d")
+# Named by hand, apart from the site's own rules, because a check built on those rules can't see them being wrong.
+# Both earlier versions of this file looked only for store names and $, and US products went straight past them.
+US_ONLY = re.compile(r"\b(Charmin|Kirkland|Equate|Jif|Parent's Choice|Great Value|Member's Mark|Up&Up|Signature Select)\b")
+# No sign these sell in the country, see data/sellers/footprint.json. A swap page may still cite them as evidence, so lists only.
+ABSENT = {
+    "IE": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Co-op|Crocus|7dayshop|Toolstation|Kaufland|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate)\b"),
+    "GB": re.compile(r"\b(Kaufland|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate|Walmart)\b"),
+    "DE": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Crocus|7dayshop|Toolstation|Walmart)\b"),
+    "HR": re.compile(r"\b(Sainsbury's|Asda|Morrisons|Waitrose|Ocado|Crocus|Toolstation|Rewe|REWE|Edeka|EDEKA|Netto|Penny|Rossmann|myTime|Jeden Tag|Pollin|Alternate|Walmart)\b"),
+}
+LIST_PAGES = ["/", "/category/household", "/category/food-pantry", "/bulk", "/bundles", "/biggest-savings", "/brands", "/ingredients", "/search"]
 failures = 0
 
 
@@ -136,6 +147,39 @@ status, body, headers = get("/", None, "en-IE,en;q=0.9")
 text = visible(body)
 check("sbc_country=IE" in (headers.get("Set-Cookie") or ""), "first visit with en-IE: cookie set")
 check("€" in text and not DOLLAR_PRICE.search(text), "first visit with en-IE: first page already in euro")
+
+# Anyone can read a name off a list, so test the lists for what the shopper can't buy.
+for country, absent in ABSENT.items():
+    for page in LIST_PAGES:
+        status, body, _ = get(page, country)
+        text = visible(body)
+        found = sorted(set(US_ONLY.findall(text) + absent.findall(text)))
+        check(not found, f"{country} {page}: no US-only brand or chain absent from the country", str(found))
+
+# The controls: the same patterns have to fire where those names belong, or a green result above means nothing.
+_, body, _ = get("/", "US")
+check(bool(US_ONLY.search(visible(body))), "control: the US home page does trip the US-only pattern")
+status, body, _ = get("/", "GB")
+check(bool(ABSENT["IE"].search(visible(body))), "control: the UK home page does trip Ireland's absent-chain pattern")
+status, body, _ = get("/bulk", "DE")
+check(bool(ABSENT["IE"].search(visible(body))), "control: the German bulk page does trip Ireland's absent-chain pattern")
+
+# The filter: fewer by default, the rest behind one control that works.
+status, body, _ = get("/", "IE")
+text = visible(body)
+shown_ie = re.search(r"(\d+)\s*swaps, each with at least two sources", text)
+check("Show " in text and "swaps from other countries" in text, "IE home: the band offers the hidden swaps")
+status, body, _ = get("/", "IE; sbc_others=1")
+text = visible(body)
+shown_all = re.search(r"(\d+)\s*swaps, each with at least two sources", text)
+check(bool(shown_ie and shown_all and int(shown_all.group(1)) > int(shown_ie.group(1))), "IE with the control on: more swaps", f"{shown_ie and shown_ie.group(1)} and {shown_all and shown_all.group(1)}")
+check("Hide swaps from other countries" in text, "IE with the control on: the band offers to hide them")
+check(not US_ONLY.search(text), "IE with the control on: still no US-only brand")
+
+# Unknown slugs are real 404s.
+for missing in ["/brand/nope", "/ingredient/nope", "/category/nope", "/compare/nope", "/dupe/nope", "/bundle/nope", "/basket/nope"]:
+    status, _, _ = get(missing, "IE")
+    check(status == 404, f"{missing} answers 404", str(status))
 
 print(f"failed {failures}")
 sys.exit(1 if failures else 0)

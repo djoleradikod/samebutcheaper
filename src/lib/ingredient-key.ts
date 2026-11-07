@@ -51,3 +51,12 @@ export function differentSalts(a: string, b: string) {
   const [x, y] = [saltWords(a), saltWords(b)];
   return x !== "" && y !== "" && x !== y;
 }
+
+/** Ingredient matches only count for chemistry-based matches, not specs. */
+export const INGREDIENT_MATCHES = new Set(["identical_active", "identical_formula", "same_manufacturer"]);
+
+/** The key an ingredient's page uses, or null when the name is too short to be one. */
+export function ingredientPageKey(name: string) {
+  const slug = ingredientKey(name);
+  return slug && slug.length >= 3 ? slug : null;
+}

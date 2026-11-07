@@ -317,3 +317,9 @@ body {
     text-underline-offset: 3px;
   }
 }
+
+/* Lists and stores are on their way from the server after a change of country. See useCountryRefresh. */
+html[data-updating] #main {
+  opacity: 0.45;
+  transition: opacity 120ms;
+}

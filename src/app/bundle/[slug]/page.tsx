@@ -17,7 +17,8 @@ import { CATEGORY_MAP } from "@/lib/categories";
 import { money, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay } from "@/lib/unit-format";
-import { forCountry, MARKET_ADJECTIVE } from "@/lib/localize";
+import { forCountry, localText, MARKET_ADJECTIVE } from "@/lib/localize";
+import { NotListedHere } from "@/components/ShelfParts";
 import { getLocal } from "@/lib/server-country";
 import { Money, UnitAmount } from "@/components/Money";
 import type { Bundle } from "@/lib/types";
@@ -50,13 +51,14 @@ function eagerTarget(b: Bundle) {
 
 export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">) {
   const { slug } = await params;
-  const b = getBundle(slug);
-  if (!b) notFound();
+  const record = getBundle(slug);
+  if (!record) notFound();
 
   const local = await getLocal();
+  const b = localText(record, local);
   const sells = (retailer: string) => local.sells(retailer, b.market);
   const cat = CATEGORY_MAP[b.category];
-  const related = forCountry(getAllBundles(), local.country)
+  const related = forCountry(getAllBundles(), local)
     .filter((x) => x.slug !== b.slug)
     .sort((x, y) => Number(y.category === b.category) - Number(x.category === b.category) || y.score - x.score)
     .slice(0, 4);
@@ -78,6 +80,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
 
   return (
     <article>
+      {!local.shows(record) && <NotListedHere market={record.market} local={local} />}
       <div className="border-b border-line bg-canvas">
         <div className="container-page pt-1 pb-6 md:pt-3 md:pb-8">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-ink-2">
@@ -326,17 +329,19 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
               Details
             </Link>
           </p>
-          <BundleWhereToBuy
-            slug={b.slug}
-            market={b.market}
-            health={HEALTH_CATEGORIES.has(b.category)}
-            items={b.components.map((c) => ({
-              retailer: c.retailer,
-              retailerLabel: storeName(c.retailer, c.url),
-              replaces: b.bundle.items[c.replaces].name,
-              lookFor: c.lookFor,
-            }))}
-          />
+          <div id="where-to-buy" className="scroll-mt-20">
+            <BundleWhereToBuy
+              slug={b.slug}
+              market={b.market}
+              health={HEALTH_CATEGORIES.has(b.category)}
+              items={b.components.map((c) => ({
+                retailer: c.retailer,
+                retailerLabel: storeName(c.retailer, c.url),
+                replaces: b.bundle.items[c.replaces].name,
+                lookFor: c.lookFor,
+              }))}
+            />
+          </div>
         </aside>
       </div>
 

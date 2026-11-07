@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getBrands, type BrandEntry } from "@/lib/catalog";
 import { AzIndex, bestSaving, ListLinks, ShelfHead, type IndexEntry } from "@/components/ShelfParts";
+import { forCountry } from "@/lib/localize";
+import { getLocal } from "@/lib/server-country";
 
 export const metadata: Metadata = {
   title: "Brands we've found cheaper alternatives for",
@@ -26,8 +28,12 @@ function toEntry(b: BrandEntry): IndexEntry {
   };
 }
 
-export default function BrandsPage() {
-  const brands = getBrands();
+export default async function BrandsPage() {
+  const local = await getLocal();
+  // Only what lists for this shopper counts, and a brand with nothing left drops out.
+  const brands = getBrands()
+    .map((b) => ({ ...b, pairs: forCountry(b.pairs, local), bundles: forCountry(b.bundles, local) }))
+    .filter((b) => b.pairs.length + b.bundles.length > 0);
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead

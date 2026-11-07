@@ -28,6 +28,9 @@ import {
 import { APPROX_USD, MARKETS, type LookFor } from "../src/lib/markets";
 import { comparison, hasProof } from "../src/lib/compare";
 import { dupeSlugFor } from "../src/lib/dupes";
+import { CATEGORIES } from "../src/lib/categories";
+import { INGREDIENT_MATCHES, ingredientPageKey, slugify } from "../src/lib/ingredient-key";
+import { sellerOf } from "../src/lib/sellers";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, ShelfLife } from "../src/lib/types";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -299,6 +302,7 @@ function derive(p: PairInput): Pair {
     savingsPerPack: round(savingsPerPack, 2),
     score: round(score, 2),
     currency,
+    sellers: [sellerOf(p.alternative)],
     lookFor: lookFor(p.match_type, p.alternative, p.look_for),
     evidence_claims: claimsFor(p),
     shelfLife: shelfFor(p),
@@ -332,6 +336,7 @@ function deriveBundle(b: BundleInput): Bundle {
     photo: photoFor(b.bundle.brand, b.bundle.name),
     bundle: { ...b.bundle, items: b.bundle.items.map((i) => ({ ...i, unit: normalizeUnit(i.unit) })) },
     components: [...components].sort((x, y) => x.replaces - y.replaces),
+    sellers: [...new Set(components.map(sellerOf))],
     equivalentTotal: round(equivalentTotal, 2),
     upfrontTotal: round(upfrontTotal, 2),
     savings: round(savings, 2),
@@ -425,6 +430,7 @@ const pairBySlug = new Map(pairs.map((p) => [p.slug, p]));
 
 function derivePreset(input: PresetInput): Preset | null {
   const lines: PresetLine[] = [];
+  const sellers = new Set<string>();
   for (const item of input.items) {
     const p = pairBySlug.get(item.pair);
     if (!p) {
@@ -435,6 +441,7 @@ function derivePreset(input: PresetInput): Preset | null {
       errors.push(`preset ${input.slug}: ${item.pair} is priced in ${p.market}, not ${input.market}`);
       return null;
     }
+    p.sellers.forEach((s) => sellers.add(s));
     // From price and size, so a line adds up to the figures on its swap page.
     const brandCost = p.brand.price * item.qty;
     const altCost = (p.alternative.price / p.alternative.size) * p.brand.size * item.qty;
@@ -467,6 +474,7 @@ function derivePreset(input: PresetInput): Preset | null {
   return {
     ...rest,
     lines,
+    sellers: [...sellers],
     brandTotal: round(brandTotal, 2),
     altTotal: round(altTotal, 2),
     savings: round(savings, 2),
@@ -555,6 +563,16 @@ writeFileSync(
     bundle: catalog.bundles.map((b) => b.slug),
     basket: catalog.presets.map((p) => p.slug),
     dupe: [...new Set(catalog.pairs.map(dupeSlugFor))],
+    brand: [...new Set([...catalog.pairs.map((p) => slugify(p.brand.brand)), ...catalog.bundles.map((b) => slugify(b.bundle.brand))])],
+    ingredient: [
+      ...new Set(
+        catalog.pairs
+          .filter((p) => INGREDIENT_MATCHES.has(p.match_type))
+          .flatMap((p) => p.alternative.key_ingredients.map((i) => ingredientPageKey(i.name)))
+          .filter((slug) => slug !== null),
+      ),
+    ],
+    category: CATEGORIES.map((c) => c.slug),
   }),
 );
 const pct = (n: number) => (pairs.length ? Math.round((n / pairs.length) * 100) : 0);

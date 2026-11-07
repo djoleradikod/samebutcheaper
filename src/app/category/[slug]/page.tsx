@@ -10,7 +10,7 @@ import { bestSaving, browseProps, PriceFacts, ShelfHead, swapCount, TagLinks } f
 import type { CategorySlug } from "@/lib/types";
 import { inSentence } from "@/lib/format";
 import { forCountry } from "@/lib/localize";
-import { getCountry } from "@/lib/server-country";
+import { getLocal } from "@/lib/server-country";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }));
@@ -44,8 +44,8 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
   const { slug } = await params;
   const cat = lookup(slug);
   if (!cat) notFound();
-  const country = await getCountry();
-  const pairs = forCountry(getPairsByCategory(cat.slug), country);
+  const local = await getLocal();
+  const pairs = forCountry(getPairsByCategory(cat.slug), local);
   const name = inSentence(cat.name);
 
   return (
@@ -63,7 +63,7 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
         </div>
       )}
       <div className="container-page">
-        {pairs.length ? <PairBrowser path={`/category/${cat.slug}`} {...browseProps(pairs, { country })} /> : <EmptyAisle />}
+        {pairs.length ? <PairBrowser path={`/category/${cat.slug}`} {...browseProps(pairs, { local })} /> : <EmptyAisle />}
       </div>
     </div>
   );

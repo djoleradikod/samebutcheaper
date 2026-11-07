@@ -123,7 +123,7 @@ export function countryInSentence(code: string) {
 }
 
 export function isKnownCountry(code: string | null | undefined): code is string {
-  return !!code && code in COUNTRIES;
+  return !!code && Object.hasOwn(COUNTRIES, code);
 }
 
 /** Emoji flag from an ISO 3166-1 alpha-2 code. */

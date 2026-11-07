@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { cookies, headers } from "next/headers";
+import { headers } from "next/headers";
 import { after } from "next/server";
 import { z } from "zod";
 import { ArrowRight, Barcode, Camera, FlaskConical, Search, Store } from "lucide-react";
@@ -23,6 +23,7 @@ import {
 import { logLookup } from "@/lib/lookup/log";
 import type { CategorySlug } from "@/lib/types";
 import { forCountry } from "@/lib/localize";
+import { getCountry, getLocal } from "@/lib/server-country";
 
 export const metadata: Metadata = {
   title: "Check any product: ingredients, uses and cheaper swaps",
@@ -127,7 +128,8 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
   const typedCode = q && /^[\d\s-]{8,18}$/.test(q) ? q : "";
   const digits = (one(sp.upc) ?? typedCode).replace(/\D/g, "");
   const reqHeaders = new Headers(await headers());
-  const country = (await cookies()).get("sbc_country")?.value ?? null;
+  const country = await getCountry();
+  const local = await getLocal();
 
   // 1. A product picked from the results list.
   if (src && id) {
@@ -185,7 +187,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
   if (q) {
     const outcome = await searchProducts(q);
     after(() => logLookup({ kind: "text", query: q, verified: outcome.catalog.length > 0 }, reqHeaders, country));
-    const swaps = forCountry(outcome.catalog, country);
+    const swaps = forCountry(outcome.catalog, local);
     if (!swaps.length && !outcome.candidates.length) {
       return <NothingFound failed={outcome.failed} what={`“${q}”`} />;
     }

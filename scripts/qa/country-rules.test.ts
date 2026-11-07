@@ -3,7 +3,8 @@ import { test } from "node:test";
 import fx from "../../data/fx/ecb-reference-rates.json";
 import { defaultMarket, type BrowseRow } from "../../src/lib/browse";
 import { COUNTRY_CURRENCY, fallbackNotice, forCountry, listMarketFor, localFor, NO_RATE, rate, visibleMarkets } from "../../src/lib/localize";
-import { COUNTRIES, deliversTo, storesFor, type MarketCode } from "../../src/lib/markets";
+import { COUNTRIES, deliversTo, isKnownCountry, storesFor, type MarketCode } from "../../src/lib/markets";
+import { sellerOf, sellsIn } from "../../src/lib/sellers";
 
 const row = (market: MarketCode, aisle: BrowseRow["aisle"] = "household"): BrowseRow => ({
   slug: `${market}-${aisle}`,
@@ -40,7 +41,8 @@ test("Ireland leads with UK prices in euro, and never sees a US or Canadian reco
   assert.equal(ie.currency, "EUR");
   assert.equal(ie.fallback, true);
   assert.deepEqual(visibleMarkets("IE"), ["GB", "DE"]);
-  const kept = forCountry([{ market: "US" as const }, { market: "CA" as const }, { market: "GB" as const }, { market: "DE" as const }], "IE");
+  const everywhere = ["amazon"];
+  const kept = forCountry((["US", "CA", "GB", "DE"] as const).map((market) => ({ market, sellers: everywhere })), ie);
   assert.deepEqual(kept.map((k) => k.market), ["GB", "DE"]);
 });
 
@@ -140,4 +142,78 @@ test("Ireland's store links are Irish, and the specialist one only shows in its 
   const hosts = storesFor("IE").map((s) => new URL(s.search.replace("{q}", "x")).hostname);
   assert.ok(hosts.includes("www.amazon.ie"));
   assert.ok(!hosts.some((h) => /walmart|target|costco/.test(h)));
+});
+
+const listed = (market: MarketCode, ...sellers: string[]) => ({ market, sellers });
+
+test("the seller comes from the own-label name first, then the store, then the link", () => {
+  const side = (brand: string, product: string, retailer: string, url = "") => sellerOf({ brand, product, retailer, url });
+  assert.equal(side("Sainsbury's", "Hot chocolate", "sainsburys"), "sainsburys");
+  assert.equal(side("Marks & Spencer", "Tea", "ocado"), "marksandspencer", "own label beats the store it was priced through");
+  assert.equal(side("Vonhaus", "Rotary tool", "other", "https://www.amazon.co.uk/s?k=x"), "amazon");
+  assert.equal(side("Jeden Tag", "Reis", "other", "https://www.mytime.de/x"), "mytime");
+  assert.equal(side("Galpharm", "Ibuprofen", "tesco", "https://www.tesco.com/x"), "tesco");
+  assert.equal(side("Someone", "Thing", "other", "https://www.which.co.uk/x"), "unknown", "a review site isn't a seller");
+  assert.equal(side("Someone", "Thing", "other"), "unknown");
+});
+
+test("the footprint places sellers only on evidence", () => {
+  assert.ok(sellsIn("lidl", "IE"));
+  assert.ok(sellsIn("tesco", "IE"), "carried by the manual source");
+  assert.ok(sellsIn("amazon", "IE"));
+  assert.ok(!sellsIn("sainsburys", "IE"));
+  assert.ok(!sellsIn("unknown", "IE"));
+  assert.ok(!sellsIn("amazon", "RS"), "no storefront delivers there");
+});
+
+test("Ireland lists a UK record only from a seller there, and the control brings back the rest but never the US", () => {
+  const ie = localFor("IE");
+  assert.ok(ie.shows(listed("GB", "tesco")));
+  assert.ok(ie.shows(listed("DE", "zooplus")));
+  assert.ok(!ie.shows(listed("GB", "sainsburys")));
+  assert.ok(!ie.shows(listed("DE", "kaufland")));
+  assert.ok(!ie.shows(listed("US", "amazon")));
+  const more = localFor("IE", true);
+  assert.ok(more.others);
+  assert.ok(more.shows(listed("GB", "sainsburys")));
+  assert.ok(!more.shows(listed("US", "walmart")));
+  assert.ok(!more.shows(listed("CA", "loblaws")));
+});
+
+test("a basket or kit needs every seller to pass", () => {
+  assert.ok(localFor("IE").shows(listed("GB", "tesco", "lidl")));
+  assert.ok(!localFor("IE").shows(listed("GB", "tesco", "sainsburys")));
+});
+
+test("a country with its own market keeps its records and judges the others by seller, with no way to turn that off", () => {
+  const gb = localFor("GB", true);
+  assert.equal(gb.others, false);
+  assert.ok(gb.shows(listed("GB", "sainsburys")));
+  assert.ok(!gb.shows(listed("DE", "kaufland")));
+  assert.ok(gb.shows(listed("DE", "lidl")));
+  assert.ok(!localFor("US").shows(listed("GB", "tesco")));
+  assert.ok(localFor("US").shows(listed("CA", "loblaws")));
+  assert.ok(localFor("CA").shows(listed("US", "walmart")), "Canada fills up from the US");
+});
+
+test("an unknown country filters nothing", () => {
+  assert.ok(localFor(null).shows(listed("GB", "sainsburys")));
+  assert.equal(forCountry([listed("US", "walmart")], localFor(null)).length, 1);
+});
+
+test("written prices convert, keep the original and leave everything else alone", () => {
+  const ie = localFor("IE");
+  const out = ie.prose("Aldi scored 68%, at £4.39 against 44p per 100g.", "GBP");
+  assert.match(out, /^Aldi scored 68%, at about €[\d.]+ \(£4\.39\) against about [\d.]+ ct \(44p\) per 100g\.$/);
+  assert.equal(ie.prose("Costs €2.59 at dm, 16.80 EUR for six.", "EUR"), "Costs €2.59 at dm, 16.80 EUR for six.", "nothing converts in euro");
+  const gb = localFor("GB");
+  assert.equal(gb.prose("At £4.39 and 44p.", "GBP"), "At £4.39 and 44p.");
+  assert.match(gb.prose("Costs €2.59, or 16.80 EUR for six.", "EUR"), /^Costs about £[\d.]+ \(€2\.59\), or about £[\d.]+ \(16\.80 EUR\) for six\.$/);
+  assert.equal(localFor(null).prose("At £4.39.", "GBP"), "At £4.39.", "with no country nothing is foreign");
+  assert.equal(ie.prose("Use a 25p coin in 4p mode, 2 packs.", "GBP").includes("2 packs"), true);
+});
+
+test("a prototype name is not a country", () => {
+  assert.equal(isKnownCountry("constructor"), false);
+  assert.equal(localFor("constructor").known, false);
 });

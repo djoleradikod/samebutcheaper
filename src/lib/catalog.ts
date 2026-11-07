@@ -4,7 +4,7 @@ import type { Bundle, Catalog, CategorySlug, Claim, Pair, PairSummary, Preset } 
 import { CATEGORIES } from "./categories";
 import { APPROX_USD, type MarketCode } from "./markets";
 import { dupeActives, dupeSlugFor } from "./dupes";
-import { ingredientKey, slugify } from "./ingredient-key";
+import { INGREDIENT_MATCHES, ingredientKey, ingredientPageKey, slugify } from "./ingredient-key";
 import { isCutOut } from "./photos";
 
 const catalog = catalogJson as unknown as Catalog;
@@ -90,10 +90,10 @@ export function pickByPhotos(
   return picked;
 }
 
-export function getFeaturedPairs(limit = 12, market?: MarketCode): Pair[] {
+export function getFeaturedPairs(limit = 12, market?: MarketCode, pick: (pairs: Pair[]) => Pair[] = (pairs) => pairs): Pair[] {
   // Medicine never leads. Within a photo standing: high confidence, one per subcategory and three per aisle, then fill.
   const inMarket = market ? catalog.pairs.filter((p) => p.market === market) : catalog.pairs;
-  const pool = inMarket.filter((p) => p.category !== "otc-medicine").sort((a, b) => b.score - a.score);
+  const pool = pick(inMarket).filter((p) => p.category !== "otc-medicine").sort((a, b) => b.score - a.score);
   return pickByPhotos(pool, limit, (p) => [
     { key: "confidence", max: p.confidence === "high" ? Infinity : 0 },
     { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 1 },
@@ -168,6 +168,7 @@ export function toSummary(p: Pair): PairSummary {
     altPpu: p.alternative.ppu,
     savingsPct: p.savingsPct,
     savingsPerPack: p.savingsPerPack,
+    sellers: p.sellers,
     matchType: p.match_type,
     confidence: p.confidence,
     score: p.score,
@@ -229,9 +230,6 @@ export function getCoverage() {
 
 export { ingredientKey, slugify };
 
-/** Ingredient matches only count for chemistry-based matches, not specs. */
-const INGREDIENT_MATCHES = new Set(["identical_active", "identical_formula", "same_manufacturer"]);
-
 /** Page titles that show both names. */
 const DUAL_NAME: Record<string, string> = {
   acetaminophen: "Acetaminophen (paracetamol)",
@@ -254,8 +252,8 @@ const ingredientIndex: Map<string, IngredientEntry> = (() => {
   for (const p of catalog.pairs) {
     if (!INGREDIENT_MATCHES.has(p.match_type)) continue;
     for (const ing of p.alternative.key_ingredients) {
-      const slug = ingredientKey(ing.name);
-      if (!slug || slug.length < 3) continue;
+      const slug = ingredientPageKey(ing.name);
+      if (!slug) continue;
       const entry = map.get(slug) ?? { slug, name: DUAL_NAME[slug] ?? ingredientLabel(ing.name), pairs: [] };
       if (!entry.pairs.includes(p)) entry.pairs.push(p);
       map.set(slug, entry);

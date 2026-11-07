@@ -1,10 +1,9 @@
 "use client";
 
 import { ChevronDown, Globe } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { MARKET_ADJECTIVE } from "@/lib/localize";
 import { COUNTRY_OPTIONS, MARKET_LABEL, countryName, type MarketCode } from "@/lib/markets";
-import { setCountry, useCountry } from "@/lib/client/country";
+import { setCountry, useCountry, useCountryRefresh } from "@/lib/client/country";
 
 /**
  * Country picker. A transparent native <select> sits over a styled label, so
@@ -12,7 +11,7 @@ import { setCountry, useCountry } from "@/lib/client/country";
  */
 export function CountryPicker({ className = "", withName = false }: { className?: string; withName?: boolean }) {
   const country = useCountry();
-  const router = useRouter();
+  const refresh = useCountryRefresh();
   return (
     <span
       className={`relative inline-flex h-11 items-center gap-1.5 rounded-tile border border-line bg-paper px-2.5 text-sm font-medium text-ink-2 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cobalt hover:border-ink-2 hover:text-ink md:h-9 ${className}`}
@@ -32,7 +31,7 @@ export function CountryPicker({ className = "", withName = false }: { className?
           if (!e.target.value) return;
           // Prices on the page follow at once; the server then sends the lists and stores for the new country.
           setCountry(e.target.value);
-          router.refresh();
+          refresh();
         }}
         className="absolute inset-0 cursor-pointer opacity-0"
       >

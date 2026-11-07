@@ -9,7 +9,7 @@ import { MARKET_CODES, MARKETS, type MarketCode } from "@/lib/markets";
 import type { Bundle, Preset } from "@/lib/types";
 import { MarketFirst } from "./MarketFirst";
 import { forCountry } from "@/lib/localize";
-import { getCountry } from "@/lib/server-country";
+import { getLocal } from "@/lib/server-country";
 
 export const metadata: Metadata = {
   title: "Baskets and brand kits, priced both ways",
@@ -43,9 +43,9 @@ function kitOrder(a: Bundle, b: Bundle) {
 }
 
 export default async function BundlesPage() {
-  const country = await getCountry();
-  const presets = forCountry(getAllPresets(), country);
-  const bundles = forCountry(getAllBundles(), country);
+  const local = await getLocal();
+  const presets = forCountry(getAllPresets(), local);
+  const bundles = forCountry(getAllBundles(), local);
   const markets = basketsByMarket(presets);
   const aisles = CATEGORIES.map((c) => ({
     ...c,

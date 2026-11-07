@@ -46,6 +46,8 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   /** Ranking score used for "biggest savings" ordering. */
   score: number;
   currency: Currency;
+  /** Who sells the cheaper product, for the seller rule in localize.ts. */
+  sellers: string[];
   /** What to search for in countries where this listing doesn't deliver. */
   lookFor: LookFor;
   /** Findings that apply to this swap, most specific first. */
@@ -81,6 +83,8 @@ export type PresetLine = {
 
 export type Preset = Omit<PresetInput, "items"> & {
   lines: PresetLine[];
+  /** Every line's seller. A basket only lists where all of them sell. */
+  sellers: string[];
   brandTotal: number;
   altTotal: number;
   savings: number;
@@ -105,6 +109,8 @@ export type Bundle = Omit<BundleInput, "components"> & {
   /** The brand kit's own photo, when one is on file. */
   photo: Photo | null;
   components: BundleComponent[];
+  /** Every component's seller. A kit only lists where all of them sell. */
+  sellers: string[];
   /** Sum of equivalentCost over all components. */
   equivalentTotal: number;
   /** Sum of full-pack prices (what you pay at the register to build it). */
@@ -141,6 +147,7 @@ export type PairSummary = {
   slug: string;
   title: string;
   market: MarketCode;
+  sellers: string[];
   currency: Currency;
   category: CategorySlug;
   subcategory: string;

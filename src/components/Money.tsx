@@ -2,8 +2,9 @@
 
 import type { Currency } from "@/lib/format";
 import type { MarketCode } from "@/lib/markets";
-import { useLocal } from "@/lib/client/country";
+import { setShowOthers, useCountryRefresh, useLocal } from "@/lib/client/country";
 import { FX_SOURCE, fallbackNotice } from "@/lib/localize";
+import { countryInSentence } from "@/lib/markets";
 
 /**
  * A price in the selected country's currency. A converted one always reads "about", in a smaller size so
@@ -55,9 +56,17 @@ export function OriginalPrice({
 }
 
 /** Says plainly when the prices on a page aren't the selected country's own. */
-export function FallbackBand() {
-  const notice = fallbackNotice(useLocal());
+/** Says whose prices these are and, where we've left out stores we can't place in this country, offers them back. */
+export function FallbackBand({ hidden }: { hidden: number }) {
+  const local = useLocal();
+  const refresh = useCountryRefresh();
+  const notice = fallbackNotice(local);
   if (!notice) return null;
+  const toggle = (show: boolean) => {
+    setShowOthers(show);
+    refresh();
+  };
+  const buttonClass = "cursor-pointer font-semibold text-cobalt underline underline-offset-2";
   return (
     <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
       {notice.text}
@@ -68,6 +77,25 @@ export function FallbackBand() {
             {notice.rate}
           </a>
         </>
+      )}
+      {local.others ? (
+        <>
+          {" "}
+          This includes stores we couldn&apos;t confirm sell in {countryInSentence(local.country)}.{" "}
+          <button type="button" className={buttonClass} onClick={() => toggle(false)}>
+            Hide swaps from other countries
+          </button>
+        </>
+      ) : (
+        hidden > 0 && (
+          <>
+            {" "}
+            We list only stores we could confirm sell in {countryInSentence(local.country)}.{" "}
+            <button type="button" className={buttonClass} onClick={() => toggle(true)}>
+              Show {hidden} swaps from other countries
+            </button>
+          </>
+        )
       )}
     </p>
   );

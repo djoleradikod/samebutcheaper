@@ -7,6 +7,7 @@ function toBundleSummary(b: Bundle): BundleSummary {
     slug: b.slug,
     title: b.title,
     market: b.market,
+    sellers: b.sellers,
     category: b.category,
     match_type: b.match_type,
     savingsPct: b.savingsPct,

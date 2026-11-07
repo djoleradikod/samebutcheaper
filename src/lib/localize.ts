@@ -4,13 +4,16 @@
  * Pure and shared by server and client. Rules, in order:
  * - A country's own market leads. A country with no market of its own falls back to the nearest one,
  *   and says so. US and Canadian records never show outside the US and Canada.
+ * - A record from another market only lists if its seller operates in or ships to the country (see sellers.ts).
+ *   In a fallback country the shopper can ask to see the rest. Baskets and kits need every seller to pass.
  * - Money is always in the country's currency. A price recorded in another currency is converted at the
  *   committed ECB reference rate and always reads "about", with the original beside it where there's room.
  * - A country whose currency the ECB doesn't publish keeps the fallback market's own currency, and says so.
  */
 import fx from "../../data/fx/ecb-reference-rates.json";
-import { money, type Currency } from "./format";
-import { COUNTRIES, countryInSentence, deliversTo, isMarket, MARKET_CODES, MARKETS, type MarketCode } from "./markets";
+import { money, ppu, type Currency } from "./format";
+import { countryInSentence, deliversTo, isKnownCountry, isMarket, MARKET_CODES, MARKETS, type MarketCode } from "./markets";
+import { sellsIn } from "./sellers";
 import { unitPrice, unitPriceFine } from "./unit-format";
 
 /** Euro-based: one euro buys this much of each currency. */
@@ -81,7 +84,7 @@ export function currencyName(currency: Currency) {
   return CURRENCY_NAME[currency] ?? currency;
 }
 
-const home = (country: string | null) => (country && country in COUNTRIES ? country : "US");
+const home = (country: string | null) => (isKnownCountry(country) ? country : "US");
 
 /** The market whose prices lead for a country: its own, or the nearest we have. */
 export function listMarketFor(country: string | null): MarketCode {
@@ -97,10 +100,24 @@ export function visibleMarkets(country: string | null): MarketCode[] {
   return MARKET_CODES.filter((m) => m !== "US" && m !== "CA");
 }
 
-/** The items a country sees, keeping their order. */
-export function forCountry<T extends { market: MarketCode }>(items: T[], country: string | null) {
-  const markets = visibleMarkets(country);
-  return items.filter((i) => markets.includes(i.market));
+/** Anything a list can show: a swap, kit or basket, with who sells it. */
+export type Listed = { market: MarketCode; sellers: readonly string[] };
+
+/** The items this shopper sees, keeping their order. */
+export function forCountry<T extends Listed>(items: readonly T[], local: Local): T[] {
+  return items.filter((i) => local.shows(i));
+}
+
+/** A record's written text with its prices in this shopper's currency. Display only: compare.ts reads the catalogue's own wording. */
+export function localText<T extends { currency: Currency; summary: string; evidence: string; differences: string; why?: string }>(record: T, local: Local): T {
+  const say = (text: string) => local.prose(text, record.currency);
+  return {
+    ...record,
+    summary: say(record.summary),
+    evidence: say(record.evidence),
+    differences: say(record.differences),
+    ...(record.why ? { why: say(record.why) } : {}),
+  };
 }
 
 /** One unit of `from` in `to`, at the committed rates. Throws if either has no rate: a silent 1:1 would be a false price. */
@@ -119,6 +136,10 @@ export type Local = {
   known: boolean;
   /** Whether we may name and link a store for this shopper. */
   sells(retailer: string, market: MarketCode): boolean;
+  /** Whether a list shows this record here. */
+  shows(item: Listed): boolean;
+  /** The shopper asked to see swaps from stores we can't place in their country. Only a fallback country has the choice. */
+  others: boolean;
   /** The market that leads. */
   listMarket: MarketCode;
   /** True when that market isn't the country itself. */
@@ -137,7 +158,19 @@ export type Local = {
   unitFine(ppu: number, unit: string, from: Currency): string;
   /** "£9.99 at a UK store, Nov 2026", or null when nothing was converted. */
   original(n: number, from: Currency, market: MarketCode, checked: string): string | null;
+  /** Written catalogue text, with each price in it converted and the original beside it. Unchanged when nothing converts. */
+  prose(text: string, from: Currency): string;
 };
+
+/** Prices as the catalogue's writers put them. Group 1 is whole currency, group 2 the smaller unit. */
+const WRITTEN: Partial<Record<Currency, RegExp>> = {
+  GBP: /£\s?(\d[\d,]*(?:\.\d+)?)|(?<![\w.£])(\d+(?:\.\d+)?)p\b/g,
+  EUR: /€\s?(\d[\d,]*(?:\.\d+)?)|(?<![\w.,€])(\d+(?:\.\d+)?)\s?(?:EUR\b|€)/g,
+  USD: /(?<![A-Za-z])\$\s?(\d[\d,]*(?:\.\d+)?)/g,
+  CAD: /(?:CA?\$|(?<![A-Za-z])\$)\s?(\d[\d,]*(?:\.\d+)?)/g,
+};
+/** The smaller unit in group 2 is worth a hundredth only in pounds. In euro, group 2 is "33.49 EUR". */
+const GROUP_2_SCALE: Partial<Record<Currency, number>> = { GBP: 0.01, EUR: 1 };
 
 /** "Nov 2026" from the catalogue's "2026-11" or "2026-11-06". The same on server and client. */
 export function shortMonth(iso: string) {
@@ -146,9 +179,12 @@ export function shortMonth(iso: string) {
   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
 }
 
-function build(country: string): Local {
+function build(country: string, askedForOthers: boolean): Local {
   const listMarket = listMarketFor(country);
   const fallback = !isMarket(country);
+  const others = askedForOthers && fallback;
+  const markets = visibleMarkets(country);
+  const northAmerica = country === "US" || country === "CA";
   const currency = COUNTRY_CURRENCY[country] ?? MARKETS[listMarket].currency;
   const amount = (n: number, from: Currency) => n * rate(from, currency);
   const about = (from: Currency, text: string) => (from === currency ? text : `about ${text}`);
@@ -156,6 +192,14 @@ function build(country: string): Local {
     country,
     known: true,
     sells: (retailer, market) => deliversTo(retailer, market, country) !== "no",
+    shows: (item) => {
+      if (item.market === country) return true;
+      if (!markets.includes(item.market)) return false;
+      // Canada has too few of its own and fills up from the US, and the two share most stores.
+      if (northAmerica && (item.market === "US" || item.market === "CA")) return true;
+      return others || item.sellers.every((s) => sellsIn(s, country));
+    },
+    others,
     listMarket,
     fallback,
     currency,
@@ -168,6 +212,14 @@ function build(country: string): Local {
     unitFine: (ppu, unit, from) => about(from, unitPriceFine(amount(ppu, from), unit, currency)),
     original: (n, from, market, checked) =>
       from === currency ? null : `${money(n, from)} at a ${MARKET_ADJECTIVE[market]} store, ${shortMonth(checked)}`,
+    prose: (text, from) => {
+      const pattern = WRITTEN[from];
+      if (from === currency || !pattern) return text;
+      return text.replace(pattern, (written, whole: string | undefined, small: string | undefined) => {
+        const n = whole ? Number(whole.replaceAll(",", "")) : Number(small) * (GROUP_2_SCALE[from] ?? 1);
+        return `about ${ppu(amount(n, from), currency)} (${written.trim()})`;
+      });
+    },
   };
   return local;
 }
@@ -176,9 +228,10 @@ const CACHE = new Map<string, Local>();
 
 /** With no country, lists lead with the US, but each record keeps its own currency and store: we can't say it's foreign. */
 const UNKNOWN: Local = {
-  ...build("US"),
+  ...build("US", false),
   known: false,
   sells: () => true,
+  shows: () => true,
   converts: () => false,
   amount: (n) => n,
   bare: (n, from) => money(n, from),
@@ -187,14 +240,16 @@ const UNKNOWN: Local = {
   unit: (ppu, unit, from) => unitPrice(ppu, unit, from),
   unitFine: (ppu, unit, from) => unitPriceFine(ppu, unit, from),
   original: () => null,
+  prose: (text) => text,
 };
 
-export function localFor(country: string | null): Local {
-  if (!country || !(country in COUNTRIES)) return UNKNOWN;
-  let local = CACHE.get(country);
+export function localFor(country: string | null, others = false): Local {
+  if (!isKnownCountry(country)) return UNKNOWN;
+  const key = `${country}${others ? "+" : ""}`;
+  let local = CACHE.get(key);
   if (!local) {
-    local = build(country);
-    CACHE.set(country, local);
+    local = build(country, others);
+    CACHE.set(key, local);
   }
   return local;
 }

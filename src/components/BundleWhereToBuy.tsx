@@ -26,7 +26,9 @@ export function BundleWhereToBuy({
     return <p className="text-[13px] text-ink-2">Every store on this list sells in {countryInSentence(country)}. Check each one for delivery.</p>;
   }
 
-  const stores = storesFor(country).slice(0, 2);
+  const stores = storesFor(country)
+    .filter((s) => !s.aisles)
+    .slice(0, 2);
   return (
     <div className="card">
       <div className="flex items-center justify-between gap-2 border-b border-line px-4 py-2">

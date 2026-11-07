@@ -38,7 +38,7 @@ export type BrowseRow = {
 };
 
 /** The fields BundleCard reads. A whole bundle is about ten times bigger. */
-export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "category" | "match_type" | "savingsPct" | "equivalentTotal" | "currency"> & {
+export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers" | "category" | "match_type" | "savingsPct" | "equivalentTotal" | "currency"> & {
   bundle: Pick<Bundle["bundle"], "brand" | "name" | "price"> & { items: { name: string }[] };
   photo: { src: string } | null;
   components: (Pick<Bundle["components"][number], "brand" | "product" | "unit" | "replaces"> & {

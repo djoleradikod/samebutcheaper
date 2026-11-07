@@ -1,0 +1,227 @@
+{
+ "checked": "2026-11-07",
+ "method": "sellers: the chain's national site opened, stayed on that country's address and named the chain in its title. See scripts/qa/seller_footprint.py. manual: a site that refuses automated requests, carried by the source given (Kantar's Irish grocery shares of 20 Oct 2025 name Tesco and Aldi) or, in the chain's home market, by the catalogue's own priced rows. No entry means we couldn't show it sells there, not that it doesn't.",
+ "sellers": {
+  "lidl": {
+   "IE": "https://www.lidl.ie/",
+   "GB": "https://www.lidl.co.uk/",
+   "DE": "https://www.lidl.de/",
+   "US": "https://www.lidl.com/",
+   "AT": "https://www.lidl.at/",
+   "CH": "https://www.lidl.ch/",
+   "FR": "https://www.lidl.fr/",
+   "BE": "https://www.lidl.be/",
+   "NL": "https://www.lidl.nl/",
+   "LU": "https://www.lidl.lu/",
+   "IT": "https://www.lidl.it/",
+   "ES": "https://www.lidl.es/",
+   "PT": "https://www.lidl.pt/",
+   "SE": "https://www.lidl.se/",
+   "PL": "https://www.lidl.pl/",
+   "DK": "https://www.lidl.dk/",
+   "FI": "https://www.lidl.fi/",
+   "CZ": "https://www.lidl.cz/",
+   "SK": "https://www.lidl.sk/",
+   "HU": "https://www.lidl.hu/",
+   "SI": "https://www.lidl.si/",
+   "HR": "https://www.lidl.hr/",
+   "RO": "https://www.lidl.ro/",
+   "BG": "https://www.lidl.bg/",
+   "GR": "https://www.lidl-hellas.gr/",
+   "RS": "https://www.lidl.rs/"
+  },
+  "aldi": {
+   "US": "https://www.aldi.us/store/aldi/storefront",
+   "FR": "https://www.aldi.fr/",
+   "BE": "https://www.aldi.be/",
+   "NL": "https://www.aldi.nl/",
+   "LU": "https://www.aldi.lu/",
+   "ES": "https://www.aldi.es/",
+   "PT": "https://www.aldi.pt/",
+   "PL": "https://www.aldi.pl/"
+  },
+  "ikea": {
+   "IE": "https://www.ikea.com/ie/en/",
+   "GB": "https://www.ikea.com/gb/en/",
+   "DE": "https://www.ikea.com/de/de/",
+   "US": "https://www.ikea.com/us/en/",
+   "CA": "https://www.ikea.com/ca/en/",
+   "AT": "https://www.ikea.com/at/de/",
+   "CH": "https://www.ikea.com/ch/en/",
+   "FR": "https://www.ikea.com/fr/fr/",
+   "NL": "https://www.ikea.com/nl/en/",
+   "ES": "https://www.ikea.com/es/en/",
+   "PT": "https://www.ikea.com/pt/en/",
+   "SE": "https://www.ikea.com/se/sv/",
+   "PL": "https://www.ikea.com/pl/pl/",
+   "DK": "https://www.ikea.com/dk/da/",
+   "FI": "https://www.ikea.com/fi/fi/",
+   "NO": "https://www.ikea.com/no/no/",
+   "SI": "https://www.ikea.com/si/sl/",
+   "HR": "https://www.ikea.com/hr/hr/",
+   "RO": "https://www.ikea.com/ro/ro/",
+   "RS": "https://www.ikea.com/rs/sr/",
+   "IL": "https://www.ikea.com/il/he/",
+   "IN": "https://www.ikea.com/in/en/",
+   "JP": "https://www.ikea.com/jp/en/",
+   "SG": "https://www.ikea.com/sg/en/",
+   "PH": "https://www.ikea.com/ph/en/",
+   "MY": "https://www.ikea.com/my/en/",
+   "AU": "https://www.ikea.com/au/en/",
+   "MX": "https://www.ikea.com/mx/en/",
+   "SA": "https://www.ikea.com/sa/ar/",
+   "AE": "https://www.ikea.com/ae/en/",
+   "UA": "https://www.ikea.com/ua/uk/"
+  },
+  "zooplus": {
+   "IE": "https://www.zooplus.ie/",
+   "GB": "https://www.zooplus.co.uk/",
+   "DE": "https://www.zooplus.de/",
+   "AT": "https://www.zooplus.at/",
+   "CH": "https://www.zooplus.ch/",
+   "FR": "https://www.zooplus.fr/",
+   "BE": "https://www.zooplus.be/",
+   "NL": "https://www.zooplus.nl/",
+   "IT": "https://www.zooplus.it/",
+   "ES": "https://www.zooplus.es/",
+   "PT": "https://www.zooplus.pt/",
+   "SE": "https://www.zooplus.se/",
+   "PL": "https://www.zooplus.pl/",
+   "DK": "https://www.zooplus.dk/",
+   "FI": "https://www.zooplus.fi/",
+   "HU": "https://www.zooplus.hu/",
+   "HR": "https://www.zooplus.hr/",
+   "RO": "https://www.zooplus.ro/",
+   "BG": "https://www.zooplus.bg/",
+   "GR": "https://www.zooplus.gr/"
+  },
+  "dm": {
+   "DE": "https://www.dm.de/",
+   "AT": "https://www.dm.at/",
+   "CZ": "https://www.dm.cz/",
+   "HU": "https://www.dm.hu/",
+   "SI": "https://www.dm.si/",
+   "HR": "https://www.dm.hr/",
+   "RO": "https://www.dm.ro/",
+   "BG": "https://www.dm-drogeriemarkt.bg/",
+   "RS": "https://www.dm.rs/",
+   "MK": "https://www.dm.mk/",
+   "IT": "https://www.dm-drogeriemarkt.it/",
+   "PL": "https://www.dm.pl/"
+  },
+  "rossmann": {
+   "PL": "https://www.rossmann.pl/",
+   "CZ": "https://www.rossmann.cz/",
+   "TR": "https://www.rossmann.com.tr/",
+   "ES": "https://www.rossmann.es/"
+  },
+  "mueller": {
+   "DE": "https://www.mueller.de/",
+   "AT": "https://www.mueller.at/",
+   "CH": "https://www.mueller.ch/",
+   "HR": "https://www.mueller.hr/",
+   "HU": "https://www.mueller.co.hu/",
+   "SI": "https://www.mueller.si/",
+   "ES": "https://www.mueller.es/"
+  },
+  "kaufland": {
+   "RO": "https://www.kaufland.ro/",
+   "BG": "https://www.kaufland.bg/",
+   "HR": "https://www.kaufland.hr/"
+  },
+  "viking": {
+   "IE": "https://www.vikingdirect.ie/en/",
+   "GB": "https://www.viking-direct.co.uk/en/",
+   "AT": "https://www.vikingdirekt.at/de/",
+   "CH": "https://www.vikingdirekt.ch/de/",
+   "NL": "https://www.vikingdirect.nl/nl/",
+   "LU": "https://www.viking-direct.lu/fr/"
+  },
+  "marksandspencer": {
+   "IE": "https://www.marksandspencer.com/ie/",
+   "FR": "https://www.marksandspencer.com/fr/",
+   "DE": "https://www.marksandspencer.com/de/",
+   "AT": "https://www.marksandspencer.com/at/",
+   "NL": "https://www.marksandspencer.com/nl/",
+   "ES": "https://www.marksandspencer.com/es/",
+   "IT": "https://www.marksandspencer.com/it/",
+   "SE": "https://www.marksandspencer.com/se/",
+   "CZ": "https://www.marksandspencer.com/cz/",
+   "GR": "https://www.marksandspencer.com/gr/",
+   "AU": "https://www.marksandspencer.com/au/",
+   "GB": "https://www.marksandspencer.com/"
+  },
+  "shopapotheke": {
+   "DE": "https://www.shop-apotheke.com/",
+   "AT": "https://www.shop-apotheke.at/",
+   "IT": "https://www.redcare.it/",
+   "FR": "https://www.redcare-pharmacie.fr/"
+  },
+  "alternate": {
+   "DE": "https://www.alternate.de/",
+   "AT": "https://www.alternate.at/",
+   "NL": "https://www.alternate.nl/",
+   "BE": "https://www.alternate.be/",
+   "FR": "https://www.alternate.fr/",
+   "ES": "https://www.alternate.es/"
+  },
+  "tesco": {
+   "CZ": "https://www.tesco.cz/"
+  },
+  "theordinary": {
+   "GB": "https://theordinary.com/en-gb",
+   "IE": "https://theordinary.com/en-ie",
+   "DE": "https://theordinary.com/de-de",
+   "US": "https://theordinary.com/en-us",
+   "CA": "https://theordinary.com/en-ca"
+  },
+  "lookfantastic": {
+   "GB": "https://www.lookfantastic.com/",
+   "IE": "https://www.lookfantastic.ie/",
+   "DE": "https://www.lookfantastic.de/",
+   "FR": "https://www.lookfantastic.fr/",
+   "ES": "https://www.lookfantastic.es/"
+  }
+ },
+ "manual": {
+  "tesco": {
+   "IE": "https://www.kantar.com/uki/inspiration/fmcg/2025-wp-irish-shoppers-spend-an-additional-67-6m-on-groceries-as-golden-shopping-period-approaches",
+   "GB": "https://www.tesco.com/"
+  },
+  "aldi": {
+   "IE": "https://www.kantar.com/uki/inspiration/fmcg/2025-wp-irish-shoppers-spend-an-additional-67-6m-on-groceries-as-golden-shopping-period-approaches",
+   "GB": "https://www.aldi.co.uk/",
+   "DE": "https://www.aldi-sued.de/"
+  },
+  "kaufland": {
+   "DE": "https://www.kaufland.de/"
+  }
+ },
+ "refused": {
+  "aldi": [
+   "IE",
+   "GB",
+   "DE",
+   "AT",
+   "CH",
+   "IT",
+   "SI",
+   "HU"
+  ],
+  "kaufland": [
+   "DE",
+   "PL",
+   "CZ",
+   "SK"
+  ],
+  "tesco": [
+   "GB",
+   "IE",
+   "SK",
+   "HU"
+  ],
+  "superdrug": [
+   "GB"
+  ]
+ }
+}
