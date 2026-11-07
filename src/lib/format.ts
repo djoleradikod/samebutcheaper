@@ -6,6 +6,15 @@ const SYMBOL: Record<Currency, string> = { USD: "$", GBP: "£", CAD: "CA$", EUR:
 const CENTS: Record<Currency, string> = { USD: "¢", GBP: "p", CAD: "¢", EUR: " ct" };
 
 /** A price in its own currency: $12.34, £12.34, CA$12.34, €12.34. Whole units from 100 up. */
+const celsius = (f: string) => Math.round(((Number(f) - 32) * 5) / 9);
+
+/** The storage records quote US extension services in Fahrenheit. "below 85 F" gives "below 29 °C (85 °F)". A figure that already has its Celsius stays as it is. */
+export function withCelsius(text: string) {
+  return text
+    .replace(/\b(\d{2,3}) to (\d{2,3}) F\b(?! \()/g, (_, a, b) => `${celsius(a)} to ${celsius(b)} °C (${a} to ${b} °F)`)
+    .replace(/\b(\d{2,3}) F\b(?! \()/g, (_, a) => `${celsius(a)} °C (${a} °F)`);
+}
+
 export function money(n: number, currency: Currency) {
   const sym = SYMBOL[currency];
   if (n >= 100) return `${sym}${Math.round(n).toLocaleString("en-US")}`;

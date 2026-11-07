@@ -3,7 +3,6 @@
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { CategoryIcon } from "@/components/CategoryIcon";
 import { MarketNote } from "@/components/CountryPicker";
 import { ProductThumb } from "@/components/ProductThumb";
 import { Ticket } from "@/components/Ticket";
@@ -303,24 +302,18 @@ function CompactRow({ item }: { item: BulkItem }) {
     <li
       className={`group relative grid min-h-11 min-w-0 grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 gap-y-0.5 px-2.5 py-2 transition-colors hover:bg-canvas ${COMPACT_COLUMNS}`}
     >
-      <div className="col-start-1 row-start-1 flex min-w-0 items-start gap-2.5">
-        {/* No photo on file: the aisle's mark keeps the rows scannable, and doesn't pass for a picture of the pack. */}
-        <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-tile border border-line bg-white">
-          <CategoryIcon icon={CATEGORY_MAP[item.aisle].icon} className="h-5 w-5 text-ink-2" strokeWidth={1.5} />
-        </span>
-        <div className="min-w-0">
-          <p className="text-sm leading-snug font-semibold">
-            <Link href={`/compare/${item.slug}`} className="after:absolute after:inset-0 group-hover:underline">
-              {item.brandName}
-              <ToArrow />
-              {item.altName}
-            </Link>
-          </p>
-          <p className="text-xs leading-snug text-ink-2">
-            {item.biggerProduct}
-            <MarketNote market={item.market} className="ml-2 font-medium" />
-          </p>
-        </div>
+      <div className="col-start-1 row-start-1 min-w-0">
+        <p className="text-sm leading-snug font-semibold">
+          <Link href={`/compare/${item.slug}`} className="after:absolute after:inset-0 group-hover:underline">
+            {item.brandName}
+            <ToArrow />
+            {item.altName}
+          </Link>
+        </p>
+        <p className="text-xs leading-snug text-ink-2">
+          {item.biggerProduct}
+          <MarketNote market={item.market} className="ml-2 font-medium" />
+        </p>
       </div>
 
       {extra > 0 ? (

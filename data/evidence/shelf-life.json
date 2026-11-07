@@ -296,7 +296,7 @@
     "opened": "Refrigerate and use within 5 to 7 days (Virginia Tech, Nebraska, NDSU's canned food chart)",
     "storage": "Cool, dry place below 85 F, best at 50 to 70 F",
     "advice": "buy_to_use",
-    "note": "NDSU's fruit chart gives a shorter 2 to 4 days for opened canned fruit. Pickles and olives differ: NDSU gives 1 to 3 months refrigerated after opening.",
+    "note": "NDSU's fruit chart gives a shorter 2 to 4 days for opened canned fruit.",
     "sources": [
       {
         "url": "https://www.pubs.ext.vt.edu/348/348-960/348-960.html",

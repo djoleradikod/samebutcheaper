@@ -68,7 +68,9 @@ function biggestSavings(market: MarketCode, limit = 12) {
   const pool = getFeaturedPairs(48, market).filter(
     (p) => photoStanding(p) < NO_PHOTO_STANDING && !/relief|remed|fever|allerg|cough/i.test(p.subcategory),
   );
-  return pickByPhotos(pool, limit, (p) => [
+  // The shop window shows both products where it can, so nobody's told to buy something they can't see.
+  const both = pool.filter((p) => p.brand.photo && p.alternative.photo);
+  return pickByPhotos(both.length >= limit ? both : pool, limit, (p) => [
     { key: p.category, max: p.category === "supplements" ? 2 : 6 },
     { key: `${p.category}:${p.subcategory.toLowerCase()}`, max: 2 },
   ]).sort((a, b) => photoStanding(a) - photoStanding(b) || b.savingsPct - a.savingsPct);

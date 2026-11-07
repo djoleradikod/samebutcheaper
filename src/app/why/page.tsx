@@ -5,6 +5,7 @@ import { citationDate, Finding } from "@/components/Finding";
 import { ProductThumb } from "@/components/ProductThumb";
 import { getAllPairs, getClaims, getPairsByCategory, getShelfLife } from "@/lib/catalog";
 import { CATEGORIES, CATEGORY_MAP } from "@/lib/categories";
+import { withCelsius } from "@/lib/format";
 import type { CategorySlug, Claim, ShelfLife } from "@/lib/types";
 
 export const metadata: Metadata = {
@@ -168,7 +169,7 @@ function ShelfTable({ records }: { records: ShelfLife[] }) {
                 </th>
                 <Cell label="Unopened">{r.unopened}</Cell>
                 <Cell label="Once opened">{r.opened || "Not given"}</Cell>
-                <Cell label="Where to keep it">{r.storage || "Not given"}</Cell>
+                <Cell label="Where to keep it">{r.storage ? withCelsius(r.storage) : "Not given"}</Cell>
                 <td role="cell" className="block px-3 pb-1 text-sm text-ink-2 lg:table-cell lg:border-t lg:border-line lg:py-3 lg:align-top">
                   {r.note && <p className="mb-1.5">{r.note}</p>}
                   <Citations sources={r.sources} />

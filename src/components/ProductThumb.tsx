@@ -25,7 +25,8 @@ const SIZES = {
  */
 function nameScale(name: string) {
   const longestWord = Math.max(...name.split(/\s+/).map((w) => w.length));
-  return Math.min(16, 100 / longestWord, 62 / Math.sqrt(name.length));
+  // The cap keeps tiles alike across a grid: short names don't shout beside long ones.
+  return Math.min(9.5, 100 / longestWord, 62 / Math.sqrt(name.length));
 }
 
 /** "Member's Mark" gives "MM". */

@@ -1,5 +1,5 @@
 import { atStore, tagUrl } from "@/lib/affiliate";
-import { inSentence, money } from "@/lib/format";
+import { inSentence, money, withCelsius } from "@/lib/format";
 import type { Pair, ShelfLife } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
 import { HEALTH_CATEGORIES } from "./Evidence";
@@ -112,7 +112,7 @@ function ShelfRecord({ record }: { record: ShelfLife }) {
   const rows = [
     ["Unopened", record.unopened],
     ["Once opened", record.opened],
-    ["Storage", record.storage],
+    ["Storage", withCelsius(record.storage)],
   ].filter(([, text]) => text);
   return (
     <div className="p-4 md:p-5">
@@ -227,7 +227,8 @@ export function BulkBox({ pair, className = "" }: { pair: Pair; className?: stri
         </h2>
         <div className={`mt-4 grid gap-4 lg:gap-6 ${once ? "max-w-3xl" : "lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"}`}>
           <div className="card min-w-0 divide-y divide-line self-start">
-            {!once && <BreakEven pair={pair} />}
+            {/* A pack that costs less at the till has nothing to pay back. */}
+            {!once && a.price > b.price && <BreakEven pair={pair} />}
             <BiggerPack pair={pair} />
             {shelf ? (
               <ShelfRecord record={shelf} />
