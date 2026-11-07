@@ -15,6 +15,15 @@ export function withCelsius(text: string) {
     .replace(/\b(\d{2,3}) F\b(?! \()/g, (_, a) => `${celsius(a)} °C (${a} °F)`);
 }
 
+/** "tesco.com" from a store or source URL. A value that isn't a URL comes back as it is. */
+export function hostname(u: string) {
+  try {
+    return new URL(u).hostname.replace(/^www\./, "");
+  } catch {
+    return u;
+  }
+}
+
 export function money(n: number, currency: Currency) {
   const sym = SYMBOL[currency];
   if (n >= 100) return `${sym}${Math.round(n).toLocaleString("en-US")}`;

@@ -9,7 +9,9 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 ## Rules for a pair
 
 - `match_type` is one of `identical_active`, `identical_formula`, `same_manufacturer`, `equivalent_spec`.
-  See `/how-we-verify` on the site for what each one requires.
+  See `/how-we-verify` on the site for what each one requires. `same_kind` is the honest fallback when the records show no more than
+  that. The build fails an `identical_active` pair unless every `key_ingredients` row matches on both sides, and turns an
+  `equivalent_spec` pair into `same_kind` when nothing is compared on both sides, so write rows for the same spec with the same name.
 - `confidence` is `high` (both labels confirmed from primary sources) or `medium` (strong but secondary evidence).
 - `brand.unit` and `alternative.unit` must be the same unit, because savings are computed per unit.
 - At least 2 real `sources` URLs.

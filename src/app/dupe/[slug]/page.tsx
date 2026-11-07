@@ -13,7 +13,7 @@ import {
 import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
 import { comparison, matchParts } from "@/lib/compare";
 import { monthYear } from "@/lib/format";
-import { SITE } from "@/lib/site";
+import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
 import type { Pair } from "@/lib/types";
 import { ConfidenceBadge } from "@/components/Badges";
@@ -59,6 +59,24 @@ export async function generateMetadata({ params }: PageProps<"/dupe/[slug]">): P
   };
 }
 
+const isChecked = (p: Pair) => p.match_type !== "same_kind";
+
+/** Only a swap whose label says more than "same kind" counts as a checked match. */
+function matchCountAnswer(pairs: Pair[]) {
+  const checked = pairs.filter(isChecked).length;
+  const kinds = pairs.length - checked;
+  const kindsText = `${kinds} cheaper product${kinds === 1 ? "" : "s"} of the same kind, with nothing on file to show ${kinds === 1 ? "it matches" : "they match"} beyond that`;
+  if (checked === 0) return `We have ${kindsText}.`;
+  const checkedText = `Yes. We've checked ${checked} cheaper match${checked === 1 ? "" : "es"}`;
+  return kinds === 0 ? `${checkedText}.` : `${checkedText}, and we have ${kindsText}.`;
+}
+
+function listHeading(pairs: Pair[]) {
+  const n = pairs.length;
+  if (!pairs.some(isChecked)) return n === 1 ? "The cheaper product we priced" : `The ${n} cheaper products we priced`;
+  return n === 1 ? "The match we checked" : `The ${n} swaps we checked`;
+}
+
 /** What the comparison found, in the semantic colours of the same-or-different table. */
 function MatchCounts({ pair }: { pair: Pair }) {
   const m = matchParts(comparison(pair));
@@ -96,17 +114,16 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
   const others = d.pairs.slice(1);
   const cat = CATEGORY_MAP[top.category];
   const related = getRelatedDupes(d);
-  const n = d.pairs.length;
   const { cheaper, dearer, per } = unitPrices(top);
 
   const faq = [
     {
       q: `Is there a ${h.noun} for ${d.brand}?`,
-      a: `Yes. We've verified ${n} cheaper match${n === 1 ? "" : "es"}. The biggest saving is ${top.alternative.brand}, ${Math.round(top.savingsPct)}% less ${per} at the prices we checked in ${monthYear(top.price_checked)}.`,
+      a: `${matchCountAnswer(d.pairs)} The biggest saving is ${top.alternative.brand}, ${Math.round(top.savingsPct)}% less ${per} at the prices we checked in ${monthYear(top.price_checked)}.`,
     },
     {
       q: `Is ${top.alternative.brand} the same as ${d.brand}?`,
-      a: top.summary,
+      a: top.match_type === "same_kind" ? `We can't say. ${MATCH_TYPE_META.same_kind.description} ${top.summary}` : top.summary,
     },
     ...(top.differences ? [{ q: `What's different about ${top.alternative.brand}?`, a: top.differences }] : []),
   ];
@@ -173,7 +190,7 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
         )}
 
         <div className="container-page">
-          <h2 className="display mb-3 text-xl md:text-2xl">{n === 1 ? "The match we checked" : `The ${n} matches we checked`}</h2>
+          <h2 className="display mb-3 text-xl md:text-2xl">{listHeading(d.pairs)}</h2>
           <div className="grid gap-2 sm:gap-3 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]">
             <PairCard pair={toSummary(top)} eager />
             <div className="card flex flex-col p-3 md:p-4">
@@ -181,7 +198,7 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
                 <span className="display text-lg" title={MATCH_TYPE_META[top.match_type].description}>
                   {MATCH_TYPE_META[top.match_type].label}
                 </span>
-                <ConfidenceBadge confidence={top.confidence} />
+                {top.match_type !== "same_kind" && <ConfidenceBadge confidence={top.confidence} />}
               </p>
               <p className="mt-1 mb-3 max-w-[68ch] text-sm text-ink-2">{MATCH_TYPE_META[top.match_type].description}</p>
               <MatchCounts pair={top} />
@@ -222,7 +239,7 @@ export default async function DupePage({ params }: PageProps<"/dupe/[slug]">) {
         </section>
       )}
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
     </>
   );
 }

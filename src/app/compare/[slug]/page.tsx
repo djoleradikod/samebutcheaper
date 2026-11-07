@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
 import { BulkBox, buysOnce, packText } from "@/components/BulkBox";
-import { HEALTH_CATEGORIES, HealthNotice, hostname, PhotoCredits, PhotoLine, SourceList } from "@/components/Evidence";
+import { HEALTH_CATEGORIES, HealthNotice, PhotoCredits, PhotoLine, SourceList } from "@/components/Evidence";
 import { MarketTag } from "@/components/MarketTag";
 import { PairCard } from "@/components/PairCard";
 import { ProductThumb } from "@/components/ProductThumb";
@@ -13,13 +13,13 @@ import { SaveButton } from "@/components/SaveButton";
 import { PctTicket } from "@/components/Ticket";
 import { WhereToBuy } from "@/components/WhereToBuy";
 import { BrandWins, WhyBlock } from "@/components/WhyBlock";
-import { atStore, mayEarn, RETAILER_LABEL, tagUrl } from "@/lib/affiliate";
+import { atStore, mayEarn, RETAILER_LABEL, storeName, tagUrl } from "@/lib/affiliate";
 import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
 import { dupeSlugFor } from "@/lib/dupes";
 import { inSentence, money, monthYear } from "@/lib/format";
-import { SITE } from "@/lib/site";
+import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
 
@@ -242,7 +242,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }}
       />
     </article>
   );
@@ -326,10 +326,6 @@ type Offer = {
 
 /** The columns once there's room for them. Under that, each offer stacks and nothing scrolls sideways. */
 const OFFER_COLUMNS = "@2xl:grid-cols-[minmax(0,1fr)_5.5rem_5.5rem_5rem_6.5rem_6.5rem]";
-
-function storeName(retailer: string, url: string) {
-  return retailer === "other" ? hostname(url) : (RETAILER_LABEL[retailer] ?? hostname(url));
-}
 
 function offersFor(pair: Pair): Offer[] {
   const { brand: b, alternative: a, bulkView } = pair;
@@ -475,7 +471,7 @@ function disclosure(pair: Pair) {
   const earning = [pair.alternative, pair.brand].filter((p) => mayEarn(p));
   if (earning.length === 0) return "We don't earn anything from these links.";
   if (earning.length === 2) return "Affiliate links. We may earn a commission at no cost to you.";
-  return `The ${RETAILER_LABEL[earning[0].retailer]} link is an affiliate link. We may earn a commission at no cost to you.`;
+  return `The ${storeName(earning[0].retailer, earning[0].url)} link is an affiliate link. We may earn a commission at no cost to you.`;
 }
 
 function listWords(words: string[]) {

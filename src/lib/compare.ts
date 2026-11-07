@@ -1,4 +1,5 @@
 import { formatSize, inSentence, ppu } from "./format";
+import { ingredientKey, slugify } from "./ingredient-key";
 import type { CategorySlug, Pair, ProductSide } from "./types";
 
 /**
@@ -60,7 +61,7 @@ function packVerdict(brandSize: number, altSize: number): Verdict {
   return Math.abs(brandSize - altSize) / Math.max(brandSize, altSize) <= ABOUT_SAME_SHARE ? "about_same" : "different";
 }
 
-const NOT_ON_FILE = /^(not (listed|recorded|rated|stated|given|published|disclosed|on file)|unknown|n\/a)\b/i;
+const NOT_ON_FILE = /^((amount )?not (listed|recorded|rated|stated|shown|given|published|disclosed|on file)|unknown|n\/a)\b/i;
 
 /** A missing value against a real one isn't a difference. A verdict that says the brand or the cheaper one won stays. */
 function withoutFalseDifference(row: CompareRow): CompareRow {
@@ -69,12 +70,31 @@ function withoutFalseDifference(row: CompareRow): CompareRow {
 }
 
 const norm = (s: string) => s.toLowerCase().replace(/[\s,]+/g, "");
-const normName = (s: string) =>
-  s
+
+/** One row per ingredient: "Bisacodyl" and "Bisacodyl USP" are one row. A name the key drops, like "Sodium", keeps its own words. */
+const rowKey = (name: string) => ingredientKey(name) || slugify(name);
+
+/**
+ * An amount in a form two labels can agree on: "8.80%" and "8.8%", "1,000 mg" and "1000 mg",
+ * "per 2 caplets" and "per 2 tablets" all come out equal. Any other difference stays.
+ */
+function amountKey(amount: string) {
+  return amount
     .toLowerCase()
-    .replace(/\(.*?\)/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
+    .replace(/(\d),(?=\d{3}(?!\d))/g, "$1")
+    .replace(/\d*\.?\d+/g, (n) => String(Number(n)))
+    .replace(/\bcaplet(s?)\b/g, "tablet$1")
+    .replace(/[µμ]g\b/g, "mcg")
+    .replace(/[\s,]+/g, "");
+}
+
+/** Letters and digits only, for comparing two records of the same ingredient list. */
+const listKey = (s: string) =>
+  s
+    .normalize("NFKD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, "");
 
 function ratingText(p: ProductSide) {
   if (!p.rating) return "Not rated";
@@ -96,26 +116,33 @@ const INACTIVE_WORDS: Partial<Record<CategorySlug, string>> = {
 /** One row per active ingredient or spec, matched up by name. */
 function ingredientRows(pair: Pair, slugFor?: (name: string) => string | undefined): CompareRow[] {
   const rows = new Map<string, { name: string; brand?: string; alt?: string }>();
-  for (const i of pair.brand.key_ingredients) rows.set(normName(i.name), { name: i.name, brand: i.amount });
+  for (const i of pair.brand.key_ingredients) rows.set(rowKey(i.name), { name: i.name, brand: i.amount });
   for (const i of pair.alternative.key_ingredients) {
-    const key = normName(i.name);
+    const key = rowKey(i.name);
     const row = rows.get(key);
     if (row) row.alt = i.amount;
     else rows.set(key, { name: i.name, alt: i.amount });
   }
   const chemistry = pair.match_type !== "equivalent_spec" && pair.match_type !== "same_kind";
   return [...rows.values()].map((r) => {
-    const both = r.brand !== undefined && r.alt !== undefined;
-    const same = both && norm(r.brand!) === norm(r.alt!);
     const slug = chemistry && slugFor ? slugFor(r.name) : undefined;
     return {
       aspect: r.name,
       brand: r.brand === undefined ? "Not listed" : r.brand || "Yes",
       alternative: r.alt === undefined ? "Not listed" : r.alt || "Yes",
-      verdict: !both ? "unknown" : same ? "same" : "different",
+      verdict: amountVerdict(r.brand, r.alt),
       href: slug ? `/ingredient/${slug}` : undefined,
     };
   });
+}
+
+/** Both sides have to state a value for a row to say same or different. A name with an amount only on one side proves neither. */
+function amountVerdict(brand: string | undefined, alt: string | undefined): Verdict {
+  if (brand === undefined || alt === undefined) return "unknown";
+  const stated = (amount: string) => amount !== "" && !NOT_ON_FILE.test(amount.trim());
+  if (brand === "" && alt === "") return "same";
+  if (!stated(brand) || !stated(alt)) return "unknown";
+  return amountKey(brand) === amountKey(alt) ? "same" : "different";
 }
 
 /* --------------------------------------------------------- test results */
@@ -378,6 +405,12 @@ export function nutrientVerdict(brandValue: number, altValue: number, close: num
 const plainNumber = (n: number) => String(Number(n.toFixed(2)));
 const ingredientText = (s: string) => (s.length >= INGREDIENTS_CUT_AT ? `${s}…` : s);
 
+/** Case and punctuation aren't a difference. Under a same-formula label, wording that still doesn't match sends the shopper to the pack. */
+export function ingredientListLabel(brand: string, alt: string, matchType: Pair["match_type"]) {
+  if (listKey(brand) === listKey(alt)) return "Same list";
+  return matchType === "identical_formula" ? "Records worded differently, check the pack" : "Lists differ";
+}
+
 function nutritionGroup(pair: Pair): NutritionGroup | null {
   const b = pair.brand.nutrition;
   const a = pair.alternative.nutrition;
@@ -405,7 +438,7 @@ function nutritionGroup(pair: Pair): NutritionGroup | null {
       brand: ingredientText(b.ingredients),
       alternative: ingredientText(a.ingredients),
       verdict: "neutral",
-      verdictLabel: norm(b.ingredients) === norm(a.ingredients) ? "Same list" : "Lists differ",
+      verdictLabel: ingredientListLabel(b.ingredients, a.ingredients, pair.match_type),
     });
   }
   if (rows.length === 0) return null;
@@ -545,7 +578,11 @@ const RESEARCHED_NAMED = 3;
  */
 export function onFileIntro(c: Comparison) {
   const proof = proofOnFile(c);
-  if (proof.length === 0) return "All we have on file for this swap is the pack size and the unit price. Nothing here compares what's inside.";
+  if (proof.length === 0) {
+    return c.ingredients.length
+      ? "Beyond the pack size and the unit price, our records only have details the other side doesn't state. Nothing here compares what's inside."
+      : "All we have on file for this swap is the pack size and the unit price. Nothing here compares what's inside.";
+  }
   return `On file for this swap: ${proof.join(", ")}, pack size and unit price.`;
 }
 
@@ -562,7 +599,8 @@ function proofOnFile(c: Comparison) {
   return [
     ...(tests.length === 1 ? [`the ${tests[0]} result`] : tests.length > 1 ? [`${tests.length} test results`] : []),
     ...(c.nutrition ? [c.nutrition.rows.some((r) => r.aspect !== "Ingredients") ? "nutrition and ingredients from community records" : "ingredients from community records"] : []),
-    ...(c.ingredients.length ? [inSentence(c.label)] : []),
+    // A row with a value on one side only compares nothing.
+    ...(c.ingredients.some((r) => r.verdict !== "unknown") ? [inSentence(c.label)] : []),
     ...(has("formula") ? ["the ingredient list"] : []),
     ...(has("maker") ? ["who makes it"] : []),
     ...researched.slice(0, RESEARCHED_NAMED),

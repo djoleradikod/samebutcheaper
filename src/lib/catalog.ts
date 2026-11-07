@@ -4,6 +4,7 @@ import type { Bundle, Catalog, CategorySlug, Claim, Pair, PairSummary, Preset } 
 import { CATEGORIES } from "./categories";
 import { APPROX_USD, type MarketCode } from "./markets";
 import { dupeActives, dupeSlugFor } from "./dupes";
+import { ingredientKey, slugify } from "./ingredient-key";
 import { isCutOut } from "./photos";
 
 const catalog = catalogJson as unknown as Catalog;
@@ -225,39 +226,10 @@ export function getCoverage() {
 
 /* ---------------------------------------------------- ingredients & brands */
 
-export function slugify(s: string) {
-  return s
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/&/g, " and ")
-    .replace(/\(.*?\)/g, " ")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+export { ingredientKey, slugify };
 
 /** Ingredient matches only count for chemistry-based matches, not specs. */
 const INGREDIENT_MATCHES = new Set(["identical_active", "identical_formula", "same_manufacturer"]);
-
-const INGREDIENT_STOP = new Set(["chemistry", "formula", "ingredients", "sodium", "potassium", "chloride", "dextrose", "maltodextrin"]);
-
-/** Canonical ingredient key: drops salt forms and grade labels so "Cetirizine HCl" and "cetirizine" group. */
-export function ingredientKey(name: string) {
-  const base = slugify(name)
-    .replace(/-(usp|nf|hcl|hydrochloride|dihydrochloride|monohydrate)\b/g, "")
-    .replace(/^white-(petrolatum)$/, "$1")
-    .replace(/-+$/g, "")
-    .replace(/\b(paracetamol|aciclovir|beclometasone|salbutamol)\b/g, (w) => SAME_AS_US[w]);
-  return INGREDIENT_STOP.has(base) ? "" : base;
-}
-
-/** International names that group with their US names, so UK and US swaps share one page. */
-const SAME_AS_US: Record<string, string> = {
-  paracetamol: "acetaminophen",
-  aciclovir: "acyclovir",
-  beclometasone: "beclomethasone",
-  salbutamol: "albuterol",
-};
 
 /** Page titles that show both names. */
 const DUAL_NAME: Record<string, string> = {

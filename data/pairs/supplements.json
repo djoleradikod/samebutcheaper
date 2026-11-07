@@ -175,11 +175,11 @@
         }
       ]
     },
-    "match_type": "identical_active",
+    "match_type": "equivalent_spec",
     "confidence": "high",
-    "summary": "Equate Adults 50+ is a 'Compare to Centrum Silver Adults 50+' tablet whose label matches Centrum Silver nutrient for nutrient, for about a third of the price per tablet.",
-    "evidence": "I compared the NIH DSLD labels line by line: Centrum Silver Adults 50+ (GSK, 2023 entry) and Equate Complete Multivitamin Adults 50+ (2022 entry). Every listed nutrient matches: A 750 mcg, C 60 mg, D3 25 mcg, E 22.5 mg, K 30 mcg, B6 3 mg, B12 25 mcg, calcium 220 mg, selenium 19 mcg, chromium 50 mcg, zinc 11 mg, lutein 250 mcg, lycopene 300 mcg and the rest. Both are iron-free. The Equate label says 'Compare to Centrum Silver Adults 50+'. Prices come from Walmart listings.",
-    "differences": "The Equate label lists folate as 680 mcg DFE and Centrum lists 667 mcg DFE. Both state 400 mcg folic acid, so this is a rounding difference. The Equate label also lists silicon (2 mg) and vanadium (10 mcg), which the DSLD Centrum record does not show. Coatings and colourings differ. Neither carries a USP seal. The Equate label was checked on the 125-count bottle, and the price is for the 450-count bottle of the same product.",
+    "summary": "Equate Adults 50+ is a 'Compare to Centrum Silver Adults 50+' tablet. Its label lists the same amounts as Centrum Silver for the nutrients on file except folate, for about a third of the price per tablet.",
+    "evidence": "I compared the NIH DSLD labels line by line: Centrum Silver Adults 50+ (GSK, 2023 entry) and Equate Complete Multivitamin Adults 50+ (2022 entry). These nutrients match: A 750 mcg, C 60 mg, D3 25 mcg, E 22.5 mg, K 30 mcg, B6 3 mg, B12 25 mcg, calcium 220 mg, selenium 19 mcg, chromium 50 mcg, zinc 11 mg, lutein 250 mcg, lycopene 300 mcg and others. Folate does not match. Both are iron-free. The Equate label says 'Compare to Centrum Silver Adults 50+'. Prices come from Walmart listings.",
+    "differences": "The Equate label lists folate as 680 mcg DFE and Centrum lists 667 mcg DFE. Both state 400 mcg folic acid. The labels do not show the same folate figure, so we do not call these the same strength. The Equate label also lists silicon (2 mg) and vanadium (10 mcg), which the DSLD Centrum record does not show. Coatings and colourings differ. Neither carries a USP seal. The Equate label was checked on the 125-count bottle, and the price is for the 450-count bottle of the same product.",
     "sources": [
       "https://api.ods.od.nih.gov/dsld/v9/label/304931",
       "https://api.ods.od.nih.gov/dsld/v9/label/272954",
@@ -203,7 +203,7 @@
         "source": "https://api.ods.od.nih.gov/dsld/v9/label/272954"
       }
     ],
-    "why": "Every nutrient on the Equate label matches Centrum Silver Adults 50+ on the NIH DSLD labels, and both use the same three colours and are iron-free. The Equate lists sugar and glucose among its other ingredients, which the Centrum label does not, and neither has a USP seal."
+    "why": "The Equate label matches Centrum Silver Adults 50+ on the NIH DSLD labels except on folate and two extra minerals, and both use the same three colours and are iron-free. The Equate lists sugar and glucose among its other ingredients, which the Centrum label does not, and neither has a USP seal."
   },
   {
     "slug": "thorne-creatine-vs-nutricost-creatine-monohydrate",
@@ -298,10 +298,8 @@
       "asin": null,
       "url": "https://www.walmart.com/ip/13314273",
       "key_ingredients": [
-        {
-          "name": "Psyllium husk",
-          "amount": "approx. 3.4 g per 5.8 g dose (2.4 g soluble fibre)"
-        }
+        { "name": "Psyllium husk", "amount": "about 3.4 g per 5.8 g dose" },
+        { "name": "Soluble fibre", "amount": "2.4 g per serving" }
       ]
     },
     "alternative": {
@@ -314,17 +312,15 @@
       "asin": null,
       "url": "https://www.walmart.com/ip/seort/2410070778",
       "key_ingredients": [
-        {
-          "name": "Psyllium husk",
-          "amount": "2.4 g soluble fibre per serving"
-        }
+        { "name": "Psyllium husk", "amount": "not stated" },
+        { "name": "Soluble fibre", "amount": "2.4 g per serving" }
       ]
     },
-    "match_type": "identical_active",
+    "match_type": "equivalent_spec",
     "confidence": "medium",
     "summary": "Both are sugar-free, orange, smooth-texture psyllium husk powders with 2.4 g soluble fibre in the same 5.8 g serving. Equate costs about 29% less per serving.",
     "evidence": "Metamucil's sugar-free orange DailyMed label (Procter & Gamble) states about 3.4 g psyllium husk per 5.8 g dose. The Walmart Metamucil page states 2.4 g soluble fibre per serving. The Walmart Equate page describes the product as 100% psyllium husk with 2.4 g soluble fibre per serving, and 114 servings in 23.3 oz, which also works out to about 5.8 g per serving. The 180-serving sizes of both products weigh about 36.8 oz, by Walmart's unit pricing.",
-    "differences": "I could not read the full Equate Supplement Facts panel, so the exact psyllium gram weight and the sweetener used are not confirmed. Metamucil sugar-free uses aspartame. Metamucil is sold under an OTC drug label (bulk-forming laxative) and the Equate product is sold as a dietary supplement. The Equate page lists no 'compare to Metamucil' claim.",
+    "differences": "I could not read the full Equate Supplement Facts panel, so its psyllium weight and sweetener are not confirmed, and these sources do not show the same amount of psyllium. The two match on soluble fibre per serving. Metamucil sugar-free uses aspartame. Metamucil is sold under an OTC drug label (bulk-forming laxative) and the Equate product is sold as a dietary supplement. The Equate page lists no 'compare to Metamucil' claim.",
     "sources": [
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a9824f73-5ea2-4a65-a926-3a57561441b8",
       "https://www.walmart.com/ip/13314273",

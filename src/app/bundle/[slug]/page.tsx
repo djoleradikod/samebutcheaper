@@ -10,12 +10,12 @@ import { HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Eviden
 import { ProductThumb } from "@/components/ProductThumb";
 import { SaveButton } from "@/components/SaveButton";
 import { SaveTicket } from "@/components/Ticket";
-import { mayEarn, RETAILER_LABEL } from "@/lib/affiliate";
+import { mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
 import { money, monthYear } from "@/lib/format";
-import { SITE } from "@/lib/site";
+import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
 import type { Bundle } from "@/lib/types";
 
@@ -182,7 +182,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                   rel="sponsored nofollow noopener"
                   className="btn btn-ghost w-full"
                 >
-                  See the kit at {storeName(b.bundle.retailer)} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                  See the kit at {storeName(b.bundle.retailer, b.bundle.url)} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </div>
             </aside>
@@ -298,7 +298,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
                     <span className="min-w-0">
                       <span className="block truncate font-medium group-hover:underline">{c.brand}</span>
                       <span className="block text-xs text-muted">
-                        <span className="num">{money(c.price, b.currency)}</span> at {storeName(c.retailer)}
+                        <span className="num">{money(c.price, b.currency)}</span> at {storeName(c.retailer, c.url)}
                       </span>
                     </span>
                     <ExternalLink className="h-3.5 w-3.5 shrink-0 text-cobalt" aria-hidden="true" />
@@ -319,7 +319,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
             health={HEALTH_CATEGORIES.has(b.category)}
             items={b.components.map((c) => ({
               retailer: c.retailer,
-              retailerLabel: RETAILER_LABEL[c.retailer],
+              retailerLabel: storeName(c.retailer, c.url),
               replaces: b.bundle.items[c.replaces].name,
               lookFor: c.lookFor,
             }))}
@@ -342,14 +342,9 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
           </div>
         </section>
       )}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
     </article>
   );
-}
-
-/** "other" is a store with no name of its own in our list. */
-function storeName(retailer: keyof typeof RETAILER_LABEL) {
-  return retailer === "other" ? "the store" : RETAILER_LABEL[retailer];
 }
 
 function withBrand(brand: string, product: string) {

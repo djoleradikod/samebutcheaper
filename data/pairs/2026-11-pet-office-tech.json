@@ -547,10 +547,8 @@
    "gtin": "0619659102197",
    "image": "https://images.openproductsfacts.org/images/products/061/965/910/2197/front_de.4.400.jpg",
    "key_ingredients": [
-    {
-     "name": "USB-A 3.2 Gen 1, read up to 130 MB/s, write up to 95 MB/s",
-     "amount": "64 GB"
-    }
+     { "name": "USB-A 3.2 Gen 1", "amount": "64 GB" },
+     { "name": "Read and write speed", "amount": "read up to 130 MB/s, write up to 95 MB/s" }
    ]
   },
   "alternative": {
@@ -565,10 +563,9 @@
    "gtin": "4034303020683",
    "image": "https://images.openproductsfacts.org/images/products/403/430/302/0683/front_de.4.400.jpg",
    "key_ingredients": [
-    {
-     "name": "USB-A 3.2 Gen 1, read and write speed not stated, metal case",
-     "amount": "64 GB"
-    }
+     { "name": "USB-A 3.2 Gen 1", "amount": "64 GB" },
+     { "name": "Read and write speed", "amount": "not stated" },
+     { "name": "Metal case", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -603,10 +600,8 @@
    "url": "https://www.alternate.de/SanDisk/Ultra-USB-Type-C-128-GB-USB-Stick/html/product/1652796",
    "gtin": "0619659167172",
    "key_ingredients": [
-    {
-     "name": "USB-C 3.2 Gen 1, read up to 150 MB/s",
-     "amount": "128 GB"
-    }
+     { "name": "USB-C 3.2 Gen 1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 150 MB/s" }
    ]
   },
   "alternative": {
@@ -620,10 +615,8 @@
    "url": "https://www.alternate.de/ADATA/UC300-128-GB-USB-Stick/html/product/1871851",
    "gtin": "4711085939135",
    "key_ingredients": [
-    {
-     "name": "USB-C 3.2 Gen 1, read up to 100 MB/s",
-     "amount": "128 GB"
-    }
+     { "name": "USB-C 3.2 Gen 1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 100 MB/s" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -657,10 +650,8 @@
    "url": "https://www.alternate.de/SanDisk/Ultra-128-GB-microSDXC-Speicherkarte/html/product/1870955",
    "gtin": "0619659200558",
    "key_ingredients": [
-    {
-     "name": "Class 10, UHS-I U1, A1, read up to 140 MB/s",
-     "amount": "128 GB"
-    }
+     { "name": "Class 10, UHS-I U1, A1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 140 MB/s" }
    ]
   },
   "alternative": {
@@ -674,10 +665,9 @@
    "url": "https://www.alternate.de/Kingston/Canvas-Select-Plus-128-GB-MicroSDXC-Speicherkarte/html/product/100145687",
    "gtin": "0740617348484",
    "key_ingredients": [
-    {
-     "name": "Class 10, UHS-I U1, V10, A1, read up to 150 MB/s",
-     "amount": "128 GB"
-    }
+     { "name": "Class 10, UHS-I U1, A1", "amount": "128 GB" },
+     { "name": "Read speed", "amount": "up to 150 MB/s" },
+     { "name": "V10", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -711,10 +701,8 @@
    "url": "https://www.7dayshop.com/sandisk-ultra-usb-3-0-flash-drive-memory-stick-130-mb-s-64gb-pack-of-2",
    "gtin": "0619659193508",
    "key_ingredients": [
-    {
-     "name": "USB 3.0, 130 MB/s in the title",
-     "amount": "2 x 64 GB"
-    }
+     { "name": "USB 3.2 Gen 1, also called USB 3.0", "amount": "2 x 64 GB" },
+     { "name": "Speed", "amount": "130 MB/s in the title" }
    ]
   },
   "alternative": {
@@ -728,10 +716,8 @@
    "url": "https://www.7dayshop.com/kingston-datatraveler-exodia-s-usb-3-2-memory-flash-drive-64gb-twin-pack",
    "gtin": "740617348651",
    "key_ingredients": [
-    {
-     "name": "USB 3.2 Gen 1, speed not stated",
-     "amount": "2 x 64 GB"
-    }
+     { "name": "USB 3.2 Gen 1, also called USB 3.0", "amount": "2 x 64 GB" },
+     { "name": "Speed", "amount": "not stated" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -766,10 +752,8 @@
    "url": "https://www.viking-direct.co.uk/en/rexel-staples-no.-56-5000-staples-p-06025",
    "gtin": "5010255060259",
    "key_ingredients": [
-    {
-     "name": "26/6, 6 mm leg, metal",
-     "amount": "up to 20 sheets"
-    }
+     { "name": "26/6, 6 mm leg, metal", "amount": "" },
+     { "name": "Staples up to", "amount": "20 sheets" }
    ]
   },
   "alternative": {
@@ -783,10 +767,9 @@
    "url": "https://www.viking-direct.co.uk/en/office-depot-staples-26-6-5000-staples-p-5619465",
    "gtin": "8717868074228",
    "key_ingredients": [
-    {
-     "name": "26/6, also fits No.56, 6 mm leg, 12.7 mm crown, metal",
-     "amount": "up to 25 sheets"
-    }
+     { "name": "26/6, 6 mm leg, metal", "amount": "" },
+     { "name": "Staples up to", "amount": "25 sheets" },
+     { "name": "Also fits No.56, 12.7 mm crown", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -820,10 +803,7 @@
    "url": "https://www.viking-direct.co.uk/en/avery-address-labels-l7163-100-white-1400-labels-per-pack-p-l7163",
    "gtin": "3266550260142",
    "key_ingredients": [
-    {
-     "name": "99.1 x 38.1 mm, 14 per A4 sheet, laser, white",
-     "amount": "1400 labels"
-    }
+     { "name": "99.1 x 38.1 mm, 14 per sheet, laser, white", "amount": "1400 labels" }
    ]
   },
   "alternative": {
@@ -837,10 +817,7 @@
    "url": "https://www.viking-direct.co.uk/en/viking-laser-labels-white-1400-labels-per-pack-p-980434",
    "gtin": "8717868100033",
    "key_ingredients": [
-    {
-     "name": "99.1 x 38.1 mm, 14 per sheet, laser, white",
-     "amount": "1400 labels"
-    }
+     { "name": "99.1 x 38.1 mm, 14 per sheet, laser, white", "amount": "1400 labels" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -874,10 +851,8 @@
    "url": "https://www.viking-direct.co.uk/en/navigator-universal-printer-paper-a4-80gsm-white-500-sheets-p-4194387",
    "gtin": "5602024006102",
    "key_ingredients": [
-    {
-     "name": "A4, 80 gsm, smooth, 169 CIE",
-     "amount": "500 sheets"
-    }
+     { "name": "A4, 80 gsm, smooth", "amount": "500 sheets" },
+     { "name": "Whiteness", "amount": "169 CIE" }
    ]
   },
   "alternative": {
@@ -891,10 +866,8 @@
    "url": "https://www.viking-direct.co.uk/en/viking-everyday-copier-paper-a4-80gsm-white-500-sheets-p-9537",
    "gtin": "8717868005604",
    "key_ingredients": [
-    {
-     "name": "A4, 80 gsm, smooth, 150 CIE",
-     "amount": "500 sheets"
-    }
+     { "name": "A4, 80 gsm, smooth", "amount": "500 sheets" },
+     { "name": "Whiteness", "amount": "150 CIE" }
    ]
   },
   "match_type": "equivalent_spec",

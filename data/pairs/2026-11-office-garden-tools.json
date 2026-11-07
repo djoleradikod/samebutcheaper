@@ -15,10 +15,8 @@
    "asin": null,
    "url": "https://www.viking-direct.co.uk/hp-copy-printer-paper-a4-80-gsm-white-500-sheets-p-1191467",
    "key_ingredients": [
-    {
-     "name": "A4 copier paper, 80 gsm, 146 CIE whiteness, matt",
-     "amount": ""
-    }
+     { "name": "A4 copier paper, 80 gsm, 146 CIE whiteness", "amount": "" },
+     { "name": "Finish", "amount": "matt" }
    ]
   },
   "alternative": {
@@ -31,10 +29,9 @@
    "asin": null,
    "url": "https://www.viking-direct.co.uk/niceday-a4-printer-paper-80-gsm-smooth-white-500-sheets-p-1191282",
    "key_ingredients": [
-    {
-     "name": "A4 copier paper, 80 gsm, 146 CIE whiteness, smooth, 90% opacity",
-     "amount": ""
-    }
+     { "name": "A4 copier paper, 80 gsm, 146 CIE whiteness", "amount": "" },
+     { "name": "Finish", "amount": "smooth" },
+     { "name": "90% opacity", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",

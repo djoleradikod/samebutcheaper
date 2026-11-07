@@ -14,18 +14,9 @@
       "asin": null,
       "url": "https://www.target.com/p/splenda-zero-calorie-sweetener-packets-7oz-200pk/-/A-13330984",
       "key_ingredients": [
-        {
-          "name": "Dextrose",
-          "amount": "not stated"
-        },
-        {
-          "name": "Maltodextrin",
-          "amount": "not stated"
-        },
-        {
-          "name": "Sucralose",
-          "amount": "not stated"
-        }
+        { "name": "Dextrose", "amount": "" },
+        { "name": "Maltodextrin", "amount": "" },
+        { "name": "Sucralose", "amount": "" }
       ]
     },
     "alternative": {
@@ -39,18 +30,9 @@
       "asin": null,
       "url": "https://www.walmart.com/ip/10533727",
       "key_ingredients": [
-        {
-          "name": "Dextrose",
-          "amount": "not stated"
-        },
-        {
-          "name": "Maltodextrin",
-          "amount": "not stated"
-        },
-        {
-          "name": "Sucralose",
-          "amount": "not stated"
-        }
+        { "name": "Dextrose", "amount": "" },
+        { "name": "Maltodextrin", "amount": "" },
+        { "name": "Sucralose", "amount": "" }
       ]
     },
     "match_type": "identical_formula",
@@ -149,10 +131,7 @@
       "asin": null,
       "url": "https://www.walmart.com/ip/10450998",
       "key_ingredients": [
-        {
-          "name": "White distilled vinegar, diluted with water",
-          "amount": "5% acidity"
-        }
+        { "name": "Distilled white vinegar, diluted with water", "amount": "5% acidity" }
       ]
     },
     "match_type": "identical_formula",
@@ -257,10 +236,7 @@
       "asin": null,
       "url": "https://www.target.com/p/ground-black-pepper-3oz-good-38-gather-8482/-/A-77585121",
       "key_ingredients": [
-        {
-          "name": "Black pepper",
-          "amount": "100%"
-        }
+        { "name": "Ground black pepper", "amount": "100%" }
       ],
       "rating": {
         "stars": 4.7,
@@ -379,10 +355,7 @@
       "asin": null,
       "url": "https://www.target.com/p/ground-cinnamon-2-37oz-good-38-gather-8482/-/A-77586373",
       "key_ingredients": [
-        {
-          "name": "Cinnamon",
-          "amount": "100%"
-        }
+        { "name": "Ground cinnamon", "amount": "100%" }
       ]
     },
     "match_type": "identical_formula",

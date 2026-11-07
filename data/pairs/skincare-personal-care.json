@@ -723,11 +723,11 @@
         }
       ]
     },
-    "match_type": "identical_active",
+    "match_type": "same_kind",
     "confidence": "medium",
     "summary": "Both are stannous fluoride 'whole mouth' toothpastes, and Equate is labelled 'Compare to Crest Pro-Health Advanced Deep Clean Mint active ingredient'.",
     "evidence": "Walmart's Equate listing says it is formulated with stannous fluoride and carries the explicit compare-to statement naming Crest Pro-Health Advanced Deep Clean Mint. The same page lists the Crest 5.1 oz at $4.97.",
-    "differences": "We could not confirm the stannous fluoride percentage on either label, which is why this pair is medium. The savings are modest (about 27%). Flavour and inactive ingredients may differ.",
+    "differences": "We could not confirm the stannous fluoride percentage on either label, so these sources do not show the same strength. The savings are modest (about 27%). Flavour and inactive ingredients may differ.",
     "sources": [
       "https://www.walmart.com/ip/Equate-Pro-Advanced-Toothpaste-Deep-Clean-Mint-5-1-oz/13625959089",
       "https://www.walmart.com/ip/Crest-Pro-Health-Advanced-Deep-Clean-Mint-Toothpaste-5-1-oz/196878437",

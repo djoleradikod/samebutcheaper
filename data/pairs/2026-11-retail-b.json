@@ -869,7 +869,7 @@
    "key_ingredients": [
     {
      "name": "Alkaline 9 V (6LR61)",
-     "amount": "capacity not listed"
+     "amount": ""
     }
    ]
   },
@@ -929,10 +929,7 @@
    "asin": null,
    "url": "https://www.alternate.de/Apple/20W-USB-C-Power-Adapter-Ladegerät/html/product/1687702",
    "key_ingredients": [
-    {
-     "name": "USB-C wall charger, single port",
-     "amount": "20 W"
-    }
+     { "name": "USB-C wall charger, single port", "amount": "20 W" }
    ]
   },
   "alternative": {
@@ -945,10 +942,8 @@
    "asin": null,
    "url": "https://www.alternate.de/goobay/20-W-USB-C-PD-GaN-Schnellladegerät-Nano/html/product/100203948",
    "key_ingredients": [
-    {
-     "name": "USB-C wall charger, single port, PD",
-     "amount": "20 W"
-    }
+     { "name": "USB-C wall charger, single port", "amount": "20 W" },
+     { "name": "Power Delivery (PD)", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -981,10 +976,7 @@
    "asin": null,
    "url": "https://www.alternate.de/Apple/USB-C-Power-Adapter-MW2G3ZM-30-Watt-Ladegerät/html/product/100059907",
    "key_ingredients": [
-    {
-     "name": "USB-C wall charger, single port",
-     "amount": "30 W"
-    }
+     { "name": "USB-C wall charger, single port", "amount": "30 W" }
    ]
   },
   "alternative": {
@@ -997,10 +989,8 @@
    "asin": null,
    "url": "https://www.alternate.de/goobay/USB-C-PD-GaN-Schnellladegerät-Slim-30-W-/html/product/100151990",
    "key_ingredients": [
-    {
-     "name": "USB-C wall charger, single port, PD",
-     "amount": "30 W"
-    }
+     { "name": "USB-C wall charger, single port", "amount": "30 W" },
+     { "name": "Power Delivery (PD)", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -1099,10 +1089,8 @@
    "asin": null,
    "url": "https://www.alternate.de/Apple/USB-2-0-Ladekabel-USB-C-Stecker-USB-C-Stecker/html/product/100074667",
    "key_ingredients": [
-    {
-     "name": "USB-C to USB-C, USB 2.0, sleeved",
-     "amount": "1 m, up to 60 W"
-    }
+     { "name": "USB-C to USB-C, USB 2.0", "amount": "1 m, up to 60 W" },
+     { "name": "Sleeved jacket", "amount": "" }
    ]
   },
   "alternative": {
@@ -1115,10 +1103,8 @@
    "asin": null,
    "url": "https://www.alternate.de/DeLOCK/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker-mit-verlängertem-Knickschutz/html/product/100105427",
    "key_ingredients": [
-    {
-     "name": "USB-C to USB-C, USB 2.0, extended strain relief",
-     "amount": "1 m, up to 60 W"
-    }
+     { "name": "USB-C to USB-C, USB 2.0", "amount": "1 m, up to 60 W" },
+     { "name": "Extended strain relief", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -1153,10 +1139,7 @@
    "asin": null,
    "url": "https://www.alternate.de/Samsung/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker/html/product/1795571",
    "key_ingredients": [
-    {
-     "name": "USB-C to USB-C, USB 2.0, PD",
-     "amount": "1 m, up to 100 W"
-    }
+     { "name": "USB-C to USB-C, USB 2.0, PD", "amount": "1 m, up to 100 W" }
    ]
   },
   "alternative": {
@@ -1169,10 +1152,8 @@
    "asin": null,
    "url": "https://www.alternate.de/ADATA/USB-2-0-Kabel-USB-C-Stecker-USB-C-Stecker/html/product/100058795",
    "key_ingredients": [
-    {
-     "name": "USB-C to USB-C, USB 2.0, PD 3.0, QC 3.0",
-     "amount": "1 m, up to 100 W"
-    }
+     { "name": "USB-C to USB-C, USB 2.0, PD", "amount": "1 m, up to 100 W" },
+     { "name": "PD 3.0, QC 3.0", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -1207,10 +1188,7 @@
    "asin": null,
    "url": "https://www.alternate.de/Lindy/Ultra-High-Speed-HDMI-Kabel-Gold-Line/html/product/1735789",
    "key_ingredients": [
-    {
-     "name": "HDMI 2.1, Ultra High Speed",
-     "amount": "2 m, 48 Gbit/s"
-    }
+     { "name": "HDMI 2.1, Ultra High Speed", "amount": "2 m, 48 Gbit/s" }
    ]
   },
   "alternative": {
@@ -1223,10 +1201,8 @@
    "asin": null,
    "url": "https://www.alternate.de/goobay/Ultra-High-Speed-HDMI-Kabel-mit-Ethernet-HDMI-2-1/html/product/1768286",
    "key_ingredients": [
-    {
-     "name": "HDMI 2.1, Ultra High Speed with Ethernet, gold-plated contacts",
-     "amount": "2 m, 48 Gbit/s"
-    }
+     { "name": "HDMI 2.1, Ultra High Speed", "amount": "2 m, 48 Gbit/s" },
+     { "name": "With Ethernet, gold-plated contacts", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",
@@ -1318,10 +1294,7 @@
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/post-it-super-sticky-notes-76-x-76-mm-blue-green-orange-pink-yellow-squared-plain-6-pads-of-90-sheets-p-1222135",
    "key_ingredients": [
-    {
-     "name": "76 x 76 mm square, plain, assorted",
-     "amount": "6 x 90 sheets"
-    }
+     { "name": "76 x 76 mm square, plain, assorted", "amount": "6 x 90 sheets" }
    ]
   },
   "alternative": {
@@ -1334,10 +1307,8 @@
    "asin": null,
    "url": "https://www.viking-direct.co.uk/en/viking-extra-sticky-notes-assorted-5-x-7-6-cm-6-pieces-p-2294852",
    "key_ingredients": [
-    {
-     "name": "76 x 76 mm square, plain, assorted, 70 gsm",
-     "amount": "6 x 90 sheets"
-    }
+     { "name": "76 x 76 mm square, plain, assorted", "amount": "6 x 90 sheets" },
+     { "name": "70 gsm", "amount": "" }
    ]
   },
   "match_type": "equivalent_spec",

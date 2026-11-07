@@ -486,10 +486,7 @@
       "asin": null,
       "url": "https://www.loblaws.ca/en/powder-laxative-effective-relief-no-taste-no-grit/p/20938326_EA",
       "key_ingredients": [
-        {
-          "name": "Polyethylene glycol 3350",
-          "amount": "100% (17 g per dose)"
-        }
+        { "name": "Polyethylene glycol 3350", "amount": "100%" }
       ]
     },
     "alternative": {
@@ -512,7 +509,7 @@
     "confidence": "high",
     "summary": "Both are pure polyethylene glycol 3350 powder, the same osmotic laxative, in the same 765 g size.",
     "evidence": "Health Canada's Drug Product Database lists RestoraLAX (DIN 02318164, Bayer) with a single active, polyethylene glycol 3350 at 100% w/w. The Life Brand ClearLax listing names polyethylene glycol 3350 powder for oral solution. Loblaws (loblaws.ca) on 2026-11-02 listed RestoraLAX 45 doses at $37.99 ($4.97/100 g, which is 765 g) and Life Brand ClearLax 765 g at $28.99 ($3.79/100 g). Walmart.ca confirms the RestoraLAX 45-dose pack is 765 g.",
-    "differences": "None in the powder itself. The packaging and measuring cap differ.",
+    "differences": "The packaging and measuring cap differ. RestoraLAX lists 17 g per dose, and the ClearLax record states no dose.",
     "sources": [
       "https://www.loblaws.ca/en/search?search-bar=restoralax",
       "https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json&brandname=restoralax",

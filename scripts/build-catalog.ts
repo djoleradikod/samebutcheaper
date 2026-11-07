@@ -39,7 +39,9 @@ const IMAGE_DIR = join(ROOT, "public", "products");
 const OUT_DIR = join(ROOT, "src", "generated");
 const lenient = process.argv.includes("--lenient");
 
-const round = (n: number, d = 4) => Math.round(n * 10 ** d) / 10 ** d;
+const round = (n: number, d: number) => Math.round(n * 10 ** d) / 10 ** d;
+/** Staples and sheets cost a fraction of a cent each, so a unit price keeps six decimals. Money totals come from price and size, never from this. */
+const roundPpu = (n: number) => round(n, 6);
 const errors: string[] = [];
 
 const FORMS: Record<string, string> = {
@@ -259,7 +261,7 @@ function bulkViewFor(p: PairInput, brandPpu: number, altPpu: number): BulkView {
       product: p.bulk.product,
       size: p.bulk.size,
       price: p.bulk.price,
-      ppu: round(ppu),
+      ppu: roundPpu(ppu),
       retailer: p.bulk.retailer,
       url: p.bulk.url,
       extraSavingPct: round(Math.max(0, (1 - ppu / altPpu) * 100), 1),
@@ -284,11 +286,11 @@ function derive(p: PairInput): Pair {
   const altNutrition = nutritionFor(p.category, p.alternative);
   return {
     ...p,
-    brand: { ...p.brand, unit, ppu: round(brandPpu), photo: photoFor(p.brand.brand, p.brand.product), nutrition: brandNutrition },
+    brand: { ...p.brand, unit, ppu: roundPpu(brandPpu), photo: photoFor(p.brand.brand, p.brand.product), nutrition: brandNutrition },
     alternative: {
       ...p.alternative,
       unit,
-      ppu: round(altPpu),
+      ppu: roundPpu(altPpu),
       photo: photoFor(p.alternative.brand, p.alternative.product),
       nutrition: altNutrition,
     },
@@ -312,7 +314,7 @@ function deriveBundle(b: BundleInput): Bundle {
     return {
       ...c,
       unit: normalizeUnit(c.unit),
-      ppu: round(ppu),
+      ppu: roundPpu(ppu),
       photo: photoFor(c.brand, c.product),
       equivalentCost: round(ppu * item.size, 2),
       lookFor: lookFor(c.match_type, c, c.look_for),
@@ -368,8 +370,15 @@ for (const file of files) {
       return;
     }
     seen.add(pair.slug);
-    // A swap with only pack and price on file can't claim to do the same job, whatever its record says.
+    // A swap with nothing compared on both sides can't claim to do the same job, whatever its record says.
     if (pair.match_type === "equivalent_spec" && !hasProof(comparison(pair))) pair.match_type = "same_kind";
+    if (pair.match_type === "identical_active") {
+      // "Same active" says same strength too, so every row has to show it.
+      const rows = comparison(pair).ingredients;
+      const open = rows.filter((r) => r.verdict !== "same").map((r) => r.aspect);
+      if (!rows.length) errors.push(`${label}: identical_active with no active ingredient rows`);
+      if (open.length) errors.push(`${label}: identical_active needs every row "same", and these aren't: ${open.join(", ")}`);
+    }
     pairs.push(pair);
   });
 }
@@ -426,9 +435,9 @@ function derivePreset(input: PresetInput): Preset | null {
       errors.push(`preset ${input.slug}: ${item.pair} is priced in ${p.market}, not ${input.market}`);
       return null;
     }
-    const amount = p.brand.size * item.qty;
-    const brandCost = p.brand.ppu * amount;
-    const altCost = p.alternative.ppu * amount;
+    // From price and size, so a line adds up to the figures on its swap page.
+    const brandCost = p.brand.price * item.qty;
+    const altCost = (p.alternative.price / p.alternative.size) * p.brand.size * item.qty;
     lines.push({
       pair: p.slug,
       qty: item.qty,

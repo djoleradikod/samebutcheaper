@@ -5,6 +5,7 @@ import { atStore } from "@/lib/affiliate";
 import { MEDICINE, type BrowseRow } from "@/lib/browse";
 import { getAllPairs } from "@/lib/catalog";
 import { money, monthYear } from "@/lib/format";
+import { APPROX_USD } from "@/lib/markets";
 import type { Pair } from "@/lib/types";
 import { unitDisplay, unitPriceFine } from "@/lib/unit-format";
 import { BulkList, type BulkItem } from "./BulkList";
@@ -36,9 +37,9 @@ function toItem(p: Pair): Omit<BulkItem, keyof BrowseRow> {
     biggerPack: packText(bigger.size, a.unit),
     normalPrice: money(a.price, currency),
     biggerPrice: money(bigger.price, currency),
-    biggerPriceValue: bigger.price,
+    biggerPriceUsd: bigger.price * APPROX_USD[currency],
     biggerUrl: bigger.url,
-    biggerAt: atStore(bigger.retailer),
+    biggerAt: atStore(bigger.retailer, bigger.url),
     extraSavingPct: bigger.extraSavingPct,
     advice: shelf?.advice ?? null,
     unopened: shelf?.unopened ?? "",
@@ -50,10 +51,7 @@ export default function BulkPage() {
   // Medicine pages carry a health note that this list doesn't, as on the home page's bulk section.
   const pairs = getAllPairs().filter((p) => p.bulkView.bigger && p.category !== MEDICINE);
   const { rows } = browseProps(pairs);
-  const items: BulkItem[] = pairs
-    .map((p, i) => ({ ...rows[i], ...toItem(p) }))
-    // Photo tiers first, as on every other list, then the biggest extra saving.
-    .sort((a, b) => a.tier - b.tier || b.extraSavingPct - a.extraSavingPct || a.slug.localeCompare(b.slug));
+  const items: BulkItem[] = pairs.map((p, i) => ({ ...rows[i], ...toItem(p) }));
   const latest = pairs.reduce((newest, p) => (p.price_checked > newest ? p.price_checked : newest), "");
 
   return (

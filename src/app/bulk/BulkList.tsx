@@ -42,8 +42,8 @@ export type BulkItem = BrowseRow & {
   biggerPack: string;
   normalPrice: string;
   biggerPrice: string;
-  /** The bigger pack's price as a number, for sorting. */
-  biggerPriceValue: number;
+  /** The bigger pack's price in rough dollars, so packs from different countries sort together. */
+  biggerPriceUsd: number;
   biggerUrl: string;
   biggerAt: string;
   extraSavingPct: number;
@@ -85,7 +85,7 @@ const swaps = (n: number) => `${n} swap${n === 1 ? "" : "s"}`;
 const ORDERS = [
   { value: "bulk", label: "Most saved by going bigger", compare: (a: BulkItem, b: BulkItem) => b.extraSavingPct - a.extraSavingPct },
   { value: "brand", label: "Most saved against the brand", compare: (a: BulkItem, b: BulkItem) => b.pct - a.pct },
-  { value: "pack", label: "Lowest pack price", compare: (a: BulkItem, b: BulkItem) => a.biggerPriceValue - b.biggerPriceValue },
+  { value: "pack", label: "Lowest pack price", compare: (a: BulkItem, b: BulkItem) => a.biggerPriceUsd - b.biggerPriceUsd },
 ];
 
 const SELECT =
@@ -109,13 +109,13 @@ export function BulkList({ items }: { items: BulkItem[] }) {
   const activeAisle = aisles.some((a) => a === aisle) ? aisle : "all";
   const compare = ORDERS.find((o) => o.value === orderBy)?.compare ?? ORDERS[0].compare;
   const shown = inMarket.filter((i) => activeAisle === "all" || i.aisle === activeAisle);
-  const ordered = [...shown].sort((a, b) => a.tier - b.tier || compare(a, b) || a.slug.localeCompare(b.slug));
+  // In the order the shopper picked. Each group shows its rows with photos first, then the rest in the same order under their own heading.
+  const ordered = [...shown].sort((a, b) => compare(a, b) || a.slug.localeCompare(b.slug));
   const groups = GROUPS.map((g) => ({ ...g, items: ordered.filter((i) => i.advice === g.advice) })).filter(
     (g) => g.items.length > 0,
   );
-  // Each group is in photo order, so the first row of the first group is the page's first photo, if it has any.
-  const lead = groups[0]?.items[0];
-  const eagerSlug = lead && lead.tier !== NO_PHOTO_TIER ? lead.slug : null;
+  // The first group's first row with a photo is the page's first photo, if it has any.
+  const eagerSlug = groups[0]?.items.find((i) => i.tier !== NO_PHOTO_TIER)?.slug ?? null;
 
   return (
     <>
@@ -256,7 +256,7 @@ function BulkGroup({
       )}
       {noPhoto.length > 0 && (
         <>
-          {withPhoto.length > 0 && <h3 className="mt-5 mb-2 text-base">More bigger packs</h3>}
+          {withPhoto.length > 0 && <h3 className="mt-5 mb-2 text-base">More bigger packs, no photo yet</h3>}
           <div className="card overflow-hidden">
             <p aria-hidden="true" className={`hidden border-b border-line py-1.5 text-xs font-medium text-muted md:grid ${COMPACT_COLUMNS}`}>
               <span>Swap</span>

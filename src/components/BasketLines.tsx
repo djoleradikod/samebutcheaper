@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import { Minus, Plus } from "lucide-react";
+import { storeSplit } from "@/lib/affiliate";
 import { setSavedList, useSavedList } from "@/lib/client/savedList";
 import { money, type Currency } from "@/lib/format";
 import type { CategorySlug } from "@/lib/types";
@@ -25,6 +26,8 @@ export type BasketLineView = {
   altProduct: string;
   brandPhoto: string | null;
   altPhoto: string | null;
+  /** The store the cheaper side is priced at. */
+  altStore: string;
   /** Cost of qty brand packs. */
   brandCost: number;
   /** Cost of the same amount of the cheaper product. */
@@ -135,6 +138,29 @@ export function BasketTotals() {
         sub={`${Math.round(pct)}% less for the same amount`}
         className="md:text-[2.25rem]"
       />
+    </div>
+  );
+}
+
+/** The cheaper total is rarely one trip, so this says which stores it takes before anyone reads it as one receipt. Follows the stepper. */
+export function BasketStoreSplit() {
+  const { lines, qty, currency } = useBasket();
+  const stores = storeSplit(lines.map((line, i) => ({ store: line.altStore, cost: scaled(line, qty[i]).alt })));
+  if (!stores.length) return null;
+  return (
+    <div className="mt-3 max-w-[62ch]">
+      <p className="text-sm font-medium text-ink">
+        {stores.length === 1 ? `The cheaper side is all from ${stores[0].label}.` : `The cheaper side takes ${stores.length} stores:`}
+      </p>
+      {stores.length > 1 && (
+        <ul className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5 text-sm text-ink-2">
+          {stores.map((s) => (
+            <li key={s.label}>
+              {s.label} <span className="num font-semibold text-ink">{money(s.total, currency)}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

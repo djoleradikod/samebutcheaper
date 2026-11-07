@@ -1,4 +1,4 @@
-import { RETAILER_LABEL } from "@/lib/affiliate";
+import { storeName, storeSplit } from "@/lib/affiliate";
 import "server-only";
 import type { BasketSummary } from "@/components/BasketCard";
 import type { BasketLineView } from "@/components/BasketLines";
@@ -124,16 +124,15 @@ export function toBasketSummary(preset: Preset, photos = basketPhotos(preset, 4,
   };
 }
 
-/** The stores the cheaper side comes from, biggest share of the cheaper total first. A retailer with no name of its own groups as "other stores". */
+/** Where a line's cheaper side is sold. */
+function altStore(slug: string) {
+  const alt = getPair(slug)?.alternative;
+  return alt ? storeName(alt.retailer, alt.url) : "Other stores";
+}
+
+/** The stores the cheaper side comes from, biggest share of the cheaper total first. */
 export function basketStores(preset: Preset) {
-  const totals = new Map<string, number>();
-  for (const l of preset.lines) {
-    const retailer = getPair(l.pair)?.alternative.retailer ?? "other";
-    totals.set(retailer, (totals.get(retailer) ?? 0) + l.altCost);
-  }
-  return [...totals.entries()]
-    .map(([retailer, total]) => ({ retailer, label: RETAILER_LABEL[retailer] ?? "Other stores", total }))
-    .sort((a, b) => b.total - a.total);
+  return storeSplit(preset.lines.map((l) => ({ store: altStore(l.pair), cost: l.altCost })));
 }
 
 /** True when medicine makes up most of the basket, so it can sort last. */
@@ -158,6 +157,7 @@ export function basketLines(preset: Preset): BasketLineView[] {
       altProduct: pair?.alternative.product ?? l.altName,
       brandPhoto: l.brandPhoto,
       altPhoto: l.altPhoto,
+      altStore: altStore(l.pair),
       brandCost: l.brandCost,
       altCost: l.altCost,
       savingsPct: l.savingsPct,

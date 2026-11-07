@@ -3,14 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { BasketCard, COLLAGE_CELLS } from "@/components/BasketCard";
-import { BasketLines, BasketProvider, BasketTotals, SaveAllButton } from "@/components/BasketLines";
+import { BasketLines, BasketProvider, BasketStoreSplit, BasketTotals, SaveAllButton } from "@/components/BasketLines";
 import { HealthNotice, hostname } from "@/components/Evidence";
 import { ProductThumb } from "@/components/ProductThumb";
-import { basketLines, basketPhotos, basketStores, priceDates, toBasketSummary } from "@/lib/basket-view";
+import { basketLines, basketPhotos, priceDates, toBasketSummary } from "@/lib/basket-view";
 import { getAllPresets, getPair, getPreset } from "@/lib/catalog";
 import { money } from "@/lib/format";
 import { MARKET_LABEL, MARKETS } from "@/lib/markets";
-import { SITE } from "@/lib/site";
+import { jsonLdText, SITE } from "@/lib/site";
 import type { Preset } from "@/lib/types";
 
 const NEEDS_HEALTH_NOTE = new Set(["otc-medicine", "supplements", "baby", "pet"]);
@@ -81,27 +81,6 @@ function Collage({ preset }: { preset: Preset }) {
   );
 }
 
-/** The cheaper total is rarely one trip, so the page says which stores it takes before anyone reads the total as one receipt. */
-function StoreSplit({ preset }: { preset: Preset }) {
-  const stores = basketStores(preset);
-  return (
-    <div className="mt-3 max-w-[62ch]">
-      <p className="text-sm font-medium text-ink">
-        {stores.length === 1 ? `The cheaper side is all from ${stores[0].label}.` : `The cheaper side takes ${stores.length} stores:`}
-      </p>
-      {stores.length > 1 && (
-        <ul className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5 text-sm text-ink-2">
-          {stores.map((s) => (
-            <li key={s.retailer}>
-              {s.label} <span className="num font-semibold text-ink">{money(s.total, preset.currency)}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
 export default async function BasketPage({ params }: PageProps<"/basket/[slug]">) {
   const { slug } = await params;
   const p = getPreset(slug);
@@ -158,7 +137,7 @@ export default async function BasketPage({ params }: PageProps<"/basket/[slug]">
 
               <div className="mt-4 md:col-start-2 md:row-start-2 md:mt-5">
                 <BasketTotals />
-                <StoreSplit preset={p} />
+                <BasketStoreSplit />
                 <p className="mt-3 max-w-[62ch] text-sm text-ink-2">
                   Both totals buy the same amount of each product, added up from each swap&apos;s price per unit. The cheaper pack
                   may be a different size, so what you pay at the till can differ.
@@ -248,7 +227,7 @@ export default async function BasketPage({ params }: PageProps<"/basket/[slug]">
           </section>
         )}
 
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
       </article>
     </BasketProvider>
   );

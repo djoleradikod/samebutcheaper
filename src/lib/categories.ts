@@ -30,7 +30,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "OTC Medicine",
     short: "Pain, allergy, stomach, sleep",
     description:
-      "The same active ingredient at the same strength, read from the label. Ask a pharmacist if you're unsure.",
+      "Pain, allergy and stomach medicines, compared per tablet or per dose. Each swap says what the labels show. Ask a pharmacist if you're unsure.",
     icon: "pill",
   },
   {
@@ -38,7 +38,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Supplements & Vitamins",
     short: "Creatine, fish oil, multivitamins",
     description:
-      "The same compound and dose on the label, compared per serving.",
+      "Vitamins, minerals and other supplements, compared per serving. Each swap says what the labels show.",
     icon: "leaf",
   },
   {
@@ -61,7 +61,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Household & Cleaning",
     short: "Laundry, dishes, paper, cleaning",
     description:
-      "The same job, compared per wash, per sheet or per litre, with test results where they exist.",
+      "Laundry, dishes, paper and cleaning products, compared per wash, per sheet or per litre, with test results where they exist.",
     icon: "spray",
   },
   {
@@ -93,7 +93,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Tech accessories",
     short: "Chargers, cables, keyboards",
     description:
-      "The same standard and spec on the label, compared per item, with lab tests where they exist.",
+      "Chargers, cables, memory and keyboards, compared per item, with lab tests where they exist.",
     icon: "plug",
   },
   {
@@ -109,7 +109,7 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Batteries",
     short: "AA, AAA, button cells, rechargeables",
     description:
-      "The same chemistry and size, compared per cell, with test results where they exist.",
+      "AA, AAA, button cells and rechargeables, compared per cell, with test results where they exist.",
     icon: "battery",
   },
   {
@@ -117,14 +117,14 @@ export const CATEGORIES: CategoryMeta[] = [
     name: "Tools & DIY",
     short: "Hand tools, glue, sealant, gloves",
     description:
-      "The same spec or standard, compared per item, with test results where they exist.",
+      "Hand tools, glue, sealant and gloves, compared per item, with test results where they exist.",
     icon: "wrench",
   },
   {
     slug: "office",
     name: "Office & School",
     short: "Paper, pens, ink, labels",
-    description: "The same paper weight or kind of pen, compared per sheet or per item.",
+    description: "Paper, pens, ink and labels, compared per sheet or per item.",
     icon: "paperclip",
   },
   {
@@ -193,7 +193,7 @@ export const MATCH_TYPE_META: Record<
     label: "Same manufacturer",
     short: "Same maker",
     description:
-      "Public records (recalls, regulatory filings, plant codes) show the same company makes both.",
+      "Public records (recalls, regulatory filings, plant codes) or an on-record statement from one of the companies show the same company makes both.",
     strength: 3,
   },
   equivalent_spec: {
@@ -206,7 +206,7 @@ export const MATCH_TYPE_META: Record<
   same_kind: {
     label: "Same kind of product",
     short: "Same kind",
-    description: "The same kind of product, priced from real sources. Nothing we have compares what's inside or how well it works.",
+    description: "The same kind of product, priced from real sources. What we have doesn't show that they match on what's inside or how well they work.",
     strength: 1,
   },
 };

@@ -25,6 +25,7 @@ import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { inSentence } from "@/lib/format";
 import { MARKET_CODES, type MarketCode } from "@/lib/markets";
+import { jsonLdText } from "@/lib/site";
 import type { CategorySlug, Claim, PairSummary, Preset, ShelfLife } from "@/lib/types";
 
 const MEDICINE: CategorySlug = "otc-medicine";
@@ -175,7 +176,7 @@ function buildFaq(aisles: string[]) {
     },
     {
       q: "How do you decide two products match?",
-      a: "Most swaps meet one of four standards: the same active ingredient at the same strength, the same formula per the label, the same manufacturer, or doing the same job to a comparable standard. A few have only prices on file, so they say \"Same kind of product\" and claim no more than that. Every swap says which of these it is, lists what differs and links to at least two sources.",
+      a: "Most swaps meet one of four standards: the same active ingredient at the same strength, the same formula per the label, the same manufacturer, or doing the same job to a comparable standard. Some have nothing compared on both sides, so they say \"Same kind of product\" and claim no more than that. Every swap says which of these it is, lists what differs and links to at least two sources.",
     },
     {
       q: "Should I buy the biggest pack?",
@@ -389,7 +390,7 @@ export default function Home() {
         </p>
       </section>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(faqLd) }} />
     </>
   );
 }

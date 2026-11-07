@@ -12,7 +12,7 @@ import { MarketFirst } from "./MarketFirst";
 export const metadata: Metadata = {
   title: "Baskets and brand kits, priced both ways",
   description:
-    "Whole shopping baskets and brand kits rebuilt from cheaper products that do the same job. Totals buy the same amount on both sides, with every item linked to its evidence.",
+    "Whole shopping baskets and brand kits rebuilt from cheaper products. Totals buy the same amount on both sides, and every item links to what we have on file for it.",
   alternates: { canonical: "/bundles" },
 };
 

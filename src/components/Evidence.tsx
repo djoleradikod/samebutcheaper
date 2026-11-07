@@ -1,16 +1,11 @@
 import Link from "next/link";
+import { hostname } from "@/lib/format";
 import type { CategorySlug, Photo } from "@/lib/types";
 import { ProductThumb } from "./ProductThumb";
 
 export const HEALTH_CATEGORIES = new Set(["otc-medicine", "supplements", "baby", "pet", "skincare-personal-care"]);
 
-export function hostname(u: string) {
-  try {
-    return new URL(u).hostname.replace(/^www\./, "");
-  } catch {
-    return u;
-  }
-}
+export { hostname };
 
 function pathOf(u: string) {
   try {

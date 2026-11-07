@@ -533,11 +533,11 @@
       ],
       "image": "https://dailymed.nlm.nih.gov/dailymed/image.cfm?setid=dcfe8e94-9c88-464e-9a80-3baa9c4755d9&name=47k-2e-omeprazole-1.jpg"
     },
-    "match_type": "identical_active",
+    "match_type": "same_kind",
     "confidence": "medium",
-    "summary": "Both deliver 20 mg of omeprazole in a once-daily delayed-release tablet for a 14-day course, and Equate is labelled 'Compare to Prilosec OTC'.",
+    "summary": "Both are omeprazole delayed-release tablets sold as a 14-day course, and the two records list the ingredient in different forms. Equate is labelled 'Compare to Prilosec OTC'.",
     "evidence": "Walmart lists Prilosec OTC 42 tablets at $29.95 (71.3 cents each). The Equate 42-count listing shows omeprazole 20 mg delayed-release tablets for $9.50, and DailyMed lists Equate Omeprazole delayed-release tablets (plain omeprazole) from Walmart. Walmart's Prilosec OTC page lists omeprazole 20 mg per tablet. Prilosec OTC uses the magnesium salt.",
-    "differences": "Prilosec OTC uses the magnesium salt (20.6 mg omeprazole magnesium) and Equate uses plain omeprazole 20 mg. They are the same drug and dose of omeprazole but not the identical salt, so confidence is medium. Equate also sells an omeprazole magnesium capsule version.",
+    "differences": "The Prilosec OTC label lists omeprazole magnesium 20.6 mg, stated as equal to 20 mg omeprazole. The Equate label lists omeprazole 20 mg. The listed forms differ, and our sources do not compare how the two tablets work, so ask a pharmacist before switching. Equate also sells an omeprazole magnesium capsule version.",
     "sources": [
       "https://www.walmart.com/ip/Prilosec-OTC-24-Hour-Omeprazole-Delayed-Release-Tablets-20mg-Acid-Reducer-42-Tablets-3-Pack-of-14-Tablets/162543353",
       "https://www.walmart.com/ip/Equate-Omeprazole-Delayed-Release-Tablets-20-mg-Acid-Reducer-Frequent-Heartburn-42-Count/10324782",

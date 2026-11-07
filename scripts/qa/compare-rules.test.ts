@@ -5,7 +5,10 @@
  */
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { comparison, hasProof, nutrientVerdict, onFileIntro, sideNamed, sortDifferences } from "../../src/lib/compare";
+import { atStore, mayEarn, storeName, storeSplit } from "../../src/lib/affiliate";
+import { comparison, hasProof, ingredientListLabel, nutrientVerdict, onFileIntro, sideNamed, sortDifferences } from "../../src/lib/compare";
+import { withCelsius } from "../../src/lib/format";
+import { jsonLdText } from "../../src/lib/site";
 import type { Pair } from "../../src/lib/types";
 
 const side = (brand: string, product: string) => ({
@@ -242,6 +245,135 @@ test("a safety warning stays in the differences even when it reads like a caveat
 
 test("a swap with only pack and price on file has no proof", () => {
   assert.equal(hasProof(comparison(pair({}))), false);
+});
+
+const withRows = (brand: [string, string][], alternative: [string, string][], over: Record<string, unknown> = {}) => {
+  const rows = (list: [string, string][]) => list.map(([name, amount]) => ({ name, amount }));
+  return pair({
+    brand: { ...side("Baxters", "Soup"), key_ingredients: rows(brand) },
+    alternative: { ...side("Tesco", "Soup"), key_ingredients: rows(alternative) },
+    ...over,
+  });
+};
+const verdicts = (p: Pair) => comparison(p).ingredients.map((r) => r.verdict);
+
+test("spec rows with a value on one side only are no proof", () => {
+  const p = withRows([["FSC, up to 220 C", ""]], [["Non-stick on both sides", ""]]);
+  assert.deepEqual(verdicts(p), ["unknown", "unknown"]);
+  assert.equal(hasProof(comparison(p)), false);
+  assert.match(onFileIntro(comparison(p)), /Nothing here compares/);
+});
+
+test("a spec row both sides state is proof, whether it matches or not", () => {
+  assert.equal(hasProof(comparison(withRows([["Read speed", "150 MB/s"]], [["Read speed", "100 MB/s"]]))), true);
+  assert.equal(hasProof(comparison(withRows([["USB-C 3.2 Gen 1", "128 GB"]], [["USB-C 3.2 Gen 1", "128 GB"]]))), true);
+});
+
+test("a stated value against a missing one proves nothing", () => {
+  assert.deepEqual(verdicts(withRows([["Zinc", "10 mg"]], [["Zinc", "amount not shown on listing"]])), ["unknown"]);
+  assert.deepEqual(verdicts(withRows([["Speed", "130 MB/s"]], [["Speed", "not stated"]])), ["unknown"]);
+  assert.deepEqual(verdicts(withRows([["Vinegar", "5%"]], [["Vinegar", ""]])), ["unknown"]);
+  assert.equal(hasProof(comparison(withRows([["Zinc", "not stated"]], [["Zinc", "not stated"]]))), false);
+});
+
+test("a name on both sides with no amount on either counts as listed by both", () => {
+  assert.deepEqual(verdicts(withRows([["Sucralose", ""]], [["Sucralose", ""]])), ["same"]);
+});
+
+test("amounts compare as numbers", () => {
+  assert.deepEqual(verdicts(withRows([["Imidacloprid", "8.8%"]], [["Imidacloprid", "8.80%"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Vitamin C", "1,000 mg"]], [["Vitamin C", "1000 mg"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Folate", "667 mcg DFE"]], [["Folate", "680 mcg DFE"]])), ["different"]);
+  assert.deepEqual(verdicts(withRows([["Chlorine", "8.8%"]], [["Chlorine", "88%"]])), ["different"]);
+});
+
+test("a caplet and a tablet count as one dose unit, and a capsule doesn't", () => {
+  assert.deepEqual(verdicts(withRows([["Calcium", "400 mg per 2 caplets"]], [["Calcium", "400 mg per 2 tablets"]])), ["same"]);
+  assert.deepEqual(verdicts(withRows([["Calcium", "400 mg per 2 capsules"]], [["Calcium", "400 mg per 2 tablets"]])), ["different"]);
+});
+
+test("grade and salt words don't split one ingredient into two rows", () => {
+  const usp = comparison(withRows([["Bisacodyl", "5 mg"]], [["Bisacodyl USP", "5 mg"]]));
+  assert.deepEqual(
+    usp.ingredients.map((r) => [r.aspect, r.verdict]),
+    [["Bisacodyl", "same"]],
+  );
+  assert.deepEqual(verdicts(withRows([["Paracetamol", "500 mg"]], [["Acetaminophen", "500 mg"]])), ["same"]);
+});
+
+test("different forms of an active stay two rows", () => {
+  assert.deepEqual(verdicts(withRows([["Omeprazole magnesium", "20.6 mg"]], [["Omeprazole", "20 mg"]])), ["unknown", "unknown"]);
+});
+
+test("a name the ingredient key drops still gets its own row", () => {
+  assert.deepEqual(verdicts(withRows([["Sodium", "100 mg"]], [["Sodium", "100 mg"]])), ["same"]);
+  assert.equal(comparison(withRows([["Sodium", "100 mg"]], [["Potassium", "100 mg"]])).ingredients.length, 2);
+});
+
+test("ingredient lists ignore case and punctuation", () => {
+  assert.equal(ingredientListLabel("WATER, WHEAT. SALT", "water, wheat, salt", "identical_formula"), "Same list");
+  assert.equal(ingredientListLabel("Wasser, Zitronen - saftkonzentrat", "Wasser, Zitronensaftkonzentrat.", "identical_formula"), "Same list");
+});
+
+test("a same-formula pair whose records still differ is sent to the pack, and only that label says so", () => {
+  assert.equal(ingredientListLabel("Salz, Trennmittel Natriumferrocyanid", "Salz, Trennmittel: E535", "identical_formula"), "Records worded differently, check the pack");
+  assert.equal(ingredientListLabel("Salz, Trennmittel Natriumferrocyanid", "Salz, Trennmittel: E535", "equivalent_spec"), "Lists differ");
+});
+
+test("a store with no name of ours goes by its web address", () => {
+  assert.equal(storeName("other", "https://www.uline.com/p/1"), "uline.com");
+  assert.equal(storeName("tesco", "https://www.tesco.com/p/1"), "Tesco");
+  assert.equal(atStore("other", "https://www.uline.com/p/1"), "at uline.com");
+  assert.equal(atStore("amazon", "https://www.amazon.de/p/1"), "on Amazon");
+  assert.equal(atStore("other"), "at the store");
+});
+
+test("the store split keeps two unnamed shops apart and merges the same one", () => {
+  const split = storeSplit([
+    { store: storeName("other", "https://www.logitech.com/a"), cost: 20 },
+    { store: storeName("other", "https://us.ugreen.com/b"), cost: 5 },
+    { store: storeName("other", "https://www.logitech.com/c"), cost: 10 },
+    { store: storeName("walmart", "https://www.walmart.com/d"), cost: 12 },
+  ]);
+  assert.deepEqual(split, [
+    { label: "logitech.com", total: 30 },
+    { label: "Walmart", total: 12 },
+    { label: "us.ugreen.com", total: 5 },
+  ]);
+});
+
+test("a line set to zero leaves the store split", () => {
+  const split = storeSplit([
+    { store: "Tesco", cost: 0 },
+    { store: "Asda", cost: 4 },
+  ]);
+  assert.deepEqual(split, [{ label: "Asda", total: 4 }]);
+  assert.deepEqual(storeSplit([{ store: "Tesco", cost: 0 }]), []);
+});
+
+test("any Amazon link counts as earning, whichever retailer the record names", () => {
+  assert.equal(mayEarn({ retailer: "other", url: "https://www.amazon.co.uk/dp/1" }), true);
+  assert.equal(mayEarn({ retailer: "apple", url: "https://www.amazon.com/dp/1" }), true);
+  assert.equal(mayEarn({ retailer: "walmart", url: "https://www.walmart.com/ip/1" }), true);
+  assert.equal(mayEarn({ retailer: "other", url: "https://www.uline.com/p/1" }), false);
+  assert.equal(mayEarn({ retailer: "other", url: "not a url" }), false);
+});
+
+test("withCelsius adds Celsius to Fahrenheit figures", () => {
+  assert.equal(withCelsius("Store below 85 F."), "Store below 29 °C (85 °F).");
+  assert.equal(withCelsius("Keep at 50 to 70 F."), "Keep at 10 to 21 °C (50 to 70 °F).");
+});
+
+test("withCelsius leaves a figure alone when it already has its Celsius or isn't a temperature", () => {
+  assert.equal(withCelsius("below 85 F (29 C)"), "below 85 F (29 C)");
+  assert.equal(withCelsius("50 to 70 F (10 to 21 C)"), "50 to 70 F (10 to 21 C)");
+  assert.equal(withCelsius("Size 5 F and FSC paper"), "Size 5 F and FSC paper");
+});
+
+test("JSON-LD text can't close its script tag", () => {
+  const text = jsonLdText({ name: "</script><script>alert(1)</script>" });
+  assert.equal(text.includes("<"), false);
+  assert.equal(JSON.parse(text).name, "</script><script>alert(1)</script>");
 });
 
 test("records too far apart on energy lose their figures", () => {

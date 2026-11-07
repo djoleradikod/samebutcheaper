@@ -14,10 +14,7 @@
       "asin": null,
       "url": "https://www.walmart.com/ip/Benefiber-Daily-Prebiotic-Fiber-Supplement-Powder-for-Digestive-Health-Unflavored-125-Servings-17-6-Ounces/50259010",
       "key_ingredients": [
-        {
-          "name": "Wheat dextrin (soluble fiber)",
-          "amount": "3 g fiber per 2 tsp (4 g)"
-        }
+        { "name": "Wheat dextrin (soluble fiber)", "amount": "3 g fiber per 2 tsp" }
       ]
     },
     "alternative": {
@@ -142,18 +139,9 @@
       "asin": null,
       "url": "https://www.walmart.com/ip/Emergen-C-Immune-Plus-Vitamin-C-Supplement-for-Immune-Support-Super-Orange-30-Ct/48806150",
       "key_ingredients": [
-        {
-          "name": "Vitamin C",
-          "amount": "1000 mg"
-        },
-        {
-          "name": "Vitamin D3",
-          "amount": "25 mcg (1000 IU)"
-        },
-        {
-          "name": "Zinc",
-          "amount": "10 mg"
-        }
+        { "name": "Vitamin C", "amount": "1000 mg" },
+        { "name": "Vitamin D", "amount": "25 mcg D3 (1000 IU)" },
+        { "name": "Zinc", "amount": "10 mg" }
       ]
     },
     "alternative": {
@@ -180,11 +168,11 @@
         }
       ]
     },
-    "match_type": "identical_active",
+    "match_type": "same_kind",
     "confidence": "medium",
-    "summary": "Equate's packet is sold as a direct 'Compare to Emergen-C Immune+' copy: 1000 mg vitamin C with vitamin D, zinc and B vitamins per packet.",
+    "summary": "Equate's packet is sold with the line 'Compare to Emergen-C Immune+' and lists 1000 mg vitamin C with vitamin D, zinc and B vitamins. Its vitamin D and zinc amounts are not on the listing.",
     "evidence": "NIH DSLD shows Emergen-C Immune+ (30 packets) at 1000 mg vitamin C, 25 mcg D3, 10 mg zinc, B6 10 mg and B12 25 mcg per packet. Walmart's Equate listing confirms 1000 mg vitamin C plus vitamin D, zinc and 7 B vitamins and the 'Compare to Emergen-C Immunity+ Ingredients' claim, but its supplement panel was not readable, so D and zinc amounts are not independently confirmed.",
-    "differences": "Emergen-C Immune+ includes a 500 mg proprietary complex (larch arabinogalactan, yeast beta-glucan); we could not confirm whether Equate includes it. Flavor differs. Check the Equate panel for D and zinc amounts.",
+    "differences": "The Equate listing does not show its vitamin D or zinc amounts, so these sources do not show the same strength. Emergen-C Immune+ includes a 500 mg proprietary complex (larch arabinogalactan, yeast beta-glucan); we could not confirm whether Equate includes it. Flavor differs. Check the Equate panel for D and zinc amounts.",
     "sources": [
       "https://api.ods.od.nih.gov/dsld/v9/label/250047",
       "https://www.walmart.com/ip/Emergen-C-Immune-Plus-Vitamin-C-Supplement-for-Immune-Support-Super-Orange-30-Ct/48806150",

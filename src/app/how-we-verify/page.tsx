@@ -37,7 +37,7 @@ const STANDARDS: { type: MatchType; detail: string }[] = [
   {
     type: "same_kind",
     detail:
-      "The weakest label, and we say so. Both are the same kind of product with prices from real sources, but nothing we have compares what's inside or how well it works, so it's a cheaper option to try and not a proven match. Any swap with only pack and price on file gets this label automatically.",
+      "The weakest label, and we say so. Both are the same kind of product with prices from real sources, but what we have doesn't show that they match on what's inside or how well they work, so it's a cheaper option to try and not a proven match. Any swap with nothing compared on both sides gets this label automatically.",
   },
 ];
 
