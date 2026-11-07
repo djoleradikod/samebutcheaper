@@ -865,7 +865,7 @@
       "product": "Hydrotalcit-ratiopharm 500 mg Kautabletten, 100 chewable tablets",
       "size": 100,
       "unit": "tablet",
-      "price": 15.31,
+      "price": 15.91,
       "retailer": "aponeo",
       "asin": null,
       "url": "https://www.aponeo.de/07106003-hydrotalcit-ratiopharm-500-mg-kautabletten.html",
@@ -879,7 +879,7 @@
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are chewable antacid tablets with 500 mg hydrotalcite for heartburn and acid stomach.",
-    "evidence": "Online pharmacy Aponeo (retailer: other) lists Talcid chewable tablets by Bayer Vital (PZN 01921682) and Hydrotalcit-ratiopharm 500 mg chewable tablets (PZN 07106003). Both pages state 500 mg hydrotalcite per chewable tablet and both are apothekenpflichtig. Prices are from the same shop, 100-tablet packs.",
+    "evidence": "Online pharmacy Aponeo (retailer: other) lists Talcid chewable tablets by Bayer Vital (PZN 01921682) and Hydrotalcit-ratiopharm 500 mg chewable tablets, on one page with both pack sizes (PZN 07106003 is the 50-tablet pack). Both pages state 500 mg hydrotalcite per chewable tablet and both are apothekenpflichtig. Prices are from the same shop, 100-tablet packs.",
     "differences": "Flavour and inactive ingredients may differ. At 50 tablets the gap is smaller (13.99 vs 9.14 EUR).",
     "sources": [
       "https://www.aponeo.de/01921682-talcid-kautabletten.html",

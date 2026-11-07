@@ -1,0 +1,895 @@
+[
+ {
+  "slug": "royal-canin-regular-fit-vs-smilla-adult-poultry-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Royal Canin Regular Fit vs Smilla Adult Poultry",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Regular Fit, 10 kg",
+   "size": 10,
+   "unit": "kg",
+   "price": 84.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126956?activeVariant=126956.16",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein, rice, wheat, maize, animal fat, dried pork protein",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "32%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "15%"
+    }
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 791,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126956?activeVariant=126956.16",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Smilla",
+   "product": "Smilla Adult Poultry, 10 kg",
+   "size": 10,
+   "unit": "kg",
+   "price": 26.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/smilla/smilla_adult/221560?activeVariant=221560.3",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein, rice flour, maize, maize flour",
+     "amount": ""
+    },
+    {
+     "name": "Dried poultry protein",
+     "amount": "30%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "32%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "15%"
+    }
+   ],
+   "rating": {
+    "score": 4.4,
+    "scale": "stars-5",
+    "count": 544,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/smilla/smilla_adult/221560?activeVariant=221560.3",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for adult cats that list the same protein and fat, 10 kg each on zooplus.ie, and the Smilla costs about 68% less.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Regular Fit 10 kg is EUR 84.99 (EUR 8.50/kg). Smilla Adult Poultry 10 kg is EUR 26.99 (EUR 2.70/kg). Both pages call the food complete. Both list 32% protein and 15% fat, though Royal Canin's figures appear only in the description of its pack picture.",
+  "differences": "Royal Canin's page says its formula was recently upgraded, so its figures may be older than the pack. Royal Canin has wheat and dried pork protein near the top of its list, and the Smilla has rice flour and maize flour. Royal Canin is rated 4.6 of 5 from 791 ratings on zooplus.ie, and the Smilla 4.4 from 544.",
+  "sources": [
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126956?activeVariant=126956.16",
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/smilla/smilla_adult/221560?activeVariant=221560.3",
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/smilla/smilla_adult/221560?activeVariant=221560.4",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "The listed protein and fat match and both start with dried poultry protein, at about a third of the price per kilo.",
+  "bulk": {
+   "product": "Smilla Adult Poultry, Economy Pack 2 x 10 kg",
+   "size": 20,
+   "price": 50.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/smilla/smilla_adult/221560?activeVariant=221560.4"
+  }
+ },
+ {
+  "slug": "royal-canin-indoor-vs-concept-for-life-indoor-cats-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Royal Canin Indoor vs Concept for Life Indoor Cats",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Indoor, 10 kg",
+   "size": 10,
+   "unit": "kg",
+   "price": 99.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126953?activeVariant=126953.13",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein, rice, wheat, maize",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "27%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "13%"
+    }
+   ],
+   "rating": {
+    "score": 4.4,
+    "scale": "stars-5",
+    "count": 1154,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126953?activeVariant=126953.13",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Concept for Life",
+   "product": "Concept for Life Indoor Cats, 10 kg",
+   "size": 10,
+   "unit": "kg",
+   "price": 58.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_indoor/1336530?activeVariant=1336530.1",
+   "key_ingredients": [
+    {
+     "name": "Chicken protein (partly dried and hydrolysed)",
+     "amount": "33.4%"
+    },
+    {
+     "name": "Rice",
+     "amount": "33%"
+    },
+    {
+     "name": "Fresh chicken meat",
+     "amount": "14%"
+    },
+    {
+     "name": "Crude protein",
+     "amount": "30%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "12.5%"
+    }
+   ],
+   "rating": {
+    "score": 4.0,
+    "scale": "stars-5",
+    "count": 134,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_indoor/1336530?activeVariant=1336530.1",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for adult indoor cats, 10 kg each on zooplus.ie, and the Concept for Life costs about 41% less.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Indoor 10 kg is EUR 99.99 (EUR 10.00/kg). Concept for Life Indoor Cats 10 kg is EUR 58.99 (EUR 5.90/kg). Both pages call the food complete.",
+  "differences": "Concept for Life has more protein and about the same fat: 30% and 12.5% against 27% and 13%. Royal Canin is for cats up to 7 and suggests its Indoor 7+ after that, while Concept for Life says 1 year and over. Royal Canin is rated higher, 4.4 of 5 from 1,154 ratings against 4.0 from 134.",
+  "sources": [
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126953?activeVariant=126953.13",
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_indoor/1336530?activeVariant=1336530.1",
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_indoor/1336530",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "Both are made for the same indoor cat, with close protein and fat, at about 41% less per kilo. Royal Canin does have the better ratings.",
+  "bulk": {
+   "product": "Concept for Life Indoor Cats, Economy Pack 2 x 10 kg",
+   "size": 20,
+   "price": 114.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/concept_for_life_dry/concept_for_life_indoor/1336530"
+  }
+ },
+ {
+  "slug": "royal-canin-sensible-vs-sanabelle-sensitive-chicken-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Royal Canin Sensible vs Sanabelle Sensitive Chicken & Blueberries",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Sensible, 10 kg",
+   "size": 10,
+   "unit": "kg",
+   "price": 84.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126951?activeVariant=126951.13",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein, rice, animal fat, maize",
+     "amount": ""
+    }
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 1581,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126951?activeVariant=126951.13",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Sanabelle",
+   "product": "Sanabelle Sensitive Chicken & Blueberries, 8 kg",
+   "size": 8,
+   "unit": "kg",
+   "price": 38.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/sanabelle/sanabelle_adult/126973?activeVariant=126973.12",
+   "key_ingredients": [
+    {
+     "name": "Fresh chicken",
+     "amount": "25%"
+    },
+    {
+     "name": "Maize, dried poultry protein, animal fat, dried greaves",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "32.5%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "22.5%"
+    }
+   ],
+   "rating": {
+    "score": 3.9,
+    "scale": "stars-5",
+    "count": 298,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/sanabelle/sanabelle_adult/126973?activeVariant=126973.12",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods sold for sensitive adult cats on zooplus.ie, and the Sanabelle costs about 43% less per kg.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Sensible 10 kg is EUR 84.99 (EUR 8.50/kg). Sanabelle Sensitive Chicken & Blueberries 8 kg is EUR 38.49 (EUR 4.81/kg). Both pages call the food complete.",
+  "differences": "The packs differ: 10 kg against 8 kg, so the saving is per kilo. Royal Canin's page doesn't give its protein or fat, so we can't compare those, and the Sanabelle's 22.5% fat is high. Royal Canin is rated higher, 4.6 of 5 from 1,581 ratings against 3.9 from 298. A cat with a diagnosed condition should stay on what the vet advised.",
+  "sources": [
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/adult/126951?activeVariant=126951.13",
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/sanabelle/sanabelle_adult/126973?activeVariant=126973.12",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "Both are sold for cats that are sensitive about their food, at about 43% less per kilo. A sensitive cat may react to any change, so switch slowly."
+ },
+ {
+  "slug": "royal-canin-kitten-vs-purina-one-junior-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Dry cat food",
+  "title": "Royal Canin Kitten vs PURINA ONE Junior",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Kitten, 4 kg",
+   "size": 4,
+   "unit": "kg",
+   "price": 52.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/kitten/126963?activeVariant=126963.22",
+   "key_ingredients": [
+    {
+     "name": "Dried poultry protein, rice, wheat gluten meal, animal fat, maize feed meal",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "36%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "18%"
+    }
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 2254,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/kitten/126963?activeVariant=126963.22",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "PURINA ONE",
+   "product": "PURINA ONE Junior Chicken & Whole Grains, 2.8 kg",
+   "size": 2.8,
+   "unit": "kg",
+   "price": 19.29,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/purina_one/purina_one_junior/196102",
+   "key_ingredients": [
+    {
+     "name": "Chicken",
+     "amount": "17%"
+    },
+    {
+     "name": "Dried poultry protein, wheat, wheat gluten, animal fats",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "41%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "20%"
+    }
+   ],
+   "rating": {
+    "score": 4.8,
+    "scale": "stars-5",
+    "count": 639,
+    "source": "https://www.zooplus.ie/shop/cats/dry_cat_food/purina_one/purina_one_junior/196102",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for kittens on zooplus.ie, and the PURINA ONE costs about 48% less per kg.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Kitten 4 kg is EUR 52.99 (EUR 13.25/kg). PURINA ONE Junior 2.8 kg is EUR 19.29 (EUR 6.89/kg). Both pages call the food complete.",
+  "differences": "The packs differ: 4 kg against 2.8 kg, so the saving is per kilo. PURINA ONE has more protein and fat: 41% and 20% against 36% and 18%. Royal Canin is for kittens from 4 to 12 months, and PURINA ONE from 1 to 12 months.",
+  "sources": [
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/royal_canin/kitten/126963?activeVariant=126963.22",
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/purina_one/purina_one_junior/196102",
+   "https://www.zooplus.ie/shop/cats/dry_cat_food/purina_one/purina_one_junior/196102?activeVariant=196102.9",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "Both are complete food for a growing cat, and the cheaper one has more protein and the better rating, at about half the price per kilo.",
+  "bulk": {
+   "product": "PURINA ONE Junior Chicken & Whole Grains, Economy Pack 2 x 2.8 kg",
+   "size": 5.6,
+   "price": 36.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.ie/shop/cats/dry_cat_food/purina_one/purina_one_junior/196102?activeVariant=196102.9"
+  }
+ },
+ {
+  "slug": "royal-canin-mini-adult-in-gravy-vs-pedigree-pouch-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Wet dog food",
+  "title": "Royal Canin Mini Adult in Gravy vs Pedigree Pouch",
+  "brand": {
+   "brand": "Royal Canin",
+   "product": "Royal Canin Mini Adult in Gravy, 48 x 85 g",
+   "size": 4.08,
+   "unit": "kg",
+   "price": 41.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/dogs/canned_dog_food/royal_canin/size/696976?activeVariant=696976.4",
+   "key_ingredients": [
+    {
+     "name": "Meat and animal by-products, grains, oils and fats",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "7.6%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "5.2%"
+    }
+   ],
+   "rating": {
+    "score": 4.8,
+    "scale": "stars-5",
+    "count": 32,
+    "source": "https://www.zooplus.ie/shop/dogs/canned_dog_food/royal_canin/size/696976?activeVariant=696976.4",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Pedigree",
+   "product": "Pedigree Pouch, 40 x 100 g, Mixed Selection in Jelly",
+   "size": 4,
+   "unit": "kg",
+   "price": 14.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/dogs/canned_dog_food/pedigree_pur/pouches/2220603?activeVariant=2220603.3",
+   "key_ingredients": [
+    {
+     "name": "Meat and animal by-products, grains",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "7%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "3.8%"
+    }
+   ],
+   "rating": {
+    "score": 4.7,
+    "scale": "stars-5",
+    "count": 50,
+    "source": "https://www.zooplus.ie/shop/dogs/canned_dog_food/pedigree_pur/pouches/2220603?activeVariant=2220603.3",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete wet foods for adult dogs, about 4 kg of pouches on zooplus.ie, and the Pedigree costs about 64% less per kg.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Royal Canin Mini Adult in Gravy, 48 x 85 g, is EUR 41.99 (EUR 10.29/kg). Pedigree Pouch, 40 x 100 g, is EUR 14.99 (EUR 3.75/kg). Both pages call the food complete.",
+  "differences": "Royal Canin is made for small dogs up to 10 kg. The Pedigree isn't, and its feeding guide starts at 5 kg, so it doesn't cover a very small dog. Royal Canin has a little more protein and fat: 7.6% and 5.2% against 7% and 3.8%. The Royal Canin is in gravy and this Pedigree in jelly.",
+  "sources": [
+   "https://www.zooplus.ie/shop/dogs/canned_dog_food/royal_canin/size/696976?activeVariant=696976.4",
+   "https://www.zooplus.ie/shop/dogs/canned_dog_food/pedigree_pur/pouches/2220603?activeVariant=2220603.3",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "The two start with the same kinds of ingredients and have close protein, at about a third of the price per kilo. For a dog under 5 kg, ask your vet how much to feed."
+ },
+ {
+  "slug": "pedigree-adult-classic-vs-rocco-classic-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Wet dog food",
+  "title": "Pedigree Adult Classic vs Rocco Classic",
+  "brand": {
+   "brand": "Pedigree",
+   "product": "Pedigree Adult Classic, 24 x 400 g, Beef",
+   "size": 9.6,
+   "unit": "kg",
+   "price": 34.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/dogs/canned_dog_food/pedigree_pur/adult_cans_jelly/586553?activeVariant=586553.4",
+   "key_ingredients": [
+    {
+     "name": "Meat and animal by-products, grains",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "8%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "5.5%"
+    }
+   ],
+   "rating": {
+    "score": 4.1,
+    "scale": "stars-5",
+    "count": 37,
+    "source": "https://www.zooplus.ie/shop/dogs/canned_dog_food/pedigree_pur/adult_cans_jelly/586553?activeVariant=586553.4",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Rocco",
+   "product": "Rocco Classic Saver Pack, 24 x 800 g, Mixed Pack I",
+   "size": 19.2,
+   "unit": "kg",
+   "price": 58.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/dogs/canned_dog_food/rocco/rocco_classic/154458?activeVariant=154458.16",
+   "key_ingredients": [
+    {
+     "name": "Crude protein",
+     "amount": "10.8%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "9.5%"
+    }
+   ],
+   "rating": {
+    "score": 4.3,
+    "scale": "stars-5",
+    "count": 1842,
+    "source": "https://www.zooplus.ie/shop/dogs/canned_dog_food/rocco/rocco_classic/154458?activeVariant=154458.16",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete wet foods for adult dogs in cans on zooplus.ie, and the Rocco costs about 14% less per kg, in a pack twice the size.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Pedigree Adult Classic, 24 x 400 g, is EUR 34.49 (EUR 3.59/kg). Rocco Classic, 24 x 800 g, is EUR 58.99 (EUR 3.07/kg). Both pages call the food complete. The Rocco page marks an offer ending 1 December, so this price may not last.",
+  "differences": "You pay more at the till, EUR 58.99 against EUR 34.49, for twice the food. This Pedigree is beef, and the Rocco is a mix of six varieties. Rocco has more protein and fat: 10.8% and 9.5% against 8% and 5.5%. Its page claims at least 70% meat and offal but doesn't show a full ingredient list. A small dog will take a few days to finish an 800 g can.",
+  "sources": [
+   "https://www.zooplus.ie/shop/dogs/canned_dog_food/pedigree_pur/adult_cans_jelly/586553?activeVariant=586553.4",
+   "https://www.zooplus.ie/shop/dogs/canned_dog_food/rocco/rocco_classic/154458?activeVariant=154458.16",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "It costs less per kilo and has more protein, if you have the room for 24 large cans and a dog that gets through them."
+ },
+ {
+  "slug": "worlds-best-multiple-cat-vs-super-benek-corn-cat-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Cat litter",
+  "title": "World's Best Multiple Cat vs Super Benek Corn Cat",
+  "brand": {
+   "brand": "World's Best",
+   "product": "World's Best Cat Litter Multiple Cat Unscented, 12.7 kg",
+   "size": 12.7,
+   "unit": "kg",
+   "price": 41.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/cat_litter/worlds_best_cat_litter/136600?activeVariant=136600.5",
+   "key_ingredients": [
+    {
+     "name": "Maize (corn)",
+     "amount": "100%"
+    }
+   ],
+   "rating": {
+    "score": 4.0,
+    "scale": "stars-5",
+    "count": 683,
+    "source": "https://www.zooplus.ie/shop/cats/cat_litter/worlds_best_cat_litter/136600?activeVariant=136600.5",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Super Benek",
+   "product": "Super Benek Corn Cat Natural, 25 l (about 15.7 kg)",
+   "size": 15.7,
+   "unit": "kg",
+   "price": 28.99,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/cat_litter/benek/corn/460994?activeVariant=460994.2",
+   "key_ingredients": [
+    {
+     "name": "Corn (maize)",
+     "amount": ""
+    }
+   ],
+   "rating": {
+    "score": 3.9,
+    "scale": "stars-5",
+    "count": 2675,
+    "source": "https://www.zooplus.ie/shop/cats/cat_litter/benek/corn/460994?activeVariant=460994.2",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are unscented clumping litters made from corn, on zooplus.ie, and the Super Benek costs about 43% less per kg.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. World's Best Multiple Cat 12.7 kg is EUR 41.49 (EUR 3.27/kg). Super Benek Corn Cat 25 l, about 15.7 kg, is EUR 28.99 (about EUR 1.85/kg). The Super Benek is sold by the litre, so its weight and price per kilo are approximate. World's Best says on its own site that it's made from corn.",
+  "differences": "World's Best is rated a little higher, 4.0 of 5 from 683 ratings against 3.9 from 2,675. World's Best is sold for homes with several cats, and we didn't test how long either lasts.",
+  "sources": [
+   "https://www.zooplus.ie/shop/cats/cat_litter/worlds_best_cat_litter/136600?activeVariant=136600.5",
+   "https://www.zooplus.ie/shop/cats/cat_litter/benek/corn/460994?activeVariant=460994.2",
+   "https://www.zooplus.ie/shop/cats/cat_litter/benek/corn/460994?activeVariant=460994.3",
+   "https://www.worldsbestcatlitter.com/"
+  ],
+  "price_checked": "2026-11",
+  "why": "Both are corn litter that clumps with no scent added, at a little over half the price per kilo.",
+  "bulk": {
+   "product": "Super Benek Corn Cat Natural, 35 l (about 22.5 kg)",
+   "size": 22.5,
+   "price": 40.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.ie/shop/cats/cat_litter/benek/corn/460994?activeVariant=460994.3"
+  }
+ },
+ {
+  "slug": "whiskas-1-plus-adult-vs-felix-as-good-as-it-looks-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Wet cat food",
+  "title": "Whiskas 1+ Adult vs Felix As Good As It Looks",
+  "brand": {
+   "brand": "Whiskas",
+   "product": "Whiskas 1+ Adult, 48 x 85 g, Poultry Feasts in Gravy",
+   "size": 4.08,
+   "unit": "kg",
+   "price": 28.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/1668639?activeVariant=1668639.6",
+   "key_ingredients": [
+    {
+     "name": "Meat and animal by-products, cereals, vegetable by-products, minerals, sugar",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "7.5%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "4%"
+    }
+   ],
+   "rating": {
+    "score": 4.4,
+    "scale": "stars-5",
+    "count": 278,
+    "source": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/1668639?activeVariant=1668639.6",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Felix",
+   "product": "Felix As Good As It Looks, 44 x 85 g, chicken, beef, tuna and salmon",
+   "size": 3.74,
+   "unit": "kg",
+   "price": 19.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/398603?activeVariant=398603.3",
+   "key_ingredients": [
+    {
+     "name": "Meat and animal by-products",
+     "amount": "12-14%"
+    },
+    {
+     "name": "Vegetable protein extracts, fish and fish by-products, minerals, sugar",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "11.5%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "2.5%"
+    }
+   ],
+   "rating": {
+    "score": 4.0,
+    "scale": "stars-5",
+    "count": 1151,
+    "source": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/398603?activeVariant=398603.3",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete wet foods for adult cats in 85 g pouches on zooplus.ie, and the Felix costs about 25% less per kg.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Whiskas 1+ Adult, 48 x 85 g, is EUR 28.49 (EUR 6.98/kg). Felix As Good As It Looks, 44 x 85 g, is EUR 19.49 (EUR 5.21/kg). Both pages call the food complete. The Felix page marks an offer ending 10 November, so this price may not last.",
+  "differences": "Felix lists more protein and less fat, 11.5% and 2.5% against 7.5% and 4%, but vegetable protein extracts are its second ingredient, so not all of that protein is meat. The Whiskas is in gravy and the Felix in jelly. Whiskas is rated higher, 4.4 of 5 from 278 ratings against 4.0 from 1,151.",
+  "sources": [
+   "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/1668639?activeVariant=1668639.6",
+   "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/398603?activeVariant=398603.3",
+   "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/584504?activeVariant=584504.5",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "It's the same kind of pouch for the same adult cat, at about a quarter less per kilo. Some cats do mind a move from gravy to jelly.",
+  "bulk": {
+   "product": "Felix As Good As It Looks Mega Pack, 132 x 85 g, Meat & Fish in Jelly",
+   "size": 11.22,
+   "price": 55.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/felix/as_good_as_it_looks/584504?activeVariant=584504.5"
+  }
+ },
+ {
+  "slug": "gourmet-gold-pate-recipes-vs-whiskas-1-plus-adult-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Wet cat food",
+  "title": "Gourmet Gold Pâté Recipes vs Whiskas 1+ Adult",
+  "brand": {
+   "brand": "Gourmet",
+   "product": "Gourmet Gold Pâté Recipes, 24 x 85 g, Chicken",
+   "size": 2.04,
+   "unit": "kg",
+   "price": 18.69,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/gourmet/gourmet_saver_packs/298663?activeVariant=298663.9",
+   "key_ingredients": [
+    {
+     "name": "Meat and animal by-products, including 12% chicken",
+     "amount": "58%"
+    },
+    {
+     "name": "Minerals, vegetable by-products, sugar",
+     "amount": ""
+    }
+   ],
+   "rating": {
+    "score": 4.3,
+    "scale": "stars-5",
+    "count": 1378,
+    "source": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/gourmet/gourmet_saver_packs/298663?activeVariant=298663.9",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Whiskas",
+   "product": "Whiskas 1+ Adult, 48 x 85 g, Poultry Feasts in Gravy",
+   "size": 4.08,
+   "unit": "kg",
+   "price": 28.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/1668639?activeVariant=1668639.6",
+   "key_ingredients": [
+    {
+     "name": "Meat and animal by-products, cereals, vegetable by-products, minerals, sugar",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "7.5%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "4%"
+    }
+   ],
+   "rating": {
+    "score": 4.4,
+    "scale": "stars-5",
+    "count": 278,
+    "source": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/1668639?activeVariant=1668639.6",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete wet foods for cats in 85 g portions on zooplus.ie, and the Whiskas costs about 24% less per kg.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Gourmet Gold Pâté Recipes, 24 x 85 g, is EUR 18.69 (EUR 9.16/kg). Whiskas 1+ Adult, 48 x 85 g, is EUR 28.49 (EUR 6.98/kg). Both pages call the food complete.",
+  "differences": "The Gourmet is a pâté in a can and the Whiskas is in gravy in a pouch, which some cats mind. Gourmet says how much meat it has, 58% meat and animal by-products, and lists no cereals near the top. The Whiskas has cereals second. Gourmet's page doesn't give protein or fat, so we can't compare those. The ratings are close: 4.3 of 5 from 1,378 ratings against 4.4 from 278.",
+  "sources": [
+   "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/gourmet/gourmet_saver_packs/298663?activeVariant=298663.9",
+   "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/1668639?activeVariant=1668639.6",
+   "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/2522797?activeVariant=2522797.5",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "It's the same 85 g portion and costs about a quarter less per kilo, with about the same rating.",
+  "bulk": {
+   "product": "Whiskas 1+ Adult, 84 x 85 g, Mixed Menu in Jelly",
+   "size": 7.14,
+   "price": 45.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.ie/shop/cats/canned_cat_food_pouches/whiskas/whiskas_adult/2522797?activeVariant=2522797.5"
+  }
+ },
+ {
+  "slug": "hills-science-plan-adult-medium-vs-eukanuba-adult-medium-ie",
+  "market": "IE",
+  "category": "pet",
+  "subcategory": "Dry dog food",
+  "title": "Hill's Science Plan Adult Medium vs Eukanuba Adult Medium",
+  "brand": {
+   "brand": "Hill's",
+   "product": "Hill's Science Plan Adult 1-6 Medium with Chicken, 14 kg",
+   "size": 14,
+   "unit": "kg",
+   "price": 83.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/hills_science_plan/adult/128123",
+   "key_ingredients": [
+    {
+     "name": "Wheat, maize, chicken and turkey meal, broken rice, animal fats",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "21.5%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "14.9%"
+    }
+   ],
+   "rating": {
+    "score": 4.6,
+    "scale": "stars-5",
+    "count": 454,
+    "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/hills_science_plan/adult/128123",
+    "date": "2026-11-07"
+   }
+  },
+  "alternative": {
+   "brand": "Eukanuba",
+   "product": "Eukanuba Premium Nutrition Adult Medium Breed Chicken, 15 kg",
+   "size": 15,
+   "unit": "kg",
+   "price": 54.49,
+   "retailer": "zooplus",
+   "asin": null,
+   "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/eukanuba/adult/2393421?activeVariant=2393421.2",
+   "key_ingredients": [
+    {
+     "name": "Dried chicken and turkey",
+     "amount": "25%"
+    },
+    {
+     "name": "Fresh chicken",
+     "amount": "16%"
+    },
+    {
+     "name": "Barley, maize, wheat",
+     "amount": ""
+    },
+    {
+     "name": "Crude protein",
+     "amount": "27%"
+    },
+    {
+     "name": "Crude fat",
+     "amount": "15%"
+    }
+   ],
+   "rating": {
+    "score": 4.2,
+    "scale": "stars-5",
+    "count": 33,
+    "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/eukanuba/adult/2393421?activeVariant=2393421.2",
+    "date": "2026-11-07"
+   }
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are complete dry foods for adult medium dogs on zooplus.ie, and the Eukanuba costs about 39% less per kg.",
+  "evidence": "Both prices were read on zooplus.ie product pages on 2026-11-07, tax included, at the one-time price rather than the Repeat price. Hill's Science Plan Adult 1-6 Medium with Chicken, 14 kg, is EUR 83.49 (EUR 5.96/kg). Eukanuba Adult Medium Breed Chicken, 15 kg, is EUR 54.49 (EUR 3.63/kg). Both pages call the food complete.",
+  "differences": "Eukanuba has more protein with about the same fat: 27% and 15% against 21.5% and 14.9%, and it lists chicken and turkey first where Hill's lists wheat and maize. Hill's is rated higher and on far more ratings, 4.6 of 5 from 454 against 4.2 from 33.",
+  "sources": [
+   "https://www.zooplus.ie/shop/dogs/dry_dog_food/hills_science_plan/adult/128123",
+   "https://www.zooplus.ie/shop/dogs/dry_dog_food/eukanuba/adult/2393421?activeVariant=2393421.2",
+   "https://www.zooplus.ie/shop/dogs/dry_dog_food/eukanuba/adult/2393421",
+   "https://europeanpetfood.org/nutritional-guidelines"
+  ],
+  "price_checked": "2026-11",
+  "claims": [
+   "complete-pet-food-standard-fediaf-aafco"
+  ],
+  "why": "It's made for the same dog, with more protein, at about 39% less per kilo. It has only 33 ratings so far, though.",
+  "bulk": {
+   "product": "Eukanuba Premium Nutrition Adult Medium Breed Chicken, Economy Pack 2 x 15 kg",
+   "size": 30,
+   "price": 106.99,
+   "retailer": "zooplus",
+   "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/eukanuba/adult/2393421"
+  }
+ }
+]

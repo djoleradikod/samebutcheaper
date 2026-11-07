@@ -177,7 +177,7 @@ A `rating` stores the score as the source gives it: `{ "score", "scale", "count"
 
 German grades run backwards, so they can't share a formula. Grade 1 reads as 5 stars and grade 5 as 1 star, which puts grade 3.0 on the floor with 3 stars.
 
-Scores the catalogue already quoted in its text live in `data/evidence/ratings.json`, written by `scripts/qa/mine_ratings.py`. A rating in a pair's own record wins over that file. New pairs carry their rating in the record. Ratings follow the same rights rules as photos: quote the score and link the source, and don't copy review text.
+Scores the catalogue already quoted in its text live in `data/evidence/ratings.json`, written by `scripts/qa/mine_ratings.py`. Ratings read off a store's product page go in `data/evidence/ratings-read.json`, and the script copies them in. A rating in a pair's own record wins over that file. New pairs carry their rating in the record. Ratings follow the same rights rules as photos: quote the score and link the source, and don't copy review text.
 
 An unrated product stays listed and reads "No rating found yet". It sorts behind rated ones, and doesn't lead the home page or baskets once a market has enough rated swaps. The owner can still choose to hide unrated products outright.
 
