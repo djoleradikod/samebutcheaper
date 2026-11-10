@@ -75,17 +75,28 @@ const OWN_PRICES = MARKET_CODES.filter((m) => !isThinMarket(m)).join("|");
 const RESERVE_BAND = `(function(){var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);if(m&&!/^(${OWN_PRICES})$/.test(m[1]))document.documentElement.setAttribute("data-band","")})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: SITE.name,
-    url: SITE.url,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE.url}/search?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE.name,
+      url: SITE.url,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE.url}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
     },
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+      logo: `${SITE.url}/apple-icon.png`,
+      description: SITE.description,
+      email: SITE.contactEmail,
+    },
+  ];
   return (
     <html lang="en" className={`${archivo.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="flex min-h-full flex-col">

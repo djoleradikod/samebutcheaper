@@ -11,9 +11,11 @@ import { ProductThumb } from "@/components/ProductThumb";
 import { SameOrDifferent } from "@/components/SameOrDifferent";
 import { SaveButton } from "@/components/SaveButton";
 import { PctTicket } from "@/components/Ticket";
+import { StickyBuy } from "@/components/StickyBuy";
+import { ShareButton } from "@/components/ShareButton";
 import { WhereToBuy } from "@/components/WhereToBuy";
 import { BrandWins, WhyBlock } from "@/components/WhyBlock";
-import { atStore, linkStoreName, linksEarn, mayEarn, RETAILER_LABEL, storeName, tagUrl } from "@/lib/affiliate";
+import { atStore, linkStoreName, linksEarn, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
@@ -154,7 +156,9 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
           <div className="min-w-0">
             <p className="text-[22px] leading-[1.2] font-semibold tracking-[-0.01em] md:text-[28px]">{verdict(pair)}</p>
 
-            <Offers pair={pair} local={local} />
+            <div id={OFFERS} className="scroll-mt-16">
+              <Offers pair={pair} local={local} />
+            </div>
 
             <p className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5">
               <MatchBadge type={pair.match_type} long />
@@ -163,7 +167,14 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
                 <span className="text-[13px] font-medium text-same">Same licensed medicine, {sameLicence}</span>
               )}
             </p>
-            <SaveButton slug={pair.slug} className="mt-3 sm:w-56" />
+            <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+              <SaveButton slug={pair.slug} className="sm:w-56" />
+              <ShareButton
+                path={`/compare/${pair.slug}`}
+                text={`${a.brand} does the same job as ${b.brand} for ${Math.round(pair.savingsPct)}% less.`}
+                className="sm:w-56"
+              />
+            </div>
             <p className="mt-3 text-[15px] text-ink-2">{sameAmount(pair, local)}</p>
             {hasDifferences && (
               <p className="mt-1.5 text-[15px] text-ink-2">
@@ -265,6 +276,29 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
         </div>
       </section>
 
+      {local.sells(a.retailer, pair.market) && (
+        <StickyBuy watch={OFFERS}>
+          <div className="flex items-center gap-3">
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-[13px] font-medium text-ink-2">
+                {a.brand}
+                {mayEarn(a, pair.market) && adLabel(pair.market) && <span className="ml-2 text-[11px] text-muted">{adLabel(pair.market)}</span>}
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="price text-xl">
+                  <Money n={a.price} from={pair.currency} />
+                </span>
+                <PctTicket pct={pair.savingsPct} size="sm" />
+              </p>
+            </div>
+            <a href={`/go/${pair.slug}/alternative`} target="_blank" rel="sponsored nofollow noopener" className="btn btn-primary shrink-0">
+              {a.retailer === "other" ? "See it online" : `See it ${atStore(a.retailer, a.url)}`}
+              <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </a>
+          </div>
+        </StickyBuy>
+      )}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }}
@@ -349,9 +383,12 @@ type Offer = {
   href: string | null;
   buttonLabel: string;
   primary: boolean;
+  /** Set when the link earns us a commission in a market whose rules want the link itself marked as an ad. */
+  ad?: string;
 };
 
 /** The columns once there's room for them. Under that, each offer stacks and nothing scrolls sideways. */
+const OFFERS = "prices";
 const OFFER_COLUMNS = "@2xl:grid-cols-[minmax(0,1fr)_5.5rem_5.5rem_5rem_6.5rem_6.5rem]";
 
 function offersFor(pair: Pair, local: Local): Offer[] {
@@ -367,6 +404,7 @@ function offersFor(pair: Pair, local: Local): Offer[] {
     href: sells(p.retailer) ? `/go/${pair.slug}/${which}` : null,
     buttonLabel: seeLabel(p),
     primary: which === "alternative",
+    ad: mayEarn(p, pair.market) ? adLabel(pair.market) : undefined,
   });
   const offers = [side(a, "alternative"), side(b, "brand")];
   const big = bulkView.bigger;
@@ -378,9 +416,10 @@ function offersFor(pair: Pair, local: Local): Offer[] {
       price: big.price,
       size: big.size,
       ppu: big.ppu,
-      href: sells(big.retailer) ? tagUrl(big.url) : null,
+      href: sells(big.retailer) ? `/go/${pair.slug}/bigger` : null,
       buttonLabel: big.retailer === "other" ? "See it online" : `See it ${atStore(big.retailer)}`,
       primary: false,
+      ad: mayEarn({ retailer: big.retailer as ProductSide["retailer"], url: big.url }, pair.market) ? adLabel(pair.market) : undefined,
     });
   }
   return offers;
@@ -450,18 +489,21 @@ function Offers({ pair, local }: { pair: Pair; local: Local }) {
               className="col-span-2 col-start-1 row-start-4 mt-1 @md:col-span-1 @md:col-start-3 @md:row-span-3 @md:row-start-1 @md:mt-0 @md:self-center @2xl:col-start-6 @2xl:row-span-1"
             >
               {o.href ? (
-                <a
-                  href={o.href}
-                  target="_blank"
-                  rel="sponsored nofollow noopener"
-                  className={`btn w-full text-center ${o.primary ? "btn-primary" : "btn-ghost"}`}
-                >
-                  <span className="@md:hidden">{o.buttonLabel}</span>
-                  <span className="hidden @md:inline">
-                    See it<span className="sr-only">: {o.buttonLabel}</span>
-                  </span>
-                  <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
-                </a>
+                <>
+                  <a
+                    href={o.href}
+                    target="_blank"
+                    rel="sponsored nofollow noopener"
+                    className={`btn w-full text-center ${o.primary ? "btn-primary" : "btn-ghost"}`}
+                  >
+                    <span className="@md:hidden">{o.buttonLabel}</span>
+                    <span className="hidden @md:inline">
+                      See it<span className="sr-only">: {o.buttonLabel}</span>
+                    </span>
+                    <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  </a>
+                  {o.ad && <span className="mt-0.5 block text-center text-[11px] font-medium text-muted">{o.ad}</span>}
+                </>
               ) : (
                 <a href={`#${WHERE_TO_BUY}`} className="btn btn-ghost w-full text-center">
                   Where to buy
@@ -501,6 +543,14 @@ function sameAmount(pair: Pair, local: Local) {
   // The cheaper pack is a different size, so this is its unit price times the brand's pack.
   const forSameAmount = (a.price / a.size) * b.size;
   return `For the same ${packText(b.size, b.unit)} you pay about ${local.bare(forSameAmount, currency)} with ${a.brand} and ${local.money(b.price, currency)} with ${b.brand}.`;
+}
+
+/**
+ * The word an earning link carries beside it, where a market's rules want the link itself marked: German law wants
+ * "Anzeige" or "Werbung" at the link, and the UK and Irish ad codes want "Ad". The line under the prices says the rest.
+ */
+function adLabel(market: Pair["market"]) {
+  return market === "DE" ? "Anzeige" : market === "GB" || market === "IE" ? "Ad" : undefined;
 }
 
 function disclosure(pair: Pair) {
