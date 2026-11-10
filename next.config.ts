@@ -18,6 +18,8 @@ function affiliateSettings() {
   return pickAffiliateEnv({ ...fromFile, ...process.env });
 }
 
+const HTTPS_SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "").startsWith("https://");
+
 const nextConfig: NextConfig = {
   output: "standalone",
   cacheComponents: true,
@@ -50,7 +52,20 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          // No page may be framed by another site, load plugins, repoint relative links or post a form elsewhere.
+          // Scripts aren't restricted here: the layout has an inline one, which needs a per-request nonce to allow.
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'",
+          },
+          // Once the site is built for an https address, browsers stop trying it over http for a year.
+          ...(HTTPS_SITE ? [{ key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" }] : []),
         ],
+      },
+      // Redirects, admin and API answers are per visitor: nothing in between may keep a copy.
+      {
+        source: "/(admin|api|go|out)/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];
   },

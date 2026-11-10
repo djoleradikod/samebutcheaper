@@ -45,3 +45,6 @@ src/generated/
 
 # python
 __pycache__/
+
+# database backups written by the backup service
+/backups/

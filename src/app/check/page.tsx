@@ -21,6 +21,8 @@ import {
   type LookupSource,
 } from "@/lib/lookup";
 import { logLookup } from "@/lib/lookup/log";
+import { LIMITS, rateLimit } from "@/lib/rate-limit";
+import { visitorFrom } from "@/lib/visitor";
 import type { CategorySlug } from "@/lib/types";
 import { forCountry } from "@/lib/localize";
 import { CountryPart } from "@/components/ForCountry";
@@ -129,6 +131,16 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
   const reqHeaders = new Headers(await headers());
   const country = await getCountry();
   const local = await getLocal();
+
+  // Each check below can call four public label databases, which have daily quotas of their own.
+  if ((q || src || digits || photo) && !rateLimit("lookups", visitorFrom(reqHeaders).key, LIMITS.lookups).ok) {
+    return (
+      <div className="card p-8 text-center">
+        <p className="text-lg font-semibold">That&apos;s a lot of checks in a short time.</p>
+        <p className="mt-2 text-ink-2">Give it a minute, then try again.</p>
+      </div>
+    );
+  }
 
   // 1. A product picked from the results list.
   if (src && id) {

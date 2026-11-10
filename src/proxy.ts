@@ -1,13 +1,16 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isKnownCountry } from "@/lib/markets";
 import knownSlugs from "@/generated/known-slugs.json";
+import { isAdminAuthorized } from "@/lib/admin-auth";
+import { isLimited, LIMITS, rateLimit } from "@/lib/rate-limit";
+import { clientIp } from "@/lib/visitor";
 
 const COUNTRY_COOKIE = "sbc_country";
 /** Read by src/lib/server-country.ts. */
 const COUNTRY_HEADER = "x-sbc-country";
 
 /**
- * 1. HTTP Basic auth for /admin (ADMIN_PASSWORD; the user name is "admin").
+ * 1. HTTP Basic auth for /admin and everything under it (ADMIN_PASSWORD; the user name is "admin").
  * 2. Remembers the shopper's country in a cookie the first time we see them. Parts of a page render per request
  *    for the selected country (see CountryPart), so this also hands the detected country to that
  *    first render, when the cookie isn't on the request yet.
@@ -100,15 +103,22 @@ function adminAuth(request: NextRequest) {
   const password = process.env.ADMIN_PASSWORD;
   if (!password) return new NextResponse("Admin is disabled. Set ADMIN_PASSWORD.", { status: 404 });
 
-  const header = request.headers.get("authorization") ?? "";
-  const [scheme, encoded] = header.split(" ");
-  if (scheme === "Basic" && encoded) {
-    const [user, pass] = atob(encoded).split(":");
-    if (user === "admin" && pass === password) return NextResponse.next();
+  // Ten wrong passwords from one address locks that address out for a quarter of an hour.
+  const who = clientIp(request.headers) || "unknown";
+  if (isLimited("authFailures", who, LIMITS.authFailures)) {
+    return new NextResponse("Too many attempts. Try again later.", { status: 429, headers: { "Retry-After": "900" } });
   }
+  const header = request.headers.get("authorization");
+  if (isAdminAuthorized(header, password)) {
+    const response = NextResponse.next();
+    response.headers.set("Cache-Control", "private, no-store");
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return response;
+  }
+  if (header) rateLimit("authFailures", who, LIMITS.authFailures);
   return new NextResponse("Authentication required", {
     status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="SameButCheaper admin"' },
+    headers: { "WWW-Authenticate": 'Basic realm="SameButCheaper admin", charset="UTF-8"', "Cache-Control": "no-store" },
   });
 }
 

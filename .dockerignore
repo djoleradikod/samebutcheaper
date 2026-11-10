@@ -6,3 +6,4 @@ node_modules
 !.env.example
 src/generated
 *.log
+backups

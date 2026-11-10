@@ -2,8 +2,10 @@ import "server-only";
 import { after } from "next/server";
 import { getDb, schema } from "@/db";
 import { newClickId, tagLink } from "./affiliate-links";
+import { log } from "./log";
 import { isKnownCountry } from "./markets";
-import { visitorFrom } from "./visitor";
+import { LIMITS, rateLimit } from "./rate-limit";
+import { isPrefetch, visitorFrom } from "./visitor";
 
 /**
  * Sends a shopper to a store: tags the URL with the best affiliate program,
@@ -26,9 +28,17 @@ export function redirectOut(
     host = new URL(target.url).hostname.replace(/^www\./, "").slice(0, 80);
   } catch {}
 
+  // A click is a person following the link: not a crawler, a link checker's HEAD, a browser fetching ahead, or
+  // the 61st from one address in a minute. Everyone is still redirected.
+  const counts =
+    !visitor.isBot &&
+    request.method === "GET" &&
+    !isPrefetch(request.headers) &&
+    rateLimit("clicks", visitor.key, LIMITS.clicks).ok;
+
   after(async () => {
     const db = getDb();
-    if (!db || visitor.isBot) return;
+    if (!db || !counts) return;
     try {
       await db.insert(schema.clicks).values({
         pairSlug: target.slug.slice(0, 160),
@@ -43,7 +53,7 @@ export function redirectOut(
         source,
       });
     } catch (err) {
-      console.error("click log failed", err);
+      log.error("click.log_failed", { err, slug: target.slug });
     }
   });
 

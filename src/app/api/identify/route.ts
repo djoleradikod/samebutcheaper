@@ -2,7 +2,9 @@ import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { after } from "next/server";
 import { z } from "zod";
+import { log } from "@/lib/log";
 import { logLookup } from "@/lib/lookup/log";
+import { LIMITS, rateLimit } from "@/lib/rate-limit";
 import { visitorFrom } from "@/lib/visitor";
 
 /**
@@ -44,19 +46,6 @@ const SYSTEM = `You read photos of retail products for a price-comparison site t
 Report only what is printed and legible in the photo. Never guess an ingredient, a strength or a barcode digit that you cannot read; leave the field empty instead.
 Names and strengths must be copied as printed (for example "Loratadine 10 mg"). If the photo is not a product, set is_product to false and leave the other fields empty.`;
 
-/* Small in-memory rate limit. The site runs as one process on one server. */
-const hits = new Map<string, number[]>();
-function allowed(key: string) {
-  const now = Date.now();
-  const recent = (hits.get(key) ?? []).filter((t) => now - t < 24 * 3600_000);
-  const lastTenMinutes = recent.filter((t) => now - t < 600_000).length;
-  if (lastTenMinutes >= 8 || recent.length >= 40) return false;
-  recent.push(now);
-  hits.set(key, recent);
-  if (hits.size > 5000) hits.clear();
-  return true;
-}
-
 function fail(status: number, error: string) {
   return Response.json({ ok: false, error }, { status, headers: { "Cache-Control": "no-store" } });
 }
@@ -65,7 +54,13 @@ export async function POST(request: Request) {
   if (!process.env.ANTHROPIC_API_KEY) return fail(503, "Photo recognition isn't switched on yet.");
 
   const visitor = visitorFrom(request.headers);
-  if (!allowed(visitor.ip || visitor.hash)) return fail(429, "That's a lot of photos. Try again in a few minutes.");
+  if (visitor.isBot || !rateLimit("photos", visitor.key, LIMITS.photos).ok) {
+    return fail(429, "That's a lot of photos. Try again in a few minutes.");
+  }
+  // Refuse an oversized upload from its declared length, before reading any of it.
+  if (Number(request.headers.get("content-length")) > MAX_BYTES + 64 * 1024) {
+    return fail(413, "That photo is too large. Try one under 5 MB.");
+  }
 
   let form: FormData;
   try {
@@ -105,14 +100,14 @@ export async function POST(request: Request) {
   } catch (err) {
     if (err instanceof Anthropic.RateLimitError) return fail(503, "Photo recognition is busy. Try again in a minute.");
     if (err instanceof Anthropic.BadRequestError) {
-      console.error("identify: bad request", err.message);
+      log.warn("identify.bad_request", { err });
       return fail(422, "We couldn't read that photo. Try a sharper one, or type the product name.");
     }
     if (err instanceof Anthropic.APIError) {
-      console.error(`identify: API error ${err.status}`, err.message);
+      log.error("identify.api_error", { err, status: err.status });
       return fail(502, "Photo recognition failed. Try again, or type the product name.");
     }
-    console.error("identify: unexpected error", err);
+    log.error("identify.failed", { err });
     return fail(502, "Photo recognition failed. Try again, or type the product name.");
   }
 

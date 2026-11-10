@@ -1,5 +1,6 @@
 import "server-only";
 import { getDb, schema } from "@/db";
+import { log } from "@/lib/log";
 import { visitorFrom } from "@/lib/visitor";
 
 export type LookupLog = {
@@ -28,6 +29,6 @@ export async function logLookup(entry: LookupLog, headers: Headers, country: str
       visitorHash: visitor.hash,
     });
   } catch (err) {
-    console.error("lookup log failed", err);
+    log.error("lookup.log_failed", { err });
   }
 }
