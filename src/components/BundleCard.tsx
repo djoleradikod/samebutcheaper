@@ -6,6 +6,7 @@ import { ProductThumb } from "./ProductThumb";
 import { PctTicket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
 import { Money } from "./Money";
+import { RETAILER_LABEL } from "@/lib/affiliate";
 
 /** A brand's kit on the left, the cheaper pieces that replace it on the right. */
 export function BundleCard({ bundle }: { bundle: Bundle }) {
@@ -47,7 +48,7 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
       <div className="mt-2.5 flex flex-1 flex-col">
         <div className="flex items-start justify-between gap-2">
           <p className="text-[13px] font-medium text-muted">Instead of the {bundle.bundle.brand} kit</p>
-          <PctTicket pct={bundle.savingsPct} size="sm" grow className="shrink-0" />
+          <PctTicket pct={bundle.netSavingsPct ?? bundle.savingsPct} size="sm" grow className="shrink-0" />
         </div>
         <p className="mt-0.5 leading-snug font-semibold group-hover:underline">{bundle.bundle.name}</p>
         <ul className="mt-1.5 space-y-0.5 text-[13px] text-ink-2">
@@ -65,8 +66,9 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
           <span className="text-[13px] font-medium text-muted">built yourself</span>
           <span className="price text-xl leading-none text-ink"><Money n={bundle.equivalentTotal} from={bundle.currency} /></span>
         </p>
-        <p className="mt-1.5 text-xs font-medium text-same" title={match.description}>
-          {match.short}
+        <p className="mt-1.5 flex flex-wrap gap-x-2 text-xs font-medium">
+          <span className="text-same" title={match.description}>{match.short}</span>
+          <span className="text-muted">{storesLine(bundle.sellers)}</span>
         </p>
       </div>
     </Link>
@@ -75,4 +77,13 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
 
 function withBrand(brand: string, product: string) {
   return product.toLowerCase().startsWith(brand.toLowerCase()) ? product : `${brand} ${product}`;
+}
+
+/** "One order at Target", or "3 stores": a kit is one checkout, so the number of orders matters. */
+function storesLine(sellers: readonly string[]) {
+  if (sellers.length === 1) {
+    const name = RETAILER_LABEL[sellers[0]];
+    return name ? `One order at ${name}` : "One store";
+  }
+  return `${sellers.length} stores`;
 }

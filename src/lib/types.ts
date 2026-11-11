@@ -1,3 +1,4 @@
+import type { Checkout } from "./delivery";
 import type { BundleInput, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairInput, PresetInput, ShelfLifeInput } from "./schema";
 import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
@@ -120,6 +121,8 @@ export type BundleComponent = BundleInput["components"][number] & {
   /** Cost of the same amount the bundle contains (ppu x bundle item size). */
   equivalentCost: number;
   lookFor: LookFor;
+  /** Who sells it (see sellers.ts), which groups pieces into one order per store. */
+  seller: string;
 };
 
 export type Bundle = Omit<BundleInput, "components"> & {
@@ -137,6 +140,17 @@ export type Bundle = Omit<BundleInput, "components"> & {
   savings: number;
   score: number;
   currency: Currency;
+  /** Who sells the brand's kit. */
+  kitSeller: string;
+  /** Rebuilding it: one order per store, with each store's delivery against its free-delivery threshold. */
+  checkout: Checkout;
+  /** Buying the kit: one order, with its store's delivery. */
+  kitCheckout: Checkout;
+  /** What the rebuild's extra orders add in delivery and surcharges over the kit's one order. Null when a rule is unknown. */
+  extraDelivery: number | null;
+  /** The saving after that extra delivery, when it's known; otherwise the same as savings. */
+  netSavings: number;
+  netSavingsPct: number;
 };
 
 export type Catalog = {

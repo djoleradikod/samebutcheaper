@@ -32,6 +32,7 @@ import { dupeSlugFor } from "../src/lib/dupes";
 import { CATEGORIES } from "../src/lib/categories";
 import { INGREDIENT_MATCHES, ingredientPageKey, slugify } from "../src/lib/ingredient-key";
 import { sellerOf } from "../src/lib/sellers";
+import { checkout } from "../src/lib/delivery";
 import { RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../src/lib/rating";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
 
@@ -48,6 +49,8 @@ const round = (n: number, d: number) => Math.round(n * 10 ** d) / 10 ** d;
 /** Staples and sheets cost a fraction of a cent each, so a unit price keeps six decimals. Money totals come from price and size, never from this. */
 const roundPpu = (n: number) => round(n, 6);
 const errors: string[] = [];
+/** Worth a look, but not wrong: printed, never fatal. */
+const warnings: string[] = [];
 
 const FORMS: Record<string, string> = {
   tablet: "tablets",
@@ -341,6 +344,7 @@ function deriveBundle(b: BundleInput): Bundle {
     const item = b.bundle.items[c.replaces];
     return {
       ...c,
+      seller: sellerOf(c),
       unit: normalizeUnit(c.unit),
       ppu: roundPpu(ppu),
       photo: photoFor(c.brand, c.product),
@@ -354,6 +358,21 @@ function deriveBundle(b: BundleInput): Bundle {
   const savingsPct = Math.max(0, (savings / b.bundle.price) * 100);
   const confidence = b.confidence === "high" ? 1 : 0.85;
   const currency = MARKETS[b.market].currency;
+  // A kit is one checkout; the rebuild is one per store. Count the extra delivery against the saving.
+  const kitSeller = sellerOf({ brand: b.bundle.brand, product: b.bundle.name, retailer: b.bundle.retailer, url: b.bundle.url });
+  const rebuild = checkout(components.map((c) => ({ seller: c.seller, price: c.price })), b.market);
+  const kitCheckout = checkout([{ seller: kitSeller, price: b.bundle.price }], b.market);
+  const extraDelivery =
+    rebuild.delivery === null
+      ? null
+      : round(Math.max(0, rebuild.delivery + rebuild.surcharge - (kitCheckout.delivery ?? 0) - kitCheckout.surcharge), 2);
+  const netSavings = round(Math.max(0, savings - (extraDelivery ?? 0)), 2);
+  // Each extra store is another basket to fill and another chance to give up, so it ranks a little lower.
+  const storePenalty = 1 / (1 + 0.1 * (rebuild.stores.length - 1));
+  const netPct = (netSavings / b.bundle.price) * 100;
+  // A rebuild that costs more at the till than the kit (bigger packs, a delivery fee) is a harder sell, however good per use.
+  const kitToday = b.bundle.price + (kitCheckout.delivery ?? 0) + kitCheckout.surcharge;
+  const cashPenalty = rebuild.payToday > kitToday ? 0.75 : 1;
   return {
     ...b,
     currency,
@@ -365,7 +384,13 @@ function deriveBundle(b: BundleInput): Bundle {
     upfrontTotal: round(upfrontTotal, 2),
     savings: round(savings, 2),
     savingsPct: round(savingsPct, 1),
-    score: round(savingsPct * (1 + Math.log10(1 + savings * APPROX_USD[currency])) * confidence, 2),
+    score: round(netPct * (1 + Math.log10(1 + netSavings * APPROX_USD[currency])) * confidence * storePenalty * cashPenalty, 2),
+    kitSeller,
+    checkout: rebuild,
+    kitCheckout,
+    extraDelivery,
+    netSavings,
+    netSavingsPct: round(netPct, 1),
   };
 }
 
@@ -445,6 +470,8 @@ for (const file of bundleFiles) {
       errors.push(`${label}: building it yourself is not meaningfully cheaper (${bundle.savingsPct}%)`);
       return;
     }
+    if (bundle.netSavings / bundle.bundle.price < 0.05)
+      warnings.push(`${label}: after delivery from ${bundle.checkout.stores.length} stores the rebuild saves only ${bundle.netSavings} ${bundle.currency}`);
     seen.add(bundle.slug);
     bundles.push(bundle);
   });
@@ -558,6 +585,7 @@ for (const [slug, other] of sameSwaps) {
   }
 }
 
+if (warnings.length) console.warn(`\n${warnings.length} warning(s):\n  - ${warnings.join("\n  - ")}\n`);
 if (errors.length) {
   const log = lenient ? console.warn : console.error;
   log(`\n${errors.length} item(s) rejected:\n  - ${errors.join("\n  - ")}\n`);

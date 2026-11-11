@@ -85,6 +85,19 @@ export function storeSplit(lines: { store: string; cost: number }[]) {
 
 export const RETAILER_LABEL: Record<string, string> = {
   amazon: "Amazon",
+  // Brand and beauty stores that rows mark "other" but sellers.ts names from the link, for store-by-store checkouts.
+  ulta: "Ulta Beauty",
+  anker: "Anker",
+  logitech: "Logitech",
+  ugreen: "UGREEN",
+  chipolo: "Chipolo",
+  belkin: "Belkin",
+  theordinary: "The Ordinary",
+  lookfantastic: "LOOKFANTASTIC",
+  maybelline: "Maybelline",
+  dermstore: "Dermstore",
+  thorne: "Thorne",
+  livemomentous: "Momentous",
   walmart: "Walmart",
   target: "Target",
   costco: "Costco",

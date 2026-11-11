@@ -11,6 +11,7 @@ function toBundleSummary(b: Bundle): BundleSummary {
     category: b.category,
     match_type: b.match_type,
     savingsPct: b.savingsPct,
+    netSavingsPct: b.netSavingsPct,
     equivalentTotal: b.equivalentTotal,
     currency: b.currency,
     bundle: {

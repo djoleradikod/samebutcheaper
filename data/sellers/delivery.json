@@ -1,0 +1,71 @@
+{
+  "checked": "2026-11-11",
+  "method": "Each store's own delivery page where it could be read; a dated third-party guide where the store's page doesn't state the rule (confidence \"secondary\"). fee is standard home delivery for an order below free_over, in the market's currency. free_over 0 means every order ships free. null means we couldn't confirm it, and the site then says the delivery cost is unchecked instead of guessing. pickup true means a source says store pickup is free.",
+  "sellers": {
+    "target": {
+      "US": {
+        "fee": 5.99,
+        "free_over": 35,
+        "confidence": "official",
+        "note": "Orders paid with a Target Circle Card ship free at any size.",
+        "sources": ["https://www.target.com/help/article/000055608"]
+      }
+    },
+    "walmart": {
+      "US": {
+        "fee": 6.99,
+        "free_over": 35,
+        "confidence": "secondary",
+        "note": "Walmart+ members get free shipping with no minimum.",
+        "sources": ["https://martguides.com/walmart-online-shopping/", "https://www.walmart.com/plus/free-shipping"]
+      }
+    },
+    "ulta": {
+      "US": {
+        "fee": 6.95,
+        "free_over": 35,
+        "pickup": true,
+        "confidence": "secondary",
+        "sources": ["https://www.ulta.com/guestservices/all", "https://thekrazycouponlady.com/coupons-for/ulta/ulta-free-shipping"]
+      }
+    },
+    "anker": {
+      "US": { "fee": 0, "free_over": 0, "confidence": "official", "sources": ["https://www.anker.com/policies/shipping-policy"] },
+      "GB": { "fee": 0, "free_over": 0, "confidence": "official", "sources": ["https://www.anker.com/uk/policies/shipping-policy"] }
+    },
+    "logitech": {
+      "US": {
+        "fee": null,
+        "free_over": 29,
+        "confidence": "official",
+        "sources": ["https://logitech.com/en-us/search", "https://logitech.com/en-us/products/cameras.html"]
+      }
+    },
+    "theordinary": {
+      "US": { "fee": 4.99, "free_over": 25, "confidence": "official", "sources": ["https://theordinary.com/en-gb/faq.html"] },
+      "CA": { "fee": 4.99, "free_over": 25, "confidence": "official", "sources": ["https://theordinary.com/en-gb/faq.html"] },
+      "GB": { "fee": 4.99, "free_over": 25, "confidence": "official", "sources": ["https://theordinary.com/en-gb/faq.html"] },
+      "DE": { "fee": 4.99, "free_over": 25, "confidence": "official", "note": "The store's table lists Europe as one region.", "sources": ["https://theordinary.com/en-gb/faq.html"] },
+      "IE": { "fee": 4.99, "free_over": 25, "confidence": "official", "note": "The store's table lists Europe as one region.", "sources": ["https://theordinary.com/en-gb/faq.html"] }
+    },
+    "shopapotheke": {
+      "DE": {
+        "fee": 3.99,
+        "free_over": 19,
+        "confidence": "secondary",
+        "note": "Prescription orders always ship free.",
+        "sources": ["https://online-apotheke.de.com/versandkosten/shop-apotheke/"]
+      }
+    },
+    "costco": {
+      "US": {
+        "fee": null,
+        "free_over": null,
+        "confidence": "secondary",
+        "membership": { "name": "Costco Gold Star membership", "price": 65, "per": "year", "nonmember_surcharge_pct": 5 },
+        "note": "Kirkland is sold only at Costco. Non-members can order online with a 5% surcharge.",
+        "sources": ["https://www.kiplinger.com/slideshow/spending/T050-S001-things-you-can-get-at-costco-without-a-membership/index.html"]
+      }
+    }
+  }
+}
