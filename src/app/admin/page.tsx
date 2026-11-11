@@ -138,7 +138,8 @@ async function AdminData() {
                   {s.brandProduct}
                   {s.alternativeProduct ? <span className="text-accent"> → {s.alternativeProduct}</span> : null}
                 </p>
-                <form action={setSubmissionStatus} className="flex items-center gap-2 text-xs text-muted">
+                {/* Keyed by status: React resets a form after its action, and a select then needs a fresh mount to show the saved value. */}
+                <form key={s.status} action={setSubmissionStatus} className="flex items-center gap-2 text-xs text-muted">
                   <span>{s.createdAt.toISOString().slice(0, 10)}</span>
                   <input type="hidden" name="id" value={s.id} />
                   <select name="status" defaultValue={s.status} aria-label="Status" className="rounded border border-line-strong bg-paper px-2 py-1">

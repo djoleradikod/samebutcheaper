@@ -49,6 +49,11 @@ export function affiliateEnv(): Env {
   return baked;
 }
 
+/** Forgets the settings read so far, so a test can change the environment between cases. */
+export function resetAffiliateEnv() {
+  baked = undefined;
+}
+
 export type TaggedLink = {
   url: string;
   /** Program id ("walmart-us"), "skimlinks", "sovrn", or null when untagged. */

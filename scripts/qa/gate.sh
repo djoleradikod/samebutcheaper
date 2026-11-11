@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# The pre-push check from CLAUDE.md plus the rule tests. Prints each step's exit code, and the end of the log for any that fails.
+# The pre-push check from CLAUDE.md plus the tests. Prints each step's exit code, and the end of the log for any that fails.
 # Usage, from the repo root: bash scripts/qa/gate.sh [log dir]
 logs=${1:-${TMPDIR:-/tmp}/sbc-gate}
 mkdir -p "$logs"
@@ -19,7 +19,9 @@ step catalog npm run catalog
 step typegen npx next typegen
 step typecheck npm run typecheck
 step lint npm run lint
-step rules npx tsx --test scripts/qa/compare-rules.test.ts scripts/qa/affiliate-copy.test.ts scripts/qa/country-rules.test.ts
+step tests npm test
 step build npm run build
+# Needs TEST_DATABASE_URL (a database that may be wiped); skipped without it.
+step e2e npm run test:e2e
 echo "gate finished, fail=$fail"
 exit "$fail"

@@ -68,6 +68,15 @@ explicitly with `&click=&order=&commission=&sale=&currency=&status=` using the n
 Check the exact macro names in the dashboard. A later report for the same order updates its status
 (pending, approved, reversed).
 
+**Awin:** under Toolbox, Transaction Notifications, set the call-back method to POST and the URL to
+`https://<site>/api/postback?key=<POSTBACK_SECRET>&network=awin`. Awin posts its report as JSON inside one
+form field (`AwinTransactionPush`), which the endpoint unpacks. Awin doesn't send a status, so its sales show
+as pending; approvals and declines are in the Awin dashboard.
+
+The shopper's IP address, the page URL and the basket contents that some networks send along are dropped
+before anything is stored, and the rest of the raw report is deleted after 180 days. Ten wrong keys from one
+address lock that address out for 15 minutes.
+
 - **Impact, Awin, Rakuten:** send postbacks.
 - **CJ, Skimlinks, Sovrn, Amazon:** report only through their dashboards or APIs. Their sales won't show
   in `/admin` until a report import is built (next step below).

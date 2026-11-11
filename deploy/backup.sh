@@ -5,7 +5,7 @@
 set -eu
 
 KEEP="${BACKUP_KEEP_DAYS:-14}"
-DIR=/backups
+DIR="${BACKUP_DIR:-/backups}"
 mkdir -p "$DIR"
 
 backup() {

@@ -28,7 +28,9 @@ The site works without a database. Clicks are then not logged, and the forms say
 - `/how-we-verify`, `/about`, `/disclosure`, `/privacy`
 - `/go/[slug]/[alternative|brand]`: logs the click, then redirects to the affiliate URL
 - `/out`: logs a click on a store search ("find it in your country") and redirects to that store
-- `/admin`: clicks, suggestions, subscribers and the research queue (products people looked up that we haven't verified yet), behind HTTP Basic auth (`admin` / `ADMIN_PASSWORD`)
+- `/admin`: clicks, suggestions, subscribers and the research queue (products people looked up that we haven't verified yet), the launch checklist and CSV downloads, behind HTTP Basic auth (`admin` / `ADMIN_PASSWORD`)
+- `/newsletter/unsubscribe`, `/api/newsletter/confirm`: the links in our emails
+- `/api/postback`: sale reports from affiliate networks
 - `/sitemap.xml`, `/robots.txt`, `/api/health`
 
 ## Run locally (dev)
@@ -74,7 +76,46 @@ Caddy gets and renews the Let's Encrypt certificate automatically. You can then 
 
 **Update after new commits:** `git pull && docker compose --profile proxy up -d --build`
 
-**Backups:** `docker compose exec db pg_dump -U sbc samebutcheaper > backup-$(date +%F).sql`
+**Backups:** the `backup` service writes a compressed dump to `./backups` every night and keeps the newest 14
+(`BACKUP_KEEP_DAYS`). Copy that folder off the server as well. To restore:
+`gunzip -c backups/samebutcheaper-2026-11-10.sql.gz | docker compose exec -T db psql -U sbc -d samebutcheaper`.
+For one right now: `docker compose exec backup sh /backup.sh once`.
+
+## Before going live
+
+`/admin` opens with a **launch checklist**: what on this server still blocks a public launch (address, database,
+admin password, salt), what loses money (no affiliate IDs, no postback secret, no email), and how to fix each.
+The same list is available two other ways:
+
+```bash
+npm run preflight                                # checks .env (and the database, if DATABASE_URL is set)
+curl -s https://<site>/api/health?ready=1        # 503 with the blocker names until nothing blocks
+```
+
+Point an uptime monitor at `/api/health?ready=1`. Plain `/api/health` only says the server is up.
+
+## Email (newsletter)
+
+Sign-ups use double opt-in: the address gets one confirmation email and is only emailed again after its link is
+followed. Unconfirmed addresses are deleted after 30 days. Every email carries one-click unsubscribe headers and a
+link to `/newsletter/unsubscribe`.
+
+1. Create a [Resend](https://resend.com) account and verify your domain there (it gives you DNS records to add).
+2. Set `RESEND_API_KEY` and `MAIL_FROM` (an address on that domain) in `.env`, then `docker compose up -d`.
+
+Until then sign-ups are stored, and they get their confirmation email automatically once email is set up.
+`/admin` has a CSV download of confirmed addresses.
+
+## What the server does by itself
+
+- **Upkeep, daily:** deletes unconfirmed sign-ups after 30 days, drops the referring page and visitor hash from
+  clicks after 180 days, deletes product checks after a year, and sends waiting confirmation emails. `/admin`
+  shows the last run and has a "Run now" button; `npm run db:maintain` does the same from a shell.
+- **Limits per visitor:** forms 5 per 10 minutes, product checks 30 a minute, photo reads 8 per 10 minutes, and
+  60 logged clicks a minute. Ten wrong admin passwords or postback keys lock an address out for 15 minutes.
+- **Logs:** one JSON object per line (`docker compose logs web`), capped at 50 MB per service.
+
+Behind Cloudflare, set `CLIENT_IP_HEADER=cf-connecting-ip` so limits apply to visitors, not to Cloudflare.
 
 ## Countries and prices
 
@@ -114,3 +155,7 @@ Amazon requires a disclosure. `/disclosure` and the footer show it once an Amazo
 | `npm run typecheck` / `lint` | Checks |
 | `npm run db:generate` | Create a migration after changing `src/db/schema.ts` |
 | `npm run db:migrate` | Apply migrations to `DATABASE_URL` |
+| `npm run db:maintain` | Run the daily upkeep now |
+| `npm run preflight` | The launch checklist for `.env` |
+| `npm test` | Unit tests, plus newsletter and upkeep tests when `TEST_DATABASE_URL` is set |
+| `npm run test:e2e` | Starts the built site and drives it over HTTP (needs a build and `TEST_DATABASE_URL`) |
