@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     url: "/",
   },
   twitter: { card: "summary_large_image" },
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", types: { "application/atom+xml": [{ url: "/feed.xml", title: `${SITE.name}: newest price checks` }] } },
   robots: { index: true, follow: true },
 };
 

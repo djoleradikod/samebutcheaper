@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BiggestSavingsSchema } from "@/components/HubSchemas";
 import { getAllPairs, getSiteStats } from "@/lib/catalog";
 import { MEDICINE } from "@/lib/browse";
 import { PairBrowser } from "@/components/PairBrowser";
@@ -38,6 +39,7 @@ export default function BiggestSavingsPage() {
           {(local) => <PairBrowser path="/biggest-savings" {...browseProps(forCountry(getAllPairs(), local), { hideMedicine: true, local })} showRank />}
         </CountryPart>
       </div>
+      <BiggestSavingsSchema />
     </div>
   );
 }

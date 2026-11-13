@@ -16,7 +16,6 @@ import { linksEarn, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
-import { money } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay } from "@/lib/unit-format";
 import { forCountry, localText, type Local } from "@/lib/localize";
@@ -25,6 +24,7 @@ import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount } from "@/components/Money";
 import { KitPriceChecked } from "@/components/PriceChecked";
 import type { Bundle } from "@/lib/types";
+import { bundleDescription, bundleTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   const bundles = getAllBundles();
@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: PageProps<"/bundle/[slug]">):
   const { slug } = await params;
   const b = getBundle(slug);
   if (!b) return { title: "Kit not found" };
-  const title = `${b.bundle.name}: rebuilt for ${Math.round(b.netSavingsPct)}% less`;
-  const description = `${b.summary} ${money(b.equivalentTotal, b.currency)} for the same amount, against ${money(b.bundle.price, b.currency)} for the kit.`;
+  const title = bundleTitle(b);
+  const description = bundleDescription(b);
   return {
     title,
     description,

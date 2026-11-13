@@ -25,7 +25,10 @@ import { sellerOf } from "@/lib/sellers";
 import { inSentence } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
-import { unitDisplay, unitPrice } from "@/lib/unit-format";
+import { unitDisplay } from "@/lib/unit-format";
+import { swapDescription, swapLanguages } from "@/lib/seo";
+import { swapTitleFor } from "@/lib/seo-catalog";
+import { SwapQuestions } from "@/components/SwapQuestions";
 import { forCountry, localClaim, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
 import { CountryPart } from "@/components/ForCountry";
@@ -43,13 +46,13 @@ export async function generateMetadata({ params }: PageProps<"/compare/[slug]">)
   const { slug } = await params;
   const pair = getPair(slug);
   if (!pair) return { title: "Swap not found" };
-  const { label } = unitDisplay(pair.brand.unit);
-  const title = `${pair.brand.brand} vs ${pair.alternative.brand}: ${Math.round(pair.savingsPct)}% cheaper`;
-  const description = `${pair.summary} ${unitPrice(pair.alternative.ppu, pair.brand.unit, pair.currency)} vs ${unitPrice(pair.brand.ppu, pair.brand.unit, pair.currency)} ${label}.`;
+  const title = swapTitleFor(pair.slug) ?? pair.title;
+  const description = swapDescription(pair);
+  const languages = swapLanguages(pair);
   return {
     title,
     description,
-    alternates: { canonical: `/compare/${pair.slug}` },
+    alternates: { canonical: `/compare/${pair.slug}`, ...(languages ? { languages } : {}) },
     openGraph: { title, description, url: `/compare/${pair.slug}`, type: "article" },
   };
 }
@@ -100,6 +103,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
         </h1>
       </div>
       <CountryPart>{(local) => <CompareBody record={record} local={local} />}</CountryPart>
+      <SwapQuestions record={record} />
     </article>
   );
 }
@@ -136,19 +140,7 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
         { "@type": "ListItem", position: 3, name: pair.title, item: `${SITE.url}/compare/${pair.slug}` },
       ],
     },
-    ...[a, b].map((p) => ({
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: p.product,
-      brand: { "@type": "Brand", name: p.brand },
-      ...(p.photo ? { image: `${SITE.url}${p.photo.src}-480.webp` } : {}),
-      offers: {
-        "@type": "Offer",
-        price: p.price.toFixed(2),
-        priceCurrency: currency,
-        url: p.url,
-      },
-    })),
+    // No Product or Offer markup: this page compares two products we don't sell, at prices that date. See docs/seo-audit.md.
   ];
 
   return (

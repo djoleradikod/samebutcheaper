@@ -8,10 +8,10 @@ import { HealthNotice, hostname } from "@/components/Evidence";
 import { ProductThumb } from "@/components/ProductThumb";
 import { basketLines, basketPhotos, priceDates, toBasketSummary } from "@/lib/basket-view";
 import { getAllPresets, getPair, getPreset } from "@/lib/catalog";
-import { money } from "@/lib/format";
 import { MARKET_LABEL, MARKETS } from "@/lib/markets";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Preset } from "@/lib/types";
+import { basketDescription, basketTitle } from "@/lib/seo";
 import { forCountry, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
 import { CountryPart } from "@/components/ForCountry";
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: PageProps<"/basket/[slug]">):
   const { slug } = await params;
   const p = getPreset(slug);
   if (!p) return { title: "Basket not found" };
-  const title = `${p.title}: the same shop for ${money(p.savings, p.currency)} less`;
-  const description = `${p.audience}. ${p.lines.length} items, ${money(p.brandTotal, p.currency)} in brand names or ${money(p.altTotal, p.currency)} in cheaper swaps, for the same amount.`;
+  const title = basketTitle(p);
+  const description = basketDescription(p);
   return {
     title,
     description,

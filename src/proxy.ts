@@ -3,7 +3,7 @@ import { isKnownCountry } from "@/lib/markets";
 import knownSlugs from "@/generated/known-slugs.json";
 import { isAdminAuthorized } from "@/lib/admin-auth";
 import { isLimited, LIMITS, rateLimit } from "@/lib/rate-limit";
-import { clientIp } from "@/lib/visitor";
+import { clientIp, isBotAgent } from "@/lib/visitor";
 
 const COUNTRY_COOKIE = "sbc_country";
 /** Read by src/lib/server-country.ts. */
@@ -26,7 +26,9 @@ export function proxy(request: NextRequest) {
   // Only this proxy may say what it detected: a visitor's own copy of the header goes no further.
   const forward = new Headers(request.headers);
   forward.delete(COUNTRY_HEADER);
-  const detected = request.cookies.has(COUNTRY_COOKIE) ? null : detectCountry(request.headers);
+  // A crawler gets no country: it reads each record in its own market's currency and every swap lists (docs/seo-audit.md).
+  const crawler = isBotAgent(request.headers.get("user-agent") ?? "");
+  const detected = request.cookies.has(COUNTRY_COOKIE) || crawler ? null : detectCountry(request.headers);
   if (detected) forward.set(COUNTRY_HEADER, detected);
   const response = NextResponse.next({ request: { headers: forward } });
   if (detected) {

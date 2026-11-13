@@ -6,7 +6,8 @@ import { BundleCard } from "@/components/BundleCard";
 import { CountryPart } from "@/components/ForCountry";
 import { ListSchema } from "@/components/ListSchema";
 import { atLeastOneParam, BestTicket, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
-import { forCountry, type Local } from "@/lib/localize";
+import { forCountry, oneOfEachSwap, type Local } from "@/lib/localize";
+import { brandDescription, brandTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   return atLeastOneParam(getBrands().map((b) => b.slug));
@@ -16,11 +17,10 @@ export async function generateMetadata({ params }: PageProps<"/brand/[slug]">): 
   const { slug } = await params;
   const brand = getBrand(slug);
   if (!brand) return { title: "Brand not found" };
-  const n = brand.pairs.length + brand.bundles.length;
   const best = bestSaving([...brand.pairs, ...brand.bundles]);
   return {
-    title: `Cheaper alternatives to ${brand.name}: save up to ${Math.round(best)}%`,
-    description: `${n} cheaper alternative${n === 1 ? "" : "s"} to ${brand.name}, each with sources. ${matchSentence(brand.pairs.map((p) => p.match_type))}`.trim(),
+    title: brandTitle(brand.name, best),
+    description: brandDescription(brand.name, [...brand.pairs.map((p) => p.subcategory), ...(brand.bundles.length ? ["Kits"] : [])], oneOfEachSwap(brand.pairs).length + brand.bundles.length, matchSentence(brand.pairs.map((p) => p.match_type))),
     alternates: { canonical: `/brand/${brand.slug}` },
   };
 }

@@ -12,6 +12,7 @@ import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount, 
 import type { CategorySlug } from "@/lib/types";
 import { inSentence } from "@/lib/format";
 import { forCountry } from "@/lib/localize";
+import { categoryDescription, categoryTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }));
@@ -35,8 +36,8 @@ export async function generateMetadata({ params }: PageProps<"/category/[slug]">
     };
   }
   return {
-    title: `Cheaper ${cat.name}: ${count} swaps`,
-    description: `${cat.description} Browse ${count} cheaper alternatives to brand-name ${inSentence(cat.name)}.`,
+    title: categoryTitle(cat.name, count),
+    description: categoryDescription(cat.name, cat.description, count),
     alternates: { canonical: `/category/${cat.slug}` },
   };
 }
