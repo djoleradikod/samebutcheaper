@@ -7,7 +7,7 @@ import { after, before, beforeEach, test } from "node:test";
 import { eq } from "drizzle-orm";
 import * as schema from "../../src/db/schema";
 import { lastMaintenance, runMaintenance } from "../../src/lib/maintenance";
-import { confirmSubscription, sendPendingConfirmations, subscribeEmail, subscriberCounts, unsubscribe } from "../../src/lib/newsletter";
+import { confirmByToken, hashSecret, sendPendingConfirmations, subscribeEmail, subscriberCounts, unsubscribe } from "../../src/lib/newsletter";
 import { ALL_TABLES, mailStub, testDb, type Sent } from "./db-support";
 
 const url = process.env.TEST_DATABASE_URL;
@@ -41,7 +41,8 @@ beforeEach(async () => {
 });
 
 const row = async (email: string) => (await db.select().from(subscribers).where(eq(subscribers.email, email)))[0];
-const tokenIn = (mail: Sent) => /confirm\?token=([A-Za-z0-9_-]+)/.exec(mail.text)![1];
+const tokenIn = (mail: Sent) => /\/newsletter\/confirm\?t=([A-Za-z0-9_-]+)/.exec(mail.text)![1];
+const confirm = async (secret: string) => (await confirmByToken(db, secret)).outcome;
 
 test("sign-up sends one confirmation, and only the link confirms", { skip }, async () => {
   assert.equal(await subscribeEmail(db, { email: " Ana@Example.com ", source: "home", country: "DE" }, { siteUrl: SITE, env }), "sent");
@@ -53,18 +54,26 @@ test("sign-up sends one confirmation, and only the link confirms", { skip }, asy
   const mail = sent[0];
   assert.deepEqual(mail.to, ["ana@example.com"]);
   assert.equal(mail.from, env.MAIL_FROM);
-  assert.ok(mail.text.includes(`${SITE}/api/newsletter/confirm?token=${r.token}`));
-  assert.ok(mail.html.includes(`${SITE}/api/newsletter/confirm?token=${r.token}`));
+  const secret = tokenIn(mail);
+  assert.ok(mail.html.includes(`${SITE}/newsletter/confirm?t=${secret}`));
+  assert.notEqual(secret, r.token, "the confirm secret is not the long-lived unsubscribe token");
+  assert.ok(!mail.text.includes(r.token!), "the body links only to the confirm page");
+  assert.equal(r.confirmHash, hashSecret(secret), "only a hash of the secret is stored");
+  assert.ok(!JSON.stringify(r).includes(secret));
+  assert.ok(!mail.idempotencyKey?.includes(secret) && !mail.idempotencyKey?.includes(r.token!), "no secret goes to the mail provider in a header");
   assert.equal(mail.headers?.["List-Unsubscribe"], `<${SITE}/api/newsletter/unsubscribe?token=${r.token}>`);
   assert.equal(mail.headers?.["List-Unsubscribe-Post"], "List-Unsubscribe=One-Click");
 
-  assert.equal(await confirmSubscription(db, "not-the-token-not-the-token"), "invalid");
+  assert.equal(await confirm("not-the-token-not-the-token"), "invalid");
+  assert.equal(await confirm(r.token!), "invalid", "the unsubscribe token can't confirm");
   assert.equal((await row("ana@example.com")).status, "pending");
-  assert.equal(await confirmSubscription(db, tokenIn(mail)), "done");
+  assert.equal(await confirm(secret), "done");
   const confirmed = await row("ana@example.com");
   assert.equal(confirmed.status, "confirmed");
+  assert.equal(confirmed.newsletter, "yes");
   assert.ok(confirmed.confirmedAt);
-  assert.equal(await confirmSubscription(db, tokenIn(mail)), "already", "following the link twice is fine");
+  assert.equal(confirmed.confirmHash, null);
+  assert.equal(await confirm(secret), "invalid", "a link works once: replaying it does nothing");
 });
 
 test("signing up again doesn't send a second email within ten minutes, or once confirmed", { skip }, async () => {
@@ -74,8 +83,9 @@ test("signing up again doesn't send a second email within ten minutes, or once c
   assert.equal(sent.length, 1);
   assert.equal(await subscribeEmail(db, { email: "b@example.com" }, { siteUrl: SITE, env, now: new Date(t0.getTime() + 11 * 60_000) }), "sent");
   assert.equal(sent.length, 2);
-  assert.equal(tokenIn(sent[0]), tokenIn(sent[1]), "the earlier email's link still works");
-  await confirmSubscription(db, tokenIn(sent[0]));
+  assert.notEqual(tokenIn(sent[0]), tokenIn(sent[1]), "each email has its own secret");
+  assert.equal(await confirm(tokenIn(sent[0])), "invalid", "a newer email replaces the older link");
+  assert.equal(await confirm(tokenIn(sent[1])), "done");
   assert.equal(await subscribeEmail(db, { email: "b@example.com" }, { siteUrl: SITE, env, now: new Date(t0.getTime() + 3600_000) }), "unchanged");
   assert.equal(sent.length, 2);
   assert.equal((await db.select().from(subscribers)).length, 1);
@@ -83,15 +93,15 @@ test("signing up again doesn't send a second email within ten minutes, or once c
 
 test("unsubscribe works from pending or confirmed, and re-joining starts over", { skip }, async () => {
   await subscribeEmail(db, { email: "c@example.com" }, { siteUrl: SITE, env });
-  const token = tokenIn(sent[0]);
-  await confirmSubscription(db, token);
+  const secret = tokenIn(sent[0]);
+  const token = (await row("c@example.com")).token!;
   assert.equal(await unsubscribe(db, "x".repeat(30)), "invalid");
   assert.equal(await unsubscribe(db, token), "done");
   const gone = await row("c@example.com");
   assert.equal(gone.status, "unsubscribed");
   assert.ok(gone.unsubscribedAt);
   assert.equal(await unsubscribe(db, token), "already");
-  assert.equal(await confirmSubscription(db, token), "invalid", "an old confirm link can't re-subscribe someone who left");
+  assert.equal(await confirm(secret), "invalid", "an unused confirm link can't re-subscribe someone who left");
 
   assert.equal(await subscribeEmail(db, { email: "c@example.com" }, { siteUrl: SITE, env }), "sent");
   const back = await row("c@example.com");
@@ -124,7 +134,10 @@ test("upkeep removes what the privacy page says it removes, and nothing else", {
     { email: "old-pending@example.com", status: "pending", token: "t".repeat(32), confirmSentAt: ago(31), createdAt: ago(31) },
     { email: "new-pending@example.com", status: "pending", token: "u".repeat(32), confirmSentAt: ago(5), createdAt: ago(5) },
     { email: "never-mailed@example.com", status: "pending", token: "v".repeat(32), confirmSentAt: null, createdAt: ago(90) },
-    { email: "confirmed@example.com", status: "confirmed", token: "w".repeat(32), confirmSentAt: ago(400), confirmedAt: ago(399), createdAt: ago(400) },
+    { email: "confirmed@example.com", status: "confirmed", newsletter: "yes", token: "w".repeat(32), confirmSentAt: ago(400), confirmedAt: ago(399), createdAt: ago(400) },
+    // Letter switched off 31 days ago and nothing else on: deleted. Off 5 days ago: kept for now.
+    { email: "idle@example.com", status: "confirmed", newsletter: "no", token: "y".repeat(32), confirmSentAt: ago(100), confirmedAt: ago(99), letterStoppedAt: ago(31), createdAt: ago(100) },
+    { email: "idle-recent@example.com", status: "confirmed", newsletter: "no", token: "z".repeat(32), confirmSentAt: ago(100), confirmedAt: ago(99), letterStoppedAt: ago(5), createdAt: ago(100) },
     { email: "left@example.com", status: "unsubscribed", token: "x".repeat(32), confirmSentAt: ago(400), unsubscribedAt: ago(100), createdAt: ago(400) },
   ]);
   await db.insert(clicks).values([
@@ -147,6 +160,7 @@ test("upkeep removes what the privacy page says it removes, and nothing else", {
     {
       ranAt: undefined,
       pendingSubscribersDeleted: 1,
+      idleSubscribersDeleted: 1,
       clicksStripped: 1,
       conversionsStripped: 1,
       lookupsDeleted: 1,
@@ -158,12 +172,14 @@ test("upkeep removes what the privacy page says it removes, and nothing else", {
       confirmationsSent: 1,
       watchMailsSent: 0,
       watchChangesUnsent: 0,
+      wishMailsSent: 0,
+      wishMatchesUnsent: 0,
       letter: "off",
     },
   );
 
   const emails = (await db.select().from(subscribers)).map((s) => s.email).sort();
-  assert.deepEqual(emails, ["confirmed@example.com", "left@example.com", "never-mailed@example.com", "new-pending@example.com"]);
+  assert.deepEqual(emails, ["confirmed@example.com", "idle-recent@example.com", "left@example.com", "never-mailed@example.com", "new-pending@example.com"]);
   assert.deepEqual(sent.map((m) => m.to[0]), ["never-mailed@example.com"]);
 
   const kept = await db.select().from(clicks).orderBy(clicks.id);

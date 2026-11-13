@@ -1,6 +1,7 @@
 import { and, desc, gte, inArray, sql } from "drizzle-orm";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import * as schema from "@/db/schema";
+import { wouldRelease } from "./wanted-match";
 
 /**
  * What shoppers wanted and we didn't have: zero-result searches and products /check read but has no swap for.
@@ -57,6 +58,11 @@ export type WantedRow = {
   waiting: number;
   /** And those who haven't followed the confirm link yet. */
   waitingPending: number;
+  /**
+   * Confirmed requests a swap named exactly this would answer: this query's and any whose words it contains
+   * ("advil" is answered by a swap for "advil liqui-gels"). In this row's country, or every country overall.
+   */
+  wouldRelease: number;
 };
 
 /** The most wanted queries per country over 30 days, with their 7-day counts. `country` null: all countries together. */
@@ -81,10 +87,22 @@ export async function mostWanted(db: DB, opts: { now?: Date; days?: number; limi
     .orderBy(desc(sql`sum(${wanted.count})`), wanted.query)
     .limit(opts.limit ?? 200);
   const waits = await waitingFor(db, rows.map((r) => r.query));
+  const active = await activeWishes(db);
   return rows.map((r) => {
     const w = waits.get(r.query);
-    return { ...r, waiting: w?.active ?? 0, waitingPending: w?.pending ?? 0 };
+    const pool = byCountry ? active.filter((a) => a.country === r.country) : active;
+    return { ...r, waiting: w?.active ?? 0, waitingPending: w?.pending ?? 0, wouldRelease: wouldRelease(r.query, pool) };
   });
+}
+
+/** Confirmed requests still waiting, counted per query and country ("" when unknown). */
+async function activeWishes(db: DB) {
+  return db
+    .select({ query: wishes.query, country: sql<string>`coalesce(${wishes.country}, '')`, n: sql<number>`count(*)`.mapWith(Number) })
+    .from(wishes)
+    .where(inArray(wishes.status, ["active"]))
+    .groupBy(wishes.query, sql`coalesce(${wishes.country}, '')`)
+    .limit(5000);
 }
 
 /** How many people wait for each query: confirmed, and not yet confirmed. */

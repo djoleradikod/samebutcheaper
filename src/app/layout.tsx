@@ -7,7 +7,8 @@ import { FallbackBand } from "@/components/Money";
 import { getAllPairs } from "@/lib/catalog";
 import { hasBand, localFor } from "@/lib/localize";
 import { MARKET_CODES } from "@/lib/markets";
-import { getCountry, getLocal } from "@/lib/server-country";
+import { getCountry, getLocal, getUrlCountry } from "@/lib/server-country";
+import { PATH_COUNTRY_SCRIPT } from "@/lib/country-url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { jsonLdText, SITE } from "@/lib/site";
@@ -56,12 +57,14 @@ export const viewport: Viewport = {
 async function CountryBand() {
   const country = await getCountry();
   const { others } = await getLocal();
+  // A prefixed URL (/de/...) is that country's view and can't show other countries' swaps, so it offers none.
+  const fixed = (await getUrlCountry()) !== null;
   const strict = localFor(country);
   const wide = localFor(country, true);
-  const hidden = getAllPairs().filter((p) => wide.shows(p) && !strict.shows(p)).length;
+  const hidden = fixed ? 0 : getAllPairs().filter((p) => wide.shows(p) && !strict.shows(p)).length;
   return (
-    <CountryProvider country={country} others={others}>
-      <FollowCountry country={country} others={others} />
+    <CountryProvider country={country} others={others} fixed={fixed}>
+      <FollowCountry country={country} others={others} fixed={fixed} />
       <FallbackBand hidden={hidden} />
     </CountryProvider>
   );
@@ -72,7 +75,7 @@ async function CountryBand() {
  * know the country, but the browser can read the cookie before it paints, and globals.css holds the band's height from there.
  */
 const OWN_PRICES = MARKET_CODES.filter((m) => !hasBand(m)).join("|");
-const RESERVE_BAND = `(function(){var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);if(m&&!/^(${OWN_PRICES})$/.test(m[1]))document.documentElement.setAttribute("data-band","")})()`;
+const RESERVE_BAND = `(function(){${PATH_COUNTRY_SCRIPT}var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);var c=pathCountry||(m&&m[1]);if(c&&!/^(${OWN_PRICES})$/.test(c))document.documentElement.setAttribute("data-band","")})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const jsonLd = [
@@ -108,13 +111,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <SiteHeader />
-        <main id="main" className="flex-1">
+        <main id="main" className="min-h-svh flex-1">
           <Suspense fallback={<div className="band-slot" aria-hidden="true" />}>
             <CountryBand />
           </Suspense>
           {children}
         </main>
         <SiteFooter />
+        <script src="/sw-register.js" async />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
       </body>
     </html>

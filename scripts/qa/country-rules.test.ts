@@ -466,10 +466,10 @@ test("the footprint's separate shops and delivery pages are sourced, and a separ
 /* ---------------------------------------------------------------- delivery abroad */
 
 test("a shopper in another country never gets the home market's delivery rule", () => {
-  // aponeo: 3.99 in Germany, free over 29.99; 4.99 to Austria at any size.
+  // aponeo: 3.99 in Germany, free over 34.99; 4.99 to Austria at any size.
   assert.equal(storeOrderTo("aponeo", "DE", "DE", 10).delivery, 3.99);
   const at = storeOrderTo("aponeo", "DE", "AT", 40);
-  assert.equal(at.delivery, 4.99, "free over 29.99 is Germany's line, not Austria's");
+  assert.equal(at.delivery, 4.99, "free over 34.99 is Germany's line, not Austria's");
   assert.equal(at.freeOver, null);
   assert.ok("abroad" in at && at.destination === "AT");
   // A lower fee over a line, where the store has one.
@@ -500,7 +500,7 @@ test("checkoutFor: the market's answer at home, the destination's rules or 'unch
 });
 
 test("the swap page's delivery note names the shopper's country, or says it isn't checked", () => {
-  assert.equal(deliveryNote("aponeo", "DE", 10, "EUR", localFor("DE")), "Delivery €3.99 on its own, free over €29.99");
+  assert.equal(deliveryNote("aponeo", "DE", 10, "EUR", localFor("DE")), "Delivery €3.99 on its own, free over €34.99");
   assert.equal(deliveryNote("aponeo", "DE", 10, "EUR", localFor("AT")), "Delivery to Austria €4.99 on its own");
   assert.equal(deliveryNote("amazon", "GB", 10, "GBP", localFor("IE")), "Delivery to Ireland not checked");
   assert.equal(deliveryNote("target", "US", 10, "USD", localFor("CA")), undefined, "Target doesn't deliver to Canada at all");

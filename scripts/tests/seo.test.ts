@@ -19,8 +19,8 @@ import {
   dupeTitle,
   fitSentences,
   newest,
+  recordVersions,
   swapDescription,
-  swapLanguages,
   swapTitles,
   TITLE_MAX,
 } from "../../src/lib/seo";
@@ -79,15 +79,16 @@ test("descriptions fit, name no money, and claim only what the match type allows
 });
 
 test("twins point at each other with region codes and one shared x-default", () => {
+  const prefix = { US: "us", GB: "uk", DE: "de", CA: "ca", IE: "ie" } as const;
   for (const p of pairs.filter((x) => x.twin)) {
-    const mine = swapLanguages(p)!;
-    const theirs = swapLanguages(pairs.find((x) => x.slug === p.twin!.slug)!)!;
-    assert.equal(mine[`en-${p.market}`], `/compare/${p.slug}`);
-    assert.equal(mine[`en-${p.twin!.market}`], `/compare/${p.twin!.slug}`);
+    const twin = pairs.find((x) => x.slug === p.twin!.slug)!;
+    const mine = recordVersions("compare", p, twin);
+    const theirs = recordVersions("compare", twin, p);
+    assert.equal(mine.languages[`en-${p.market}`], `/${prefix[p.market]}/compare/${p.slug}`);
+    assert.equal(mine.languages[`en-${twin.market}`], `/${prefix[twin.market]}/compare/${twin.slug}`);
     assert.deepEqual(mine, theirs);
-    assert.ok([`/compare/${p.slug}`, `/compare/${p.twin!.slug}`].includes(mine["x-default"]));
+    assert.ok([`/${prefix[p.market]}/compare/${p.slug}`, `/${prefix[twin.market]}/compare/${twin.slug}`].includes(mine.xDefault));
   }
-  assert.equal(swapLanguages(pairs.find((x) => !x.twin)!), null);
 });
 
 test("the static questions name no price and no store", () => {

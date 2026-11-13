@@ -184,6 +184,8 @@ written by us is the markup that fits. Not before.
 
 ### 1. Country-independent swap body in the first HTML (medium effort, high value)
 
+*Built on 13 Nov 2026, with proposal 2: see `docs/country-urls.md`.*
+
 What still needs JavaScript on a swap page is mostly not country-dependent: the verdict line ("Equate has the same
 active ingredient as Claritin and costs 88% less per tablet"), the match and confidence badges, the "Why" block, where
 the brand wins, the same-or-different table except its price rows, sources and photo credits. Only the offers table,
@@ -200,6 +202,9 @@ The same split works for `/dupe` (head, match labels and counts are static), `/i
 the findings with no chain could be static.
 
 ### 2. Country URLs: `/uk/...`, `/de/...`, `/us/...` (large effort, the biggest long-term gain)
+
+*Built on 13 Nov 2026, as a rewrite to `src/app/country/[country]` rather than moving every route, and without the
+first-visit redirect: see `docs/country-urls.md` for the design and the canonical rule.*
 
 Today a URL's content depends on a cookie, so search engines index one version (now the unknown-visitor one, in each
 record's own currency) and a UK searcher's result can't show UK prices or stores. With a country prefix, each market's

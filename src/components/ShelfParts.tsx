@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { ChevronRight } from "lucide-react";
 import { firstScreenSlugs, splitAtFirstTier, SWAP_GRID, type BrowseRow } from "@/lib/browse";
 import { toSummary } from "@/lib/catalog";
@@ -15,6 +15,7 @@ import { PctTicket, Ticket } from "./Ticket";
 import { forCountry, localFor, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { countryInSentence, type MarketCode } from "@/lib/markets";
 import { getLocal } from "@/lib/server-country";
+import { isReported } from "@/lib/reported-state";
 
 /**
  * The one system behind every list of swaps: category, biggest savings, brand, ingredient and
@@ -42,7 +43,7 @@ function toRow(p: Pair): BrowseRow {
     pct: Math.round(p.savingsPct * 10) / 10,
     unit: Number((p.alternative.ppu * unitDisplay(p.brand.unit).factor * APPROX_USD[p.currency]).toPrecision(4)),
     checked: p.price_checked,
-    ...(p.priceOld ? { stale: true } : {}),
+    ...(p.priceOld || isReported("pair", p.slug) ? { stale: true } : {}),
   };
 }
 

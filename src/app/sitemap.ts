@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getAllBundles, getAllPairs, getAllPresets, getBrands, getDupes, getIngredients, getPair, getPairsByCategory } from "@/lib/catalog";
-import { CATEGORIES } from "@/lib/categories";
-import { checkedDate, newest, swapLanguages } from "@/lib/seo";
+import { getAllBundles, getAllPairs, getAllPresets, getBrands, getBundle, getDupes, getIngredients, getPair, getPairsByCategory, getPreset } from "@/lib/catalog";
+import { checkedDate, newest } from "@/lib/seo";
+import { countrySitemap } from "@/lib/seo-catalog";
 import { SITE } from "@/lib/site";
+import type { CategorySlug } from "@/lib/types";
 
 type Entry = MetadataRoute.Sitemap[number];
 
@@ -10,58 +11,51 @@ type Entry = MetadataRoute.Sitemap[number];
  * Every page that is indexable and answers 200, and nothing else: /search, /my-list, the newsletter pages and empty
  * aisles are noindex, so they stay out. A page's date is the newest price check among the records it shows, never the
  * build date, so a crawler can tell which pages changed. Prose pages have no record date and give none.
+ *
+ * Pages with country URLs (home, hubs, aisles, swaps, kits, baskets) list exactly their indexable forms, each with all
+ * the others as hreflang alternates (the rule is in src/lib/seo.ts and docs/country-urls.md). A swap's, kit's or
+ * basket's unprefixed URL canonicalises to its own market's, so it isn't listed.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const url = (path: string) => `${SITE.url}${path}`;
+  const url = (path: string) => `${SITE.url}${path === "/" ? "" : path}`;
   const at = (date: Date | null) => (date ? { lastModified: date } : {});
   const pairs = getAllPairs();
   const all = newest([...pairs.map((p) => p.price_checked), ...getAllBundles().map((b) => b.price_checked)]);
   const hubs: [string, Date | null][] = [
-    ["", all],
-    ["/biggest-savings", newest(pairs.map((p) => p.price_checked))],
-    ["/bundles", newest([...getAllBundles().map((b) => b.price_checked), ...getAllPresets().flatMap((p) => p.lines.map((l) => getPair(l.pair)?.price_checked))])],
     ["/bulk", newest(pairs.filter((p) => p.bulkView.bigger).map((p) => p.price_checked))],
     ["/brands", all],
     ["/ingredients", all],
   ];
-  const prose = ["/check", "/why", "/how-we-verify", "/suggest", "/about", "/credits", "/disclosure", "/privacy"];
+  const prose = ["/check", "/check/list", "/why", "/how-we-verify", "/suggest", "/about", "/credits", "/disclosure", "/privacy"];
+
+  /** The date and weight of a page with country URLs. */
+  const about = (path: string): { date: Date | null; priority: number; changeFrequency: Entry["changeFrequency"] } => {
+    const [, section, slug] = path.split("/");
+    if (path === "/") return { date: all, priority: 1, changeFrequency: "weekly" };
+    if (path === "/biggest-savings") return { date: newest(pairs.map((p) => p.price_checked)), priority: 0.6, changeFrequency: "weekly" };
+    if (path === "/bundles") {
+      const dates = [...getAllBundles().map((b) => b.price_checked), ...getAllPresets().flatMap((p) => p.lines.map((l) => getPair(l.pair)?.price_checked))];
+      return { date: newest(dates), priority: 0.6, changeFrequency: "weekly" };
+    }
+    if (section === "category") return { date: newest(getPairsByCategory(slug as CategorySlug).map((p) => p.price_checked)), priority: 0.8, changeFrequency: "weekly" };
+    if (section === "compare") return { date: checkedDate(getPair(slug)?.price_checked), priority: 0.9, changeFrequency: "monthly" };
+    if (section === "bundle") return { date: checkedDate(getBundle(slug)?.price_checked), priority: 0.8, changeFrequency: "monthly" };
+    return { date: newest(getPreset(slug)?.lines.map((l) => getPair(l.pair)?.price_checked) ?? []), priority: 0.8, changeFrequency: "monthly" };
+  };
+
+  const countryPages: Entry[] = countrySitemap().map((e) => {
+    const { date, priority, changeFrequency } = about(e.path);
+    const languages = Object.fromEntries(Object.entries(e.languages).map(([k, v]) => [k, url(v)]));
+    return { url: url(e.url), ...at(date), changeFrequency, priority, alternates: { languages } };
+  });
 
   const entries: Entry[] = [
-    ...hubs.map(([path, date]) => ({ url: url(path), ...at(date), changeFrequency: "weekly" as const, priority: path === "" ? 1 : 0.6 })),
+    ...countryPages,
+    ...hubs.map(([path, date]) => ({ url: url(path), ...at(date), changeFrequency: "weekly" as const, priority: 0.6 })),
     ...prose.map((path) => ({ url: url(path), changeFrequency: "monthly" as const, priority: 0.4 })),
-    ...CATEGORIES.map((c) => ({ c, list: getPairsByCategory(c.slug) }))
-      .filter(({ list }) => list.length > 0)
-      .map(({ c, list }) => ({
-        url: url(`/category/${c.slug}`),
-        ...at(newest(list.map((p) => p.price_checked))),
-        changeFrequency: "weekly" as const,
-        priority: 0.8,
-      })),
-    ...pairs.map((p) => {
-      const languages = swapLanguages(p);
-      return {
-        url: url(`/compare/${p.slug}`),
-        ...at(checkedDate(p.price_checked)),
-        changeFrequency: "monthly" as const,
-        priority: 0.9,
-        ...(languages ? { alternates: { languages: Object.fromEntries(Object.entries(languages).map(([k, v]) => [k, url(v)])) } } : {}),
-      };
-    }),
     ...getDupes().map((d) => ({
       url: url(`/dupe/${d.slug}`),
       ...at(newest(d.pairs.map((p) => p.price_checked))),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
-    ...getAllBundles().map((b) => ({
-      url: url(`/bundle/${b.slug}`),
-      ...at(checkedDate(b.price_checked)),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
-    ...getAllPresets().map((p) => ({
-      url: url(`/basket/${p.slug}`),
-      ...at(newest(p.lines.map((l) => getPair(l.pair)?.price_checked))),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),

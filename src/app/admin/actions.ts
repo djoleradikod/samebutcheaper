@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { getDb, schema } from "@/db";
@@ -9,6 +9,7 @@ import { log } from "@/lib/log";
 import { mailConfigured, sendMail } from "@/lib/mail";
 import { runMaintenance } from "@/lib/maintenance";
 import { isKnownCountry } from "@/lib/markets";
+import { REPORTED_TAG } from "@/lib/reported";
 import { closeReports } from "@/lib/reports";
 import { isAdminRequest } from "@/lib/server/admin";
 import { SITE } from "@/lib/site";
@@ -54,6 +55,8 @@ export async function closeReport(formData: FormData) {
     const slug = String(formData.get("slug") ?? "").slice(0, 160);
     if (slug) await closeReports(db, { recordKind, slug }, status);
   }
+  // A page's "Reported by shoppers" note, and its place in ranked lists, follow at once.
+  updateTag(REPORTED_TAG);
   revalidatePath("/admin");
 }
 

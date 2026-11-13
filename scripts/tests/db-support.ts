@@ -43,7 +43,15 @@ export function testDb(url: string | undefined) {
 export type Sent = { to: string[]; subject: string; text: string; html: string; headers?: Record<string, string>; from: string; idempotencyKey?: string };
 
 export function mailStub() {
-  const state = { sent: [] as Sent[], failNext: 0, env: {} as Record<string, string>, server: null as Server | null };
+  const state = {
+    sent: [] as Sent[],
+    failNext: 0,
+    /** Refuse the next batch request as invalid (422), as Resend does when one email in it is malformed. */
+    invalidNext: 0,
+    batches: [] as { key?: string; size: number }[],
+    env: {} as Record<string, string>,
+    server: null as Server | null,
+  };
   return {
     state,
     async start() {
@@ -57,7 +65,25 @@ export function mailStub() {
             return;
           }
           assert.equal(req.headers.authorization, "Bearer re_test");
-          state.sent.push({ ...JSON.parse(body), idempotencyKey: req.headers["idempotency-key"] as string | undefined });
+          const key = req.headers["idempotency-key"] as string | undefined;
+          if (req.url?.endsWith("/emails/batch")) {
+            // Resend's batch endpoint: an array in, one id per email out, in order. All or nothing.
+            if (state.invalidNext > 0) {
+              state.invalidNext--;
+              res.writeHead(422, { "content-type": "application/json" }).end('{"name":"validation_error"}');
+              return;
+            }
+            const mails = JSON.parse(body) as Sent[];
+            assert.ok(Array.isArray(mails) && mails.length <= 100);
+            state.batches.push({ key, size: mails.length });
+            const ids = mails.map((m) => {
+              state.sent.push({ ...m, idempotencyKey: key });
+              return { id: `mail-${state.sent.length}` };
+            });
+            res.writeHead(200, { "content-type": "application/json" }).end(JSON.stringify({ data: ids }));
+            return;
+          }
+          state.sent.push({ ...JSON.parse(body), idempotencyKey: key });
           res.writeHead(200, { "content-type": "application/json" }).end(JSON.stringify({ id: `mail-${state.sent.length}` }));
         });
       });
@@ -71,6 +97,8 @@ export function mailStub() {
     reset() {
       state.sent.length = 0;
       state.failNext = 0;
+      state.invalidNext = 0;
+      state.batches.length = 0;
     },
   };
 }

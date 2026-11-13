@@ -6,8 +6,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import catalog from "../../src/generated/catalog.json";
-import { buyListText, groupByStore, namesPack, pieceLabel, type BuyStore } from "../../src/lib/buy-list";
-import { AMAZON_CART_DOMAINS, cartSide, cartUrl, sellerOfCartSide } from "../../src/lib/cart";
+import { buyListText, groupByStore, kitCaution, namesPack, pieceLabel, type BuyStore } from "../../src/lib/buy-list";
+import { AMAZON_CART_DOMAINS, asinFromUrl, asinProblem, cartSide, cartUrl, sellerOfCartSide } from "../../src/lib/cart";
 import { basketCheckout, checkout, tillLine, wholePacks, type TillLine } from "../../src/lib/delivery";
 import { filterKits } from "../../src/lib/kit-filter";
 import { MARKETS } from "../../src/lib/markets";
@@ -94,6 +94,67 @@ test("every kit's cart button only appears where the cart would hold every piece
       for (const c of mine) assert.ok([...asins.values()].includes(c.asin!), `${b.slug}: ${c.product} missing from the cart`);
     }
   }
+});
+
+test("an ASIN is read only from an Amazon product URL", () => {
+  assert.equal(asinFromUrl("https://www.amazon.com/dp/B088NRLMPV"), "B088NRLMPV");
+  assert.equal(asinFromUrl("https://www.amazon.co.uk/Some-Name/dp/B0BDKCBJ95/ref=sr_1_1?x=1"), "B0BDKCBJ95");
+  assert.equal(asinFromUrl("https://www.amazon.de/gp/product/B07XS5CTRJ?th=1"), "B07XS5CTRJ");
+  assert.equal(asinFromUrl("https://amazon.ca/gp/aw/d/B0FPDWY9QD"), "B0FPDWY9QD");
+  assert.equal(asinFromUrl("https://www.amazon.co.uk/s?k=carplan+no1+super+bug"), null, "a search link names no product");
+  assert.equal(asinFromUrl("https://www.chewy.com/petarmor-plus-flea-tick-spot/dp/181540"), null, "chewy's /dp/ is its own id");
+  assert.equal(asinFromUrl("https://www.amazon.com.evil.example/dp/B088NRLMPV"), null);
+  assert.equal(asinFromUrl("https://www.amazon.com/dp/b088nrlmpv"), null, "lower case isn't an ASIN");
+  assert.equal(asinFromUrl("not a url"), null);
+});
+
+test("a stored ASIN must agree with its URL, and a URL with one must have it stored", () => {
+  assert.equal(asinProblem({ url: "https://www.amazon.com/dp/B088NRLMPV", asin: "B088NRLMPV" }), null);
+  assert.match(asinProblem({ url: "https://www.amazon.com/dp/B088NRLMPV", asin: null })!, /not set/);
+  assert.match(asinProblem({ url: "https://www.amazon.com/dp/B088NRLMPV", asin: "B000000001" })!, /B000000001/);
+  assert.equal(asinProblem({ url: "https://www.target.com/p/x/-/A-1", asin: null }), null);
+});
+
+test("every kit piece and swap side whose URL carries an ASIN states that ASIN", () => {
+  const sides = [
+    ...cat.bundles.flatMap((b) => [b.bundle, ...b.components].map((p) => ({ where: b.slug, p }))),
+    ...cat.pairs.flatMap((x) => [x.brand, x.alternative].map((p) => ({ where: x.slug, p }))),
+  ];
+  for (const { where, p } of sides) {
+    const inUrl = asinFromUrl(p.url);
+    if (inUrl) assert.equal(p.asin, inUrl, where);
+  }
+});
+
+/* ---------------------------------------------------------- kit honesty */
+
+const facts = (price: number, net: number, payToday: number, kitDelivery: number | null = 0) => ({
+  bundle: { price },
+  netSavings: net,
+  checkout: { payToday },
+  kitCheckout: { delivery: kitDelivery, surcharge: 0 },
+});
+
+test("a kit says so first when the rebuild costs more today or saves under 5% after delivery", () => {
+  assert.equal(kitCaution(facts(50, 20, 30)), null);
+  assert.deepEqual(kitCaution(facts(50, 20, 55)), { moreToday: 5, thin: false });
+  assert.deepEqual(kitCaution(facts(50, 2, 48)), { moreToday: 0, thin: true });
+  assert.deepEqual(kitCaution(facts(50, 2.5, 47.5)), null, "exactly 5% isn't thin");
+  assert.deepEqual(kitCaution(facts(50, 0, 60, 4)), { moreToday: 6, thin: true }, "the kit's own delivery counts");
+  assert.equal(kitCaution({ bundle: { price: 50 }, netSavings: 1 }), null, "the search index's slim copy claims nothing");
+});
+
+test("no kit with a caution ranks above a kit without one", () => {
+  const flagged = cat.bundles.filter((b) => kitCaution(b));
+  const clear = cat.bundles.filter((b) => !kitCaution(b));
+  assert.ok(clear.length > 0);
+  if (!flagged.length) return;
+  const top = Math.max(...flagged.map((b) => b.score));
+  const bottom = Math.min(...clear.map((b) => b.score));
+  assert.ok(top < bottom, `a cautioned kit scores ${top}, above the lowest clear kit at ${bottom}`);
+  // The catalogue's own order, which lists without their own sort follow, puts them last.
+  const firstFlagged = cat.bundles.findIndex((b) => kitCaution(b));
+  assert.ok(cat.bundles.slice(firstFlagged).every((b) => kitCaution(b)));
 });
 
 /* ------------------------------------------------------------ whole packs */

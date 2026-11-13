@@ -36,6 +36,13 @@
       "when": 1794590416328,
       "tag": "0004_loops",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1794593707698,
+      "tag": "0005_safe_links",
+      "breakpoints": true
     }
   ]
 }

@@ -1,6 +1,6 @@
-import { ArrowDown, ExternalLink, ShoppingCart } from "lucide-react";
+import { ArrowDown, ExternalLink, ShoppingCart, TriangleAlert } from "lucide-react";
 import { packSize } from "@/lib/basket-view";
-import { groupByStore, type BuyStore } from "@/lib/buy-list";
+import { groupByStore, kitCaution, type BuyStore, type KitCaution } from "@/lib/buy-list";
 import { productUrl } from "@/lib/affiliate";
 import { cartSide, cartUrl } from "@/lib/cart";
 import { shortMonth, type Local } from "@/lib/localize";
@@ -57,10 +57,11 @@ const row = "flex flex-wrap items-baseline justify-between gap-x-3";
 export function BundleBuyBox({ b, local }: { b: Bundle; local: Local }) {
   const stores = buyStores(b, local);
   const action = primaryAction(stores);
-  const moreToday = b.checkout.payToday - kitToday(b);
+  const caution = kitCaution(b);
   const n = b.checkout.stores.length;
   return (
     <div>
+      {caution && <KitCautionNote b={b} caution={caution} local={local} />}
       <dl className="space-y-1.5 text-sm">
         <div className={row}>
           <dt className="text-ink-2">The kit{b.kitCheckout.delivery !== null ? ", delivered" : ""}</dt>
@@ -82,15 +83,9 @@ export function BundleBuyBox({ b, local }: { b: Bundle; local: Local }) {
         </div>
         <div className={row}>
           <dt className="text-ink-2">Orders</dt>
-          <dd className="text-[13px] font-medium">{n === 1 ? `One, at ${stores[0]?.name ?? "one store"}` : `${n} stores`}</dd>
+          <dd className="text-[13px] font-medium">{n === 1 ? `One, at ${(stores[0]?.name ?? "one store").replace(/^A /, "a ")}` : `${n} stores`}</dd>
         </div>
       </dl>
-      {moreToday > 0.005 && (
-        <p className="mt-2 text-[13px] leading-snug text-ink-2">
-          You pay {local.money(moreToday, b.currency)} more today than for the kit. The packs hold more, so the saving is for the same
-          amount.
-        </p>
-      )}
       {action && (
         <div className="mt-3">
           <a
@@ -110,6 +105,31 @@ export function BundleBuyBox({ b, local }: { b: Bundle; local: Local }) {
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+/**
+ * The first thing on a kit page whose rebuild costs more at the till than the kit, or saves under 5% after delivery.
+ * Worded so it can't be missed or read as a saving: a heading, the amount, and what the saving rests on.
+ */
+function KitCautionNote({ b, caution, local }: { b: Bundle; caution: KitCaution; local: Local }) {
+  const money = (n: number) => local.money(n, b.currency);
+  const pct = Math.round((b.netSavings / b.bundle.price) * 1000) / 10;
+  return (
+    <div role="note" aria-labelledby={`caution-${b.slug}`} className="mb-3 rounded-tile border-2 border-different bg-paper p-3">
+      <p id={`caution-${b.slug}`} className="flex items-center gap-1.5 text-sm font-semibold text-ink">
+        <TriangleAlert className="h-4 w-4 shrink-0 text-different" aria-hidden="true" />
+        {caution.moreToday > 0 ? `Rebuilding costs ${money(caution.moreToday)} more today` : "Only a small saving"}
+      </p>
+      <p className="mt-1 text-[13px] leading-snug text-ink-2">
+        {caution.moreToday > 0 &&
+          `You pay ${money(caution.moreToday)} more at the till than for the kit${b.kitCheckout.delivery !== null ? ", delivered" : ""}, because the cheaper packs hold more. `}
+        {b.netSavings > 0
+          ? `The ${money(b.netSavings)} saving${caution.thin ? `, ${pct}% of the kit's price,` : ""} is for the same amount as the kit${caution.moreToday > 0 ? ", so you only see it once you use the extra" : ""}.`
+          : "After delivery there is no saving."}
+        {caution.thin && " If one order matters more to you, the kit is the simpler buy."}
+      </p>
     </div>
   );
 }

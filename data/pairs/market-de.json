@@ -84,48 +84,44 @@
       "product": "Aspirin 500 mg überzogene Tabletten, 80 tablets",
       "size": 80,
       "unit": "tablet",
-      "price": 20.69,
-      "retailer": "shopapotheke",
+      "price": 18.71,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/10203632/aspirin-500-mg-ueberzogene-tabletten.htm",
-      "key_ingredients": [
-        {
-          "name": "Acetylsalicylic acid",
-          "amount": "500 mg"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "1 A Pharma",
-      "product": "ASS 500 - 1 A Pharma Tabletten, 100 tablets",
-      "size": 100,
-      "unit": "tablet",
-      "price": 4.99,
-      "retailer": "shopapotheke",
-      "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm",
+      "url": "https://www.aponeo.de/10203632-aspirin-500-mg-ueberzogene-tabletten.html",
       "key_ingredients": [
         {
           "name": "Acetylsalicylic acid",
           "amount": "500 mg"
         }
       ],
-      "rating": {
-        "stars": 4.7,
-        "count": 16,
-        "source": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm"
-      }
+      "license_id": "PZN 10203632"
+    },
+    "alternative": {
+      "brand": "1 A Pharma",
+      "product": "ASS 500 - 1 A Pharma Tabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 4.92,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/08612435-ass-500-1a-pharma-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "500 mg"
+        }
+      ],
+      "license_id": "PZN 08612435"
     },
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both tablets contain 500 mg acetylsalicylic acid, the active ingredient in Aspirin.",
-    "evidence": "Shop Apotheke (retailer: other) lists Aspirin 500 mg by Bayer Vital (PZN 10203632) and ASS 500 by 1 A Pharma (PZN 08612435). The pharmacy pages state 500 mg acetylsalicylic acid per tablet for both, and both are apothekenpflichtig without a prescription. Prices are from the same shop.",
-    "differences": "Aspirin 500 mg is a coated tablet (überzogene Tablette); ASS 500 1 A Pharma is a plain uncoated tablet. Inactive ingredients differ. A 30-tablet pack of the 1 A Pharma tablets is 1.89 EUR.",
+    "evidence": "APONEO, an online pharmacy whose terms allow reading, lists Aspirin 500 mg coated tablets by Bayer Vital (PZN 10203632, 80 tablets) and ASS 500 1A Pharma tablets by 1 A Pharma (PZN 08612435, 100 tablets). Both pages state 500 mg acetylsalicylic acid per tablet, and both are apothekenpflichtig without a prescription. Prices are from the same shop, read 13 Nov 2026.",
+    "differences": "Aspirin 500 mg is a coated tablet (überzogene Tablette); ASS 500 1A Pharma is a plain uncoated tablet. Inactive ingredients differ. A 30-tablet pack of the 1A Pharma tablets is 1.88 EUR at the same shop.",
     "sources": [
-      "https://www.shop-apotheke.com/arzneimittel/10203632/aspirin-500-mg-ueberzogene-tabletten.htm",
-      "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm",
-      "https://www.shop-apotheke.com/marken/ass/ass-500/",
-      "https://www.apotheken-umschau.de/medikamente/beipackzettel/ass-500-1a-pharma-tabletten-8612429.html"
+      "https://www.aponeo.de/10203632-aspirin-500-mg-ueberzogene-tabletten.html",
+      "https://www.aponeo.de/08612435-ass-500-1a-pharma-tabletten.html",
+      "https://www.aponeo.de/arzneimittel/schmerztabletten/ass-acetylsalicylsaeure/"
     ],
     "price_checked": "2026-11",
     "look_for": "Aspirin (acetylsalicylic acid) 500 mg tablets",
@@ -133,16 +129,16 @@
       {
         "aspect": "Who makes it",
         "brand": "Bayer Vital GmbH, Leverkusen",
-        "alternative": "1 A Pharma GmbH (Sandoz group generic line)",
+        "alternative": "1 A Pharma GmbH, Holzkirchen",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/8612435/ass-500-1-a-pharma.htm"
+        "source": "https://www.aponeo.de/08612435-ass-500-1a-pharma-tabletten.html"
       },
       {
         "aspect": "Inactive ingredients",
         "brand": "Core: sodium carbonate, silica. Coating: hypromellose, zinc stearate, carnauba wax (coated tablet)",
-        "alternative": "Cellulose powder, microcrystalline cellulose, maize starch (plain tablet, no coating listed)",
+        "alternative": "Microcrystalline cellulose, maize starch, cellulose powder (plain tablet, no coating)",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/10203632/aspirin-500-mg-ueberzogene-tabletten.htm"
+        "source": "https://www.aponeo.de/10203632-aspirin-500-mg-ueberzogene-tabletten.html"
       }
     ]
   },
@@ -157,72 +153,68 @@
       "product": "Imodium akut Hartkapseln, 12 capsules",
       "size": 12,
       "unit": "capsule",
-      "price": 8.79,
-      "retailer": "shopapotheke",
+      "price": 8.55,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/4940757/imodium-akut-bei-akutem-durchfall.htm",
-      "key_ingredients": [
-        {
-          "name": "Loperamide hydrochloride",
-          "amount": "2 mg"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "AbZ-Pharma",
-      "product": "Loperamid AbZ akut 2 mg Hartkapseln, 10 capsules",
-      "size": 10,
-      "unit": "capsule",
-      "price": 1.89,
-      "retailer": "shopapotheke",
-      "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm",
+      "url": "https://www.aponeo.de/07296788-imodium-akut-hartkapseln.html",
       "key_ingredients": [
         {
           "name": "Loperamide hydrochloride",
           "amount": "2 mg"
         }
       ],
-      "rating": {
-        "stars": 5,
-        "count": 4,
-        "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm"
-      }
+      "license_id": "PZN 07296788"
+    },
+    "alternative": {
+      "brand": "AbZ-Pharma",
+      "product": "Loperamid AbZ akut 2 mg Hartkapseln, 10 capsules",
+      "size": 10,
+      "unit": "capsule",
+      "price": 1.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16754333-loperamid-abz-akut-2-mg-hartkapseln.html",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ],
+      "license_id": "PZN 16754333"
     },
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are hard capsules with 2 mg loperamide hydrochloride for acute diarrhoea.",
-    "evidence": "Shop Apotheke (retailer: other) lists Imodium akut hard capsules by Kenvue Germany (PZN 04940757) and Loperamid AbZ akut 2 mg hard capsules by AbZ-Pharma (PZN 16754333). Both pages state 2 mg loperamide hydrochloride per hard capsule and both are apothekenpflichtig without a prescription. Prices are from the same shop.",
-    "differences": "Inactive ingredients and capsule colour may differ. Pack counts differ (12 vs 10); a 2x10 pack of the AbZ capsules is 3.69 EUR.",
+    "evidence": "APONEO, an online pharmacy whose terms allow reading, lists Imodium akut hard capsules by Kenvue Germany (PZN 07296788, 12 capsules) and Loperamid AbZ akut 2 mg hard capsules by AbZ Pharma (PZN 16754333, 10 capsules). Both pages state 2 mg loperamide hydrochloride per hard capsule, and both are apothekenpflichtig without a prescription. Prices are from the same shop, read 13 Nov 2026.",
+    "differences": "Inactive ingredients and capsule colour differ slightly. Pack counts differ (12 vs 10).",
     "sources": [
-      "https://www.shop-apotheke.com/arzneimittel/4940757/imodium-akut-bei-akutem-durchfall.htm",
-      "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm",
-      "https://www.shop-apotheke.com/marken/loperamid/",
-      "https://www.apotheken-umschau.de/medikamente/beipackzettel/imodium-akut-hartkapseln-4940757.html"
+      "https://www.aponeo.de/07296788-imodium-akut-hartkapseln.html",
+      "https://www.aponeo.de/16754333-loperamid-abz-akut-2-mg-hartkapseln.html",
+      "https://www.aponeo.de/04940757-imodium-akut-hartkapseln.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Loperamide hydrochloride 2 mg capsules",
     "aspects": [
       {
         "aspect": "Who makes it",
-        "brand": "Kenvue Germany GmbH, Neuss",
-        "alternative": "AbZ-Pharma GmbH",
+        "brand": "Kenvue Germany GmbH",
+        "alternative": "AbZ Pharma GmbH",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm"
+        "source": "https://www.aponeo.de/16754333-loperamid-abz-akut-2-mg-hartkapseln.html"
       },
       {
         "aspect": "Inactive ingredients",
-        "brand": "Hard capsules: lactose monohydrate, maize starch, talc, Mg stearate, gelatin; dyes iron oxides, erythrosine, indigo carmine, TiO2",
-        "alternative": "Hard capsules: 92 mg lactose monohydrate, pregelatinised maize starch, talc, Mg stearate, gelatin; iron oxides, TiO2, indigo carmine",
+        "brand": "Lactose monohydrate, maize starch, talc, Mg stearate, gelatin; dyes TiO2, indigo carmine, iron oxides, erythrosine",
+        "alternative": "Lactose monohydrate, pregelatinised maize starch, talc, Mg stearate, gelatin; dyes indigo carmine, TiO2, iron oxides",
         "verdict": "same",
-        "source": "https://www.shop-apotheke.com/arzneimittel/4940757/imodium-akut-bei-akutem-durchfall.htm"
+        "source": "https://www.aponeo.de/04940757-imodium-akut-hartkapseln.html"
       },
       {
         "aspect": "Lactose",
         "brand": "Contains lactose",
-        "alternative": "Contains lactose (92 mg per capsule)",
+        "alternative": "Contains lactose",
         "verdict": "same",
-        "source": "https://www.shop-apotheke.com/arzneimittel/16754333/loperamid-abz-akut-2-mg.htm"
+        "source": "https://www.aponeo.de/16754333-loperamid-abz-akut-2-mg-hartkapseln.html"
       }
     ]
   },
@@ -547,41 +539,42 @@
       "size": 24,
       "unit": "tablet",
       "price": 5.49,
-      "retailer": "shopapotheke",
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/8794436/nurofen-ibuprofen-400-mg-bei-kopfschmerzen.htm",
+      "url": "https://www.aponeo.de/08794436-nurofen-ibuprofen-400-mg-ueberzogene-tabletten.html",
       "key_ingredients": [
         {
           "name": "Ibuprofen",
           "amount": "400 mg"
         }
-      ]
+      ],
+      "license_id": "PZN 08794436"
     },
     "alternative": {
       "brand": "ratiopharm",
       "product": "Ibu-ratiopharm 400 mg akut Schmerztabletten, 50 film-coated tablets",
       "size": 50,
       "unit": "tablet",
-      "price": 3.99,
-      "retailer": "shopapotheke",
+      "price": 4.99,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm",
+      "url": "https://www.aponeo.de/10019621-ibu-ratiopharm-400-mg-akut-schmerztbl-filmtabl.html",
       "key_ingredients": [
         {
           "name": "Ibuprofen",
           "amount": "400 mg"
         }
-      ]
+      ],
+      "license_id": "PZN 10019621"
     },
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both tablets contain 400 mg ibuprofen, the highest non-prescription single dose in Germany.",
-    "evidence": "Shop Apotheke (retailer: other) lists Nurofen Ibuprofen 400 mg by Reckitt Benckiser (PZN 08794436) and Ibu-ratiopharm 400 mg akut by ratiopharm (PZN 10019621). Both pages state 400 mg ibuprofen per tablet and both are apothekenpflichtig without a prescription. Prices are from the same shop.",
-    "differences": "Nurofen is a sugar-coated tablet (überzogene Tablette); Ibu-ratiopharm is a film-coated tablet. Inactive ingredients differ. Pack sizes differ (24 vs 50); a 20-pack of Ibu-ratiopharm is 2.29 EUR.",
+    "evidence": "APONEO, an online pharmacy whose terms allow reading, lists Nurofen Ibuprofen 400 mg coated tablets by Reckitt Benckiser (PZN 08794436, 24 tablets) and IBU-ratiopharm 400 mg akut film-coated tablets by ratiopharm (PZN 10019621, 50 tablets). Both pages state 400 mg ibuprofen per tablet, and both are apothekenpflichtig without a prescription. Prices are from the same shop, read 13 Nov 2026.",
+    "differences": "Nurofen is a sugar-coated tablet (überzogene Tablette) and contains sucrose; IBU-ratiopharm is a film-coated tablet. Inactive ingredients differ. Pack sizes differ (24 vs 50).",
     "sources": [
-      "https://www.shop-apotheke.com/arzneimittel/8794436/nurofen-ibuprofen-400-mg-bei-kopfschmerzen.htm",
-      "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm",
-      "https://www.shop-apotheke.com/marken/nurofen/nurofen-ibuprofen/",
+      "https://www.aponeo.de/08794436-nurofen-ibuprofen-400-mg-ueberzogene-tabletten.html",
+      "https://www.aponeo.de/10019621-ibu-ratiopharm-400-mg-akut-schmerztbl-filmtabl.html",
       "https://www.ratiopharm.de/produkte/details/ibu-ratiopharm-400-mg-akut-schmerztabletten-pzn-266011/"
     ],
     "price_checked": "2026-11",
@@ -589,24 +582,17 @@
     "aspects": [
       {
         "aspect": "Who makes it",
-        "brand": "Reckitt Benckiser Deutschland GmbH, Heidelberg",
-        "alternative": "ratiopharm GmbH, Ulm",
+        "brand": "Reckitt Benckiser Deutschland GmbH",
+        "alternative": "ratiopharm GmbH",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm"
+        "source": "https://www.aponeo.de/10019621-ibu-ratiopharm-400-mg-akut-schmerztbl-filmtabl.html"
       },
       {
-        "aspect": "Sucrose",
-        "brand": "Coated tablet containing 232 mg sucrose",
-        "alternative": "Film-coated tablet; no sucrose listed",
-        "verdict": "alt_better",
-        "source": "https://www.shop-apotheke.com/arzneimittel/8794436/nurofen-ibuprofen-400-mg-bei-kopfschmerzen.htm"
-      },
-      {
-        "aspect": "Inactive ingredients",
-        "brand": "Stearic acid, croscarmellose, silica, sodium citrate, SLS, carmellose, sucrose, macrogol 6000, TiO2, gum arabic, talc",
-        "alternative": "Stearic acid, croscarmellose, hypromellose, silica, pregelatinised maize starch, macrogol 8000, TiO2",
+        "aspect": "Coating",
+        "brand": "Sugar-coated tablet; lists sucrose, gum arabic, talc, macrogol 6000, TiO2",
+        "alternative": "Film-coated tablet",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/10019621/ibu-ratiopharm-400-mg-akut-schmerztabletten.htm"
+        "source": "https://www.aponeo.de/08794436-nurofen-ibuprofen-400-mg-ueberzogene-tabletten.html"
       }
     ]
   },
@@ -621,41 +607,43 @@
       "product": "Zovirax Lippenherpescreme 5% aciclovir, 2 g",
       "size": 2,
       "unit": "g",
-      "price": 9.59,
-      "retailer": "shopapotheke",
+      "price": 9.44,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/2799289/zovirax-lippenherpescreme-mit-aciclovir.htm",
+      "url": "https://www.aponeo.de/02799289-zovirax-lippenherpes-creme.html",
       "key_ingredients": [
         {
           "name": "Aciclovir",
           "amount": "50 mg/g (5%)"
         }
-      ]
+      ],
+      "license_id": "PZN 02799289"
     },
     "alternative": {
       "brand": "Hexal",
       "product": "Acic Creme bei Lippenherpes 5% aciclovir, 2 g",
       "size": 2,
       "unit": "g",
-      "price": 3.89,
-      "retailer": "shopapotheke",
+      "price": 3.99,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm",
+      "url": "https://www.aponeo.de/08654310-acic-creme-bei-lippenherpes.html",
       "key_ingredients": [
         {
           "name": "Aciclovir",
           "amount": "50 mg/g (5%)"
         }
-      ]
+      ],
+      "license_id": "PZN 08654310"
     },
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are 5% aciclovir creams (50 mg per gram) in a 2 g tube for cold sores.",
-    "evidence": "Shop Apotheke (retailer: other) lists Zovirax Lippenherpescreme by Haleon (PZN 02799289) and Acic Creme bei Lippenherpes by Hexal (PZN 08654310). Both pages state 5% aciclovir, 50 mg per gram, as a cream, apothekenpflichtig without a prescription. Prices are from the same shop, 2 g tubes.",
-    "differences": "Cream base and inactive ingredients may differ. Other 5% aciclovir lip creams (ratiopharm, AbZ) were listed as out of stock when checked.",
+    "evidence": "APONEO, an online pharmacy whose terms allow reading, lists Zovirax Lippenherpescreme by Haleon (PZN 02799289) and Acic Creme bei Lippenherpes by Hexal (PZN 08654310). Both pages state aciclovir 50 mg per gram (5%), as a cream in a 2 g tube, apothekenpflichtig without a prescription. Prices are from the same shop, read 13 Nov 2026.",
+    "differences": "The cream bases differ: Zovirax lists sodium lauryl sulfate and poloxamer 407, Acic doesn't.",
     "sources": [
-      "https://www.shop-apotheke.com/arzneimittel/2799289/zovirax-lippenherpescreme-mit-aciclovir.htm",
-      "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm",
+      "https://www.aponeo.de/02799289-zovirax-lippenherpes-creme.html",
+      "https://www.aponeo.de/08654310-acic-creme-bei-lippenherpes.html",
       "https://www.aponeo.de/02286360-aciclovir-ratiopharm-lippenherpescreme.html"
     ],
     "price_checked": "2026-11",
@@ -666,21 +654,14 @@
         "brand": "Haleon Germany GmbH",
         "alternative": "Hexal AG",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm"
+        "source": "https://www.aponeo.de/08654310-acic-creme-bei-lippenherpes.html"
       },
       {
         "aspect": "Cream base",
-        "brand": "Cetostearyl alcohol, PEG-100 stearyl ether, dimethicone, glyceryl monostearate, poloxamer 407, sodium lauryl sulfate, paraffins",
-        "alternative": "Cetyl alcohol, macrogol glycerol stearate, dimethicone 350, paraffins; no sodium lauryl sulfate",
+        "brand": "Propylene glycol, white soft paraffin, cetostearyl alcohol, liquid paraffin, glyceryl monostearate, macrogol stearate 100, poloxamer 407, sodium lauryl sulfate, dimethicone 20, water",
+        "alternative": "Cetyl alcohol, dimethicone 350, glyceryl monostearate, liquid paraffin, macrogol stearate 1500, propylene glycol, white soft paraffin, water; no sodium lauryl sulfate",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/2799289/zovirax-lippenherpescreme-mit-aciclovir.htm"
-      },
-      {
-        "aspect": "Propylene glycol",
-        "brand": "400 mg per tube",
-        "alternative": "150 mg per tube",
-        "verdict": "alt_better",
-        "source": "https://www.shop-apotheke.com/arzneimittel/8654310/acic-creme-bei-lippenherpes.htm"
+        "source": "https://www.aponeo.de/02799289-zovirax-lippenherpes-creme.html"
       }
     ]
   },
@@ -1002,34 +983,10 @@
       "product": "Thomapyrin Classic Schmerztabletten, 20 tablets",
       "size": 20,
       "unit": "tablet",
-      "price": 5.59,
-      "retailer": "docmorris",
+      "price": 5.99,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.docmorris.de/thomapyrin-classic/03046735",
-      "key_ingredients": [
-        {
-          "name": "Acetylsalicylic acid",
-          "amount": "250 mg"
-        },
-        {
-          "name": "Paracetamol",
-          "amount": "200 mg"
-        },
-        {
-          "name": "Caffeine",
-          "amount": "50 mg"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "ALIUD (AL)",
-      "product": "Dolopyrin AL Tabletten, 20 tablets",
-      "size": 20,
-      "unit": "tablet",
-      "price": 3.19,
-      "retailer": "shopapotheke",
-      "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm",
+      "url": "https://www.aponeo.de/03046735-thomapyrin-classic-schmerztabletten.html",
       "key_ingredients": [
         {
           "name": "Acetylsalicylic acid",
@@ -1044,45 +1001,66 @@
           "amount": "50 mg"
         }
       ],
-      "rating": {
-        "stars": 4.9,
-        "count": 12,
-        "source": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm"
-      }
+      "license_id": "PZN 03046735"
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "Dolopyrin AL Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 2.98,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00190791-dolopyrin-al-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Paracetamol",
+          "amount": "200 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "50 mg"
+        }
+      ],
+      "license_id": "PZN 00190791"
     },
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are the same three-part headache tablet: 250 mg ASS, 200 mg paracetamol and 50 mg caffeine.",
-    "evidence": "DocMorris (retailer: other) lists Thomapyrin Classic by A. Nattermann (PZN 03046735) at 250 mg acetylsalicylic acid, 200 mg paracetamol and 50 mg caffeine per tablet. Shop Apotheke (retailer: other) lists Dolopyrin AL by ALIUD Pharma (PZN 00190791) with the same three actives at the same amounts. Both are apothekenpflichtig.",
-    "differences": "Prices come from two different online pharmacies (DocMorris and Shop Apotheke). Inactive ingredients may differ.",
+    "evidence": "APONEO, an online pharmacy whose terms allow reading, lists Thomapyrin CLASSIC by A. Nattermann & Cie (PZN 03046735) and Dolopyrin AL by ALIUD Pharma (PZN 00190791), 20 tablets each. Both pages state 250 mg acetylsalicylic acid, 200 mg paracetamol and 50 mg caffeine per tablet, and both are apothekenpflichtig. Prices are from the same shop, read 13 Nov 2026.",
+    "differences": "Inactive ingredients differ: Thomapyrin contains lactose, Dolopyrin AL doesn't.",
     "sources": [
-      "https://www.docmorris.de/thomapyrin-classic/03046735",
-      "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm",
-      "https://www.shop-apotheke.com/marken/ass/ass-500/"
+      "https://www.aponeo.de/03046735-thomapyrin-classic-schmerztabletten.html",
+      "https://www.aponeo.de/00190791-dolopyrin-al-tabletten.html",
+      "https://www.docmorris.de/thomapyrin-classic/03046735"
     ],
     "price_checked": "2026-11",
     "look_for": "Aspirin 250 mg + paracetamol 200 mg + caffeine 50 mg tablets",
     "aspects": [
       {
         "aspect": "Who makes it",
-        "brand": "A. Nattermann & Cie GmbH (Opella), Frankfurt",
-        "alternative": "ALIUD Pharma GmbH, Laichingen",
+        "brand": "A. Nattermann & Cie GmbH",
+        "alternative": "ALIUD Pharma GmbH",
         "verdict": "different",
-        "source": "https://www.apotheken-umschau.de/medikamente/beipackzettel/thomapyrin-classic-schmerztabletten-3046735.html"
+        "source": "https://www.aponeo.de/03046735-thomapyrin-classic-schmerztabletten.html"
       },
       {
         "aspect": "Lactose",
-        "brand": "Contains lactose monohydrate (not for lactose intolerance)",
-        "alternative": "No lactose: stearic acid, pregelatinised maize starch, talc",
+        "brand": "Contains lactose monohydrate",
+        "alternative": "No lactose listed",
         "verdict": "alt_better",
-        "source": "https://www.shop-apotheke.com/arzneimittel/190791/dolopyrin-al.htm"
+        "source": "https://www.aponeo.de/00190791-dolopyrin-al-tabletten.html"
       },
       {
         "aspect": "Inactive ingredients",
         "brand": "Lactose monohydrate, stearic acid, maize starch",
-        "alternative": "Stearic acid, pregelatinised maize starch, talc",
+        "alternative": "Pregelatinised maize starch, stearic acid, talc",
         "verdict": "different",
-        "source": "https://www.apotheken-umschau.de/medikamente/beipackzettel/thomapyrin-classic-schmerztabletten-3046735.html"
+        "source": "https://www.aponeo.de/03046735-thomapyrin-classic-schmerztabletten.html"
       }
     ]
   },
@@ -1097,64 +1075,54 @@
       "product": "Dolormin Extra 400 mg Filmtabletten, 50 tablets",
       "size": 50,
       "unit": "tablet",
-      "price": 17.79,
-      "retailer": "shopapotheke",
+      "price": 15.99,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/1094724/dolormin-extra.htm",
-      "key_ingredients": [
-        {
-          "name": "Ibuprofen DL-lysine",
-          "amount": "683.47 mg (= 400 mg ibuprofen)"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "1 A Pharma",
-      "product": "Ibu-Lysin - 1 A Pharma 400 mg Filmtabletten, 50 tablets",
-      "size": 50,
-      "unit": "tablet",
-      "price": 11.79,
-      "retailer": "shopapotheke",
-      "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm",
+      "url": "https://www.aponeo.de/02400229-dolormin-extra-filmtabletten.html",
       "key_ingredients": [
         {
           "name": "Ibuprofen DL-lysine",
           "amount": "683.47 mg (= 400 mg ibuprofen)"
         }
       ],
-      "rating": {
-        "stars": 5,
-        "count": 5,
-        "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
-      }
+      "license_id": "PZN 02400229"
+    },
+    "alternative": {
+      "brand": "1 A Pharma",
+      "product": "Ibu-Lysin - 1 A Pharma 400 mg Filmtabletten, 50 tablets",
+      "size": 50,
+      "unit": "tablet",
+      "price": 12.88,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/15743793-ibu-lysin-1a-pharma-400-mg-filmtabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen DL-lysine",
+          "amount": "683.47 mg (= 400 mg ibuprofen)"
+        }
+      ],
+      "license_id": "PZN 15743793"
     },
     "match_type": "identical_active",
     "confidence": "high",
-    "summary": "Both are film-coated tablets with 683.47 mg ibuprofen lysine (400 mg ibuprofen), the fast-absorbed salt used in Dolormin Extra.",
-    "evidence": "Shop Apotheke (retailer: other) lists Dolormin Extra by Kenvue Germany (PZN 01094724) and Ibu-Lysin 1 A Pharma 400 mg (PZN 15743793). Both pages state 683.47 mg ibuprofen DL-lysine per film-coated tablet, equal to 400 mg ibuprofen, and both are apothekenpflichtig. Prices are from the same shop, 50-tablet packs.",
-    "differences": "Inactive ingredients may differ.",
+    "summary": "Both are film-coated tablets with 400 mg ibuprofen as ibuprofen lysine, the fast-absorbed salt used in Dolormin Extra.",
+    "evidence": "APONEO, an online pharmacy whose terms allow reading, lists Dolormin Extra by Kenvue Germany (PZN 02400229) and Ibu-Lysin 1 A Pharma 400 mg (PZN 15743793), 50 film-coated tablets each. Both pages state 400 mg ibuprofen per tablet as ibuprofen-DL-lysine (1:1), and both are apothekenpflichtig. Prices are from the same shop, read 13 Nov 2026.",
+    "differences": "Inactive ingredients may differ; the pharmacy page lists them only for Dolormin Extra.",
     "sources": [
-      "https://www.shop-apotheke.com/arzneimittel/1094724/dolormin-extra.htm",
-      "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm",
-      "https://www.apotheken-umschau.de/medikamente/beipackzettel/dolormin-extra-filmtabletten-91072.html"
+      "https://www.aponeo.de/02400229-dolormin-extra-filmtabletten.html",
+      "https://www.aponeo.de/15743793-ibu-lysin-1a-pharma-400-mg-filmtabletten.html",
+      "https://www.aponeo.de/01094724-dolormin-extra-filmtabletten.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Ibuprofen lysine 684 mg (400 mg ibuprofen) tablets",
     "aspects": [
       {
         "aspect": "Who makes it",
-        "brand": "Kenvue Germany GmbH, Neuss",
+        "brand": "Kenvue Germany GmbH",
         "alternative": "1 A Pharma GmbH",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
-      },
-      {
-        "aspect": "Inactive ingredients",
-        "brand": "Hyprolose, hypromellose, MCC, povidone K30, Mg stearate, TiO2",
-        "alternative": "Copovidone, carboxymethyl starch, methacrylate copolymer, MCC, PVA, Mg stearate, NaHCO3, macrogol 4000, TiO2, talc",
-        "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/15743793/ibu-lysin-1a-pharma-400-mg.htm"
+        "source": "https://www.aponeo.de/15743793-ibu-lysin-1a-pharma-400-mg-filmtabletten.html"
       }
     ]
   },
@@ -1169,46 +1137,44 @@
       "product": "Voltaren Schmerzgel forte 23.2 mg/g, 150 g",
       "size": 150,
       "unit": "g",
-      "price": 18.47,
-      "retailer": "medikamente-per-klick",
+      "price": 20.99,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.medikamente-per-klick.de/voltaren-schmerzgel-forte-23-2-mg-g-150g-08628270?sps=abp",
-      "key_ingredients": [
-        {
-          "name": "Diclofenac diethylamine",
-          "amount": "23.2 mg/g (2.32%)"
-        }
-      ]
-    },
-    "alternative": {
-      "brand": "ratiopharm",
-      "product": "Diclox forte Schmerzgel 2% (ratiopharm), 150 g",
-      "size": 150,
-      "unit": "g",
-      "price": 15.69,
-      "retailer": "shopapotheke",
-      "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm",
+      "url": "https://www.aponeo.de/08628270-voltaren-schmerzgel-forte-23-2-mg-g.html",
       "key_ingredients": [
         {
           "name": "Diclofenac diethylamine",
           "amount": "23.2 mg/g (2.32%)"
         }
       ],
-      "rating": {
-        "stars": 4.8,
-        "count": 60,
-        "source": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm"
-      }
+      "license_id": "PZN 08628270"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Diclox forte Schmerzgel 2% (ratiopharm), 150 g",
+      "size": 150,
+      "unit": "g",
+      "price": 15.31,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16705010-diclox-forte-20-mg-g-gel.html",
+      "key_ingredients": [
+        {
+          "name": "Diclofenac diethylamine",
+          "amount": "23.2 mg/g (2.32%)"
+        }
+      ],
+      "license_id": "PZN 16705010"
     },
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both gels contain 23.2 mg diclofenac diethylamine per gram (equal to 20 mg/g diclofenac) and are used twice daily.",
-    "evidence": "medikamente-per-klick (retailer: other) lists Voltaren Schmerzgel forte by Haleon (PZN 08628270) with 23.2 mg/g diclofenac diethylamine, applied twice daily. Shop Apotheke (retailer: other) lists Diclox forte by ratiopharm (PZN 16705010) with 23.2 mg diclofenac diethylamine per gram (stated as 20 mg/g diclofenac), also twice daily. Both are apothekenpflichtig.",
-    "differences": "The saving is small at current discount prices. Prices come from two different online pharmacies. Gel base and inactive ingredients may differ. Do not confuse with the 1% gels (Voltaren Schmerzgel 1.16% or Diclo-ratiopharm Schmerzgel, which uses diclofenac sodium).",
+    "evidence": "APONEO, an online pharmacy whose terms allow reading, lists Voltaren Schmerzgel forte by Haleon (PZN 08628270) with 23.2 mg diclofenac diethylamine per gram, and Diclox forte by ratiopharm (PZN 16705010) with 23.2 mg diclofenac diethylamine per gram, stated as equal to 20 mg diclofenac sodium. Both are 150 g tubes and apothekenpflichtig. Prices are from the same shop, read 13 Nov 2026.",
+    "differences": "Gel base and inactive ingredients may differ. Do not confuse with the 1% gels (Voltaren Schmerzgel 1.16% or Diclo-ratiopharm Schmerzgel, which uses diclofenac sodium).",
     "sources": [
-      "https://www.medikamente-per-klick.de/voltaren-schmerzgel-forte-23-2-mg-g-150g-08628270?sps=abp",
-      "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm"
+      "https://www.aponeo.de/08628270-voltaren-schmerzgel-forte-23-2-mg-g.html",
+      "https://www.aponeo.de/16705010-diclox-forte-20-mg-g-gel.html",
+      "https://www.medikamente-per-klick.de/voltaren-schmerzgel-forte-23-2-mg-g-150g-08628270?sps=abp"
     ],
     "price_checked": "2026-11",
     "look_for": "Diclofenac diethylamine 2.32% gel (twice daily)",
@@ -1216,16 +1182,16 @@
       {
         "aspect": "Who makes it",
         "brand": "Haleon Germany GmbH",
-        "alternative": "ratiopharm GmbH, Ulm",
+        "alternative": "ratiopharm GmbH",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/16705010/diclox-forte-schmerzgel-2-mit-diclofenac.htm"
+        "source": "https://www.aponeo.de/16705010-diclox-forte-20-mg-g-gel.html"
       },
       {
         "aspect": "Propylene glycol, BHT, fragrance",
         "brand": "Contains propylene glycol, butylhydroxytoluene and fragrance (eucalyptus, linalool, limonene etc.)",
-        "alternative": "Contains propylene glycol (54 mg), isopropanol, BHT and perfume oil with linalool, geraniol",
+        "alternative": "Contains propylene glycol, 2-propanol, butylhydroxytoluene and perfume oil",
         "verdict": "same",
-        "source": "https://www.medikamente-per-klick.de/voltaren-schmerzgel-forte-23-2-mg-g-150g-08628270?sps=abp"
+        "source": "https://www.aponeo.de/16705010-diclox-forte-20-mg-g-gel.html"
       }
     ]
   }

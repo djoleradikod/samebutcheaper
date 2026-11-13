@@ -1,4 +1,5 @@
 import { livePrograms, liveSubNetwork, pickAffiliateEnv, type Env } from "./affiliate-links";
+import { legalMissing } from "./legal";
 import { letterSettings } from "./letter-settings";
 import { mailConfigured } from "./mail";
 
@@ -6,6 +7,7 @@ import { mailConfigured } from "./mail";
 const MAIL_NUMBERS = [
   "NEWSLETTER_MAX_PER_RUN",
   "WATCH_MAX_PER_RUN",
+  "WISH_MAX_PER_RUN",
   "RETENTION_CLICK_DETAIL_DAYS",
   "RETENTION_LOOKUP_DAYS",
   "RETENTION_REPORT_DAYS",
@@ -143,6 +145,20 @@ export function readinessChecks(env: Env, facts: Facts): Check[] {
       ? "set"
       : "not set: sign-ups and price watches are saved but nobody gets a confirmation email, and nothing else is sent (it is only logged)",
     fix: "Create a Resend account, verify the domain, then set RESEND_API_KEY and MAIL_FROM.",
+  });
+
+  // German law (DDG §5) wants a legal notice before marketing email reaches German readers, and confirmation emails
+  // go to whoever signs up. Without email nothing goes out, so until then it is only recommended.
+  const missingLegal = legalMissing(env);
+  add({
+    id: "legal-notice",
+    label: "Legal notice (Impressum)",
+    level: mailConfigured(env) ? "blocker" : "recommended",
+    ok: missingLegal.length === 0,
+    detail: missingLegal.length
+      ? `not published (${missingLegal.join(", ")} not set): /impressum says so, and the weekly letter is held back for readers in Germany and Austria`
+      : "published at /impressum",
+    fix: "Set LEGAL_NAME, LEGAL_ADDRESS and LEGAL_EMAIL to the site owner's real details (LEGAL_PHONE, LEGAL_VAT_ID and LEGAL_RESPONSIBLE when they apply). Required before sending any email to a German address.",
   });
 
   const letter = letterSettings(env);

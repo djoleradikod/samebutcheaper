@@ -6,12 +6,13 @@ import { PairBrowser } from "@/components/PairBrowser";
 import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount } from "@/components/ShelfParts";
 import { forCountry, type Local } from "@/lib/localize";
 import { CountryPart } from "@/components/ForCountry";
+import { countryHead } from "@/lib/seo-catalog";
 
 export const metadata: Metadata = {
   title: "Biggest savings: every swap, ranked",
   description:
     "Every cheaper alternative to a brand-name product in our catalogue, ranked by how much you save per unit.",
-  alternates: { canonical: "/biggest-savings" },
+  ...countryHead("/biggest-savings", null),
 };
 
 /** The list leaves medicine out until it's added, so the headline figures do too. */

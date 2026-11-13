@@ -1,0 +1,47 @@
+# Daily look at the live site from outside: is it up, does the database answer with every migration applied, and
+# what is still on the launch checklist. Off until the repository variable SITE_URL is set (then it fails, and
+# GitHub emails you, when the site is down).
+#
+# Daily upkeep (src/lib/maintenance.ts: retention, confirmation emails, price-watch emails, the weekly letter) is
+# not triggered over HTTP: it runs inside the web server on a timer (src/lib/server/startup.ts), so there is nothing
+# to ping. If the site moves to a host without a long-running server (Vercel, Cloudflare), see docs/deploy.md,
+# "Other hosts", for the endpoint and schedule that would need adding.
+name: Site check
+
+on:
+  schedule:
+    - cron: "11 7 * * *" # daily, 07:11 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
+      - name: Health
+        run: |
+          set -uo pipefail
+          if [ -z "$SITE_URL" ]; then
+            echo "::notice title=Site check not configured::Set the repository variable SITE_URL (docs/deploy.md) to check the live site daily."
+            exit 0
+          fi
+          body="$(curl -fsS --max-time 20 --retry 3 --retry-delay 10 "$SITE_URL/api/health")" || {
+            echo "::error title=Site down::$SITE_URL/api/health did not answer. On the server: DEPLOY_PATH/deploy-remote.sh status (docs/deploy.md)."
+            exit 1
+          }
+          echo "$body"
+          { echo "Health: \`$body\`"; } >> "$GITHUB_STEP_SUMMARY"
+          if ! printf '%s' "$body" | grep -q '"database":"ok"'; then
+            echo "::error title=Database::The site is up but its database does not answer (clicks, sign-ups and upkeep are not being saved)."
+            exit 1
+          fi
+          if curl -fsS --max-time 20 -o /dev/null "$SITE_URL/api/health?ready=1"; then
+            echo "Launch checklist: nothing blocks." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning title=Launch checklist::Something on the launch checklist still blocks (names in the health answer above; details on /admin)."
+          fi

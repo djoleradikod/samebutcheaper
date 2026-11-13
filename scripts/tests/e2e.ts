@@ -293,26 +293,49 @@ test("admin: password required, wrong guesses are locked out, the dashboard and 
   assert.equal((await get("/admin", { ...owner.headers, authorization: basic(ADMIN) })).status, 200, "the owner is not");
 });
 
-test("newsletter: the emailed link confirms, one-click unsubscribe works, and a GET never unsubscribes", { skip }, async () => {
+test("newsletter: opening the emailed link changes nothing, its button confirms once, one-click unsubscribe works, and a GET never unsubscribes", { skip }, async () => {
   assert.equal(await subscribeEmail(db, { email: "e2e@example.com" }, { siteUrl: BASE, env: { RESEND_API_KEY: "re_test", MAIL_FROM: "x <x@samebutcheaper.test>", RESEND_API_URL: mailUrl } }), "sent");
-  const link = /http:\/\/\S+confirm\?token=\S+/.exec(sent.at(-1)!.text)![0];
-  const token = new URL(link).searchParams.get("token")!;
-  const status = async () => (await db.select().from(subscribers).where(eq(subscribers.email, "e2e@example.com")))[0].status;
+  const link = new URL(/http:\/\/\S+\/newsletter\/confirm\?t=\S+/.exec(sent.at(-1)!.text)![0]);
+  const secret = link.searchParams.get("t")!;
+  const row = async () => (await db.select().from(subscribers).where(eq(subscribers.email, "e2e@example.com")))[0];
+  const status = async () => (await row()).status;
+  const token = (await row()).token!;
+  const press = (t: string, v = visitor()) =>
+    fetch(`${BASE}/api/newsletter/confirm`, { method: "POST", redirect: "manual", headers: { ...v.headers, "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ t }).toString() });
 
-  const bad = await get("/api/newsletter/confirm?token=nope-nope-nope-nope-nope", visitor().headers);
+  // A mail scanner opens the link, and anything else it can find, with GETs: nothing changes.
+  const page = await get(link.pathname + link.search, visitor().headers);
+  assert.equal(page.status, 200);
+  const html = await page.text();
+  assert.match(html, /weekly letter/);
+  assert.match(html, /<form[^>]+action="\/api\/newsletter\/confirm"[^>]*method="post"/);
+  assert.match(html, /name="referrer" content="no-referrer"/);
+  assert.match(html, /noindex/);
+  assert.equal((await get(`/api/newsletter/confirm?t=${secret}`, visitor().headers)).headers.get("location"), `/newsletter/confirm?t=${secret}`);
+  assert.equal((await get(`/api/newsletter/confirm?token=${token}`, visitor().headers)).headers.get("location"), "/newsletter/invalid", "old-style links act on nothing");
+  assert.equal(await status(), "pending", "a GET alone changes nothing");
+
+  const bad = await press("nope-nope-nope-nope-nope");
   assert.deepEqual([bad.status, bad.headers.get("location")], [303, "/newsletter/invalid"]);
+  assert.equal((await press(token)).headers.get("location"), "/newsletter/invalid", "the unsubscribe token can't confirm");
   assert.equal(await status(), "pending");
 
-  const ok = await get(new URL(link).pathname + new URL(link).search, visitor().headers);
+  const ok = await press(secret);
   assert.deepEqual([ok.status, ok.headers.get("location")], [303, "/newsletter/confirmed"]);
-  assert.equal(await status(), "confirmed");
+  assert.deepEqual([await status(), (await row()).newsletter], ["confirmed", "yes"]);
   assert.equal((await get("/newsletter/confirmed")).status, 200);
+  assert.equal((await press(secret)).headers.get("location"), "/newsletter/invalid", "replaying the post does nothing");
+  assert.match(await (await get(link.pathname + link.search, visitor().headers)).text(), /already been used/);
 
   const viaGet = await get(`/api/newsletter/unsubscribe?token=${token}`, visitor().headers);
   assert.equal(viaGet.status, 303);
   assert.match(viaGet.headers.get("location") ?? "", /^\/newsletter\/unsubscribe\?token=/);
-  assert.equal(await status(), "confirmed", "a mail scanner opening the link changes nothing");
-  assert.equal((await get(`/newsletter/unsubscribe?token=${token}`)).status, 200);
+  const unsubPage = await get(`/newsletter/unsubscribe?token=${token}`, visitor().headers);
+  assert.equal(unsubPage.status, 200);
+  const unsubHtml = await unsubPage.text();
+  assert.match(unsubHtml, /e•••@example\.com/);
+  assert.match(unsubHtml, /<form[^>]+action="\/api\/newsletter\/unsubscribe"[^>]*method="post"/);
+  assert.equal(await status(), "confirmed", "a mail scanner opening the link and the page changes nothing");
 
   const oneClick = await fetch(`${BASE}/api/newsletter/unsubscribe?token=${token}`, {
     method: "POST",
@@ -333,20 +356,28 @@ test("a price watch's link confirms just that watch, and its one-click link stop
     await requestWatch(db, { email: "watch-e2e@example.com", country: "US", slug: pair.slug, title: pair.title, prices: pricesOf(pair) }, { siteUrl: BASE, env: mailEnv }),
     "sent",
   );
-  const link = new URL(/http:\/\/\S+confirm\?token=\S+/.exec(sent.at(-1)!.text)![0]);
-  assert.match(link.search, /&for=watch-\d+$/);
-  const token = link.searchParams.get("token")!;
-  const scope = link.searchParams.get("for")!;
+  const link = new URL(/http:\/\/\S+\/newsletter\/confirm\?t=\S+/.exec(sent.at(-1)!.text)![0]);
   const row = async () => (await db.select().from(subscribers).where(eq(subscribers.email, "watch-e2e@example.com")))[0];
-  const watchStatus = async () => (await db.select().from(schema.watches).where(eq(schema.watches.slug, pair.slug)))[0].status;
+  const token = (await row()).token!;
+  const watchRow = async () => (await db.select().from(schema.watches).where(eq(schema.watches.slug, pair.slug)))[0];
+  const watchStatus = async () => (await watchRow()).status;
+  const scope = `watch-${(await watchRow()).id}`;
 
-  const ok = await get(link.pathname + link.search, visitor().headers);
+  const page = await (await get(link.pathname + link.search, visitor().headers)).text();
+  assert.ok(page.includes("Yes, watch this swap"));
+  assert.equal(await watchStatus(), "pending", "opening the link changes nothing");
+  const ok = await fetch(`${BASE}/api/newsletter/confirm`, {
+    method: "POST",
+    redirect: "manual",
+    headers: { ...visitor().headers, "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ t: link.searchParams.get("t")! }).toString(),
+  });
   assert.deepEqual([ok.status, ok.headers.get("location")], [303, "/newsletter/confirmed/watch"]);
   assert.equal((await get("/newsletter/confirmed/watch")).status, 200);
   assert.deepEqual([(await row()).status, (await row()).newsletter, await watchStatus()], ["confirmed", "no", "active"]);
 
-  const page = await get(`/api/newsletter/unsubscribe?token=${token}&only=${scope}`, visitor().headers);
-  assert.equal(page.headers.get("location"), `/newsletter/unsubscribe?token=${token}&only=${scope}`);
+  const unsub = await get(`/api/newsletter/unsubscribe?token=${token}&only=${scope}`, visitor().headers);
+  assert.equal(unsub.headers.get("location"), `/newsletter/unsubscribe?token=${token}&only=${scope}`);
   const oneClick = await fetch(`${BASE}/api/newsletter/unsubscribe?token=${token}&only=${scope}`, {
     method: "POST",
     headers: { ...visitor().headers, "content-type": "application/x-www-form-urlencoded" },
@@ -419,4 +450,193 @@ test("photo reading says so when it is switched off, and refuses scripts", { ski
 test("the server logged no errors while all of this ran", { skip }, async () => {
   const errors = serverLog.split("\n").filter((l) => l.includes('"level":"error"') || /⨯|Unhandled|TypeError|ReferenceError/.test(l));
   assert.deepEqual(errors, []);
+});
+
+test("check my shopping: a pasted receipt is matched in the shopper's country, misses counted by name only, results shared by slug", { skip }, async () => {
+  const v = visitor({ cookie: "sbc_country=GB", "content-type": "application/json" });
+  const receipt = [
+    "TESCO STORES LTD",
+    "HEINZ TOM KETCHUP 460G      £3.00 A",
+    "NUROFEN 200MG 16S           £2.00 A",
+    "2 x ZZQUUX TOASTIE 800G     £1.65 A",
+    "Clubcard Price Saving      -£0.50",
+    "VISA ************4242",
+  ].join("\n");
+  const res = await fetch(`${BASE}/check/list/match`, { method: "POST", headers: v.headers, body: JSON.stringify({ text: receipt }) });
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get("cache-control"), "no-store");
+  const body = (await res.json()) as { ok: boolean; noise: number; lines: { status: string; slug?: string; counted?: string }[]; swaps: Record<string, { currency: string }> };
+  assert.equal(body.ok, true);
+  assert.deepEqual(body.lines.map((l) => l.status), ["swap", "maybe", "none"]);
+  assert.equal(body.noise, 3);
+  const ketchup = body.lines[0].slug!;
+  assert.match(ketchup, /^heinz-tomato-ketchup-.*-gb$/);
+  assert.equal(body.swaps[ketchup].currency, "GBP");
+  assert.equal(body.lines[2].counted, "zzquux toastie");
+
+  // The miss is counted by its cleaned name, written after the response; nothing else from the receipt is stored.
+  let rows: (typeof schema.wanted.$inferSelect)[] = [];
+  for (let i = 0; i < 40 && !rows.length; i++) {
+    rows = (await db.select().from(schema.wanted)).filter((r) => r.query.includes("zzquux"));
+    if (!rows.length) await new Promise((r) => setTimeout(r, 50));
+  }
+  assert.deepEqual(rows.map((r) => [r.query, r.source, r.country]), [["zzquux toastie", "check", "GB"]]);
+  const stored = JSON.stringify(await db.select().from(schema.wanted)) + JSON.stringify(await db.select().from(schema.lookups));
+  for (const bit of ["4242", "1.65", "Clubcard", "TESCO STORES"]) assert.ok(!stored.includes(bit), `${bit} was stored`);
+  assert.ok(!serverLog.includes("ZZQUUX") && !serverLog.includes("4242"), "the receipt never reaches the log");
+
+  // A shared result names only slugs and frequencies, and opens the same swap.
+  const page = await (await get(`/check/list?s=${ketchup}.2w~not-a-swap`, { ...visitor().headers, cookie: "sbc_country=GB" })).text();
+  assert.ok(page.includes("Heinz Tomato Ketchup"), "the shared swap shows");
+  assert.ok(page.includes("Paste your shopping list"));
+
+  // Photo reading is off without a key, and the text check refuses scripts and floods.
+  const photo = await fetch(`${BASE}/check/list/photo`, { method: "POST", headers: visitor().headers, body: new FormData() });
+  assert.equal(photo.status, 503);
+  const script = await fetch(`${BASE}/check/list/match`, { method: "POST", headers: { "user-agent": "curl/8.0", "x-forwarded-for": "203.0.113.77" }, body: JSON.stringify({ text: "HEINZ" }) });
+  assert.equal(script.status, 403);
+  const flood = visitor({ "content-type": "application/json" });
+  const codes: number[] = [];
+  for (let i = 0; i < 21; i++) {
+    codes.push((await fetch(`${BASE}/check/list/match`, { method: "POST", headers: flood.headers, body: JSON.stringify({ text: "HEINZ KETCHUP" }) })).status);
+  }
+  assert.deepEqual([codes.filter((c) => c === 200).length, codes.at(-1)], [20, 429]);
+});
+
+// ---- Email and feedback loops, wave 2 (safe links, the legal notice, privacy, reports that come true) ----------
+
+test("the unsubscribe page's buttons post, stop what they say, and the page is read-only", { skip }, async () => {
+  const mailEnv = { RESEND_API_KEY: "re_test", MAIL_FROM: "x <x@samebutcheaper.test>", RESEND_API_URL: mailUrl };
+  await subscribeEmail(db, { email: "unsub-e2e@example.com" }, { siteUrl: BASE, env: mailEnv });
+  const row = async () => (await db.select().from(subscribers).where(eq(subscribers.email, "unsub-e2e@example.com")))[0];
+  const token = (await row()).token!;
+  for (let i = 0; i < 3; i++) assert.equal((await get(`/newsletter/unsubscribe?token=${token}&only=letter`, visitor().headers)).status, 200);
+  assert.equal((await row()).status, "pending", "opening the page changes nothing");
+  const button = await fetch(`${BASE}/api/newsletter/unsubscribe`, {
+    method: "POST",
+    redirect: "manual",
+    headers: { ...visitor().headers, "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ token, only: "letter" }).toString(),
+  });
+  assert.deepEqual([button.status, button.headers.get("location")], [303, "/newsletter/stopped"]);
+  assert.equal((await row()).newsletter, "no");
+  assert.notEqual((await row()).status, "unsubscribed", "only the letter stopped");
+  const unknown = await (await get(`/newsletter/unsubscribe?token=${"q".repeat(43)}`, visitor().headers)).text();
+  assert.match(unknown, /don(&#x27;|')t recognise this link/);
+});
+
+test("confirm and unsubscribe links are rate-limited per visitor", { skip }, async () => {
+  const v = visitor();
+  const codes: number[] = [];
+  for (let i = 0; i < 32; i++) {
+    const r = await fetch(`${BASE}/api/newsletter/confirm`, {
+      method: "POST",
+      redirect: "manual",
+      headers: { ...v.headers, "content-type": "application/x-www-form-urlencoded" },
+      body: `t=${"n".repeat(43)}`,
+    });
+    codes.push(r.status);
+  }
+  assert.deepEqual([codes.filter((c) => c === 303).length, codes.at(-1)], [30, 429]);
+});
+
+test("impressum: linked from the footer, and while the LEGAL_ settings are unset it says so and isn't indexed", { skip }, async () => {
+  const home = await (await get("/", visitor().headers)).text();
+  assert.match(home, /href="\/impressum"/);
+  const res = await get("/impressum", visitor().headers);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.match(html, /isn(&#x27;|')t published yet/);
+  assert.match(html, /<meta name="robots" content="noindex, follow"/);
+});
+
+test("privacy: the retention periods in force, and what happens to pasted lists and receipts", { skip }, async () => {
+  const html = await (await get("/privacy", visitor().headers)).text();
+  assert.match(html, /delete the hash and the page you came from/);
+  assert.match(html, /180 days/);
+  assert.match(html, /paste a shopping list or upload a receipt/);
+  assert.match(html, /href="\/impressum"/);
+});
+
+test("three shoppers reporting a changed price put a note on the swap page within a couple of minutes", { skip, timeout: 150_000 }, async () => {
+  const slug = pairs[1].slug;
+  for (const h of ["e2e-a", "e2e-b", "e2e-c"]) await db.insert(schema.reports).values({ recordKind: "pair", slug, kind: "price", visitorHash: h });
+  // The flags are cached for a minute (src/lib/reported.ts), so the note can lag behind the third report.
+  let seen = false;
+  for (let i = 0; i < 26 && !seen; i++) {
+    seen = (await (await get(`/compare/${slug}`, visitor().headers)).text()).includes("Shoppers report this price has changed.");
+    if (!seen) await new Promise((r) => setTimeout(r, 5000));
+  }
+  assert.ok(seen, "the note shows");
+  const other = await (await get(`/compare/${pairs[2].slug}`, visitor().headers)).text();
+  assert.ok(!other.includes("Shoppers report"), "only on the reported page");
+});
+
+test("the server logged no errors in the wave 2 scenarios either", { skip }, async () => {
+  const errors = serverLog.split("\n").filter((l) => l.includes('"level":"error"') || /⨯|Unhandled|TypeError|ReferenceError/.test(l));
+  assert.deepEqual(errors, []);
+  // No confirm secret or unsubscribe token reaches the server's own log.
+  const tokens = (await db.select({ token: subscribers.token }).from(subscribers)).map((r) => r.token!).filter(Boolean);
+  for (const t of tokens) assert.ok(!serverLog.includes(t));
+});
+
+/* ---------------------------------------------- country URLs (docs/country-urls.md) */
+
+const countryPairs = catalog.pairs as unknown as Pair[];
+/** The static HTML a reader without JavaScript gets: everything before the first streamed part (which arrives hidden). */
+const firstHtml = (html: string) => html.split(/<div hidden id="S:/)[0];
+const escaped = (s: string) => s.replace(/&/g, "&amp;").replace(/'/g, "&#x27;");
+
+test("a German swap under /de/ has its euro price and verdict in the first HTML, with a self canonical", { skip }, async () => {
+  const { money } = await import("../../src/lib/format");
+  const pair = countryPairs.find((p) => p.market === "DE" && p.currency === "EUR" && !p.twin)!;
+  const res = await get(`/de/compare/${pair.slug}`, { "user-agent": "curl/8" });
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  const head = firstHtml(html);
+  assert.ok(head.includes(money(pair.alternative.price, "EUR")), "the euro price is in the static HTML");
+  assert.ok(head.includes(escaped(pair.alternative.brand)) && head.includes(`costs ${Math.round(pair.savingsPct)}% less`), "the verdict is in the static HTML");
+  assert.match(html, new RegExp(`<link rel="canonical" href="[^"]*/de/compare/${pair.slug}"`));
+  assert.match(html, /hrefLang="en-DE"/i);
+  assert.ok(!/<meta name="robots" content="noindex/.test(html));
+  // Links on the page stay in the prefix.
+  assert.match(head, /href="\/de\/category\//);
+});
+
+test("an unprefixed swap still works, with the whole argument readable without JavaScript", { skip }, async () => {
+  const pair = countryPairs.find((p) => p.market === "DE" && !p.twin)!;
+  const res = await get(`/compare/${pair.slug}`, visitor({ cookie: "sbc_country=US" }).headers);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  const head = firstHtml(html);
+  assert.ok(head.includes(`costs ${Math.round(pair.savingsPct)}% less`), "verdict");
+  assert.ok(head.includes("€"), "the record's own prices stand in until the shopper's arrive");
+  assert.match(html, new RegExp(`<link rel="canonical" href="[^"]*/de/compare/${pair.slug}"`));
+  // Links on an unprefixed page stay unprefixed, except the links to the swap's own country versions.
+  assert.match(head, /href="\/category\//);
+  assert.ok(!/href="\/(us|uk|de|ca|ie)\/category\//.test(head));
+  assert.ok(head.includes(`href="/de/compare/${pair.slug}"`), "links its indexable country version");
+});
+
+test("a US-only swap under /de/ opens, but is noindex with no canonical", { skip }, async () => {
+  const pair = countryPairs.find((p) => p.market === "US" && !p.twin)!;
+  const res = await get(`/de/compare/${pair.slug}`, visitor().headers);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.match(html, /<meta name="robots" content="noindex, follow"/);
+  assert.ok(!/<link rel="canonical"/.test(html));
+  assert.match(html, /couldn(&#x27;|')t confirm you can buy it in (<!-- -->)?Germany/);
+});
+
+test("country URLs: unknown pages and the internal folder are 404, and the sitemap lists the prefixed forms", { skip }, async () => {
+  const pair = countryPairs.find((p) => p.market === "GB" && !p.twin)!;
+  assert.equal((await get("/de/compare/not-a-swap")).status, 404);
+  assert.equal((await get("/de/brands")).status, 404);
+  assert.equal((await get(`/country/uk/compare/${pair.slug}`)).status, 404);
+  for (const path of ["/us", "/uk", "/de", "/ca", "/ie", "/uk/biggest-savings", "/de/bundles"]) assert.equal((await get(path)).status, 200, path);
+  const sitemap = await (await get("/sitemap.xml")).text();
+  assert.ok(sitemap.includes(`/uk/compare/${pair.slug}</loc>`));
+  assert.ok(!new RegExp(`<loc>https?://[^/<]+/compare/${pair.slug}</loc>`).test(sitemap), "the unprefixed swap canonicalises away");
+  const home = await (await get("/", { "user-agent": "Googlebot/2.1" })).text();
+  for (const p of ["us", "uk", "de", "ca", "ie"]) assert.ok(home.includes(`href="/${p}"`), `the footer links /${p}`);
 });

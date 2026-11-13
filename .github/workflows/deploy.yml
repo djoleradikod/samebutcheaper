@@ -1,0 +1,265 @@
+# Build the production image, push it to GHCR, and deploy it over SSH. Off until configured: with the repository
+# variable SITE_URL unset, every run says so and succeeds without building or touching any server.
+# The owner's steps are in docs/deploy.md.
+#
+#   SITE_URL (variable)              turns on the image build and push; the public https address the site is built for
+#   AFFILIATE_ENV (secret, optional) AFF_* lines, as in .env; fixed into the build (next.config.ts)
+#   DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY, DEPLOY_PATH (secrets; host, user and path may be variables instead)
+#                                    turn on the SSH deploy. All four or none: a partial set fails, and nothing runs
+#                                    on a server without DEPLOY_PATH.
+#   DEPLOY_KNOWN_HOSTS (secret, optional but advised)  the server's SSH host key line, so the runner can't be fooled
+#   DEPLOY_SSH_PORT (variable, optional)               default 22
+#
+# Runs on every push to main, weekly (freshness tiers are worked out when the catalogue is built, so the site must
+# be rebuilt at least once a week), and by hand: Actions > Deploy > Run workflow, with "rollback" or "status".
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "30 6 * * 1" # Mondays 06:30 UTC, after the price watch has run
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "deploy builds and ships main; rollback switches back to the previous image; status shows what runs"
+        type: choice
+        options: [deploy, rollback, status]
+        default: deploy
+
+permissions:
+  contents: read
+
+# One deploy at a time; a newer push waits for the one running instead of cutting it off half way.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      action: ${{ steps.plan.outputs.action }}
+      build: ${{ steps.plan.outputs.build }}
+      ssh: ${{ steps.plan.outputs.ssh }}
+      image: ${{ steps.plan.outputs.image }}
+    steps:
+      - name: What is configured
+        id: plan
+        env:
+          ACTION: ${{ inputs.action || 'deploy' }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          HAS_HOST: ${{ secrets.DEPLOY_HOST != '' || vars.DEPLOY_HOST != '' }}
+          HAS_USER: ${{ secrets.DEPLOY_USER != '' || vars.DEPLOY_USER != '' }}
+          HAS_KEY: ${{ secrets.DEPLOY_SSH_KEY != '' }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH || vars.DEPLOY_PATH }}
+          REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          build=false; ssh=false
+          image="ghcr.io/${GITHUB_REPOSITORY,,}:sha-${GITHUB_SHA::12}"
+          # Written once, however the step ends.
+          trap 'printf "action=%s\nbuild=%s\nssh=%s\nimage=%s\n" "$ACTION" "$build" "$ssh" "$image" >> "$GITHUB_OUTPUT"' EXIT
+
+          if [ -z "$SITE_URL" ]; then
+            echo "::notice title=Deploy not configured::Nothing was built or deployed. To turn deploys on, set the repository variable SITE_URL and the DEPLOY_* secrets (docs/deploy.md)."
+            echo "Deploy is not configured: set SITE_URL and the DEPLOY_* secrets (docs/deploy.md). Nothing ran." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          case "$SITE_URL" in
+            https://*) ;;
+            *) echo "::warning title=SITE_URL::SITE_URL should be the public https:// address; links, the sitemap and emails use it." ;;
+          esac
+
+          # SSH target: all four settings or none.
+          set_count=0; missing=()
+          [ "$HAS_HOST" = true ] && set_count=$((set_count+1)) || missing+=(DEPLOY_HOST)
+          [ "$HAS_USER" = true ] && set_count=$((set_count+1)) || missing+=(DEPLOY_USER)
+          [ "$HAS_KEY" = true ] && set_count=$((set_count+1)) || missing+=(DEPLOY_SSH_KEY)
+          [ -n "$DEPLOY_PATH" ] && set_count=$((set_count+1)) || missing+=(DEPLOY_PATH)
+          if [ "$set_count" -eq 4 ]; then
+            if ! [[ "$DEPLOY_PATH" =~ ^/[A-Za-z0-9._/-]+$ ]] || [[ "$DEPLOY_PATH" == *..* ]]; then
+              echo "::error title=DEPLOY_PATH::DEPLOY_PATH must be an absolute path of letters, digits and . _ - / (for example /srv/samebutcheaper). Refusing to deploy."
+              exit 1
+            fi
+            ssh=true
+          elif [ "$set_count" -gt 0 ]; then
+            echo "::error title=Deploy half configured::Set ${missing[*]} as well, or remove the other DEPLOY_* settings. Refusing to deploy without all four (docs/deploy.md)."
+            exit 1
+          fi
+
+          if [ "$ACTION" = deploy ]; then
+            if [ "$REF" != refs/heads/main ]; then
+              echo "::error title=Not main::Deploys run from main only (this run is on $REF)."
+              exit 1
+            fi
+            build=true
+            [ "$ssh" = true ] || echo "::notice title=No deploy target::The image will be built and pushed to GHCR only. Add the DEPLOY_* secrets to deploy it to a server (docs/deploy.md)."
+          elif [ "$ssh" != true ]; then
+            echo "::error title=No deploy target::'$ACTION' needs the DEPLOY_* secrets (docs/deploy.md)."
+            exit 1
+          fi
+
+  image:
+    needs: plan
+    if: needs.plan.outputs.build == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    env:
+      IMAGE: ${{ needs.plan.outputs.image }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Affiliate settings for the build
+        env:
+          AFFILIATE_ENV: ${{ secrets.AFFILIATE_ENV }}
+        run: |
+          umask 077
+          printf '%s\n' "$AFFILIATE_ENV" > "$RUNNER_TEMP/affiliate.env"
+      - name: Build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: runner
+          load: true
+          push: false
+          tags: ${{ env.IMAGE }}
+          build-args: |
+            NEXT_PUBLIC_SITE_URL=${{ vars.SITE_URL }}
+            SOURCE_COMMIT=${{ github.sha }}
+            SOURCE_REPO=${{ github.server_url }}/${{ github.repository }}
+          secret-files: |
+            affiliate=${{ runner.temp }}/affiliate.env
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: false
+      - name: Forget the affiliate settings
+        if: always()
+        run: rm -f "$RUNNER_TEMP/affiliate.env"
+      - name: Smoke test the image
+        run: |
+          set -euo pipefail
+          docker run -d --name smoke -p 127.0.0.1:3999:3000 "$IMAGE"
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3999/api/health > /tmp/health.json 2>/dev/null; then break; fi
+            sleep 1
+          done
+          cat /tmp/health.json; echo
+          curl -fsS -o /dev/null -w 'home page: %{http_code}, %{size_download} bytes\n' http://127.0.0.1:3999/
+          curl -fsS -o /dev/null http://127.0.0.1:3999/manifest.webmanifest
+          curl -fsS -o /dev/null http://127.0.0.1:3999/sw.js
+          docker run --rm --entrypoint sh "$IMAGE" -c 'test "$(id -u)" != 0 && test -f migrator/scripts/migrate.mjs && test -d migrator/drizzle' \
+            || { echo "::error::The image runs as root or lacks the migrator"; exit 1; }
+          echo "Image size: $(docker image inspect -f '{{.Size}}' "$IMAGE" | awk '{printf "%.0f MB", $1/1e6}')" | tee -a "$GITHUB_STEP_SUMMARY"
+          docker rm -f smoke
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - name: Push
+        run: |
+          docker push "$IMAGE"
+          echo "Pushed $IMAGE" | tee -a "$GITHUB_STEP_SUMMARY"
+
+  ssh:
+    needs: [plan, image]
+    # After a successful build, or with no build at all for rollback and status.
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.ssh == 'true' && (needs.image.result == 'success' || (needs.image.result == 'skipped' && needs.plan.outputs.action != 'deploy'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: ${{ vars.SITE_URL }}
+    permissions:
+      contents: read
+      packages: read
+    env:
+      ACTION: ${{ needs.plan.outputs.action }}
+      IMAGE: ${{ needs.plan.outputs.image }}
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST || vars.DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER || vars.DEPLOY_USER }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH || vars.DEPLOY_PATH }}
+      DEPLOY_SSH_PORT: ${{ vars.DEPLOY_SSH_PORT || '22' }}
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/ci
+            deploy/backup.sh
+            docker-compose.deploy.yml
+          sparse-checkout-cone-mode: false
+      - name: SSH key and host key
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          if [ -n "$DEPLOY_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+            check=yes
+          else
+            echo "::warning title=Host key not pinned::Add the DEPLOY_KNOWN_HOSTS secret (docs/deploy.md, step 5) so this job only talks to your server."
+            check=accept-new
+          fi
+          cat > ~/.ssh/config <<EOF
+          Host deploy-target
+            HostName $DEPLOY_HOST
+            User $DEPLOY_USER
+            Port $DEPLOY_SSH_PORT
+            IdentityFile ~/.ssh/deploy_key
+            IdentitiesOnly yes
+            StrictHostKeyChecking $check
+            ServerAliveInterval 15
+            ConnectTimeout 20
+          EOF
+      - name: Check the directory is the site's own
+        run: |
+          if ! ssh deploy-target "test -f '$DEPLOY_PATH/.samebutcheaper-deploy'"; then
+            echo "::error title=Not set up::$DEPLOY_PATH/.samebutcheaper-deploy is missing on the server, or the login failed. Refusing to copy anything there. Do docs/deploy.md step 2 first."
+            exit 1
+          fi
+      - name: Copy the deploy files
+        if: env.ACTION == 'deploy'
+        run: |
+          scp -q scripts/ci/deploy-remote.sh docker-compose.deploy.yml deploy/backup.sh "deploy-target:$DEPLOY_PATH/"
+      - name: Registry login on the server
+        if: env.ACTION == 'deploy'
+        env:
+          TOKEN: ${{ github.token }}
+          # Any name works with this token; GitHub user names are letters, digits and hyphens.
+          ACTOR: ${{ github.actor }}
+        run: printf '%s' "$TOKEN" | ssh deploy-target "DEPLOY_PATH='$DEPLOY_PATH' bash '$DEPLOY_PATH/deploy-remote.sh' login '${ACTOR//[^A-Za-z0-9-]/}'"
+      - name: ${{ env.ACTION }}
+        run: |
+          set -euo pipefail
+          case "$ACTION" in
+            deploy) args="deploy '$IMAGE'" ;;
+            rollback) args="rollback" ;;
+            *) args="status" ;;
+          esac
+          ssh deploy-target "DEPLOY_PATH='$DEPLOY_PATH' SITE_URL='$SITE_URL' bash '$DEPLOY_PATH/deploy-remote.sh' $args" 2>&1 | tee "$RUNNER_TEMP/deploy.log"
+          { echo '```'; tail -n 40 "$RUNNER_TEMP/deploy.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Registry logout on the server
+        if: always() && env.ACTION == 'deploy'
+        run: ssh deploy-target "DOCKER_CONFIG='$DEPLOY_PATH/.docker' docker logout ghcr.io" >/dev/null 2>&1 || true
+      - name: Check the public address
+        if: env.ACTION != 'status'
+        run: |
+          for i in $(seq 1 10); do
+            if curl -fsS --max-time 10 "$SITE_URL/api/health"; then echo; exit 0; fi
+            sleep 6
+          done
+          echo "::warning title=Public address::$SITE_URL/api/health did not answer from GitHub. The server-side check passed; look at DNS and the reverse proxy (docs/deploy.md)."
+      - name: Remove the key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

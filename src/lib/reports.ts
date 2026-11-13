@@ -1,4 +1,4 @@
-import { and, count, desc, eq, inArray } from "drizzle-orm";
+import { and, count, desc, eq, gte, inArray, sql } from "drizzle-orm";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import * as schema from "@/db/schema";
 
@@ -94,6 +94,35 @@ export async function reportQueue(db: DB, now = new Date(), limit = 500): Promis
   const list = [...groups.values()];
   for (const g of list) g.flagged = g.urgentRecent >= FLAG_COUNT;
   return list.sort((a, b) => Number(b.flagged) - Number(a.flagged) || b.latest.getTime() - a.latest.getTime());
+}
+
+/** A record shoppers say has changed: three or more different visitors, open "price" or "stock" reports, 14 days. */
+export type FlaggedRecord = { recordKind: "pair" | "bundle"; slug: string; price: number; stock: number };
+
+/**
+ * The records flagged right now, by the same rule as the queue (reportQueue): open "price changed" and "out of
+ * stock" reports from at least FLAG_COUNT different visitors in the last FLAG_DAYS days. A report whose visitor hash
+ * has been dropped counts on its own. Resolving or dismissing the reports in /admin unflags the record.
+ * `price` and `stock` count the visitors behind each kind, so the page can say which was reported.
+ */
+export async function flaggedRecords(db: DB, now?: Date): Promise<FlaggedRecord[]> {
+  const since = now ? sql`${new Date(now.getTime() - FLAG_DAYS * 86400000).toISOString()}::timestamptz` : sql`now() - make_interval(days => ${FLAG_DAYS})`;
+  const who = sql`coalesce(${reports.visitorHash}, '#' || ${reports.id})`;
+  const rows = await db
+    .select({
+      recordKind: reports.recordKind,
+      slug: reports.slug,
+      people: sql<number>`count(distinct ${who})`.mapWith(Number),
+      price: sql<number>`count(distinct ${who}) filter (where ${reports.kind} = 'price')`.mapWith(Number),
+      stock: sql<number>`count(distinct ${who}) filter (where ${reports.kind} = 'stock')`.mapWith(Number),
+    })
+    .from(reports)
+    .where(and(eq(reports.status, "open"), inArray(reports.kind, URGENT), gte(reports.createdAt, since)))
+    .groupBy(reports.recordKind, reports.slug)
+    .having(sql`count(distinct ${who}) >= ${FLAG_COUNT}`);
+  return rows
+    .filter((r) => r.recordKind === "pair" || r.recordKind === "bundle")
+    .map((r) => ({ recordKind: r.recordKind as "pair" | "bundle", slug: r.slug, price: r.price, stock: r.stock }));
 }
 
 export async function openReportCount(db: DB) {

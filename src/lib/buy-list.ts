@@ -25,6 +25,37 @@ export type BuyStore = {
   cartHref: string | null;
 };
 
+/** Under this share of the kit's price, a saving after delivery is too thin to lead with. */
+export const THIN_SAVING = 0.05;
+
+export type KitCaution = {
+  /** How much more the rebuild costs at the till today than the kit, delivered; 0 when it costs no more. */
+  moreToday: number;
+  /** The saving after delivery is under THIN_SAVING of the kit's price. */
+  thin: boolean;
+};
+
+type CautionFacts = {
+  bundle: { price: number };
+  netSavings: number;
+  checkout?: { payToday?: number };
+  kitCheckout?: { delivery: number | null; surcharge: number };
+};
+
+/**
+ * What a kit page has to say first, from the build's own numbers: the rebuild costs more today than the kit, or
+ * saves under 5% of its price after delivery. Null when neither holds, or when the record lacks the checkout
+ * (the search index's slim copy), so nothing is claimed that can't be shown.
+ */
+export function kitCaution(b: CautionFacts): KitCaution | null {
+  if (b.checkout?.payToday === undefined || !b.kitCheckout) return null;
+  const kit = b.bundle.price + (b.kitCheckout.delivery ?? 0) + b.kitCheckout.surcharge;
+  const more = Math.round((b.checkout.payToday - kit) * 100) / 100;
+  const moreToday = more > 0.005 ? more : 0;
+  const thin = b.netSavings < THIN_SAVING * b.bundle.price;
+  return moreToday > 0 || thin ? { moreToday, thin } : null;
+}
+
 /** Whether a product name already says its pack size ("Cetaphil Cleanser, 16.0 oz" says "16 oz"), so a list doesn't say it twice. */
 export function namesPack(name: string, pack: string) {
   const norm = (s: string) => s.toLowerCase().replace(/(\d)\.0\b/g, "$1").replace(/\s+/g, " ");

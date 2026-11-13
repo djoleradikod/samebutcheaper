@@ -174,10 +174,10 @@
    "product": "Varta Longlife Power Alkaline AA LR06, 40 cells",
    "size": 40,
    "unit": "cell",
-   "price": 14.99,
-   "retailer": "pollin",
+   "price": 15.99,
+   "retailer": "other",
    "asin": null,
-   "url": "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-longlife-power-40-stueck-272635",
+   "url": "https://www.alternate.de/Varta/Longlife-Power-Batterie/html/product/1804492",
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR06), 1.5 V",
@@ -187,17 +187,18 @@
      "name": "Capacity",
      "amount": "not stated"
     }
-   ]
+   ],
+   "gtin": "4008496987948"
   },
   "alternative": {
    "brand": "Intenso",
    "product": "Intenso Energy Ultra Alkaline AA LR06, 40 cells",
    "size": 40,
    "unit": "cell",
-   "price": 7.95,
-   "retailer": "pollin",
+   "price": 9.99,
+   "retailer": "other",
    "asin": null,
-   "url": "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-40-stueck-272120",
+   "url": "https://www.alternate.de/Intenso/Energy-Ultra-AA-LR06-Batterie/html/product/1547759",
    "key_ingredients": [
     {
      "name": "Alkaline AA (LR06), 1.5 V",
@@ -207,43 +208,38 @@
      "name": "Capacity",
      "amount": "2600 mAh"
     }
-   ]
+   ],
+   "gtin": "4034303027408"
   },
   "match_type": "equivalent_spec",
   "confidence": "medium",
-  "summary": "Same 40-cell count, size and chemistry at the same shop, with Intenso about 47% cheaper per cell.",
-  "evidence": "Both read on pollin.de on 6 November 2026, including VAT: Varta EUR 14.99 and Intenso EUR 7.95 for 40. Pollin shows Intenso against a list price of EUR 17.90, and the shop price is what we use. Barcodes on the pages: Varta 4008496987948, Intenso 4034303027408, neither in Open Facts, so no photo.",
-  "differences": "Varta's page states 10 years of storage. Intenso's says only long shelf life with no figure, and one customer review on the page reports two cells leaking in an unopened pack after about a year, in a set rated 4.87 of 5 from 194 reviews. Varta is ahead on documented storage. No test we read covers these two packs.",
-  "why": "For devices you use up batteries in quickly, the stated storage life matters less and the price gap is large. If they will sit in a drawer for years, Varta's stated 10 years is the better documented choice.",
+  "summary": "Same 40-cell count, size and chemistry at the same shop, with Intenso about 38% cheaper per cell.",
+  "evidence": "Both read on alternate.de on 13 November 2026, including VAT: Varta Longlife Power AA, 40 (EAN 4008496987948, maker no. 04906121154) and Intenso Energy Ultra AA LR06, 40 (EAN 4034303027408, maker no. 7501520). Both pages list alkaline AA cells at 1.5 V. The same two barcodes were on the packs this swap first compared.",
+  "differences": "Varta's listing promises leak protection and a long shelf life, without a figure. Intenso's gives a capacity of 2.6 Ah and no storage or leak claim. Neither listing has enough customer ratings to count, and no test we read covers these two packs.",
+  "why": "For devices that use up batteries quickly, the price gap is large and the cells are the same size and chemistry. If they will sit in a drawer for years, Varta's stated leak protection is the better documented choice.",
   "aspects": [
    {
-    "aspect": "Stated storage life",
-    "brand": "10 years",
-    "alternative": "Not stated in years",
-    "verdict": "brand_better"
+    "aspect": "Stated leak protection",
+    "brand": "Yes (\"sicherer Auslaufschutz\")",
+    "alternative": "Not stated",
+    "verdict": "brand_better",
+    "source": "https://www.alternate.de/Varta/Longlife-Power-Batterie/html/product/1804492"
    },
    {
     "aspect": "Stated capacity",
     "brand": "Not stated",
-    "alternative": "2600 mAh",
-    "verdict": "different"
+    "alternative": "2.6 Ah",
+    "verdict": "different",
+    "source": "https://www.alternate.de/Intenso/Energy-Ultra-AA-LR06-Batterie/html/product/1547759"
    }
   ],
   "claims": [],
   "sources": [
-   "https://www.pollin.de/p/varta-batterie-alkaline-mignon-aa-lr06-1-5v-longlife-power-40-stueck-272635",
-   "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-40-stueck-272120",
-   "https://en.wikipedia.org/wiki/List_of_battery_sizes",
-   "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-100-stueck-272177"
+   "https://www.alternate.de/Varta/Longlife-Power-Batterie/html/product/1804492",
+   "https://www.alternate.de/Intenso/Energy-Ultra-AA-LR06-Batterie/html/product/1547759",
+   "https://en.wikipedia.org/wiki/List_of_battery_sizes"
   ],
-  "price_checked": "2026-11",
-  "bulk": {
-   "product": "Intenso Energy Ultra Alkaline AA LR06, 100 cells",
-   "size": 100,
-   "price": 16.99,
-   "retailer": "pollin",
-   "url": "https://www.pollin.de/p/intenso-mignon-batterie-set-energy-ultra-aa-lr06-alkaline-100-stueck-272177"
-  }
+  "price_checked": "2026-11"
  },
  {
   "slug": "varta-longlife-power-aaa-40-vs-intenso-energy-ultra-aaa-40-de",

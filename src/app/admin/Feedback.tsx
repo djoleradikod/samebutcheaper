@@ -3,6 +3,7 @@ import { and, count, eq, sql } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 import { getBundle, getPair } from "@/lib/catalog";
 import { isoWeek } from "@/lib/letter";
+import { legalNotice } from "@/lib/legal";
 import { letterSettings } from "@/lib/letter-settings";
 import { mailConfigured } from "@/lib/mail";
 import { COUNTRY_OPTIONS, countryName } from "@/lib/markets";
@@ -79,7 +80,8 @@ export async function ReportQueue() {
                 <div className="min-w-0">
                   {g.flagged && (
                     <p className="text-xs font-semibold text-different">
-                      Needs a look: {g.urgentRecent} price or stock reports in {FLAG_DAYS} days
+                      Needs a look: {g.urgentRecent} price or stock reports in {FLAG_DAYS} days. The page says shoppers
+                      reported it, and it can&apos;t lead a list, until you resolve or dismiss them.
                     </p>
                   )}
                   <p className="font-semibold">
@@ -121,7 +123,8 @@ export async function ReportQueue() {
 
 function WantedTable({ rows, showCountry }: { rows: WantedRow[]; showCountry: boolean }) {
   return (
-    <table className="card num mt-2 w-full overflow-hidden text-sm">
+    <div className="mt-2 overflow-x-auto">
+    <table className="card num w-full overflow-hidden text-sm">
       <thead className="bg-surface-2 text-left text-xs text-muted">
         <tr>
           <th className="p-3">Looked for</th>
@@ -130,6 +133,7 @@ function WantedTable({ rows, showCountry }: { rows: WantedRow[]; showCountry: bo
           <th className="p-3 text-right">7 days</th>
           <th className="p-3 text-right">30 days</th>
           <th className="p-3 text-right">Waiting</th>
+          <th className="p-3 text-right">Would answer</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-line">
@@ -144,17 +148,19 @@ function WantedTable({ rows, showCountry }: { rows: WantedRow[]; showCountry: bo
               {r.waiting}
               {r.waitingPending ? <span className="text-muted"> +{r.waitingPending} unconfirmed</span> : null}
             </td>
+            <td className="p-3 text-right font-semibold">{r.wouldRelease}</td>
           </tr>
         ))}
         {rows.length === 0 && (
           <tr>
-            <td colSpan={showCountry ? 6 : 5} className="p-6 text-center text-muted">
+            <td colSpan={showCountry ? 7 : 6} className="p-6 text-center text-muted">
               Nothing yet.
             </td>
           </tr>
         )}
       </tbody>
     </table>
+    </div>
   );
 }
 
@@ -177,7 +183,10 @@ export async function MostWanted() {
       <h2 className="text-xl font-semibold">Most wanted: looked for and not found</h2>
       <p className="mt-1 text-sm text-muted">
         Searches on /search with no results, and products /check could read but we have no swap for. Each visitor
-        counts once per query a day. “Waiting” is how many asked to be told when we add it.{" "}
+        counts once per query a day. “Waiting” is how many asked to be told when we add it. “Would answer” is how
+        many confirmed requests a swap named exactly this would answer (this search and shorter ones it contains, such
+        as “advil” for “advil liqui-gels”): add the swaps with the most first. Upkeep emails them once the swap is
+        live, when its brand or product name matches.{" "}
         <a href="/admin/export/wanted?days=30" className="underline underline-offset-2" download>
           Download CSV (30 days)
         </a>{" "}
@@ -225,9 +234,14 @@ export async function LetterPanel() {
   if (!db) return null;
   const s = schema.subscribers;
   const week = isoWeek(new Date());
-  const [[{ n: readers }], [{ n: watching }], weekly] = await Promise.all([
+  const [[{ n: readers }], [{ n: watching }], [{ n: answered }], [{ n: heldReaders }], weekly] = await Promise.all([
     db.select({ n: count() }).from(s).where(and(eq(s.status, "confirmed"), eq(s.newsletter, "yes"))),
     db.select({ n: count() }).from(schema.watches).where(eq(schema.watches.status, "active")),
+    db.select({ n: count() }).from(schema.sends).where(and(eq(schema.sends.kind, "wish"), eq(schema.sends.status, "sent"))),
+    db
+      .select({ n: count() })
+      .from(s)
+      .where(and(eq(s.status, "confirmed"), eq(s.newsletter, "yes"), sql`coalesce(${s.country}, '') in ('DE', 'AT')`)),
     db
       .select({ status: schema.sends.status, n: sql<number>`count(*)`.mapWith(Number) })
       .from(schema.sends)
@@ -243,12 +257,15 @@ export async function LetterPanel() {
       : !mailConfigured()
         ? "On, but email isn't set up, so it is only logged."
         : `On: goes out from weekday ${settings.weekday} of each week, up to ${settings.cap} a run.`;
+  const held = legalNotice() ? "" : ` The legal notice (LEGAL_* settings) isn't set, so ${heldReaders.toLocaleString("en-US")} readers in Germany and Austria are held back.`;
   return (
     <div>
       <h2 className="text-xl font-semibold">Weekly letter and price watches</h2>
       <p className="mt-1 text-sm text-ink-2">
-        {state} {readers.toLocaleString("en-US")} confirmed readers; {sentThisWeek} sent this week ({week}).{" "}
-        {watching.toLocaleString("en-US")} active price watches.
+        {state}
+        {held} {readers.toLocaleString("en-US")} confirmed readers; {sentThisWeek} sent this week ({week}).{" "}
+        {watching.toLocaleString("en-US")} active price watches. {answered.toLocaleString("en-US")} “tell me when you add it”
+        requests answered by email so far.
       </p>
       <p className="mt-2 text-sm text-muted">
         Preview this week&apos;s letter as a new reader would get it:{" "}

@@ -12,8 +12,8 @@
 import { splitSentences } from "./compare";
 import { dupeActives } from "./dupes";
 import { inSentence, monthYear } from "./format";
-import { MARKET_ADJECTIVE, oneOfEachSwap, shortMonth } from "./localize";
-import type { MarketCode } from "./markets";
+import { countryOfPath, PREFIXED_COUNTRIES, withCountry, type PrefixedCountry } from "./country-url";
+import { localFor, MARKET_ADJECTIVE, oneOfEachSwap, shortMonth, type Listed } from "./localize";
 import type { Bundle, MatchType, Pair, Preset } from "./types";
 import { unitDisplay } from "./unit-format";
 
@@ -160,26 +160,98 @@ export function swapDescription(p: Pick<Pair, "match_type" | "brand" | "alternat
   return fitSentences([...first, "What differs, the sources, and where to buy."]);
 }
 
-/* ---------------------------------------------------------- hreflang, x-default */
+/* ----------------------------------------------- canonical, noindex, hreflang, x-default */
 
-/** The page is in English everywhere. The region says whose shelf prices it has. */
-export function hreflangFor(market: MarketCode) {
-  return `en-${market}`;
+/**
+ * The page is in English everywhere. The region says whose shelf prices it has. When pages are translated, this is the
+ * one place the language half changes (de-DE for a German page under /de/), see docs/country-urls.md.
+ */
+export function hreflangFor(country: string) {
+  return `en-${country}`;
 }
 
 /**
- * hreflang for a swap priced in two markets: each record names itself and its twin, and x-default is the record a
- * shopper we can't place sees (the one with English names, see TWIN_ORDER in localize.ts). Null for a swap with no twin.
+ * Every indexable URL of one page: one per country that lists it, under that country's prefix, and the x-default.
+ *
+ * The rule, the same for every page type (docs/country-urls.md):
+ * - A country's view is indexable when that country lists the page, i.e. `localFor(country).shows(record)`: the
+ *   record's own market always, and another country only where its sellers sell there. A view a country doesn't list
+ *   (/de/compare/<a US swap>) is `noindex, follow` with no canonical: a German shopper can open and share it, but it is
+ *   a converted copy, and its links still lead somewhere.
+ * - A record (swap, kit, basket): its twin's views join its own, since the twin is the same swap in another market, and
+ *   a country lists at most one of the two. The x-default is the own-market URL of the record a visitor we can't place
+ *   gets (see TWIN_ORDER in localize.ts). The unprefixed URL shows that visitor exactly the record's own view, so it
+ *   canonicalises to the record's own-market URL and stays out of the sitemap.
+ * - A hub (home, aisle, biggest savings, bundles): the unprefixed URL lists one record of every swap for a visitor we
+ *   can't place, a page no country URL repeats, so it is the x-default and indexable itself.
+ * Every indexable URL has a self canonical and names all the others, so hreflang is reciprocal by construction.
  */
-export function swapLanguages(p: Pick<Pair, "slug" | "market" | "twin" | "sellers">): Record<string, string> | null {
-  if (!p.twin) return null;
-  const self = { slug: p.slug, market: p.market, sellers: p.sellers, twin: p.twin };
-  const twin = { slug: p.twin.slug, market: p.twin.market, sellers: [], twin: { slug: p.slug, market: p.market } };
-  const preferred = oneOfEachSwap([self, twin])[0] ?? self;
+export type Versions = {
+  /** hreflang ("en-GB") to path ("/uk/compare/x"). */
+  languages: Record<string, string>;
+  xDefault: string;
+};
+
+type ListedRecord = Listed & { slug: string };
+
+/** The countries with a prefix whose shoppers get this record in their lists. Its own market is always one. */
+export function listedIn(record: Listed): PrefixedCountry[] {
+  return PREFIXED_COUNTRIES.filter((c) => localFor(c).shows(record));
+}
+
+/** A record page's versions, with its twin's (pass the twin's own record, or null). */
+export function recordVersions(section: "compare" | "bundle" | "basket", record: ListedRecord, twin: ListedRecord | null = null): Versions {
+  const group = twin ? [record, twin] : [record];
+  const languages: Record<string, string> = {};
+  for (const c of PREFIXED_COUNTRIES) {
+    const shown = group.find((r) => localFor(c).shows(r));
+    if (shown) languages[hreflangFor(c)] = withCountry(`/${section}/${shown.slug}`, c);
+  }
+  const preferred = oneOfEachSwap(group)[0] ?? record;
+  return { languages, xDefault: withCountry(`/${section}/${preferred.slug}`, preferred.market) };
+}
+
+/** A hub's versions: every country in `countries` (the ones whose view lists anything) and the unprefixed page. */
+export function hubVersions(path: string, countries: readonly string[] = PREFIXED_COUNTRIES): Versions {
+  const languages: Record<string, string> = {};
+  for (const c of PREFIXED_COUNTRIES) if (countries.includes(c)) languages[hreflangFor(c)] = withCountry(path, c);
+  return { languages, xDefault: path };
+}
+
+/** The indexable URLs among a page's versions. */
+export function indexableUrls(v: Versions): string[] {
+  return [...new Set([...Object.values(v.languages), v.xDefault])];
+}
+
+/** All of a page's alternates, as the head and the sitemap give them: each country's, then x-default. */
+export function alternateLanguages(v: Versions): Record<string, string> {
+  return { ...v.languages, "x-default": v.xDefault };
+}
+
+export type HeadRules = {
+  canonical: string | null;
+  languages: Record<string, string> | null;
+  index: boolean;
+};
+
+/**
+ * What the head says for one URL (`self`, public, e.g. "/de/compare/x") of a page with these versions. `ownView` is set
+ * for a record's unprefixed URL: the URL whose content it repeats, which becomes its canonical.
+ */
+export function headRules(v: Versions, self: string, ownView?: string): HeadRules {
+  if (indexableUrls(v).includes(self)) return { canonical: self, languages: alternateLanguages(v), index: true };
+  if (ownView && !countryOfPath(self)) return { canonical: ownView, languages: null, index: true };
+  return { canonical: null, languages: null, index: false };
+}
+
+/** headRules as Next metadata. `alternates` is always set, so the layout's canonical ("/") never leaks onto a page. */
+export function headMetadata(rules: HeadRules) {
   return {
-    [hreflangFor(p.market)]: `/compare/${p.slug}`,
-    [hreflangFor(p.twin.market)]: `/compare/${p.twin.slug}`,
-    "x-default": `/compare/${preferred.slug}`,
+    alternates: {
+      ...(rules.canonical ? { canonical: rules.canonical } : {}),
+      ...(rules.languages ? { languages: rules.languages } : {}),
+    },
+    ...(rules.index ? {} : { robots: { index: false, follow: true } }),
   };
 }
 

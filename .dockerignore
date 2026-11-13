@@ -7,3 +7,9 @@ node_modules
 src/generated
 *.log
 backups
+.claude
+.github
+docs
+*.md
+!data/README.md
+!assets/fonts/README.md

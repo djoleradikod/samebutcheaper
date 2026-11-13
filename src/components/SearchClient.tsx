@@ -13,6 +13,7 @@ import { PairCard } from "./PairCard";
 import { WantedPrompt } from "./WantedPrompt";
 import { useLocal } from "@/lib/client/country";
 import { forCountry } from "@/lib/localize";
+import { BUNDLE_SEARCH, PAIR_SEARCH } from "@/lib/search-options";
 
 const PATH = "/search";
 
@@ -24,32 +25,8 @@ let pendingEngine: Promise<Engine> | null = null;
 function loadEngine() {
   pendingEngine ??= Promise.all([import("fuse.js"), loadSwapIndex()])
     .then(([{ default: FuseSearch }, index]) => ({
-      pairs: new FuseSearch(index.pairs, {
-        keys: [
-          { name: "brandName", weight: 3 },
-          { name: "brandProduct", weight: 2 },
-          { name: "title", weight: 2 },
-          { name: "altName", weight: 1.5 },
-          { name: "altProduct", weight: 1 },
-          { name: "subcategory", weight: 1 },
-          { name: "keywords", weight: 1 },
-        ],
-        threshold: 0.35,
-        ignoreLocation: true,
-        minMatchCharLength: 2,
-      }),
-      bundles: new FuseSearch(index.bundles, {
-        keys: [
-          { name: "bundle.brand", weight: 3 },
-          { name: "bundle.name", weight: 2 },
-          { name: "title", weight: 2 },
-          { name: "bundle.items.name", weight: 1 },
-          { name: "components.product", weight: 1 },
-        ],
-        threshold: 0.35,
-        ignoreLocation: true,
-        minMatchCharLength: 2,
-      }),
+      pairs: new FuseSearch(index.pairs, PAIR_SEARCH),
+      bundles: new FuseSearch(index.bundles, BUNDLE_SEARCH),
     }))
     .catch((error: unknown) => {
       pendingEngine = null;
