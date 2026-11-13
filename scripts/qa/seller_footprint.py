@@ -3,7 +3,8 @@
 
 A country counts only when its national site opens, stays on that country's address and names the chain in its title. A site
 that refuses automated requests isn't counted: only a "manual" entry in that file, with its source, can carry it. Rewrites
-"sellers", "refused" and "checked" and leaves "manual" alone, so read the diff: python3 -I scripts/qa/seller_footprint.py
+"sellers", "refused" and "checked" and leaves "manual", "ships" and "separate" alone (those carry a source each, entered by
+hand), so read the diff: python3 -I scripts/qa/seller_footprint.py
 """
 import concurrent.futures
 import datetime

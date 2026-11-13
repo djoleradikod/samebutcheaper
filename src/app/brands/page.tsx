@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BrandsSchema } from "@/components/HubSchemas";
 import { getBrands, type BrandEntry } from "@/lib/catalog";
 import { AzIndex, bestSaving, ListLinks, ShelfHead, type IndexEntry } from "@/components/ShelfParts";
 import { forCountry, type Local } from "@/lib/localize";
@@ -62,6 +63,7 @@ export default function BrandsPage() {
           }}
         </CountryPart>
       </div>
+      <BrandsSchema />
     </div>
   );
 }

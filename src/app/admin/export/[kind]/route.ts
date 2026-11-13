@@ -1,12 +1,15 @@
 import { desc, eq, gte } from "drizzle-orm";
 import { getDb, schema } from "@/db";
+import { mostWanted } from "@/lib/wanted";
 import { isAdminRequest } from "@/lib/server/admin";
 
 /**
- * CSV downloads for the admin: /admin/export/<subscribers|submissions|clicks|conversions|lookups>
+ * CSV downloads for the admin: /admin/export/<subscribers|submissions|clicks|conversions|lookups|reports|wanted>
  *  - subscribers: confirmed addresses only (the ones that may be emailed), with each one's unsubscribe link token;
  *    add ?all=1 for every status.
- *  - clicks and lookups: the last 90 days, or ?days=N.
+ *  - clicks, lookups and reports: the last 90 days, or ?days=N.
+ *  - wanted: zero-result searches and /check misses per query and country, with 7-day and N-day counts (default 30)
+ *    and how many people wait for each.
  */
 const MAX_ROWS = 50_000;
 
@@ -61,6 +64,21 @@ export async function GET(request: Request, ctx: RouteContext<"/admin/export/[ki
       const l = schema.lookups;
       const rows = await db.select().from(l).where(gte(l.createdAt, since)).orderBy(desc(l.createdAt)).limit(MAX_ROWS);
       body = csv(rows, ["createdAt", "kind", "query", "productName", "source", "sourceId", "verified", "country"]);
+      break;
+    }
+    case "reports": {
+      const r = schema.reports;
+      const rows = await db.select().from(r).where(gte(r.createdAt, since)).orderBy(desc(r.createdAt)).limit(MAX_ROWS);
+      body = csv(rows, ["createdAt", "recordKind", "slug", "kind", "status", "country", "note", "closedAt"]);
+      break;
+    }
+    case "wanted": {
+      const span = Math.min(400, Math.max(1, Number(params.get("days")) || 30));
+      const rows = await mostWanted(db, { days: span, limit: MAX_ROWS });
+      body = csv(
+        rows.map((w) => ({ ...w, [`last${span}`]: w.last30 })),
+        ["query", "country", "sources", "last7", `last${span}`, "waiting", "waitingPending"],
+      );
       break;
     }
     default:

@@ -60,3 +60,15 @@ test("every site limit has at least one sane rule", () => {
     for (const r of rules) assert.ok(r.limit > 0 && r.windowMs >= 1000, name);
   }
 });
+
+test("reports and missed searches: generous for a person, tight for a script, and counted once a day", () => {
+  const t = 5_000_000;
+  for (let i = 0; i < 5; i++) assert.equal(rateLimit("reports", "v", LIMITS.reports, t + i).ok, true);
+  assert.equal(rateLimit("reports", "v", LIMITS.reports, t + 10).ok, false, "a sixth report in ten minutes");
+  for (let i = 0; i < 20; i++) assert.equal(rateLimit("wanted", "v", LIMITS.wanted, t + i).ok, true);
+  assert.equal(rateLimit("wanted", "v", LIMITS.wanted, t + 30).ok, false);
+  assert.equal(rateLimit("once", "v:pair:x:price", LIMITS.oncePerDay, t).ok, true);
+  assert.equal(rateLimit("once", "v:pair:x:price", LIMITS.oncePerDay, t + 3600_000).ok, false);
+  assert.equal(rateLimit("once", "v:pair:x:stock", LIMITS.oncePerDay, t).ok, true, "another kind of report counts on its own");
+  assert.equal(rateLimit("once", "v:pair:x:price", LIMITS.oncePerDay, t + 24 * 3600_000 + 1).ok, true, "the next day counts again");
+});

@@ -280,6 +280,147 @@ for page, expected in (
 _, body, _ = get("/", "IE")
 check("swaps, each with at least two sources" in visible(body) and "swaps, each with at least two sources" not in outside_hidden(body), "IE home: the count, which depends on the country, is behind its own boundary")
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Every country, every kind of page: is every store link one that delivers there, is every price in the shopper's currency
+# (another currency only as a marked original in brackets), and does every list hold only what can be bought there?
+# The rules are written again here from data/sellers/footprint.json and markets.ts, apart from the site's code, so a fault
+# in localize.ts or sellers.ts can't pass by agreeing with itself.
+FOOT = json.loads((ROOT / "data" / "sellers" / "footprint.json").read_text())
+SOLD: dict[str, set] = {}
+for table in (FOOT["sellers"], FOOT["manual"]):
+    for chain, countries in table.items():
+        SOLD.setdefault(chain, set()).update(countries)
+MARKETS_TS = (ROOT / "src" / "lib" / "markets.ts").read_text()
+AMAZON = {m.group(1) for m in re.finditer(r'^\s+([A-Z]{2}): \{ name: "[^"]+",? *(?:amazon:|\.\.\.EU_VIA_DE)', MARKETS_TS, re.M)}
+check({"US", "GB", "DE", "AT", "AU"} <= AMAZON and "RS" not in AMAZON, "the audit reads the Amazon storefronts from markets.ts", str(sorted(AMAZON)))
+CURRENCY = {"US": "USD", "CA": "CAD", "GB": "GBP", "IE": "EUR", "DE": "EUR", "AT": "EUR", "FR": "EUR", "NL": "EUR", "HR": "EUR", "CH": "CHF", "PL": "PLN", "AU": "AUD"}
+MARKET_CURRENCY = {"US": "USD", "CA": "CAD", "GB": "GBP", "DE": "EUR", "IE": "EUR"}
+PRICE = {
+    "USD": r"(?<![A-Za-z])\$\s?\d",
+    "CAD": r"CA\$\s?\d",
+    "GBP": r"£\s?\d",
+    "EUR": r"€\s?\d",
+    "CHF": r"CHF\s?\d",
+    "PLN": r"PLN\s?\d",
+    "AUD": r"(?<![A-Za-z])A\$\s?\d",
+}
+
+
+def links_store(seller: str, market: str, country: str) -> bool:
+    """Whether a page may link this store's listing for this shopper: its own market, Amazon (a maybe), or a delivery page naming the country."""
+    return country == market or seller == "amazon" or country in FOOT.get("ships", {}).get(seller, {}).get(market, {})
+
+
+def buyable(seller: str, market: str, country: str) -> bool:
+    if seller == "amazon":
+        return country in AMAZON
+    return country in SOLD.get(seller, set()) or country in FOOT.get("ships", {}).get(seller, {}).get(market, {})
+
+
+GO = {}
+for p in catalog["pairs"]:
+    GO[(p["slug"], "alternative")] = (p["alternative"]["retailer"], p["market"])
+    GO[(p["slug"], "brand")] = (p["brand"]["retailer"], p["market"])
+    if (p.get("bulkView") or {}).get("bigger"):
+        GO[(p["slug"], "bigger")] = (p["bulkView"]["bigger"]["retailer"], p["market"])
+for b in catalog["bundles"]:
+    GO[(b["slug"], "brand")] = (b["bundle"]["retailer"], b["market"])
+    for i, c in enumerate(b["components"]):
+        GO[(b["slug"], f"item-{i}")] = (c["retailer"], b["market"])
+RECORDS = {p["slug"]: p for p in catalog["pairs"]}
+
+
+def first_of(market: str, kind: str = "pairs"):
+    rows = [r for r in catalog[kind] if r["market"] == market and r.get("category") != "otc-medicine"]
+    return rows[0]["slug"] if rows else None
+
+
+AUDIT_PAGES = ["/", "/category/household", "/biggest-savings", "/bundles", "/bulk", "/search", "/check"]
+AUDIT_PAGES += [f"/compare/{first_of(m)}" for m in ("US", "CA", "GB", "DE", "IE") if first_of(m)]
+AUDIT_PAGES += [f"/bundle/{first_of(m, 'bundles')}" for m in ("US", "DE") if first_of(m, "bundles")]
+AUDIT_PAGES += [f"/basket/{first_of(m, 'presets')}" for m in ("US", "GB") if first_of(m, "presets")]
+LISTS = {"/", "/category/household", "/biggest-savings", "/bulk"}
+for country in ["US", "CA", "GB", "IE", "DE", "AT", "CH", "FR", "NL", "PL", "HR", "AU", None]:
+    for page in AUDIT_PAGES:
+        status, body, _ = get(page, country)
+        name = f"audit {country or 'unknown'} {page}"
+        if status != 200:
+            check(False, f"{name}: opens", str(status))
+            continue
+        if not country:
+            continue
+        bad_go = []
+        for slug, side in set(re.findall(r'href="/go/([^/"]+)/([a-z0-9-]+)"', body)):
+            retailer, market = GO.get((slug, side), ("?", "?"))
+            if not links_store(retailer, market, country):
+                bad_go.append(f"{slug}/{side} ({retailer}, {market})")
+        check(not bad_go, f"{name}: every store link delivers there", str(bad_go[:3]))
+        wrong_c = [c for c in re.findall(r"/out\?s=[^&\"]+&amp;c=([A-Z]{2})", body) if c != country]
+        check(not wrong_c, f"{name}: every store search is for this country", str(wrong_c[:3]))
+        # The tab title is static metadata, the same for every country, and names the record's own currency on purpose.
+        text = visible(re.sub(r"<title>.*?</title>", " ", body, flags=re.S))
+        own = CURRENCY[country]
+        # Known and owned elsewhere (bundle page, 13 Nov 2026): a kit's "also comes with" extras print the record's raw
+        # prices. Reported on each run so it isn't forgotten, and kept out of the count so the rest can still fail.
+        for extra in re.findall(r"The kit also comes with: .*?(?= How we checked)", text):
+            if any(re.search(PRICE[c], extra) for c in PRICE if c != own):
+                print("KNOWN", f"{name}: kit extras not converted", extra[:120])
+        text = re.sub(r"The kit also comes with: .*?(?= How we checked)", " ", text)
+        bare = re.sub(r"\([^()]*\)", " ", text)  # A marked original sits in brackets beside the converted price.
+        bare = re.sub(r"Converted at the ECB rate of [^.]*?\d{4}, [^,]+, so treat them as approximate\.", " ", bare)  # The band's rate.
+        foreign = [c for c in PRICE if c != own and re.search(PRICE[c], bare)]
+        # A swap page's evidence quotes its sources in their own words; the offers and shelf above it are what's checked there.
+        if page.startswith("/compare/") and "Prices checked" in bare:
+            bare = bare[: bare.find("Does the same job") if "Does the same job" in bare else None]
+            foreign = [c for c in PRICE if c != own and re.search(PRICE[c], bare[: bare.find("What differs")] if "What differs" in bare else bare)]
+        check(not foreign, f"{name}: prices in {own} only, others only as a marked original", str([re.findall(PRICE[c], bare)[:2] for c in foreign]))
+        # A currency no record is priced in can only ever be a conversion, so every such price must read "about".
+        if own not in MARKET_CURRENCY.values():
+            # "about CHF 0.15 vs CHF 0.31 per wash" marks both, so "about" may sit earlier in the same phrase, not past a full stop.
+            unmarked = [m.group(0) for m in re.finditer(PRICE[own], bare) if not re.search(r"\babout\b(?:(?!\. ).){0,70}$", bare[max(0, m.start() - 80) : m.start()], re.I)]
+            check(not unmarked, f"{name}: every {own} price reads about", str(unmarked[:3]))
+        if page in LISTS:
+            listed = {s for s in re.findall(r'href="/compare/([^"?#]+)"', body) if s in RECORDS}
+            # Canada's and Australia's home pages once showed an empty "Biggest savings": their listed swaps have no photos.
+            # Aisle lists fill in on the client past the first screen, so only the home page is counted here.
+            if page == "/":
+                check(len(listed) >= 4, f"{name}: the home page shows swaps", str(len(listed)))
+            cannot = [s for s in listed if RECORDS[s]["market"] != country and not all(buyable(x, RECORDS[s]["market"], country) for x in RECORDS[s]["sellers"])]
+            check(not cannot, f"{name}: lists nothing that can't be bought there", str(cannot[:3]))
+
+# The controls for the audit: each part has to fire on a page where it should, or the passes above mean nothing.
+_, body, _ = get("/category/household", "US")
+us_listed = {s for s in re.findall(r'href="/compare/([^"?#]+)"', body) if s in RECORDS}
+check(any(not all(buyable(x, RECORDS[s]["market"], "CA") for x in RECORDS[s]["sellers"]) for s in us_listed), "control: the US household list, judged for Canada, does list what can't be bought there")
+us_go = set(re.findall(r'href="/go/([^/"]+)/([a-z0-9-]+)"', get(f"/compare/{first_of('US')}", "US")[1]))
+check(any(not links_store(*GO[g], "CA") for g in us_go if g in GO), "control: a US swap page's store links, judged for Canada, do fail")
+check(bool(re.search(PRICE["GBP"], re.sub(r"\([^()]*\)", " ", "about €5.26 (£4.39), or £3"))), "control: a bare foreign price outside brackets is caught")
+check(not re.search(r"\babout\b(?:(?!\. ).){0,70}$", "Costs ", re.I), "control: a CHF price with no about before it is caught")
+
+# Canada: its own records lead, US ones only where the store sells in Canada, and the rest behind the control, in CA$ and "about".
+_, body, _ = get("/", "CA")
+text = visible(body)
+check("only a few swaps in Canada" in text and "Show " in text and "swaps from other countries" in text, "CA home: the band says whose prices these are and offers the US ones")
+check(not US_ONLY.search(text), "CA home: no US-only brand by default", str(sorted(set(US_ONLY.findall(text)))))
+_, body, _ = get("/category/household", "CA; sbc_others=1")
+text = visible(body)
+check(bool(US_ONLY.search(text)), "CA with the control on: the US records come back, so the check above can fail")
+check(bool(re.search(r"about\s*CA\$\d", text)), "CA with the control on: US prices read about CA$")
+walmart_us = next((p["slug"] for p in catalog["pairs"] if p["market"] == "US" and p["alternative"]["retailer"] == "walmart"), None)
+_, body, _ = get(f"/compare/{walmart_us}", "CA")
+text = visible(body)
+check(f'href="/go/{walmart_us}/alternative"' not in body, "CA on a Walmart.com swap: no link to a store that doesn't ship to Canada")
+check("walmart.ca" in text and "Search Walmart.ca" in text, "CA on a Walmart.com swap: points to Walmart's Canadian site and its search")
+check("couldn't confirm you can buy it in Canada" in text, "CA on a Walmart.com swap: says it isn't in Canada's lists")
+# Austria: a German pharmacy that delivers there is linked, with Austria's delivery, not Germany's.
+aponeo = next((p["slug"] for p in catalog["pairs"] if p["market"] == "DE" and p["alternative"]["retailer"] == "aponeo"), None)
+_, body, _ = get(f"/compare/{aponeo}", "AT")
+text = visible(body)
+check(f'href="/go/{aponeo}/alternative"' in body, "AT on an aponeo swap: the store is linked, it delivers to Austria")
+check("Delivery to Austria" in text and "free over €29.99" not in text, "AT on an aponeo swap: Austria's delivery, never Germany's free line")
+_, body, _ = get(f"/compare/{aponeo}", "CH")
+check(f'href="/go/{aponeo}/alternative"' not in body, "CH on an aponeo swap: no link, it doesn't deliver to Switzerland")
+
 # Unknown slugs are real 404s.
 for missing in ["/brand/nope", "/ingredient/nope", "/category/nope", "/compare/nope", "/dupe/nope", "/bundle/nope", "/basket/nope"]:
     status, _, _ = get(missing, "IE")

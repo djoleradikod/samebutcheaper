@@ -1,12 +1,12 @@
 import { getDb } from "@/db";
 import { log } from "@/lib/log";
-import { confirmSubscription } from "@/lib/newsletter";
+import { confirmSubscription, isScope } from "@/lib/newsletter";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
 import { visitorFrom } from "@/lib/visitor";
 
 /**
- * GET /api/newsletter/confirm?token=…  The link in the confirmation email. Confirms the sign-up and sends the
- * reader to a page that says so. Confirming twice is harmless, so a mail scanner that opens the link first
+ * GET /api/newsletter/confirm?token=…[&for=watch-12|wish-3]  The link in a confirmation email. Confirms what it
+ * was for (the weekly letter when `for` is missing) and sends the reader to a page that says so. Confirming twice is harmless, so a mail scanner that opens the link first
  * doesn't break it for the person.
  */
 export async function GET(request: Request) {
@@ -19,8 +19,11 @@ export async function GET(request: Request) {
   const db = getDb();
   if (!db) return to("/newsletter/invalid");
   try {
-    const outcome = await confirmSubscription(db, url.searchParams.get("token") ?? "");
-    return to(outcome === "invalid" ? "/newsletter/invalid" : "/newsletter/confirmed");
+    const scope = url.searchParams.get("for");
+    if (scope !== null && !isScope(scope)) return to("/newsletter/invalid");
+    const outcome = await confirmSubscription(db, url.searchParams.get("token") ?? "", new Date(), scope ?? undefined);
+    if (outcome === "invalid") return to("/newsletter/invalid");
+    return to(scope?.startsWith("watch-") ? "/newsletter/confirmed/watch" : scope?.startsWith("wish-") ? "/newsletter/confirmed/wish" : "/newsletter/confirmed");
   } catch (err) {
     log.error("newsletter.confirm_failed", { err });
     return to("/newsletter/invalid");

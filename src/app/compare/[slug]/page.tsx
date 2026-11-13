@@ -20,16 +20,22 @@ import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredie
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
 import { dupeSlugFor } from "@/lib/dupes";
-import { storeOrder } from "@/lib/delivery";
+import { deliveryNote as deliveryNoteFor } from "@/lib/delivery-abroad";
 import { sellerOf } from "@/lib/sellers";
-import { inSentence, monthYear } from "@/lib/format";
+import { inSentence } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
-import { unitDisplay, unitPrice } from "@/lib/unit-format";
+import { unitDisplay } from "@/lib/unit-format";
+import { swapDescription, swapLanguages } from "@/lib/seo";
+import { swapTitleFor } from "@/lib/seo-catalog";
+import { SwapQuestions } from "@/components/SwapQuestions";
 import { forCountry, localClaim, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
+import { RecordFeedback } from "@/components/RecordFeedback";
 import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
+import { YearlyBlock } from "@/components/YearlyBlock";
+import { PriceChecked } from "@/components/PriceChecked";
 
 export function generateStaticParams() {
   const params = getAllPairs().map((p) => ({ slug: p.slug }));
@@ -41,13 +47,13 @@ export async function generateMetadata({ params }: PageProps<"/compare/[slug]">)
   const { slug } = await params;
   const pair = getPair(slug);
   if (!pair) return { title: "Swap not found" };
-  const { label } = unitDisplay(pair.brand.unit);
-  const title = `${pair.brand.brand} vs ${pair.alternative.brand}: ${Math.round(pair.savingsPct)}% cheaper`;
-  const description = `${pair.summary} ${unitPrice(pair.alternative.ppu, pair.brand.unit, pair.currency)} vs ${unitPrice(pair.brand.ppu, pair.brand.unit, pair.currency)} ${label}.`;
+  const title = swapTitleFor(pair.slug) ?? pair.title;
+  const description = swapDescription(pair);
+  const languages = swapLanguages(pair);
   return {
     title,
     description,
-    alternates: { canonical: `/compare/${pair.slug}` },
+    alternates: { canonical: `/compare/${pair.slug}`, ...(languages ? { languages } : {}) },
     openGraph: { title, description, url: `/compare/${pair.slug}`, type: "article" },
   };
 }
@@ -98,6 +104,7 @@ export default async function ComparePage({ params }: PageProps<"/compare/[slug]
         </h1>
       </div>
       <CountryPart>{(local) => <CompareBody record={record} local={local} />}</CountryPart>
+      <SwapQuestions record={record} />
     </article>
   );
 }
@@ -134,19 +141,7 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
         { "@type": "ListItem", position: 3, name: pair.title, item: `${SITE.url}/compare/${pair.slug}` },
       ],
     },
-    ...[a, b].map((p) => ({
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: p.product,
-      brand: { "@type": "Brand", name: p.brand },
-      ...(p.photo ? { image: `${SITE.url}${p.photo.src}-480.webp` } : {}),
-      offers: {
-        "@type": "Offer",
-        price: p.price.toFixed(2),
-        priceCurrency: currency,
-        url: p.url,
-      },
-    })),
+    // No Product or Offer markup: this page compares two products we don't sell, at prices that date. See docs/seo-audit.md.
   ];
 
   return (
@@ -161,6 +156,7 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
             <div id={OFFERS} className="scroll-mt-16">
               <Offers pair={pair} local={local} />
             </div>
+            <YearlyBlock pair={pair} />
 
             <p className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5">
               <MatchBadge type={pair.match_type} long />
@@ -247,6 +243,7 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
           }))}
         />
       </div>
+      <RecordFeedback record="pair" slug={pair.slug} />
 
       <section aria-labelledby={related.length > 0 ? "related" : undefined} className={BAND}>
         <div className="container-page py-8 md:py-10">
@@ -398,14 +395,8 @@ function offersFor(pair: Pair, local: Local): Offer[] {
   const sells = (retailer: string) => local.sells(retailer, pair.market);
   const elsewhere = `A ${MARKET_ADJECTIVE[pair.market]} store`;
   // A cheap pack on its own can fall under a store's free-delivery line, which a shopper should know before the click.
-  const deliveryNote = (p: ProductSide) => {
-    if (!sells(p.retailer)) return undefined;
-    const order = storeOrder(sellerOf(p), pair.market, p.price);
-    if (!order.delivery || order.freeOver === null) return undefined;
-    const fee = local.money(order.delivery, pair.currency);
-    const over = local.money(order.freeOver, pair.currency);
-    return `Delivery ${fee} on its own, free over ${over}${order.pickup ? ", or free store pickup" : ""}`;
-  };
+  // For a shopper in another country, their country's rule or "not checked", never the home market's (delivery-abroad.ts).
+  const deliveryNote = (p: ProductSide) => (sells(p.retailer) ? deliveryNoteFor(sellerOf(p), pair.market, p.price, pair.currency, local) : undefined);
   const side = (p: ProductSide, which: "brand" | "alternative"): Offer => ({
     name: fullName(p),
     note: deliveryNote(p),
@@ -441,19 +432,9 @@ function offersFor(pair: Pair, local: Local): Offer[] {
 function Offers({ pair, local }: { pair: Pair; local: Local }) {
   const unit = pair.alternative.unit;
   const { label } = unitDisplay(unit);
-  const checked = monthYear(pair.price_checked);
   return (
     <div className="@container mt-3">
-      <p className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 pb-2">
-        {pair.priceOld ? (
-          <span className="text-[15px] font-semibold text-different">
-            Prices from {checked}, over a year old. Check before you buy.
-          </span>
-        ) : (
-          <span className="text-[15px] font-medium text-ink-2">Prices checked {checked}.</span>
-        )}
-        <MarketTag market={pair.market} whereToBuy={WHERE_TO_BUY} />
-      </p>
+      <PriceChecked pair={pair} local={local} tag={<MarketTag market={pair.market} whereToBuy={WHERE_TO_BUY} />} />
       <div role="table" aria-label="Prices and stores" className="divide-y divide-line border-y border-line-strong">
         <div role="row" className={`hidden gap-x-3 py-1.5 text-[13px] font-medium text-muted @2xl:grid ${OFFER_COLUMNS}`}>
           <span role="columnheader">Product</span>

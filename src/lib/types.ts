@@ -3,6 +3,7 @@ import type { BundleInput, ClaimInput, ImageRecord, NutritionRecord, NutritionSo
 import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
 import type { RatingScale } from "./rating";
+import type { Freshness, PriceSeen } from "./freshness";
 
 export type MatchType = PairInput["match_type"];
 export type CategorySlug = PairInput["category"];
@@ -72,8 +73,12 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   evidence_claims: Claim[];
   shelfLife: ShelfLife | null;
   bulkView: BulkView;
-  /** The price record is more than a year old when the catalogue was built. */
+  /** The price is stale (over 180 days, see freshness.ts) when the catalogue was built. Stale swaps never lead. */
   priceOld: boolean;
+  /** When each side's price was last seen, from data/prices/observations, with a short history. */
+  prices: { brand: PriceSeen; alternative: PriceSeen };
+  /** The tier from the older side's date. */
+  freshness: Freshness;
   /** Who to credit for the nutrition records on this swap. Null when neither side has one. */
   nutritionSource: NutritionSource | null;
 };
@@ -97,6 +102,14 @@ export type PresetLine = {
   unit: string;
   brandPpu: number;
   altPpu: number;
+  /** Who sells the cheaper product, which groups lines into one order per store. */
+  seller: string;
+  /** The cheaper product's real pack and how many of them one brand pack's amount takes. Null when it's priced per amount. */
+  pack: { price: number; per: number } | null;
+  /** Whole packs bought at the till for qty, or null with no pack to count. */
+  packs: number | null;
+  /** What those packs cost at the till. */
+  tillCost: number;
 };
 
 export type Preset = Omit<PresetInput, "items"> & {
@@ -113,6 +126,8 @@ export type Preset = Omit<PresetInput, "items"> & {
   /** Share of lines with a real photo of the cheaper item, 0 to 1. */
   photoShare: number;
   score: number;
+  /** Buying it in whole packs at its starting quantities: one order per store, each with its delivery. */
+  checkout: Checkout;
 };
 
 export type BundleComponent = BundleInput["components"][number] & {
@@ -151,6 +166,10 @@ export type Bundle = Omit<BundleInput, "components"> & {
   /** The saving after that extra delivery, when it's known; otherwise the same as savings. */
   netSavings: number;
   netSavingsPct: number;
+  /** "kit" and "item-<n>" (the bundle item a piece replaces): when each price was last seen. */
+  prices: Record<string, PriceSeen>;
+  /** The tier from the oldest piece's date. */
+  freshness: Freshness;
 };
 
 export type Catalog = {

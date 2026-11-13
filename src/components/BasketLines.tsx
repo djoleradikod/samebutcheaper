@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import { Minus, Plus } from "lucide-react";
-import { storeSplit } from "@/lib/affiliate";
+import { tillLine, type Checkout, type TillLine } from "@/lib/delivery";
+import { basketCheckoutFor } from "@/lib/delivery-abroad";
 import { setSavedList, useSavedList } from "@/lib/client/savedList";
 import type { Currency } from "@/lib/format";
+import type { MarketCode } from "@/lib/markets";
 import type { CategorySlug } from "@/lib/types";
+import { CheckoutCard } from "./CheckoutCard";
 import { packSize } from "@/lib/unit-format";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, SaveTicket } from "./Ticket";
@@ -41,6 +44,10 @@ export type BasketLineView = {
   pack: string | null;
   /** Set when the price is per wash or per 100 ml, so the quantity counts that amount and not packs. */
   measure: { size: number; unit: string } | null;
+  /** The line's store and real pack, so the till counts whole packs at any quantity. */
+  till: TillLine;
+  /** The cheaper product's own pack, such as "1 kg". Null when it's priced per amount. */
+  altPack: string | null;
 };
 
 const MAX_QTY = 99;
@@ -57,6 +64,10 @@ type BasketState = {
   altTotal: number;
   savings: number;
   pct: number;
+  /** Whole packs at the till, one order per store with its delivery. The store split and the checkout both read this. */
+  checkout: Checkout;
+  /** Each seller's name as the lines show it. */
+  storeNames: Record<string, string>;
 };
 
 const BasketContext = createContext<BasketState | null>(null);
@@ -77,10 +88,15 @@ function scaled(line: BasketLineView, n: number) {
 export function BasketProvider({
   lines,
   currency,
+  market,
+  country = null,
   children,
 }: {
   lines: BasketLineView[];
   currency: Currency;
+  market: MarketCode;
+  /** Where the shopper is, when we know: delivery is counted to there. */
+  country?: string | null;
   children: ReactNode;
 }) {
   const start = useMemo(() => lines.map((l) => l.qty), [lines]);
@@ -94,6 +110,8 @@ export function BasketProvider({
       altTotal += cost.alt;
     });
     const savings = brandTotal - altTotal;
+    const storeNames: Record<string, string> = {};
+    for (const l of lines) storeNames[l.till.seller] ??= l.altStore;
     return {
       lines,
       currency,
@@ -106,8 +124,15 @@ export function BasketProvider({
       altTotal,
       savings,
       pct: brandTotal > 0 ? (savings / brandTotal) * 100 : 0,
+      checkout: basketCheckoutFor(
+        lines.map((l) => l.till),
+        qty,
+        market,
+        country,
+      ),
+      storeNames,
     };
-  }, [lines, currency, qty, start]);
+  }, [lines, currency, market, country, qty, start]);
   return <BasketContext.Provider value={state}>{children}</BasketContext.Provider>;
 }
 
@@ -143,26 +168,88 @@ export function BasketTotals() {
   );
 }
 
-/** The cheaper total is rarely one trip, so this says which stores it takes before anyone reads it as one receipt. Follows the stepper. */
+/**
+ * The cheaper total is rarely one trip, so this says which stores it takes, in whole packs at the till, before
+ * anyone reads it as one receipt. The same figures as the checkout further down. Follows the stepper.
+ */
 export function BasketStoreSplit() {
-  const { lines, qty, currency } = useBasket();
-  const stores = storeSplit(lines.map((line, i) => ({ store: line.altStore, cost: scaled(line, qty[i]).alt })));
-  if (!stores.length) return null;
+  const { checkout, storeNames, currency, items } = useBasket();
+  const stores = checkout.stores;
+  if (!stores.length || !items) return null;
   return (
     <div className="mt-3 max-w-[62ch]">
       <p className="text-sm font-medium text-ink">
-        {stores.length === 1 ? `The cheaper side is all from ${stores[0].label}.` : `The cheaper side takes ${stores.length} stores:`}
+        {stores.length === 1 ? (
+          <>
+            At the till it&apos;s one order at {storeNames[stores[0].seller]}:{" "}
+            <span className="num font-semibold">
+              <Money n={stores[0].subtotal} from={currency} />
+            </span>{" "}
+            in whole packs.
+          </>
+        ) : (
+          `At the till it's ${stores.length} orders, in whole packs:`
+        )}
       </p>
       {stores.length > 1 && (
         <ul className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5 text-sm text-ink-2">
           {stores.map((s) => (
-            <li key={s.label}>
-              {s.label} <span className="num font-semibold text-ink"><Money n={s.total} from={currency} /></span>
+            <li key={s.seller}>
+              {storeNames[s.seller]}{" "}
+              <span className="num font-semibold text-ink">
+                <Money n={s.subtotal} from={currency} />
+              </span>
             </li>
           ))}
         </ul>
       )}
+      <a href="#checkout" className="mt-1 inline-flex min-h-11 items-center text-[13px] font-medium text-cobalt underline underline-offset-2 md:min-h-0">
+        {checkout.delivery === null ? (
+          "What you pay at checkout"
+        ) : (
+          <>
+            With delivery,&nbsp;
+            <Money n={checkout.payToday} from={currency} prose />
+          </>
+        )}
+      </a>
     </div>
+  );
+}
+
+/** What the cheaper side costs at checkout, at the quantities set above. */
+export function BasketCheckout() {
+  const { checkout, storeNames, currency, brandTotal, altTotal, items } = useBasket();
+  if (!items) return null;
+  const packs = checkout.stores.reduce((n, s) => n + s.subtotal, 0);
+  const extra = packs - altTotal;
+  return (
+    <section id="checkout" className="scroll-mt-20">
+      <h2 className="display mb-1 text-xl md:text-2xl">What you pay at checkout</h2>
+      <p className="mb-3 max-w-[62ch] text-sm text-ink-2 md:text-[15px]">
+        {checkout.stores.length === 1
+          ? "Everything comes from one store, so it's one order."
+          : `The cheaper items come from ${checkout.stores.length} stores, so it's ${checkout.stores.length} orders, each with its own delivery.`}{" "}
+        Stores sell whole packs, so this counts the packs you&apos;d buy for the amounts above.
+      </p>
+      <CheckoutCard checkout={checkout} currency={currency} names={storeNames}>
+        <p className="mt-1 text-[13px] text-ink-2">
+          {extra > 0.005 && (
+            <>
+              The packs cost <Money n={extra} from={currency} prose /> more than the same amount at the unit price, because some hold more
+              than you need. That extra lasts you longer.{" "}
+            </>
+          )}
+          {extra < -0.005 && (
+            <>
+              Where a pack holds a little less than the brand&apos;s (a tenth or less), we count one pack, so this comes in under the
+              same-amount total.{" "}
+            </>
+          )}
+          The brand names cost <Money n={brandTotal} from={currency} prose /> for the same amount, before their own delivery.
+        </p>
+      </CheckoutCard>
+    </section>
   );
 }
 
@@ -300,6 +387,7 @@ function Line({ line, index }: { line: BasketLineView; index: number }) {
                 <span>Saves <Money n={cost.brand - cost.alt} from={currency} /></span>
                 <PctTicket pct={line.savingsPct} size="sm" />
               </p>
+              <TillNote line={line} n={n} />
             </>
           ) : (
             <p className="text-[13px] font-medium text-muted">Left out of the total</p>
@@ -307,6 +395,25 @@ function Line({ line, index }: { line: BasketLineView; index: number }) {
         </div>
       </div>
     </li>
+  );
+}
+
+/** What the line comes to at the till, in whole packs of the cheaper product. */
+function TillNote({ line, n }: { line: BasketLineView; n: number }) {
+  const { currency } = useBasket();
+  const till = tillLine(line.till, n);
+  if (till.packs === null || !line.altPack) {
+    return (
+      <p className="mt-1 text-xs text-muted">
+        At the till: <span className="num"><Money n={till.cost} from={currency} /></span> for this amount. It&apos;s priced per amount, so
+        the pack you buy may cost more.
+      </p>
+    );
+  }
+  return (
+    <p className="mt-1 text-xs text-muted">
+      At the till: {till.packs} × {line.altPack}, <span className="num"><Money n={till.cost} from={currency} /></span>
+    </p>
   );
 }
 

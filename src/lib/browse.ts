@@ -1,6 +1,7 @@
 import { CATEGORIES, CATEGORY_MAP, MATCH_TYPE_META } from "./categories";
-import { isThinMarket, listMarketFor } from "./localize";
+import { listMarketFor, mixesMarkets } from "./localize";
 import { isMarket, MARKET_CODES, MARKET_LABEL, type MarketCode } from "./markets";
+import { leadFirst } from "./freshness";
 import type { PhotoTier } from "./photos";
 import type { Bundle, CategorySlug, MatchType, PairSummary } from "./types";
 
@@ -37,10 +38,13 @@ export type BrowseRow = {
   unit: number;
   /** When the prices were checked, ISO year-month. */
   checked: string;
+  /** The price is stale (see freshness.ts): it sorts last within its group, so it never leads a list. */
+  stale?: boolean;
 };
 
 /** The fields BundleCard reads. A whole bundle is about ten times bigger. */
-export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers" | "category" | "match_type" | "savingsPct" | "netSavingsPct" | "equivalentTotal" | "currency"> & {
+export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers" | "category" | "match_type" | "savingsPct" | "netSavingsPct" | "netSavings" | "equivalentTotal" | "currency"> & {
+  checkout: Pick<Bundle["checkout"], "delivery">;
   bundle: Pick<Bundle["bundle"], "brand" | "name" | "price"> & { items: { name: string }[] };
   photo: { src: string } | null;
   components: (Pick<Bundle["components"][number], "brand" | "product" | "unit" | "replaces"> & {
@@ -116,8 +120,8 @@ export function shelfKey(label: string) {
  * (see forCountry). With no country at all, assume the US.
  */
 export function defaultMarket(rows: BrowseRow[], country: string | null, hideMedicine = false): MarketCode | "all" {
-  // A market too thin to lead shows its own records beside the fallback's.
-  if (isThinMarket(country)) return "all";
+  // A market too thin to lead, or one that lists other markets' records beside its own, shows them all.
+  if (mixesMarkets(country)) return "all";
   const lead = listMarketFor(country);
   return rows.some((r) => r.market === lead && !(hideMedicine && r.aisle === MEDICINE)) ? lead : "all";
 }
@@ -162,7 +166,7 @@ const COMPARE: Record<SortKey, (a: BrowseRow, b: BrowseRow) => number> = {
  */
 export function matchRows(rows: BrowseRow[], s: BrowseState, scope: Scope) {
   const compare = COMPARE[s.sort];
-  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || Number(b.rated) - Number(a.rated) || compare(a, b));
+  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || leadFirst(a, b) || Number(b.rated) - Number(a.rated) || compare(a, b));
 }
 
 /** Cards already in tier order, split where the first tier ends. The second part is empty with only one tier. */

@@ -10,6 +10,8 @@ import {
   boolean,
   numeric,
   jsonb,
+  integer,
+  date,
 } from "drizzle-orm/pg-core";
 
 /** Outbound affiliate clicks, used to see which swaps people actually buy. */
@@ -109,7 +111,15 @@ export const subscribers = pgTable(
     token: varchar("token", { length: 64 }),
     /** Country selected when they signed up, for sending swaps they can buy. */
     country: varchar("country", { length: 2 }),
-    /** When the last confirmation email went out (null: none sent yet, for example before email was set up). */
+    /**
+     * The weekly letter, consented to on its own: "no" | "pending" (asked, waiting for the link in the email) | "yes".
+     * An address can be confirmed for a price watch only, and still never get the letter. Sends need status
+     * "confirmed" and this "yes".
+     */
+    newsletter: varchar("newsletter", { length: 8 }).default("pending").notNull(),
+    /** Proof of consent to the letter itself: when its confirm link was followed. */
+    letterConfirmedAt: timestamp("letter_confirmed_at", { withTimezone: true }),
+    /** When the last confirmation email for the weekly letter went out (null: none sent yet, for example before email was set up). */
     confirmSentAt: timestamp("confirm_sent_at", { withTimezone: true }),
     /** Proof of consent: when the link in the email was followed. */
     confirmedAt: timestamp("confirmed_at", { withTimezone: true }),
@@ -149,4 +159,132 @@ export const lookups = pgTable(
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => [index("lookups_created_idx").on(t.createdAt), index("lookups_verified_idx").on(t.verified)],
+);
+
+/**
+ * "Something wrong?" reports from swap and kit pages. No account and no email: just what was wrong, an optional
+ * short note, the shopper's country and the daily-changing visitor hash the click log uses (never an IP address).
+ */
+export const reports = pgTable(
+  "reports",
+  {
+    id: serial("id").primaryKey(),
+    /** "pair" | "bundle" */
+    recordKind: varchar("record_kind", { length: 8 }).notNull(),
+    slug: varchar("slug", { length: 160 }).notNull(),
+    /** "price" | "stock" | "product" | "other" */
+    kind: varchar("kind", { length: 16 }).notNull(),
+    note: varchar("note", { length: 300 }),
+    country: varchar("country", { length: 2 }),
+    visitorHash: varchar("visitor_hash", { length: 64 }),
+    /** "open" | "resolved" | "dismissed" */
+    status: varchar("status", { length: 16 }).default("open").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    closedAt: timestamp("closed_at", { withTimezone: true }),
+  },
+  (t) => [
+    index("reports_slug_idx").on(t.recordKind, t.slug),
+    index("reports_status_idx").on(t.status, t.createdAt),
+  ],
+);
+
+/**
+ * What shoppers looked for and we had nothing for: zero-result searches on /search ("search") and products /check
+ * could read but has no swap for ("check"). Counted per query, country and day, with nothing about who asked.
+ */
+export const wanted = pgTable(
+  "wanted",
+  {
+    id: serial("id").primaryKey(),
+    /** Lower case, single spaces, at most 80 characters. */
+    query: varchar("query", { length: 80 }).notNull(),
+    /** "search" | "check" */
+    source: varchar("source", { length: 8 }).notNull(),
+    /** Two letters, or "" when we don't know the country. */
+    country: varchar("country", { length: 2 }).default("").notNull(),
+    day: date("day").notNull(),
+    count: integer("count").default(1).notNull(),
+  },
+  (t) => [uniqueIndex("wanted_key_idx").on(t.query, t.source, t.country, t.day), index("wanted_day_idx").on(t.day)],
+);
+
+/**
+ * "Tell me when you add it", from a search with no results. Tied to a subscriber and double opt-in like
+ * everything else that leads to an email: "pending" until the link in the email is followed.
+ */
+export const wishes = pgTable(
+  "wishes",
+  {
+    id: serial("id").primaryKey(),
+    subscriberId: integer("subscriber_id")
+      .notNull()
+      .references(() => subscribers.id, { onDelete: "cascade" }),
+    query: varchar("query", { length: 80 }).notNull(),
+    country: varchar("country", { length: 2 }),
+    /** "pending" | "active" | "stopped" */
+    status: varchar("status", { length: 16 }).default("pending").notNull(),
+    confirmSentAt: timestamp("confirm_sent_at", { withTimezone: true }),
+    confirmedAt: timestamp("confirmed_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    stoppedAt: timestamp("stopped_at", { withTimezone: true }),
+  },
+  (t) => [uniqueIndex("wishes_key_idx").on(t.subscriberId, t.query), index("wishes_query_idx").on(t.query)],
+);
+
+/**
+ * "Email me if this changes" on a swap. Holds the swap's prices when the watch began or when we last wrote about
+ * it; a new catalogue build that moves them far enough sends one email (see src/lib/watches.ts).
+ */
+export const watches = pgTable(
+  "watches",
+  {
+    id: serial("id").primaryKey(),
+    subscriberId: integer("subscriber_id")
+      .notNull()
+      .references(() => subscribers.id, { onDelete: "cascade" }),
+    slug: varchar("slug", { length: 160 }).notNull(),
+    /** The swap's title when the watch began, for telling them about it after it's gone. */
+    title: varchar("title", { length: 200 }).notNull(),
+    /** "pending" | "active" | "stopped" (they asked) | "ended" (the swap was withdrawn and we said so) */
+    status: varchar("status", { length: 16 }).default("pending").notNull(),
+    currency: varchar("currency", { length: 3 }).notNull(),
+    unit: varchar("unit", { length: 24 }).notNull(),
+    altPrice: numeric("alt_price", { precision: 12, scale: 4 }).notNull(),
+    altPpu: numeric("alt_ppu", { precision: 16, scale: 8 }).notNull(),
+    brandPpu: numeric("brand_ppu", { precision: 16, scale: 8 }).notNull(),
+    savingsPct: numeric("savings_pct", { precision: 6, scale: 2 }).notNull(),
+    /** The record's price_checked when these prices were taken. */
+    priceChecked: varchar("price_checked", { length: 16 }),
+    confirmSentAt: timestamp("confirm_sent_at", { withTimezone: true }),
+    confirmedAt: timestamp("confirmed_at", { withTimezone: true }),
+    lastNotifiedAt: timestamp("last_notified_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    stoppedAt: timestamp("stopped_at", { withTimezone: true }),
+  },
+  (t) => [uniqueIndex("watches_key_idx").on(t.subscriberId, t.slug), index("watches_status_idx").on(t.status)],
+);
+
+/**
+ * Every email sent to a subscriber: confirmations, price-watch notices and weekly letters. A row is claimed before
+ * the send (unique per subscriber, kind and key), so a second run, or two at once, can't send the same thing twice.
+ * `items` holds the slugs a weekly letter carried, so the next one skips them.
+ */
+export const sends = pgTable(
+  "sends",
+  {
+    id: serial("id").primaryKey(),
+    subscriberId: integer("subscriber_id")
+      .notNull()
+      .references(() => subscribers.id, { onDelete: "cascade" }),
+    /** "confirm" | "watch" | "weekly" */
+    kind: varchar("kind", { length: 16 }).notNull(),
+    /** What was sent: "2026-W46" for a letter, "watch-12:<prices>" for a watch notice, "letter:<time>" for a confirmation. */
+    key: varchar("key", { length: 160 }).notNull(),
+    /** "sending" | "sent" | "empty" (nothing new for this subscriber in that letter) */
+    status: varchar("status", { length: 16 }).default("sending").notNull(),
+    providerId: varchar("provider_id", { length: 80 }),
+    items: jsonb("items"),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => [uniqueIndex("sends_key_idx").on(t.subscriberId, t.kind, t.key), index("sends_created_idx").on(t.createdAt)],
 );

@@ -229,6 +229,8 @@ body {
 
   /* Sideways-scrolling rows (aisle links, baskets on a phone). */
   .rail {
+    /* Positioned, so visually hidden labels inside a card stay inside the scroller and never widen the page. */
+    position: relative;
     overscroll-behavior-x: contain;
     scrollbar-width: none;
   }

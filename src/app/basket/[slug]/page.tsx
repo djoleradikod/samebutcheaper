@@ -3,15 +3,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { BasketCard, COLLAGE_CELLS } from "@/components/BasketCard";
-import { BasketLines, BasketProvider, BasketStoreSplit, BasketTotals, SaveAllButton } from "@/components/BasketLines";
+import { BasketCheckout, BasketLines, BasketProvider, BasketStoreSplit, BasketTotals, SaveAllButton } from "@/components/BasketLines";
 import { HealthNotice, hostname } from "@/components/Evidence";
 import { ProductThumb } from "@/components/ProductThumb";
 import { basketLines, basketPhotos, priceDates, toBasketSummary } from "@/lib/basket-view";
 import { getAllPresets, getPair, getPreset } from "@/lib/catalog";
-import { money } from "@/lib/format";
 import { MARKET_LABEL, MARKETS } from "@/lib/markets";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Preset } from "@/lib/types";
+import { basketDescription, basketTitle } from "@/lib/seo";
 import { forCountry, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
 import { CountryPart } from "@/components/ForCountry";
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: PageProps<"/basket/[slug]">):
   const { slug } = await params;
   const p = getPreset(slug);
   if (!p) return { title: "Basket not found" };
-  const title = `${p.title}: the same shop for ${money(p.savings, p.currency)} less`;
-  const description = `${p.audience}. ${p.lines.length} items, ${money(p.brandTotal, p.currency)} in brand names or ${money(p.altTotal, p.currency)} in cheaper swaps, for the same amount.`;
+  const title = basketTitle(p);
+  const description = basketDescription(p);
   return {
     title,
     description,
@@ -113,7 +113,7 @@ function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>
   };
 
   return (
-    <BasketProvider lines={lines} currency={p.currency}>
+    <BasketProvider lines={lines} currency={p.currency} market={p.market} country={local.known ? local.country : null}>
       <article>
         {!local.shows(p) && <NotListedHere market={p.market} local={local} />}
         <div className="border-b border-line bg-canvas">
@@ -146,8 +146,8 @@ function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>
                 <BasketTotals />
                 <BasketStoreSplit />
                 <p className="mt-3 max-w-[62ch] text-sm text-ink-2">
-                  Both totals buy the same amount of each product, added up from each swap&apos;s price per unit. The cheaper pack
-                  may be a different size, so what you pay at the till can differ.
+                  Both totals buy the same amount of each product, added up from each swap&apos;s price per unit. Stores sell whole
+                  packs, so the till figures count the packs you&apos;d buy.
                   {dates ? ` Prices are from ${MARKETS[p.market].short}, dated ${dates}, so check them before you buy.` : ""}
                 </p>
                 <div className="mt-3">
@@ -180,6 +180,12 @@ function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>
           </div>
           <BasketLines />
         </section>
+
+        <div className="container-page pt-8 md:pt-10">
+          <div className="max-w-3xl">
+            <BasketCheckout />
+          </div>
+        </div>
 
         <section className="container-page grid gap-6 pt-8 md:grid-cols-2 md:gap-12 md:pt-10">
           <div>

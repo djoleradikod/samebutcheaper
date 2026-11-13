@@ -7,7 +7,9 @@ import { getPair, getSiteStats } from "@/lib/catalog";
 import { subscriberCounts } from "@/lib/newsletter";
 import { Revenue } from "./Revenue";
 import { Readiness } from "./Readiness";
+import { LetterPanel, MostWanted, OpenReportsStat, ReportQueue } from "./Feedback";
 import { setSubmissionStatus } from "./actions";
+import { PriceWatchAdmin } from "@/components/PriceWatchAdmin";
 
 export const metadata: Metadata = { title: "Admin", robots: { index: false, follow: false } };
 
@@ -18,6 +20,7 @@ export default function AdminPage() {
       <Suspense fallback={<p className="mt-6 text-muted">Loading…</p>}>
         <AdminData />
       </Suspense>
+      <PriceWatchAdmin />
     </section>
   );
 }
@@ -71,16 +74,19 @@ async function AdminData() {
 
   return (
     <div className="mt-8 space-y-10">
-      <div className="num grid gap-3 sm:grid-cols-4">
+      <div className="num grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
         <Stat label="Swaps live" value={stats.pairs} />
         <Stat label="Clicks (30 days)" value={totals?.clicks ?? 0} />
         <Stat label="Unique clickers per day (30 days)" value={totals?.visitors ?? 0} />
         <Stat label={`Subscribers confirmed (${list.pending} waiting to confirm)`} value={list.confirmed} />
+        <OpenReportsStat />
       </div>
 
       <Readiness />
 
       <Revenue since={since} />
+
+      <ReportQueue />
 
       <div>
         <h2 className="text-xl font-semibold">Top outbound clicks, last 30 days</h2>
@@ -128,6 +134,8 @@ async function AdminData() {
         </table>
       </div>
 
+      <MostWanted />
+
       <div>
         <h2 className="text-xl font-semibold">Suggestions</h2>
         <div className="mt-3 space-y-3">
@@ -165,6 +173,8 @@ async function AdminData() {
         </div>
       </div>
 
+      <LetterPanel />
+
       <div>
         <h2 className="text-xl font-semibold">Downloads</h2>
         <p className="mt-1 text-sm text-muted">
@@ -172,7 +182,7 @@ async function AdminData() {
           ({list.unsubscribed} have unsubscribed).
         </p>
         <ul className="mt-3 flex flex-wrap gap-2 text-sm">
-          {(["subscribers", "submissions", "clicks", "conversions", "lookups"] as const).map((k) => (
+          {(["subscribers", "submissions", "clicks", "conversions", "lookups", "reports", "wanted"] as const).map((k) => (
             <li key={k}>
               <a href={`/admin/export/${k}`} className="btn btn-ghost" download>
                 {k}

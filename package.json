@@ -18,7 +18,10 @@
     "db:maintain": "tsx scripts/maintain.ts",
     "preflight": "tsx scripts/preflight.ts",
     "test": "tsx --test scripts/affiliate-links.test.ts scripts/tests/*.test.ts scripts/qa/*.test.ts",
-    "test:e2e": "tsx --test scripts/tests/e2e.ts"
+    "test:e2e": "tsx --test scripts/tests/e2e.ts",
+    "prices:refresh": "tsx scripts/prices/refresh.ts",
+    "prices:seed": "tsx scripts/prices/seed.ts",
+    "newsletter:preview": "tsx scripts/newsletter-preview.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.3.0",

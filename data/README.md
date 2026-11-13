@@ -77,6 +77,31 @@ Leave a value `null` when no source confirms it: the page then says the delivery
 `confidence` is `official` (the store's own page) or `secondary` (a dated third-party guide). `membership` is
 `{ name, price, per, nonmember_surcharge_pct? }` for clubs like Costco; a non-member surcharge is counted in the checkout.
 
+A rule is for the market's own shoppers. When the store's page gives delivery to another country, add it under `abroad`,
+keyed by that country, with the same fields (no `pickup` or `membership`, which don't travel) and one optional extra:
+
+```json
+"medikamente-per-klick": { "DE": { "fee": 3.95, "free_over": 15, "confidence": "official", "sources": ["https://..."],
+  "abroad": { "AT": { "fee": 5.70, "free_over": null, "fee_over": { "from": 35, "fee": 3.00 },
+                      "confidence": "official", "sources": ["https://..."] } } } }
+```
+
+`fee_over` is a lower fee from an order size, for stores that charge less above a line instead of nothing. Amounts stay
+in the market's currency. `delivery.ts` ignores `abroad`, so files without it read as before. `src/lib/delivery-abroad.ts`
+reads it: a shopper in that country gets that rule, and a shopper in a country with no entry is told delivery there isn't
+checked, never shown the market's own rule. Whether a store delivers there at all, and so whether we link it, is
+`ships` in `data/sellers/footprint.json`; add both together.
+
+## Who sells where (`data/sellers/footprint.json`)
+
+`sellers` (written by `scripts/qa/seller_footprint.py`) and `manual` (by hand, with a source) list the countries a
+chain sells in with the same range. A record from another market lists there if every seller is in one of them.
+`ships` is a store whose site in one market delivers to another country, by its own delivery page:
+`"aponeo": { "DE": { "AT": "<delivery page>" } }`. Its records list and link there. `separate` is a chain that sells in
+a country only through a national shop of its own with a different range and prices, such as `walmart.ca` against
+`walmart.com`: `"walmart": { "CA": "https://www.walmart.ca/" }`. Its records don't list there by default, the store isn't
+linked, and the swap page points to that site instead. No entry means we couldn't show it sells there, not that it doesn't.
+
 ## Presets (`data/presets/*.json`)
 
 A basket for a life moment, built only from swaps in the catalogue, so a preset makes no new price claims. All its
@@ -202,3 +227,27 @@ An unrated product stays listed and reads "No rating found yet". It sorts behind
 ## Ireland
 
 `IE` is a market with too few swaps of its own to lead (`THIN_MARKETS` in `src/lib/localize.ts`): it still falls back to UK prices under the seller rule, says so, and lists its own records as well. Take it out of `THIN_MARKETS` once it can fill the home page. Irish records so far come from zooplus.ie, whose terms show no bar on reading prices. Left out on purpose: Tesco and Aldi Ireland, Dunnes, Boots and Harvey Norman refuse automated requests; SuperValu's terms (clause 1.2) say personal, non-commercial use only; Woodie's terms bar copying without written approval. A new Irish record ships with a rating.
+
+## Price observations (`data/prices/`)
+
+Every price a record shows is backed by lines in `data/prices/observations/*.jsonl`: one JSON object per line,
+append-only, never edited. The build validates each line (`scripts/prices/observations.ts`) and dates each side
+from the latest line at the record's current price. How the refresh uses them, and the source rules, are in
+`docs/prices.md`.
+
+```json
+{"record":"nutella-vs-ja-nuss-nougat-creme-de","side":"brand","price":3.99,"currency":"EUR","seen":"2026-11-07","precision":"day","source":"rewe","url":"https://shop.rewe.de/...","method":"hand","logged":"2026-11-13"}
+```
+
+- `record`: the swap or kit slug. `side`: `brand` or `alternative` on a swap; `kit` or `item-<n>` on a kit, where
+  `n` is the bundle item the piece `replaces`.
+- `price` in the record's market currency, and `currency` saying which (`USD`, `GBP`, `CAD`, `EUR`).
+- `seen`: the ISO day the price was seen at the store or published by the source. `precision: "month"` marks
+  older hand checks that only kept a month; `seen` is then the 1st and the page shows the month.
+- `source`: a retailer id for hand checks, `open-prices`, or `awin:<merchant id>`. `url`: where to see it.
+- `method`: `hand`, `open-prices`, `feed` or `shopper-report`. `logged`: the day the line was written.
+- Optional `attribution` (Open Prices data is ODbL and carries its credit) and `note`.
+
+When you change a price by hand, log it: put the check in a CSV and run
+`npm run prices:refresh -- --manual checks.csv`, which applies the same rules as any source. `npm run prices:seed`
+backs any price with no line yet. `data/prices/review.json` holds what the refresh would not apply on its own.

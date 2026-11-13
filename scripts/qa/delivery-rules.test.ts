@@ -60,3 +60,37 @@ test("a locale subdomain doesn't become the seller", () => {
   assert.equal(sellerOf({ brand: "UGREEN", product: "Hub", retailer: "other", url: "https://us.ugreen.com/products/x" }), "ugreen");
   assert.equal(sellerOf({ brand: "X", product: "Y", retailer: "other", url: "https://shop.example.com/a" }), "example");
 });
+
+test("a kit delivered to another country is counted with that country's delivery, or says it isn't checked", async () => {
+  const { kitFor } = await import("../../src/lib/delivery-abroad");
+  const { checkout: co } = await import("../../src/lib/delivery");
+  const kit = {
+    market: "DE" as const,
+    bundle: { price: 40 },
+    components: [{ seller: "aponeo", price: 32 }],
+    kitSeller: "aponeo",
+    savings: 8,
+    checkout: co([{ seller: "aponeo", price: 32 }], "DE"),
+    kitCheckout: co([{ seller: "aponeo", price: 40 }], "DE"),
+    extraDelivery: 0,
+    netSavings: 8,
+    netSavingsPct: 20,
+  };
+  assert.equal(kitFor(kit, "DE"), kit);
+  assert.equal(kitFor(kit, null), kit);
+  const at = kitFor(kit, "AT");
+  assert.equal(at.checkout.delivery, 4.99, "Austria has no free-delivery line at this store");
+  assert.equal(at.kitCheckout.delivery, 4.99);
+  assert.equal(at.extraDelivery, 0);
+  assert.equal(at.netSavings, 8);
+  assert.equal(at.checkout.payToday, 36.99);
+  const ch = kitFor(kit, "CH");
+  assert.equal(ch.checkout.delivery, null, "no rule for Switzerland, so never the German one");
+  assert.equal(ch.extraDelivery, null);
+});
+
+test("a country that lists other markets' records beside its own doesn't filter to its own by default", async () => {
+  const { defaultMarket } = await import("../../src/lib/browse");
+  const row = (market: string) => ({ market, aisle: "household" }) as never;
+  assert.equal(defaultMarket([row("CA"), row("US")], "CA"), "all");
+});

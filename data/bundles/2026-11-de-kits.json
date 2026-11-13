@@ -1,0 +1,400 @@
+[
+  {
+    "slug": "allergodil-akut-duo-vs-azelastin-micro-labs-vividrin-nasenspray-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "title": "Allergodil akut Duo (eye drops + nasal spray) vs azelastine eye drops and nasal spray bought separately",
+    "bundle": {
+      "brand": "Allergodil",
+      "name": "Allergodil akut Duo: eye drops 4 ml + nasal spray 10 ml",
+      "price": 16.16,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00694793-allergodil-akut-duo-4ml-at-a.html",
+      "items": [
+        {
+          "name": "Allergodil akut Augentropfen",
+          "size": 4,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Azelastine hydrochloride",
+              "amount": "0.5 mg/ml"
+            }
+          ]
+        },
+        {
+          "name": "Allergodil akut Nasenspray",
+          "size": 10,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Azelastine hydrochloride",
+              "amount": "1 mg/ml"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Micro Labs",
+        "product": "Azelastin Micro Labs 0,5 mg/ml Augentropfen, 6 ml",
+        "size": 6,
+        "unit": "ml",
+        "price": 5.99,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/15561394-azelastin-micro-labs-0-5-mg-ml-augentropfen.html",
+        "license_id": "PZN 15561394",
+        "key_ingredients": [
+          {
+            "name": "Azelastine hydrochloride",
+            "amount": "0.5 mg/ml"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "azelastine 0.5 mg/ml eye drops"
+      },
+      {
+        "replaces": 1,
+        "brand": "Vividrin",
+        "product": "Vividrin Azelastin Nasenspray 1 mg/ml, 10 ml",
+        "size": 10,
+        "unit": "ml",
+        "price": 9.44,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/12910552-vividrin-azelastin-1-mg-ml-nasenspray-loesung.html",
+        "license_id": "PZN 12910552",
+        "key_ingredients": [
+          {
+            "name": "Azelastine hydrochloride",
+            "amount": "1 mg/ml"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "azelastine 1 mg/ml nasal spray"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Allergodil's hay fever duo is azelastine eye drops and an azelastine nasal spray in one box. The same two medicines at the same strengths, bought as single packs from the same pharmacy, cost about 17% less for the same amount.",
+    "evidence": "All prices read on aponeo.de on 13 Nov 2026, each re-read with a second narrow fetch. Allergodil akut Duo (PZN 00694793, Cooper Consumer Health / Viatris, apothekenpflichtig) €16.16: the page's Pflichtangaben give eye drops 0.5 mg/ml and nasal spray 1 mg/ml azelastine hydrochloride; the page doesn't state volumes, so the 4 ml eye drops and 10 ml nasal spray come from the ABDA drug database on aponet.de (\"ALLERGODIL akut Duo 4ml AT akut/10ml NS akut\"). Azelastin Micro Labs 0.5 mg/ml Augentropfen 6 ml (PZN 15561394, apothekenpflichtig) €5.99. Vividrin Azelastin Nasenspray 1 mg/ml 10 ml (PZN 12910552, Dr. Gerhard Mann, apothekenpflichtig) €9.44. Same store, so one basket and one delivery charge.",
+    "differences": "Two boxes instead of one. The eye drops come in a 6 ml bottle, so you pay €5.99 up front for 2 ml more than the kit holds (€15.43 for both packs, still under the kit's €16.16). Preservatives and other inactive ingredients were not compared. Eye drops should be used within the time the leaflet gives after opening, so a bigger bottle isn't always used up. Neither pack is a prescription medicine, but both are pharmacy-only.",
+    "sources": [
+      "https://www.aponeo.de/00694793-allergodil-akut-duo-4ml-at-a.html",
+      "https://www.aponet.de/service/arzneimitteldatenbank/arzneimittel/anwendungsdetails/packungsdaten/3343012900/Azelastin",
+      "https://www.aponeo.de/15561394-azelastin-micro-labs-0-5-mg-ml-augentropfen.html",
+      "https://www.aponeo.de/12910552-vividrin-azelastin-1-mg-ml-nasenspray-loesung.html"
+    ],
+    "price_checked": "2026-11-13"
+  },
+  {
+    "slug": "voltaren-schmerzgel-forte-2x150g-vs-diclox-forte-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "title": "Voltaren Schmerzgel forte 2x150 g vs two tubes of Diclox forte",
+    "bundle": {
+      "brand": "Voltaren",
+      "name": "Voltaren Schmerzgel forte, 2x150 g",
+      "price": 37.86,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/08029959-voltaren-schmerzgel-forte-23-2mg.html",
+      "items": [
+        {
+          "name": "Voltaren Schmerzgel forte, tube 1",
+          "size": 150,
+          "unit": "g",
+          "key_ingredients": [
+            {
+              "name": "Diclofenac diethylamine",
+              "amount": "23.2 mg/g"
+            }
+          ]
+        },
+        {
+          "name": "Voltaren Schmerzgel forte, tube 2",
+          "size": 150,
+          "unit": "g",
+          "key_ingredients": [
+            {
+              "name": "Diclofenac diethylamine",
+              "amount": "23.2 mg/g"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "ratiopharm",
+        "product": "Diclox forte Schmerzgel 2%, 150 g",
+        "size": 150,
+        "unit": "g",
+        "price": 15.31,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/16705010-diclox-forte-20-mg-g-gel.html",
+        "license_id": "PZN 16705010",
+        "key_ingredients": [
+          {
+            "name": "Diclofenac diethylamine",
+            "amount": "23.2 mg/g"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "diclofenac diethylamine 23.2 mg/g gel (twice daily)"
+      },
+      {
+        "replaces": 1,
+        "brand": "ratiopharm",
+        "product": "Diclox forte Schmerzgel 2%, 150 g",
+        "size": 150,
+        "unit": "g",
+        "price": 15.31,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/16705010-diclox-forte-20-mg-g-gel.html",
+        "license_id": "PZN 16705010",
+        "key_ingredients": [
+          {
+            "name": "Diclofenac diethylamine",
+            "amount": "23.2 mg/g"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "diclofenac diethylamine 23.2 mg/g gel (twice daily)"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Voltaren's forte double pack is two 150 g tubes of 23.2 mg/g diclofenac diethylamine gel. ratiopharm's Diclox forte is the same active at the same strength, and two tubes cost about 19% less at the same pharmacy.",
+    "evidence": "All read on aponeo.de on 13 Nov 2026, prices re-read with a second narrow fetch. Voltaren Schmerzgel forte 2x150 g (PZN 08029959) €37.86: 23.2 mg diclofenac-N-ethylethanamine per g, equal to 20 mg diclofenac sodium. Diclox forte 150 g (PZN 16705010, ratiopharm GmbH, Ulm) €15.31: 23.2 mg diclofenac-N-ethylethanamine per g, equal to 20 mg diclofenac sodium. Both apothekenpflichtig. The same swap is in the catalogue as voltaren-forte-vs-diclox-forte-gel-de, priced at other pharmacies.",
+    "differences": "Aponeo also sells a Diclox forte double pack (2x150 g, PZN 08031627) for €28.18, which saves a little more than two single tubes. Gel base, fragrance and other inactive ingredients differ between the brands. Don't mix up the forte gels (23.2 mg/g, twice a day) with the 1% gels (Voltaren Schmerzgel, Diclo-ratiopharm Schmerzgel), which are used more often.",
+    "sources": [
+      "https://www.aponeo.de/08029959-voltaren-schmerzgel-forte-23-2mg.html",
+      "https://www.aponeo.de/16705010-diclox-forte-20-mg-g-gel.html",
+      "https://www.aponeo.de/08031627-diclox-forte-20-mg-g.html"
+    ],
+    "price_checked": "2026-11-13"
+  },
+  {
+    "slug": "bepanthen-wund-und-heilsalbe-2x100g-vs-panthenol-jenapharm-creme-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "title": "Bepanthen Wund- und Heilsalbe 2x100 g vs two tubes of Panthenol Wund- und Heilcreme Jenapharm",
+    "bundle": {
+      "brand": "Bepanthen",
+      "name": "Bepanthen Wund- und Heilsalbe, 2x100 g",
+      "price": 28.56,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/08032622-bepanthen-wund-und-heilsalbe-bei-oberflaechlichen.html",
+      "items": [
+        {
+          "name": "Bepanthen Wund- und Heilsalbe, tube 1",
+          "size": 100,
+          "unit": "g",
+          "key_ingredients": [
+            {
+              "name": "Dexpanthenol",
+              "amount": "50 mg/g"
+            }
+          ]
+        },
+        {
+          "name": "Bepanthen Wund- und Heilsalbe, tube 2",
+          "size": 100,
+          "unit": "g",
+          "key_ingredients": [
+            {
+              "name": "Dexpanthenol",
+              "amount": "50 mg/g"
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Jenapharm",
+        "product": "Panthenol Wund- und Heilcreme Jenapharm, 100 g",
+        "size": 100,
+        "unit": "g",
+        "price": 5.95,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/08814512-panthenol-wund-und-heilcreme-jenapharm.html",
+        "license_id": "PZN 08814512",
+        "key_ingredients": [
+          {
+            "name": "Dexpanthenol",
+            "amount": "50 mg/g"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "dexpanthenol 5% wound healing cream"
+      },
+      {
+        "replaces": 1,
+        "brand": "Jenapharm",
+        "product": "Panthenol Wund- und Heilcreme Jenapharm, 100 g",
+        "size": 100,
+        "unit": "g",
+        "price": 5.95,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/08814512-panthenol-wund-und-heilcreme-jenapharm.html",
+        "license_id": "PZN 08814512",
+        "key_ingredients": [
+          {
+            "name": "Dexpanthenol",
+            "amount": "50 mg/g"
+          }
+        ],
+        "match_type": "identical_active",
+        "look_for": "dexpanthenol 5% wound healing cream"
+      }
+    ],
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Bepanthen's double pack is two 100 g tubes of 5% dexpanthenol ointment. Jenapharm's Panthenol cream has the same 50 mg/g dexpanthenol, is also a pharmacy medicine for small skin wounds, and two tubes cost less than half as much at the same pharmacy.",
+    "evidence": "All read on aponeo.de on 13 Nov 2026, prices re-read with a second fetch. Bepanthen Wund- und Heilsalbe 2x100 g (PZN 08032622, ships as 2x PZN 01578847, Bayer Vital, apothekenpflichtig) €28.56: dexpanthenol 50 mg per g ointment; base of bleached wax, paraffins, white petrolatum, ceresin, wool wax and wool wax alcohols, cetyl and stearyl alcohol, almond oil and water (read on the single-tube page PZN 01578847). Panthenol Wund- und Heilcreme Jenapharm 100 g (PZN 08814512, MIBE GmbH, apothekenpflichtig) €5.95: dexpanthenol 50 mg per g cream; base of wool wax, white petrolatum, liquid paraffin, bronopol and water.",
+    "differences": "Bepanthen is an ointment (Salbe) and the Jenapharm product is a cream (Creme), so the feel and how greasy it is differ. Jenapharm's cream contains the preservative bronopol; Bepanthen's ointment lists none. Both contain wool wax (lanolin), so neither suits a lanolin allergy. Bepanthen's single 100 g tube costs €14.99 at the same shop, so the double pack is already its better deal.",
+    "sources": [
+      "https://www.aponeo.de/08032622-bepanthen-wund-und-heilsalbe-bei-oberflaechlichen.html",
+      "https://www.aponeo.de/01578847-bepanthen-wund-und-heilsalb.html",
+      "https://www.aponeo.de/08814512-panthenol-wund-und-heilcreme-jenapharm.html"
+    ],
+    "price_checked": "2026-11-13"
+  },
+  {
+    "slug": "eucerin-urearepair-lotion-10-2x400ml-vs-cetaphil-pro-urea-10-de",
+    "market": "DE",
+    "category": "skincare-personal-care",
+    "title": "Eucerin UreaRepair Lotion 10% 2x400 ml vs Cetaphil Pro Urea 10% lotion",
+    "bundle": {
+      "brand": "Eucerin",
+      "name": "Eucerin UreaRepair Lotion 10%, 2x400 ml",
+      "price": 40.46,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/08032314-eucerin-urearepair-plus-lotion-10-trockene-haut.html",
+      "items": [
+        {
+          "name": "Eucerin UreaRepair Lotion 10%, bottle 1",
+          "size": 400,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Urea",
+              "amount": "10%"
+            },
+            {
+              "name": "Sodium lactate",
+              "amount": ""
+            },
+            {
+              "name": "Ceramide",
+              "amount": ""
+            }
+          ]
+        },
+        {
+          "name": "Eucerin UreaRepair Lotion 10%, bottle 2",
+          "size": 400,
+          "unit": "ml",
+          "key_ingredients": [
+            {
+              "name": "Urea",
+              "amount": "10%"
+            },
+            {
+              "name": "Sodium lactate",
+              "amount": ""
+            },
+            {
+              "name": "Ceramide",
+              "amount": ""
+            }
+          ]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "Cetaphil",
+        "product": "Cetaphil Pro Urea 10% intensiv aufbauende Feuchtigkeitslotion, 500 ml",
+        "size": 500,
+        "unit": "ml",
+        "price": 18.84,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/16660402-cetaphil-pro-urea-10-lotion.html",
+        "key_ingredients": [
+          {
+            "name": "Urea",
+            "amount": "10%"
+          },
+          {
+            "name": "Sodium lactate",
+            "amount": ""
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "10% urea body lotion for very dry skin"
+      },
+      {
+        "replaces": 1,
+        "brand": "Cetaphil",
+        "product": "Cetaphil Pro Urea 10% intensiv aufbauende Feuchtigkeitslotion, 500 ml",
+        "size": 500,
+        "unit": "ml",
+        "price": 18.84,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/16660402-cetaphil-pro-urea-10-lotion.html",
+        "key_ingredients": [
+          {
+            "name": "Urea",
+            "amount": "10%"
+          },
+          {
+            "name": "Sodium lactate",
+            "amount": ""
+          }
+        ],
+        "match_type": "equivalent_spec",
+        "look_for": "10% urea body lotion for very dry skin"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Eucerin's double pack is two 400 ml bottles of 10% urea body lotion. Cetaphil Pro Urea 10% has the same urea strength and also uses lactate as a moisturiser, and works out about a quarter cheaper per millilitre at the same pharmacy.",
+    "evidence": "All read on aponeo.de on 13 Nov 2026; prices and ingredient lists re-read with a second narrow fetch. Eucerin UreaRepair Lotion 10% 2x400 ml (PZN 08032314) €40.46: INCI starts Aqua, Urea, Glycerin, and lists Sodium Lactate, Ceramide, Sodium PCA, Lactic Acid and amino acids. Cetaphil Pro Urea 10% 500 ml (PZN 16660402) €18.84: 10% urea, INCI starts Aqua, Paraffinum Liquidum, Urea, and lists Sodium Lactate and Lactic Acid; the page says it has no fragrance.",
+    "differences": "Same urea strength, different formulas. Eucerin adds ceramide, glycerin, sodium PCA and amino acids; Cetaphil has none of those and is built on mineral oil and dimethicone, with methyl- and propylparaben as preservatives (Eucerin uses phenoxyethanol and potassium sorbate). Cetaphil comes in 500 ml bottles, so two cost €37.68 and give you 1 litre against the kit's 800 ml. Aponeo showed an extra 20% Eucerin code (Eucerin20) on the kit page, which would bring the kit to about €32.37 and close most of the gap while it runs.",
+    "sources": [
+      "https://www.aponeo.de/08032314-eucerin-urearepair-plus-lotion-10-trockene-haut.html",
+      "https://www.aponeo.de/16660402-cetaphil-pro-urea-10-lotion.html"
+    ],
+    "price_checked": "2026-11-13"
+  }
+]

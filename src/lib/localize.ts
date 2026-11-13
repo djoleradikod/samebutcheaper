@@ -5,15 +5,17 @@
  * - A country's own market leads. A country with no market of its own falls back to the nearest one,
  *   and says so. US and Canadian records never show outside the US and Canada.
  * - A record from another market only lists if its seller operates in or ships to the country (see sellers.ts).
- *   In a fallback country the shopper can ask to see the rest. Baskets and kits need every seller to pass.
+ *   In a fallback country the shopper can ask to see the rest, and in Canada the US records whose stores don't sell
+ *   there. Baskets and kits need every seller to pass. Canada doesn't take US records on trust: Walmart.com and Target
+ *   don't ship there, and walmart.ca and costco.ca are separate shops with their own range.
  * - Money is always in the country's currency. A price recorded in another currency is converted at the
  *   committed ECB reference rate and always reads "about", with the original beside it where there's room.
  * - A country whose currency the ECB doesn't publish keeps the fallback market's own currency, and says so.
  */
 import fx from "../../data/fx/ecb-reference-rates.json";
 import { money, ppu, type Currency } from "./format";
-import { countryInSentence, deliversTo, isKnownCountry, isMarket, MARKET_CODES, MARKETS, type MarketCode } from "./markets";
-import { namedSellers, sellsIn } from "./sellers";
+import { countryInSentence, isKnownCountry, isMarket, MARKET_CODES, MARKETS, type MarketCode } from "./markets";
+import { deliversTo, namedSellers, sellsIn, shipsFrom } from "./sellers";
 import { unitPrice, unitPriceFine } from "./unit-format";
 
 /** Euro-based: one euro buys this much of each currency. */
@@ -108,6 +110,12 @@ export function visibleMarkets(country: string | null): MarketCode[] {
   return MARKET_CODES.filter((m) => m !== "US" && m !== "CA");
 }
 
+/**
+ * Markets whose records a country with its own market can ask to see even where their stores don't sell there. Only Canada:
+ * its own records are few, and the US is next door. A fallback country can ask for everything it can see.
+ */
+const OTHERS_FROM: Partial<Record<string, readonly MarketCode[]>> = { CA: ["US"] };
+
 /** Anything a list can show: a swap, kit or basket, with who sells it, and the same swap's record in another market if it has one. */
 export type Listed = { market: MarketCode; sellers: readonly string[]; twin?: { market: MarketCode } | null };
 
@@ -151,7 +159,7 @@ export function findingShows(claim: { markets: MarketCode[]; title: string; find
   if (claim.markets.includes(local.country as MarketCode)) return true;
   const seen: readonly string[] = visibleMarkets(local.country);
   if (claim.markets.length && !claim.markets.some((m) => seen.includes(m))) return false;
-  if (local.others) return true;
+  if (local.others && claim.markets.some((m) => local.othersFrom.includes(m))) return true;
   const written = [claim.title, claim.finding, claim.caveat, ...claim.sources.map((s) => s.title)].join(" ");
   return namedSellers(written).every((s) => sellsIn(s, local.country));
 }
@@ -174,8 +182,10 @@ export type Local = {
   sells(retailer: string, market: MarketCode): boolean;
   /** Whether a list shows this record here. */
   shows(item: Listed): boolean;
-  /** The shopper asked to see swaps from stores we can't place in their country. Only a fallback country has the choice. */
+  /** The shopper asked to see swaps from stores we can't place in their country. A fallback country and Canada have the choice. */
   others: boolean;
+  /** The markets that choice brings back: everything a fallback country can see, the US for Canada, nothing elsewhere. */
+  othersFrom: readonly MarketCode[];
   /** The market that leads. */
   listMarket: MarketCode;
   /** True when that market isn't the country itself. */
@@ -242,9 +252,9 @@ export function shortMonth(iso: string) {
 function build(country: string, askedForOthers: boolean): Local {
   const listMarket = listMarketFor(country);
   const fallback = listMarket !== country;
-  const others = askedForOthers && fallback;
   const markets = visibleMarkets(country);
-  const northAmerica = country === "US" || country === "CA";
+  const othersFrom: readonly MarketCode[] = fallback ? markets : (OTHERS_FROM[country] ?? []);
+  const others = askedForOthers && othersFrom.length > 0;
   const currency = COUNTRY_CURRENCY[country] ?? MARKETS[listMarket].currency;
   const amount = (n: number, from: Currency) => n * rate(from, currency);
   const about = (from: Currency, text: string) => (from === currency ? text : `about ${text}`);
@@ -261,11 +271,12 @@ function build(country: string, askedForOthers: boolean): Local {
         if (twin === country) return false;
         if (item.market !== listMarket && (twin === listMarket || TWIN_ORDER.indexOf(twin) < TWIN_ORDER.indexOf(item.market))) return false;
       }
-      // Canada has too few of its own and fills up from the US, and the two share most stores.
-      if (northAmerica && (item.market === "US" || item.market === "CA")) return true;
-      return others || item.sellers.every((s) => sellsIn(s, country));
+      // Sold there with the same range, or delivered there from the market it was priced in.
+      if (item.sellers.every((s) => sellsIn(s, country) || shipsFrom(s, item.market, country))) return true;
+      return others && othersFrom.includes(item.market);
     },
     others,
+    othersFrom,
     listMarket,
     fallback,
     currency,
@@ -337,10 +348,29 @@ export function rateText(from: Currency, to: Currency) {
   return `${money(1, from).replace(/\.00$/, "")} = ${money(r, to)}`;
 }
 
-/** What the band at the top of the page says. Null when the country has its own prices. */
+/** Whether a country's lists mix records from several markets by default, so no single market should lead the filter. */
+export function mixesMarkets(country: string | null) {
+  return isThinMarket(country) || (country !== null && country in OTHERS_FROM);
+}
+
+/** Whether the band shows for a country. The layout holds its space before the first paint from this. */
+export function hasBand(country: string) {
+  return fallbackNotice(localFor(country)) !== null;
+}
+
+/** What the band at the top of the page says. Null when the country has its own prices and nothing else to ask for. */
 export function fallbackNotice(local: Local): { text: string; rate: string | null } | null {
-  if (!local.fallback) return null;
   const where = countryInSentence(local.country);
+  if (!local.fallback) {
+    // Canada: its own prices lead, and the US ones it can ask for are converted.
+    const next = local.othersFrom[0];
+    if (!local.known || !next) return null;
+    const from = MARKETS[next].currency;
+    return {
+      text: `We've priced only a few swaps in ${where} so far. The others were priced in other countries and are shown in ${currencyName(local.currency)}.`,
+      rate: from === local.currency ? null : `Converted at the ECB rate of ${rateDate()}, ${rateText(from, local.currency)}, so treat them as approximate.`,
+    };
+  }
   const market = MARKET_ADJECTIVE[local.listMarket];
   const from = MARKETS[local.listMarket].currency;
   const noRate = NO_RATE[local.country];

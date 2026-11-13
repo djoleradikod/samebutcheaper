@@ -171,6 +171,8 @@ export function basketLines(preset: Preset, local?: Local): BasketLineView[] {
       altPpu: l.altPpu,
       pack: pair ? packSize(pair.brand.size, pair.brand.unit) : null,
       measure: pair && isPerAmountRecord(pair.brand.size, pair.brand.unit) ? { size: pair.brand.size, unit: pair.brand.unit } : null,
+      till: { seller: l.seller, altCost: l.altCost, qty: l.qty, pack: l.pack },
+      altPack: pair && l.pack ? packSize(pair.alternative.size, pair.alternative.unit) : null,
     };
   });
 }

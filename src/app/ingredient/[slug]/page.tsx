@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { IngredientSchema } from "@/components/HubSchemas";
 import { notFound } from "next/navigation";
 import { getIngredient, getIngredients, ingredientSlugFor } from "@/lib/catalog";
 import { HEALTH_CATEGORIES, HealthNotice } from "@/components/Evidence";
 import { atLeastOneParam, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
 import { inSentence } from "@/lib/format";
-import { forCountry, type Local } from "@/lib/localize";
+import { forCountry, oneOfEachSwap, type Local } from "@/lib/localize";
+import { ingredientDescription, ingredientTitle } from "@/lib/seo";
 import { CountryPart } from "@/components/ForCountry";
 
 export function generateStaticParams() {
@@ -15,10 +17,10 @@ export async function generateMetadata({ params }: PageProps<"/ingredient/[slug]
   const { slug } = await params;
   const ing = getIngredient(slug);
   if (!ing) return { title: "Ingredient not found" };
-  const brands = Array.from(new Set(ing.pairs.map((p) => p.brand.brand))).slice(0, 3).join(", ");
+  const brands = Array.from(new Set(ing.pairs.map((p) => p.brand.brand)));
   return {
-    title: `${ing.name}: cheapest products with the same ingredient`,
-    description: `Every brand-name product with ${ing.name} we've checked (${brands}) and the cheaper product with the same ingredient.`,
+    title: ingredientTitle(ing.name, ing.pairs.some((p) => p.category === "otc-medicine")),
+    description: ingredientDescription(ing.name, brands, oneOfEachSwap(ing.pairs).length),
     alternates: { canonical: `/ingredient/${ing.slug}` },
   };
 }
@@ -27,7 +29,12 @@ export default async function IngredientPage({ params }: PageProps<"/ingredient/
   const { slug } = await params;
   const ing = getIngredient(slug);
   if (!ing) notFound();
-  return <CountryPart>{(local) => <IngredientBody ing={ing} local={local} />}</CountryPart>;
+  return (
+    <>
+      <CountryPart>{(local) => <IngredientBody ing={ing} local={local} />}</CountryPart>
+      <IngredientSchema slug={ing.slug} />
+    </>
+  );
 }
 
 function IngredientBody({ ing, local }: { ing: NonNullable<ReturnType<typeof getIngredient>>; local: Local }) {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IngredientsSchema } from "@/components/HubSchemas";
 import { getIngredients, type IngredientEntry } from "@/lib/catalog";
 import { AzIndex, bestSaving, ListLinks, ShelfHead, type IndexEntry } from "@/components/ShelfParts";
 import { forCountry, type Local } from "@/lib/localize";
@@ -61,6 +62,7 @@ export default function IngredientsPage() {
           }}
         </CountryPart>
       </div>
+      <IngredientsSchema />
     </div>
   );
 }

@@ -14,6 +14,7 @@ import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
 import { comparison, matchParts } from "@/lib/compare";
 import { monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
+import { dupeDescription, dupeTitle } from "@/lib/seo";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
 import type { Pair } from "@/lib/types";
 import { ConfidenceBadge } from "@/components/Badges";
@@ -51,12 +52,10 @@ export async function generateMetadata({ params }: PageProps<"/dupe/[slug]">): P
   const { slug } = await params;
   const d = getDupe(slug);
   if (!d) return { title: "Page not found", robots: { index: false } };
-  const h = heading(d);
-  const top = d.pairs[0];
-  const { cheaper, dearer, per } = unitPrices(top);
+  const subject = { ...d, category: d.pairs[0].category };
   return {
-    title: `${h.title} (${h.what}): save up to ${Math.round(top.savingsPct)}%`,
-    description: `${top.alternative.brand} costs ${cheaper} ${per} against ${dearer} for ${d.brand}. ${top.summary}`,
+    title: dupeTitle(subject, d.pairs[0].savingsPct),
+    description: dupeDescription(subject, d.pairs),
     alternates: { canonical: `/dupe/${d.slug}` },
   };
 }

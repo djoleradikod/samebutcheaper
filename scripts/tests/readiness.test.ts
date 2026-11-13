@@ -11,6 +11,8 @@ const GOOD_ENV = {
   AFF_SHOPAPOTHEKE: "1",
   RESEND_API_KEY: "re_test",
   MAIL_FROM: "SameButCheaper <hello@samebutcheaper.com>",
+  NEWSLETTER_WEEKLY: "on",
+  MAIL_POSTAL_ADDRESS: "SameButCheaper, 1 Example Street, Berlin",
 };
 const failing = (env: Record<string, string>, facts = GOOD_FACTS) => readinessChecks(env, facts).filter((c) => !c.ok).map((c) => c.id);
 
@@ -48,7 +50,21 @@ test("no affiliate IDs and no email are recommended, not blockers", () => {
   const env = { ADMIN_PASSWORD: GOOD_ENV.ADMIN_PASSWORD, CLICK_HASH_SALT: GOOD_ENV.CLICK_HASH_SALT };
   const s = summarize(readinessChecks(env, GOOD_FACTS));
   assert.equal(s.ready, true);
-  assert.deepEqual(s.recommended.map((c) => c.id).sort(), ["affiliate", "mail", "postback-secret"]);
+  assert.deepEqual(s.recommended.map((c) => c.id).sort(), ["affiliate", "mail", "postback-secret", "weekly-letter"]);
+});
+
+test("the weekly letter needs its switch, a postal address and email", () => {
+  assert.ok(!failing(GOOD_ENV).includes("weekly-letter"));
+  assert.ok(failing({ ...GOOD_ENV, NEWSLETTER_WEEKLY: "" }).includes("weekly-letter"));
+  assert.ok(failing({ ...GOOD_ENV, MAIL_POSTAL_ADDRESS: "" }).includes("weekly-letter"));
+  assert.ok(failing({ ...GOOD_ENV, RESEND_API_KEY: "" }).includes("weekly-letter"));
+});
+
+test("send caps and retention periods that don't parse are flagged, not fatal", () => {
+  assert.ok(!failing({ ...GOOD_ENV, RETENTION_REPORT_DAYS: "90", NEWSLETTER_WEEKDAY: "2" }).includes("mail-numbers"));
+  assert.ok(failing({ ...GOOD_ENV, RETENTION_REPORT_DAYS: "ninety" }).includes("mail-numbers"));
+  assert.ok(failing({ ...GOOD_ENV, NEWSLETTER_WEEKDAY: "8" }).includes("mail-numbers"));
+  assert.equal(summarize(readinessChecks({ ...GOOD_ENV, WATCH_MAX_PER_RUN: "-1" }, GOOD_FACTS)).ready, true);
 });
 
 test("no check ever echoes a secret", () => {
