@@ -4,10 +4,10 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react
 import Link from "@/components/CountryLink";
 import type Fuse from "fuse.js";
 import { Search } from "lucide-react";
-import { PAGE_SIZE, SWAP_GRID, type BundleSummary } from "@/lib/browse";
+import { cardIn, PAGE_SIZE, SWAP_GRID, type BundleSummary, type IndexPair } from "@/lib/browse";
 import { loadSwapIndex } from "@/lib/client/swap-index";
 import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
-import type { Bundle, PairSummary } from "@/lib/types";
+import type { Bundle } from "@/lib/types";
 import type { Lang } from "@/lib/i18n/lang";
 import { BundleCard } from "./BundleCard";
 import { PairCard } from "./PairCard";
@@ -26,7 +26,7 @@ const TEXT = { search, pageSearch };
 const german = () => import("@/lib/i18n/de/pages/search");
 const useSearchT = (): ClientT<typeof TEXT> => useT(TEXT, german);
 
-type Engine = { pairs: Fuse<PairSummary>; bundles: Fuse<BundleSummary> };
+type Engine = { pairs: Fuse<IndexPair>; bundles: Fuse<BundleSummary> };
 
 let pendingEngine: Promise<Engine> | null = null;
 
@@ -220,7 +220,7 @@ function Elsewhere({ count, term, more }: { count: number; term: string; more: b
  * Swaps, then kits, unless a kit matches the search better than every swap: a search for a brand is usually for its
  * single product. Keyed by the search, so a new one starts at the top.
  */
-function ResultList({ pairs, bundles, kitsFirst, lang }: { pairs: PairSummary[]; bundles: BundleSummary[]; kitsFirst: boolean; lang: Lang }) {
+function ResultList({ pairs, bundles, kitsFirst, lang }: { pairs: IndexPair[]; bundles: BundleSummary[]; kitsFirst: boolean; lang: Lang }) {
   const t = useSearchT();
   const [limit, setLimit] = useState(PAGE_SIZE);
   const kits = bundles.length > 0 && (
@@ -240,7 +240,7 @@ function ResultList({ pairs, bundles, kitsFirst, lang }: { pairs: PairSummary[];
         <ul className={`${SWAP_GRID} mt-3`}>
           {pairs.slice(0, limit).map((p) => (
             <li key={p.slug} className="min-w-0">
-              <PairCard pair={p} lang={lang} />
+              <PairCard pair={cardIn(p, lang)} lang={lang} />
             </li>
           ))}
         </ul>

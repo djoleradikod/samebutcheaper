@@ -29,7 +29,7 @@ export function SiteHeader({ lang = "en" }: { lang?: Lang }) {
             <Link href="/" aria-label={t("header.home")} className="absolute inset-0" />
           </span>
 
-          <form action="/search" role="search" className="relative order-last w-full md:order-none md:w-auto md:flex-1">
+          <form action={lang === "de" ? "/de/search" : "/search"} role="search" className="relative order-last w-full md:order-none md:w-auto md:flex-1">
             <Search
               className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted"
               aria-hidden="true"

@@ -312,7 +312,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
                 retailerLabel={a.retailer === "other" ? t("swap.thisStore") : (RETAILER_LABEL[a.retailer] ?? t("swap.thisStore"))}
                 lookFor={record.lookFor}
                 health={health}
-                compareWith={fullName(b)}
+                compareWith={productName(fullName(b), lang)}
               />
             )}
           </RecordPart>
@@ -324,7 +324,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
         <PhotoCredits
           lang={lang}
           items={[a, b].map((p) => ({
-            name: fullName(p),
+            name: productName(fullName(p), lang),
             brand: p.brand,
             photo: p.photo,
             category: record.category,

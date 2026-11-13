@@ -11,6 +11,7 @@ import {
   PAGE_SIZE,
   parseState,
   SORTS,
+  cardIn,
   splitAtFirstTier,
   stateToQuery,
   SWAP_GRID,
@@ -19,6 +20,7 @@ import {
   type BrowseState,
   type FacetOption,
   type Facets,
+  type IndexPair,
   type SortKey,
 } from "@/lib/browse";
 import { useCountry } from "@/lib/client/country";
@@ -112,7 +114,7 @@ export function PairBrowser({
   const shown = matched.slice(0, state.show);
 
   const prerendered = useMemo(() => new Map(cards.map((c) => [c.slug, c])), [cards]);
-  const [index, setIndex] = useState<Map<string, PairSummary> | null>(null);
+  const [index, setIndex] = useState<Map<string, IndexPair> | null>(null);
   const [indexFailed, setIndexFailed] = useState(false);
   const fetchIndex = useCallback(
     () =>
@@ -183,7 +185,7 @@ export function PairBrowser({
     const ranked = showRank && defaultView && i < firstTier.length;
     return (
       <li key={r.slug} data-row={i} className="min-w-0">
-        <PairCard pair={lang === "en" ? card : { ...card, subcategory: r.shelf }} rank={ranked ? i + 1 : undefined} eager={i === firstPhoto && i < 4} lang={lang} />
+        <PairCard pair={lang === "en" ? card : { ...cardIn(card, lang), subcategory: r.shelf }} rank={ranked ? i + 1 : undefined} eager={i === firstPhoto && i < 4} lang={lang} />
       </li>
     );
   };
@@ -327,7 +329,7 @@ export function PairBrowser({
                   if (!card) return index ? null : <RowPlaceholder key={r.slug} />;
                   return (
                     <li key={r.slug} data-row={cardRows.length + i} className="min-w-0">
-                      <PairRow pair={lang === "en" ? card : { ...card, subcategory: r.shelf }} lang={lang} />
+                      <PairRow pair={lang === "en" ? card : { ...cardIn(card, lang), subcategory: r.shelf }} lang={lang} />
                     </li>
                   );
                 })}

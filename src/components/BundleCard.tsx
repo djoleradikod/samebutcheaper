@@ -12,6 +12,7 @@ import { RETAILER_LABEL } from "@/lib/affiliate";
 import { kitCaution } from "@/lib/buy-list";
 import { cards } from "@/lib/i18n/en/client/cards";
 import { kits } from "@/lib/i18n/en/client/kits";
+import { productName } from "@/lib/i18n/product-name";
 
 /** The English this component reads (src/lib/i18n/client-dict.ts). */
 const TEXT = { cards, kits };
@@ -72,8 +73,8 @@ export function BundleCard({ bundle, lang = "en" }: { bundle: Bundle; lang?: Lan
         </p>
         <ul className="mt-1.5 space-y-0.5 text-[13px] text-ink-2">
           {pieces.map((c) => (
-            <li key={c.replaces} className="line-clamp-1">
-              {withBrand(c.brand, c.product)}
+            <li key={c.replaces} lang={lang !== "en" && !bundle.de ? "en" : undefined} className="line-clamp-1">
+              {productName(withBrand(c.brand, c.product), bundle.de ? lang : "en")}
             </li>
           ))}
           {bundle.components.length > 4 && <li className="text-muted">{t("kits.andMore", bundle.components.length - 4)}</li>}
