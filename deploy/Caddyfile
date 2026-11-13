@@ -1,10 +1,38 @@
 # Automatic HTTPS (Let's Encrypt) for SITE_DOMAIN. Point your domain's A/AAAA
 # records at the server first. www redirects to the bare domain.
+#
+# Behind Cloudflare: set CLIENT_IP_HEADER=cf-connecting-ip in .env, so rate limits
+# and visitor counts use the visitor's address instead of Cloudflare's.
+
 {$SITE_DOMAIN} {
 	encode zstd gzip
+
+	# The largest thing anyone sends is a 5 MB product photo.
+	request_body {
+		max_size 6MB
+	}
+
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+	}
+
 	@static path /_next/static/*
 	header @static Cache-Control "public, max-age=31536000, immutable"
-	reverse_proxy web:3000
+
+	reverse_proxy web:3000 {
+		# Take the app out of rotation while it restarts, instead of showing a 502 page mid-deploy.
+		health_uri /api/health
+		health_interval 10s
+		health_timeout 5s
+		lb_try_duration 20s
+		lb_try_interval 500ms
+	}
+
+	log {
+		output stdout
+		format json
+	}
 }
 
 www.{$SITE_DOMAIN} {

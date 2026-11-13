@@ -1,4 +1,5 @@
 import "server-only";
+import { log } from "@/lib/log";
 import type { LookFor } from "@/lib/markets";
 import type { Bundle, Pair } from "@/lib/types";
 import { dsldLabel, searchDsld } from "./dsld";
@@ -11,12 +12,31 @@ import type { Candidate, LabelMatch, LookupProduct, LookupSource } from "./types
 export * from "./types";
 export { isGtin } from "./text";
 
+/**
+ * A label database that keeps failing is left alone for a minute, so its timeout (7 s) isn't added to every
+ * product check while it is down. One success closes the breaker again.
+ */
+const FAILS_TO_OPEN = 3;
+const OPEN_MS = 60_000;
+const breakers = new Map<LookupSource, { fails: number; openUntil: number }>();
+
 /** Runs a source and turns its failure into a flag instead of an error page. */
 async function attempt<T>(source: LookupSource, fallback: T, run: () => Promise<T>): Promise<[T, LookupSource | null]> {
+  const state = breakers.get(source) ?? { fails: 0, openUntil: 0 };
+  if (state.openUntil > Date.now()) return [fallback, source];
   try {
-    return [await run(), null];
+    const value = await run();
+    if (state.fails) breakers.delete(source);
+    return [value, null];
   } catch (err) {
-    console.error(`lookup source ${source} failed:`, err instanceof Error ? err.message : err);
+    state.fails++;
+    if (state.fails >= FAILS_TO_OPEN) {
+      state.openUntil = Date.now() + OPEN_MS;
+      state.fails = 0;
+      log.warn("lookup.source_paused", { source, seconds: OPEN_MS / 1000 });
+    }
+    breakers.set(source, state);
+    log.warn("lookup.source_failed", { source, err });
     return [fallback, source];
   }
 }

@@ -4,7 +4,10 @@ import { connection } from "next/server";
 import { and, desc, eq, gte, sql, count } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 import { getPair, getSiteStats } from "@/lib/catalog";
+import { subscriberCounts } from "@/lib/newsletter";
 import { Revenue } from "./Revenue";
+import { Readiness } from "./Readiness";
+import { setSubmissionStatus } from "./actions";
 
 export const metadata: Metadata = { title: "Admin", robots: { index: false, follow: false } };
 
@@ -28,7 +31,7 @@ async function AdminData() {
   }
   const since = daysAgo(30);
   const wantedName = sql<string>`lower(coalesce(${schema.lookups.productName}, ${schema.lookups.query}))`;
-  const [[totals], topPairs, subs, [subCount], wanted, [lookupTotals]] = await Promise.all([
+  const [[totals], topPairs, subs, list, wanted, [lookupTotals]] = await Promise.all([
     db
       .select({
         clicks: count(),
@@ -44,7 +47,7 @@ async function AdminData() {
       .orderBy(desc(count()))
       .limit(25),
     db.select().from(schema.submissions).orderBy(desc(schema.submissions.createdAt)).limit(50),
-    db.select({ n: count() }).from(schema.subscribers),
+    subscriberCounts(db),
     db
       .select({
         name: wantedName,
@@ -72,8 +75,10 @@ async function AdminData() {
         <Stat label="Swaps live" value={stats.pairs} />
         <Stat label="Clicks (30 days)" value={totals?.clicks ?? 0} />
         <Stat label="Unique clickers per day (30 days)" value={totals?.visitors ?? 0} />
-        <Stat label="Subscribers" value={subCount?.n ?? 0} />
+        <Stat label={`Subscribers confirmed (${list.pending} waiting to confirm)`} value={list.confirmed} />
       </div>
+
+      <Readiness />
 
       <Revenue since={since} />
 
@@ -133,9 +138,17 @@ async function AdminData() {
                   {s.brandProduct}
                   {s.alternativeProduct ? <span className="text-accent"> → {s.alternativeProduct}</span> : null}
                 </p>
-                <p className="text-xs text-muted">
-                  {s.status} · {s.createdAt.toISOString().slice(0, 10)}
-                </p>
+                {/* Keyed by status: React resets a form after its action, and a select then needs a fresh mount to show the saved value. */}
+                <form key={s.status} action={setSubmissionStatus} className="flex items-center gap-2 text-xs text-muted">
+                  <span>{s.createdAt.toISOString().slice(0, 10)}</span>
+                  <input type="hidden" name="id" value={s.id} />
+                  <select name="status" defaultValue={s.status} aria-label="Status" className="rounded border border-line-strong bg-paper px-2 py-1">
+                    {schema.submissionStatus.enumValues.map((v) => (
+                      <option key={v} value={v}>{v}</option>
+                    ))}
+                  </select>
+                  <button type="submit" className="rounded border border-line-strong px-2 py-1 font-medium text-ink">Save</button>
+                </form>
               </div>
               {s.reason && <p className="mt-2 text-ink-2">{s.reason}</p>}
               <p className="mt-2 text-xs text-muted">
@@ -150,6 +163,23 @@ async function AdminData() {
           ))}
           {subs.length === 0 && <p className="text-muted">No suggestions yet.</p>}
         </div>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-semibold">Downloads</h2>
+        <p className="mt-1 text-sm text-muted">
+          CSV files. The subscriber file holds confirmed addresses only, the ones that may be emailed
+          ({list.unsubscribed} have unsubscribed).
+        </p>
+        <ul className="mt-3 flex flex-wrap gap-2 text-sm">
+          {(["subscribers", "submissions", "clicks", "conversions", "lookups"] as const).map((k) => (
+            <li key={k}>
+              <a href={`/admin/export/${k}`} className="btn btn-ghost" download>
+                {k}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

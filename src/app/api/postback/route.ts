@@ -1,6 +1,10 @@
-import { timingSafeEqual } from "node:crypto";
 import { eq, sql } from "drizzle-orm";
 import { getDb, schema } from "@/db";
+import { sameSecret } from "@/lib/admin-auth";
+import { log } from "@/lib/log";
+import { flatten, formFields, parsePostback } from "@/lib/postback";
+import { isLimited, LIMITS, rateLimit } from "@/lib/rate-limit";
+import { clientIp } from "@/lib/visitor";
 
 /**
  * Sale postbacks from affiliate networks, so the dashboard shows real
@@ -12,9 +16,13 @@ import { getDb, schema } from "@/db";
  *
  * Set it up once per network with that network's macros in place of the
  * values (docs/affiliate-playbook.md has the exact URLs). GET or POST (form
- * or JSON). A repeat for the same network + order updates the row, so status
- * changes (pending -> approved or reversed) come through.
+ * or JSON; Awin's JSON-in-a-form-field works as is). A repeat for the same
+ * network + order updates the row, so status changes (pending -> approved or
+ * reversed) come through.
  */
+const MAX_BODY = 64 * 1024;
+const NO_STORE = { "Cache-Control": "no-store" };
+
 export async function GET(request: Request) {
   return handle(request, Object.fromEntries(new URL(request.url).searchParams));
 }
@@ -22,116 +30,69 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   const query = Object.fromEntries(new URL(request.url).searchParams);
   const type = request.headers.get("content-type") ?? "";
-  let body: Record<string, unknown> = {};
+  if (Number(request.headers.get("content-length")) > MAX_BODY) return new Response("Body too large", { status: 413, headers: NO_STORE });
+  let body: Record<string, string> = {};
   try {
-    if (type.includes("json")) body = (await request.json()) as Record<string, unknown>;
-    else if (type.includes("form")) body = Object.fromEntries((await request.formData()).entries());
+    if (type.includes("json")) body = flatten(await request.json());
+    else if (type.includes("form")) body = formFields((await request.formData()).entries());
   } catch {
-    return new Response("Bad body", { status: 400 });
+    return new Response("Bad body", { status: 400, headers: NO_STORE });
   }
-  const merged: Record<string, string> = { ...query };
-  flatten(body, "", merged);
-  return handle(request, merged);
+  // Our own names in the URL win over the network's in the body.
+  return handle(request, { ...body, ...query });
 }
 
-/** {commissionAmount: {amount: 1}} -> {"commissionAmount.amount": "1"}, so nested JSON reports work too. */
-function flatten(o: unknown, prefix: string, out: Record<string, string>, depth = 0) {
-  if (depth > 3 || !o || typeof o !== "object") return;
-  for (const [k, v] of Object.entries(o as Record<string, unknown>)) {
-    const key = prefix ? `${prefix}.${k}` : k;
-    if (typeof v === "string" || typeof v === "number" || typeof v === "boolean") out[key] = String(v);
-    else flatten(v, key, out, depth + 1);
+async function handle(request: Request, all: Record<string, string>) {
+  const who = clientIp(request.headers) || "unknown";
+  if (isLimited("authFailures", who, LIMITS.authFailures)) {
+    return new Response("Too many attempts", { status: 429, headers: { ...NO_STORE, "Retry-After": "900" } });
   }
-}
-
-/**
- * Field names differ by network, so each of ours accepts the common ones
- * (case-insensitive). Our own names (click, order, ...) always win.
- */
-const ALIASES: Record<string, string[]> = {
-  click: ["click", "subid1", "subid", "clickref", "clickref1", "u1", "sid", "xcust", "cuid", "pubref", "fobs"],
-  order: ["order", "orderid", "order_id", "transactionid", "transaction_id", "actionid", "action_id", "id"],
-  commission: ["commission", "payout", "commissionamount", "commissionamount.amount", "commission_amount", "earnings"],
-  sale: ["sale", "saleamount", "saleamount.amount", "sale_amount", "amount", "ordervalue"],
-  currency: ["currency", "commissionamount.currency", "saleamount.currency"],
-  status: ["status", "actionstatus", "commissionstatus", "state"],
-};
-
-function pick(p: Record<string, string>) {
-  const lower = Object.fromEntries(Object.entries(p).map(([k, v]) => [k.toLowerCase(), v]));
-  const out: Record<string, string | undefined> = { key: p.key, network: p.network };
-  for (const [field, names] of Object.entries(ALIASES)) out[field] = names.map((n) => lower[n]).find((v) => v != null && v !== "");
-  return out;
-}
-
-const STATUS: Record<string, "pending" | "approved" | "reversed"> = {
-  pending: "pending",
-  approved: "approved",
-  locked: "approved",
-  paid: "approved",
-  confirmed: "approved",
-  declined: "reversed",
-  reversed: "reversed",
-  rejected: "reversed",
-  cancelled: "reversed",
-  canceled: "reversed",
-};
-
-async function handle(_request: Request, all: Record<string, string>) {
-  const p = pick(all);
   const secret = process.env.POSTBACK_SECRET;
-  if (!secret || !safeEqual(p.key ?? "", secret)) return new Response("Forbidden", { status: 403 });
+  const key = all.key ?? request.headers.get("x-postback-key") ?? "";
+  if (!secret || !sameSecret(key, secret)) {
+    rateLimit("authFailures", who, LIMITS.authFailures);
+    return new Response("Forbidden", { status: 403, headers: NO_STORE });
+  }
   const db = getDb();
-  if (!db) return new Response("No database", { status: 503 });
+  if (!db) return new Response("No database", { status: 503, headers: NO_STORE });
 
-  const network = (p.network ?? "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 24);
-  const orderId = (p.order ?? "").slice(0, 120);
-  const commission = money(p.commission);
-  if (!network || !orderId || commission === null) {
-    return new Response("network, order and commission are required", { status: 400 });
+  const parsed = parsePostback(all);
+  if (!parsed.ok) {
+    log.warn("postback.rejected", { network: all.network ?? null, reason: parsed.error, fields: Object.keys(all).filter((k) => k !== "key").slice(0, 40) });
+    return new Response(parsed.error, { status: 400, headers: NO_STORE });
   }
-  const clickId = /^[a-z0-9]{6,24}$/.test(p.click ?? "") ? p.click! : null;
-  const sale = money(p.sale);
-  const currency = /^[A-Za-z]{3}$/.test(p.currency ?? "") ? p.currency!.toUpperCase() : "USD";
-  const status = STATUS[(p.status ?? "pending").toLowerCase()] ?? "pending";
-  const raw = Object.fromEntries(Object.entries(all).filter(([k]) => k !== "key"));
+  const { network, orderId, clickId, commission, sale, currency, status, raw } = parsed.value;
 
-  let program: string | null = null;
-  if (clickId) {
-    const [click] = await db
-      .select({ program: schema.clicks.program })
-      .from(schema.clicks)
-      .where(eq(schema.clicks.clickId, clickId))
-      .limit(1);
-    program = click?.program ?? null;
+  try {
+    let program: string | null = null;
+    if (clickId) {
+      const [click] = await db
+        .select({ program: schema.clicks.program })
+        .from(schema.clicks)
+        .where(eq(schema.clicks.clickId, clickId))
+        .limit(1);
+      program = click?.program ?? null;
+    }
+    await db
+      .insert(schema.conversions)
+      .values({ network, orderId, clickId, program, sale, commission, currency, status, raw })
+      .onConflictDoUpdate({
+        target: [schema.conversions.network, schema.conversions.orderId],
+        set: {
+          commission,
+          sale: sql`coalesce(excluded.sale, ${schema.conversions.sale})`,
+          status,
+          raw,
+          clickId: sql`coalesce(excluded.click_id, ${schema.conversions.clickId})`,
+          program: sql`coalesce(excluded.program, ${schema.conversions.program})`,
+          updatedAt: new Date(),
+        },
+      });
+  } catch (err) {
+    // A 5xx makes the network try again later, so a database hiccup doesn't lose the sale.
+    log.error("postback.failed", { err, network });
+    return new Response("Try again later", { status: 503, headers: NO_STORE });
   }
-
-  await db
-    .insert(schema.conversions)
-    .values({ network, orderId, clickId, program, sale, commission, currency, status, raw })
-    .onConflictDoUpdate({
-      target: [schema.conversions.network, schema.conversions.orderId],
-      set: {
-        commission,
-        sale,
-        status,
-        raw,
-        clickId: sql`coalesce(excluded.click_id, ${schema.conversions.clickId})`,
-        program: sql`coalesce(excluded.program, ${schema.conversions.program})`,
-        updatedAt: new Date(),
-      },
-    });
-  return new Response("ok", { headers: { "Cache-Control": "no-store" } });
-}
-
-function money(v: string | undefined): string | null {
-  if (v == null || v === "") return null;
-  const n = Number(String(v).replace(/[^0-9.-]/g, ""));
-  return Number.isFinite(n) ? n.toFixed(2) : null;
-}
-
-function safeEqual(a: string, b: string) {
-  const x = Buffer.from(a);
-  const y = Buffer.from(b);
-  return x.length === y.length && timingSafeEqual(x, y);
+  log.info("postback.recorded", { network, status, matched: clickId !== null });
+  return new Response("ok", { headers: NO_STORE });
 }

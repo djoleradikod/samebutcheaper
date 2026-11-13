@@ -93,17 +93,42 @@ export const submissions = pgTable(
   (t) => [index("submissions_status_idx").on(t.status)],
 );
 
-/** Newsletter list ("new swaps every week"). */
+/**
+ * Newsletter list ("new swaps every week"), with double opt-in: a sign-up is "pending" until the address
+ * confirms through the emailed link, and only "confirmed" rows may be sent to. `token` is the secret in that
+ * link and in every unsubscribe link, so it stays the same for the life of the row.
+ */
 export const subscribers = pgTable(
   "subscribers",
   {
     id: serial("id").primaryKey(),
     email: varchar("email", { length: 320 }).notNull(),
     source: varchar("source", { length: 64 }),
+    /** "pending" | "confirmed" | "unsubscribed" */
+    status: varchar("status", { length: 16 }).default("pending").notNull(),
+    token: varchar("token", { length: 64 }),
+    /** Country selected when they signed up, for sending swaps they can buy. */
+    country: varchar("country", { length: 2 }),
+    /** When the last confirmation email went out (null: none sent yet, for example before email was set up). */
+    confirmSentAt: timestamp("confirm_sent_at", { withTimezone: true }),
+    /** Proof of consent: when the link in the email was followed. */
+    confirmedAt: timestamp("confirmed_at", { withTimezone: true }),
+    unsubscribedAt: timestamp("unsubscribed_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   },
-  (t) => [uniqueIndex("subscribers_email_idx").on(t.email)],
+  (t) => [
+    uniqueIndex("subscribers_email_idx").on(t.email),
+    uniqueIndex("subscribers_token_idx").on(t.token),
+    index("subscribers_status_idx").on(t.status),
+  ],
 );
+
+/** Small facts the server keeps about itself, such as when upkeep last ran. */
+export const appState = pgTable("app_state", {
+  key: varchar("key", { length: 64 }).primaryKey(),
+  value: jsonb("value").notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
 
 /**
  * Product lookups from /check (text, barcode, photo). Lookups with no verified

@@ -14,7 +14,11 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "node scripts/migrate.mjs",
     "test:links": "tsx --test scripts/affiliate-links.test.ts",
-    "affiliate:coverage": "tsx scripts/affiliate-coverage.ts"
+    "affiliate:coverage": "tsx scripts/affiliate-coverage.ts",
+    "db:maintain": "tsx scripts/maintain.ts",
+    "preflight": "tsx scripts/preflight.ts",
+    "test": "tsx --test scripts/affiliate-links.test.ts scripts/tests/*.test.ts scripts/qa/*.test.ts",
+    "test:e2e": "tsx --test scripts/tests/e2e.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.3.0",

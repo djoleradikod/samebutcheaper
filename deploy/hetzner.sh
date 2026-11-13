@@ -44,6 +44,7 @@ if [ ! -f .env ]; then
     -e "s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$(rand)|" \
     -e "s|^CLICK_HASH_SALT=.*|CLICK_HASH_SALT=$(rand)|" \
     -e "s|^ADMIN_PASSWORD=.*|ADMIN_PASSWORD=$(openssl rand -base64 18 | tr -d '/+=')|" \
+    -e "s|^POSTBACK_SECRET=.*|POSTBACK_SECRET=$(rand)|" \
     .env
   chmod 600 .env
   echo "Created .env with new random passwords (admin password: ADMIN_PASSWORD in $DIR/.env)."
@@ -67,6 +68,9 @@ echo "Waiting for the site..."
 for _ in $(seq 1 60); do
   if curl -fsS --max-time 5 "http://127.0.0.1:3000/api/health" >/dev/null 2>&1; then
     curl -fsS --max-time 5 "http://127.0.0.1:3000/api/health"
+    echo
+    # The launch checklist: "ready":false lists what blocks a public launch; /admin says how to fix each.
+    curl -sS --max-time 10 "http://127.0.0.1:3000/api/health?ready=1" || true
     echo
     echo "Up. HTTPS can take a minute while Caddy gets the certificate: https://$DOMAIN"
     echo "If it never loads from outside, open ports 80 and 443 in the Hetzner Cloud firewall."
