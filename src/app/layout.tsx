@@ -5,7 +5,7 @@ import "./globals.css";
 import { CountryProvider, FollowCountry } from "@/components/CountryProvider";
 import { FallbackBand } from "@/components/Money";
 import { getAllPairs } from "@/lib/catalog";
-import { isThinMarket, localFor } from "@/lib/localize";
+import { hasBand, localFor } from "@/lib/localize";
 import { MARKET_CODES } from "@/lib/markets";
 import { getCountry, getLocal } from "@/lib/server-country";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -71,7 +71,7 @@ async function CountryBand() {
  * The band streams in after the first paint, so without this it pushes a fallback country's whole page down. Static HTML can't
  * know the country, but the browser can read the cookie before it paints, and globals.css holds the band's height from there.
  */
-const OWN_PRICES = MARKET_CODES.filter((m) => !isThinMarket(m)).join("|");
+const OWN_PRICES = MARKET_CODES.filter((m) => !hasBand(m)).join("|");
 const RESERVE_BAND = `(function(){var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);if(m&&!/^(${OWN_PRICES})$/.test(m[1]))document.documentElement.setAttribute("data-band","")})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

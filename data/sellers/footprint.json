@@ -1,6 +1,6 @@
 {
  "checked": "2026-11-07",
- "method": "sellers: the chain's national site opened, stayed on that country's address and named the chain in its title. See scripts/qa/seller_footprint.py. manual: a site that refuses automated requests, carried by the source given (Kantar's Irish grocery shares of 20 Oct 2025 name Tesco and Aldi) or, in the chain's home market, by the catalogue's own priced rows. No entry means we couldn't show it sells there, not that it doesn't. Marks & Spencer's entries are from one visit to each national home page on 7 Nov 2026, before its terms were read. Those terms bar crawling, so the script no longer opens it.",
+ "method": "sellers: the chain's national site opened, stayed on that country's address and named the chain in its title. See scripts/qa/seller_footprint.py. manual: a site that refuses automated requests, carried by the source given (Kantar's Irish grocery shares of 20 Oct 2025 name Tesco and Aldi) or, in the chain's home market, by the catalogue's own priced rows. No entry means we couldn't show it sells there, not that it doesn't. Marks & Spencer's entries are from one visit to each national home page on 7 Nov 2026, before its terms were read. Those terms bar crawling, so the script no longer opens it. ships: a store whose site in one market delivers to another country, as that store's own delivery page says (seller, then the market its site is in, then each country with that page). A listing there can be linked for a shopper in that country. separate: a chain that sells in a country only through its own national site with a different range and prices (its own domain or storefront, the address given was found or opened on 13 Nov 2026), so a listing priced in another market isn't sold there as it stands. It doesn't list there by default, and the swap page points to that national site instead.",
  "sellers": {
   "lidl": {
    "IE": "https://www.lidl.ie/",
@@ -223,5 +223,55 @@
   "superdrug": [
    "GB"
   ]
+ },
+ "ships": {
+  "aponeo": {
+   "DE": {
+    "AT": "https://www.aponeo.de/hilfe/versand-und-lieferung/ist-eine-lieferung-ins-ausland-moeglich/"
+   }
+  },
+  "medikamente-per-klick": {
+   "DE": {
+    "AT": "https://www.medikamente-per-klick.de/versandkosten",
+    "BE": "https://www.medikamente-per-klick.de/versandkosten",
+    "NL": "https://www.medikamente-per-klick.de/versandkosten",
+    "LU": "https://www.medikamente-per-klick.de/versandkosten",
+    "DK": "https://www.medikamente-per-klick.de/versandkosten",
+    "FR": "https://www.medikamente-per-klick.de/versandkosten",
+    "IT": "https://www.medikamente-per-klick.de/versandkosten",
+    "SE": "https://www.medikamente-per-klick.de/versandkosten",
+    "FI": "https://www.medikamente-per-klick.de/versandkosten",
+    "IE": "https://www.medikamente-per-klick.de/versandkosten",
+    "ES": "https://www.medikamente-per-klick.de/versandkosten",
+    "EE": "https://www.medikamente-per-klick.de/versandkosten",
+    "LV": "https://www.medikamente-per-klick.de/versandkosten",
+    "LT": "https://www.medikamente-per-klick.de/versandkosten",
+    "PL": "https://www.medikamente-per-klick.de/versandkosten",
+    "CZ": "https://www.medikamente-per-klick.de/versandkosten",
+    "SK": "https://www.medikamente-per-klick.de/versandkosten",
+    "SI": "https://www.medikamente-per-klick.de/versandkosten"
+   }
+  }
+ },
+ "separate": {
+  "walmart": {
+   "CA": "https://www.walmart.ca/",
+   "US": "https://www.walmart.com/"
+  },
+  "costco": {
+   "CA": "https://www.costco.ca/"
+  },
+  "bestbuy": {
+   "CA": "https://www.bestbuy.ca/en-ca"
+  },
+  "homedepot": {
+   "CA": "https://www.homedepot.ca/en/"
+  },
+  "uline": {
+   "CA": "https://www.uline.ca/"
+  },
+  "chewy": {
+   "CA": "https://www.chewy.com/ca"
+  }
  }
 }

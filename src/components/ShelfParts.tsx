@@ -12,7 +12,7 @@ import { PairBrowser } from "./PairBrowser";
 import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, Ticket } from "./Ticket";
-import { forCountry, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { forCountry, localFor, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { countryInSentence, type MarketCode } from "@/lib/markets";
 import { getLocal } from "@/lib/server-country";
 
@@ -226,7 +226,16 @@ export function SwapGrid({ pairs, lazy = false }: { pairs: Pair[]; lazy?: boolea
 export async function SwapList({ path, pairs }: { path: string; pairs: Pair[] }) {
   const local = await getLocal();
   const visible = forCountry(pairs, local);
-  if (!visible.length) return <p className="card p-4 text-sm text-ink-2">We haven&apos;t priced any of these at a store that sells in {countryInSentence(local.country)} yet.</p>;
+  if (!visible.length) {
+    const where = countryInSentence(local.country);
+    const more = forCountry(pairs, localFor(local.country, true)).length;
+    return (
+      <p className="card p-4 text-sm text-ink-2">
+        We haven&apos;t priced any of these at a store that sells in {where} yet.
+        {more > 0 && !local.others && ` The ${more} we priced elsewhere are behind "Show swaps from other countries" at the top of the page. Each one says what to look for in shops in ${where}.`}
+      </p>
+    );
+  }
   if (visible.length >= FILTER_FROM) return <PairBrowser path={path} {...browseProps(visible, { local })} />;
   // The market that leads for this shopper first, then the biggest saving.
   const lead = (p: Pair) => Number(p.market === local.listMarket);

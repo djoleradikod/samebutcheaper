@@ -138,17 +138,6 @@
         ]
       }
     },
-    "aponeo": {
-      "DE": {
-        "fee": 3.99,
-        "free_over": 29.99,
-        "confidence": "official",
-        "note": "Standard DHL delivery. Orders with a prescription for a prescription-only medicine ship free at any value. Express options always cost extra.",
-        "sources": [
-          "https://www.aponeo.de/hilfe/versand-und-lieferung/wie-hoch-sind-die-versandkosten/"
-        ]
-      }
-    },
     "alternate": {
       "DE": {
         "fee": 7.99,
@@ -294,6 +283,52 @@
         "sources": [
           "https://us.ugreen.com/pages/shipping-policy"
         ]
+      }
+    },
+    "aponeo": {
+      "DE": {
+        "fee": 3.99,
+        "free_over": 29.99,
+        "confidence": "official",
+        "note": "Standard DHL delivery. Orders with a prescription for a prescription-only medicine ship free at any value. Express options always cost extra.",
+        "sources": ["https://www.aponeo.de/hilfe/versand-und-lieferung/wie-hoch-sind-die-versandkosten"],
+        "abroad": {
+          "AT": {
+            "fee": 4.99,
+            "free_over": null,
+            "confidence": "official",
+            "note": "Austria is the only country outside Germany it delivers to. The same page also gives 4.95 in its footer.",
+            "sources": ["https://www.aponeo.de/hilfe/versand-und-lieferung/wie-hoch-sind-die-versandkosten", "https://www.aponeo.de/hilfe/versand-und-lieferung/ist-eine-lieferung-ins-ausland-moeglich/"]
+          }
+        }
+      }
+    },
+    "medikamente-per-klick": {
+      "DE": {
+        "fee": 3.95,
+        "free_over": 15,
+        "confidence": "official",
+        "sources": ["https://www.medikamente-per-klick.de/versandkosten"],
+        "abroad": {
+          "AT": { "fee": 5.7, "free_over": null, "fee_over": { "from": 35, "fee": 3 }, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "BE": { "fee": 5.7, "free_over": null, "fee_over": { "from": 35, "fee": 3 }, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "DK": { "fee": 5.7, "free_over": null, "fee_over": { "from": 35, "fee": 3 }, "confidence": "official", "note": "Mainland only. Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "LU": { "fee": 5.7, "free_over": null, "fee_over": { "from": 35, "fee": 3 }, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "NL": { "fee": 5.7, "free_over": null, "fee_over": { "from": 35, "fee": 3 }, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "FR": { "fee": 9.2, "free_over": null, "fee_over": { "from": 35, "fee": 7.2 }, "confidence": "official", "note": "Mainland only. Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "IT": { "fee": 12, "free_over": null, "fee_over": { "from": 35, "fee": 9.5 }, "confidence": "official", "note": "Mainland only. Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "ES": { "fee": 13.8, "free_over": null, "fee_over": { "from": 35, "fee": 12.3 }, "confidence": "official", "note": "Mainland only. Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "IE": { "fee": 13.8, "free_over": null, "fee_over": { "from": 35, "fee": 12.3 }, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "SE": { "fee": 9.4, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "FI": { "fee": 9.4, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "PL": { "fee": 14.95, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "CZ": { "fee": 12.65, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "SK": { "fee": 12.65, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "SI": { "fee": 12.65, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "EE": { "fee": 12.65, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "LV": { "fee": 12.65, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] },
+          "LT": { "fee": 12.65, "free_over": null, "confidence": "official", "note": "Orders abroad only up to EUR 200.", "sources": ["https://www.medikamente-per-klick.de/versandkosten"] }
+        }
       }
     }
   }

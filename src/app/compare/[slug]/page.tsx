@@ -20,7 +20,7 @@ import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredie
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
 import { dupeSlugFor } from "@/lib/dupes";
-import { storeOrder } from "@/lib/delivery";
+import { deliveryNote as deliveryNoteFor } from "@/lib/delivery-abroad";
 import { sellerOf } from "@/lib/sellers";
 import { inSentence } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
@@ -393,14 +393,8 @@ function offersFor(pair: Pair, local: Local): Offer[] {
   const sells = (retailer: string) => local.sells(retailer, pair.market);
   const elsewhere = `A ${MARKET_ADJECTIVE[pair.market]} store`;
   // A cheap pack on its own can fall under a store's free-delivery line, which a shopper should know before the click.
-  const deliveryNote = (p: ProductSide) => {
-    if (!sells(p.retailer)) return undefined;
-    const order = storeOrder(sellerOf(p), pair.market, p.price);
-    if (!order.delivery || order.freeOver === null) return undefined;
-    const fee = local.money(order.delivery, pair.currency);
-    const over = local.money(order.freeOver, pair.currency);
-    return `Delivery ${fee} on its own, free over ${over}${order.pickup ? ", or free store pickup" : ""}`;
-  };
+  // For a shopper in another country, their country's rule or "not checked", never the home market's (delivery-abroad.ts).
+  const deliveryNote = (p: ProductSide) => (sells(p.retailer) ? deliveryNoteFor(sellerOf(p), pair.market, p.price, pair.currency, local) : undefined);
   const side = (p: ProductSide, which: "brand" | "alternative"): Offer => ({
     name: fullName(p),
     note: deliveryNote(p),

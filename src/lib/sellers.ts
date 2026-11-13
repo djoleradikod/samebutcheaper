@@ -31,6 +31,15 @@ const ALSO_NAMED: [RegExp, string][] = [
   [/\bRewe\b|\bREWE\b/, "rewe"],
   [/\bKaufland\b/, "kaufland"],
   [/\bPenny\b/, "penny"],
+  // North American chains and the own labels only they sell, so a US finding doesn't reach a Canadian with names they can't buy.
+  [/\bCostco\b|\bKirkland\b/, "costco"],
+  [/\bWalmart\b|\bGreat Value\b|\bEquate\b|\bParent's Choice\b/, "walmart"],
+  [/\bTarget\b|\bup ?& ?up\b|\bGood & Gather\b|\bMarket Pantry\b/, "target"],
+  [/\bSam's Club\b|\bMember's Mark\b/, "samsclub"],
+  [/\bWhole Foods\b/, "wholefoods"],
+  [/\bTrader Joe's\b/, "traderjoes"],
+  [/\bKroger\b/, "kroger"],
+  [/\bSafeway\b|\bSignature Select\b|\bLucerne\b/, "safeway"],
 ];
 
 /** The chains a piece of writing names by name. */
@@ -67,8 +76,40 @@ for (const table of [footprint.sellers, footprint.manual] as Record<string, Reco
   }
 }
 
-/** Whether we can show this seller operates in or ships to this country. Amazon: a storefront that delivers there, see COUNTRIES. */
+/**
+ * Whether we can show this seller operates in or ships to this country, with the same range. Amazon: a storefront that
+ * delivers there, see COUNTRIES. A chain whose only site there is a separate national shop (`separate` in the file) doesn't
+ * count: walmart.ca doesn't sell what walmart.com lists.
+ */
 export function sellsIn(seller: string, country: string) {
   if (seller === "amazon") return Boolean(COUNTRIES[country]?.amazon);
   return SOLD_IN[seller]?.has(country) ?? false;
+}
+
+const SHIPS = (footprint as { ships?: Record<string, Record<string, Record<string, string>>> }).ships ?? {};
+const SEPARATE = (footprint as { separate?: Record<string, Record<string, string>> }).separate ?? {};
+
+/** The chain's own site in this country when it's a separate shop with its own range and prices, or null. */
+export function separateSite(seller: string, country: string): string | null {
+  return SEPARATE[seller]?.[country] ?? null;
+}
+
+/** Whether this seller's site in `market` delivers to `country`, by its own delivery page (`ships` in the file). */
+export function shipsFrom(seller: string, market: string, country: string) {
+  return Boolean(SHIPS[seller]?.[market]?.[country]);
+}
+
+/**
+ * Whether a listing at this seller in `market` can be bought and delivered in `country`, and so whether we link it there.
+ * - Its own market: yes.
+ * - Amazon from another market: "maybe", since each storefront ships some items abroad and not others.
+ * - A store whose delivery page names the country: yes (a German pharmacy that delivers to Austria).
+ * - Anything else: no. Selling in that country through a national site of its own isn't enough: the link goes to the other
+ *   market's site, which is a different shop. The swap page says where to look instead.
+ * `seller` is a seller name as sellerOf gives it; a named retailer is its own seller, and "other" can't be placed.
+ */
+export function deliversTo(seller: string, market: string, country: string): "yes" | "maybe" | "no" {
+  if (country === market) return "yes";
+  if (seller === "amazon") return "maybe";
+  return shipsFrom(seller, market, country) ? "yes" : "no";
 }

@@ -209,16 +209,7 @@ export const RETAILERS = [
 ] as const;
 export type Retailer = (typeof RETAILERS)[number];
 
-/**
- * Whether a listing at `retailer` in `market` can be delivered to `country`.
- * "maybe" means the store ships some items abroad (Amazon), so the shopper
- * should check at checkout.
- */
-export function deliversTo(retailer: string, market: MarketCode, country: string): "yes" | "maybe" | "no" {
-  if (country === market) return "yes";
-  if (retailer === "amazon") return "maybe";
-  return "no";
-}
+/* Whether a listing can be delivered to a country lives in sellers.ts (deliversTo), because it reads the seller footprint. */
 
 /* ------------------------------------------------------------------------- */
 

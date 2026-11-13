@@ -34,9 +34,10 @@ index = json.loads(urllib.request.urlopen(BASE + "/search/index.json", timeout=6
 uk_swap = next(p["slug"] for p in index["pairs"] if p["market"] == "GB" and p["category"] != "otc-medicine")
 PAGES = ["/", "/category/household", f"/compare/{uk_swap}", "/bulk"]
 # What each country's pages must show, and whether a $ price may appear.
-EXPECT = {"IE": ("€", False), "DE": ("€", False), "GB": ("£", False), "HR": ("€", False), "US": ("$", True)}
+# Canada once listed every US record; now only those whose store sells there, so its lists carry no US-only brand either.
+EXPECT = {"IE": ("€", False), "DE": ("€", False), "GB": ("£", False), "HR": ("€", False), "CA": ("CA$", False), "US": ("$", True)}
 # Small amounts read "37 ct" or "37p" with no symbol, and a list can be nothing but those.
-SHOWS = {"€": re.compile(r"€|\d ct\b"), "£": re.compile(r"£|\d(?:\.\d)?p\b"), "$": re.compile(r"\$|\d(?:\.\d)?¢")}
+SHOWS = {"CA$": re.compile(r"CA\$|\d(?:\.\d)?¢"), "€": re.compile(r"€|\d ct\b"), "£": re.compile(r"£|\d(?:\.\d)?p\b"), "$": re.compile(r"\$|\d(?:\.\d)?¢")}
 
 with sync_playwright() as p:
     browser = p.chromium.launch()

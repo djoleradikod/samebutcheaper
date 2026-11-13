@@ -77,6 +77,31 @@ Leave a value `null` when no source confirms it: the page then says the delivery
 `confidence` is `official` (the store's own page) or `secondary` (a dated third-party guide). `membership` is
 `{ name, price, per, nonmember_surcharge_pct? }` for clubs like Costco; a non-member surcharge is counted in the checkout.
 
+A rule is for the market's own shoppers. When the store's page gives delivery to another country, add it under `abroad`,
+keyed by that country, with the same fields (no `pickup` or `membership`, which don't travel) and one optional extra:
+
+```json
+"medikamente-per-klick": { "DE": { "fee": 3.95, "free_over": 15, "confidence": "official", "sources": ["https://..."],
+  "abroad": { "AT": { "fee": 5.70, "free_over": null, "fee_over": { "from": 35, "fee": 3.00 },
+                      "confidence": "official", "sources": ["https://..."] } } } }
+```
+
+`fee_over` is a lower fee from an order size, for stores that charge less above a line instead of nothing. Amounts stay
+in the market's currency. `delivery.ts` ignores `abroad`, so files without it read as before. `src/lib/delivery-abroad.ts`
+reads it: a shopper in that country gets that rule, and a shopper in a country with no entry is told delivery there isn't
+checked, never shown the market's own rule. Whether a store delivers there at all, and so whether we link it, is
+`ships` in `data/sellers/footprint.json`; add both together.
+
+## Who sells where (`data/sellers/footprint.json`)
+
+`sellers` (written by `scripts/qa/seller_footprint.py`) and `manual` (by hand, with a source) list the countries a
+chain sells in with the same range. A record from another market lists there if every seller is in one of them.
+`ships` is a store whose site in one market delivers to another country, by its own delivery page:
+`"aponeo": { "DE": { "AT": "<delivery page>" } }`. Its records list and link there. `separate` is a chain that sells in
+a country only through a national shop of its own with a different range and prices, such as `walmart.ca` against
+`walmart.com`: `"walmart": { "CA": "https://www.walmart.ca/" }`. Its records don't list there by default, the store isn't
+linked, and the swap page points to that site instead. No entry means we couldn't show it sells there, not that it doesn't.
+
 ## Presets (`data/presets/*.json`)
 
 A basket for a life moment, built only from swaps in the catalogue, so a preset makes no new price claims. All its

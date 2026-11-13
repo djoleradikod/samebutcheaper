@@ -86,7 +86,8 @@ function biggestSavings(market: MarketCode, local: Local, limit = 12) {
 function featuredFor(local: Local, limit = 12): PairSummary[] {
   const market = local.listMarket;
   const own = biggestSavings(market, local, limit);
-  const merged = market === "CA" ? [...own, ...biggestSavings("US", local, limit)] : own;
+  // Canada lists few of its own, and only the US and UK swaps whose stores sell there, so it draws on every market it can see.
+  const merged = market === "CA" ? [...own, ...(["US", "GB", "DE", "IE"] as const).flatMap((m) => biggestSavings(m, local, limit))] : own;
   // A market too thin to lead still opens with what we've priced there, photo or not.
   const home = isThinMarket(local.country)
     ? getAllPairs()
@@ -95,7 +96,9 @@ function featuredFor(local: Local, limit = 12): PairSummary[] {
     : [];
   // Rated first, then what shows only cut-outs. See biggestSavings.
   const order = (p: PairT) => (p.alternative.rating ? 0 : 2) + (showsOnlyCutOuts(p) ? 0 : 1);
-  return [...home, ...[...merged].sort((a, b) => order(a) - order(b))].slice(0, limit).map(toSummary);
+  // A country whose few listed swaps all lack photos (Australia) gets them anyway, not an empty section.
+  const fill = home.length + merged.length ? [] : forCountry(getAllPairs(), local).filter((p) => p.category !== MEDICINE).sort((a, b) => b.savingsPct - a.savingsPct).slice(0, 4);
+  return [...home, ...[...merged].sort((a, b) => order(a) - order(b)), ...fill].slice(0, limit).map(toSummary);
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;

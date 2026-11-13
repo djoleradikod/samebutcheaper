@@ -1,7 +1,8 @@
 "use client";
 
-import { MARKETS, countryInSentence, deliversTo, lookForQuery, storesFor, type LookFor, type MarketCode } from "@/lib/markets";
+import { MARKETS, countryInSentence, lookForQuery, storesFor, type LookFor, type MarketCode } from "@/lib/markets";
 import { useCountry } from "@/lib/client/country";
+import { deliversTo, separateSite } from "@/lib/sellers";
 import { CountryPicker } from "./CountryPicker";
 
 type Item = { retailer: string; retailerLabel: string; replaces: string; lookFor: LookFor };
@@ -23,7 +24,13 @@ export function BundleWhereToBuy({
   const blocked = items.filter((i) => deliversTo(i.retailer, market, country) !== "yes");
 
   if (!blocked.length) {
-    return <p className="text-[13px] text-ink-2">Every store on this list sells in {countryInSentence(country)}. Check each one for delivery.</p>;
+    return (
+      <p className="text-[13px] text-ink-2">
+        {country === market
+          ? `Every store on this list sells in ${countryInSentence(country)}. Check each one for delivery.`
+          : `Every store on this list delivers to ${countryInSentence(country)}, by its own delivery page. Delivery there is charged at its own rate.`}
+      </p>
+    );
   }
 
   const stores = storesFor(country)
@@ -43,11 +50,22 @@ export function BundleWhereToBuy({
         <ul className="mt-2 divide-y divide-line">
           {blocked.map((item, i) => {
             const q = lookForQuery(item.lookFor, country);
+            const own = separateSite(item.retailer, country);
             return (
               <li key={i} className="py-2">
                 <p className="text-xs text-muted">Instead of {item.replaces}</p>
                 <p className="mt-0.5 font-semibold">{q}</p>
                 <p className="flex flex-wrap gap-x-3 text-[13px]">
+                  {own && (
+                    <a
+                      href={own}
+                      target="_blank"
+                      rel="nofollow noopener"
+                      className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-7"
+                    >
+                      {item.retailerLabel} in {countryInSentence(country)}
+                    </a>
+                  )}
                   {stores.map((s) => (
                     <a
                       key={s.id}
