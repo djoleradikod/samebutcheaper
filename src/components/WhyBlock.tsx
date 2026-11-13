@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { ChevronDown } from "lucide-react";
 import { splitSentences, type CompareRow } from "@/lib/compare";
 import type { Claim, Pair } from "@/lib/types";

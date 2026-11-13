@@ -12,7 +12,8 @@ import { PairBrowser } from "./PairBrowser";
 import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, Ticket } from "./Ticket";
-import { forCountry, localFor, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { forCountry, localFor, MARKET_ADJECTIVE, type Listed, type Local } from "@/lib/localize";
+import { listedIn, noteSlotScript } from "@/lib/reserve";
 import { countryInSentence, type MarketCode } from "@/lib/markets";
 import { getLocal } from "@/lib/server-country";
 import { isReported } from "@/lib/reported-state";
@@ -333,7 +334,7 @@ export function TagLinks({ links }: { links: { href: string; label: ReactNode; k
 /** On a swap page whose record gives way to the same swap in another market. */
 export function SameSwapHere({ market, twin }: { market: MarketCode; twin: { slug: string; market: MarketCode } }) {
   return (
-    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+    <p className="record-note border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
       We priced this one at {MARKET_ADJECTIVE[market]} stores.{" "}
       <Link href={`/compare/${twin.slug}`} className="underline">
         See the same swap at {MARKET_ADJECTIVE[twin.market]} prices
@@ -343,9 +344,21 @@ export function SameSwapHere({ market, twin }: { market: MarketCode; twin: { slu
   );
 }
 
+/**
+ * Where NotListedHere or SameSwapHere will be, until the shopper's view arrives: empty, and as tall as the note when
+ * the shopper's country (read before the first paint) doesn't list the record. See src/lib/reserve.ts.
+ */
+export function RecordNoteSlot({ record }: { record: Listed }) {
+  return (
+    <div className="record-note-slot" aria-hidden="true">
+      <script dangerouslySetInnerHTML={{ __html: noteSlotScript(listedIn(record)) }} />
+    </div>
+  );
+}
+
 export function NotListedHere({ market, local }: { market: MarketCode; local: Local }) {
   return (
-    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+    <p className="record-note border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
       We priced this at {MARKET_ADJECTIVE[market]} stores and couldn&apos;t confirm you can buy it in {countryInSentence(local.country)}, so it isn&apos;t in
       our lists there.
     </p>

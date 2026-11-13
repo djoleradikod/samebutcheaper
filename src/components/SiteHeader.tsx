@@ -53,9 +53,13 @@ export function SiteHeader() {
     <>
       <header className="z-40 border-b border-line bg-paper md:sticky md:top-0">
         <div className="container-page flex flex-wrap items-center gap-x-3 pb-2 md:h-14 md:flex-nowrap md:gap-x-5 md:pb-0">
-          <Link href="/" aria-label="SameButCheaper home" className="flex h-12 shrink-0 items-center md:h-full">
-            <Logo />
-          </Link>
+          {/* The link lies over the logo, so the part that waits for the page's path stays small (see CountryLink). */}
+          <span className="relative flex h-12 shrink-0 items-center md:h-full">
+            <span aria-hidden="true">
+              <Logo />
+            </span>
+            <Link href="/" aria-label="SameButCheaper home" className="absolute inset-0" />
+          </span>
 
           <form action="/search" role="search" className="relative order-last w-full md:order-none md:w-auto md:flex-1">
             <Search

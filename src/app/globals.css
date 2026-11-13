@@ -322,10 +322,56 @@ body {
 
 /* Lists and stores are on their way from the server after a change of country. See useCountryRefresh. */
 /* The fallback band's height, held until it streams in. Set from the cookie in layout.tsx. The tallest band at each width, so it can only shrink. */
+/* The band itself is never shorter than its slot, so the swap is exact. Measured over every country we know, 13 Nov 2026. */
 .band-slot { display: none; }
-html[data-band] .band-slot { display: block; min-height: 106px; }
-@media (min-width: 640px) { html[data-band] .band-slot { min-height: 71px; } }
-@media (min-width: 1024px) { html[data-band] .band-slot { min-height: 53px; } }
+html[data-band] .band-slot { display: block; }
+html[data-band] .band-slot, .band-size { min-height: 107px; }
+/* Canada's band (its own prices, others it can ask for) runs a line longer on phones. */
+@media (max-width: 639px) { html[data-band="long"] .band-slot, html[data-band="long"] .band-size { min-height: 125px; } }
+@media (min-width: 640px) { html[data-band] .band-slot, .band-size { min-height: 89px; } }
+@media (min-width: 1024px) { html[data-band] .band-slot, .band-size { min-height: 53px; } }
+
+/*
+ * Admin on a phone: a table wider than the screen scrolls inside its own box, never the page. Tables marked .stack
+ * (the launch checklist, the affiliate programs) lay each row out as a block instead, with the column names inline.
+ */
+@media (max-width: 639px) {
+  .admin-tables table:not(.stack) { display: block; overflow-x: auto; }
+  .admin-tables table.stack thead { display: none; }
+  .admin-tables table.stack, .admin-tables table.stack tbody, .admin-tables table.stack tr, .admin-tables table.stack td { display: block; }
+  .admin-tables table.stack td:empty { display: none; }
+  .admin-tables table.stack td { padding-top: 0.25rem; padding-bottom: 0.25rem; overflow-wrap: anywhere; }
+  .admin-tables table.stack tr { padding: 0.5rem 0; }
+  .admin-tables table.stack td[data-label]::before { content: attr(data-label) ": "; font-weight: 500; color: var(--muted); }
+}
+
+/*
+ * Reserved space for the shopper's view on a record page (src/lib/reserve.ts). The root layout's first script names the
+ * shopper's country and currency on <html> (data-cc, data-cur) before the first paint; the record's stand-in carries
+ * invisible copies of the lines that shopper's view adds, and only the ones that apply take up room.
+ */
+.orig-slot, .mt-v { display: none; visibility: hidden; }
+html[data-cur]:not([data-cur="USD"]) .orig-slot[data-from="USD"],
+html[data-cur]:not([data-cur="GBP"]) .orig-slot[data-from="GBP"],
+html[data-cur]:not([data-cur="EUR"]) .orig-slot[data-from="EUR"],
+html[data-cur]:not([data-cur="CAD"]) .orig-slot[data-from="CAD"] { display: block; }
+/* The market tag over the offers: the record's own wording for a visitor we can't place, else this shopper's, held invisibly. */
+html:not([data-cc]) .mt-v[data-k="default"] { display: inline; visibility: visible; }
+html[data-cur="USD"] .mt-v[data-k="USD"],
+html[data-cur="GBP"] .mt-v[data-k="GBP"],
+html[data-cur="EUR"] .mt-v[data-k="EUR"],
+html[data-cur="CAD"] .mt-v[data-k="CAD"],
+html[data-cur="OTHER"] .mt-v[data-k="OTHER"],
+html[data-cur="GBP"]:not([data-cc="GB"]) .mt-v[data-k="same"][data-m="GB"],
+html[data-cur="EUR"]:not([data-cc="DE"]) .mt-v[data-k="same"][data-m="DE"],
+html[data-cur="EUR"]:not([data-cc="IE"]) .mt-v[data-k="same"][data-m="IE"],
+html[data-cur="CAD"]:not([data-cc="CA"]) .mt-v[data-k="same"][data-m="CA"],
+html[data-cur="USD"]:not([data-cc="US"]) .mt-v[data-k="same"][data-m="US"] { display: inline; }
+/* "We priced this at UK stores and couldn't confirm...": its stand-in takes the note's height where the record isn't listed. */
+.record-note-slot { display: none; }
+.record-note-slot[data-on] { display: block; }
+.record-note, .record-note-slot[data-on] { min-height: 53px; }
+@media (min-width: 640px) { .record-note, .record-note-slot[data-on] { min-height: 35px; } }
 
 html[data-updating] #main {
   opacity: 0.45;

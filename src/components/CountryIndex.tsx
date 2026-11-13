@@ -28,12 +28,13 @@ export function CountryIndex() {
 }
 
 /**
- * A record page's links to its indexable country versions (the same set as its hreflang). Static, so a crawler that
+ * A record page's links to its indexable country versions (the same set as its hreflang), when it has more than one. Static, so a crawler that
  * reached the page by an unprefixed link (from a brand or ingredient page) also reaches the URLs that are in the sitemap.
  */
 export function VersionLinks({ languages, current }: { languages: Record<string, string>; current: string }) {
   const rows = Object.entries(languages).map(([lang, href]) => ({ href, code: lang.slice(3) as keyof typeof MARKETS }));
-  if (rows.length === 0) return null;
+  // One version is the page itself: nothing to choose between.
+  if (rows.length < 2) return null;
   return (
     <nav aria-label="Prices by country" className="container-page pb-6 text-sm text-ink-2">
       <span className="mr-3">Prices by country:</span>

@@ -2,8 +2,9 @@
 
 import type { Currency } from "@/lib/format";
 import type { MarketCode } from "@/lib/markets";
-import { setShowOthers, useLocal } from "@/lib/client/country";
-import { FX_SOURCE, fallbackNotice } from "@/lib/localize";
+import { useContext } from "react";
+import { CountryContext, FixedContext, setShowOthers, useLocal } from "@/lib/client/country";
+import { FX_SOURCE, fallbackNotice, originalPriceText } from "@/lib/localize";
 import { countryInSentence } from "@/lib/markets";
 
 /**
@@ -51,6 +52,16 @@ export function OriginalPrice({
   className?: string;
 }) {
   const text = useLocal().original(n, from, market, checked);
+  const fixed = useContext(FixedContext);
+  const fromServer = useContext(CountryContext);
+  // A record's stand-in converts nothing, but holds this line's space for a shopper whose view will (src/lib/reserve.ts).
+  if (fixed && fromServer == null) {
+    return (
+      <span className={`orig-slot text-xs leading-tight font-medium ${className}`} data-from={from} aria-hidden="true">
+        ({originalPriceText(n, from, market, checked)})
+      </span>
+    );
+  }
   if (!text) return null;
   return <span className={`block text-xs leading-tight font-medium text-muted ${className}`}>({text})</span>;
 }
@@ -63,7 +74,7 @@ export function FallbackBand({ hidden }: { hidden: number }) {
   if (!notice) return null;
   const buttonClass = "cursor-pointer font-semibold text-cobalt underline underline-offset-2";
   return (
-    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+    <p className="band-size border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
       {notice.text}
       {notice.rate && (
         <>

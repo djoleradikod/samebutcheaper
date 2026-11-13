@@ -615,7 +615,11 @@ test("an unprefixed swap still works, with the whole argument readable without J
   // Links on an unprefixed page stay unprefixed, except the links to the swap's own country versions.
   assert.match(head, /href="\/category\//);
   assert.ok(!/href="\/(us|uk|de|ca|ie)\/category\//.test(head));
-  assert.ok(head.includes(`href="/de/compare/${pair.slug}"`), "links its indexable country version");
+  // With one version, the canonical above is the only pointer: a "Prices by country" row of one is left out.
+  assert.ok(!head.includes(`aria-label="Prices by country"`), "no row for a single version");
+  const twin = countryPairs.find((p) => p.market === "DE" && p.twin)!;
+  const twinHead = firstHtml(await (await get(`/compare/${twin.slug}`, visitor({ cookie: "sbc_country=US" }).headers)).text());
+  assert.ok(twinHead.includes(`href="/de/compare/${twin.slug}"`), "links its indexable country versions");
 });
 
 test("a US-only swap under /de/ opens, but is noindex with no canonical", { skip }, async () => {

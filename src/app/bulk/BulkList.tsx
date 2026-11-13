@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { useMemo, useState } from "react";
 import { MarketNote } from "@/components/CountryPicker";
 import { Group, OptionRow } from "@/components/FilterOption";

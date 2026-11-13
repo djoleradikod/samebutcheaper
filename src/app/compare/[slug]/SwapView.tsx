@@ -44,8 +44,8 @@ import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay } from "@/lib/unit-format";
 import { SwapQuestions } from "@/components/SwapQuestions";
 import { forCountry, localClaim, localFor, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
-import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
-import { RecordFeedback } from "@/components/RecordFeedback";
+import { NotListedHere, RecordNoteSlot, SameSwapHere } from "@/components/ShelfParts";
+import { RecordFeedback, ReportedPriceNote } from "@/components/RecordFeedback";
 import { RecordPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 import { YearlyBlock } from "@/components/YearlyBlock";
@@ -67,6 +67,15 @@ export function swapMetadata(slug: string, country: PrefixedCountry | null): Met
 const BAND = "border-y border-line bg-canvas";
 const WHERE_TO_BUY = "where-to-buy";
 const WHAT_DIFFERS = "what-differs";
+/** The "Email me if this changes" form at the foot (RecordFeedbackForms). */
+const WATCH = "watch";
+
+/** Where the share button sends people: each country's indexable URL for this swap, else its canonical one. */
+function shareVersions(record: Pair) {
+  const v = pageVersionsFor(`/compare/${record.slug}`);
+  const versions = Object.fromEntries(Object.entries(v?.languages ?? {}).map(([lang, href]) => [lang.slice(3), href]));
+  return { versions, canonical: v?.xDefault ?? `/compare/${record.slug}` };
+}
 
 /** `country`: the URL's country on a prefixed page, null on /compare/<slug>. */
 export function SwapView({ record, country }: { record: Pair; country: PrefixedCountry | null }) {
@@ -88,7 +97,7 @@ export function SwapView({ record, country }: { record: Pair; country: PrefixedC
   ];
   return (
     <article>
-      <RecordPart own={false}>
+      <RecordPart own={false} standIn={<RecordNoteSlot record={record} />}>
         {(local) => {
           if (local.shows(record)) return null;
           const twin = record.twin ? getPair(record.twin.slug) : undefined;
@@ -192,6 +201,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
           <div className="min-w-0">
             <p className="text-[22px] leading-[1.2] font-semibold tracking-[-0.01em] md:text-[28px]">{verdict(record)}</p>
 
+            <ReportedPriceNote record="pair" slug={record.slug} className="mt-3" />
             <div id={OFFERS} className="scroll-mt-16">
               <RecordPart>
                 {(local) => (
@@ -211,10 +221,13 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
             <div className="mt-3 flex flex-col gap-2 sm:flex-row">
               <SaveButton slug={record.slug} className="sm:w-56" />
               <ShareButton
-                path={`/compare/${record.slug}`}
+                {...shareVersions(record)}
                 text={`${a.brand} does the same job as ${b.brand} for ${Math.round(record.savingsPct)}% less.`}
                 className="sm:w-56"
               />
+              <a href={`#${WATCH}`} className="btn btn-ghost">
+                Email me if this changes
+              </a>
             </div>
             <RecordPart>{(local) => <SameAmountAndAgainst record={record} local={local} />}</RecordPart>
 
@@ -396,7 +409,7 @@ function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductS
   const cheaper = side === "alternative";
   const { label } = unitDisplay(p.unit);
   return (
-    <div className="row-span-4 grid min-w-0 grid-rows-subgrid">
+    <div className={`row-span-4 row-start-1 grid min-w-0 grid-rows-subgrid ${cheaper ? "col-start-2" : "col-start-1"}`}>
       <div className="mx-auto w-full max-w-36 pb-2.5 md:max-w-none">
         <ProductThumb
           size="tile"
@@ -419,7 +432,7 @@ function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductS
         <Money n={p.price} from={pair.currency} />
         <OriginalPrice n={p.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
       </p>
-      <div className="mt-1.5 hidden min-w-0 md:block">
+      <div className="mt-1 min-w-0 md:mt-1.5">
         <p className="text-sm font-medium text-ink-2">{packText(p.size, p.unit)}</p>
         <p className="mt-0.5 flex flex-wrap items-baseline gap-x-1">
           <span className={`price text-xl md:text-2xl ${cheaper ? "text-ink" : "text-ink-2"}`}>

@@ -15,7 +15,7 @@ export const metadata: Metadata = { title: "Admin", robots: { index: false, foll
 
 export default function AdminPage() {
   return (
-    <section className="container-page py-10">
+    <section className="admin-tables container-page py-10">
       <h1 className="display text-4xl font-medium">Dashboard</h1>
       <Suspense fallback={<p className="mt-6 text-muted">Loading…</p>}>
         <AdminData />

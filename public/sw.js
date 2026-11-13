@@ -18,7 +18,7 @@
 (function (self) {
   "use strict";
 
-  var VERSION = "v1";
+  var VERSION = "v2";
   var SHELL_CACHE = "sbc-shell-" + VERSION;
   var STATIC_CACHE = "sbc-static-" + VERSION;
   var OFFLINE_URL = "/offline.html";
@@ -97,7 +97,8 @@
   /** Keep /my-list's HTML and the static files it names, so it opens offline. */
   function cacheMyList(res) {
     return res.text().then(function (html) {
-      var copy = new Response(html, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } });
+      // X-Sbc-Saved: when this copy was kept, so My list can say how old its prices are when it is served offline.
+      var copy = new Response(html, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8", "X-Sbc-Saved": new Date().toISOString() } });
       var urls = staticUrlsIn(html);
       return Promise.all([
         caches.open(SHELL_CACHE).then(function (c) {

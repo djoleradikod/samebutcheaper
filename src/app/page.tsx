@@ -287,15 +287,16 @@ function HomeBody({ local }: { local: Local }) {
   return (
     <>
       <div className="bg-canvas">
-        <div className="container-page pb-8 md:pb-10">
+        {/* Padding, not the first section's margin, which would collapse out of the band and leave a white strip above it. */}
+        <div className="container-page pt-4 pb-8 md:pb-10">
           {hasBaskets && (
-            <section className="mt-4">
+            <section>
               <SectionHeading title="Swap a whole basket" />
               <FeaturedBaskets list={baskets} />
             </section>
           )}
 
-          <section className={hasBaskets ? "mt-8 md:mt-10" : "mt-4"}>
+          <section className={hasBaskets ? "mt-8 md:mt-10" : ""}>
             <SectionHeading
               title="Biggest savings"
               links={[

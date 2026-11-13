@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { ProsePage } from "@/components/ProsePage";
 
 export const metadata: Metadata = { title: "You're on the list", robots: { index: false, follow: false } };

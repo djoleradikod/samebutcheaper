@@ -9,7 +9,7 @@
  *   node scripts/ci/quality.mjs              check against the budgets; exit 1 on any failure
  *   node scripts/ci/quality.mjs --measure    print today's numbers and suggested budgets; budgets don't fail
  *
- * Needs `playwright` and `@axe-core/playwright` (CI installs them with --no-save; see .github/workflows/ci.yml)
+ * Needs `playwright` and `@axe-core/playwright` (pinned devDependencies; CI then installs Chromium, see .github/workflows/ci.yml)
  * and a Chromium for Playwright. Starts .next/standalone/server.js itself on a free port, with no database (pages are
  * static), unless QUALITY_BASE_URL points at a running site. Writes a Markdown report to stdout and, on GitHub, to
  * the job summary, and the raw numbers to QUALITY_OUT (default .next/quality.json).
@@ -29,8 +29,11 @@ const OUT = process.env.QUALITY_OUT ?? join(root, ".next", "quality.json");
 const MARGIN = { lcp: 1.25, cls: 0.02, kb: 5 };
 
 const failures = [];
+/** A page is a path, measured in `config.country`, or { path, country } for one seen from another country. */
+const pagePath = (p) => (typeof p === "string" ? p : p.path);
+const pageCountry = (p) => (typeof p === "string" ? config.country : p.country);
 const report = [];
-const results = { axe: {}, overflow: {}, perf: {} };
+const results = { axe: {}, overflow: {}, perf: {}, firstHtml: {} };
 
 function freePort() {
   return new Promise((resolve, reject) => {
@@ -97,9 +100,10 @@ async function settle(page) {
 }
 
 // ---------- accessibility and sideways scroll ----------
-async function checkPage(browser, base, name, path) {
+async function checkPage(browser, base, name, entry) {
+  const path = pagePath(entry);
   for (const widthName of Object.keys(config.widths)) {
-    const { context, page } = await newPage(browser, base, widthName, config.country);
+    const { context, page } = await newPage(browser, base, widthName, pageCountry(entry));
     const res = await page.goto(base + path, { waitUntil: "load" });
     if (!res || res.status() >= 400) failures.push(`${name} (${path}) answered ${res?.status()}`);
     await settle(page);
@@ -138,6 +142,24 @@ async function checkPage(browser, base, name, path) {
   }
 }
 
+// ---------- the first HTML of a prefixed page ----------
+/**
+ * A prefixed page's header must be right in its first HTML: the logo goes to that country's home and the country picker
+ * names the country, with no part of the header left to a streamed segment (React outlines a finished Suspense boundary
+ * over 500 bytes once the shell is big, so a large boundary there arrives late even on a prerendered page).
+ */
+async function checkFirstHtml(base) {
+  for (const { path, home, label } of config.firstHtml ?? []) {
+    const html = await (await fetch(base + path)).text();
+    const header = html.slice(html.indexOf("<header"), html.indexOf("</header>"));
+    const logo = /<a[^>]*aria-label="SameButCheaper home"[^>]*>/.exec(header)?.[0] ?? "";
+    results.firstHtml = { ...results.firstHtml, [path]: { logo, deferred: header.includes("<template id=") } };
+    if (!logo.includes(`href="${home}"`)) failures.push(`${path}: the header logo in the first HTML is ${logo || "missing"}, not a link to ${home}`);
+    if (!header.includes(`>${label}<`)) failures.push(`${path}: the country picker in the first HTML doesn't say ${label}`);
+    if (header.includes("<template id=")) failures.push(`${path}: part of the header is left to a streamed segment`);
+  }
+}
+
 // ---------- performance ----------
 const OBSERVE = () => {
   window.__perf = { lcp: 0, cls: 0 };
@@ -151,10 +173,11 @@ const OBSERVE = () => {
   } catch {}
 };
 
-async function measure(browser, base, name, path) {
+async function measure(browser, base, name, entry) {
+  const path = pagePath(entry);
   const runs = [];
   for (let i = 0; i < config.performance.runs; i++) {
-    const { context, page } = await newPage(browser, base, config.performance.width, config.country, OBSERVE);
+    const { context, page } = await newPage(browser, base, config.performance.width, pageCountry(entry), OBSERVE);
     const cdp = await context.newCDPSession(page);
     await cdp.send("Network.enable");
     await cdp.send("Emulation.setCPUThrottlingRate", { rate: config.performance.cpuThrottle });
@@ -206,6 +229,7 @@ async function main() {
   const server = await startServer();
   const browser = await chromium.launch();
   try {
+    await checkFirstHtml(server.base);
     for (const [name, path] of Object.entries(config.pages)) await checkPage(browser, server.base, name, path);
     for (const [name, path] of Object.entries(config.pages)) await measure(browser, server.base, name, path);
   } finally {
@@ -233,7 +257,7 @@ async function main() {
   }
 
   const b = config.budgets;
-  report.push(`## Quality checks (${config.country}, phone ${config.widths.phone.width} px and desktop ${config.widths.desktop.width} px)`, "");
+  report.push(`## Quality checks (${config.country} unless a page says otherwise, phone ${config.widths.phone.width} px and desktop ${config.widths.desktop.width} px)`, "");
   report.push(`Performance: phone width, ${config.performance.cpuThrottle}x CPU slowdown, cold cache, no network throttling, median of ${config.performance.runs}.`, "");
   report.push("| Page | LCP ms (budget) | CLS (budget) | Script KB (budget) | All KB | axe serious+critical, phone / desktop | Sideways px |", "|---|---|---|---|---|---|---|");
   for (const name of Object.keys(config.pages)) {
@@ -243,8 +267,9 @@ async function main() {
       return c ? c.serious + c.critical : "?";
     };
     const over = config.overflowCountries.map((c) => results.overflow[`${name}@${c}`] ?? "?").join(" / ");
+    const label = typeof config.pages[name] === "string" ? name : `${name} (${config.pages[name].country})`;
     report.push(
-      `| ${name} | ${m.lcpMs} (${b.lcpMs[name] ?? "-"}) | ${m.cls} (${b.cls[name] ?? "-"}) | ${m.scriptKb}${name === "swap" ? ` (${b.swapScriptKb || "-"})` : ""} | ${m.totalKb} | ${ax("phone")} / ${ax("desktop")} | ${over} |`,
+      `| ${label} | ${m.lcpMs} (${b.lcpMs[name] ?? "-"}) | ${m.cls} (${b.cls[name] ?? "-"}) | ${m.scriptKb}${name === "swap" ? ` (${b.swapScriptKb || "-"})` : ""} | ${m.totalKb} | ${ax("phone")} / ${ax("desktop")} | ${over} |`,
     );
   }
   report.push("");

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { BadgeCheck, ExternalLink, FlaskConical, Info, ListChecks, Store, Target } from "lucide-react";
 import { toSummary } from "@/lib/catalog";
 import type { LookupDetail } from "@/lib/lookup";

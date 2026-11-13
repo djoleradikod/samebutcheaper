@@ -42,12 +42,11 @@ jobs:
       - name: End-to-end tests against the built site
         run: npm run test:e2e
       # Browser checks (scripts/ci/quality.mjs): axe at phone and desktop width, no sideways scroll at 390 px, and
-      # the performance budget in scripts/ci/quality.config.json. The two packages are installed here only, without
-      # touching package.json, at the versions the budgets were measured with.
-      - name: Install the browser check tools
-        run: |
-          npm install --no-save --no-audit --no-fund playwright@1.63.0 @axe-core/playwright@4.14.0
-          npx playwright install --with-deps chromium
+      # the performance budget in scripts/ci/quality.config.json. playwright and @axe-core/playwright are pinned
+      # devDependencies (installed by npm ci above) at the versions the budgets were measured with; only the browser
+      # is fetched here.
+      - name: Install Chromium for the browser checks
+        run: npx playwright install --with-deps chromium
       - name: Accessibility, phone width and performance budget
         run: node scripts/ci/quality.mjs
       - name: Keep the quality numbers

@@ -47,7 +47,8 @@ export async function POST(request: Request) {
 
   const result: CheckResult = {
     lines: lines.map(
-      ({ query, ...line }): ResultLine => (line.status === "none" ? { ...line, counted: normaliseQuery(query) } : line),
+      // A "maybe" carries it too: if the shopper answers No, the page counts it (POST /api/wanted).
+      ({ query, ...line }): ResultLine => (line.status === "none" || line.status === "maybe" ? { ...line, counted: normaliseQuery(query) } : line),
     ),
     noise,
     swaps: swapViews(lines.flatMap((l) => (l.status === "swap" || l.status === "maybe" ? [l.slug] : []))),

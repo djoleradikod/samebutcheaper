@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { hostname } from "@/lib/format";
 import type { CategorySlug, Photo } from "@/lib/types";
 import { ProductThumb } from "./ProductThumb";

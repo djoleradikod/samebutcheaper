@@ -382,7 +382,7 @@ The pages and budgets are in `scripts/ci/quality.config.json`. Budgets are the n
 plus a margin. To see today's numbers and suggested budgets: `npm run build`, then
 
 ```sh
-npm install --no-save playwright@1.63.0 @axe-core/playwright@4.14.0
+npx playwright install chromium   # once; playwright and @axe-core/playwright are pinned devDependencies
 node scripts/ci/quality.mjs --measure
 ```
 

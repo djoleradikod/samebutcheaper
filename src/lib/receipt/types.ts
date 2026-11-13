@@ -31,7 +31,10 @@ export type ResultLine = {
   index: number;
   /** The line as typed. Only ever sent back to the browser that sent it; never stored or logged. */
   text: string;
-  /** For a line with nothing on file: the cleaned name we count, so the page can show exactly what that is. */
+  /**
+   * For a line with nothing on file: the cleaned name we count, so the page can show exactly what that is. For a "did you
+   * mean": the name the page counts if the shopper answers No.
+   */
   counted?: string | null;
 } & LineMatch;
 

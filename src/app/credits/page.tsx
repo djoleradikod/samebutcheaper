@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { ProductThumb } from "@/components/ProductThumb";
 import { getCredits } from "@/lib/catalog";
 

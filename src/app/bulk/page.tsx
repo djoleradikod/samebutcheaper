@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { packText } from "@/components/BulkBox";
 import { CountryPart } from "@/components/ForCountry";
 import { browseProps, ListLinks, ShelfHead } from "@/components/ShelfParts";

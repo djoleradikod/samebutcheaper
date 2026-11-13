@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import type { Comparison, CompareRow, Verdict } from "@/lib/compare";
 
 /** Pale fill for the row and darker text for the words. Alt-better rows stay white: yellow is for the ticket. */

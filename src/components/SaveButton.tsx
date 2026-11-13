@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { Bookmark, BookmarkCheck } from "lucide-react";
 import { toggleSaved, useSavedList } from "@/lib/client/savedList";
 

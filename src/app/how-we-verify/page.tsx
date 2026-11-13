@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { linksEarn } from "@/lib/affiliate";
 import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
 import { ProsePage } from "@/components/ProsePage";

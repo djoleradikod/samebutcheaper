@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useId, useState, type ReactNode } from "react";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { reportProblem, watchSwap, type FeedbackState } from "@/app/feedback-actions";
 
 const KINDS = [
@@ -45,7 +45,7 @@ function WatchForm({ slug }: { slug: string }) {
   const [state, action, pending] = useActionState<FeedbackState, FormData>(watchSwap, null);
   const id = useId();
   return (
-    <section aria-labelledby={`${id}-t`} className="self-start rounded-card border border-line bg-paper p-4 md:p-5">
+    <section id="watch" aria-labelledby={`${id}-t`} className="scroll-mt-20 self-start rounded-card border border-line bg-paper p-4 md:p-5">
       <h2 id={`${id}-t`} className="text-base font-semibold">
         Email me if this changes
       </h2>

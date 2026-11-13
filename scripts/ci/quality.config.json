@@ -8,17 +8,44 @@
     "basket": "/basket/home-office-us",
     "search": "/search?q=ibuprofen",
     "check": "/check",
-    "myList": "/my-list"
+    "myList": "/my-list",
+    "swapConverted": {
+      "path": "/compare/claritin-vs-equate-loratadine-10mg",
+      "country": "DE"
+    },
+    "swapPrefixed": "/de/compare/nurofen-vs-ibu-ratiopharm-400mg-de"
   },
-  "savedForMyList": ["claritin-vs-equate-loratadine-10mg", "advil-20ct-300ct-value-bundle-vs-up-and-up-ibuprofen-200mg"],
+  "savedForMyList": [
+    "claritin-vs-equate-loratadine-10mg",
+    "advil-20ct-300ct-value-bundle-vs-up-and-up-ibuprofen-200mg"
+  ],
   "widths": {
-    "phone": { "width": 390, "height": 844, "mobile": true },
-    "desktop": { "width": 1280, "height": 900, "mobile": false }
+    "phone": {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    },
+    "desktop": {
+      "width": 1280,
+      "height": 900,
+      "mobile": false
+    }
   },
-  "overflowCountries": ["US", "DE"],
+  "overflowCountries": [
+    "US",
+    "DE"
+  ],
   "axe": {
-    "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"],
-    "failOn": ["serious", "critical"]
+    "tags": [
+      "wcag2a",
+      "wcag2aa",
+      "wcag21a",
+      "wcag21aa"
+    ],
+    "failOn": [
+      "serious",
+      "critical"
+    ]
   },
   "performance": {
     "cpuThrottle": 4,
@@ -35,7 +62,9 @@
       "basket": 1600,
       "search": 1900,
       "check": 900,
-      "myList": 1300
+      "myList": 1300,
+      "swapConverted": 2000,
+      "swapPrefixed": 2000
     },
     "cls": {
       "home": 0.05,
@@ -44,7 +73,21 @@
       "basket": 0.05,
       "search": 0.05,
       "check": 0.07,
-      "myList": 0.05
+      "myList": 0.05,
+      "swapConverted": 0.05,
+      "swapPrefixed": 0.05
     }
-  }
+  },
+  "firstHtml": [
+    {
+      "path": "/de/compare/nurofen-vs-ibu-ratiopharm-400mg-de",
+      "home": "/de",
+      "label": "Germany"
+    },
+    {
+      "path": "/uk",
+      "home": "/uk",
+      "label": "United Kingdom"
+    }
+  ]
 }

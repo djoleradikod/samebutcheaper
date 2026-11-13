@@ -20,7 +20,7 @@ function read(): string | null {
   }
 }
 
-function subscribe(cb: () => void) {
+export function subscribe(cb: () => void) {
   window.addEventListener(EVENT, cb);
   window.addEventListener("focus", cb);
   return () => {

@@ -243,6 +243,11 @@ function writtenPattern(from: Currency) {
 const toNumber = (written: string) => (/,\d{3}/.test(written) ? Number(written.replaceAll(",", "")) : Number(written.replace(",", ".")));
 
 /** "Nov 2026" from the catalogue's "2026-11" or "2026-11-06". The same on server and client. */
+/** "£9.99 at a UK store, Nov 2026": the price as checked, beside a converted one. The same for every shopper it's shown to. */
+export function originalPriceText(n: number, from: Currency, market: MarketCode, checked: string) {
+  return `${money(n, from)} at a ${MARKET_ADJECTIVE[market]} store, ${shortMonth(checked)}`;
+}
+
 export function shortMonth(iso: string) {
   const [y, m] = iso.split("-").map(Number);
   if (!y || !m) return iso;
@@ -287,8 +292,7 @@ function build(country: string, askedForOthers: boolean): Local {
     unitBare: (ppu, unit, from) => unitPrice(amount(ppu, from), unit, currency),
     unit: (ppu, unit, from) => about(from, unitPrice(amount(ppu, from), unit, currency)),
     unitFine: (ppu, unit, from) => about(from, unitPriceFine(amount(ppu, from), unit, currency)),
-    original: (n, from, market, checked) =>
-      from === currency ? null : `${money(n, from)} at a ${MARKET_ADJECTIVE[market]} store, ${shortMonth(checked)}`,
+    original: (n, from, market, checked) => (from === currency ? null : originalPriceText(n, from, market, checked)),
     prose: (text, from) => {
       const pattern = from === currency ? null : writtenPattern(from);
       if (!pattern) return text;

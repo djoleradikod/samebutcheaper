@@ -9,6 +9,7 @@ import { hasBand, localFor } from "@/lib/localize";
 import { MARKET_CODES } from "@/lib/markets";
 import { getCountry, getLocal, getUrlCountry } from "@/lib/server-country";
 import { PATH_COUNTRY_SCRIPT } from "@/lib/country-url";
+import { shopperAttributesScript } from "@/lib/reserve";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { jsonLdText, SITE } from "@/lib/site";
@@ -73,9 +74,12 @@ async function CountryBand() {
 /**
  * The band streams in after the first paint, so without this it pushes a fallback country's whole page down. Static HTML can't
  * know the country, but the browser can read the cookie before it paints, and globals.css holds the band's height from there.
+ * The same script names the shopper's country and currency on <html> for the record pages' reservations (src/lib/reserve.ts).
  */
 const OWN_PRICES = MARKET_CODES.filter((m) => !hasBand(m)).join("|");
-const RESERVE_BAND = `(function(){${PATH_COUNTRY_SCRIPT}var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);var c=pathCountry||(m&&m[1]);if(c&&!/^(${OWN_PRICES})$/.test(c))document.documentElement.setAttribute("data-band","")})()`;
+// Countries with their own prices that can ask for others (Canada): their band says more, so it needs more room on phones.
+const LONG_BAND = MARKET_CODES.filter((m) => hasBand(m) && !localFor(m).fallback).join("|") || "-";
+const RESERVE_BAND = `(function(){${PATH_COUNTRY_SCRIPT}var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);var c=pathCountry||(m&&m[1]);if(c&&!/^(${OWN_PRICES})$/.test(c))document.documentElement.setAttribute("data-band",/^(${LONG_BAND})$/.test(c)?"long":"");${shopperAttributesScript()}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const jsonLd = [

@@ -23,7 +23,8 @@ what it cost.
 - Each swap, kit and basket page links its own country versions ("Prices by country:", the same set as its hreflang),
   in the static HTML. An aisle shows one swap per product group, so some records are linked only from brand, ingredient
   or dupe pages, which have no prefix; without these links their prefixed (sitemap) URL was reachable only through the
-  canonical.
+  canonical. A record with one version has no row (since 13 Nov 2026): a shopper has nothing to choose between, and that
+  one URL is still its canonical and in the sitemap.
 - On a prefixed page, every link to a page that has a prefixed form stays in the prefix, and the country switcher goes
   to the same page under the new prefix (or the unprefixed page, for a country without one; the choice is also saved).
 
@@ -68,13 +69,36 @@ wrapper under `src/app/country/[country]` and its section to `PREFIXED_SECTIONS`
 
 ### Links
 
-`CountryLink` is `next/link` with the prefix applied. Inside a fixed country (a prefixed page, or a record's own-view
-stand-in) the country comes from the provider, so the href is in the static HTML. In the header and footer, which are in
-the root layout and outside any page's provider, it reads the path with `usePathname`: known at build time for every
-prerendered page. A view rendered on demand (a noindex one) can't read its path until the request, so there those links
-start unprefixed and are corrected when its part streams in. Components switched to it by their import line:
-`PairCard`, `BundleCard`, `BasketCard`, `BasketLines`, `ShelfParts`, `SiteHeader`, `SiteFooter`, the home, aisle and
-bundles pages, and the three record views.
+`CountryLink` is `next/link` with the prefix applied. Inside a fixed country (a prefixed page) the country comes from
+the provider, so the href is in the static HTML. In the header and footer, which are in the root layout and outside any
+page's provider, it reads the path with `usePathname`: known at build time for every prerendered page. A view rendered on
+demand (a noindex one) can't read its path until the request, so there those links start unprefixed and are corrected
+when its part streams in. A link to a page with no prefixed form (`/my-list`, `/brands`) needs none of this and is a
+plain link.
+
+What waits for the path is a small Suspense boundary, and it has to stay small: React 19 sends a finished boundary over
+500 bytes later in the stream once the shell is large, so a big one starts out unprefixed even on a prerendered page.
+That is why the header's logo link is an empty overlay over the logo, and the country picker reads the path only for its
+label. `node scripts/ci/quality.mjs` checks the first HTML of a prerendered `/de` page for both.
+
+Every public page and component uses it (the import line is the only change), except `CountryIndex`, whose links are
+already prefixed, and the admin pages.
+
+### First visit: links that carry the shopper's country
+
+A shopper who lands on an unprefixed page is not redirected. Once the browser knows their country and it has a prefix
+(the proxy sets the `sbc_country` cookie from their location on the first request, or they chose a country), every
+`CountryLink` on an unprefixed page points at that country's URL, so whatever they go on to share or bookmark carries the
+country (`src/lib/shopper-links.ts`, `src/lib/client/shopper-country.ts`). The rule's guards:
+
+- The server's HTML is unchanged, links as written. The change happens in the browser after hydration, so crawlers
+  (which the proxy never gives a cookie, and which `isBotAgent` also catches by user agent in the browser) and readers
+  without JavaScript see and follow the unprefixed links, and each page keeps one canonical.
+- Only paths with a prefixed form change, to exactly the URL `withCountry` builds, so they land on the same pages the
+  switcher and the sitemap use. A view the country doesn't list opens as rule 3 below says (noindex, with its note).
+- A shopper who asked to see other countries' swaps (`sbc_others=1`) keeps the unprefixed pages, which can show them.
+- The share button shares the page's country URL: the sharer's country's version when that country lists the record,
+  else the record's canonical (`shareTarget`).
 
 ## The rule (canonical, noindex, hreflang, sitemap)
 
@@ -142,6 +166,5 @@ come (proposal 3 in `docs/seo-audit.md`):
 ## Left as they were, on purpose
 
 - No redirect of a first visit to its country's prefix. Unprefixed URLs keep working exactly as before, and a redirect
-  by location would also need care never to redirect a crawler. It can be added in `src/proxy.ts` later.
-- The share button shares the unprefixed URL, which follows the recipient's own country.
+  by location would also need care never to redirect a crawler. Links carry the country instead (see "First visit").
 - Pages without a prefixed form (generic-for, brand, ingredient, `/why`, prose) are one URL for everyone, as before.

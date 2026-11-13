@@ -56,6 +56,15 @@ export function CountryPart({
  * carries the whole page, readable without JavaScript, and the shopper's own view replaces it in the same place, the same
  * shape, so nothing jumps. `own: false` keeps an empty stand-in for a piece that only some countries show.
  */
-export function RecordPart({ own = true, children }: { own?: boolean; children: (local: Local) => ReactNode }) {
-  return <CountryPart fallback={own ? <FixedView country={null}>{children}</FixedView> : null}>{children}</CountryPart>;
+export function RecordPart({
+  own = true,
+  standIn = null,
+  children,
+}: {
+  own?: boolean;
+  /** With `own: false`, what holds the piece's place instead (see src/lib/reserve.ts). */
+  standIn?: ReactNode;
+  children: (local: Local) => ReactNode;
+}) {
+  return <CountryPart fallback={own ? <FixedView country={null}>{children}</FixedView> : standIn}>{children}</CountryPart>;
 }

@@ -25,7 +25,8 @@ import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay } from "@/lib/unit-format";
 import { forCountry, localText, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
-import { RecordFeedback } from "@/components/RecordFeedback";
+import { RecordFeedback, ReportedPriceNote } from "@/components/RecordFeedback";
+import { kitLeadFirst } from "@/lib/reported-state";
 import { RecordPart } from "@/components/ForCountry";
 import { Money, UnitAmount } from "@/components/Money";
 import { KitPriceChecked } from "@/components/PriceChecked";
@@ -80,7 +81,7 @@ function BundleBody({ record, local }: { record: Bundle; local: Local }) {
   const cat = CATEGORY_MAP[b.category];
   const related = forCountry(getAllBundles(), local)
     .filter((x) => x.slug !== b.slug)
-    .sort((x, y) => Number(y.category === b.category) - Number(x.category === b.category) || y.score - x.score)
+    .sort((x, y) => kitLeadFirst(x, y) || Number(y.category === b.category) - Number(x.category === b.category) || y.score - x.score)
     .slice(0, 4);
   const perMonth =
     b.bundle.billing === "subscription" && b.bundle.supply_days ? (b.netSavings / b.bundle.supply_days) * 30 : null;
@@ -104,7 +105,7 @@ function BundleBody({ record, local }: { record: Bundle; local: Local }) {
           </nav>
 
           {/* Store listing names run long; a long one sets smaller, so the prices still reach the first screen on a phone. */}
-          <h1 className={`display md:mt-3 ${b.bundle.name.length > 70 ? "max-w-[44ch] text-[1.375rem] md:text-[1.875rem]" : "max-w-[30ch] text-[1.75rem] md:text-[2.5rem]"}`}>{b.bundle.name}</h1>
+          <h1 className={`display md:mt-3 ${b.bundle.name.length > 120 ? "max-w-[60ch] text-lg leading-snug md:text-[1.5rem]" : b.bundle.name.length > 70 ? "max-w-[44ch] text-[1.375rem] md:text-[1.875rem]" : "max-w-[30ch] text-[1.75rem] md:text-[2.5rem]"}`}>{b.bundle.name}</h1>
           <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2 md:text-base">{b.summary}</p>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-8">
@@ -167,6 +168,7 @@ function BundleBody({ record, local }: { record: Bundle; local: Local }) {
 
             <aside className="card order-first self-start p-4 lg:order-none">
               <BundleBuyBox b={b} local={local} />
+              <ReportedPriceNote record="bundle" slug={b.slug} className="mt-3" />
               <dl className="mt-3 space-y-1.5 border-t border-line pt-3 text-sm">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3">
                   <dt className="text-ink-2">Match</dt>
