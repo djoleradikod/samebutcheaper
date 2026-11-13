@@ -25,6 +25,7 @@ import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount } from "@/components/Money";
 import { KitPriceChecked } from "@/components/PriceChecked";
 import type { Bundle } from "@/lib/types";
+import { kitFor } from "@/lib/delivery-abroad";
 import { bundleDescription, bundleTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -61,7 +62,7 @@ export default async function BundlePage({ params }: PageProps<"/bundle/[slug]">
 }
 
 function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof getBundle>>; local: Local }) {
-  const b = localText(record, local);
+  const b = kitFor(localText(record, local), local.known ? local.country : null);
   const sells = (retailer: string) => local.sells(retailer, b.market);
   const cat = CATEGORY_MAP[b.category];
   const related = forCountry(getAllBundles(), local)
@@ -278,7 +279,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
               {b.bundle.extras.length > 0 && (
                 <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2">
                   <span className="font-semibold text-ink">The kit also comes with: </span>
-                  {b.bundle.extras.join(", ")}
+                  {b.bundle.extras.map((e) => local.prose(e, b.currency)).join(", ")}
                 </p>
               )}
             </section>

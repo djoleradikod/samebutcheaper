@@ -113,7 +113,7 @@ function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>
   };
 
   return (
-    <BasketProvider lines={lines} currency={p.currency} market={p.market}>
+    <BasketProvider lines={lines} currency={p.currency} market={p.market} country={local.known ? local.country : null}>
       <article>
         {!local.shows(p) && <NotListedHere market={p.market} local={local} />}
         <div className="border-b border-line bg-canvas">

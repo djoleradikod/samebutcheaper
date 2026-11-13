@@ -15,7 +15,7 @@
  */
 import { z } from "zod";
 import raw from "../../data/sellers/delivery.json";
-import { checkout, storeOrder, type Checkout, type StoreOrder } from "./delivery";
+import { checkout, storeOrder, tillLine, type Checkout, type StoreOrder, type TillLine } from "./delivery";
 import type { Currency } from "./format";
 import type { Local } from "./localize";
 import { countryInSentence, type MarketCode } from "./markets";
@@ -115,4 +115,38 @@ export function deliveryNote(seller: string, market: MarketCode, price: number, 
   if (order.delivery === 0) return `Delivery to ${where} free on this order`;
   const free = order.freeOver !== null ? `, free over ${local.money(order.freeOver, currency)}` : "";
   return `Delivery to ${where} ${local.money(order.delivery, currency)} on its own${free}`;
+}
+
+/** basketCheckout() for a shopper in `country`: each line in whole packs, one order per store, delivery to where they are. */
+export function basketCheckoutFor(lines: readonly TillLine[], qty: readonly number[], market: MarketCode, country: string | null): CheckoutFor {
+  const priced = lines.map((l, i) => ({ seller: l.seller, price: tillLine(l, qty[i] ?? l.qty).cost })).filter((l) => l.price > 0);
+  return checkoutFor(priced, market, country);
+}
+
+/** The parts of a kit that depend on where it's delivered. */
+type KitTotals = {
+  market: MarketCode;
+  bundle: { price: number };
+  components: { seller: string; price: number }[];
+  kitSeller: string;
+  savings: number;
+  checkout: Checkout;
+  kitCheckout: Checkout;
+  extraDelivery: number | null;
+  netSavings: number;
+  netSavingsPct: number;
+};
+
+/**
+ * A kit as it works out for a shopper in `country`. The catalogue build counts delivery inside the kit's own market; for a
+ * shopper elsewhere both checkouts, the extra delivery and the saving after delivery are worked out again for their country,
+ * with the same sums as the build. Unchanged for the market's own shoppers and for a shopper we can't place.
+ */
+export function kitFor<T extends KitTotals>(b: T, country: string | null): T {
+  if (!country || country === b.market) return b;
+  const rebuild = checkoutFor(b.components.map((c) => ({ seller: c.seller, price: c.price })), b.market, country);
+  const kitCheckout = checkoutFor([{ seller: b.kitSeller, price: b.bundle.price }], b.market, country);
+  const extraDelivery = rebuild.delivery === null ? null : round2(Math.max(0, rebuild.delivery - (kitCheckout.delivery ?? 0)));
+  const netSavings = round2(Math.max(0, b.savings - (extraDelivery ?? 0)));
+  return { ...b, checkout: rebuild, kitCheckout, extraDelivery, netSavings, netSavingsPct: Math.round((netSavings / b.bundle.price) * 1000) / 10 };
 }

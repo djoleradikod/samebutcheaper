@@ -1,6 +1,7 @@
 import { RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import type { Bundle } from "@/lib/types";
 import { MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { countryInSentence } from "@/lib/markets";
 import { CheckoutCard } from "./CheckoutCard";
 import { Money } from "./Money";
 
@@ -34,6 +35,7 @@ export function BundleCheckout({ b, local }: { b: Bundle; local: Local }) {
   const moreToday = checkout.payToday - kitToday(b);
   const one = checkout.stores.length === 1;
   const kitStore = kitCheckout.stores[0];
+  const abroad = local.known && local.country !== b.market ? countryInSentence(local.country) : null;
   return (
     <section id="checkout" className="scroll-mt-20">
       <h2 className="display mb-1 text-xl md:text-2xl">What you pay at checkout</h2>
@@ -41,6 +43,7 @@ export function BundleCheckout({ b, local }: { b: Bundle; local: Local }) {
         {one
           ? `Everything comes from one store, so it's one order, like the kit.`
           : `The pieces come from ${checkout.stores.length} stores, so it's ${checkout.stores.length} orders where the kit is one. Each store's delivery is counted below.`}
+        {abroad && ` Delivery is counted to ${abroad}, and only where the store's own page gives a price for it.`}
       </p>
       <CheckoutCard checkout={checkout} currency={b.currency} names={kitStoreNames(b, local)}>
         <p className="mt-1 text-[13px] text-ink-2">

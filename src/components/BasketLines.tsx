@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import { Minus, Plus } from "lucide-react";
-import { basketCheckout, tillLine, type Checkout, type TillLine } from "@/lib/delivery";
+import { tillLine, type Checkout, type TillLine } from "@/lib/delivery";
+import { basketCheckoutFor } from "@/lib/delivery-abroad";
 import { setSavedList, useSavedList } from "@/lib/client/savedList";
 import type { Currency } from "@/lib/format";
 import type { MarketCode } from "@/lib/markets";
@@ -88,11 +89,14 @@ export function BasketProvider({
   lines,
   currency,
   market,
+  country = null,
   children,
 }: {
   lines: BasketLineView[];
   currency: Currency;
   market: MarketCode;
+  /** Where the shopper is, when we know: delivery is counted to there. */
+  country?: string | null;
   children: ReactNode;
 }) {
   const start = useMemo(() => lines.map((l) => l.qty), [lines]);
@@ -120,14 +124,15 @@ export function BasketProvider({
       altTotal,
       savings,
       pct: brandTotal > 0 ? (savings / brandTotal) * 100 : 0,
-      checkout: basketCheckout(
+      checkout: basketCheckoutFor(
         lines.map((l) => l.till),
         qty,
         market,
+        country,
       ),
       storeNames,
     };
-  }, [lines, currency, market, qty, start]);
+  }, [lines, currency, market, country, qty, start]);
   return <BasketContext.Provider value={state}>{children}</BasketContext.Provider>;
 }
 

@@ -348,6 +348,11 @@ export function rateText(from: Currency, to: Currency) {
   return `${money(1, from).replace(/\.00$/, "")} = ${money(r, to)}`;
 }
 
+/** Whether a country's lists mix records from several markets by default, so no single market should lead the filter. */
+export function mixesMarkets(country: string | null) {
+  return isThinMarket(country) || (country !== null && country in OTHERS_FROM);
+}
+
 /** Whether the band shows for a country. The layout holds its space before the first paint from this. */
 export function hasBand(country: string) {
   return fallbackNotice(localFor(country)) !== null;
