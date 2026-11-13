@@ -3,7 +3,9 @@
  * country lists (forCountry), and tests pass the same.
  *
  * A wrong match costs more trust than a miss, so this is strict:
- * - The brand must be on the line. A brand alone isn't enough when the brand has several products on file.
+ * - The brand must be on the line. A line that names only the brand (with a strength or a pack size at most) is a
+ *   match only when exactly one of the brand's products fits what it says; when several fit, the shopper is asked
+ *   which one, and the products that don't fit (another strength, form or variant) are never among them.
  * - The line's own words must be the product's words: "HEINZ BAKED BEANZ" never becomes Heinz ketchup.
  * - A strength on the line must be the product's strength ("NUROFEN 400MG" is not the 200 mg pack).
  * - A variant word on the line that the product doesn't have (zero, light, max, children, pods, size 5) rules it out,
@@ -55,6 +57,11 @@ export type LineMatch =
   | { status: "swap"; slug: string; others: number }
   /** Shown as "did you mean". */
   | { status: "maybe"; slug: string; others: number }
+  /**
+   * The line names only a brand (with a strength or a size at most) and more than one of that brand's products fits
+   * it: the shopper picks which one. `slugs` holds the best swap for each product that fits, best fit first.
+   */
+  | { status: "choose"; slugs: string[] }
   /** The line already names a product we list as the cheaper pick. */
   | { status: "own" }
   | { status: "none" };
@@ -251,17 +258,35 @@ export function matchLine(item: Item, index: Index): LineMatch {
   const pick = { slug: top.group.slugs[0], others: top.group.slugs.length - 1 };
 
   const said = describing(line).filter((w) => !brandWords.includes(w) && !isSpec(w)).length;
-  const onlyOne = scored.length === 1;
+  if (said === 0) return brandOnly(item, scored, true);
   // The line's words are the product's, it wins outright, and nothing the product is (a variant) went unsaid unless the pack size says it.
-  const confident =
-    ahead(top, next) &&
-    (!top.missingVariant || top.sizeMatch) &&
-    ((said > 0 && top.coverage >= 0.75 && top.matched >= 1) ||
-      // Nothing but the brand and a strength or a pack size, for a brand with one product on file.
-      (said === 0 && onlyOne && index.byBrand.get(brandWords.join(" "))!.length === 1 && (item.strengths.length > 0 || top.sizeMatch)));
+  const confident = ahead(top, next) && (!top.missingVariant || top.sizeMatch) && top.coverage >= 0.75 && top.matched >= 1;
   if (confident) return { status: "swap", ...pick };
-  if (said === 0 || top.coverage >= 0.5) return { status: "maybe", ...pick };
+  if (top.coverage >= 0.5) return { status: "maybe", ...pick };
   return { status: "none" };
+}
+
+/** Most products a "which one" question lists. */
+export const CHOOSE_MAX = 6;
+
+/**
+ * A line with nothing but the brand, and perhaps a strength or a pack size. `scored` holds the brand's products that
+ * fit it: a product of another strength, or with a variant or form the line names and it lacks, never got this far.
+ * A pack size narrows them when some match it. One product left is the match (a swap unless it is a variant the line
+ * didn't say, such as Junior or Max, and the pack size doesn't say it either); several are a question for the shopper.
+ */
+function brandOnly(item: Item, scored: Scored[], canSwap: boolean): LineMatch {
+  const sized = item.sizes.length ? scored.filter((s) => s.sizeMatch) : [];
+  const fits = sized.length ? sized : scored;
+  if (!fits.length) return { status: "none" };
+  if (fits.length === 1) {
+    const [only] = fits;
+    const pick = { slug: only.group.slugs[0], others: only.group.slugs.length - 1 };
+    // A product with a variant the line didn't say (Junior, Max, Infant) stays a question unless the pack size says it.
+    const sure = canSwap && (!only.missingVariant || only.sizeMatch);
+    return { status: sure ? "swap" : "maybe", ...pick };
+  }
+  return { status: "choose", slugs: fits.slice(0, CHOOSE_MAX).map((s) => s.group.slugs[0]) };
 }
 
 /** Classic Levenshtein distance, for checking what the fuzzy search proposes. */
@@ -299,7 +324,9 @@ function fuzzyMatch(item: Item, index: Index): LineMatch {
       const top = scored[0];
       if (!top) continue;
       const said = describing(fixed.words).filter((w) => !brandWords.includes(w) && !isSpec(w)).length;
-      if ((said === 0 && (item.strengths.length || top.sizeMatch)) || top.coverage >= 0.5) {
+      // A brand spelt nearly right and nothing else to go on is too little, even for a question.
+      if (said === 0 && (item.strengths.length || scored.some((s) => s.sizeMatch))) return brandOnly(fixed, scored, false);
+      if (said > 0 && top.coverage >= 0.5) {
         return { status: "maybe", slug: top.group.slugs[0], others: top.group.slugs.length - 1 };
       }
     }
@@ -334,6 +361,13 @@ export function matchReceipt(parsed: readonly ParsedLine[], index: Index): Recei
     const m = matchLine(p, index);
     if ((m.status === "swap" || m.status === "maybe") && seen.has(m.slug)) continue;
     if (m.status === "swap" || m.status === "maybe") seen.add(m.slug);
+    // The same question twice ("NUROFEN" on two lines) is asked once. Which one a shopper picks can still be a swap
+    // another line found; the page counts each swap once whichever way it came.
+    if (m.status === "choose") {
+      const key = `choose:${m.slugs.join(" ")}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+    }
     lines.push({ index: p.index, text: p.text, query: p.query, ...m });
   }
   return { lines, noise };

@@ -102,7 +102,7 @@ export function CheckoutCard({
       </ul>
       <div className="rounded-b-card border-t border-line-strong bg-canvas px-3 py-3 md:px-4">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <p className="text-sm font-medium">You pay today{checkout.delivery === null ? ", before unchecked delivery" : ", delivered"}</p>
+          <p className="text-sm font-medium">You pay today{checkout.delivery === null ? ", plus delivery we haven't checked" : ", delivered"}</p>
           <p className="price text-[1.375rem] text-ink">
             <Money n={checkout.payToday} from={currency} />
           </p>

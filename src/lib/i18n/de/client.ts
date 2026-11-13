@@ -321,7 +321,7 @@ export const kits: Shape<typeof en.kits> = {
   costsMore: "Kostet heute mehr als das Set",
   smallSaving: "Nach Versandkosten kaum Ersparnis",
   saves: "Spart",
-  beforeDelivery: "vor ungeprüften Versandkosten",
+  beforeDelivery: "vor Versandkosten, die wir nicht geprüft haben",
   afterDelivery: "nach Versandkosten",
   oneOrderAt: (store) => `Eine Bestellung bei ${store}`,
   oneStore: "Ein Händler",

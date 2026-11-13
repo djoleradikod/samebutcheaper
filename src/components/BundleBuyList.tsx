@@ -188,7 +188,7 @@ export function BundleBuyList({
 
       <div className="rounded-b-card border-t border-line-strong bg-canvas px-4 py-3">
         <div className="flex items-baseline justify-between gap-3">
-          <p className="text-sm font-medium">{checkout.delivery === null ? "Total, before unchecked delivery" : "Total, delivered"}</p>
+          <p className="text-sm font-medium">{checkout.delivery === null ? "Total, plus delivery we haven't checked" : "Total, delivered"}</p>
           <p className="price text-lg">
             <Money n={checkout.payToday} from={currency} />
           </p>

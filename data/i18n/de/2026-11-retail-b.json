@@ -67,15 +67,15 @@
     }
   },
   "varta-longlife-power-aaa-40-vs-intenso-energy-ultra-aaa-40-de": {
-    "summary": "Gleiche Stückzahl von 40 Zellen, gleiche Größe und Chemie im selben Shop, wobei Intenso pro Zelle etwa 59 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Varta 14,62 EUR und Intenso 5,99 EUR für 40. Pollin zeigt Intenso gegenüber einem Listenpreis von 14,90 EUR, wir verwenden den Shoppreis. Barcodes auf den Seiten: Varta 4008496987924, Intenso 4034303027415, keiner davon in Open Facts, also kein Foto.",
-    "why": "Die beiden haben dieselbe Größe und Chemie, und die Varta-Seite nennt keine Kapazität, die es rechtfertigen würde, bei regelmäßigem Gebrauch pro Zelle mehr als das Doppelte zu zahlen.",
+    "summary": "Gleiche Stückzahl von 40 Zellen, gleiche Größe und Chemie im selben Shop, wobei Intenso pro Zelle etwa 36 % günstiger ist.",
+    "evidence": "Beide am 13. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Varta 13,99 EUR und Intenso 8,99 EUR für 40, beide bestellbar. Die Barcodes auf den Seiten sind die, über die dieser Vergleich zuerst zugeordnet wurde: Varta 4008496987924, Intenso 4034303027415, keiner davon in Open Facts, also kein Foto.",
+    "why": "Die beiden haben dieselbe Größe und Chemie, und die Varta-Seite nennt keine Kapazität, die es rechtfertigen würde, bei regelmäßigem Gebrauch pro Zelle über die Hälfte mehr zu zahlen.",
     "differences": [
-      "Die Varta-Seite nennt 10 Jahre Lagerfähigkeit, die Intenso-Seite keine Zahl, bei der belegten Lagerfähigkeit liegt Varta also vorn.",
-      "Intenso nennt 1250 mAh, Varta keine Kapazität.",
+      "Die Varta-Seite sagt nur, dass die Zellen lange lagerfähig sind, die Intenso-Seite nichts zur Lagerung.",
+      "Intenso nennt 1,3 Ah, Varta keine Kapazität.",
       "Kein Test, den wir gelesen haben, deckt diese beiden Packungen ab."
     ],
-    "aspects": [{ "aspect": "Angegebene Lagerfähigkeit", "brand": "10 Jahre", "alternative": "Nicht in Jahren angegeben" }],
+    "aspects": [],
     "ingredients": {
       "brand": [
         { "name": "Alkaline AAA (LR03), 1,5 V", "amount": "" },
@@ -83,7 +83,7 @@
       ],
       "alternative": [
         { "name": "Alkaline AAA (LR03), 1,5 V", "amount": "" },
-        { "name": "Kapazität", "amount": "1250 mAh" }
+        { "name": "Kapazität", "amount": "1,3 Ah" }
       ]
     }
   },

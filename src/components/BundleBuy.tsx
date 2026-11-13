@@ -7,7 +7,8 @@ import { shortMonth, type Local } from "@/lib/localize";
 import { SITE } from "@/lib/site";
 import type { Bundle } from "@/lib/types";
 import { BundleBuyList } from "./BundleBuyList";
-import { kitStoreNames, kitToday } from "./BundleCheckout";
+import { kitStoreNames } from "./BundleCheckout";
+import { KitSums } from "./KitSums";
 import { BundleStickyBar } from "./BundleStickyBar";
 import { Money } from "./Money";
 
@@ -63,24 +64,7 @@ export function BundleBuyBox({ b, local }: { b: Bundle; local: Local }) {
     <div>
       {caution && <KitCautionNote b={b} caution={caution} local={local} />}
       <dl className="space-y-1.5 text-sm">
-        <div className={row}>
-          <dt className="text-ink-2">The kit{b.kitCheckout.delivery !== null ? ", delivered" : ""}</dt>
-          <dd className="price text-base text-muted">
-            <Money n={kitToday(b)} from={b.currency} />
-          </dd>
-        </div>
-        <div className={row}>
-          <dt className="text-ink-2">Rebuilt, {b.checkout.delivery === null ? "before unchecked delivery" : "delivered"}</dt>
-          <dd className="price text-base">
-            <Money n={b.checkout.payToday} from={b.currency} />
-          </dd>
-        </div>
-        <div className={row}>
-          <dt className="font-medium text-ink">{b.checkout.delivery === null ? "Saving, before unchecked delivery" : "Saving after delivery"}</dt>
-          <dd className="price text-lg text-same">
-            <Money n={b.netSavings} from={b.currency} />
-          </dd>
-        </div>
+        <KitSums b={b} />
         <div className={row}>
           <dt className="text-ink-2">Orders</dt>
           <dd className="text-[13px] font-medium">{n === 1 ? `One, at ${(stores[0]?.name ?? "one store").replace(/^A /, "a ")}` : `${n} stores`}</dd>

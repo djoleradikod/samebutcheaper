@@ -101,7 +101,7 @@ export function buyListText({
     for (const p of store.pieces) lines.push(`- ${pieceLabel(p)}: ${money(p.price)}`);
     lines.push("");
   }
-  lines.push(`Total ${checkout.delivery === null ? "before unchecked delivery" : "with delivery"}: ${money(checkout.payToday)}`);
+  lines.push(`Total${checkout.delivery === null ? ", plus delivery we haven't checked" : " with delivery"}: ${money(checkout.payToday)}`);
   if (checked) lines.push(`Prices checked ${checked}. Check them before you buy.`);
   lines.push(url);
   return lines.join("\n");

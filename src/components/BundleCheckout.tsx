@@ -62,7 +62,7 @@ export function BundleCheckout({ b, local }: { b: Bundle; local: Local }) {
               still save {local.money(b.netSavings, b.currency)}.
             </>
           ) : (
-            <>You keep {local.money(-moreToday, b.currency)} today{checkout.delivery === null ? ", before unchecked delivery" : ""}{b.upfrontTotal > b.bundle.price ? ", and the packs hold more than the kit" : ""}.</>
+            <>You keep {local.money(-moreToday, b.currency)} today{checkout.delivery === null ? ", before delivery we haven't checked" : ""}{b.upfrontTotal > b.bundle.price ? ", and the packs hold more than the kit" : ""}.</>
           )}
         </p>
         {b.extraDelivery !== null && b.extraDelivery > 0 && (

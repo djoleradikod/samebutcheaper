@@ -24,7 +24,8 @@ export function Money({ n, from, prose = false }: { n: number; from: Currency; /
   if (prose) return <>{about} {text}</>;
   return (
     <>
-      <span className="text-[0.55em] font-medium">{about} </span>
+      {/* A no-break space: a plain one is dropped at the end of a flex item, which ran "about" into the price. */}
+      <span className="text-[0.55em] font-medium">{about}{"\u00a0"}</span>
       {text}
     </>
   );
@@ -38,7 +39,8 @@ export function UnitAmount({ ppu, unit, from }: { ppu: number; unit: string; fro
   if (!local.converts(from)) return <>{text}</>;
   return (
     <>
-      <span className="text-[0.55em] font-medium">{about} </span>
+      {/* A no-break space: a plain one is dropped at the end of a flex item, which ran "about" into the price. */}
+      <span className="text-[0.55em] font-medium">{about}{"\u00a0"}</span>
       {text}
     </>
   );

@@ -229,10 +229,10 @@
       "product": "ben-u-ron 500 mg Tabletten, 20 tablets",
       "size": 20,
       "unit": "tablet",
-      "price": 3.5,
-      "retailer": "medikamente-per-klick",
+      "price": 4.99,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.medikamente-per-klick.de/ben-u-ron-500-mg-tabletten-20st-00116694",
+      "url": "https://www.aponeo.de/00116694-ben-u-ron-500-mg-tabletten.html",
       "key_ingredients": [
         {
           "name": "Paracetamol",
@@ -245,32 +245,26 @@
       "product": "Paracetamol ADGC 500 mg Tabletten, 20 tablets",
       "size": 20,
       "unit": "tablet",
-      "price": 0.99,
-      "retailer": "shopapotheke",
+      "price": 1.39,
+      "retailer": "aponeo",
       "asin": null,
-      "url": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm",
+      "url": "https://www.aponeo.de/17502496-paracetamol-adgc-500-mg-tabletten.html",
       "key_ingredients": [
         {
           "name": "Paracetamol",
           "amount": "500 mg"
         }
-      ],
-      "rating": {
-        "stars": 4.9,
-        "count": 27,
-        "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm"
-      }
+      ]
     },
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are 500 mg paracetamol tablets in the 20-tablet pack sold without prescription.",
-    "evidence": "medikamente-per-klick (retailer: other) lists ben-u-ron 500 mg tablets by bene Arzneimittel (PZN 00116694), 20 tablets. Shop Apotheke (retailer: other) lists Paracetamol ADGC 500 mg tablets by Zentiva (PZN 17502496) with 500 mg paracetamol per tablet, apothekenpflichtig. In Germany only packs up to 10 g paracetamol (20 x 500 mg) are non-prescription; Shop Apotheke marks the 50-tablet ben-u-ron pack as prescription-only.",
-    "differences": "Prices come from two different online pharmacies. Inactive ingredients may differ. Paracetamol-ratiopharm 500 mg (20 tablets, 2.59 EUR at Shop Apotheke) is another verified option.",
+    "evidence": "APONEO lists ben-u-ron 500 mg tablets by bene Arzneimittel (PZN 00116694), 20 tablets, and Paracetamol ADGC 500 mg tablets by Zentiva (PZN 17502496) with 500 mg paracetamol per tablet; both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both prices are from APONEO. Inactive ingredients differ, and the ADGC tablets contain two paraben preservatives.",
     "sources": [
-      "https://www.medikamente-per-klick.de/ben-u-ron-500-mg-tabletten-20st-00116694",
-      "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm",
-      "https://www.shop-apotheke.com/arzneimittel/2622929/ben-u-ron-500-mg.htm",
-      "https://www.shop-apotheke.com/wirkstoff-paracetamol/"
+      "https://www.aponeo.de/00116694-ben-u-ron-500-mg-tabletten.html",
+      "https://www.aponeo.de/17502496-paracetamol-adgc-500-mg-tabletten.html",
+      "https://www.apotheken-umschau.de/medikamente/beipackzettel/ben-u-ron-500-mg-tabletten-116694.html"
     ],
     "price_checked": "2026-11",
     "look_for": "Paracetamol 500 mg tablets, 20-pack",
@@ -280,7 +274,7 @@
         "brand": "bene Arzneimittel GmbH, Munich",
         "alternative": "Zentiva Pharma GmbH (ADGC line)",
         "verdict": "different",
-        "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm"
+        "source": "https://www.aponeo.de/00116694-ben-u-ron-500-mg-tabletten.html"
       },
       {
         "aspect": "Inactive ingredients",
@@ -294,7 +288,7 @@
         "brand": "None in the excipient list",
         "alternative": "Contains ethyl and propyl 4-hydroxybenzoate preservatives (brand lists none)",
         "verdict": "brand_better",
-        "source": "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm"
+        "source": "https://www.aponeo.de/17502496-paracetamol-adgc-500-mg-tabletten.html"
       }
     ]
   },

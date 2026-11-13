@@ -1167,5 +1167,52 @@
         }
       ]
     }
+  },
+  "nurofen-junior-40mg-ml-vs-ibuprofen-stada-40mg-ml-saft-de": {
+    "summary": "Beide sind Suspensionen zum Einnehmen für Kinder mit 40 mg Ibuprofen pro ml, gegen Fieber und Schmerzen, mit einer Dosierspritze in der Packung.",
+    "evidence": "APONEO führt NUROFEN Junior Fieber- und Schmerzsaft Erdbeer 40 mg/ml von Reckitt Benckiser (PZN 16538227) und Ibuprofen STADA 40 mg/ml Suspension zum Einnehmen von STADA Consumer Health (PZN 09424322), je 100 ml. Beide Seiten nennen 40 mg Ibuprofen pro ml, beide sind apothekenpflichtig und bei beiden liegt eine Spritze bei. Beide Preise wurden am 13. Nov. 2026 auf aponeo.de abgelesen und mit einem zweiten Abruf erneut geprüft.",
+    "differences": [
+      "Nurofen Junior schmeckt nach Erdbeere, ist zucker- und farbstofffrei und enthält Maltit; die Seite von APONEO nennt nicht alle Bestandteile.",
+      "Der Saft von STADA schmeckt nach Kirsche und enthält Maltit, Saccharin und zwei Parabene als Konservierungsmittel (Natriummethyl- und Natriumpropylparahydroxybenzoat); laut der Seite enthält das Kirscharoma Safrol.",
+      "Nurofen ist für Kinder ab 6 Monaten und 7 kg, STADA ab 6 Monaten und 8 kg.",
+      "Prüfe die Dosis für das Gewicht deines Kindes im Beipackzettel.",
+      "In der Suchliste von APONEO stand Nurofen mit 5,76 Euro, auf der Produktseite mit 5,82 Euro; wir nehmen die Produktseite."
+    ],
+    "aspects": [
+      {
+        "aspect": "Hersteller",
+        "brand": "Reckitt Benckiser Deutschland GmbH",
+        "alternative": "STADA Consumer Health Deutschland GmbH"
+      },
+      {
+        "aspect": "Geschmack",
+        "brand": "Erdbeere",
+        "alternative": "Kirsche"
+      },
+      {
+        "aspect": "Konservierungsmittel",
+        "brand": "Auf der Shopseite keins genannt",
+        "alternative": "Methyl- und Propylparahydroxybenzoat (Parabene)"
+      },
+      {
+        "aspect": "Ab welchem Alter",
+        "brand": "6 Monate, ab 7 kg",
+        "alternative": "6 Monate, ab 8 kg"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Ibuprofen",
+          "amount": "40 mg/ml"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Ibuprofen",
+          "amount": "40 mg/ml"
+        }
+      ]
+    }
   }
 }
