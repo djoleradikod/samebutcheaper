@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { countryHead } from "@/lib/seo-catalog";
 import Link from "@/components/CountryLink";
 import { CountryPart } from "@/components/ForCountry";
@@ -33,7 +34,14 @@ export default function CheckListPage({ searchParams }: Pick<PageProps<"/check/l
         </div>
       </section>
       <div className="container-page py-6 md:py-10">
-        <CountryPart fallback={<div className="card h-72 max-w-3xl" />}>{(local) => <Checker local={local} searchParams={searchParams} />}</CountryPart>
+        {/* A prefixed page renders its CountryPart straight away, so the checker waits for the query in its own boundary. */}
+        <CountryPart fallback={<div className="card h-72 max-w-3xl" />}>
+          {(local) => (
+            <Suspense fallback={<div className="card h-72 max-w-3xl" />}>
+              <Checker local={local} searchParams={searchParams} />
+            </Suspense>
+          )}
+        </CountryPart>
       </div>
     </>
   );

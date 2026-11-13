@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { CountryPart } from "@/components/ForCountry";
 import { MyList, type ListItem } from "@/components/MyList";
 import { ShoppingCheckCta } from "@/components/ShoppingCheckCta";
@@ -65,7 +66,14 @@ export default function MyListPage() {
       <p className="mt-1.5 max-w-[62ch] text-[15px] text-ink-2 md:text-base">{t("myListPage.intro")}</p>
       {/* Above the list: the list's height is only known in the browser, so anything under it would jump. */}
       <ShoppingCheckCta className="mt-4 max-w-3xl md:mt-6" lang={lang} />
-      <CountryPart fallback={<div className="card mt-4 h-40 md:mt-6" />}>{() => <MyList items={items} />}</CountryPart>
+      {/* The list reads the shared link's query. A prefixed page renders its CountryPart straight away, so this boundary is the one it waits in. */}
+      <CountryPart fallback={<div className="card mt-4 h-40 md:mt-6" />}>
+        {() => (
+          <Suspense fallback={<div className="card mt-4 h-40 md:mt-6" />}>
+            <MyList items={items} />
+          </Suspense>
+        )}
+      </CountryPart>
     </section>
   );
 }

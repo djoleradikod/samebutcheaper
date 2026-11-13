@@ -61,7 +61,14 @@ export default function CheckPage({ searchParams }: Pick<PageProps<"/check">, "s
         </div>
       </section>
       <div className="container-page py-10">
-        <CountryPart fallback={<ResultsSkeleton label={t("checkPage.checking")} />}>{() => <Results searchParams={searchParams} />}</CountryPart>
+        {/* A prefixed page renders its CountryPart straight away, so the results wait for the query in their own boundary. */}
+        <CountryPart fallback={<ResultsSkeleton label={t("checkPage.checking")} />}>
+          {() => (
+            <Suspense fallback={<ResultsSkeleton label={t("checkPage.checking")} />}>
+              <Results searchParams={searchParams} />
+            </Suspense>
+          )}
+        </CountryPart>
       </div>
     </>
   );
