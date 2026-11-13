@@ -35,12 +35,14 @@ U
 Built from 2 cheaper items
 $4.72
 The same amount as the kit holds
-The kit, delivered
-$32.10
-Rebuilt, delivered
-$24.57
-Saving after delivery
+The kit
+$26.11
+Same amount, rebuilt
+$4.72
+Saving
 $21.39
+You pay at checkout, deliveredThe cheaper packs hold more than the kit.
+$24.57
 Orders
 One, at Target
 Start with TargetThen tick off the buying list
