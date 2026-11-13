@@ -188,7 +188,7 @@ export async function Revenue({ since }: { since: Date }) {
           Switch a program on by setting its env var once you&apos;re approved (see docs/affiliate-playbook.md). Terms
           are a guide; check the network dashboard.
         </p>
-        <table className="card mt-3 w-full overflow-hidden text-sm">
+        <table className="stack card mt-3 w-full overflow-hidden text-sm">
           <thead className="bg-surface-2 text-left text-xs text-muted">
             <tr>
               <th className="p-3">Program</th>
@@ -207,12 +207,12 @@ export async function Revenue({ since }: { since: Date }) {
                   </a>{" "}
                   <span className="text-xs text-muted">{p.country}</span>
                 </td>
-                <td className="p-3 text-muted">{p.network}</td>
-                <td className="p-3 text-xs text-ink-2">{p.terms}</td>
-                <td className="p-3 font-mono text-xs">
+                <td data-label="Network" className="p-3 text-muted">{p.network}</td>
+                <td data-label="Terms" className="p-3 text-xs text-ink-2">{p.terms}</td>
+                <td data-label="Env" className="p-3 font-mono text-xs">
                   {p.network === "amazon" ? "AMAZON_ASSOCIATE_TAG, AMAZON_TAGS" : programEnvKey(p.id)}
                 </td>
-                <td className="p-3">
+                <td data-label="Status" className="p-3">
                   {liveIds.has(p.id) ? (
                     <span className="font-semibold text-accent">live</span>
                   ) : (

@@ -12,10 +12,15 @@ import { PairBrowser } from "./PairBrowser";
 import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket, Ticket } from "./Ticket";
-import { forCountry, localFor, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
-import { countryInSentence, type MarketCode } from "@/lib/markets";
+import { forCountry, localFor, type Listed, type Local } from "@/lib/localize";
+import { listedIn, noteSlotScript } from "@/lib/reserve";
+import type { MarketCode } from "@/lib/markets";
 import { getLocal } from "@/lib/server-country";
 import { isReported } from "@/lib/reported-state";
+import { getT, type Lang } from "@/lib/i18n";
+import { subcategoryName } from "@/lib/i18n/record";
+import { ratingLabelDe } from "@/lib/i18n/compare-de";
+import { formatPercent, monthDe } from "@/lib/i18n/format";
 
 /**
  * The one system behind every list of swaps: category, biggest savings, brand, ingredient and
@@ -25,16 +30,19 @@ import { isReported } from "@/lib/reported-state";
 /** Past this many swaps a list gets filters. Shorter lists ship no client code of their own. */
 const FILTER_FROM = 13;
 
-/** Leaves off what a card doesn't read. */
-function toCard(p: Pair): PairSummary {
-  return { ...toSummary(p), title: "", keywords: "" };
+/** Leaves off what a card doesn't read. On a German page, the shelf and the rating in German. */
+export function toCard(p: Pair, lang: Lang = "en"): PairSummary {
+  const card = { ...toSummary(p), title: "", keywords: "" };
+  if (lang === "en") return card;
+  const rating = p.alternative.rating;
+  return { ...card, subcategory: subcategoryName(p.subcategory, lang), altRating: rating ? ratingLabelDe(rating) : null };
 }
 
-function toRow(p: Pair): BrowseRow {
+function toRow(p: Pair, lang: Lang = "en"): BrowseRow {
   return {
     slug: p.slug,
     aisle: p.category,
-    shelf: p.subcategory.replace(/\s+-\s+/g, ": "),
+    shelf: subcategoryName(p.subcategory, lang).replace(/\s+-\s+/g, ": "),
     match: p.match_type,
     market: p.market,
     photo: Boolean(p.brand.photo || p.alternative.photo),
@@ -50,9 +58,9 @@ function toRow(p: Pair): BrowseRow {
 /** Props for PairBrowser: a light row for every swap, and card data for the first screen only. */
 export function browseProps(pairs: Pair[], { hideMedicine = false, local }: { hideMedicine?: boolean; local: Local }) {
   const visible = forCountry(pairs, local);
-  const rows = visible.map(toRow);
+  const rows = visible.map((p) => toRow(p, local.lang));
   const first = firstScreenSlugs(rows, hideMedicine);
-  return { rows, cards: visible.filter((p) => first.has(p.slug)).map(toCard), hideMedicine };
+  return { rows, cards: visible.filter((p) => first.has(p.slug)).map((p) => toCard(p, local.lang)), hideMedicine };
 }
 
 /** Cache Components needs at least one param. A placeholder with no catalogue row falls through to notFound(). */
@@ -64,15 +72,15 @@ export function bestSaving(pairs: { savingsPct: number }[]) {
   return pairs.reduce((best, p) => Math.max(best, p.savingsPct), 0);
 }
 
-export function swapCount(n: number) {
-  return `${n} swap${n === 1 ? "" : "s"}`;
+export function swapCount(n: number, lang: Lang = "en") {
+  return getT(lang)("browse.swaps", n);
 }
 
 type Crumb = { href?: string; label: string };
 
-function Crumbs({ crumbs }: { crumbs: Crumb[] }) {
+function Crumbs({ crumbs, lang }: { crumbs: Crumb[]; lang: Lang }) {
   return (
-    <nav aria-label="Breadcrumb">
+    <nav aria-label={getT(lang)("lists.breadcrumb")}>
       <ol className="flex flex-wrap items-center text-[13px] font-medium text-muted">
         {crumbs.map((c, i) => (
           <li key={c.label} className="flex min-w-0 items-center">
@@ -94,43 +102,46 @@ function Crumbs({ crumbs }: { crumbs: Crumb[] }) {
 }
 
 /** The two links every list carries: how the swaps are checked, and where the photos come from. */
-export function ListLinks() {
+export function ListLinks({ lang = "en" }: { lang?: Lang }) {
+  const t = getT(lang);
   const link = "inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0";
   return (
     <span className="flex gap-3 md:justify-end">
       <Link href="/how-we-verify" className={link}>
-        How we check
+        {t("lists.howWeCheck")}
       </Link>
       <Link href="/credits" className={link}>
-        Photos
+        {t("lists.photos")}
       </Link>
     </span>
   );
 }
 
 /** "Average saving 34%. Prices last checked November 2026." */
-export function PriceFacts({ pairs }: { pairs: { savingsPct: number; price_checked: string }[] }) {
+export function PriceFacts({ pairs, lang = "en" }: { pairs: { savingsPct: number; price_checked: string }[]; lang?: Lang }) {
+  const t = getT(lang);
   const average = pairs.reduce((sum, p) => sum + p.savingsPct, 0) / (pairs.length || 1);
   const latest = pairs.reduce((newest, p) => (p.price_checked > newest ? p.price_checked : newest), "");
   return (
     <>
       {pairs.length > 1 && (
         <>
-          Average saving <span className="num">{Math.round(average)}%</span>.{" "}
+          {t("lists.averageSaving")} <span className="num">{formatPercent(average, lang)}</span>.{" "}
         </>
       )}
-      {latest && <>Prices last checked {monthYear(latest)}.</>}
-      <ListLinks />
+      {latest && t("lists.pricesChecked", lang === "de" ? monthDe(latest) : monthYear(latest))}
+      <ListLinks lang={lang} />
     </>
   );
 }
 
 /** The biggest saving as a shelf ticket. Nothing at 0. */
-export function BestTicket({ best }: { best: number }) {
+export function BestTicket({ best, lang = "en" }: { best: number; lang?: Lang }) {
   const n = Math.round(best);
   if (n <= 0) return null;
+  const t = getT(lang);
   return (
-    <Ticket size="lg" sub="biggest saving" label={`Up to ${n}% cheaper per unit`}>
+    <Ticket size="lg" sub={t("lists.biggestSaving")} label={t("lists.upTo", n)}>
       −{n}%
     </Ticket>
   );
@@ -144,7 +155,9 @@ export function ShelfHead({
   best = 0,
   ticket,
   facts,
+  lang = "en",
 }: {
+  lang?: Lang;
   crumbs: Crumb[];
   title: ReactNode;
   intro?: ReactNode;
@@ -155,10 +168,10 @@ export function ShelfHead({
   facts?: ReactNode;
 }) {
   const n = Math.round(best);
-  const shown = ticket ?? (n > 0 ? <BestTicket best={best} /> : null);
+  const shown = ticket ?? (n > 0 ? <BestTicket best={best} lang={lang} /> : null);
   return (
     <header className="container-page pb-4 md:pb-5">
-      <Crumbs crumbs={crumbs} />
+      <Crumbs crumbs={crumbs} lang={lang} />
       <div className="grid gap-x-10 gap-y-3 md:grid-cols-[minmax(0,1fr)_auto] md:pt-1">
         <div className="min-w-0">
           <h1 className="display text-[1.75rem] md:text-[2.5rem]">{title}</h1>
@@ -181,7 +194,7 @@ export function ShelfHead({
  * it's given inside each photo tier, with cards first and swaps with no photo as text rows after them.
  * One heading marks where the first tier ends, as on the filtered list.
  */
-export function SwapGrid({ pairs, lazy = false }: { pairs: Pair[]; lazy?: boolean }) {
+export function SwapGrid({ pairs, lazy = false, lang = "en" }: { pairs: Pair[]; lazy?: boolean; lang?: Lang }) {
   const tier = (p: Pair) => photoTier(p.brand.photo, p.alternative.photo);
   const ordered = [...pairs].sort((a, b) => tier(a) - tier(b));
   const cards = ordered.filter((p) => tier(p) !== NO_PHOTO_TIER);
@@ -193,28 +206,28 @@ export function SwapGrid({ pairs, lazy = false }: { pairs: Pair[]; lazy?: boolea
         <ul className={SWAP_GRID}>
           {firstTier.map((p, i) => (
             <li key={p.slug} className="min-w-0">
-              <PairCard pair={toCard(p)} eager={!lazy && i === 0} />
+              <PairCard pair={toCard(p, lang)} eager={!lazy && i === 0} lang={lang} />
             </li>
           ))}
         </ul>
       )}
       {laterTiers.length > 0 && (
         <>
-          <MoreSwapsHeading />
+          <MoreSwapsHeading lang={lang} />
           <ul className={SWAP_GRID}>
             {laterTiers.map((p) => (
               <li key={p.slug} className="min-w-0">
-                <PairCard pair={toCard(p)} />
+                <PairCard pair={toCard(p, lang)} lang={lang} />
               </li>
             ))}
           </ul>
         </>
       )}
       {rows.length > 0 && (
-        <PairRows headed={cards.length > 0 && laterTiers.length === 0} below={cards.length > 0}>
+        <PairRows headed={cards.length > 0 && laterTiers.length === 0} below={cards.length > 0} lang={lang}>
           {rows.map((p) => (
             <li key={p.slug} className="min-w-0">
-              <PairRow pair={toCard(p)} />
+              <PairRow pair={toCard(p, lang)} lang={lang} />
             </li>
           ))}
         </PairRows>
@@ -228,12 +241,12 @@ export async function SwapList({ path, pairs }: { path: string; pairs: Pair[] })
   const local = await getLocal();
   const visible = forCountry(pairs, local);
   if (!visible.length) {
-    const where = countryInSentence(local.country);
+    const t = getT(local.lang);
     const more = forCountry(pairs, localFor(local.country, true)).length;
     return (
       <p className="card p-4 text-sm text-ink-2">
-        We haven&apos;t priced any of these at a store that sells in {where} yet.
-        {more > 0 && !local.others && ` The ${more} we priced elsewhere are behind "Show swaps from other countries" at the top of the page. Each one says what to look for in shops in ${where}.`}
+        {t("lists.noneHere", local.country)}
+        {more > 0 && !local.others && t("lists.noneHereMore", more, local.country)}
       </p>
     );
   }
@@ -241,7 +254,7 @@ export async function SwapList({ path, pairs }: { path: string; pairs: Pair[] })
   // The market that leads for this shopper first, then the biggest saving.
   const lead = (p: Pair) => Number(p.market === local.listMarket);
   const rated = (p: Pair) => Number(Boolean(p.alternative.rating));
-  return <SwapGrid pairs={[...visible].sort((a, b) => lead(b) - lead(a) || rated(b) - rated(a) || b.savingsPct - a.savingsPct)} />;
+  return <SwapGrid pairs={[...visible].sort((a, b) => lead(b) - lead(a) || rated(b) - rated(a) || b.savingsPct - a.savingsPct)} lang={local.lang} />;
 }
 
 export type IndexEntry = {
@@ -331,23 +344,35 @@ export function TagLinks({ links }: { links: { href: string; label: ReactNode; k
 
 /** For a swap, kit or basket opened by a direct link that wouldn't list for this shopper. It still opens, and says so. */
 /** On a swap page whose record gives way to the same swap in another market. */
-export function SameSwapHere({ market, twin }: { market: MarketCode; twin: { slug: string; market: MarketCode } }) {
+export function SameSwapHere({ market, twin, lang = "en" }: { market: MarketCode; twin: { slug: string; market: MarketCode }; lang?: Lang }) {
+  const t = getT(lang);
   return (
-    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
-      We priced this one at {MARKET_ADJECTIVE[market]} stores.{" "}
+    <p className="record-note border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+      {t("swap.pricedAt", market)}{" "}
       <Link href={`/compare/${twin.slug}`} className="underline">
-        See the same swap at {MARKET_ADJECTIVE[twin.market]} prices
+        {t("swap.sameSwapAt", twin.market)}
       </Link>
       .
     </p>
   );
 }
 
+/**
+ * Where NotListedHere or SameSwapHere will be, until the shopper's view arrives: empty, and as tall as the note when
+ * the shopper's country (read before the first paint) doesn't list the record. See src/lib/reserve.ts.
+ */
+export function RecordNoteSlot({ record }: { record: Listed }) {
+  return (
+    <div className="record-note-slot" aria-hidden="true">
+      <script dangerouslySetInnerHTML={{ __html: noteSlotScript(listedIn(record)) }} />
+    </div>
+  );
+}
+
 export function NotListedHere({ market, local }: { market: MarketCode; local: Local }) {
   return (
-    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
-      We priced this at {MARKET_ADJECTIVE[market]} stores and couldn&apos;t confirm you can buy it in {countryInSentence(local.country)}, so it isn&apos;t in
-      our lists there.
+    <p className="record-note border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+      {getT(local.lang)("swap.notListed", market, local.country)}
     </p>
   );
 }

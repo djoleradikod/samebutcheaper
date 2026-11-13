@@ -1,0 +1,20 @@
+export const yearly = {
+  perAmount: (per: string) => `These prices are ${per}, not for a pack, so there's no pack to count over a year.`,
+  saves: "Saves",
+  once: "once",
+  notRegular: "Not a regular buy, so we don't put a yearly figure on it.",
+  aYear: "a year",
+  ifYouBuy: (brand: string, pack: string) => `if you buy the ${brand} pack (${pack})`,
+  howOften: (brand: string) => `How often you buy the ${brand} pack`,
+  yourChoice: "Your choice, kept on this device only.",
+  assumption: "Our assumption, not yours. Pick how often you buy it.",
+  frequencies: {
+    "1w": "every week",
+    "2w": "every 2 weeks",
+    "1m": "every month",
+    "2m": "every 2 months",
+    "3m": "every 3 months",
+    "6m": "twice a year",
+    "1y": "once a year",
+  },
+};

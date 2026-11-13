@@ -1,0 +1,73 @@
+{
+  "@page": "1",
+  "@numpages": "1",
+  "@pagesize": "100",
+  "@total": "4",
+  "Items": [
+    {
+      "Id": "5001-TST-IBU-100",
+      "CatalogId": "5001",
+      "CampaignId": "9383",
+      "CampaignName": "Test Mart",
+      "CatalogItemId": "10315394",
+      "Name": "Test Value Ibuprofen Tablets 200 mg, 100 Count",
+      "Description": "Pain reliever. {\"braces\"} and [brackets] in text must not confuse the reader.",
+      "Manufacturer": "Test Value",
+      "Url": "https://goto.walmart.com/c/1234567/565706/9383?veh=aff&sourceid=imp_000&u=https%3A%2F%2Fwww.walmart.com%2Fip%2FTest-Value-Ibuprofen%2F10315394",
+      "ImageUrl": "https://i5.walmartimages.com/test/ibu.jpg",
+      "Bullets": ["Fast", "Value pack"],
+      "CurrentPrice": "3.48",
+      "OriginalPrice": "3.98",
+      "Currency": "USD",
+      "StockAvailability": "InStock",
+      "Gtin": "",
+      "GtinType": "",
+      "Promotions": [{ "PromotionTitle": "Rollback" }]
+    },
+    {
+      "Id": "5001-TST-ADV-100",
+      "CatalogId": "5001",
+      "CampaignId": "9383",
+      "CampaignName": "Test Mart",
+      "CatalogItemId": "99999901",
+      "Name": "Testvil Ibuprofen Tablets 200 mg, 100 Count",
+      "Manufacturer": "Testvil",
+      "Url": "https://goto.walmart.com/c/1234567/565706/9383?u=https%3A%2F%2Fwww.walmart.com%2Fip%2FTestvil%2F99999901",
+      "CurrentPrice": "11.97",
+      "OriginalPrice": "11.97",
+      "Currency": "USD",
+      "StockAvailability": "OutOfStock",
+      "Gtin": "300450000017",
+      "GtinType": "UPC"
+    },
+    {
+      "Id": "5001-TST-LOR-30",
+      "CatalogId": "5001",
+      "CampaignId": "9383",
+      "CampaignName": "Test Mart",
+      "CatalogItemId": "55500030",
+      "Name": "Test Value Loratadine 10 mg, 30 Count",
+      "Manufacturer": "Test Value",
+      "Url": "https://goto.walmart.com/c/1234567/565706/9383?u=https%3A%2F%2Fwww.walmart.com%2Fip%2Floratadine%2F55500030",
+      "CurrentPrice": "4.12",
+      "Currency": "USD",
+      "StockAvailability": "PreOrder",
+      "Gtin": "",
+      "GtinType": ""
+    },
+    {
+      "Id": "5001-TST-FILL",
+      "CatalogId": "5001",
+      "CampaignId": "9383",
+      "CampaignName": "Test Mart",
+      "CatalogItemId": "77700001",
+      "Name": "Unrelated Garden Hose, 50 ft",
+      "Manufacturer": "Hoseco",
+      "Url": "https://example.com/not-a-tracked-link",
+      "CurrentPrice": "19.99",
+      "Currency": "USD",
+      "StockAvailability": "InStock",
+      "Gtin": "0012345678905"
+    }
+  ]
+}

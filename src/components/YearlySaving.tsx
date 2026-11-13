@@ -5,6 +5,11 @@ import { setBuyingOften, useBuyingOften } from "@/lib/client/buyingOften";
 import { frequencyFor, packSaving, yearlySaving, type SavingKind, type SwapPrices } from "@/lib/yearly";
 import { FrequencySelect } from "./FrequencySelect";
 import { Money } from "./Money";
+import { useT } from "@/lib/i18n/client";
+import { yearly } from "@/lib/i18n/en/client/yearly";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { yearly };
 
 export type YearlySavingProps = {
   slug: string;
@@ -27,12 +32,11 @@ export type YearlySavingProps = {
  */
 export function YearlySaving({ slug, kind, prices, currency, brand, pack, per }: YearlySavingProps) {
   const choices = useBuyingOften();
+  const t = useT(TEXT);
 
   if (kind === "per-amount") {
     return (
-      <p className="mt-3 text-[13px] text-muted">
-        These prices are {per}, not for a pack, so there&apos;s no pack to count over a year.
-      </p>
+      <p className="mt-3 text-[13px] text-muted">{t("yearly.perAmount", per)}</p>
     );
   }
 
@@ -40,13 +44,13 @@ export function YearlySaving({ slug, kind, prices, currency, brand, pack, per }:
     return (
       <div className="mt-4 rounded-card border border-line bg-canvas px-3 py-2.5 md:px-4">
         <p className="flex flex-wrap items-baseline gap-x-1.5 text-[15px] font-semibold">
-          Saves
+          {t("yearly.saves")}
           <span className="price text-[1.625rem] text-ink">
             <Money n={packSaving(prices)} from={currency} />
           </span>
-          once
+          {t("yearly.once")}
         </p>
-        <p className="mt-0.5 text-[13px] text-ink-2">Not a regular buy, so we don&apos;t put a yearly figure on it.</p>
+        <p className="mt-0.5 text-[13px] text-ink-2">{t("yearly.notRegular")}</p>
       </div>
     );
   }
@@ -55,21 +59,17 @@ export function YearlySaving({ slug, kind, prices, currency, brand, pack, per }:
   return (
     <div className="mt-4 rounded-card border border-line bg-canvas px-3 py-2.5 md:px-4">
       <p className="flex flex-wrap items-baseline gap-x-1.5 text-[15px] font-semibold" aria-live="polite" aria-atomic="true">
-        Saves
+        {t("yearly.saves")}
         <span className="price text-[1.625rem] text-ink tabular-nums">
           <Money n={yearlySaving(prices, often)} from={currency} />
         </span>
-        a year
+        {t("yearly.aYear")}
       </p>
       <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[15px] text-ink-2">
-        <span>
-          if you buy the {brand} pack ({pack})
-        </span>
-        <FrequencySelect value={often} onChange={(next) => setBuyingOften(slug, next)} label={`How often you buy the ${brand} pack`} />
+        <span>{t("yearly.ifYouBuy", brand, pack)}</span>
+        <FrequencySelect value={often} onChange={(next) => setBuyingOften(slug, next)} label={t("yearly.howOften", brand)} />
       </div>
-      <p className="mt-1.5 text-[13px] text-muted">
-        {chosen ? "Your choice, kept on this device only." : "Our assumption, not yours. Pick how often you buy it."}
-      </p>
+      <p className="mt-1.5 text-[13px] text-muted">{chosen ? t("yearly.yourChoice") : t("yearly.assumption")}</p>
     </div>
   );
 }

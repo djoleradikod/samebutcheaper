@@ -5,6 +5,9 @@
  * A record's tier comes from its OLDEST side: a swap is only as current as the price we checked longest ago.
  */
 
+import type { FeedInfo } from "./feed-links";
+import { dateDe } from "./i18n/format";
+
 export const FRESHNESS_TIERS = ["fresh", "recent", "ageing", "stale"] as const;
 export type FreshnessTier = (typeof FRESHNESS_TIERS)[number];
 
@@ -24,6 +27,11 @@ export type PriceSeen = {
   precision: DatePrecision;
   /** Oldest first, at most HISTORY_POINTS. */
   history: PricePoint[];
+  /**
+   * Set when the side's newest reading came from an affiliate feed (docs/feeds.md): the price is licensed, /go
+   * uses the feed's tracked link, and a feed that lists it out of stock says so on the page.
+   */
+  feed?: FeedInfo;
 };
 
 export type Freshness = {
@@ -95,9 +103,10 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const LONG_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 /** "3 Nov 2026", or "November 2026" when we only know the month. */
-export function checkedDate(date: string, precision: DatePrecision) {
+export function checkedDate(date: string, precision: DatePrecision, lang: "en" | "de" = "en") {
   const [y, m, d] = date.split("-").map(Number);
   if (!y || !m) return date;
+  if (lang === "de") return dateDe(date, precision === "month" || !d ? "month" : "day");
   return precision === "month" || !d ? `${LONG_MONTHS[m - 1]} ${y}` : `${d} ${MONTHS[m - 1]} ${y}`;
 }
 
@@ -114,3 +123,21 @@ export const TIER_LABEL: Record<FreshnessTier, string> = {
   ageing: "Checked 3 to 6 months ago",
   stale: "Checked over 6 months ago",
 };
+
+/** The sides a feed last listed as out of stock. Such a record keeps its page but never leads, like a stale one. */
+export function outOfStockSides(prices: Record<string, PriceSeen>) {
+  return Object.entries(prices)
+    .filter(([, s]) => s.feed?.stock === "out")
+    .map(([side, s]) => ({ side, seen: s.feed!.seen }));
+}
+
+/** A stale price or an out-of-stock listing: either keeps a record off the home page and the top of lists. */
+export function priceDoubtful(freshness: Freshness, prices: Record<string, PriceSeen>) {
+  return freshness.tier === "stale" || outOfStockSides(prices).length > 0;
+}
+
+/** "Out of stock at Walmart when its product feed was read on 12 Nov 2026." for one side, or null. */
+export function stockNote(seen: PriceSeen | undefined, name: string, store: string) {
+  if (seen?.feed?.stock !== "out") return null;
+  return `${name} was out of stock at ${store} when its product feed was read on ${checkedDate(seen.feed.seen, "day")}.`;
+}

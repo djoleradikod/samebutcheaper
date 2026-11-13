@@ -2,9 +2,15 @@
 
 import type { Currency } from "@/lib/format";
 import type { MarketCode } from "@/lib/markets";
-import { setShowOthers, useLocal } from "@/lib/client/country";
-import { FX_SOURCE, fallbackNotice } from "@/lib/localize";
+import { useContext } from "react";
+import { CountryContext, FixedContext, setShowOthers, useLocal } from "@/lib/client/country";
+import { FX_SOURCE, fallbackNotice, originalPriceText } from "@/lib/localize";
 import { countryInSentence } from "@/lib/markets";
+import { useT } from "@/lib/i18n/client";
+import { shared } from "@/lib/i18n/en/client/shared";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { shared };
 
 /**
  * A price in the selected country's currency. A converted one always reads "about", in a smaller size so
@@ -12,12 +18,13 @@ import { countryInSentence } from "@/lib/markets";
  */
 export function Money({ n, from, prose = false }: { n: number; from: Currency; /** In a sentence: "about" at full size. */ prose?: boolean }) {
   const local = useLocal();
+  const about = useT(TEXT)("shared.about");
   const text = local.bare(n, from);
   if (!local.converts(from)) return <>{text}</>;
-  if (prose) return <>about {text}</>;
+  if (prose) return <>{about} {text}</>;
   return (
     <>
-      <span className="text-[0.55em] font-medium">about </span>
+      <span className="text-[0.55em] font-medium">{about} </span>
       {text}
     </>
   );
@@ -26,11 +33,12 @@ export function Money({ n, from, prose = false }: { n: number; from: Currency; /
 /** A unit price at the unit it reads best in, marked the same way. */
 export function UnitAmount({ ppu, unit, from }: { ppu: number; unit: string; from: Currency }) {
   const local = useLocal();
+  const about = useT(TEXT)("shared.about");
   const text = local.unitBare(ppu, unit, from);
   if (!local.converts(from)) return <>{text}</>;
   return (
     <>
-      <span className="text-[0.55em] font-medium">about </span>
+      <span className="text-[0.55em] font-medium">{about} </span>
       {text}
     </>
   );
@@ -50,7 +58,19 @@ export function OriginalPrice({
   checked: string;
   className?: string;
 }) {
-  const text = useLocal().original(n, from, market, checked);
+  const local = useLocal();
+  const text = local.original(n, from, market, checked);
+  const fixed = useContext(FixedContext);
+  const fromServer = useContext(CountryContext);
+  // A record's stand-in converts nothing, but holds this line's space for a shopper whose view will (src/lib/reserve.ts).
+  if (fixed && fromServer == null) {
+    return (
+      <span className={`orig-slot text-xs leading-tight font-medium ${className}`} data-from={from} aria-hidden="true">
+        {/* In the page's language: the same text as the line it stands in for, or the reserved height is wrong. */}
+        ({originalPriceText(n, from, market, checked, local.lang)})
+      </span>
+    );
+  }
   if (!text) return null;
   return <span className={`block text-xs leading-tight font-medium text-muted ${className}`}>({text})</span>;
 }
@@ -63,7 +83,7 @@ export function FallbackBand({ hidden }: { hidden: number }) {
   if (!notice) return null;
   const buttonClass = "cursor-pointer font-semibold text-cobalt underline underline-offset-2";
   return (
-    <p className="border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
+    <p className="band-size border-b border-line bg-canvas px-4 py-2 text-[13px] leading-snug font-medium text-ink-2 sm:px-6">
       {notice.text}
       {notice.rate && (
         <>

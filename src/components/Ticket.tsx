@@ -44,16 +44,23 @@ export function PctTicket({
   size,
   grow,
   className,
+  label,
+  german = false,
 }: {
   pct: number;
   size?: TicketSize;
   grow?: boolean;
   className?: string;
+  /** What a screen reader hears, in the page's language. */
+  label?: string;
+  /** On a German page: "−52 %", with the space German sets before the sign. */
+  german?: boolean;
 }) {
   const n = Math.round(pct);
   return (
-    <Ticket size={size} grow={grow} className={className} label={`${n}% cheaper`}>
-      −{n}%
+    <Ticket size={size} grow={grow} className={className} label={label ?? `${n}% cheaper`}>
+      −{n}
+      {german ? "\u00a0%" : "%"}
     </Ticket>
   );
 }
@@ -65,16 +72,19 @@ export function SaveTicket({
   size,
   sub,
   className,
+  word = "Save",
 }: {
   amount: number;
   currency: Currency;
   size?: TicketSize;
   sub?: ReactNode;
   className?: string;
+  /** "Save", in the page's language. */
+  word?: string;
 }) {
   return (
     <Ticket size={size} sub={sub} className={className}>
-      Save <Money n={amount} from={currency} prose />
+      {word} <Money n={amount} from={currency} prose />
     </Ticket>
   );
 }

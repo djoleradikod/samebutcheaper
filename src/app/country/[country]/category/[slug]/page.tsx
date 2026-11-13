@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import CategoryPage, { generateMetadata as aisleMetadata } from "@/app/category/[slug]/page";
+import CategoryPage from "@/app/category/[slug]/page";
+import { aisleMetadata } from "@/app/category/[slug]/aisle-meta";
+import { langForCountry } from "@/lib/i18n";
 import { countryForPrefix } from "@/lib/country-url";
 import { countryHead, prefixedSlugs } from "@/lib/seo-catalog";
 import { metadataCountry, pageCountry } from "../../country-page";
@@ -14,7 +16,7 @@ export function generateStaticParams({ params }: { params: { country: string } }
 export async function generateMetadata(props: PageProps<"/country/[country]/category/[slug]">): Promise<Metadata> {
   const country = await metadataCountry(props.params);
   const { slug } = await props.params;
-  const base = await aisleMetadata({ params: Promise.resolve({ slug }), searchParams: props.searchParams });
+  const base = await aisleMetadata(slug, langForCountry(country));
   // An aisle no country lists anything in keeps its own noindex. One this country lists nothing in is noindex here.
   return { ...base, ...(countryHead(`/category/${slug}`, country) ?? {}) };
 }

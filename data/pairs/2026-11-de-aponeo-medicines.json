@@ -1,0 +1,2172 @@
+[
+  {
+    "slug": "formigran-vs-naratriptan-heumann-2-5mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Migraine",
+    "title": "Formigran vs Naratriptan HEUMANN 2.5 mg",
+    "brand": {
+      "brand": "Formigran",
+      "product": "Formigran Filmtabletten (naratriptan 2.5 mg), 2 tablets",
+      "size": 2,
+      "unit": "tablet",
+      "price": 13.73,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/02195485-formigran-filmtabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Naratriptan (as hydrochloride)",
+          "amount": "2.5 mg"
+        }
+      ],
+      "license_id": "PZN 02195485"
+    },
+    "alternative": {
+      "brand": "HEUMANN",
+      "product": "Naratriptan HEUMANN bei Migräne 2,5 mg Filmtabletten, 2 tablets",
+      "size": 2,
+      "unit": "tablet",
+      "price": 3.57,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/09542263-naratriptan-heumann-bei-migraene-2-5-mg-filmtabl.html",
+      "key_ingredients": [
+        {
+          "name": "Naratriptan (as hydrochloride)",
+          "amount": "2.5 mg"
+        }
+      ],
+      "license_id": "PZN 09542263"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are film-coated tablets with 2.5 mg naratriptan, the migraine medicine sold without a prescription in packs of two.",
+    "evidence": "APONEO lists Formigran by PharmaSGP (PZN 02195485) and Naratriptan HEUMANN bei Migräne by HEUMANN PHARMA (PZN 09542263), 2 film-coated tablets each. Both pages state 2.5 mg naratriptan as naratriptan hydrochloride per tablet, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The tablet cores are almost the same (microcrystalline cellulose, lactose, croscarmellose sodium, magnesium stearate). The coatings differ a little: Formigran uses hypromellose and triacetin, HEUMANN uses polyvinyl alcohol, macrogol and talc. Both are coloured with indigo carmine (E132) and iron oxide (E172), and both contain lactose. APONEO sells other naratriptan 2.5 mg packs of two from 3.61 euros.",
+    "sources": [
+      "https://www.aponeo.de/02195485-formigran-filmtabletten.html",
+      "https://www.aponeo.de/09542263-naratriptan-heumann-bei-migraene-2-5-mg-filmtabl.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Naratriptan 2.5 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "PharmaSGP GmbH",
+        "alternative": "HEUMANN PHARMA GmbH & Co. Generica KG",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/09542263-naratriptan-heumann-bei-migraene-2-5-mg-filmtabl.html"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose",
+        "alternative": "Contains lactose",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/02195485-formigran-filmtabletten.html"
+      },
+      {
+        "aspect": "Colourings",
+        "brand": "Indigo carmine (E132), iron oxide (E172), titanium dioxide",
+        "alternative": "Indigo carmine (E132), iron oxide (E172), titanium dioxide",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/09542263-naratriptan-heumann-bei-migraene-2-5-mg-filmtabl.html"
+      }
+    ]
+  },
+  {
+    "slug": "dolortriptan-vs-almotriptan-heumann-12-5mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Migraine",
+    "title": "Dolortriptan vs Almotriptan HEUMANN 12.5 mg",
+    "brand": {
+      "brand": "Dolortriptan",
+      "product": "Dolortriptan bei Migräneattacken Filmtabletten (almotriptan 12.5 mg), 2 tablets",
+      "size": 2,
+      "unit": "tablet",
+      "price": 8.85,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/03029613-dolortriptan-bei-migraene-filmtabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Almotriptan (as malate)",
+          "amount": "12.5 mg"
+        }
+      ],
+      "license_id": "PZN 03029613"
+    },
+    "alternative": {
+      "brand": "HEUMANN",
+      "product": "Almotriptan HEUMANN bei Migräne 12,5 mg Filmtabletten, 2 tablets",
+      "size": 2,
+      "unit": "tablet",
+      "price": 4.92,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/10750044-almotriptan-heumann-bei-migraene-12-5-mg-filmtabl.html",
+      "key_ingredients": [
+        {
+          "name": "Almotriptan (as malate)",
+          "amount": "12.5 mg"
+        }
+      ],
+      "license_id": "PZN 10750044"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are film-coated tablets with 12.5 mg almotriptan for migraine attacks, in packs of two.",
+    "evidence": "APONEO lists Dolortriptan bei Migräneattacken by Kenvue Germany (PZN 03029613) and Almotriptan HEUMANN bei Migräne 12,5 mg by HEUMANN PHARMA (PZN 10750044). Dolortriptan's page gives 12.5 mg almotriptan as almotriptan (RS)-hydroxysuccinate, and HEUMANN's gives 12.5 mg as almotriptan DL-malate; hydroxysuccinic acid is the chemical name of malic acid, so this is the same salt. Both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The inactive ingredients are close: both use mannitol, microcrystalline cellulose, povidone, sodium starch glycolate and sodium stearyl fumarate, with a coating of hypromellose, titanium dioxide, macrogol 400 and carnauba wax. Neither lists lactose.",
+    "sources": [
+      "https://www.aponeo.de/03029613-dolortriptan-bei-migraene-filmtabletten.html",
+      "https://www.aponeo.de/10750044-almotriptan-heumann-bei-migraene-12-5-mg-filmtabl.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Almotriptan 12.5 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Kenvue Germany GmbH",
+        "alternative": "HEUMANN PHARMA GmbH & Co. Generica KG",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/10750044-almotriptan-heumann-bei-migraene-12-5-mg-filmtabl.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Mannitol, microcrystalline cellulose, povidone, sodium starch glycolate, sodium stearyl fumarate; coating hypromellose, titanium dioxide, macrogol 400, carnauba wax",
+        "alternative": "Microcrystalline cellulose, mannitol, sodium starch glycolate, povidone, sodium stearyl fumarate; coating hypromellose, titanium dioxide, macrogol 400, carnauba wax",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/10750044-almotriptan-heumann-bei-migraene-12-5-mg-filmtabl.html"
+      }
+    ]
+  },
+  {
+    "slug": "acc-akut-600-vs-nac-600-akut-1a-pharma-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "ACC akut 600 vs NAC 600 akut 1A Pharma",
+    "brand": {
+      "brand": "ACC",
+      "product": "ACC akut 600 mg Hustenlöser Brausetabletten, 20 effervescent tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 12.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00010808-acc-akut-600-brausetabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Acetylcysteine",
+          "amount": "600 mg"
+        }
+      ],
+      "license_id": "PZN 00010808"
+    },
+    "alternative": {
+      "brand": "1 A Pharma",
+      "product": "NAC 600 akut 1A Pharma Brausetabletten, 20 effervescent tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 6.96,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00562761-nac-600-akut-1a-pharma-brausetabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Acetylcysteine",
+          "amount": "600 mg"
+        }
+      ],
+      "license_id": "PZN 00562761"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are effervescent tablets with 600 mg acetylcysteine, taken once a day to loosen mucus with a cough.",
+    "evidence": "APONEO lists ACC akut 600 mg Hustenlöser by Hexal (PZN 00010808) and NAC 600 akut 1A Pharma by 1 A Pharma (PZN 00562761), 20 effervescent tablets each. Both pages state 600 mg acetylcysteine per tablet, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "ACC's page names lactose, sorbitol and sodium (138.8 mg per tablet) but not its full list. NAC 1A Pharma lists ascorbic acid, citric acid, lactose, mannitol, sodium carbonate, sodium citrate, sodium hydrogen carbonate, the sweeteners sodium cyclamate and saccharin, and a blackberry flavour with sorbitol and benzyl alcohol, so the taste differs. Both contain lactose and sodium.",
+    "sources": [
+      "https://www.aponeo.de/00010808-acc-akut-600-brausetabletten.html",
+      "https://www.aponeo.de/00562761-nac-600-akut-1a-pharma-brausetabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Acetylcysteine 600 mg effervescent tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Hexal AG",
+        "alternative": "1 A Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/00562761-nac-600-akut-1a-pharma-brausetabletten.html"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose",
+        "alternative": "Contains lactose",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/00010808-acc-akut-600-brausetabletten.html"
+      },
+      {
+        "aspect": "Flavour and sweeteners",
+        "brand": "Not listed on the store page",
+        "alternative": "Blackberry flavour, cyclamate and saccharin",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/00562761-nac-600-akut-1a-pharma-brausetabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "nasic-vs-nasenduo-nasenspray-ratiopharm-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "Nasic vs NasenDuo Nasenspray ratiopharm",
+    "brand": {
+      "brand": "Nasic",
+      "product": "Nasic Nasenspray für Erwachsene, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 4.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00705309-nasic-nasenspray.html",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml"
+        },
+        {
+          "name": "Dexpanthenol",
+          "amount": "50 mg/ml"
+        }
+      ],
+      "license_id": "PZN 00705309"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "NasenDuo Nasenspray ratiopharm, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 3.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/12521543-nasenduo-nasenspray.html",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml"
+        },
+        {
+          "name": "Dexpanthenol",
+          "amount": "50 mg/ml"
+        }
+      ],
+      "license_id": "PZN 12521543"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both nasal sprays combine xylometazoline 0.1% to clear a blocked nose with dexpanthenol 5% to care for the lining, at the same strengths.",
+    "evidence": "APONEO lists Nasic Nasenspray by MCM Klosterfrau (PZN 00705309), 10 ml, with 0.1 mg xylometazoline hydrochloride and 5.0 mg dexpanthenol per 0.1 ml spray, which is 1 mg and 50 mg per ml. NasenDuo Nasenspray ratiopharm (PZN 12521543) states 1 mg xylometazoline hydrochloride and 50 mg dexpanthenol per ml (0.1 mg and 5 mg per spray), with potassium dihydrogen phosphate, disodium hydrogen phosphate and water for injection, and no preservative. Both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Nasic contains the preservative benzalkonium chloride (0.02 mg per spray); NasenDuo has none. Klosterfrau sells a preservative-free version, nasic O.K., at 6.21 euros for 10 ml. Like all decongestant sprays, use either for no more than 7 days.",
+    "sources": [
+      "https://www.aponeo.de/00705309-nasic-nasenspray.html",
+      "https://www.aponeo.de/12521543-nasenduo-nasenspray.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Xylometazoline 0.1% and dexpanthenol 5% nasal spray",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "MCM Klosterfrau Vertriebsgesellschaft",
+        "alternative": "ratiopharm GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/12521543-nasenduo-nasenspray.html"
+      },
+      {
+        "aspect": "Preservative",
+        "brand": "Benzalkonium chloride",
+        "alternative": "None",
+        "verdict": "alt_better",
+        "source": "https://www.aponeo.de/12521543-nasenduo-nasenspray.html"
+      }
+    ]
+  },
+  {
+    "slug": "olynth-plus-vs-nasenduo-nasenspray-ratiopharm-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "Olynth Plus vs NasenDuo Nasenspray ratiopharm",
+    "brand": {
+      "brand": "Olynth",
+      "product": "Olynth Plus 0,1 %/5 % Nasenspray für Erwachsene, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 5.62,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/13856688-olynth-plus-0-1-5-fuer-erw-nasenspray-o-k.html",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml"
+        },
+        {
+          "name": "Dexpanthenol",
+          "amount": "50 mg/ml"
+        }
+      ],
+      "license_id": "PZN 13856688"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "NasenDuo Nasenspray ratiopharm, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 3.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/12521543-nasenduo-nasenspray.html",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml"
+        },
+        {
+          "name": "Dexpanthenol",
+          "amount": "50 mg/ml"
+        }
+      ],
+      "license_id": "PZN 12521543"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are preservative-free nasal sprays with 1 mg xylometazoline and 50 mg dexpanthenol per ml.",
+    "evidence": "APONEO lists Olynth Plus Nasenspray für Erwachsene by Kenvue Germany (PZN 13856688), 10 ml, with 1 mg xylometazoline hydrochloride and 50 mg dexpanthenol per ml and the other ingredients potassium dihydrogen phosphate, sodium monohydrogen phosphate and purified water, without preservatives. NasenDuo Nasenspray ratiopharm (PZN 12521543) states 1 mg xylometazoline hydrochloride and 50 mg dexpanthenol per ml (0.1 mg and 5 mg per spray), with potassium dihydrogen phosphate, disodium hydrogen phosphate and water for injection, and no preservative. Both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The lists of other ingredients are the same apart from the grade of water. Neither has a preservative. Use either for no more than 7 days.",
+    "sources": [
+      "https://www.aponeo.de/13856688-olynth-plus-0-1-5-fuer-erw-nasenspray-o-k.html",
+      "https://www.aponeo.de/12521543-nasenduo-nasenspray.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Xylometazoline 0.1% and dexpanthenol 5% nasal spray, preservative-free",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Kenvue Germany GmbH",
+        "alternative": "ratiopharm GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/12521543-nasenduo-nasenspray.html"
+      },
+      {
+        "aspect": "Preservative",
+        "brand": "None",
+        "alternative": "None",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/13856688-olynth-plus-0-1-5-fuer-erw-nasenspray-o-k.html"
+      }
+    ]
+  },
+  {
+    "slug": "otriven-protect-vs-nasenduo-nasenspray-ratiopharm-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "Otriven Protect vs NasenDuo Nasenspray ratiopharm",
+    "brand": {
+      "brand": "Otriven",
+      "product": "Otriven Protect Schnupfen Nasenspray 1 mg/ml + 50 mg/ml, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 5.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/14287809-otriven-protect-1-mg-ml-plus-50-mg-ml-nasenspray-lsg.html",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml"
+        },
+        {
+          "name": "Dexpanthenol",
+          "amount": "50 mg/ml"
+        }
+      ],
+      "license_id": "PZN 14287809"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "NasenDuo Nasenspray ratiopharm, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 3.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/12521543-nasenduo-nasenspray.html",
+      "key_ingredients": [
+        {
+          "name": "Xylometazoline hydrochloride",
+          "amount": "1 mg/ml"
+        },
+        {
+          "name": "Dexpanthenol",
+          "amount": "50 mg/ml"
+        }
+      ],
+      "license_id": "PZN 12521543"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both nasal sprays have 1 mg xylometazoline and 50 mg dexpanthenol per ml, the same pairing at the same strengths.",
+    "evidence": "APONEO lists Otriven Protect Schnupfen Nasenspray by Haleon Germany (PZN 14287809), 10 ml, with 1.0 mg xylometazoline hydrochloride and 50.0 mg dexpanthenol per ml. NasenDuo Nasenspray ratiopharm (PZN 12521543) states 1 mg xylometazoline hydrochloride and 50 mg dexpanthenol per ml (0.1 mg and 5 mg per spray), with potassium dihydrogen phosphate, disodium hydrogen phosphate and water for injection, and no preservative. Both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Otriven Protect contains the preservative benzalkonium chloride; NasenDuo has none. Use either for no more than 7 days.",
+    "sources": [
+      "https://www.aponeo.de/14287809-otriven-protect-1-mg-ml-plus-50-mg-ml-nasenspray-lsg.html",
+      "https://www.aponeo.de/12521543-nasenduo-nasenspray.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Xylometazoline 0.1% and dexpanthenol 5% nasal spray",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Haleon Germany GmbH",
+        "alternative": "ratiopharm GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/12521543-nasenduo-nasenspray.html"
+      },
+      {
+        "aspect": "Preservative",
+        "brand": "Benzalkonium chloride",
+        "alternative": "None",
+        "verdict": "alt_better",
+        "source": "https://www.aponeo.de/14287809-otriven-protect-1-mg-ml-plus-50-mg-ml-nasenspray-lsg.html"
+      }
+    ]
+  },
+  {
+    "slug": "riopan-magen-tabletten-vs-magaldrat-ratiopharm-800mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Heartburn",
+    "title": "Riopan Magen Tabletten vs Magaldrat-ratiopharm 800 mg",
+    "brand": {
+      "brand": "Riopan",
+      "product": "Riopan Magen Tabletten Kautabletten (magaldrate 800 mg), 20 chewable tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 7.8,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00749293-riopan-magen-tabletten-kautabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Magaldrate",
+          "amount": "800 mg"
+        }
+      ],
+      "license_id": "PZN 00749293"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Magaldrat-ratiopharm 800 mg Kautabletten, 20 chewable tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 4.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04869870-magaldrat-ratiopharm-800-mg-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Magaldrate",
+          "amount": "800 mg"
+        }
+      ],
+      "license_id": "PZN 04869870"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are chewable antacid tablets with 800 mg magaldrate for heartburn and acid stomach.",
+    "evidence": "APONEO lists Riopan Magen Tabletten by DR. KADE (PZN 00749293) and Magaldrat-ratiopharm 800 mg Kautabletten by ratiopharm (PZN 04869870), 20 chewable tablets each. Both pages state 800 mg magaldrate per tablet, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both contain sorbitol and a caramel flavour. Riopan adds macrogol 4000, calcium behenate, maltol and a cream flavour; ratiopharm adds magnesium stearate and silica, so the taste may differ a little. The bigger packs keep the gap: 50 tablets cost 17.40 euros (Riopan) and 11.99 euros (ratiopharm).",
+    "sources": [
+      "https://www.aponeo.de/00749293-riopan-magen-tabletten-kautabletten.html",
+      "https://www.aponeo.de/04869870-magaldrat-ratiopharm-800-mg-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Magaldrate 800 mg chewable tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "DR. KADE Pharmazeutische Fabrik GmbH",
+        "alternative": "ratiopharm GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/04869870-magaldrat-ratiopharm-800-mg-tabletten.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Sorbitol, macrogol 4000, calcium behenate, maltol, caramel and cream flavours",
+        "alternative": "Sorbitol, magnesium stearate, silica, caramel flavour",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/00749293-riopan-magen-tabletten-kautabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "dulcolax-dragees-vs-bisacodyl-adgc-5mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Dulcolax Dragees vs Bisacodyl ADGC 5 mg",
+    "brand": {
+      "brand": "Dulcolax",
+      "product": "Dulcolax Dragees 5 mg magensaftresistente Tabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 17.59,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/06800196-dulcolax-dragees-5-mg-magensaftres-tabl-dose.html",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl",
+          "amount": "5 mg"
+        }
+      ],
+      "license_id": "PZN 06800196"
+    },
+    "alternative": {
+      "brand": "ADGC (Zentiva)",
+      "product": "Bisacodyl ADGC Laxans 5 mg magensaftresistente Tabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 6.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/18026572-bisacodyl-adgc-laxans-5-mg-magensaftres-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl",
+          "amount": "5 mg"
+        }
+      ],
+      "license_id": "PZN 18026572"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are gastro-resistant tablets with 5 mg bisacodyl, a laxative that works overnight.",
+    "evidence": "APONEO lists Dulcolax Dragees 5 mg by A. Nattermann & Cie (PZN 06800196) and Bisacodyl ADGC Laxans 5 mg by Zentiva (PZN 18026572), 100 gastro-resistant tablets each. Both pages give 5 mg bisacodyl per tablet, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both have a coating that only dissolves in the gut. Dulcolax contains lactose, sucrose and the colouring sunset yellow (Gelborange S); its page doesn't give the full list. Bisacodyl ADGC contains lactose (60 mg) and titanium dioxide but no sugar or added colour. APONEO's search list showed 17.89 euros for the Dulcolax pack while its product page showed 17.59 euros; we use the product page.",
+    "sources": [
+      "https://www.aponeo.de/06800196-dulcolax-dragees-5-mg-magensaftres-tabl-dose.html",
+      "https://www.aponeo.de/18026572-bisacodyl-adgc-laxans-5-mg-magensaftres-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Bisacodyl 5 mg gastro-resistant tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "A. Nattermann & Cie GmbH",
+        "alternative": "Zentiva Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/18026572-bisacodyl-adgc-laxans-5-mg-magensaftres-tabletten.html"
+      },
+      {
+        "aspect": "Sugar and colouring",
+        "brand": "Contains sucrose and sunset yellow (Gelborange S)",
+        "alternative": "No sugar or colouring listed",
+        "verdict": "alt_better",
+        "source": "https://www.aponeo.de/06800196-dulcolax-dragees-5-mg-magensaftres-tabl-dose.html"
+      },
+      {
+        "aspect": "Release",
+        "brand": "Gastro-resistant (magensaftresistent)",
+        "alternative": "Gastro-resistant (magensaftresistent)",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/18026572-bisacodyl-adgc-laxans-5-mg-magensaftres-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "buscopan-dragees-vs-butylscopolamin-puren-10mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Buscopan Dragees vs Butylscopolamin PUREN 10 mg",
+    "brand": {
+      "brand": "Buscopan",
+      "product": "Buscopan Dragees (butylscopolamine bromide 10 mg), 20 coated tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 9.89,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00161996-buscopan-dragees.html",
+      "key_ingredients": [
+        {
+          "name": "Butylscopolamine bromide",
+          "amount": "10 mg"
+        }
+      ],
+      "license_id": "PZN 00161996"
+    },
+    "alternative": {
+      "brand": "PUREN",
+      "product": "Butylscopolamin PUREN 10 mg überzogene Tabletten, 20 coated tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 5.51,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/17606557-butylscopolamin-puren-10-mg-ueberzogene-tab.html",
+      "key_ingredients": [
+        {
+          "name": "Butylscopolamine bromide",
+          "amount": "10 mg"
+        }
+      ],
+      "license_id": "PZN 17606557"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are coated tablets with 10 mg butylscopolamine bromide for stomach and gut cramps.",
+    "evidence": "APONEO lists Buscopan Dragees by A. Nattermann & Cie (PZN 00161996) and Butylscopolamin PUREN 10 mg by PUREN Pharma (PZN 17606557), 20 coated tablets each. Both pages state 10 mg butylscopolamine bromide per tablet, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both are sugar-coated and list no lactose. Buscopan's coating has more sucrose, gum arabic, wax and titanium dioxide; PUREN's has 12.19 mg sucrose with hypromellose and talc. Buscopan plus, with paracetamol added, is a different medicine and isn't this swap.",
+    "sources": [
+      "https://www.aponeo.de/00161996-buscopan-dragees.html",
+      "https://www.aponeo.de/17606557-butylscopolamin-puren-10-mg-ueberzogene-tab.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Butylscopolamine bromide 10 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "A. Nattermann & Cie GmbH",
+        "alternative": "PUREN Pharma GmbH & Co. KG",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/17606557-butylscopolamin-puren-10-mg-ueberzogene-tab.html"
+      },
+      {
+        "aspect": "Sugar",
+        "brand": "Contains sucrose",
+        "alternative": "Contains sucrose (12.19 mg)",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/17606557-butylscopolamin-puren-10-mg-ueberzogene-tab.html"
+      }
+    ]
+  },
+  {
+    "slug": "allergodil-akut-augentropfen-vs-azelastin-micro-labs-0-5mg-ml-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Eye allergy",
+    "title": "Allergodil akut Augentropfen vs Azelastin Micro Labs 0.5 mg/ml",
+    "brand": {
+      "brand": "Allergodil",
+      "product": "Allergodil akut Augentropfen mit Azelastin 0,5 mg/ml, 6 ml",
+      "size": 6,
+      "unit": "ml",
+      "price": 9.94,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04095291-allergodil-akut-augentropfen.html",
+      "key_ingredients": [
+        {
+          "name": "Azelastine hydrochloride",
+          "amount": "0.5 mg/ml"
+        }
+      ],
+      "license_id": "PZN 04095291"
+    },
+    "alternative": {
+      "brand": "Micro Labs",
+      "product": "Azelastin Micro Labs 0,5 mg/ml Augentropfen, 6 ml",
+      "size": 6,
+      "unit": "ml",
+      "price": 5.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/15561394-azelastin-micro-labs-0-5-mg-ml-augentropfen.html",
+      "key_ingredients": [
+        {
+          "name": "Azelastine hydrochloride",
+          "amount": "0.5 mg/ml"
+        }
+      ],
+      "license_id": "PZN 15561394"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 6 ml bottles of antihistamine eye drops with 0.5 mg azelastine hydrochloride per ml, for itchy, watery eyes in hay fever.",
+    "evidence": "APONEO lists Allergodil akut Augentropfen by Cooper Consumer Health (PZN 04095291) and Azelastin Micro Labs 0,5 mg/ml Augentropfen by Micro Labs (PZN 15561394), 6 ml each. Both pages state 0.5 mg azelastine hydrochloride per ml (0.015 mg per drop), and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The other ingredients are the same on both pages: benzalkonium chloride as preservative, sodium edetate, hypromellose, sorbitol, sodium hydroxide and water for injection. Both are for adults and children from 4 years with hay fever. The one shopper review of the Micro Labs drops on APONEO is negative, which is too few to judge.",
+    "sources": [
+      "https://www.aponeo.de/04095291-allergodil-akut-augentropfen.html",
+      "https://www.aponeo.de/15561394-azelastin-micro-labs-0-5-mg-ml-augentropfen.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Azelastine 0.5 mg/ml eye drops",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Cooper Consumer Health Deutschland GmbH",
+        "alternative": "Micro Labs GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/15561394-azelastin-micro-labs-0-5-mg-ml-augentropfen.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Benzalkonium chloride, sodium edetate, hypromellose, sorbitol, sodium hydroxide, water for injection",
+        "alternative": "Benzalkonium chloride, disodium edetate, hypromellose, sorbitol, sodium hydroxide, water for injection",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/15561394-azelastin-micro-labs-0-5-mg-ml-augentropfen.html"
+      }
+    ]
+  },
+  {
+    "slug": "canesten-creme-vs-clotrimazol-al-1-creme-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Skin treatment",
+    "title": "Canesten Creme vs Clotrimazol AL 1% Creme",
+    "brand": {
+      "brand": "Canesten",
+      "product": "Canesten Creme (clotrimazole 1%), 50 g",
+      "size": 50,
+      "unit": "g",
+      "price": 17.4,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/01802664-canesten-creme.html",
+      "key_ingredients": [
+        {
+          "name": "Clotrimazole",
+          "amount": "10 mg/g"
+        }
+      ],
+      "license_id": "PZN 01802664"
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "CLOTRIMAZOL AL 1% Creme, 50 g",
+      "size": 50,
+      "unit": "g",
+      "price": 5.26,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04941509-clotrimazol-al-1-creme.html",
+      "key_ingredients": [
+        {
+          "name": "Clotrimazole",
+          "amount": "10 mg/g"
+        }
+      ],
+      "license_id": "PZN 04941509"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 1% clotrimazole creams for fungal skin infections such as athlete's foot, and their ingredient lists match.",
+    "evidence": "APONEO lists Canesten Creme by Bayer Vital (PZN 01802664) and CLOTRIMAZOL AL 1% Creme by ALIUD Pharma (PZN 04941509), 50 g each. Both pages give 10 mg clotrimazole per g of cream (AL writes 0.01 g per g), and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The other ingredients are the same on both pages: benzyl alcohol, octyldodecanol, cetostearyl alcohol, cetyl palmitate (AL calls it hexadecyl palmitate), sorbitan stearate, polysorbate 60 and water. Both warn about benzyl alcohol and cetostearyl alcohol. APONEO's search list showed 16.77 euros for Canesten and 5.42 euros for AL, while the product pages showed 17.40 and 5.26 euros; we use the product pages.",
+    "sources": [
+      "https://www.aponeo.de/01802664-canesten-creme.html",
+      "https://www.aponeo.de/04941509-clotrimazol-al-1-creme.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Clotrimazole 1% cream",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Bayer Vital GmbH",
+        "alternative": "ALIUD Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/04941509-clotrimazol-al-1-creme.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Benzyl alcohol, octyldodecanol, cetostearyl alcohol, cetyl palmitate, sorbitan stearate, polysorbate 60, water",
+        "alternative": "Benzyl alcohol, cetostearyl alcohol, hexadecyl palmitate, octyldodecanol, polysorbate 60, sorbitan stearate, water",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/04941509-clotrimazol-al-1-creme.html"
+      }
+    ]
+  },
+  {
+    "slug": "xusal-vs-levocetirizin-adgc-5mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Xusal vs Levocetirizin ADGC 5 mg",
+    "brand": {
+      "brand": "Xusal",
+      "product": "Xusal 5 mg Filmtabletten (levocetirizine), 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 46.26,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/15435287-xusal-5-mg-filmtabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Levocetirizine dihydrochloride",
+          "amount": "5 mg"
+        }
+      ],
+      "license_id": "PZN 15435287"
+    },
+    "alternative": {
+      "brand": "ADGC (Zentiva)",
+      "product": "LEVOCETIRIZIN ADGC 5 mg Filmtabletten, 100 tablets",
+      "size": 100,
+      "unit": "tablet",
+      "price": 18.85,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/18082955-levocetirizin-adgc-5-mg-filmtabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Levocetirizine dihydrochloride",
+          "amount": "5 mg"
+        }
+      ],
+      "license_id": "PZN 18082955"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are film-coated tablets with 5 mg levocetirizine dihydrochloride, a once-a-day antihistamine for hay fever and other allergies.",
+    "evidence": "APONEO lists Xusal 5 mg Filmtabletten by UCB Pharma (PZN 15435287) and LEVOCETIRIZIN ADGC 5 mg Filmtabletten by Zentiva (PZN 18082955), 100 tablets each. Both pages state 5 mg levocetirizine dihydrochloride per tablet, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The ingredients are close: both use microcrystalline cellulose, lactose monohydrate, silica and magnesium stearate, with a white coating of hypromellose, titanium dioxide and macrogol 400. ADGC adds crospovidone. Both contain lactose. ADGC also comes as 20 tablets for 4.52 euros, if you only need a short course.",
+    "sources": [
+      "https://www.aponeo.de/15435287-xusal-5-mg-filmtabletten.html",
+      "https://www.aponeo.de/18082955-levocetirizin-adgc-5-mg-filmtabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Levocetirizine 5 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "UCB Pharma GmbH",
+        "alternative": "Zentiva Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/18082955-levocetirizin-adgc-5-mg-filmtabletten.html"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose",
+        "alternative": "Contains lactose",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/18082955-levocetirizin-adgc-5-mg-filmtabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "movicol-vs-macrogol-adgc-plus-elektrolyte-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Movicol vs Macrogol ADGC plus Elektrolyte",
+    "brand": {
+      "brand": "Movicol",
+      "product": "MOVICOL Beutel Pulver zur Herstellung einer Lösung, 20 sachets",
+      "size": 20,
+      "unit": "sachet",
+      "price": 20.29,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/07548876-movicol-beutel-plv-z-her-e-lsg-z-einnehmen.html",
+      "key_ingredients": [
+        {
+          "name": "Macrogol 3350",
+          "amount": "13.125 g"
+        },
+        {
+          "name": "Sodium chloride",
+          "amount": "350.7 mg"
+        },
+        {
+          "name": "Sodium hydrogen carbonate",
+          "amount": "178.5 mg"
+        },
+        {
+          "name": "Potassium chloride",
+          "amount": "46.6 mg"
+        }
+      ],
+      "license_id": "PZN 07548876"
+    },
+    "alternative": {
+      "brand": "ADGC (Zentiva)",
+      "product": "Macrogol ADGC plus Elektrolyte Pulver zur Herstellung einer Lösung, 20 sachets",
+      "size": 20,
+      "unit": "sachet",
+      "price": 5.31,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/18084428-macrogol-adgc-plus-elektrolyte-plv-z-h-e-l-z-einn.html",
+      "key_ingredients": [
+        {
+          "name": "Macrogol 3350",
+          "amount": "13.125 g"
+        },
+        {
+          "name": "Sodium chloride",
+          "amount": "350.7 mg"
+        },
+        {
+          "name": "Sodium hydrogen carbonate",
+          "amount": "178.5 mg"
+        },
+        {
+          "name": "Potassium chloride",
+          "amount": "46.6 mg"
+        }
+      ],
+      "license_id": "PZN 18084428"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are sachets of powder with 13.125 g macrogol 3350 and the same salts, mixed with water for constipation.",
+    "evidence": "APONEO lists MOVICOL Beutel by Norgine (PZN 07548876) and Macrogol ADGC plus Elektrolyte by Zentiva (PZN 18084428), 20 sachets each. Per sachet both give 13.125 g macrogol 3350, sodium chloride, sodium hydrogen carbonate and potassium chloride; Movicol's page rounds the salts to 0.351 g, 0.179 g and 0.047 g, and ADGC's gives 350.7 mg, 178.5 mg and 46.6 mg. Both are for adults and young people from 12 years. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both are sweetened with acesulfame potassium and taste of lemon; Movicol's flavour also lists lime. APONEO's Movicol page calls it a medical device in one sentence and a medicine in another, and marks ADGC as apothekenpflichtig. Movicol is also sold as 50 sachets for 44.24 euros.",
+    "sources": [
+      "https://www.aponeo.de/07548876-movicol-beutel-plv-z-her-e-lsg-z-einnehmen.html",
+      "https://www.aponeo.de/18084428-macrogol-adgc-plus-elektrolyte-plv-z-h-e-l-z-einn.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Macrogol 3350 13.125 g plus electrolytes powder sachets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Norgine GmbH",
+        "alternative": "Zentiva Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/18084428-macrogol-adgc-plus-elektrolyte-plv-z-h-e-l-z-einn.html"
+      },
+      {
+        "aspect": "Flavour and sweetener",
+        "brand": "Lemon and lime flavour, acesulfame potassium",
+        "alternative": "Lemon flavour, acesulfame potassium",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/18084428-macrogol-adgc-plus-elektrolyte-plv-z-h-e-l-z-einn.html"
+      }
+    ]
+  },
+  {
+    "slug": "dolormin-fuer-frauen-vs-naproxen-axicur-250mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Dolormin für Frauen vs Naproxen axicur 250 mg",
+    "brand": {
+      "brand": "Dolormin",
+      "product": "Dolormin für Frauen mit Naproxen Tabletten (naproxen 250 mg), 30 tablets",
+      "size": 30,
+      "unit": "tablet",
+      "price": 12.88,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/02434139-dolormin-fuer-frauen-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Naproxen",
+          "amount": "250 mg"
+        }
+      ],
+      "license_id": "PZN 02434139"
+    },
+    "alternative": {
+      "brand": "axicorp",
+      "product": "Naproxen axicur 250 mg Tabletten, 30 tablets",
+      "size": 30,
+      "unit": "tablet",
+      "price": 6.76,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/14412137-naproxen-axicur-250-mg-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Naproxen",
+          "amount": "250 mg"
+        }
+      ],
+      "license_id": "PZN 14412137"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are tablets with 250 mg naproxen, a painkiller often used for period pain.",
+    "evidence": "APONEO lists Dolormin für Frauen by Kenvue Germany (PZN 02434139) and Naproxen axicur 250 mg by axicorp Pharma (PZN 14412137), 30 tablets each. Both pages state 250 mg naproxen per tablet (naproxen itself, not the sodium salt), and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both contain lactose and a yellow colour: quinoline yellow (E104) in Dolormin, yellow iron oxide in axicur. The other ingredients differ in detail. Dolormin GS, sold for joint pain, has the same 250 mg naproxen and costs 13.42 euros for 30. APONEO's search list showed 7.65 euros for the axicur pack and its product page 6.76 euros; we use the product page.",
+    "sources": [
+      "https://www.aponeo.de/02434139-dolormin-fuer-frauen-tabletten.html",
+      "https://www.aponeo.de/14412137-naproxen-axicur-250-mg-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Naproxen 250 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Kenvue Germany GmbH",
+        "alternative": "axicorp Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/14412137-naproxen-axicur-250-mg-tabletten.html"
+      },
+      {
+        "aspect": "Colouring",
+        "brand": "Quinoline yellow (E104)",
+        "alternative": "Yellow iron oxide",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/02434139-dolormin-fuer-frauen-tabletten.html"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose",
+        "alternative": "Contains lactose",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/14412137-naproxen-axicur-250-mg-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "vivinox-sleep-stark-vs-dorm-50mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Sleep",
+    "title": "vivinox Sleep stark vs Dorm 50 mg",
+    "brand": {
+      "brand": "vivinox",
+      "product": "vivinox SLEEP Schlaftabletten stark (diphenhydramine hydrochloride 50 mg), 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 9.24,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/02083906-vivinox-sleep-schlaftablette.html",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine hydrochloride",
+          "amount": "50 mg"
+        }
+      ],
+      "license_id": "PZN 02083906"
+    },
+    "alternative": {
+      "brand": "Berco",
+      "product": "Dorm Tabletten (diphenhydramine hydrochloride 50 mg), 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 3.57,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/01580867-dorm-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine hydrochloride",
+          "amount": "50 mg"
+        }
+      ],
+      "license_id": "PZN 01580867"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are sleeping tablets with 50 mg diphenhydramine hydrochloride, for short spells of trouble falling asleep.",
+    "evidence": "APONEO lists vivinox SLEEP Schlaftabletten stark by Dr. Gerhard Mann (PZN 02083906), 20 tablets, with 50 mg diphenhydramine hydrochloride per tablet and microcrystalline cellulose, lactose, povidone, silica, magnesium stearate and crospovidone. Dorm Tabletten by Berco-Arzneimittel (PZN 01580867) states 50 mg diphenhydramine hydrochloride per tablet and lists lactose monohydrate, maize starch, microcrystalline cellulose, sodium carboxymethyl starch, sorbitol, talc, povidone and stearic acid. Both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both contain lactose. Dorm also contains sorbitol. Diphenhydramine is meant for a few nights at a time, and both leaflets warn about drowsiness the next morning.",
+    "sources": [
+      "https://www.aponeo.de/02083906-vivinox-sleep-schlaftablette.html",
+      "https://www.aponeo.de/01580867-dorm-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Diphenhydramine hydrochloride 50 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Dr. Gerhard Mann",
+        "alternative": "Berco-Arzneimittel",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/01580867-dorm-tabletten.html"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "Contains lactose",
+        "alternative": "Contains lactose",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/01580867-dorm-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "betadorm-d-vs-dorm-50mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Sleep",
+    "title": "Betadorm D vs Dorm 50 mg",
+    "brand": {
+      "brand": "Betadorm",
+      "product": "Betadorm D Tabletten (diphenhydramine hydrochloride 50 mg), 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 12.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/03241684-betadorm-d-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine hydrochloride",
+          "amount": "50 mg"
+        }
+      ],
+      "license_id": "PZN 03241684"
+    },
+    "alternative": {
+      "brand": "Berco",
+      "product": "Dorm Tabletten (diphenhydramine hydrochloride 50 mg), 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 3.57,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/01580867-dorm-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Diphenhydramine hydrochloride",
+          "amount": "50 mg"
+        }
+      ],
+      "license_id": "PZN 01580867"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are sleeping tablets with 50 mg diphenhydramine hydrochloride. Betadorm D is lactose-free and Dorm is not.",
+    "evidence": "APONEO lists Betadorm D Tabletten by Recordati Pharma (PZN 03241684), 20 tablets, with 50 mg diphenhydramine hydrochloride per tablet and microcrystalline cellulose, pregelatinised potato starch, cellulose powder, magnesium stearate, talc and silica. Dorm Tabletten by Berco-Arzneimittel (PZN 01580867) states 50 mg diphenhydramine hydrochloride per tablet and lists lactose monohydrate, maize starch, microcrystalline cellulose, sodium carboxymethyl starch, sorbitol, talc, povidone and stearic acid. Both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Betadorm D has no lactose; Dorm has lactose and sorbitol, so if you avoid lactose the brand wins. Halbmond Tabletten (Cheplapharm, 50 mg diphenhydramine, no lactose) cost 8.99 euros for 20 at the same shop, if you want a lactose-free tablet for less. APONEO's search list showed 13.99 euros for Betadorm D and its product page 12.99 euros; we use the product page.",
+    "sources": [
+      "https://www.aponeo.de/03241684-betadorm-d-tabletten.html",
+      "https://www.aponeo.de/01580867-dorm-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Diphenhydramine hydrochloride 50 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Recordati Pharma GmbH",
+        "alternative": "Berco-Arzneimittel",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/01580867-dorm-tabletten.html"
+      },
+      {
+        "aspect": "Lactose",
+        "brand": "No lactose",
+        "alternative": "Contains lactose",
+        "verdict": "brand_better",
+        "source": "https://www.aponeo.de/01580867-dorm-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "ben-u-ron-1000mg-tabletten-vs-paracetamol-ratiopharm-1000mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "ben-u-ron 1000 mg Tabletten vs Paracetamol-ratiopharm 1000 mg",
+    "brand": {
+      "brand": "ben-u-ron",
+      "product": "ben-u-ron 1.000 mg Tabletten, 10 tablets",
+      "size": 10,
+      "unit": "tablet",
+      "price": 5.49,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16239097-ben-u-ron-1-000-mg-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "1000 mg"
+        }
+      ],
+      "license_id": "PZN 16239097"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Paracetamol-ratiopharm 1000 mg Tabletten, 10 tablets",
+      "size": 10,
+      "unit": "tablet",
+      "price": 2.68,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/09263936-paracetamol-ratiopharm-1-000-mg-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "1000 mg"
+        }
+      ],
+      "license_id": "PZN 09263936"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are tablets with 1000 mg paracetamol, the full adult single dose in one tablet.",
+    "evidence": "APONEO lists ben-u-ron 1000 mg Tabletten by bene Arzneimittel (PZN 16239097) and Paracetamol-ratiopharm 1000 mg Tabletten by ratiopharm (PZN 09263936), 10 tablets each. Both pages state 1000 mg paracetamol per tablet, and both are apothekenpflichtig. APONEO's ben-u-ron page has no list of other ingredients, so we read it in the ABDA drug database on aponet.de: sodium carboxymethyl starch, povidone, stearic acid, talc, maize starch and silica. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "ratiopharm's tablet has a score line so it can be halved; ben-u-ron's page doesn't say. ratiopharm lists povidone, croscarmellose sodium, maize starch, talc, microcrystalline cellulose, silica and magnesium stearate (APONEO's text breaks off at the end of the list). Neither lists lactose. Do not take more than 4000 mg paracetamol a day.",
+    "sources": [
+      "https://www.aponeo.de/16239097-ben-u-ron-1-000-mg-tabletten.html",
+      "https://www.aponeo.de/09263936-paracetamol-ratiopharm-1-000-mg-tabletten.html",
+      "https://www.aponet.de/arzneimittel/arzneimitteldatenbank/arzneimittel/anwendungsdetails/zusammensetzung/3343435200/Paracetamol"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Paracetamol 1000 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "bene Arzneimittel GmbH",
+        "alternative": "ratiopharm GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/09263936-paracetamol-ratiopharm-1-000-mg-tabletten.html"
+      },
+      {
+        "aspect": "Score line",
+        "brand": "Not stated",
+        "alternative": "Yes, can be halved",
+        "verdict": "alt_better",
+        "source": "https://www.aponeo.de/09263936-paracetamol-ratiopharm-1-000-mg-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "ben-u-ron-1000mg-zaepfchen-vs-paracetamol-ratiopharm-1000mg-zaepfchen-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "ben-u-ron 1000 mg Zäpfchen vs Paracetamol-ratiopharm 1000 mg Zäpfchen",
+    "brand": {
+      "brand": "ben-u-ron",
+      "product": "ben-u-ron 1000 mg Suppositorien, 10 suppositories",
+      "size": 10,
+      "unit": "suppository",
+      "price": 5.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/01484879-ben-u-ron-1000-mg-suppositorien.html",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "1000 mg"
+        }
+      ],
+      "license_id": "PZN 01484879"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Paracetamol-ratiopharm 1000 mg Erwachsenen-Suppositorien, 10 suppositories",
+      "size": 10,
+      "unit": "suppository",
+      "price": 3.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/03953611-paracetamol-ratiopharm-1-000-mg-zaepfchen.html",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "1000 mg"
+        }
+      ],
+      "license_id": "PZN 03953611"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are adult suppositories with 1000 mg paracetamol, for when tablets can't be taken.",
+    "evidence": "APONEO lists ben-u-ron 1000 mg Suppositorien by bene Arzneimittel (PZN 01484879) and Paracetamol-ratiopharm 1000 mg Erwachsenen-Suppositorien by ratiopharm (PZN 03953611), 10 each, both apothekenpflichtig. ratiopharm's page states 1000 mg paracetamol per suppository with silica, hard fat and soy phosphatidylcholine. APONEO's ben-u-ron page doesn't list the composition, so we read it on aponet.de: 1000 mg paracetamol in hard fat with deoiled soy phospholipids. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The bases are nearly the same: hard fat with soy lecithin in both, plus silica in ratiopharm's. Both contain soy, so neither suits a soy or peanut allergy. ratiopharm's are for adults and young people from 12 years and 43 kg. APONEO's search list showed 3.49 euros for the ratiopharm pack and its product page 3.99 euros; we use the product page.",
+    "sources": [
+      "https://www.aponeo.de/01484879-ben-u-ron-1000-mg-suppositorien.html",
+      "https://www.aponeo.de/03953611-paracetamol-ratiopharm-1-000-mg-zaepfchen.html",
+      "https://www.aponet.de/service/arzneimitteldatenbank/arzneimittel/anwendungsdetails/zusammensetzung/3018803141/Schmerz"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Paracetamol 1000 mg suppositories",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "bene Arzneimittel GmbH",
+        "alternative": "ratiopharm GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/03953611-paracetamol-ratiopharm-1-000-mg-zaepfchen.html"
+      },
+      {
+        "aspect": "Base",
+        "brand": "Hard fat, soy phospholipids",
+        "alternative": "Hard fat, soy phosphatidylcholine, silica",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/03953611-paracetamol-ratiopharm-1-000-mg-zaepfchen.html"
+      }
+    ]
+  },
+  {
+    "slug": "ben-u-ron-saft-vs-paracetamol-ratiopharm-loesung-40mg-ml-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Children's medicine",
+    "title": "ben-u-ron Saft vs Paracetamol-ratiopharm Lösung 40 mg/ml",
+    "brand": {
+      "brand": "ben-u-ron",
+      "product": "ben-u-ron Saft (paracetamol 200 mg per 5 ml), 100 ml",
+      "size": 100,
+      "unit": "ml",
+      "price": 5.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04993736-ben-u-ron-saft.html",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "40 mg/ml"
+        }
+      ],
+      "license_id": "PZN 04993736"
+    },
+    "alternative": {
+      "brand": "ratiopharm",
+      "product": "Paracetamol-ratiopharm Lösung 40 mg/ml, 100 ml",
+      "size": 100,
+      "unit": "ml",
+      "price": 4.49,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/07263487-paracetamol-ratiopharm-loesung.html",
+      "key_ingredients": [
+        {
+          "name": "Paracetamol",
+          "amount": "40 mg/ml"
+        }
+      ],
+      "license_id": "PZN 07263487"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are liquid paracetamol for children with 40 mg per ml (200 mg in 5 ml), for fever and pain.",
+    "evidence": "APONEO lists ben-u-ron Saft by bene Arzneimittel (PZN 04993736), a syrup, and Paracetamol-ratiopharm Lösung by ratiopharm (PZN 07263487), an oral solution, 100 ml each and both apothekenpflichtig. ratiopharm's page states 40 mg paracetamol per ml. APONEO's ben-u-ron page has no composition, so we read it on aponet.de: 200 mg paracetamol per 5 ml, with sucrose (2.5 g per 5 ml), sunset yellow, methyl and propyl parahydroxybenzoate, sodium citrate, xanthan gum, citric acid, a cream flavour and water. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "ben-u-ron Saft is a sugar syrup with the colouring sunset yellow and two paraben preservatives. ratiopharm's solution is sugar-free, sweetened with saccharin and acesulfame, flavoured with orange, and contains sodium disulfite and 9.89 mg sodium per ml. If your child should avoid sugar, colourings or parabens, the alternative is the better choice; if sulfites are a problem, the brand is. ratiopharm's is for children from 6 months (about 7 kg). Dose by weight as the leaflet says.",
+    "sources": [
+      "https://www.aponeo.de/04993736-ben-u-ron-saft.html",
+      "https://www.aponeo.de/07263487-paracetamol-ratiopharm-loesung.html",
+      "https://www.aponet.de/service/arzneimitteldatenbank/arzneimittel/anwendungsdetails/zusammensetzung/3200570012/Schmerz"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Paracetamol 40 mg/ml oral liquid for children",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "bene Arzneimittel GmbH",
+        "alternative": "ratiopharm GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/07263487-paracetamol-ratiopharm-loesung.html"
+      },
+      {
+        "aspect": "Form",
+        "brand": "Syrup",
+        "alternative": "Oral solution",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/07263487-paracetamol-ratiopharm-loesung.html"
+      },
+      {
+        "aspect": "Sugar",
+        "brand": "Sucrose, 2.5 g per 5 ml",
+        "alternative": "Sugar-free (saccharin, acesulfame)",
+        "verdict": "alt_better",
+        "source": "https://www.aponeo.de/07263487-paracetamol-ratiopharm-loesung.html"
+      },
+      {
+        "aspect": "Colouring and preservatives",
+        "brand": "Sunset yellow, methyl and propyl parahydroxybenzoate",
+        "alternative": "No colouring; sodium disulfite",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/07263487-paracetamol-ratiopharm-loesung.html"
+      }
+    ]
+  },
+  {
+    "slug": "fenistil-gel-vs-dimetin-adgc-1mg-g-gel-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Skin treatment",
+    "title": "Fenistil Gel vs Dimetin ADGC 1 mg/g Gel",
+    "brand": {
+      "brand": "Fenistil",
+      "product": "Fenistil Gel (dimetindene maleate 1 mg/g), 30 g",
+      "size": 30,
+      "unit": "g",
+      "price": 8.49,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/12550409-fenistil-gel.html",
+      "key_ingredients": [
+        {
+          "name": "Dimetindene maleate",
+          "amount": "1 mg/g"
+        }
+      ],
+      "license_id": "PZN 12550409"
+    },
+    "alternative": {
+      "brand": "ADGC (Zentiva)",
+      "product": "Dimetin ADGC 1 mg/g Gel, 30 g",
+      "size": 30,
+      "unit": "g",
+      "price": 5.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/18206216-dimetin-adgc-1-mg-g-gel.html",
+      "key_ingredients": [
+        {
+          "name": "Dimetindene maleate",
+          "amount": "1 mg/g"
+        }
+      ],
+      "license_id": "PZN 18206216"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are antihistamine gels with 1 mg dimetindene maleate per g, for itching from insect bites, sunburn and rashes.",
+    "evidence": "APONEO lists Fenistil Gel by Haleon Germany (PZN 12550409) and Dimetin ADGC 1 mg/g Gel by Zentiva (PZN 18206216), 30 g each. Both pages state 1 mg dimetindene maleate per g of gel, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both gels are water, propylene glycol and carbomer. The preservative differs: Fenistil uses methyl parahydroxybenzoate, Dimetin uses benzalkonium chloride with sodium edetate. Neither should go on large areas of a baby's skin.",
+    "sources": [
+      "https://www.aponeo.de/12550409-fenistil-gel.html",
+      "https://www.aponeo.de/18206216-dimetin-adgc-1-mg-g-gel.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Dimetindene maleate 0.1% gel",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Haleon Germany GmbH",
+        "alternative": "Zentiva Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/18206216-dimetin-adgc-1-mg-g-gel.html"
+      },
+      {
+        "aspect": "Preservative",
+        "brand": "Methyl parahydroxybenzoate",
+        "alternative": "Benzalkonium chloride",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/18206216-dimetin-adgc-1-mg-g-gel.html"
+      }
+    ]
+  },
+  {
+    "slug": "fenihydrocort-creme-0-5-vs-hydrocortison-stada-5mg-g-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Skin treatment",
+    "title": "FeniHydrocort Creme 0.5% vs Hydrocortison STADA 5 mg/g",
+    "brand": {
+      "brand": "FeniHydrocort",
+      "product": "FeniHydrocort Creme 0,5 % (hydrocortisone 5 mg/g), 30 g",
+      "size": 30,
+      "unit": "g",
+      "price": 12.53,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/10796974-fenihydrocort-creme-0-5.html",
+      "key_ingredients": [
+        {
+          "name": "Hydrocortisone",
+          "amount": "5 mg/g"
+        }
+      ],
+      "license_id": "PZN 10796974"
+    },
+    "alternative": {
+      "brand": "STADA",
+      "product": "Hydrocortison STADA 5 mg/g Creme, 30 g",
+      "size": 30,
+      "unit": "g",
+      "price": 6.21,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16808483-hydrocortison-stada-5-mg-g-creme.html",
+      "key_ingredients": [
+        {
+          "name": "Hydrocortisone",
+          "amount": "5 mg/g"
+        }
+      ],
+      "license_id": "PZN 16808483"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 0.5% hydrocortisone creams, the mild steroid sold without a prescription for itchy, inflamed skin.",
+    "evidence": "APONEO lists FeniHydrocort Creme 0,5 % by Haleon Germany (PZN 10796974), 30 g, with 5 mg hydrocortisone per g. Hydrocortison STADA 5 mg/g Creme by STADA Consumer Health (PZN 16808483), 30 g, states 5 mg hydrocortisone per g with stearic acid, propylene glycol, sorbitan stearate, polysorbate 60, octyldodecanol, hard fat and water, for adults and children from 6 years. Both are apothekenpflichtig and for use from 6 years. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The cream bases differ. FeniHydrocort adds dexpanthenol and glycerol, uses potassium sorbate as preservative and is free of fragrance, alcohol and parabens. STADA's base uses propylene glycol and polysorbate and names no preservative. Use either for no more than 2 weeks without asking a doctor.",
+    "sources": [
+      "https://www.aponeo.de/10796974-fenihydrocort-creme-0-5.html",
+      "https://www.aponeo.de/16808483-hydrocortison-stada-5-mg-g-creme.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Hydrocortisone 0.5% cream",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Haleon Germany GmbH",
+        "alternative": "STADA Consumer Health Deutschland GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/16808483-hydrocortison-stada-5-mg-g-creme.html"
+      },
+      {
+        "aspect": "Cream base",
+        "brand": "With dexpanthenol and glycerol; potassium sorbate",
+        "alternative": "Stearic acid, propylene glycol, polysorbate 60, hard fat",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/10796974-fenihydrocort-creme-0-5.html"
+      }
+    ]
+  },
+  {
+    "slug": "linola-akut-0-5-vs-hydrocortison-stada-5mg-g-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Skin treatment",
+    "title": "Linola Akut 0.5% vs Hydrocortison STADA 5 mg/g",
+    "brand": {
+      "brand": "Linola",
+      "product": "Linola Akut 0,5% Hydrocortison Creme, 30 g",
+      "size": 30,
+      "unit": "g",
+      "price": 13.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/02138990-linola-akut-0-5-creme.html",
+      "key_ingredients": [
+        {
+          "name": "Hydrocortisone",
+          "amount": "5 mg/g"
+        }
+      ],
+      "license_id": "PZN 02138990"
+    },
+    "alternative": {
+      "brand": "STADA",
+      "product": "Hydrocortison STADA 5 mg/g Creme, 30 g",
+      "size": 30,
+      "unit": "g",
+      "price": 6.21,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16808483-hydrocortison-stada-5-mg-g-creme.html",
+      "key_ingredients": [
+        {
+          "name": "Hydrocortisone",
+          "amount": "5 mg/g"
+        }
+      ],
+      "license_id": "PZN 16808483"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 0.5% hydrocortisone creams for itchy, inflamed skin, for adults and children from 6 years.",
+    "evidence": "APONEO lists Linola Akut 0,5% by Dr. August Wolff (PZN 02138990), 30 g, with 0.5 g hydrocortisone per 100 g, which is 5 mg per g. Hydrocortison STADA 5 mg/g Creme by STADA Consumer Health (PZN 16808483), 30 g, states 5 mg hydrocortisone per g with stearic acid, propylene glycol, sorbitan stearate, polysorbate 60, octyldodecanol, hard fat and water, for adults and children from 6 years. Both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The cream bases differ. Linola Akut uses benzyl alcohol, macrogol esters, liquid paraffin, propylene glycol and stearic acid, and is free of parabens and fragrance. STADA's uses propylene glycol, polysorbate 60, octyldodecanol and hard fat. Use either for no more than 2 weeks without asking a doctor.",
+    "sources": [
+      "https://www.aponeo.de/02138990-linola-akut-0-5-creme.html",
+      "https://www.aponeo.de/16808483-hydrocortison-stada-5-mg-g-creme.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Hydrocortisone 0.5% cream",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Dr. August Wolff GmbH & Co. KG Arzneimittel",
+        "alternative": "STADA Consumer Health Deutschland GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/16808483-hydrocortison-stada-5-mg-g-creme.html"
+      },
+      {
+        "aspect": "Propylene glycol",
+        "brand": "Contains propylene glycol",
+        "alternative": "Contains propylene glycol",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/16808483-hydrocortison-stada-5-mg-g-creme.html"
+      }
+    ]
+  },
+  {
+    "slug": "vividrin-antiallergische-augentropfen-vs-cromo-micro-labs-20mg-ml-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Eye allergy",
+    "title": "Vividrin antiallergische Augentropfen vs Cromo Micro Labs 20 mg/ml",
+    "brand": {
+      "brand": "Vividrin",
+      "product": "Vividrin antiallergische Augentropfen (sodium cromoglicate 20 mg/ml), 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 6.51,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/03561555-vividrin-antiallergische-augentropfen.html",
+      "key_ingredients": [
+        {
+          "name": "Sodium cromoglicate",
+          "amount": "20 mg/ml"
+        }
+      ],
+      "license_id": "PZN 03561555"
+    },
+    "alternative": {
+      "brand": "Micro Labs",
+      "product": "Cromo Micro Labs 20 mg/ml Augentropfen, 10 ml",
+      "size": 10,
+      "unit": "ml",
+      "price": 3.49,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16821940-cromo-micro-labs-20-mg-ml-augentropfen.html",
+      "key_ingredients": [
+        {
+          "name": "Sodium cromoglicate",
+          "amount": "20 mg/ml"
+        }
+      ],
+      "license_id": "PZN 16821940"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are 10 ml bottles of eye drops with 20 mg sodium cromoglicate per ml, which calm allergic eyes when used regularly.",
+    "evidence": "APONEO lists Vividrin antiallergische Augentropfen by Dr. Gerhard Mann (PZN 03561555) and Cromo Micro Labs 20 mg/ml Augentropfen by Micro Labs (PZN 16821940), 10 ml each. Both pages state 20 mg sodium cromoglicate per ml, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both are preserved with benzalkonium chloride and contain edetate. Vividrin adds polysorbate 80 and sorbitol. Vividrin says to use the bottle within 6 weeks of opening; the Micro Labs page doesn't say, so check the leaflet. Cromoglicate works best when started before the pollen season. Soft contact lenses should come out before using drops with benzalkonium chloride.",
+    "sources": [
+      "https://www.aponeo.de/03561555-vividrin-antiallergische-augentropfen.html",
+      "https://www.aponeo.de/16821940-cromo-micro-labs-20-mg-ml-augentropfen.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Sodium cromoglicate 2% eye drops",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Dr. Gerhard Mann",
+        "alternative": "Micro Labs GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/16821940-cromo-micro-labs-20-mg-ml-augentropfen.html"
+      },
+      {
+        "aspect": "Preservative",
+        "brand": "Benzalkonium chloride",
+        "alternative": "Benzalkonium chloride",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/16821940-cromo-micro-labs-20-mg-ml-augentropfen.html"
+      }
+    ]
+  },
+  {
+    "slug": "imodium-akut-lingual-vs-loperamid-al-2mg-schmelztabletten-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Imodium akut lingual vs Loperamid AL 2 mg Schmelztabletten",
+    "brand": {
+      "brand": "Imodium",
+      "product": "Imodium akut lingual Schmelztabletten (loperamide hydrochloride 2 mg), 12 tablets",
+      "size": 12,
+      "unit": "tablet",
+      "price": 11.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/01689854-imodium-akut-lingual-schmelztabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ],
+      "license_id": "PZN 01689854"
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "Loperamid AL 2 mg Schmelztabletten, 12 tablets",
+      "size": 12,
+      "unit": "tablet",
+      "price": 5.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/15610187-loperamid-al-2-mg-schmelztabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Loperamide hydrochloride",
+          "amount": "2 mg"
+        }
+      ],
+      "license_id": "PZN 15610187"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are melt-in-the-mouth tablets with 2 mg loperamide hydrochloride for acute diarrhoea, taken without water.",
+    "evidence": "APONEO lists Imodium akut lingual by Kenvue Germany (PZN 01689854) and Loperamid AL 2 mg Schmelztabletten by ALIUD Pharma (PZN 15610187), 12 orodispersible tablets each. Both pages state 2 mg loperamide hydrochloride per tablet and use from 12 years, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Imodium lingual is a freeze-dried wafer made with gelatine and mannitol, which dissolves on the tongue in seconds; AL's is a pressed tablet with mannitol and crospovidone. Both contain aspartame, a source of phenylalanine. Imodium tastes of peppermint, AL of spearmint. If you can swallow tablets, plain loperamide 2 mg capsules cost less again.",
+    "sources": [
+      "https://www.aponeo.de/01689854-imodium-akut-lingual-schmelztabletten.html",
+      "https://www.aponeo.de/15610187-loperamid-al-2-mg-schmelztabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Loperamide 2 mg orodispersible tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Kenvue Germany GmbH",
+        "alternative": "ALIUD Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/15610187-loperamid-al-2-mg-schmelztabletten.html"
+      },
+      {
+        "aspect": "Tablet type",
+        "brand": "Freeze-dried wafer with gelatine",
+        "alternative": "Pressed orodispersible tablet",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/01689854-imodium-akut-lingual-schmelztabletten.html"
+      },
+      {
+        "aspect": "Aspartame",
+        "brand": "Contains aspartame",
+        "alternative": "Contains aspartame",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/15610187-loperamid-al-2-mg-schmelztabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "bisolvon-hustentabletten-vs-bromhexin-8-berlin-chemie-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Cold and flu",
+    "title": "Bisolvon Hustentabletten vs Bromhexin 8 Berlin-Chemie",
+    "brand": {
+      "brand": "Bisolvon",
+      "product": "Bisolvon Hustentabletten 8 mg (bromhexine hydrochloride), 50 tablets",
+      "size": 50,
+      "unit": "tablet",
+      "price": 19.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00139011-bisolvon-hustentabletten-8-m.html",
+      "key_ingredients": [
+        {
+          "name": "Bromhexine hydrochloride",
+          "amount": "8 mg"
+        }
+      ],
+      "license_id": "PZN 00139011"
+    },
+    "alternative": {
+      "brand": "Berlin-Chemie",
+      "product": "Bromhexin 8 Berlin-Chemie überzogene Tabletten, 50 tablets",
+      "size": 50,
+      "unit": "tablet",
+      "price": 5.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04394361-bromhexin-8-berlin-chemie-ueberzogene-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Bromhexine hydrochloride",
+          "amount": "8 mg"
+        }
+      ],
+      "license_id": "PZN 04394361"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are tablets with 8 mg bromhexine hydrochloride to loosen mucus with a chesty cough.",
+    "evidence": "APONEO lists Bisolvon Hustentabletten by A. Nattermann & Cie (PZN 00139011) and Bromhexin 8 Berlin-Chemie überzogene Tabletten by BERLIN-CHEMIE (PZN 04394361), 50 tablets each. Both pages state 8 mg bromhexine hydrochloride per tablet and use from 6 years, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Here the brand has the simpler tablet. Bisolvon is an uncoated tablet with only lactose, maize starch and magnesium stearate. Berlin-Chemie's is sugar-coated and contains lactose, glucose, sucrose and the colouring quinoline yellow (E104). If you avoid sugar or colourings, that is a reason to pay more.",
+    "sources": [
+      "https://www.aponeo.de/00139011-bisolvon-hustentabletten-8-m.html",
+      "https://www.aponeo.de/04394361-bromhexin-8-berlin-chemie-ueberzogene-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Bromhexine hydrochloride 8 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "A. Nattermann & Cie GmbH",
+        "alternative": "BERLIN-CHEMIE AG",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/04394361-bromhexin-8-berlin-chemie-ueberzogene-tabletten.html"
+      },
+      {
+        "aspect": "Coating",
+        "brand": "Uncoated tablet",
+        "alternative": "Sugar-coated tablet",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/04394361-bromhexin-8-berlin-chemie-ueberzogene-tabletten.html"
+      },
+      {
+        "aspect": "Sugar and colouring",
+        "brand": "None listed",
+        "alternative": "Glucose, sucrose, quinoline yellow (E104)",
+        "verdict": "brand_better",
+        "source": "https://www.aponeo.de/04394361-bromhexin-8-berlin-chemie-ueberzogene-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "vividrin-mometason-vs-mometason-adgc-50ug-nasenspray-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Allergy",
+    "title": "Vividrin Mometason vs Mometason ADGC 50 µg nasal spray",
+    "brand": {
+      "brand": "Vividrin",
+      "product": "Vividrin Mometason Heuschnupfennasenspray 50 µg/Sprühstoß, 18 g",
+      "size": 18,
+      "unit": "g",
+      "price": 16.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16581358-vividrin-mometason-heuschn-nspr-50ug-sp-140sprst.html",
+      "key_ingredients": [
+        {
+          "name": "Mometasone furoate (as monohydrate)",
+          "amount": "50 µg per spray"
+        }
+      ],
+      "license_id": "PZN 16581358"
+    },
+    "alternative": {
+      "brand": "ADGC (Zentiva)",
+      "product": "MOMETASON ADGC 50 µg/Sprühstoß Nasenspray, 18 g",
+      "size": 18,
+      "unit": "g",
+      "price": 6.92,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/17440329-mometason-adgc-50-ug-spruehstoss-nasenspray-140.html",
+      "key_ingredients": [
+        {
+          "name": "Mometasone furoate (as monohydrate)",
+          "amount": "50 µg per spray"
+        }
+      ],
+      "license_id": "PZN 17440329"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are steroid nasal sprays with 50 micrograms mometasone furoate per spray for hay fever, and their ingredient lists match.",
+    "evidence": "APONEO lists Vividrin Mometason Heuschnupfennasenspray by Dr. Gerhard Mann (PZN 16581358) and MOMETASON ADGC 50 µg/Sprühstoß Nasenspray by Zentiva (PZN 17440329), 18 g each. Vividrin's page gives 0.052 mg mometasone furoate monohydrate, equal to 0.05 mg mometasone furoate, per spray; ADGC's gives 50 micrograms mometasone furoate as monohydrate. Both are apothekenpflichtig for adults from 18 years. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The other ingredients are the same on both pages: microcrystalline cellulose with carmellose sodium, glycerol, sodium citrate, citric acid, polysorbate 80, benzalkonium chloride and water for injection. Vividrin's page says it is for adults whose hay fever a doctor has diagnosed before. Neither page states the number of sprays; both are 18 g packs. APONEO's search list showed 6.86 euros for ADGC and its product page 6.92 euros twice; we use the product page.",
+    "sources": [
+      "https://www.aponeo.de/16581358-vividrin-mometason-heuschn-nspr-50ug-sp-140sprst.html",
+      "https://www.aponeo.de/17440329-mometason-adgc-50-ug-spruehstoss-nasenspray-140.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Mometasone furoate 50 micrograms nasal spray",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Dr. Gerhard Mann",
+        "alternative": "Zentiva Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/17440329-mometason-adgc-50-ug-spruehstoss-nasenspray-140.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "MCC and carmellose sodium, glycerol, sodium citrate, citric acid, polysorbate 80, benzalkonium chloride, water",
+        "alternative": "Benzalkonium chloride, glycerol, polysorbate 80, MCC and carmellose sodium, citric acid, sodium citrate, water",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/17440329-mometason-adgc-50-ug-spruehstoss-nasenspray-140.html"
+      }
+    ]
+  },
+  {
+    "slug": "neuralgin-vs-dolopyrin-al-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Pain relief",
+    "title": "Neuralgin vs Dolopyrin AL",
+    "brand": {
+      "brand": "Neuralgin",
+      "product": "Neuralgin Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 6.21,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/03875041-neuralgin-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Paracetamol",
+          "amount": "200 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "50 mg"
+        }
+      ],
+      "license_id": "PZN 03875041"
+    },
+    "alternative": {
+      "brand": "ALIUD (AL)",
+      "product": "Dolopyrin AL Tabletten, 20 tablets",
+      "size": 20,
+      "unit": "tablet",
+      "price": 2.98,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00190791-dolopyrin-al-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Acetylsalicylic acid",
+          "amount": "250 mg"
+        },
+        {
+          "name": "Paracetamol",
+          "amount": "200 mg"
+        },
+        {
+          "name": "Caffeine",
+          "amount": "50 mg"
+        }
+      ],
+      "license_id": "PZN 00190791"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are the three-part headache tablet: 250 mg ASS, 200 mg paracetamol and 50 mg caffeine.",
+    "evidence": "APONEO lists Neuralgin Tabletten by Dr. Pfleger (PZN 03875041) and Dolopyrin AL Tabletten by ALIUD Pharma (PZN 00190791), 20 tablets each. Both pages state 250 mg acetylsalicylic acid, 200 mg paracetamol and 50 mg caffeine per tablet, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Inactive ingredients differ: Neuralgin uses aluminium oxide, microcrystalline cellulose, maize starch and hydrogenated castor oil; Dolopyrin AL uses pregelatinised maize starch, stearic acid and talc. Neither lists lactose. The same Dolopyrin AL pack is also the cheaper side of the Thomapyrin swap.",
+    "sources": [
+      "https://www.aponeo.de/03875041-neuralgin-tabletten.html",
+      "https://www.aponeo.de/00190791-dolopyrin-al-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Aspirin 250 mg + paracetamol 200 mg + caffeine 50 mg tablets",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Dr. Pfleger Arzneimittel GmbH",
+        "alternative": "ALIUD Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/00190791-dolopyrin-al-tabletten.html"
+      },
+      {
+        "aspect": "Inactive ingredients",
+        "brand": "Aluminium oxide, microcrystalline cellulose, maize starch, pregelatinised maize starch, hydrogenated castor oil",
+        "alternative": "Pregelatinised maize starch, stearic acid, talc",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/03875041-neuralgin-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "vigantol-1000-ie-vs-vitamin-d3-aristo-1000-ie-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Vitamins and minerals",
+    "title": "Vigantol 1000 IU vs Vitamin D3 Aristo 1000 IU",
+    "brand": {
+      "brand": "Vigantol",
+      "product": "Vigantol 1.000 I.E. Vitamin D3 Tabletten, 200 tablets",
+      "size": 200,
+      "unit": "tablet",
+      "price": 12.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/13155690-vigantol-1-000-i-e-vitamin-d3-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Colecalciferol (vitamin D3)",
+          "amount": "25 µg (1000 IU)"
+        }
+      ],
+      "license_id": "PZN 13155690"
+    },
+    "alternative": {
+      "brand": "Aristo",
+      "product": "Vitamin D3 Aristo 1000 I.E. Tabletten, 200 tablets",
+      "size": 200,
+      "unit": "tablet",
+      "price": 10.79,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/20009629-vitamin-d3-aristo-1000-i-e-tabletten.html",
+      "key_ingredients": [
+        {
+          "name": "Colecalciferol (vitamin D3)",
+          "amount": "25 µg (1000 IU)"
+        }
+      ],
+      "license_id": "PZN 20009629"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are licensed vitamin D3 medicines with 25 micrograms (1000 IU) colecalciferol per tablet, not food supplements.",
+    "evidence": "APONEO lists Vigantol 1000 I.E. Vitamin D3 Tabletten by WICK Pharma, Procter & Gamble (PZN 13155690), and Vitamin D3 Aristo 1000 I.E. Tabletten by Aristo Pharma (PZN 20009629), 200 tablets each. Both pages state 25 micrograms colecalciferol, equal to 1000 IU, per tablet, and both are apothekenpflichtig medicines; Aristo's page calls itself a medicine for adults. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Both contain sucrose, sodium ascorbate, medium-chain triglycerides and tocopherol, as the vitamin comes as a dry concentrate. Vigantol adds mannitol, talc and sodium starch glycolate; Aristo adds calcium hydrogen phosphate and crospovidone. Vigantol's smaller packs are cheap too (100 tablets for 6.49 euros on its product page), so the saving here is small.",
+    "sources": [
+      "https://www.aponeo.de/13155690-vigantol-1-000-i-e-vitamin-d3-tabletten.html",
+      "https://www.aponeo.de/20009629-vitamin-d3-aristo-1000-i-e-tabletten.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Colecalciferol 1000 IU tablets (licensed medicine)",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "WICK Pharma (Procter & Gamble GmbH)",
+        "alternative": "Aristo Pharma GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/20009629-vitamin-d3-aristo-1000-i-e-tabletten.html"
+      },
+      {
+        "aspect": "Licensed medicine",
+        "brand": "Yes, apothekenpflichtig",
+        "alternative": "Yes, apothekenpflichtig",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/20009629-vitamin-d3-aristo-1000-i-e-tabletten.html"
+      },
+      {
+        "aspect": "Sugar",
+        "brand": "Contains sucrose",
+        "alternative": "Contains sucrose",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/13155690-vigantol-1-000-i-e-vitamin-d3-tabletten.html"
+      }
+    ]
+  },
+  {
+    "slug": "degasin-intens-vs-simeticon-stada-280mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Degasin intens vs Simeticon STADA 280 mg",
+    "brand": {
+      "brand": "Degasin",
+      "product": "Degasin intens 280 mg Weichkapseln (simeticone), 32 capsules",
+      "size": 32,
+      "unit": "capsule",
+      "price": 11.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16944476-degasin-intens-280-mg-weichkapseln.html",
+      "key_ingredients": [
+        {
+          "name": "Simeticone",
+          "amount": "280 mg"
+        }
+      ],
+      "license_id": "PZN 16944476"
+    },
+    "alternative": {
+      "brand": "STADA",
+      "product": "Simeticon STADA 280 mg Weichkapseln, 32 capsules",
+      "size": 32,
+      "unit": "capsule",
+      "price": 6.29,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/20393036-simeticon-stada-280-mg-weichkapseln.html",
+      "key_ingredients": [
+        {
+          "name": "Simeticone",
+          "amount": "280 mg"
+        }
+      ],
+      "license_id": "PZN 20393036"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are soft capsules with 280 mg simeticone for wind and bloating, and both are sold by STADA.",
+    "evidence": "APONEO lists Degasin intens 280 mg Weichkapseln (PZN 16944476) and Simeticon STADA 280 mg Weichkapseln (PZN 20393036), 32 soft capsules each, and names STADA Consumer Health Deutschland as the supplier of both. Both pages give 280 mg simeticone per capsule and call the product a medical device. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "The fill is the same; the capsule shell differs. Degasin's is beef gelatine coloured with titanium dioxide and the azo dyes sunset yellow and azorubine. STADA's is fish gelatine coloured with iron oxides. Neither suits vegetarians.",
+    "sources": [
+      "https://www.aponeo.de/16944476-degasin-intens-280-mg-weichkapseln.html",
+      "https://www.aponeo.de/20393036-simeticon-stada-280-mg-weichkapseln.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Simeticone 280 mg soft capsules",
+    "aspects": [
+      {
+        "aspect": "Who sells it",
+        "brand": "STADA Consumer Health Deutschland GmbH",
+        "alternative": "STADA Consumer Health Deutschland GmbH",
+        "verdict": "same",
+        "source": "https://www.aponeo.de/20393036-simeticon-stada-280-mg-weichkapseln.html"
+      },
+      {
+        "aspect": "Capsule shell",
+        "brand": "Beef gelatine; sunset yellow and azorubine",
+        "alternative": "Fish gelatine; iron oxides",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/20393036-simeticon-stada-280-mg-weichkapseln.html"
+      }
+    ]
+  },
+  {
+    "slug": "dulcolax-zaepfchen-vs-pyrilax-10mg-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Digestive health",
+    "title": "Dulcolax Zäpfchen vs Pyrilax 10 mg",
+    "brand": {
+      "brand": "Dulcolax",
+      "product": "Dulcolax 10 mg Zäpfchen (bisacodyl), 6 suppositories",
+      "size": 6,
+      "unit": "suppository",
+      "price": 9.64,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/00308169-dulcolax-10-mg-zaepfchen.html",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl",
+          "amount": "10 mg"
+        }
+      ],
+      "license_id": "PZN 00308169"
+    },
+    "alternative": {
+      "brand": "Berlin-Chemie",
+      "product": "Pyrilax 10 mg Suppositorien, 6 suppositories",
+      "size": 6,
+      "unit": "suppository",
+      "price": 3.99,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/04908340-pyrilax-10-mg-suppositorien.html",
+      "key_ingredients": [
+        {
+          "name": "Bisacodyl",
+          "amount": "10 mg"
+        }
+      ],
+      "license_id": "PZN 04908340"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are suppositories with 10 mg bisacodyl, a laxative that usually works within an hour.",
+    "evidence": "APONEO lists Dulcolax 10 mg Zäpfchen by A. Nattermann & Cie (PZN 00308169) and Pyrilax 10 mg Suppositorien by BERLIN-CHEMIE (PZN 04908340), 6 each. Both pages give 10 mg bisacodyl per suppository, and both are apothekenpflichtig. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Dulcolax's page lists hard fat as the only other ingredient; Pyrilax's page doesn't list its base, so we couldn't compare it. Dulcolax is for adults and children over 10 years. APONEO's search list showed 9.74 euros for Dulcolax and 4.99 euros for Pyrilax, while the product pages showed 9.64 and 3.99 euros; we use the product pages.",
+    "sources": [
+      "https://www.aponeo.de/00308169-dulcolax-10-mg-zaepfchen.html",
+      "https://www.aponeo.de/04908340-pyrilax-10-mg-suppositorien.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Bisacodyl 10 mg suppositories",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "A. Nattermann & Cie GmbH",
+        "alternative": "BERLIN-CHEMIE AG",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/04908340-pyrilax-10-mg-suppositorien.html"
+      },
+      {
+        "aspect": "Base",
+        "brand": "Hard fat",
+        "alternative": "Not listed on the store page",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/00308169-dulcolax-10-mg-zaepfchen.html"
+      }
+    ]
+  }
+]

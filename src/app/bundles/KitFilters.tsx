@@ -3,6 +3,11 @@
 import { ChevronDown } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { filterKits, KIT_SORTS, type KitFacts, type KitSort } from "@/lib/kit-filter";
+import { useT } from "@/lib/i18n/client";
+import { kits } from "@/lib/i18n/en/client/kits";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { kits };
 
 export type KitItem = KitFacts & { node: ReactNode };
 
@@ -12,6 +17,7 @@ export type KitItem = KitFacts & { node: ReactNode };
  * With no filter and the default order, the kits stay grouped by aisle.
  */
 export function KitFilters({ items, aisles, sub }: { items: KitItem[]; aisles: { slug: string; name: string }[]; /** Under a section heading of its own, so aisles are h3. */ sub: boolean }) {
+  const t = useT(TEXT);
   const [aisle, setAisle] = useState("all");
   const [oneStore, setOneStore] = useState(false);
   const [sort, setSort] = useState<KitSort>("recommended");
@@ -33,16 +39,16 @@ export function KitFilters({ items, aisles, sub }: { items: KitItem[]; aisles: {
 
   return (
     <div className="container-page pt-4">
-      <div role="group" aria-label="Filter and sort kits" className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:items-center">
+      <div role="group" aria-label={t("kits.filterSort")} className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:items-center">
         <label
           className={`col-span-2 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-tile border px-3 text-sm font-semibold md:col-span-1 ${oneStore ? "border-ink bg-paper" : "border-line-strong bg-paper"}`}
         >
           <input type="checkbox" checked={oneStore} onChange={(e) => setOneStore(e.target.checked)} className="h-4 w-4 accent-ink" />
-          One store only <span className="num font-medium text-muted">{oneStoreCount}</span>
+          {t("kits.oneStoreOnly")} <span className="num font-medium text-muted">{oneStoreCount}</span>
         </label>
         {present.length > 1 && (
-          <Select label="Aisle" value={activeAisle} onChange={setAisle}>
-            <option value="all">All aisles</option>
+          <Select label={t("kits.aisle")} value={activeAisle} onChange={setAisle}>
+            <option value="all">{t("kits.allAisles")}</option>
             {present.map((a) => (
               <option key={a.slug} value={a.slug}>
                 {a.name}
@@ -50,23 +56,23 @@ export function KitFilters({ items, aisles, sub }: { items: KitItem[]; aisles: {
             ))}
           </Select>
         )}
-        <Select label="Sort kits" value={sort} onChange={(v) => setSort(v as KitSort)}>
+        <Select label={t("kits.sortKits")} value={sort} onChange={(v) => setSort(v as KitSort)}>
           {KIT_SORTS.map((s) => (
             <option key={s.value} value={s.value}>
-              {s.label}
+              {t(`kits.sorts.${s.value}`)}
             </option>
           ))}
         </Select>
         <p className="col-span-2 text-sm text-ink-2 md:ml-auto" aria-live="polite">
-          {shown.length} kit{shown.length === 1 ? "" : "s"}
+          {t("kits.count", shown.length)}
         </p>
       </div>
 
       {shown.length === 0 && (
         <p className="mt-4 text-[15px] text-ink-2">
-          No kit here comes from one store.{" "}
+          {t("kits.noOneStore")}{" "}
           <button type="button" onClick={() => setOneStore(false)} className="font-semibold text-cobalt underline underline-offset-2">
-            Show every kit
+            {t("kits.showEvery")}
           </button>
         </p>
       )}

@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Check, Copy, Trash2 } from "lucide-react";
 import { setSavedList, toggleSaved, useSavedList } from "@/lib/client/savedList";
 import { setBuyingOften, useBuyingOften } from "@/lib/client/buyingOften";
@@ -24,6 +24,12 @@ import type { CategorySlug } from "@/lib/types";
 import { ProductThumb } from "./ProductThumb";
 import { Ticket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
+import { offlineDate, savedAt } from "@/lib/offline";
+import { useLang, useT } from "@/lib/i18n/client";
+import { myList } from "@/lib/i18n/en/client/myList";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { myList };
 
 export type ListItem = {
   slug: string;
@@ -108,6 +114,7 @@ export function MyList({ items }: { items: ListItem[] }) {
 
   return (
     <>
+      <OfflineNote />
       <Lead yearly={yearly} once={once} perAmount={perAmount.length} />
 
       <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-8">
@@ -293,4 +300,44 @@ function onceWhat(once: Counted[]) {
     things ? (things === 1 ? "a thing you buy once" : `${things} things you buy once`) : null,
   ].filter(Boolean);
   return parts.join(" and ");
+}
+
+function subscribeOnline(cb: () => void) {
+  window.addEventListener("online", cb);
+  window.addEventListener("offline", cb);
+  return () => {
+    window.removeEventListener("online", cb);
+    window.removeEventListener("offline", cb);
+  };
+}
+
+/**
+ * Offline, the service worker serves the last copy of this page (public/sw.js), so its prices are from then: say so,
+ * with the date the copy was kept. Nothing while online.
+ */
+function OfflineNote() {
+  const t = useT(TEXT);
+  const lang = useLang();
+  const online = useSyncExternalStore(subscribeOnline, () => navigator.onLine, () => true);
+  const [kept, setKept] = useState<string | null>(null);
+  useEffect(() => {
+    if (online || typeof caches === "undefined") return;
+    let live = true;
+    caches
+      .match("/my-list")
+      .then((res) => {
+        const at = res ? savedAt(res.headers) : null;
+        if (live && at) setKept(offlineDate(at, lang));
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, [online, lang]);
+  if (online) return null;
+  return (
+    <p role="status" className="mt-4 rounded-card border border-line-strong bg-canvas px-4 py-3 text-sm font-medium text-ink-2">
+      {t("myList.offline", kept)}
+    </p>
+  );
 }

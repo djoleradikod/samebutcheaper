@@ -1,0 +1,265 @@
+[
+  {
+    "slug": "sandisk-nintendo-switch-128gb-microsd-vs-sandisk-extreme-128gb-de",
+    "market": "DE",
+    "category": "tech-tools",
+    "subcategory": "microSD cards",
+    "title": "SanDisk Nintendo Switch 128 GB microSD vs SanDisk Extreme 128 GB",
+    "brand": {
+      "brand": "SanDisk",
+      "product": "SanDisk microSDXC für Nintendo Switch 128 GB, UHS-I U3 V30 (SDSQXAO-128G-GNCZN)",
+      "size": 128,
+      "unit": "GB",
+      "price": 48.59,
+      "retailer": "alternate",
+      "asin": null,
+      "url": "https://www.alternate.de/SanDisk/Nintendo-Switch-128-GB-microSDXC-Speicherkarte/html/product/1529672",
+      "key_ingredients": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "Read speed",
+          "amount": "up to 100 MB/s"
+        },
+        {
+          "name": "Write speed",
+          "amount": "up to 90 MB/s"
+        }
+      ],
+      "gtin": "0619659171520"
+    },
+    "alternative": {
+      "brand": "SanDisk",
+      "product": "SanDisk Extreme microSDXC 128 GB, UHS-I U3 V30 A2 (SDSQXAA-128G-GN6MA)",
+      "size": 128,
+      "unit": "GB",
+      "price": 35.89,
+      "retailer": "alternate",
+      "asin": null,
+      "url": "https://www.alternate.de/SanDisk/Extreme-128-GB-microSDXC-Speicherkarte/html/product/1854524",
+      "key_ingredients": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "Read speed",
+          "amount": "up to 160 MB/s"
+        },
+        {
+          "name": "Write speed",
+          "amount": "up to 90 MB/s"
+        },
+        {
+          "name": "A2",
+          "amount": ""
+        }
+      ],
+      "gtin": "0619659188450"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "SanDisk's licensed Nintendo Switch card and its own Extreme card are both 128 GB microSDXC cards rated U3 and V30, and the Extreme costs less while listing a faster read speed.",
+    "evidence": "alternate.de product pages read on 13 Nov 2026 and read again with a second fetch, including VAT, both available now: SanDisk Nintendo Switch 128 GB (EAN 0619659171520, maker no. SDSQXAO-128G-GNCZN) at 48.59 euros and SanDisk Extreme 128 GB (EAN 0619659188450, maker no. SDSQXAA-128G-GN6MA) at 35.89 euros. Both list microSDXC, UHS-I, U3 and V30. The Nintendo card lists read up to 100 MB/s and write up to 90 MB/s; the Extreme lists read up to 160 MB/s, write up to 90 MB/s and A2. Both barcodes start with SanDisk's company prefix 0619659. The SD Association sets out what U3, V30 and A2 mean.",
+    "differences": "The Nintendo card carries Nintendo's licence and red Switch artwork; the Extreme doesn't. Any microSDXC card works in a Switch, and Nintendo's own support page asks for microSDXC with UHS-I and a fast read speed, which both meet. The Extreme includes an SD adapter; the Nintendo page doesn't say. The Extreme page's description gives up to 190 MB/s read while its spec table says 160 MB/s; we use the table. Neither has enough shopper ratings to count.",
+    "why": "Both cards come from SanDisk with the same U3 and V30 ratings, and the cheaper one lists the faster read speed. The Nintendo licence adds artwork, not speed.",
+    "aspects": [
+      {
+        "aspect": "Read speed",
+        "brand": "Up to 100 MB/s",
+        "alternative": "Up to 160 MB/s",
+        "verdict": "alt_better",
+        "source": "https://www.alternate.de/SanDisk/Extreme-128-GB-microSDXC-Speicherkarte/html/product/1854524"
+      },
+      {
+        "aspect": "Application class",
+        "brand": "Not stated",
+        "alternative": "A2",
+        "verdict": "alt_better",
+        "source": "https://www.alternate.de/SanDisk/Extreme-128-GB-microSDXC-Speicherkarte/html/product/1854524"
+      },
+      {
+        "aspect": "Nintendo licence",
+        "brand": "Yes",
+        "alternative": "No",
+        "verdict": "brand_better",
+        "source": "https://www.alternate.de/SanDisk/Nintendo-Switch-128-GB-microSDXC-Speicherkarte/html/product/1529672"
+      }
+    ],
+    "sources": [
+      "https://www.alternate.de/SanDisk/Nintendo-Switch-128-GB-microSDXC-Speicherkarte/html/product/1529672",
+      "https://www.alternate.de/SanDisk/Extreme-128-GB-microSDXC-Speicherkarte/html/product/1854524",
+      "https://www.sdcard.org/developers/sd-standard-overview/speed-class/",
+      "https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "kingston-canvas-go-plus-128gb-microsd-vs-sandisk-extreme-128gb-de",
+    "market": "DE",
+    "category": "tech-tools",
+    "subcategory": "microSD cards",
+    "title": "Kingston Canvas Go! Plus 128 GB microSD vs SanDisk Extreme 128 GB",
+    "brand": {
+      "brand": "Kingston",
+      "product": "Kingston Canvas Go! Plus microSDXC 128 GB, UHS-I U3 V30 A2 (SDCG4/128GB)",
+      "size": 128,
+      "unit": "GB",
+      "price": 51.9,
+      "retailer": "alternate",
+      "asin": null,
+      "url": "https://www.alternate.de/Kingston/Canvas-Go-Plus-128-GB-microSDXC-Speicherkarte/html/product/100125284",
+      "key_ingredients": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "A2",
+          "amount": ""
+        },
+        {
+          "name": "Read speed",
+          "amount": "up to 200 MB/s"
+        }
+      ],
+      "gtin": "0740617347944"
+    },
+    "alternative": {
+      "brand": "SanDisk",
+      "product": "SanDisk Extreme microSDXC 128 GB, UHS-I U3 V30 A2 (SDSQXAA-128G-GN6MA)",
+      "size": 128,
+      "unit": "GB",
+      "price": 35.89,
+      "retailer": "alternate",
+      "asin": null,
+      "url": "https://www.alternate.de/SanDisk/Extreme-128-GB-microSDXC-Speicherkarte/html/product/1854524",
+      "key_ingredients": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "A2",
+          "amount": ""
+        },
+        {
+          "name": "Read speed",
+          "amount": "up to 160 MB/s"
+        },
+        {
+          "name": "Write speed",
+          "amount": "up to 90 MB/s"
+        }
+      ],
+      "gtin": "0619659188450"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are 128 GB microSDXC cards rated U3, V30 and A2 with an SD adapter, and the SanDisk Extreme costs less at the same shop.",
+    "evidence": "alternate.de product pages read on 13 Nov 2026 and read again with a second fetch, including VAT, both available now: Kingston Canvas Go! Plus 128 GB (EAN 0740617347944, maker no. SDCG4/128GB) at 51.90 euros and SanDisk Extreme 128 GB (EAN 0619659188450, maker no. SDSQXAA-128G-GN6MA) at 35.89 euros. Both list microSDXC, UHS-I, Class 10, U3, V30 and A2, and both include an SD adapter. The SD Association sets out the minimum speeds these ratings promise.",
+    "differences": "Kingston lists a faster top read speed (up to 200 MB/s against 160 MB/s) and no write speed; SanDisk lists write up to 90 MB/s. The ratings both carry promise the same minimums, so the difference is only in peak speed, which matters when copying lots of files to a computer. Neither has enough shopper ratings to count, and no test we read covers these two.",
+    "why": "The ratings that matter for cameras, phones and consoles are the same, and the cheaper card is from the market leader.",
+    "aspects": [
+      {
+        "aspect": "Read speed",
+        "brand": "Up to 200 MB/s",
+        "alternative": "Up to 160 MB/s",
+        "verdict": "brand_better",
+        "source": "https://www.alternate.de/Kingston/Canvas-Go-Plus-128-GB-microSDXC-Speicherkarte/html/product/100125284"
+      },
+      {
+        "aspect": "Write speed",
+        "brand": "Not stated",
+        "alternative": "Up to 90 MB/s",
+        "verdict": "different",
+        "source": "https://www.alternate.de/SanDisk/Extreme-128-GB-microSDXC-Speicherkarte/html/product/1854524"
+      }
+    ],
+    "sources": [
+      "https://www.alternate.de/Kingston/Canvas-Go-Plus-128-GB-microSDXC-Speicherkarte/html/product/100125284",
+      "https://www.alternate.de/SanDisk/Extreme-128-GB-microSDXC-Speicherkarte/html/product/1854524",
+      "https://www.sdcard.org/developers/sd-standard-overview/speed-class/",
+      "https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/"
+    ],
+    "price_checked": "2026-11"
+  },
+  {
+    "slug": "diamant-feinster-zucker-vs-jeden-tag-zucker-raffinade-de",
+    "market": "DE",
+    "category": "food-pantry",
+    "subcategory": "Sugar",
+    "title": "Diamant Feinster Zucker vs Jeden Tag Zucker Raffinade",
+    "brand": {
+      "brand": "Diamant",
+      "product": "Diamant Feinster Zucker, 1 kg",
+      "size": 1000,
+      "unit": "g",
+      "price": 2.29,
+      "retailer": "mytime",
+      "asin": null,
+      "url": "https://www.mytime.de/diamant_feinster_zucker_4502120072.html",
+      "key_ingredients": [
+        {
+          "name": "Fine crystal sugar",
+          "amount": ""
+        },
+        {
+          "name": "Sugars per 100 g",
+          "amount": "100 g"
+        }
+      ],
+      "gtin": "4008381145002"
+    },
+    "alternative": {
+      "brand": "Jeden Tag",
+      "product": "Jeden Tag Zucker Raffinade, 1 kg",
+      "size": 1000,
+      "unit": "g",
+      "price": 1.19,
+      "retailer": "mytime",
+      "asin": null,
+      "url": "https://www.mytime.de/jeden_tag_zucker_raffinade_4502120177.html",
+      "key_ingredients": [
+        {
+          "name": "Fine crystal sugar",
+          "amount": ""
+        },
+        {
+          "name": "Sugars per 100 g",
+          "amount": "100 g"
+        }
+      ],
+      "gtin": "4306188050971"
+    },
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "Both are 1 kg bags of fine white crystal sugar with the same nutrition table, and the own-label bag costs about half as much.",
+    "evidence": "Both read on mytime.de on 13 Nov 2026 and read again with a second fetch, including VAT: Diamant Feinster Zucker 1 kg (EAN 4008381145002) at 2.29 euros and Jeden Tag Zucker Raffinade 1 kg (EAN 4306188050971) at 1.19 euros. Both pages describe the sugar as fine crystal sugar (feiner Kristallzucker) and give the same values per 100 g: 1700 kJ / 400 kcal, 100 g carbohydrate, all of it sugars, and no fat, protein or salt.",
+    "differences": "Neither page prints an ingredient list or names the maker, which EU rules don't require for a one-ingredient food. The Jeden Tag bag is labelled Raffinade, the top refining grade; Diamant's page doesn't state a grade, so we can't say both are the same grade. myTime delivers free only from 70 euros, so this saving matters inside a bigger shop.",
+    "why": "White sugar is one ingredient, and the two labels give the same crystal size and the same nutrition table.",
+    "aspects": [
+      {
+        "aspect": "Refining grade",
+        "brand": "Not stated",
+        "alternative": "Raffinade (stated)",
+        "verdict": "different",
+        "source": "https://www.mytime.de/jeden_tag_zucker_raffinade_4502120177.html"
+      },
+      {
+        "aspect": "Nutrition per 100 g",
+        "brand": "400 kcal, 100 g sugars",
+        "alternative": "400 kcal, 100 g sugars",
+        "verdict": "same",
+        "source": "https://www.mytime.de/jeden_tag_zucker_raffinade_4502120177.html"
+      }
+    ],
+    "sources": [
+      "https://www.mytime.de/diamant_feinster_zucker_4502120072.html",
+      "https://www.mytime.de/jeden_tag_zucker_raffinade_4502120177.html"
+    ],
+    "price_checked": "2026-11"
+  }
+]

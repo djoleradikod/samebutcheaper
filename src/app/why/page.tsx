@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import type { ReactNode } from "react";
 import { citationDate, Finding } from "@/components/Finding";
 import { ProductThumb } from "@/components/ProductThumb";

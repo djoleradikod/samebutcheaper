@@ -1,0 +1,61 @@
+{
+  "nutella-vs-ja-nuss-nougat-creme-de": {
+    "summary": "Beide sind Nuss-Nougat-Cremes mit Haselnüssen und Kakao, mit Zucker an erster Stelle und 13 % Haselnüssen, und das ja!-Glas kostet im selben REWE pro 100 g etwa 44 % weniger.",
+    "evidence": "Beide Preise bei REWE Stenten, Aachen, am 2026-09-18, keiner als Angebot gekennzeichnet: Nutella 450 g für 3,99 EUR (0,89 EUR pro 100 g), ja! 400 g für 1,99 EUR (0,50 EUR pro 100 g). ja! kostete dort am 2026-09-25 noch 1,99 EUR. Zutaten und Nährwerte stammen aus den Open-Facts-Einträgen 4008400401621 und 4337256609326. Der Test von 18 Cremes bei Stiftung Warentest (September 2026) umfasste beide Produkte, und Öko-Test 9/2022 hat beide im Labor geprüft.",
+    "why": "Die Zutatenliste von ja! hat die gleichen 13 % Haselnüsse und fast den gleichen Kakaoanteil wie Nutella, für etwa 44 % weniger pro 100 g. Was das Mehr an Geld bringen kann, ist Geschmack, und für ja! haben wir keine veröffentlichte Note zum Vergleich.",
+    "differences": [
+      "Nutella verwendet nur Palmöl; ja! verwendet Raps- und Palmöl.",
+      "Pro 100 g hat Nutella laut Open Facts 56,3 g Zucker, 30,9 g Fett, 10,6 g gesättigte Fettsäuren und 539 kcal; ja! hat 49 g Zucker, 36 g Fett, 7,2 g gesättigte Fettsäuren und 565 kcal.",
+      "Nutella enthält mehr Milchpulver (8,7 % gegenüber 7,5 %) und zusätzlich Vanillin, das die ja!-Liste nicht aufführt.",
+      "Nutella schnitt beim Geschmack bei Stiftung Warentest gut ab: 1,5 für den Geschmack und Platz drei von 18 insgesamt. ja! war in diesem Test, aber seine Noten stehen hinter der Bezahlschranke und wir haben sie nicht gelesen, also können wir nicht sagen, dass es genauso gut schmeckt. Öko-Test 9/2022 bewertete die Inhaltsstoffe bei ja! mit gut und bei Nutella mit mangelhaft; das war ein Labortest ohne Verkostung, und er ist vier Jahre alt. ja! ist ein kleineres Glas.",
+      "Nutella gibt es auch im Angebot: zwei Open-Prices-Einträge aus Bayern vom April 2025 zeigen 1,79 und 1,99 EUR, was ja! pro 100 g unterbietet."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Zucker", "amount": "" },
+        { "name": "Palmöl", "amount": "" },
+        { "name": "Haselnüsse", "amount": "13 %" },
+        { "name": "Magermilchpulver", "amount": "8,7 %" },
+        { "name": "Fettarmer Kakao", "amount": "7,4 %" }
+      ],
+      "alternative": [
+        { "name": "Zucker", "amount": "" },
+        { "name": "Pflanzliche Öle (Raps, Palm)", "amount": "" },
+        { "name": "Haselnüsse", "amount": "13 %" },
+        { "name": "Fettarmes Kakaopulver", "amount": "7,5 %" },
+        { "name": "Magermilchpulver", "amount": "7,5 %" }
+      ]
+    }
+  },
+  "nutella-vs-nussetti-nuss-nougat-creme-de": {
+    "summary": "Beide sind Nuss-Nougat-Cremes mit Haselnüssen und Kakao, mit Zucker an erster Stelle und 13 % Haselnüssen, und das Nussetti-Glas kostet im selben Netto pro 100 g etwa 44 % weniger.",
+    "evidence": "Beide Preise bei Netto Marken-Discount, Strausberg, am 2026-11-02, keiner als Angebot gekennzeichnet: Nutella 450 g für 3,99 EUR (0,89 EUR pro 100 g), Nussetti 400 g für 1,99 EUR (0,50 EUR pro 100 g). Nussetti kostete auch bei Netto City, München, am 2026-10-17 1,99 EUR. Zutaten und Nährwerte stammen aus den Open-Facts-Einträgen 4008400401621 und 4316268389792. Öko-Test 9/2022 hat beide Produkte im Labor geprüft.",
+    "why": "Nussetti hat die gleichen 13 % Haselnüsse wie Nutella und mehr Kakao, für etwa 44 % weniger pro 100 g. Was das Mehr an Geld bringen kann, ist Geschmack, und wir haben keinen aktuellen Test gefunden, der beide vergleicht.",
+    "differences": [
+      "Nutella verwendet nur Palmöl; Nussetti verwendet Raps- und Palmöl.",
+      "Nussetti enthält mehr Kakao (9 % gegenüber 7,4 %).",
+      "Das Etikett nennt keinen Anteil an Milchpulver, gegenüber 8,7 % bei Nutella, und das Vanillin von Nutella steht nicht in der Liste.",
+      "Pro 100 g hat Nutella laut Open Facts 56,3 g Zucker, 30,9 g Fett, 10,6 g gesättigte Fettsäuren und 539 kcal; Nussetti hat 48 g Zucker, 35,6 g Fett, 7,1 g gesättigte Fettsäuren und 557 kcal.",
+      "Nutella schnitt im September 2026 beim Geschmack bei Stiftung Warentest gut ab: 1,5 für den Geschmack und Platz drei von 18 insgesamt.",
+      "Nussetti war nicht unter den 18, und wir haben keinen aktuellen Geschmackstest dazu gefunden. Öko-Test 9/2022 bewertete die Inhaltsstoffe bei Nussetti mit befriedigend und bei Nutella mit mangelhaft; das war ein Labortest ohne Verkostung, und er ist vier Jahre alt.",
+      "Nussetti ist ein kleineres Glas.",
+      "Nutella gibt es auch im Angebot: zwei Open-Prices-Einträge aus Bayern vom April 2025 zeigen 1,79 und 1,99 EUR, was Nussetti pro 100 g unterbietet."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Zucker", "amount": "" },
+        { "name": "Palmöl", "amount": "" },
+        { "name": "Haselnüsse", "amount": "13 %" },
+        { "name": "Magermilchpulver", "amount": "8,7 %" },
+        { "name": "Fettarmer Kakao", "amount": "7,4 %" }
+      ],
+      "alternative": [
+        { "name": "Zucker", "amount": "" },
+        { "name": "Pflanzliche Öle (Raps, Palm)", "amount": "" },
+        { "name": "Haselnüsse", "amount": "13 %" },
+        { "name": "Fettarmes Kakaopulver", "amount": "9 %" },
+        { "name": "Magermilchpulver", "amount": "" }
+      ]
+    }
+  }
+}

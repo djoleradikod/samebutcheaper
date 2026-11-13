@@ -13,6 +13,8 @@ export type KitFacts = {
   netPct: number;
   /** Position in the page's default order: photos first, then score. */
   rank: number;
+  /** Shoppers have reported it as changed (src/lib/reported-state.ts): it sorts last under every order, so it never leads. */
+  stale?: boolean;
 };
 
 export const KIT_SORTS = [
@@ -30,5 +32,5 @@ export function filterKits<T extends KitFacts>(items: readonly T[], { aisle, one
     amount: (a, b) => b.net - a.net || b.netPct - a.netPct,
     pct: (a, b) => b.netPct - a.netPct || b.net - a.net,
   };
-  return [...list].sort((a, b) => by[sort](a, b) || a.slug.localeCompare(b.slug));
+  return [...list].sort((a, b) => Number(!!a.stale) - Number(!!b.stale) || by[sort](a, b) || a.slug.localeCompare(b.slug));
 }

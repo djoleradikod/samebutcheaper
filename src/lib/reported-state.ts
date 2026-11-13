@@ -26,3 +26,13 @@ export function isReported(kind: "pair" | "bundle", slug: string) {
 export function canLeadNow(p: { slug: string; priceOld: boolean }) {
   return !p.priceOld && !isReported("pair", p.slug);
 }
+
+/** The same for a kit: a kit shoppers report as changed never leads a list of kits (/bundles, related kits). */
+export function kitCanLeadNow(k: { slug: string }) {
+  return !isReported("bundle", k.slug);
+}
+
+/** Orders kits that may lead before those that may not, keeping the rest of the order. */
+export function kitLeadFirst(a: { slug: string }, b: { slug: string }) {
+  return Number(!kitCanLeadNow(a)) - Number(!kitCanLeadNow(b));
+}

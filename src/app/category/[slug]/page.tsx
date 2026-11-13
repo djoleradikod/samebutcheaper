@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/CountryLink";
-import { countryHead } from "@/lib/seo-catalog";
 import { notFound } from "next/navigation";
-import { CATEGORIES, CATEGORY_MAP } from "@/lib/categories";
+import { CATEGORIES } from "@/lib/categories";
 import { getCategoryStats, getPairsByCategory } from "@/lib/catalog";
 import { MEDICINE } from "@/lib/browse";
 import { PairBrowser } from "@/components/PairBrowser";
@@ -10,37 +9,17 @@ import { HealthNotice } from "@/components/Evidence";
 import { CountryPart } from "@/components/ForCountry";
 import { ListSchema } from "@/components/ListSchema";
 import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount, TagLinks } from "@/components/ShelfParts";
-import type { CategorySlug } from "@/lib/types";
-import { inSentence } from "@/lib/format";
 import { forCountry } from "@/lib/localize";
-import { categoryDescription, categoryTitle } from "@/lib/seo";
+import { getT, type Lang } from "@/lib/i18n";
+import { getLang } from "@/lib/i18n/server";
+import { aisleMetadata, aisleText, lookup } from "./aisle-meta";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }));
 }
 
-function lookup(slug: string) {
-  return Object.hasOwn(CATEGORY_MAP, slug) ? CATEGORY_MAP[slug as CategorySlug] : undefined;
-}
-
 export async function generateMetadata({ params }: PageProps<"/category/[slug]">): Promise<Metadata> {
-  const { slug } = await params;
-  const cat = lookup(slug);
-  if (!cat) return { title: "Category not found" };
-  const count = getPairsByCategory(cat.slug).length;
-  if (!count) {
-    return {
-      title: `Cheaper ${cat.name}`,
-      description: cat.description,
-      alternates: { canonical: `/category/${cat.slug}` },
-      robots: { index: false, follow: true },
-    };
-  }
-  return {
-    title: categoryTitle(cat.name, count),
-    description: categoryDescription(cat.name, cat.description, count),
-    ...(countryHead(`/category/${cat.slug}`, null) ?? { alternates: { canonical: `/category/${cat.slug}` } }),
-  };
+  return aisleMetadata((await params).slug);
 }
 
 export default async function CategoryPage({ params }: PageProps<"/category/[slug]">) {
@@ -48,30 +27,33 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
   const cat = lookup(slug);
   if (!cat) notFound();
   const all = getPairsByCategory(cat.slug);
-  const name = inSentence(cat.name);
+  const lang = getLang();
+  const t = getT(lang);
+  const text = aisleText(cat.slug, lang);
 
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead
-        crumbs={[{ href: "/", label: "Home" }, { label: cat.name }]}
+        lang={lang}
+        crumbs={[{ href: "/", label: t("lists.home") }, { label: text.name }]}
         title={
           <>
-            Cheaper {name}
+            {t("lists.category.cheaper", text.name)}
             <CountryPart fallback={null}>
               {(local) => {
                 const n = forCountry(all, local).length;
-                return n > 0 && `: ${swapCount(n)}`;
+                return n > 0 && `: ${swapCount(n, lang)}`;
               }}
             </CountryPart>
           </>
         }
-        intro={cat.description}
-        ticket={<CountryPart fallback={null}>{(local) => <BestTicket best={bestSaving(forCountry(all, local))} />}</CountryPart>}
+        intro={text.description}
+        ticket={<CountryPart fallback={null}>{(local) => <BestTicket best={bestSaving(forCountry(all, local))} lang={lang} />}</CountryPart>}
         facts={
           <CountryPart fallback={null}>
             {(local) => {
               const pairs = forCountry(all, local);
-              return pairs.length > 0 && <PriceFacts pairs={pairs} />;
+              return pairs.length > 0 && <PriceFacts pairs={pairs} lang={lang} />;
             }}
           </CountryPart>
         }
@@ -83,11 +65,11 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
             <>
               {cat.slug === MEDICINE && pairs.length > 0 && (
                 <div className="container-page mb-4">
-                  <HealthNotice />
+                  <HealthNotice lang={lang} />
                 </div>
               )}
               <div className="container-page">
-                {pairs.length ? <PairBrowser path={`/category/${cat.slug}`} {...browseProps(pairs, { local })} /> : <EmptyAisle />}
+                {pairs.length ? <PairBrowser path={`/category/${cat.slug}`} {...browseProps(pairs, { local })} /> : <EmptyAisle lang={lang} />}
               </div>
             </>
           );
@@ -105,22 +87,21 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
   );
 }
 
-function EmptyAisle() {
+function EmptyAisle({ lang }: { lang: Lang }) {
+  const t = getT(lang);
   const aisles = getCategoryStats().filter((c) => c.count > 0);
   return (
     <div className="card p-5">
-      <p className="font-semibold">We haven&apos;t checked any swaps in this aisle yet.</p>
-      <p className="mt-1 text-sm text-ink-2">
-        Tell us what you buy here and we&apos;ll look into it, or try another aisle.
-      </p>
+      <p className="font-semibold">{t("lists.category.emptyTitle")}</p>
+      <p className="mt-1 text-sm text-ink-2">{t("lists.category.emptyBody")}</p>
       <p className="mt-3">
         <Link href="/suggest" className="btn btn-primary">
-          Suggest a swap
+          {t("lists.category.suggest")}
         </Link>
       </p>
       {aisles.length > 0 && (
         <div className="mt-4">
-          <TagLinks links={aisles.map((a) => ({ href: `/category/${a.slug}`, label: a.name }))} />
+          <TagLinks links={aisles.map((a) => ({ href: `/category/${a.slug}`, label: aisleText(a.slug, lang).name }))} />
         </div>
       )}
     </div>

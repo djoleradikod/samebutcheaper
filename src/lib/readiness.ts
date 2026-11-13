@@ -1,4 +1,6 @@
 import { livePrograms, liveSubNetwork, pickAffiliateEnv, type Env } from "./affiliate-links";
+import feedRunsJson from "../../data/prices/feed-runs.json";
+import { feedReadiness, type FeedRuns } from "./feed-status";
 import { legalMissing } from "./legal";
 import { letterSettings } from "./letter-settings";
 import { mailConfigured } from "./mail";
@@ -221,6 +223,9 @@ export function readinessChecks(env: Env, facts: Facts): Check[] {
     detail: set("CLIENT_IP_HEADER") ? env.CLIENT_IP_HEADER!.trim() : "not set: correct without a CDN",
     fix: "Once Cloudflare is in front, set CLIENT_IP_HEADER=cf-connecting-ip, or rate limits and unique-visitor counts see Cloudflare's addresses.",
   });
+  // ---- Affiliate price feeds (docs/feeds.md). The feed URLs are a GitHub secret, so the price watch's own record of
+  // ---- its runs says which networks are set up; a configured one with no price in 14 days is flagged.
+  add(feedReadiness(feedRunsJson as FeedRuns, new Date().toISOString().slice(0, 10)));
   return checks;
 }
 

@@ -17,6 +17,11 @@ import { money, ppu, type Currency } from "./format";
 import { countryInSentence, isKnownCountry, isMarket, MARKET_CODES, MARKETS, type MarketCode } from "./markets";
 import { deliversTo, namedSellers, sellsIn, shipsFrom } from "./sellers";
 import { unitPrice, unitPriceFine } from "./unit-format";
+import type { Lang } from "./i18n/lang";
+import { shortDateDe } from "./i18n/format";
+
+/** "britischen" in "bei einem britischen Händler": the market adjective after "einem". */
+const MARKET_ADJECTIVE_DE: Record<MarketCode, string> = { US: "US-amerikanischen", GB: "britischen", CA: "kanadischen", DE: "deutschen", IE: "irischen" };
 
 /** Euro-based: one euro buys this much of each currency. */
 const RATES: Partial<Record<Currency, number>> = { ...(fx.rates as Partial<Record<Currency, number>>), EUR: 1 };
@@ -176,6 +181,8 @@ export function rate(from: Currency, to: Currency) {
 export type Local = {
   /** The selected country, or the US when we don't know one. */
   country: string;
+  /** The page's language, which sets how numbers and money read ("€11.70" or "11,70 €"). Not the country: /de is German, a German shopper on an unprefixed page reads English. */
+  lang: Lang;
   /** False when we don't know the country: crawlers and first visits with no location. See localFor. */
   known: boolean;
   /** Whether we may name and link a store for this shopper. */
@@ -242,14 +249,25 @@ function writtenPattern(from: Currency) {
 
 const toNumber = (written: string) => (/,\d{3}/.test(written) ? Number(written.replaceAll(",", "")) : Number(written.replace(",", ".")));
 
+/**
+ * "£9.99 at a UK store, Nov 2026": the price as checked, beside a converted one. The same for every shopper it's shown
+ * to on a page in one language, so the reserved stand-in copy (src/lib/reserve.ts) reads exactly like the visible one.
+ */
+export function originalPriceText(n: number, from: Currency, market: MarketCode, checked: string, lang: Lang = "en") {
+  return lang === "de"
+    ? `${money(n, from, lang)} bei einem ${MARKET_ADJECTIVE_DE[market]} Händler, ${shortDateDe(checked, "month")}`
+    : `${money(n, from)} at a ${MARKET_ADJECTIVE[market]} store, ${shortMonth(checked)}`;
+}
+
 /** "Nov 2026" from the catalogue's "2026-11" or "2026-11-06". The same on server and client. */
+
 export function shortMonth(iso: string) {
   const [y, m] = iso.split("-").map(Number);
   if (!y || !m) return iso;
   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
 }
 
-function build(country: string, askedForOthers: boolean): Local {
+function build(country: string, askedForOthers: boolean, lang: Lang = "en"): Local {
   const listMarket = listMarketFor(country);
   const fallback = listMarket !== country;
   const markets = visibleMarkets(country);
@@ -257,9 +275,10 @@ function build(country: string, askedForOthers: boolean): Local {
   const others = askedForOthers && othersFrom.length > 0;
   const currency = COUNTRY_CURRENCY[country] ?? MARKETS[listMarket].currency;
   const amount = (n: number, from: Currency) => n * rate(from, currency);
-  const about = (from: Currency, text: string) => (from === currency ? text : `about ${text}`);
+  const about = (from: Currency, text: string) => (from === currency ? text : `${lang === "de" ? "etwa" : "about"} ${text}`);
   const local: Local = {
     country,
+    lang,
     known: true,
     sells: (retailer, market) => deliversTo(retailer, market, country) !== "no",
     shows: (item) => {
@@ -282,13 +301,12 @@ function build(country: string, askedForOthers: boolean): Local {
     currency,
     converts: (from) => from !== currency,
     amount,
-    bare: (n, from) => money(amount(n, from), currency),
-    money: (n, from) => about(from, money(amount(n, from), currency)),
-    unitBare: (ppu, unit, from) => unitPrice(amount(ppu, from), unit, currency),
-    unit: (ppu, unit, from) => about(from, unitPrice(amount(ppu, from), unit, currency)),
-    unitFine: (ppu, unit, from) => about(from, unitPriceFine(amount(ppu, from), unit, currency)),
-    original: (n, from, market, checked) =>
-      from === currency ? null : `${money(n, from)} at a ${MARKET_ADJECTIVE[market]} store, ${shortMonth(checked)}`,
+    bare: (n, from) => money(amount(n, from), currency, lang),
+    money: (n, from) => about(from, money(amount(n, from), currency, lang)),
+    unitBare: (ppu, unit, from) => unitPrice(amount(ppu, from), unit, currency, lang),
+    unit: (ppu, unit, from) => about(from, unitPrice(amount(ppu, from), unit, currency, lang)),
+    unitFine: (ppu, unit, from) => about(from, unitPriceFine(amount(ppu, from), unit, currency, lang)),
+    original: (n, from, market, checked) => (from === currency ? null : originalPriceText(n, from, market, checked, lang)),
     prose: (text, from) => {
       const pattern = from === currency ? null : writtenPattern(from);
       if (!pattern) return text;
@@ -310,28 +328,32 @@ function build(country: string, askedForOthers: boolean): Local {
 const CACHE = new Map<string, Local>();
 
 /** With no country, lists lead with the US, but each record keeps its own currency and store: we can't say it's foreign. */
-const UNKNOWN: Local = {
-  ...build("US", false),
-  known: false,
-  sells: () => true,
-  shows: firstOfTwins,
-  converts: () => false,
-  amount: (n) => n,
-  bare: (n, from) => money(n, from),
-  money: (n, from) => money(n, from),
-  unitBare: (ppu, unit, from) => unitPrice(ppu, unit, from),
-  unit: (ppu, unit, from) => unitPrice(ppu, unit, from),
-  unitFine: (ppu, unit, from) => unitPriceFine(ppu, unit, from),
-  original: () => null,
-  prose: (text) => text,
-};
+function unknown(lang: Lang): Local {
+  return {
+    ...build("US", false, lang),
+    known: false,
+    sells: () => true,
+    shows: firstOfTwins,
+    converts: () => false,
+    amount: (n) => n,
+    bare: (n, from) => money(n, from, lang),
+    money: (n, from) => money(n, from, lang),
+    unitBare: (ppu, unit, from) => unitPrice(ppu, unit, from, lang),
+    unit: (ppu, unit, from) => unitPrice(ppu, unit, from, lang),
+    unitFine: (ppu, unit, from) => unitPriceFine(ppu, unit, from, lang),
+    original: () => null,
+    prose: (text) => text,
+  };
+}
+const UNKNOWN: Record<Lang, Local> = { en: unknown("en"), de: unknown("de") };
 
-export function localFor(country: string | null, others = false): Local {
-  if (!isKnownCountry(country)) return UNKNOWN;
-  const key = `${country}${others ? "+" : ""}`;
+/** `lang` is the page's language (src/lib/i18n/lang.ts); it changes only how amounts read, never which records list. */
+export function localFor(country: string | null, others = false, lang: Lang = "en"): Local {
+  if (!isKnownCountry(country)) return UNKNOWN[lang];
+  const key = `${country}${others ? "+" : ""}${lang === "en" ? "" : `|${lang}`}`;
   let local = CACHE.get(key);
   if (!local) {
-    local = build(country, others);
+    local = build(country, others, lang);
     CACHE.set(key, local);
   }
   return local;

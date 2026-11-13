@@ -18,13 +18,14 @@
 (function (self) {
   "use strict";
 
-  var VERSION = "v1";
+  var VERSION = "v2";
   var SHELL_CACHE = "sbc-shell-" + VERSION;
   var STATIC_CACHE = "sbc-static-" + VERSION;
   var OFFLINE_URL = "/offline.html";
   var MY_LIST_URL = "/my-list";
   /** Kept at install. /my-list is fetched too, with the static files its page names (see cacheMyList). */
-  var SHELL = [OFFLINE_URL, "/icons/icon-192.png"];
+  var OFFLINE_DE_URL = "/offline-de.html";
+  var SHELL = [OFFLINE_URL, OFFLINE_DE_URL, "/icons/icon-192.png"];
   var IMAGE_CACHE = "sbc-images-" + VERSION;
   var STATIC_MAX = 250;
   var IMAGE_MAX = 80;
@@ -97,7 +98,8 @@
   /** Keep /my-list's HTML and the static files it names, so it opens offline. */
   function cacheMyList(res) {
     return res.text().then(function (html) {
-      var copy = new Response(html, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } });
+      // X-Sbc-Saved: when this copy was kept, so My list can say how old its prices are when it is served offline.
+      var copy = new Response(html, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8", "X-Sbc-Saved": new Date().toISOString() } });
       var urls = staticUrlsIn(html);
       return Promise.all([
         caches.open(SHELL_CACHE).then(function (c) {
@@ -160,10 +162,18 @@
     );
   });
 
-  function offline() {
-    return caches.match(OFFLINE_URL, { cacheName: SHELL_CACHE }).then(function (hit) {
-      return hit || new Response("You're offline.", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
-    });
+  /** The German page for German URLs (/de/..., /datenschutz), else the English one. */
+  function offline(req) {
+    var path = req ? new URL(req.url).pathname : "/";
+    var german = /^\/(de|datenschutz)(\/|$)/.test(path);
+    return caches
+      .match(german ? OFFLINE_DE_URL : OFFLINE_URL, { cacheName: SHELL_CACHE })
+      .then(function (hit) {
+        return hit || caches.match(OFFLINE_URL, { cacheName: SHELL_CACHE });
+      })
+      .then(function (hit) {
+        return hit || new Response("You're offline.", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+      });
   }
 
   self.addEventListener("fetch", function (event) {
@@ -172,7 +182,11 @@
     if (kind === "pass") return;
 
     if (kind === "page") {
-      event.respondWith(fetch(req).catch(offline));
+      event.respondWith(
+        fetch(req).catch(function () {
+          return offline(req);
+        }),
+      );
       return;
     }
 

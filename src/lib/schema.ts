@@ -436,3 +436,48 @@ export function migrateLegacyPrices(raw: unknown): unknown {
   if (Array.isArray(r.components)) r.components.forEach(fix);
   return raw;
 }
+
+/* ---------------------------------------------------------------------------
+ * German record text, in data/i18n/de/. Optional: a record without it shows its English text on a German page, marked
+ * "Auf Englisch". With it, every text field the page shows is German, never a mix; scripts/build-catalog.ts checks that
+ * the fields line up with the English record and carry the same numbers (src/lib/i18n/record-check.ts).
+ * ------------------------------------------------------------------------- */
+
+const ingredientDe = z.object({ name: z.string().min(1), amount: z.string() }).strict();
+
+/** One swap's German text. Arrays line up one to one with the English record's. */
+export const pairDeSchema = z
+  .object({
+    summary: z.string().min(10),
+    evidence: z.string().min(10),
+    /** One entry per sentence of the English `differences` (as compare.ts splits them), in the same order. */
+    differences: z.array(z.string().min(1)).default([]),
+    why: z.string().min(20).optional(),
+    /** One per English aspect, same order. Verdicts and sources stay the English record's. */
+    aspects: z.array(z.object({ aspect: z.string().min(2), brand: z.string().min(1), alternative: z.string().min(1) }).strict()).default([]),
+    /** The label rows, one per English key_ingredients entry on each side. */
+    ingredients: z.object({ brand: z.array(ingredientDe), alternative: z.array(ingredientDe) }).strict().optional(),
+  })
+  .strict();
+
+export type PairDe = z.infer<typeof pairDeSchema>;
+
+/** A file of German swap text: data/i18n/de/<the pair file's name>.json, keyed by slug. */
+export const pairDeFileSchema = z.record(z.string(), pairDeSchema);
+
+export const claimDeSchema = z.object({ title: z.string().min(5), finding: z.string().min(20), caveat: z.string().default("") }).strict();
+export type ClaimDe = z.infer<typeof claimDeSchema>;
+
+export const shelfLifeDeSchema = z
+  .object({
+    label: z.string().min(3),
+    unopened: z.string().min(3),
+    opened: z.string().default(""),
+    storage: z.string().default(""),
+    note: z.string().default(""),
+  })
+  .strict();
+export type ShelfLifeDe = z.infer<typeof shelfLifeDeSchema>;
+
+/** Words records share, keyed by the English: subcategory names. */
+export const glossaryDeSchema = z.object({ subcategories: z.record(z.string(), z.string().min(2)) }).strict();

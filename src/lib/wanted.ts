@@ -37,6 +37,18 @@ export function normaliseQuery(raw: unknown): string | null {
   return q.replace(/[\s.,/-]+$/, "");
 }
 
+/**
+ * The body of POST /api/wanted: {"q": "..."} from a search that found nothing, or {"q": "...", "source": "check"} when a
+ * shopper answers No to a "did you mean" on /check/list (we read the brand but had not the product they buy). Null when
+ * there's nothing countable. Any other source reads as a search.
+ */
+export function wantedRequest(body: unknown): { query: string; source: WantedSource } | null {
+  if (!body || typeof body !== "object") return null;
+  const { q, source } = body as { q?: unknown; source?: unknown };
+  const query = normaliseQuery(q);
+  return query ? { query, source: source === "check" ? "check" : "search" } : null;
+}
+
 const day = (d: Date) => d.toISOString().slice(0, 10);
 const cleanCountry = (c: string | null | undefined) => (c && /^[A-Z]{2}$/.test(c) ? c : "");
 

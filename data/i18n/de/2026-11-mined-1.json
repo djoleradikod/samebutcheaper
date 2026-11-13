@@ -1,0 +1,106 @@
+{
+  "langnese-fruehlings-bluetenhonig-vs-gut-and-guenstig-bluetenhonig-de": {
+    "summary": "Beide sind Blütenhonige, und beide Etiketten nennen Honig als einzige Zutat.",
+    "evidence": "Verglichen haben wir Produktnamen, Zutatenlisten und Packungsgrößen. Den Preis der Marke haben wir am 2026-03-26 bei Netto in Strausberg gesehen, den der Eigenmarke am 2026-02-06 bei EDEKA in München. Das sind verschiedene Ketten in verschiedenen Städten, ein Teil des Abstands kann also am Markt liegen.",
+    "why": "Die Zutatenliste ist bei beiden nur Honig, die Etiketten zeigen also auf keiner Seite einen Zusatz. Die Etiketten zeigen keinen Unterschied außer der Bezeichnung Frühlingsblüte und der Packungsgröße.",
+    "differences": [
+      "Die Marke wird als Frühlingsblütenhonig verkauft, die Eigenmarke als Blütenhonig ohne Jahreszeit.",
+      "Keine der beiden Angaben nennt das Herkunftsland, und der Geschmack von Honig hängt von den Blüten ab.",
+      "Der Preis der Marke gilt für eine 250g-Packung und der der Eigenmarke für 500g, ein großer Teil der Ersparnis kommt also von der größeren Packung.",
+      "Für dieses Paar haben wir keinen Geschmacks- oder Praxistest gefunden."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Honig", "amount": "" }],
+      "alternative": [{ "name": "Honig", "amount": "" }]
+    }
+  },
+  "kathi-weizenmehl-type-405-vs-rewe-beste-wahl-weizenmehl-405-de": {
+    "summary": "Beide sind 1000g-Packungen Weizenmehl Type 405 mit Weizenmehl als einziger angegebener Zutat.",
+    "evidence": "Verglichen haben wir Produktnamen, Zutatenlisten und Packungsgrößen. Beide Preise haben wir am 2025-11-08 bei REWE in Dahme/Mark gesehen, Markt und Tag sind also dieselben.",
+    "why": "Beide Etiketten zeigen die gleiche Mehltype in der gleichen Packungsgröße, ohne weitere Zutaten. Die Etiketten zeigen keinen Unterschied, für den das Mehr an Geld zahlen würde.",
+    "differences": [
+      "In der Zutatenliste der Marke steht \"Weizenmehl Type 405\", in der der Eigenmarke \"Weizenmehl\", wobei die Type 405 im Produktnamen steht.",
+      "Keine der beiden Angaben nennt den Eiweißgehalt.",
+      "Für dieses Paar haben wir keinen Geschmacks- oder Praxistest gefunden."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Weizenmehl", "amount": "" }],
+      "alternative": [{ "name": "Weizenmehl", "amount": "" }]
+    }
+  },
+  "ueltje-erdnuesse-geroestet-and-gesalzen-vs-alesto-erdnuesse-geroestet-and-gesalzen-de": {
+    "summary": "Beide sind geröstete und gesalzene Erdnüsse mit Erdnüssen, Sonnenblumenöl und Salz in dieser Reihenfolge.",
+    "evidence": "Verglichen haben wir Produktnamen, Zutatenlisten und Packungsgrößen. Den Preis der Marke haben wir am 2025-11-13 bei Netto in Strausberg gesehen, den der Eigenmarke am 2026-07-31 bei Lidl in Dahme/Mark. Das sind verschiedene Ketten, und zwischen den Daten liegen Monate, ein Teil des Abstands kann also am Markt oder am Zeitpunkt liegen.",
+    "why": "Die beiden Zutatenlisten nennen dieselben drei Dinge in derselben Reihenfolge. Nichts auf den Etiketten zeigt, wofür das Mehr an Geld zahlen würde.",
+    "differences": [
+      "Die Marke nennt Salz, die Eigenmarke Speisesalz.",
+      "Keine der beiden Angaben nennt die Menge an Salz oder Öl.",
+      "Die Packungen haben 180g und 200g.",
+      "Für dieses Paar haben wir keinen Geschmacks- oder Praxistest gefunden."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Erdnüsse", "amount": "" },
+        { "name": "Sonnenblumenöl", "amount": "" },
+        { "name": "Salz", "amount": "" }
+      ],
+      "alternative": [
+        { "name": "Erdnüsse", "amount": "" },
+        { "name": "Sonnenblumenöl", "amount": "" },
+        { "name": "Salz", "amount": "" }
+      ]
+    }
+  },
+  "albi-banane-fruchtnektar-vs-frucht-stern-bananen-nektar-de": {
+    "summary": "Beide sind Bananennektare mit Wasser, 25 % Bananenmark, Zucker, Zitronensaftkonzentrat und Ascorbinsäure in dieser Reihenfolge.",
+    "evidence": "Verglichen haben wir Zutatenlisten und Packungsgrößen. Beide Preise haben wir bei Netto Marken-Discount gesehen, die Marke am 2026-10-02 in Dahme/Mark und die Eigenmarke am 2026-07-27 in Berlin.",
+    "why": "Die Etiketten nennen dieselben Zutaten in derselben Reihenfolge mit demselben Bananenanteil. Sie zeigen keinen Unterschied, für den das Mehr an Geld zahlen würde.",
+    "differences": [
+      "Die Zutatenlisten stimmen überein, einschließlich des Bananenanteils.",
+      "Eine übereinstimmende Liste beweist nicht, dass Rezeptur oder Geschmack gleich sind, denn außer dem Bananenanteil nennen die Angaben keine Mengen.",
+      "Für dieses Paar haben wir keinen Geschmacks- oder Praxistest gefunden."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Wasser", "amount": "" },
+        { "name": "Bananenmark", "amount": "" },
+        { "name": "Zucker", "amount": "" },
+        { "name": "Zitronensaftkonzentrat", "amount": "" },
+        { "name": "Vitamin C (Ascorbinsäure)", "amount": "" }
+      ],
+      "alternative": [
+        { "name": "Wasser", "amount": "" },
+        { "name": "Bananenmark", "amount": "" },
+        { "name": "Zucker", "amount": "" },
+        { "name": "Zitronensaftkonzentrat", "amount": "" },
+        { "name": "Vitamin C (Ascorbinsäure)", "amount": "" }
+      ]
+    }
+  },
+  "bad-reichenhaller-siedesalz-mit-kaliumjodat-vs-k-classic-jodsalz-aus-siedesalz-de": {
+    "summary": "Beide sind 500g-Packungen Siedesalz mit Kaliumfluorid, Folsäure, Kaliumjodat und einem Trennmittel, in derselben Reihenfolge angegeben.",
+    "evidence": "Verglichen haben wir die beiden Zutatenlisten aus Open Facts. Bad Reichenhaller kostete am 2026-05-23 0,85 EUR, und der Eintrag nennt nur Bayern, ohne Markt oder Stadt. K-Classic kostete am 2026-10-10 bei Kaufland in Leipzig 0,69 EUR. Märkte und Daten unterscheiden sich, ein Teil des Abstands kann also an der Kette oder am Datum liegen.",
+    "why": "Die Etiketten nennen dieselben Zutaten in derselben Reihenfolge, und beide Packungen enthalten 500g. Laut Etikett kauft das Mehr an Geld keine Zutat, die der K-Classic-Packung fehlt.",
+    "differences": [
+      "Das K-Classic-Etikett schreibt das Trennmittel als E535, das Bad-Reichenhaller-Etikett als Natriumferrocyanid, wofür E535 steht.",
+      "Keines der Etiketten nennt die Menge der einzelnen Zusätze, diese Gehalte lassen sich also nicht vergleichen.",
+      "Für dieses Paar haben wir keinen Geschmacks- oder Praxistest gefunden."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Siedesalz", "amount": "" },
+        { "name": "Kaliumfluorid", "amount": "" },
+        { "name": "Folsäure", "amount": "" },
+        { "name": "Kaliumjodat", "amount": "" },
+        { "name": "Natriumferrocyanid (Trennmittel)", "amount": "" }
+      ],
+      "alternative": [
+        { "name": "Siedesalz", "amount": "" },
+        { "name": "Kaliumfluorid", "amount": "" },
+        { "name": "Folsäure", "amount": "" },
+        { "name": "Kaliumjodat", "amount": "" },
+        { "name": "Natriumferrocyanid (Trennmittel)", "amount": "" }
+      ]
+    }
+  }
+}

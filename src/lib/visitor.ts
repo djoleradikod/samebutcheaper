@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { isBotAgent } from "./bot";
 
 /**
  * The visitor's address. Behind Caddy alone that is X-Forwarded-For, which Caddy overwrites with the address it
@@ -13,13 +14,7 @@ export function clientIp(headers: Headers, env: Record<string, string | undefine
   return /^[0-9a-f:.]{3,45}$/i.test(ip) ? ip : "";
 }
 
-const BOT =
-  /bot\b|crawl|spider|slurp|preview|facebookexternalhit|headless|lighthouse|pingdom|uptime|monitor|curl\/|wget\/|python-requests|python-urllib|go-http-client|okhttp|axios\/|node-fetch|undici|libwww|httpclient|scrapy|ahrefs|semrush|dataforseo|bytespider|gptbot|claudebot|perplexity|ccbot/i;
-
-/** True for crawlers, link checkers and scripts, going by the user agent. An empty one counts too. */
-export function isBotAgent(ua: string) {
-  return !ua.trim() || BOT.test(ua);
-}
+export { isBotAgent };
 
 /** True when a browser is fetching ahead of a click (prefetch or prerender), not following a link. */
 export function isPrefetch(headers: Headers) {

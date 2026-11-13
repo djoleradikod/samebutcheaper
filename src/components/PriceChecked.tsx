@@ -1,15 +1,24 @@
 import type { ReactNode } from "react";
 import { ageWarning, checkedDate, type Freshness, type PriceSeen } from "@/lib/freshness";
 import type { Local } from "@/lib/localize";
+import { stockNotes } from "@/lib/stock-notes";
 import type { Bundle, Pair } from "@/lib/types";
+import { getT, type Lang } from "@/lib/i18n";
+
+/** The warning after an old price's date, in the page's language. */
+function warningFor(tier: Freshness["tier"], lang: Lang) {
+  const english = ageWarning(tier);
+  if (!english || lang === "en") return english;
+  return getT(lang)(tier === "stale" ? "prices.stale" : "prices.ageing");
+}
 
 /**
  * When a price was checked, to the day, and what its age means for the shopper. Dates come from the price
  * observation log (data/prices, see docs/prices.md). The tier is worked out when the catalogue is built.
  */
 
-function DateLine({ freshness, children }: { freshness: Freshness; children: ReactNode }) {
-  const warning = ageWarning(freshness.tier);
+function DateLine({ freshness, children, lang }: { freshness: Freshness; children: ReactNode; lang: Lang }) {
+  const warning = warningFor(freshness.tier, lang);
   return (
     <>
       <span className="text-[15px] font-medium text-ink-2">{children}</span>
@@ -18,12 +27,13 @@ function DateLine({ freshness, children }: { freshness: Freshness; children: Rea
   );
 }
 
-function pairDates(pair: Pair) {
+function pairDates(pair: Pair, lang: Lang) {
+  const t = getT(lang);
   const b = pair.prices.brand;
   const a = pair.prices.alternative;
-  const day = (s: PriceSeen) => checkedDate(s.date, s.precision);
-  if (day(b) === day(a)) return `Prices checked ${day(b)}.`;
-  return `${pair.brand.brand} price checked ${day(b)}, ${pair.alternative.brand} ${day(a)}.`;
+  const day = (s: PriceSeen) => checkedDate(s.date, s.precision, lang);
+  if (day(b) === day(a)) return t("prices.checked", day(b));
+  return t("prices.checkedEach", pair.brand.brand, day(b), pair.alternative.brand, day(a));
 }
 
 /** The date line above a swap's offers, with the market tag beside it and the price history under it. */
@@ -33,20 +43,24 @@ export function PriceChecked({ pair, local, tag }: { pair: Pair; local: Local; t
     { name: pair.brand.brand, seen: pair.prices.brand, cheaper: false },
   ];
   const charted = sides.filter((s) => s.seen.history.length >= 2);
+  const lang = local.lang;
   return (
     <div className="pb-2">
       <p className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-        <DateLine freshness={pair.freshness}>{pairDates(pair)}</DateLine>
+        <DateLine freshness={pair.freshness} lang={lang}>
+          {pairDates(pair, lang)}
+        </DateLine>
         {tag}
       </p>
+      {stockNotes(pair, lang).map((note) => <p key={note} className="text-[15px] font-semibold text-different">{note}</p>)}
       {charted.length > 0 && (
         <details className="group mt-1">
           <summary className="inline-flex min-h-11 cursor-pointer items-center text-[13px] font-medium text-cobalt underline underline-offset-2 md:min-h-0">
-            Price history
+            {getT(lang)("prices.history")}
           </summary>
           <div className="mt-2 grid gap-3 sm:grid-cols-2">
             {charted.map((s) => (
-              <PriceHistory key={s.name} name={s.name} seen={s.seen} cheaper={s.cheaper} money={(n) => local.money(n, pair.currency)} />
+              <PriceHistory key={s.name} name={s.name} seen={s.seen} cheaper={s.cheaper} money={(n) => local.money(n, pair.currency)} lang={lang} />
             ))}
           </div>
         </details>
@@ -56,15 +70,17 @@ export function PriceChecked({ pair, local, tag }: { pair: Pair; local: Local; t
 }
 
 /** The "Prices checked" row in a kit's summary: the oldest piece's date sets it. */
-export function KitPriceChecked({ bundle }: { bundle: Bundle }) {
+export function KitPriceChecked({ bundle, lang = "en" }: { bundle: Bundle; lang?: Lang }) {
+  const t = getT(lang);
   const dates = new Set(Object.values(bundle.prices).map((s) => checkedDate(s.date, s.precision)));
-  const warning = ageWarning(bundle.freshness.tier);
+  const warning = warningFor(bundle.freshness.tier, lang);
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-      <dt className="text-ink-2">{dates.size > 1 ? "Oldest price checked" : "Prices checked"}</dt>
+      <dt className="text-ink-2">{dates.size > 1 ? t("prices.oldestChecked") : t("prices.pricesChecked")}</dt>
       <dd className="text-[13px] font-medium">
-        {checkedDate(bundle.freshness.date, bundle.freshness.precision)}
+        {checkedDate(bundle.freshness.date, bundle.freshness.precision, lang)}
         {warning && <span className="block font-semibold text-different">{warning}</span>}
+        {stockNotes(bundle, lang).map((note) => <span key={note} className="block font-semibold text-different">{note}</span>)}
       </dd>
     </div>
   );
@@ -75,7 +91,20 @@ const H = 64;
 const PAD = 6;
 
 /** One side's prices over time: a small line with a dot per check, and the same figures as a table for screen readers. */
-export function PriceHistory({ name, seen, cheaper, money }: { name: string; seen: PriceSeen; cheaper: boolean; money: (n: number) => string }) {
+export function PriceHistory({
+  name,
+  seen,
+  cheaper,
+  money,
+  lang = "en",
+}: {
+  name: string;
+  seen: PriceSeen;
+  cheaper: boolean;
+  money: (n: number) => string;
+  lang?: Lang;
+}) {
+  const tr = getT(lang);
   const points = seen.history;
   const prices = points.map((p) => p.price);
   const lo = Math.min(...prices);
@@ -86,15 +115,15 @@ export function PriceHistory({ name, seen, cheaper, money }: { name: string; see
   const x = (i: number) => PAD + ((t[i] - t0) / span) * (W - 2 * PAD);
   const y = (price: number) => (hi === lo ? H / 2 : PAD + (1 - (price - lo) / (hi - lo)) * (H - 2 * PAD));
   const coords = points.map((p, i) => `${x(i).toFixed(1)},${y(p.price).toFixed(1)}`).join(" ");
-  const first = checkedDate(points[0].date, points[0].precision);
+  const first = checkedDate(points[0].date, points[0].precision, lang);
   const id = `history-${name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
-  const summary = hi === lo ? `${money(lo)} at every check` : `Low ${money(lo)}, high ${money(hi)}`;
+  const summary = hi === lo ? tr("prices.everyCheck", money(lo)) : tr("prices.lowHigh", money(lo), money(hi));
   return (
     <figure className="min-w-0">
       <figcaption id={id} className="text-[13px] font-semibold">
         {name}
         <span className="block font-medium text-muted">
-          {summary}, {points.length} checks since {first}
+          {tr("prices.checksSince", summary, points.length, first)}
         </span>
       </figcaption>
       <svg
@@ -111,20 +140,20 @@ export function PriceHistory({ name, seen, cheaper, money }: { name: string; see
       </svg>
       <span className="flex w-60 max-w-full justify-between text-xs text-muted" aria-hidden="true">
         <span>{first}</span>
-        <span>{checkedDate(points[points.length - 1].date, points[points.length - 1].precision)}</span>
+        <span>{checkedDate(points[points.length - 1].date, points[points.length - 1].precision, lang)}</span>
       </span>
       <table className="sr-only">
-        <caption>{name}: prices we saw</caption>
+        <caption>{tr("prices.pricesWeSaw", name)}</caption>
         <thead>
           <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Price</th>
+            <th scope="col">{tr("prices.date")}</th>
+            <th scope="col">{tr("prices.price")}</th>
           </tr>
         </thead>
         <tbody>
           {points.map((p, i) => (
             <tr key={`${p.date}-${i}`}>
-              <td>{checkedDate(p.date, p.precision)}</td>
+              <td>{checkedDate(p.date, p.precision, lang)}</td>
               <td>{money(p.price)}</td>
             </tr>
           ))}

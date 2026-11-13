@@ -1,5 +1,6 @@
 import { getBundle, getPair } from "@/lib/catalog";
 import { productUrl } from "@/lib/affiliate";
+import { feedLinkOr } from "@/lib/feed-links";
 import { redirectOut } from "@/lib/outbound";
 import { cartUrl, sellerOfCartSide } from "@/lib/cart";
 
@@ -25,11 +26,11 @@ function resolve(slug: string, side: string): { url: string; retailer: string } 
     }
     if (side !== "alternative" && side !== "brand") return null;
     const p = side === "brand" ? pair.brand : pair.alternative;
-    return { url: productUrl(p, pair.market), retailer: p.retailer };
+    return { url: feedLinkOr(pair.prices?.[side], productUrl(p, pair.market)), retailer: p.retailer };
   }
   const bundle = getBundle(slug);
   if (!bundle) return null;
-  if (side === "brand") return { url: productUrl(bundle.bundle, bundle.market), retailer: bundle.bundle.retailer };
+  if (side === "brand") return { url: feedLinkOr(bundle.prices?.kit, productUrl(bundle.bundle, bundle.market)), retailer: bundle.bundle.retailer };
   const cartSeller = sellerOfCartSide(side);
   if (cartSeller) {
     const url = cartUrl(cartSeller, bundle.components, bundle.market);
@@ -37,5 +38,5 @@ function resolve(slug: string, side: string): { url: string; retailer: string } 
   }
   const m = /^item-(\d+)$/.exec(side);
   const c = m ? bundle.components[Number(m[1])] : undefined;
-  return c ? { url: productUrl(c, bundle.market), retailer: c.retailer } : null;
+  return c ? { url: feedLinkOr(bundle.prices?.[`item-${c.replaces}`], productUrl(c, bundle.market)), retailer: c.retailer } : null;
 }

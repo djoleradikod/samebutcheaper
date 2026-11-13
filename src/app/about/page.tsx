@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { linksEarn } from "@/lib/affiliate";
 import { ProsePage } from "@/components/ProsePage";
 import { getCategoryStats, getClaims, getMarketCounts, getSiteStats } from "@/lib/catalog";

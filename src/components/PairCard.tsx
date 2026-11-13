@@ -1,18 +1,16 @@
-import { NO_RATING } from "@/lib/rating";
 import type { ReactNode } from "react";
 import Link from "@/components/CountryLink";
-import type { MatchType, PairSummary } from "@/lib/types";
-import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
+import type { PairSummary } from "@/lib/types";
+import { clientT } from "@/lib/i18n/client-dict";
+import type { Lang } from "@/lib/i18n/lang";
 import { MarketNote } from "./CountryPicker";
 import { ProductThumb } from "./ProductThumb";
 import { PctTicket } from "./Ticket";
 import { ToArrow, UnitPrice } from "./UnitPrice";
+import { cards } from "@/lib/i18n/en/client/cards";
 
-/** "Same active" alone is jargon; the other short names read fine. */
-function matchText(type: MatchType) {
-  const match = MATCH_TYPE_META[type];
-  return type === "identical_active" ? match.label : match.short;
-}
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { cards };
 
 /**
  * Two tiles edge to edge, brand left and cheaper right, with the ticket on the row beneath,
@@ -22,10 +20,10 @@ function matchText(type: MatchType) {
  * Lists show a swap with no photo at all as a PairRow. The places that always show a card, such as
  * search results and related swaps, get this card with no tiles, so there's never a card of two empty ones.
  */
-export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; rank?: number; eager?: boolean }) {
-  const shelf = pair.subcategory || CATEGORY_MAP[pair.category].name;
+export function PairCard({ pair, rank, eager = false, lang = "en" }: { pair: PairSummary; rank?: number; eager?: boolean; lang?: Lang }) {
+  const t = clientT(lang, TEXT);
+  const shelf = pair.subcategory || t("cards.aisle", pair.category);
   const kind = shelf.replace(/\s+-\s+/g, ": ");
-  const match = MATCH_TYPE_META[pair.matchType];
   return (
     <Link
       href={`/compare/${pair.slug}`}
@@ -40,6 +38,7 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
             brand={pair.brandName}
             alt={pair.brandProduct}
             eager={eager && !!pair.brandImage}
+            lang={lang}
           />
           <ProductThumb
             flush
@@ -48,6 +47,7 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
             brand={pair.altName}
             alt={pair.altProduct}
             eager={eager && !pair.brandImage}
+            lang={lang}
           />
         </div>
       )}
@@ -58,7 +58,7 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
             {rank ? <span className="num">{rank}. </span> : null}
             {kind}
           </p>
-          <PctTicket pct={pair.savingsPct} size="sm" grow className="shrink-0" />
+          <PctTicket pct={pair.savingsPct} size="sm" grow className="shrink-0" label={t("cards.cheaperPct", Math.round(pair.savingsPct))} german={lang === "de"} />
         </div>
         <p className="mt-1 line-clamp-2 text-sm leading-snug font-semibold group-hover:underline">
           {pair.brandName}
@@ -73,12 +73,12 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
           className="mt-auto pt-1.5"
         />
         <p className="mt-1 flex flex-wrap items-baseline justify-between gap-x-2 text-xs font-medium">
-          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={match.description}>
-            {matchText(pair.matchType)}
+          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={t("cards.matchDescription", pair.matchType)}>
+            {t("cards.matchShort", pair.matchType)}
           </span>
           <MarketNote market={pair.market} />
         </p>
-        <p className="mt-0.5 truncate text-xs text-muted">{pair.altRating ?? NO_RATING}</p>
+        <p className="mt-0.5 truncate text-xs text-muted">{pair.altRating ?? t("cards.noRating")}</p>
       </div>
     </Link>
   );
@@ -88,7 +88,8 @@ export function PairCard({ pair, rank, eager = false }: { pair: PairSummary; ran
  * A swap with no photo on either side, as one line of text on a desktop and two on a phone:
  * brand to cheaper name and the saving, then unit price against unit price and the match.
  */
-export function PairRow({ pair }: { pair: PairSummary }) {
+export function PairRow({ pair, lang = "en" }: { pair: PairSummary; lang?: Lang }) {
+  const t = clientT(lang, TEXT);
   return (
     <Link
       href={`/compare/${pair.slug}`}
@@ -99,15 +100,21 @@ export function PairRow({ pair }: { pair: PairSummary }) {
         <ToArrow />
         {pair.altName}
       </p>
-      <PctTicket pct={pair.savingsPct} size="sm" className="col-start-2 row-start-1 justify-self-end md:col-start-4" />
+      <PctTicket
+        pct={pair.savingsPct}
+        size="sm"
+        className="col-start-2 row-start-1 justify-self-end md:col-start-4"
+        label={t("cards.cheaperPct", Math.round(pair.savingsPct))}
+        german={lang === "de"}
+      />
       <div className="col-span-2 flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 md:contents">
         <UnitPrice size="sm" unit={pair.unit} alt={pair.altPpu} brand={pair.brandPpu} currency={pair.currency} />
         <p className="flex flex-wrap items-baseline gap-x-2 text-xs font-medium">
-          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={MATCH_TYPE_META[pair.matchType].description}>
-            {matchText(pair.matchType)}
+          <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={t("cards.matchDescription", pair.matchType)}>
+            {t("cards.matchShort", pair.matchType)}
           </span>
           <MarketNote market={pair.market} />
-          <span className="text-muted">{pair.altRating ?? NO_RATING}</span>
+          <span className="text-muted">{pair.altRating ?? t("cards.noRating")}</span>
         </p>
       </div>
     </Link>
@@ -115,18 +122,18 @@ export function PairRow({ pair }: { pair: PairSummary }) {
 }
 
 /** Goes where a list's first photo tier ends, since the chosen sort starts again from the top there. Smaller than a section head. */
-export function MoreSwapsHeading() {
-  return <h2 className="mt-5 mb-2 text-base md:mt-6">More swaps</h2>;
+export function MoreSwapsHeading({ lang = "en" }: { lang?: Lang }) {
+  return <h2 className="mt-5 mb-2 text-base md:mt-6">{clientT(lang, TEXT)("cards.moreSwaps")}</h2>;
 }
 
 /**
  * The panel of PairRows that ends a list. `below` means there are cards above it, and `headed` means
  * those cards are all one tier, so this is where the heading goes. Otherwise the rows just carry on.
  */
-export function PairRows({ headed, below, children }: { headed: boolean; below: boolean; children: ReactNode }) {
+export function PairRows({ headed, below, children, lang = "en" }: { headed: boolean; below: boolean; children: ReactNode; lang?: Lang }) {
   return (
     <>
-      {headed && <MoreSwapsHeading />}
+      {headed && <MoreSwapsHeading lang={lang} />}
       <ul className={`card divide-y divide-line overflow-hidden ${below && !headed ? "mt-2 sm:mt-3" : ""}`}>{children}</ul>
     </>
   );

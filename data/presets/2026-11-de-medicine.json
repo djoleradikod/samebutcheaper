@@ -1,0 +1,49 @@
+[
+  {
+    "family": "medicine-cabinet",
+    "slug": "medicine-cabinet-de",
+    "market": "DE",
+    "title": "Home medicine cabinet",
+    "audience": "Stocking a home medicine cabinet",
+    "blurb": "Paracetamol, ibuprofen, a mucus thinner, a nasal spray, loperamide, a laxative, a travel sickness tablet, an antihistamine, an itch gel and a pain gel.",
+    "icon": "pill",
+    "research": "The list follows three German checklists for a home medicine cabinet. The pharmacists' portal aponet.de names paracetamol, ibuprofen, a mucus thinner and loperamide. AOK names cold medicines, medicines for constipation and diarrhoea, a gel for insect bites and itching, and an ointment for sports injuries. Techniker Krankenkasse adds medicines for nausea and for allergies. We kept one swap for each need, all from one pharmacy so that one order covers the list.",
+    "sources": [
+      "https://www.aponet.de/weitere-seite/checklisten/hausapotheke",
+      "https://www.aok.de/pk/medizinprodukte-medikamente-arzneimittel/hausapotheke/",
+      "https://www.tk.de/techniker/gesundheit-und-medizin/behandlungen-und-medizin/arzneimittel-medizinische-hintergruende/was-gehoert-in-die-hausapotheke-2021422"
+    ],
+    "items": [
+      { "pair": "ben-u-ron-1000mg-tabletten-vs-paracetamol-ratiopharm-1000mg-de", "qty": 1, "note": "Each tablet holds 1000 mg, the adult dose. For children, ask at the pharmacy for a lower strength." },
+      { "pair": "nurofen-vs-ibu-ratiopharm-400mg-de", "qty": 1 },
+      { "pair": "acc-akut-600-vs-nac-600-akut-1a-pharma-de", "qty": 1 },
+      { "pair": "otriven-protect-vs-nasenduo-nasenspray-ratiopharm-de", "qty": 1 },
+      { "pair": "imodium-akut-vs-loperamid-abz-akut-2mg-de", "qty": 1 },
+      { "pair": "dulcolax-dragees-vs-bisacodyl-adgc-5mg-de", "qty": 1 },
+      { "pair": "vomex-a-vs-dimenhydrinat-al-50mg-de", "qty": 1 },
+      { "pair": "lorano-akut-vs-loratadin-axicur-10mg-de", "qty": 1 },
+      { "pair": "fenistil-gel-vs-dimetin-adgc-1mg-g-gel-de", "qty": 1 },
+      { "pair": "voltaren-forte-vs-diclox-forte-gel-de", "qty": 1 }
+    ]
+  },
+  {
+    "family": "hay-fever",
+    "slug": "hay-fever-de",
+    "market": "DE",
+    "title": "Hay fever season",
+    "audience": "Getting ready for the pollen season",
+    "blurb": "An antihistamine tablet, a cortisone nasal spray, and two kinds of eye drops for itchy eyes.",
+    "icon": "pill",
+    "research": "Stiftung Warentest and Techniker Krankenkasse both name cetirizine as a tablet that needs no prescription, and mometasone as a cortisone nasal spray for stronger symptoms. Techniker Krankenkasse also names azelastine eye drops, and cromoglicic acid as a mild medicine that is taken to prevent symptoms. We kept one swap for each, all from one pharmacy.",
+    "sources": [
+      "https://www.test.de/Heuschnupfen-Diese-Medikamente-helfen-und-sind-guenstig-4685480-0/",
+      "https://www.tk.de/techniker/gesundheit-und-medizin/behandlungen-und-medizin/allergien-und-unvertraeglichkeiten/therapieoptionen-bei-heuschnupfen-2107790"
+    ],
+    "items": [
+      { "pair": "zyrtec-vs-cetirizin-adgc-10mg-de", "qty": 1, "note": "A pack of 100 tablets, which is about three months at one tablet a day." },
+      { "pair": "vividrin-mometason-vs-mometason-adgc-50ug-nasenspray-de", "qty": 1 },
+      { "pair": "allergodil-akut-augentropfen-vs-azelastin-micro-labs-0-5mg-ml-de", "qty": 1 },
+      { "pair": "vividrin-antiallergische-augentropfen-vs-cromo-micro-labs-20mg-ml-de", "qty": 1, "note": "Cromoglicic acid is taken to prevent symptoms, so start it before the pollen season." }
+    ]
+  }
+]

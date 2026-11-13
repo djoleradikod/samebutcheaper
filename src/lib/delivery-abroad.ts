@@ -20,6 +20,11 @@ import type { Currency } from "./format";
 import type { Local } from "./localize";
 import { countryInSentence, type MarketCode } from "./markets";
 import { deliversTo } from "./sellers";
+import { clientT } from "./i18n/client-dict";
+import { delivery } from "@/lib/i18n/en/client/delivery";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { delivery };
 
 const abroadRule = z.object({
   fee: z.number().min(0).nullable(),
@@ -103,18 +108,19 @@ export function checkoutFor(lines: { seller: string; price: number }[], market: 
  */
 export function deliveryNote(seller: string, market: MarketCode, price: number, currency: Currency, local: Local): string | undefined {
   const country = local.known ? local.country : null;
+  const t = clientT(local.lang, TEXT);
   if (!country || country === market) {
     const order = storeOrder(seller, market, price);
     if (!order.delivery || order.freeOver === null) return undefined;
-    return `Delivery ${local.money(order.delivery, currency)} on its own, free over ${local.money(order.freeOver, currency)}${order.pickup ? ", or free store pickup" : ""}`;
+    return t("delivery.home", local.money(order.delivery, currency), local.money(order.freeOver, currency), Boolean(order.pickup));
   }
-  const where = countryInSentence(country);
+  // English names the country in a sentence ("the UK"); German declines it itself.
+  const where = local.lang === "en" ? countryInSentence(country) : country;
   if (deliversTo(seller, market, country) === "no") return undefined;
   const order = storeOrderTo(seller, market, country, price);
-  if (order.delivery === null) return `Delivery to ${where} not checked`;
-  if (order.delivery === 0) return `Delivery to ${where} free on this order`;
-  const free = order.freeOver !== null ? `, free over ${local.money(order.freeOver, currency)}` : "";
-  return `Delivery to ${where} ${local.money(order.delivery, currency)} on its own${free}`;
+  if (order.delivery === null) return t("delivery.notChecked", where);
+  if (order.delivery === 0) return t("delivery.free", where);
+  return t("delivery.abroad", where, local.money(order.delivery, currency), order.freeOver !== null ? local.money(order.freeOver, currency) : null);
 }
 
 /** basketCheckout() for a shopper in `country`: each line in whole packs, one order per store, delivery to where they are. */

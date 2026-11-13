@@ -244,9 +244,11 @@ from the latest line at the record's current price. How the refresh uses them, a
 - `price` in the record's market currency, and `currency` saying which (`USD`, `GBP`, `CAD`, `EUR`).
 - `seen`: the ISO day the price was seen at the store or published by the source. `precision: "month"` marks
   older hand checks that only kept a month; `seen` is then the 1st and the page shows the month.
-- `source`: a retailer id for hand checks, `open-prices`, or `awin:<merchant id>`. `url`: where to see it.
+- `source`: a retailer id for hand checks, `open-prices`, or `feed:<network>` (`feed:awin`, `feed:impact`, ...).
+  `url`: where to see it.
 - `method`: `hand`, `open-prices`, `feed` or `shopper-report`. `logged`: the day the line was written.
-- Optional `attribution` (Open Prices data is ODbL and carries its credit) and `note`.
+- Optional `attribution` (Open Prices data is ODbL and carries its credit) and `note`. Feed lines may add
+  `link` (the network's tracked link) and `stock: "out"` (logged, never used as a price; see `docs/feeds.md`).
 
 When you change a price by hand, log it: put the check in a CSV and run
 `npm run prices:refresh -- --manual checks.csv`, which applies the same rules as any source. `npm run prices:seed`

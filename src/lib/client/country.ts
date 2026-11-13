@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useMemo, useRef, useSyncExternalS
 import { countryOfPath } from "@/lib/country-url";
 import { localFor } from "@/lib/localize";
 import { isKnownCountry } from "@/lib/markets";
+import { useLang } from "@/lib/i18n/client";
 
 /** Set by src/proxy.ts from the visitor's location, and by the country picker. */
 export const COUNTRY_COOKIE = "sbc_country";
@@ -20,7 +21,7 @@ function read(): string | null {
   }
 }
 
-function subscribe(cb: () => void) {
+export function subscribe(cb: () => void) {
   window.addEventListener(EVENT, cb);
   window.addEventListener("focus", cb);
   return () => {
@@ -77,7 +78,8 @@ export function useLocal() {
   const fixed = useContext(FixedContext);
   const live = useSyncExternalStore(subscribe, readOthers, () => fromServer);
   const others = fixed ? fromServer : live;
-  return useMemo(() => localFor(country, others), [country, others]);
+  const lang = useLang();
+  return useMemo(() => localFor(country, others, lang), [country, others, lang]);
 }
 
 /** Marks the page as updating straight away, so nothing can read the old list as the new one before the server answers. */

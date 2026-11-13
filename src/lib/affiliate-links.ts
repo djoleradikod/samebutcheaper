@@ -16,6 +16,7 @@
  * and joining a new program needs no code change.
  */
 import { PROGRAMS, type Program } from "./affiliate-programs";
+import { feedClickLink } from "./feed-links";
 
 export type Env = Record<string, string | undefined>;
 
@@ -190,6 +191,9 @@ export function tagLink(url: string, clickId = "", env: Env = affiliateEnv()): T
     return { url, program: null, network: null };
   }
   if (u.protocol !== "https:" && u.protocol !== "http:") return { url, program: null, network: null };
+  // A tracked link from an affiliate product feed (docs/feeds.md) already carries our account: add the click ID only.
+  const feed = feedClickLink(url, clickId);
+  if (feed) return { url: feed.url, program: `feed:${feed.network}`, network: feed.network === "flexoffers" ? "template" : feed.network };
   const host = hostOf(u);
 
   const program = PROGRAMS.find((p) => hostMatches(host, p.hosts));

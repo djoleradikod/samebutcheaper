@@ -1,0 +1,279 @@
+{
+  "zewa-bewaehrt-3-lagig-vs-jeden-tag-soft-3-lagig-de": {
+    "summary": "Zwei 3-lagige Toilettenpapiere in einem Markt, wobei Jeden Tag pro Blatt etwa ein Drittel günstiger ist.",
+    "evidence": "mytime.de führt Zewa Bewährt (8 x 150) für 4,79 € und Jeden Tag Soft (4 x 220) für 2,39 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Die Jeden-Tag-Packung mit 10 Rollen (10 x 220) kostet 4,39 €.",
+    "why": "Die Lagenzahl ist im selben Markt gleich, und mit der größeren Jeden-Tag-Packung halbiert sich der Preis pro Blatt.",
+    "differences": [
+      "Zewa enthält einen Anteil Strohfaser, Jeden Tag ist Zellstoff.",
+      "Die Blattgröße haben wir nicht verglichen.",
+      "Kein Weichheitstest deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Lagen", "amount": "3" },
+        { "name": "Teilweise Strohfaser", "amount": "" }
+      ],
+      "alternative": [
+        { "name": "Lagen", "amount": "3" },
+        { "name": "Zellstoff", "amount": "" }
+      ]
+    }
+  },
+  "zewa-ultra-soft-4-lagig-vs-jeden-tag-supersoft-4-lagig-de": {
+    "summary": "Zwei 4-lagige Toilettenpapiere in einem Markt, wobei Jeden Tag pro Blatt etwa die Hälfte kostet.",
+    "evidence": "mytime.de führt Zewa Ultra Soft (8 x 150) für 5,65 € und Jeden Tag Supersoft (10 x 200) für 4,85 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Packungen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 26,22 €.",
+    "why": "Die Lagenzahl ist im selben Markt gleich, und die Jeden-Tag-Rolle hat mehr Blätter für etwa die Hälfte pro Blatt.",
+    "differences": [
+      "Die Blattgröße haben wir nicht verglichen.",
+      "Kein Weichheitstest deckt dieses Paar ab, und mit Weichheit werben beide."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Lagen", "amount": "4" }],
+      "alternative": [{ "name": "Lagen", "amount": "4" }]
+    }
+  },
+  "ajax-frischeduft-vs-jeden-tag-allzweck-reiniger-lemon-de": {
+    "summary": "Zwei Allzweckreiniger mit 1 Liter in einem Markt, mit demselben Tensidbereich auf dem Etikett.",
+    "evidence": "mytime.de führt Ajax Frischeduft für 2,25 € und Jeden Tag Allzweck-Reiniger Lemon für 1,05 €, beide 1 l, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Beide Zutatenlisten beginnen mit unter 5 % anionischen und nichtionischen Tensiden. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 5,70 €.",
+    "why": "Der Tensidbereich auf den Etiketten ist gleich, und Ajax kostet im selben Markt pro Liter mehr als doppelt so viel.",
+    "differences": [
+      "Die Ajax-Seite sagt, er sei pH-neutral und schonend zu Marmor und Keramik.",
+      "Prüf das Etikett von Jeden Tag, bevor du ihn auf Marmor verwendest.",
+      "Die Düfte unterscheiden sich, und Jeden Tag nennt zusätzlich Seife.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Anionische und nichtionische Tenside", "amount": "< 5 %" }],
+      "alternative": [{ "name": "Anionische und nichtionische Tenside, Seife", "amount": "< 5 %" }]
+    }
+  },
+  "sidolin-streifenfrei-cristal-vs-jeden-tag-glasreiniger-de": {
+    "summary": "Zwei Glasreiniger-Sprays in einem Markt, wobei Jeden Tag pro Milliliter weniger als ein Drittel kostet.",
+    "evidence": "mytime.de führt Sidolin Streifenfrei Cristal (500 ml) für 2,29 € und Jeden Tag Glasreiniger (1 l) für 1,35 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 7,32 €. Der Fotoeintrag für Sidolin ist eine frühere Packung mit einem anderen Barcode als dem, den mytime zeigt.",
+    "why": "Beide sind Sprühreiniger für Glas, und Sidolin kostet im selben Markt pro Milliliter mehr als dreimal so viel. Das Mehr an Geld zahlt für eine Rezeptur, zu der wir keine Testergebnisse haben.",
+    "differences": [
+      "Die Sidolin-Seite sagt, die Rezeptur enthalte Bio-Alkohol, und die Jeden-Tag-Seite erwähnt keinen Alkohol, bei Streifen kann er sich also anders verhalten.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Bio-Alkohol", "amount": "" },
+        { "name": "Duftstoff, Konservierungsmittel", "amount": "" }
+      ],
+      "alternative": [{ "name": "Anionische Tenside", "amount": "< 5 %" }]
+    }
+  },
+  "null-null-wc-urinstein-kalkloeser-vs-jeden-tag-wc-urin-kalksteinloeser-de": {
+    "summary": "Zwei WC-Kalklöser mit 750 ml in einem Markt, mit denselben Warnhinweisen zur ätzenden Wirkung.",
+    "evidence": "mytime.de führt Null-Null für 3,05 € und Jeden Tag für 1,49 €, beide 750 ml, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Beide tragen dieselben Warnhinweise zur ätzenden Wirkung. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 8,10 €.",
+    "why": "Beide werden für dieselbe Aufgabe gegen Kalk in derselben Größe mit denselben Warnhinweisen verkauft, und Null-Null kostet etwa doppelt so viel.",
+    "differences": [
+      "Die Null-Null-Seite nennt Salzsäure.",
+      "Die Jeden-Tag-Seite nennt ihre Säure nicht, die Stärke kann sich also unterscheiden.",
+      "Der WC-Reiniger-Test von Stiftung Warentest deckt diese Art Produkt ab, aber in dem, was wir lesen konnten, haben wir keines der beiden gefunden."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Salzsäure", "amount": "" }],
+      "alternative": []
+    }
+  },
+  "finish-spezial-salz-vs-jeden-tag-spezialsalz-de": {
+    "summary": "Spülmaschinensalz in einem Markt, wobei der größere Jeden-Tag-Beutel weniger kostet als die kleine Finish-Packung.",
+    "evidence": "mytime.de führt Finish Spezial-Salz (1,2 kg) für 1,75 € und Jeden Tag Spezialsalz (2,2 kg) für 1,29 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand.",
+    "why": "Beide werden für dieselbe Aufgabe verkauft, das Wasser in der Spülmaschine zu enthärten, und die Jeden-Tag-Packung enthält fast doppelt so viel für weniger Geld.",
+    "differences": [
+      "Die Jeden-Tag-Seite nennt Natriumchlorid.",
+      "Eine Zusammensetzung für Finish haben wir nicht gelesen, und Korngröße oder wie gut sich die Packung ausgießen lässt, können wir nicht vergleichen.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [],
+      "alternative": [{ "name": "Natriumchlorid", "amount": "" }]
+    }
+  },
+  "somat-5in1-klarspueler-vs-jeden-tag-klarspueler-de": {
+    "summary": "Zwei Klarspüler in einem Markt, mit demselben Tensidbereich auf dem Etikett.",
+    "evidence": "mytime.de führt Somat 5in1 (750 ml) für 2,89 € und Jeden Tag (1 l) für 1,29 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Beide nennen 5 bis 15 % nichtionische Tenside. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 7,02 €.",
+    "why": "Der Tensidbereich auf den Etiketten ist gleich, und Somat kostet im selben Markt pro Milliliter etwa dreimal so viel.",
+    "differences": [
+      "Somat verkauft fünf Funktionen in einem, und wir haben keinen Test, ob sie sich an deinen Gläsern zeigen.",
+      "Die Bereiche sind weit, die beiden enthalten also vielleicht nicht dieselbe Menge.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Nichtionische Tenside", "amount": "5-15 %" }],
+      "alternative": [{ "name": "Nichtionische Tenside", "amount": "5-15 %" }]
+    }
+  },
+  "somat-all-in-1-extra-xxl-vs-jeden-tag-all-in-one-multi-12-de": {
+    "summary": "All-in-one-Spülmaschinentabs in einem Markt, wobei Jeden Tag pro Tab etwa 43 % günstiger ist.",
+    "evidence": "mytime.de führt Somat All in 1 Extra XXL (58) für 11,99 € und Jeden Tag All in One Multi 12 (40) für 4,75 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Packungen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 25,68 €. Der Fotoeintrag ist dieselbe 58er-Packung unter einem anderen Barcode als dem, den mytime zeigt.",
+    "why": "Beide werden als All-in-one-Tabs verkauft, und der Preisabstand im selben Markt ist groß genug, um eine Packung auszuprobieren.",
+    "differences": [
+      "Die vollständigen Zutatenlisten haben wir nicht verglichen.",
+      "Kein Test, den wir lesen konnten, deckt genau dieses Paar ab, Somat reinigt also vielleicht besser."
+    ],
+    "ingredients": {
+      "brand": [],
+      "alternative": [{ "name": "Bleichmittel auf Sauerstoffbasis", "amount": "15-30 %" }]
+    }
+  },
+  "bref-power-backofen-grill-vs-jeden-tag-backofen-grillreiniger-de": {
+    "summary": "Zwei Backofenreiniger als 500-ml-Spraydose in einem Markt, mit demselben Warnhinweis zur ätzenden Wirkung.",
+    "evidence": "mytime.de führt Bref Power für 4,55 € und Jeden Tag für 1,79 €, beide als 500-ml-Spraydose, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Dosen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 9,72 €. Der Backofenreiniger-Test von Stiftung Warentest vom 29. Juni 2023 führt beide. Nur 3 der getesteten Reiniger reinigten gut, 8 befriedigend und 3 mangelhaft, bei 7 Cent bis 1,05 € pro Anwendung.",
+    "why": "Beide sind Backofenreiniger als Spraydose mit demselben Warnhinweis zur ätzenden Wirkung, und Bref kostet etwa zweieinhalbmal so viel. Die Testergebnisse gehen in dieser Kategorie weit auseinander, lies also die Noten auf test.de, wenn du kannst.",
+    "differences": [
+      "Die Noten für diese beiden stehen hinter der Bezahlschranke von test.de, wir wissen also nicht, wie die beiden abgeschnitten haben, und Bref reinigt vielleicht besser.",
+      "Die Jeden-Tag-Seite sagt, man solle ihn 30 Minuten bis 2 Stunden einwirken lassen und den Ofen erst nach 8 Stunden benutzen.",
+      "Die Bref-Seite nennt Natriumhydroxid, die Jeden-Tag-Seite nennt ihren Wirkstoff nicht."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Natriumhydroxid", "amount": "" }],
+      "alternative": []
+    }
+  },
+  "drano-power-gel-vs-jeden-tag-rohrreiniger-de": {
+    "summary": "Zwei Rohrreiniger auf Chlorbasis mit 1 Liter in einem Markt, mit denselben Warnhinweisen.",
+    "evidence": "mytime.de führt Drano Power-Gel für 4,39 € und Jeden Tag Rohrreiniger für 1,49 €, beide 1 l, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Beide nennen Bleichmittel auf Chlorbasis und tragen dieselben Warnhinweise. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 8,10 €.",
+    "why": "Beide setzen auf Bleichmittel auf Chlorbasis und tragen dieselben Warnhinweise, und Drano kostet pro Liter etwa dreimal so viel.",
+    "differences": [
+      "Drano wird als Gel verkauft.",
+      "Die Jeden-Tag-Seite nennt weder Form noch Dosierung, und eine dünnere Flüssigkeit erreicht eine Verstopfung vielleicht anders.",
+      "Halte dich bei beiden an das Etikett.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [
+        { "name": "Bleichmittel auf Chlorbasis", "amount": "" },
+        { "name": "Natriumhydroxid", "amount": "" }
+      ],
+      "alternative": [{ "name": "Bleichmittel auf Chlorbasis", "amount": "" }]
+    }
+  },
+  "bref-power-kalk-schmutz-vs-jeden-tag-badreiniger-de": {
+    "summary": "Zwei Badreiniger gegen Kalk und Schmutz in einem Markt.",
+    "evidence": "mytime.de führt Bref Power Kalk und Schmutz (750 ml) für 3,19 € und Jeden Tag Badreiniger (1 l) für 1,39 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 7,56 €. Der Test von 16 Badreinigern bei Stiftung Warentest, veröffentlicht am 20. Sep. 2024, umfasste Bref und ergab, dass Eigenmarken der Discounter für etwa 10 Cent teurere Marken schlugen.",
+    "why": "Beide werden für Kalk und Schmutz im Bad verkauft, und Bref kostet im selben Markt pro Milliliter etwa dreimal so viel.",
+    "differences": [
+      "Die Jeden-Tag-Seite nennt Milch- und Ameisensäure.",
+      "Die Säuren von Bref haben wir nicht verglichen, die Stärke kann sich also unterscheiden.",
+      "Die Note von Bref konnten wir nicht lesen, und Jeden Tag wurde in dem, was wir lesen konnten, nicht genannt."
+    ],
+    "ingredients": {
+      "brand": [],
+      "alternative": [{ "name": "Milchsäure, Ameisensäure", "amount": "" }]
+    }
+  },
+  "viss-cleanboost-scheuermilch-vs-jeden-tag-scheuermilch-de": {
+    "summary": "Zwei Scheuermilch-Reiniger in einem Markt, wobei Jeden Tag pro Milliliter weniger als die Hälfte kostet.",
+    "evidence": "mytime.de führt Viss Cleanboost Scheuermilch Citrus (500 ml) für 2,25 € und Jeden Tag Scheuermilch (750 ml) für 1,35 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 7,32 €.",
+    "why": "Beide sind Scheuermilch für dieselbe Aufgabe, und Viss kostet im selben Markt pro Milliliter etwa zweieinhalbmal so viel.",
+    "differences": [
+      "Die Inhaltsstoffe haben wir nicht verglichen, Scheuermittel und Oberflächenschonung können sich also unterscheiden.",
+      "Der Eintrag in Open Products Facts, den wir nennen, ist eine ältere Viss-Packung.",
+      "Kein Test deckt dieses Paar ab."
+    ]
+  },
+  "frosch-essig-reiniger-vs-jeden-tag-essigreiniger-de": {
+    "summary": "Zwei Essigreiniger mit 1 Liter in einem Markt, wobei Jeden Tag weniger als die Hälfte kostet.",
+    "evidence": "mytime.de führt Frosch Essig Reiniger für 2,49 € und Jeden Tag Essigreiniger für 1,15 €, beide 1 l, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Flaschen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 6,24 €.",
+    "why": "Beide werden als Essigreiniger in derselben Größe verkauft, und Frosch kostet im selben Markt mehr als doppelt so viel.",
+    "differences": [
+      "Jeden Tag nennt neben Essigsäure auch Milchsäure, ist also nicht nur Essig.",
+      "Umweltzeichen haben wir nicht verglichen.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Essigsäure", "amount": "" }],
+      "alternative": [{ "name": "Milchsäure, Essigsäure", "amount": "" }]
+    }
+  },
+  "vileda-glitzi-plus-vs-jeden-tag-anti-fett-topfreiniger-de": {
+    "summary": "Dreierpacks Topfreiniger in einem Markt, wobei der Vileda mehr Funktionen bietet.",
+    "evidence": "mytime.de führt Vileda Glitzi Plus für 1,29 € und Jeden Tag Anti-Fett Topfreiniger für 0,99 €, jeweils 3 Stück, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Packungen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 5,40 €.",
+    "why": "Wenn du nur einen Topfreiniger brauchst, ist die Jeden-Tag-Packung etwa 23 % günstiger. Der Vileda nennt zusätzliche Funktionen, es kommt also darauf an, ob du sie willst.",
+    "differences": [
+      "Vileda hat eine antibakterielle Silberbehandlung und eine Mikrofaserseite.",
+      "Die Jeden-Tag-Seite erwähnt beides nicht, darin ist die Marke also besser.",
+      "Wir haben keinen Test, wie lange die beiden halten."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Antibakterielle Silberbehandlung, Mikrofaserseite", "amount": "" }],
+      "alternative": []
+    }
+  },
+  "melitta-filtertueten-weiss-1x4-vs-jeden-tag-kaffeefilter-groesse-4-de": {
+    "summary": "Papier-Kaffeefilter in Größe 4 in einem Markt, wobei Jeden Tag pro Filter etwa zwei Drittel günstiger ist.",
+    "evidence": "mytime.de führt Melitta Filtertüten Weiß 1x4 für 2,95 € und Jeden Tag Kaffeefilter Größe 4 (100) für 1,19 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. mytime nennt die Stückzahl bei Melitta nicht, also haben wir 80 aus dem Open-Facts-Eintrag für diesen Barcode übernommen. Sechs Packungen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 6,48 €.",
+    "why": "Die Größe ist gleich, und die Packung enthält mehr, für weniger als die Hälfte des Preises der Melitta-Packung. Die Papierfarbe ist der eine Unterschied, den die Seiten zeigen.",
+    "differences": [
+      "Der Melitta-Filter ist weiß, der von Jeden Tag ungebleicht.",
+      "Wir haben keinen Test, wie sich die beiden auf das Brühen auswirken."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Größe", "amount": "1x4" }],
+      "alternative": [
+        { "name": "Größe", "amount": "4" },
+        { "name": "Ungebleichter Frischzellstoff", "amount": "" }
+      ]
+    }
+  },
+  "toppits-alufolie-extra-reissfest-vs-quickpack-alufolie-premiumline-de": {
+    "summary": "Zwei Alufolien, die als extra stark verkauft werden, in einem Markt, wobei Quickpack pro Meter etwa 18 % günstiger ist.",
+    "evidence": "mytime.de führt Toppits Alufolie extra reißfest (10 m) für 2,85 € und Quickpack Alufolie Premiumline extra stark (15 m) für 3,49 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand.",
+    "why": "Beide werden im selben Markt als stärkere Folien verkauft, und Quickpack gibt mehr Meter für eine moderate Ersparnis. Wenn du die dickere Folie nicht brauchst, spart die einfache Jeden-Tag-Rolle des Markts viel mehr.",
+    "differences": [
+      "Keine der beiden Seiten nennt Breite oder Dicke, extra reißfest und extra stark sind also die eigenen Worte der Hersteller, und wir können nicht bestätigen, dass sie dasselbe bedeuten.",
+      "Der Eintrag in Open Products Facts, den wir nennen, ist eine andere Quickpack-Folie und dient nur zur Bestätigung der Marke.",
+      "Kein Test deckt dieses Paar ab.",
+      "Jeden Tag Alufolie ist im selben Markt mit 2,29 € für 30 m noch günstiger, wird aber nicht als extra stark verkauft."
+    ]
+  },
+  "pely-power-gefrierbeutel-1-liter-vs-jeden-tag-gefrierbeutel-1-liter-de": {
+    "summary": "Je vierzig Gefrierbeutel mit 1 Liter in einem Markt, wobei Jeden Tag etwa 30 % günstiger ist.",
+    "evidence": "mytime.de führt Pely Power für 1,69 € und Jeden Tag für 1,19 €, beide 1 Liter und 40 Beutel, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Packungen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 6,48 €.",
+    "why": "Stückzahl und Litergröße stimmen überein, und Jeden Tag kommt mit Clips für etwa 30 % weniger.",
+    "differences": [
+      "Die Beutel sind mit unterschiedlichen Maßen angegeben, Jeden Tag größer, obwohl beide 1 Liter heißen.",
+      "Für keinen der beiden haben wir eine Angabe zur Dicke, und Pely verkauft diesen Beutel als Power.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Beutelgröße", "amount": "16 x 25 cm" }],
+      "alternative": [
+        { "name": "Beutelgröße", "amount": "18 x 28 cm" },
+        { "name": "Temperaturbereich", "amount": "-40 bis 115 °C" }
+      ]
+    }
+  },
+  "frosch-spuelmittel-limone-vs-shine-washing-up-liquid-concentrated-de": {
+    "summary": "Zwei Spülmittel mit 500 ml, mit Preisen aus Märkten namens Netto, wobei Shine etwa 37 % günstiger ist.",
+    "evidence": "Open Prices zeigt Frosch für 1,99 € für 500 ml bei Netto Marken-Discount in Berlin am 23. Sep. 2026 und Shine für 1,25 € für 500 ml in einem als Netto erfassten Markt in Strausberg am 13. Feb. 2026. Die Produkteinträge von Open Prices nennen die Größen.",
+    "why": "Beide sind Handspülmittel in derselben Größe, und Shine kostet über ein Drittel weniger. Prüf, wie weit ein Spritzer reicht, bevor du mehr kaufst.",
+    "differences": [
+      "In Deutschland gibt es zwei Ketten namens Netto, und diese Preise können aus verschiedenen stammen, mit sieben Monaten Abstand.",
+      "Shine wird als Konzentrat verkauft und der Eintrag zu Frosch sagt dazu nichts, du brauchst also vielleicht unterschiedliche Mengen pro Abwasch.",
+      "Keine der beiden Zutatenlisten liegt uns vor, und Umweltzeichen haben wir nicht verglichen.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "Spülmittel", "amount": "" }],
+      "alternative": [{ "name": "Spülmittel-Konzentrat", "amount": "" }]
+    }
+  },
+  "toppits-backpapier-vs-jeden-tag-backpapier-rolle-de": {
+    "summary": "Backpapier auf der Rolle in einem Markt, wobei Jeden Tag pro Meter etwa zwei Drittel günstiger ist.",
+    "evidence": "mytime.de führt Toppits Backpapier (8 m) für 2,29 € und Jeden Tag Backpapier Rolle (20 m x 38 cm) für 1,89 €, abgelesen am 6. Nov. 2026, inklusive MwSt. und zuzüglich Versand. Sechs Rollen Jeden Tag kosten zum Preis ab 6 Stück auf der Seite 10,26 €.",
+    "why": "Beide sind Backpapierrollen im selben Markt, und die Jeden-Tag-Rolle ist länger für weniger Geld.",
+    "differences": [
+      "Toppits nennt FSC-Papier und eine Verwendung bis 220 °C.",
+      "Die Jeden-Tag-Seite nennt keine Höchsttemperatur, prüf also die Packung, bevor du heiß backst.",
+      "Eine Breite für Toppits haben wir nicht gelesen.",
+      "Kein Test deckt dieses Paar ab."
+    ],
+    "ingredients": {
+      "brand": [{ "name": "FSC, bis 220 °C", "amount": "" }],
+      "alternative": [{ "name": "Beidseitig antihaftbeschichtet", "amount": "" }]
+    }
+  }
+}

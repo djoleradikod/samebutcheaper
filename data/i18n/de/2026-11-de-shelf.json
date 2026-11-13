@@ -1,0 +1,1672 @@
+{
+  "jacobs-meister-roestung-vs-cafet-gold-gemahlen-de": {
+    "summary": "Beide sind gemahlener Röstkaffee in der 500-g-Packung, verkauft in derselben Kette.",
+    "evidence": "Open Prices zeigt Jacobs Meister Röstung für 8,49 bei Netto Marken-Discount in Berlin am 12. Aug. 2026 und Cafèt Gold für 5,49 bei Netto Marken-Discount in Villingen-Schwenningen am 12. Sep. 2026. Die Packungsgrößen stammen aus den Einträgen in Open Food Facts.",
+    "why": "Gleiche Kette, gleiche Form und gleiche 500-g-Packung, und die Cafèt-Packung kostet 3,00 € weniger. Eine Packung reicht, um herauszufinden, ob dir die Mischung schmeckt.",
+    "differences": [
+      "Cafèt nennt eine Mischung aus Arabica und Robusta.",
+      "Der Jacobs-Eintrag nennt keine Mischung, also können wir sie nicht vergleichen.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Gemahlener Röstkaffee",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Arabica",
+          "amount": ""
+        },
+        {
+          "name": "Robusta",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "barilla-fusilli-vs-combino-fusilli-de": {
+    "summary": "Beide sind getrocknete Fusilli aus Hartweizen im 500-g-Beutel.",
+    "evidence": "Open Prices zeigt Barilla Fusilli für 1,99 bei Kaufland in Berlin am 25. Aug. 2026 und Combino Fusilli für 0,69 bei Lidl in Berlin am 22. Aug. 2026. Die beiden Preise stammen aus verschiedenen Ketten.",
+    "why": "Die Etiketten nennen dieselbe Hauptzutat, Hartweizengrieß, und Form und Beutelgröße stimmen überein. Der Combino-Beutel kostet zu diesen Preisen 1,30 € weniger.",
+    "differences": [
+      "Das Combino-Etikett warnt vor möglichen Spuren von Ei und Soja.",
+      "Barilla-Nudeln können an manchen Tagen viel günstiger sein: Barilla Rigatoni 500 g wurden im September 2026 bei REWE in Jena für 0,88 erfasst.",
+      "Für dieses Paar haben wir keinen Koch- oder Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Hartweizengrieß",
+          "amount": ""
+        },
+        {
+          "name": "Wasser",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Hartweizengrieß",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "bens-original-mediterran-vs-k-classic-express-reis-mediterran-de": {
+    "summary": "Beide sind vorgegarter Langkornreis mit mediterraner Würzung aus Tomate und Basilikum.",
+    "evidence": "Open Prices zeigt Ben's Original Mediterran für 2,29 bei Netto in Berlin am 20. Juli 2026 und K-Classic Mediterrane Art für 1,19 bei Kaufland in Strausberg am 3. Juli 2026. Die beiden Preise stammen aus verschiedenen Ketten.",
+    "why": "Beide sind dieselbe Art schneller Beutel mit Reis, Tomate, Sonnenblumenöl und Basilikum auf dem Etikett. Der K-Classic-Beutel ist größer und günstiger, selbst wenn Ben's im Angebot ist.",
+    "differences": [
+      "Die Würzungen sind nicht dieselbe Rezeptur.",
+      "K-Classic nennt 81 % gegarten Reis und 10 % Tomaten, Ben's 86 % Reis mit Tomatenmark und Tomatenpulver.",
+      "Ben's ist oft im Angebot: Im Juli 2026 kostete er bei Netto in Strausberg 1,49, etwa 6,77 € pro kg gegenüber 4,76 € bei K-Classic.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Langkornreis",
+          "amount": "86 %"
+        },
+        {
+          "name": "Tomatenmark",
+          "amount": "5,9 %"
+        },
+        {
+          "name": "Sonnenblumenöl",
+          "amount": ""
+        },
+        {
+          "name": "Tomatenpulver",
+          "amount": "2,5 %"
+        },
+        {
+          "name": "Basilikum",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Gegarter Langkornreis",
+          "amount": "81 %"
+        },
+        {
+          "name": "Tomaten",
+          "amount": "10 %"
+        },
+        {
+          "name": "Tomatenmark",
+          "amount": ""
+        },
+        {
+          "name": "Sonnenblumenöl",
+          "amount": ""
+        },
+        {
+          "name": "Basilikum",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "oro-di-parma-tomaten-stueckig-vs-ja-tomaten-gehackt-de": {
+    "summary": "Beide sind gehackte Tomaten in der 400-g-Packung mit Citronensäure als einzigem Zusatzstoff.",
+    "evidence": "Open Prices zeigt Oro di Parma für 1,99 bei Lidl in Dahme/Mark am 31. Juli 2026 und ja! für 0,59 bei REWE in Dahme/Mark am 3. Apr. 2026 und bei REWE Center in Frankfurt am 17. Apr. 2026. Die beiden Preise stammen aus verschiedenen Ketten und liegen Monate auseinander.",
+    "why": "Als Grundlage für eine Soße enthalten beide Dosen gehackte Tomaten mit fast nichts anderem. Die ja!-Dose kostet 1,40 € weniger.",
+    "differences": [
+      "Oro di Parma setzt Salz zu, ja! nennt keins. ja! gibt 60 % Tomaten plus Saft an, und der Eintrag zu Oro di Parma nennt keinen Anteil, also können wir nicht sagen, welche mehr Tomate enthält.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Gehackte Tomaten",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        },
+        {
+          "name": "Citronensäure",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Tomaten",
+          "amount": "60 %"
+        },
+        {
+          "name": "Tomatensaft",
+          "amount": ""
+        },
+        {
+          "name": "Citronensäure",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "bonne-maman-aprikose-vs-gut-guenstig-aprikose-konfituere-de": {
+    "summary": "Beide sind Aprikosenkonfitüre aus Aprikosen, Zucker, Zitronensaftkonzentrat und Pektin, gesehen bei EDEKA.",
+    "evidence": "Open Prices zeigt Bonne Maman für 2,59 bei EDEKA in Leipzig am 9. Aug. 2026, als Angebot gekennzeichnet, und Gut & Günstig für 1,79 bei EDEKA in München am 24. Feb. 2026. Es ist der einzige Eintrag zu Bonne Maman Aprikose, den wir gefunden haben, der übliche Preis kann also höher sein.",
+    "why": "Die Zutatenlisten stimmen fast überein, und Gut & Günstig wird im größeren Glas zu einem niedrigeren Preis verkauft. Selbst gegenüber dem Angebotspreis von Bonne Maman kostet es pro 100 g etwa die Hälfte.",
+    "differences": [
+      "Gut & Günstig nennt 50 % Aprikosen.",
+      "Der Bonne-Maman-Eintrag nennt keinen Fruchtanteil und enthält zusätzlich braunen Rohrzucker.",
+      "Die beiden Preise liegen sechs Monate auseinander.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Aprikosen",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Brauner Rohrzucker",
+          "amount": ""
+        },
+        {
+          "name": "Zitronensaftkonzentrat",
+          "amount": ""
+        },
+        {
+          "name": "Pektin aus Früchten",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Aprikosen",
+          "amount": "50 %"
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Zitronensaftkonzentrat",
+          "amount": ""
+        },
+        {
+          "name": "Pektin",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "coca-cola-original-vs-ja-cola-de": {
+    "summary": "Beide sind mit Zucker gesüßte Cola mit denselben Arten von Zutaten auf dem Etikett.",
+    "evidence": "Open Prices zeigt Coca-Cola 1,25 l für 1,59 bei PENNY in Berlin am 6. Aug. 2026 und bei Netto in Berlin am 17. Juli 2026 und ja! Cola 1,5 l für 0,65 bei REWE in Berlin am 20. Juli 2026. Die Etiketten stammen aus Open Food Facts.",
+    "why": "Die beiden Etiketten nennen Wasser, Zucker, Kohlensäure, Zuckerkulör, Phosphorsäure, Aroma und Koffeinaroma. Pro Liter kostet ja! etwa ein Drittel von Coca-Cola, eine Flasche ist also ein günstiger Weg, es auszuprobieren.",
+    "differences": [
+      "Keines der Etiketten nennt die Aromarezeptur, sie können also unterschiedlich schmecken, und für dieses Paar haben wir keinen Geschmackstest.",
+      "Zu beiden Preisen kommt das Flaschenpfand dazu."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Wasser",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Kohlensäure",
+          "amount": ""
+        },
+        {
+          "name": "Farbstoff E150d",
+          "amount": ""
+        },
+        {
+          "name": "Phosphorsäure",
+          "amount": ""
+        },
+        {
+          "name": "Natürliches Aroma, Koffeinaroma",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Wasser",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Kohlensäure",
+          "amount": ""
+        },
+        {
+          "name": "Farbstoff (Ammoniumsulfit-Zuckerkulör)",
+          "amount": ""
+        },
+        {
+          "name": "Phosphorsäure",
+          "amount": ""
+        },
+        {
+          "name": "Koffeinaroma, natürliches Aroma",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "prinzenrolle-schoko-vs-ja-doppelkeks-de": {
+    "summary": "Beide sind Doppelkekse mit Kakaocreme in der Rolle, mit fast derselben Zutatenliste.",
+    "evidence": "Open Prices zeigt Prinzenrolle für 2,59 bei Netto Marken-Discount in Strausberg am 11. Juli 2026. ja! Doppelkeks kostete 1,69 bei HIT in Wiesbaden am 4. Nov. 2026, und ein zweiter Barcode von ja! Doppelkeks kostete 1,69 bei REWE Stenten in Aachen am 30. Okt. 2026. Die Preise der beiden Marken stammen aus verschiedenen Ketten.",
+    "why": "Mehl, Zucker, Palmfett, Stärke und 5,5 % Kakaopulver stehen auf beiden Etiketten in derselben Reihenfolge. Du bekommst eine größere Rolle ja! für 90 Cent weniger, und der wesentliche Unterschied in der Rezeptur ist etwas Zartbitterschokolade.",
+    "differences": [
+      "Prinzenrolle enthält zusätzlich 2,3 % Zartbitterschokolade, die ja! nicht nennt.",
+      "Prinzenrolle gibt es im Angebot: Im März 2026 kostete sie bei Netto in Strausberg 2,29, pro Kilo immer noch teurer als ja!.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Weizenmehl",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Palmfett",
+          "amount": ""
+        },
+        {
+          "name": "Fettarmes Kakaopulver",
+          "amount": "5,5 %"
+        },
+        {
+          "name": "Zartbitterschokolade",
+          "amount": "2,3 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Weizenmehl",
+          "amount": "41 %"
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Palmfett",
+          "amount": ""
+        },
+        {
+          "name": "Fettarmes Kakaopulver",
+          "amount": "5,5 %"
+        }
+      ]
+    }
+  },
+  "pringles-original-vs-clarkys-stapelchips-original-de": {
+    "summary": "Beide sind Stapelchips aus Kartoffeln in der Röhre, verkauft in derselben Kette.",
+    "evidence": "Open Prices zeigt Pringles Original für 2,79 bei Netto Marken-Discount in Berlin am 12. Aug. 2026 und bei Lidl in Berlin am 8. Aug. 2026 und Clarkys Original für 1,49 bei Netto Marken-Discount in Strausberg am 14. Okt. 2026.",
+    "why": "Es ist derselbe Stapelchip in derselben Art Röhre in derselben Kette, und Clarkys kostet pro Gramm etwa 44 % weniger.",
+    "differences": [
+      "Die Rezepturen unterscheiden sich: Pringles enthält zusätzlich Mais-, Weizen- und Reismehl, Clarkys verwendet Kartoffelstärke und eine Rapsölmischung.",
+      "Clarkys ist 10 g leichter.",
+      "Pringles kostete im Mai 2026 bei Rossmann in Bollensdorf 2,49, was die Ersparnis auf etwa 37 % senkt.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Getrocknete Kartoffeln",
+          "amount": ""
+        },
+        {
+          "name": "Sonnenblumenöl",
+          "amount": ""
+        },
+        {
+          "name": "Maismehl",
+          "amount": ""
+        },
+        {
+          "name": "Weizenmehl",
+          "amount": ""
+        },
+        {
+          "name": "Reismehl",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Kartoffelpulver",
+          "amount": "43 %"
+        },
+        {
+          "name": "Pflanzliche Öle (Sonnenblume, Raps)",
+          "amount": ""
+        },
+        {
+          "name": "Kartoffelstärke",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "doritos-nacho-cheese-vs-clarkys-tortilla-chips-nacho-cheese-de": {
+    "summary": "Beide sind Tortilla-Chips aus Mais mit Nacho-Cheese-Würzung, verkauft in derselben Kette.",
+    "evidence": "Open Prices zeigt Doritos Nacho Cheese für 1,99 für 110 g bei Netto Marken-Discount in Berlin am 12. Aug. 2026 und Clarkys Nacho Cheese für 1,19 für 300 g bei Netto Marken-Discount in Villingen-Schwenningen am 7. Okt. 2026.",
+    "why": "Für eine Schale auf dem Tisch ist es derselbe Maischip mit Nacho-Cheese-Würzung. Der Clarkys-Beutel ist fast dreimal so groß und kostet 80 Cent weniger.",
+    "differences": [
+      "Die Würzung unterscheidet sich.",
+      "Doritos nennt Molken-, Buttermilch- und Käsepulver und einen Geschmacksverstärker, Clarkys in dem, was wir lesen konnten, 1 % Käsepulver und keinen Verstärker, der Geschmack kann sich also unterscheiden.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Mais",
+          "amount": ""
+        },
+        {
+          "name": "Rapsöl",
+          "amount": ""
+        },
+        {
+          "name": "Molkenpulver",
+          "amount": ""
+        },
+        {
+          "name": "Käsepulver",
+          "amount": ""
+        },
+        {
+          "name": "Geschmacksverstärker",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Maismehl",
+          "amount": "75 %"
+        },
+        {
+          "name": "Sonnenblumenöl",
+          "amount": "20 %"
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        },
+        {
+          "name": "Schmelzkäsepulver",
+          "amount": "1 %"
+        }
+      ]
+    }
+  },
+  "iglo-fischstaebchen-vs-sea-gold-fischstaebchen-de": {
+    "summary": "Beide Packungen enthalten 15 Fischstäbchen à 30 g mit 65 % Alaska-Seelachs, und beide wurden am selben Tag im selben Markt erfasst.",
+    "evidence": "Open Prices zeigt Iglo für 4,89 bei einem Netto in Strausberg am 29. Sep. 2026 (4,88 bei Netto Marken-Discount in Dahme/Mark am 15. Mai 2026) und Sea Gold für 2,49 beim Netto in Dahme/Mark am 15. Mai 2026. Beide Etiketten nennen 65 % Seelachsfilet.",
+    "why": "Fischanteil, Stäbchengröße und Stückzahl sind auf beiden Packungen gleich. Wenn Iglo nicht im Angebot ist, kostet Sea Gold etwa die Hälfte.",
+    "differences": [
+      "Iglo gibt es im Angebot: Am 23. Okt. 2026 kostete es bei einem Netto in Strausberg 2,49, genauso viel wie Sea Gold, zu diesem Preis gibt es also nichts zu sparen.",
+      "Die Panaden unterscheiden sich leicht.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Alaska-Seelachsfilet",
+          "amount": "65 %"
+        },
+        {
+          "name": "Paniermehl",
+          "amount": ""
+        },
+        {
+          "name": "Rapsöl",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Alaska-Seelachsfilet",
+          "amount": "65 %"
+        },
+        {
+          "name": "Paniermehl",
+          "amount": ""
+        },
+        {
+          "name": "Rapsöl",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "kerrygold-irische-butter-vs-frija-irische-butter-de": {
+    "summary": "Beide sind mildgesäuerte irische Butter im 250-g-Stück.",
+    "evidence": "Open Prices zeigt Kerrygold zum regulären Preis von 3,49 bei EDEKA Woltersdorf am 16. Juni 2026 und bei REWE in Dresden am 27. März 2026 und frija für 1,89 in einem als Netto erfassten Markt in Strausberg am 16. Juli 2026.",
+    "why": "Beide Stücke sind mildgesäuerte irische Butter, zum regulären Preis gibt es also wenig Grund, 1,60 € mehr zu zahlen. Wenn Kerrygold im Angebot unter frija liegt, kauf Kerrygold.",
+    "differences": [
+      "Das lohnt sich nur, wenn Kerrygold nicht im Angebot ist.",
+      "Sie kostete 1,59 bei EDEKA in Hamburg am 28. Okt. 2026 und 1,79 bei einem Netto in Strausberg am 27. Aug. 2026, beide unter dem Preis von frija, und unser letzter regulärer Kerrygold-Preis ist vom Juni.",
+      "In Deutschland gibt es zwei Ketten namens Netto, schau also bei beiden nach frija.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Mildgesäuerte Butter",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Mildgesäuerte Butter aus irischer Milch",
+          "amount": "82 % Fett"
+        }
+      ]
+    }
+  },
+  "weihenstephan-haltbare-milch-vs-gut-guenstig-h-milch-de": {
+    "summary": "Beide sind haltbare Milch mit 1,5 % Fett im 1-Liter-Karton, erfasst im selben Markt.",
+    "evidence": "Open Prices zeigt Weihenstephan für 1,49 bei Feneberg in Kempten am 11. Sep. 2026 und Gut & Günstig für 0,85 bei Feneberg in Kempten am 7. Aug. 2026. Weihenstephan kostete auch bei V-MARKT in Mariaberg am 20. Juli 2026 1,49.",
+    "why": "Gleicher Fettgehalt, gleicher Literkarton, gleicher Markt, und Milch ist das Einzige auf dem Etikett. Zum regulären Preis kostet Gut & Günstig pro Liter 64 Cent weniger.",
+    "differences": [
+      "Weihenstephan ist oft im Angebot: 0,99 bei einem Netto in Strausberg am 1. Sep. 2026 und bei V-MARKT am 8. Aug. 2026, und ein Eintrag mit 1,11 bei Aldi in Berlin.",
+      "Bei 0,99 beträgt die Ersparnis etwa 14 %.",
+      "Keiner der Einträge nennt Verarbeitungsangaben über die Ultrahocherhitzung hinaus.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Fettarme H-Milch",
+          "amount": "1,5 % Fett"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Milch",
+          "amount": "1,5 % Fett"
+        }
+      ]
+    }
+  },
+  "philadelphia-original-vs-ja-cremiger-frischkaese-de": {
+    "summary": "Beide sind Frischkäse natur in der Doppelrahmstufe, gesehen in REWE-Märkten.",
+    "evidence": "Open Prices zeigt Philadelphia für 2,29 bei REWE City in Köln am 29. Nov. 2025 und ja! für 1,59 bei REWE Stenten in Aachen am 25. Sep. 2026. Die Größe 195 g steht auf dem Becher im Foto von Open Food Facts. Die beiden Preise liegen zehn Monate auseinander.",
+    "why": "Beide sind als Doppelrahmstufe gekennzeichnet, und der ja!-Becher hat die kürzere Zutatenliste. Er ist größer und kostet 70 Cent weniger.",
+    "differences": [
+      "Philadelphia heißt Frischkäsezubereitung und nennt Molkenerzeugnisse, Guarkernmehl und Citronensäure, ja! nur Frischkäse und Salz.",
+      "Die Konsistenz kann sich also unterscheiden.",
+      "Philadelphia-Becher mit Geschmack zu 175 g gab es im März 2026 bei einem Netto im Angebot für 1,29, pro Kilo trotzdem teurer.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Frischkäse",
+          "amount": ""
+        },
+        {
+          "name": "Molkenerzeugnisse",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        },
+        {
+          "name": "Guarkernmehl",
+          "amount": ""
+        },
+        {
+          "name": "Citronensäure",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Frischkäse",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "milka-haselnusscreme-vs-nussetti-nuss-nougat-creme-de": {
+    "summary": "Beide sind süße Brotaufstriche aus Haselnuss und Kakao, erfasst im selben Markt am selben Tag.",
+    "evidence": "Open Prices zeigt Milka Haselnusscreme für 3,79 für 350 g und Nussetti für 1,99 für 400 g, beide bei Netto Marken-Discount in Strausberg am 2. Nov. 2026. Milka kostete am 19. März 2026 bei Kaufland in Strausberg 3,69.",
+    "why": "Das Nussetti-Etikett zeigt mehr Haselnuss und mehr Kakao, im größeren Glas, für 1,80 € weniger. Wenn du nicht auf Palmöl verzichten willst, gibt das Etikett wenig Grund, mehr zu zahlen.",
+    "differences": [
+      "Milka verwendet Sonnenblumenöl und Nussetti Raps- und Palmöl, wenn du Palmöl meidest, gewinnt also Milka.",
+      "Nussetti nennt 13 % Haselnüsse gegenüber 5 % Haselnussmasse bei Milka.",
+      "Milka nennt seinen Kakao nach diesen 5 %, hat also 5 % oder weniger, gegenüber 9 % bei Nussetti.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Sonnenblumenöl",
+          "amount": "28 %"
+        },
+        {
+          "name": "Molkenpulver",
+          "amount": ""
+        },
+        {
+          "name": "Haselnussmasse",
+          "amount": "5 %"
+        },
+        {
+          "name": "Fettarmes Kakaopulver",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Pflanzliche Öle (Raps, Palm)",
+          "amount": ""
+        },
+        {
+          "name": "Haselnüsse",
+          "amount": "13 %"
+        },
+        {
+          "name": "Fettarmes Kakaopulver",
+          "amount": "9 %"
+        },
+        {
+          "name": "Magermilchpulver",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "monster-energy-zero-sugar-vs-speedstar-ultra-zero-de": {
+    "summary": "Beide sind zuckerfreie Energydrinks in der 500-ml-Dose mit denselben Gehalten an Koffein, Taurin, Ginseng und Guarana.",
+    "evidence": "Open Prices zeigt Monster Energy Zero Sugar für 1,49 bei Lidl in Berlin am 8. Aug. 2026 und Speedstar Ultra Zero für 0,69 bei Norma in Ludwigshafen am 25. Aug. 2026. Die Prozentangaben stammen von den Etiketten in Open Food Facts. Die beiden Preise stammen aus verschiedenen Ketten.",
+    "why": "Die Wirkstoffe auf den beiden Etiketten stimmen bei den angegebenen Prozenten überein. Speedstar kostet pro Dose 80 Cent weniger, also weniger als die Hälfte.",
+    "differences": [
+      "Aromen und Farbstoffe sind nicht dieselbe Rezeptur, und Monster nennt zusätzlich Erythrit.",
+      "Monster-Sorten gibt es im Angebot: Ultra Fiesta Mango kostete im Juli 2026 bei Netto Marken-Discount in Berlin 0,77, nah am Preis von Speedstar.",
+      "Zu beiden Preisen kommt das Dosenpfand dazu.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Taurin",
+          "amount": "0,4 %"
+        },
+        {
+          "name": "Panax-Ginseng-Wurzelextrakt",
+          "amount": "0,08 %"
+        },
+        {
+          "name": "Koffein",
+          "amount": "0,03 %"
+        },
+        {
+          "name": "Süßungsmittel (Sucralose, Acesulfam-K)",
+          "amount": ""
+        },
+        {
+          "name": "Guaranasamenextrakt",
+          "amount": "0,002 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Taurin",
+          "amount": "0,4 %"
+        },
+        {
+          "name": "Ginsengextrakt",
+          "amount": "0,08 %"
+        },
+        {
+          "name": "Koffein",
+          "amount": "0,03 %"
+        },
+        {
+          "name": "Süßungsmittel (Sucralose, Acesulfam-K)",
+          "amount": ""
+        },
+        {
+          "name": "Guaranaextrakt",
+          "amount": "0,002 %"
+        }
+      ]
+    }
+  },
+  "loewensenf-extra-vs-bautzner-senf-scharf-de": {
+    "summary": "Beide sind scharfe deutsche Tafelsenfe aus Senfsaat, Essig, Wasser und Salz.",
+    "evidence": "Open Prices zeigt Löwensenf Extra für 1,89 bei EDEKA Y. Reichelt in Berlin am 3. Aug. 2026 und Bautz'ner scharf zum regulären Preis von 0,55 bei Netto in Berlin am 20. Juli 2026. Die beiden Preise stammen aus verschiedenen Ketten.",
+    "why": "Senf ist ein kleiner Teil jeder Mahlzeit, und beide sind aus Saat, Essig, Wasser und Salz gemacht. Pro Liter kostet Bautz'ner etwa ein Drittel.",
+    "differences": [
+      "Löwensenf wird als extra scharf verkauft und Bautz'ner als scharf, die Schärfe kann sich also unterscheiden, und für dieses Paar haben wir keinen Test.",
+      "Bautz'ner enthält zusätzlich Zucker, Paprika und Gewürze, Löwensenf nennt nichts davon.",
+      "Löwensenf kommt im 250-ml-Glas und Bautz'ner im 200-ml-Becher."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Senfsaat",
+          "amount": ""
+        },
+        {
+          "name": "Essig",
+          "amount": ""
+        },
+        {
+          "name": "Wasser",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Wasser",
+          "amount": ""
+        },
+        {
+          "name": "Senfsaat",
+          "amount": ""
+        },
+        {
+          "name": "Branntweinessig",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Gewürze",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "heinz-tomato-ketchup-vs-le-gusto-tomato-ketchup-de": {
+    "summary": "Beide sind klassischer Tomatenketchup in der Quetschflasche, mit weit auseinanderliegendem Literpreis.",
+    "evidence": "Open Prices zeigt Heinz zum regulären Preis von 2,79 bei Lidl in Bach am 21. Feb. 2026 und Le Gusto für 1,29 bei Aldi in Strausberg am 8. Apr. 2026. Am selben Tag war Heinz in diesem Aldi im Angebot für 1,79.",
+    "why": "Selbst im Angebot im selben Aldi kommt Heinz auf etwa 4,48 € pro Liter gegenüber 2,58 € bei Le Gusto. Probier eine Flasche und schau, ob du sie unterscheiden kannst.",
+    "differences": [
+      "Heinz nennt 148 g Tomaten pro 100 g Ketchup.",
+      "Die gespeicherte Zutatenliste von Le Gusto ist unleserlich, also können wir den Tomatenanteil nicht vergleichen, und Heinz verwendet vielleicht mehr.",
+      "In Deutschland gibt es zwei Aldi-Ketten, und der Eintrag sagt nicht, welche Le Gusto verkauft hat, schau also bei beiden.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Tomaten",
+          "amount": "148 g pro 100 g"
+        },
+        {
+          "name": "Essig",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Tomatenketchup",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "thomy-delikatess-mayo-vs-ja-mayonnaise-de": {
+    "summary": "Beide sind Mayonnaise in der 500-ml-Quetschflasche.",
+    "evidence": "Open Prices zeigt Thomy für 2,79 bei einem Netto in Strausberg am 8. Mai 2026 und ja! für 1,69 bei REWE in Dahme/Mark am 13. Jan. 2026. Die beiden Preise stammen aus verschiedenen Ketten und liegen vier Monate auseinander.",
+    "why": "ja! nennt 80 % Rapsöl und 6 % Eigelb und kostet in derselben Größe 1,10 € weniger. Wenn dir Eier aus Freilandhaltung wichtig sind, ist das der Grund, bei Thomy zu bleiben.",
+    "differences": [
+      "Bei den Eiern ist Thomy besser: Der Name sagt Freilandhaltung, ja! sagt Eier aus Bodenhaltung.",
+      "Die Zutatenliste von Thomy liegt uns nicht vor, also können wir Öl- und Eigelbanteil nicht vergleichen.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Mayonnaise mit Eiern aus Freilandhaltung",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Rapsöl",
+          "amount": "80 %"
+        },
+        {
+          "name": "Eigelb",
+          "amount": "6 %"
+        },
+        {
+          "name": "Branntweinessig",
+          "amount": ""
+        },
+        {
+          "name": "Senf",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "thomy-reines-sonnenblumenoel-vs-vegola-sonnenblumenoel-de": {
+    "summary": "Beide Flaschen enthalten reines Sonnenblumenöl und sonst nichts.",
+    "evidence": "Open Prices zeigt Thomy für 2,99 für 750 ml bei einem Netto in Strausberg am 8. Mai 2026 und Vegola für 1,89 für 1 l bei Netto Marken-Discount in Berlin am 4. Sep. 2026. Beide Etiketten nennen nur Sonnenblumenöl.",
+    "why": "Ein Öl aus einer einzigen Zutat lässt auf dem Etikett wenig Raum für einen Unterschied. Die Vegola-Flasche ist ein Drittel größer und kostet trotzdem 1,10 € weniger.",
+    "differences": [
+      "Keiner der Einträge sagt, wie das Öl raffiniert wurde oder woher die Saat stammt.",
+      "Die Flaschen sind unterschiedlich groß."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Sonnenblumenöl",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Sonnenblumenöl",
+          "amount": "100 %"
+        }
+      ]
+    }
+  },
+  "bertolli-natives-olivenoel-extra-vs-bellasan-natives-olivenoel-extra-de": {
+    "summary": "Beide sind natives Olivenöl extra, und für dasselbe Geld bekommst du doppelt so viel Bellasan.",
+    "evidence": "Open Prices zeigt Bertolli für 7,99 für 500 ml bei Kaufland in Strausberg am 13. Juli 2026 und Bellasan für 7,99 für 1 l bei Aldi Süd in Stuttgart am 8. Aug. 2026 und bei ALDI Süd in Mühltal am 27. Mai 2026. Die beiden Preise stammen aus verschiedenen Ketten.",
+    "why": "Beide tragen die Güteklasse nativ extra auf dem Etikett. Zum Kochen bekommst du für dieselben 7,99 € doppelt so viel Öl.",
+    "differences": [
+      "Olivenöle unterscheiden sich nach Ernte und Herkunft, und keiner der Einträge nennt sie, der Geschmack kann sich also unterscheiden.",
+      "Bertolli gibt es im Angebot: Im Mai 2026 kostete es bei einem Netto in Strausberg 5,99, etwa 11,98 € pro Liter, immer noch deutlich über Bellasan.",
+      "Für dieses Paar haben wir keinen Geschmacks- oder Qualitätstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Natives Olivenöl extra",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Natives Olivenöl extra",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "barilla-pesto-genovese-vs-baresa-pesto-alla-genovese-de": {
+    "summary": "Beide sind grünes Basilikum-Pesto im 190-g-Glas mit Basilikum, Cashewkernen und italienischem Hartkäse.",
+    "evidence": "Open Prices zeigt Barilla für 1,99 bei Netto City in München am 15. Sep. 2026, als Angebot gekennzeichnet, und Baresa für 0,99 bei Lidl in Bach am 7. Sep. 2026. Dieses Angebot ist der einzige Eintrag zu Barilla Genovese, den wir gefunden haben, der übliche Preis kann also höher sein. Die Etiketten stammen aus Open Food Facts, und der gespeicherte Text zu Baresa ist teilweise unleserlich.",
+    "why": "Laut Etikett hat Baresa etwas mehr Basilikum und weniger Öl, Barilla etwas mehr Käse. Baresa kostet die Hälfte, selbst wenn Barilla im Angebot ist.",
+    "differences": [
+      "Barilla mischt Grana Padano mit Pecorino und nennt 1 % Olivenöl.",
+      "Baresa nennt ebenfalls Parmigiano Reggiano und Olivenöl, aber die vollständige Liste konnten wir nicht lesen.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Sonnenblumenöl",
+          "amount": "44,5 %"
+        },
+        {
+          "name": "Basilikum",
+          "amount": "30 %"
+        },
+        {
+          "name": "Cashewkerne",
+          "amount": ""
+        },
+        {
+          "name": "Grana Padano",
+          "amount": "4,5 %"
+        },
+        {
+          "name": "Pecorino Romano",
+          "amount": "1,2 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Pflanzenöl",
+          "amount": "40,8 %"
+        },
+        {
+          "name": "Basilikum",
+          "amount": "34 %"
+        },
+        {
+          "name": "Cashewkerne",
+          "amount": "9 %"
+        },
+        {
+          "name": "Parmigiano Reggiano",
+          "amount": "5 %"
+        }
+      ]
+    }
+  },
+  "barilla-basilico-sauce-vs-la-campagna-pasta-sauce-basil-de": {
+    "summary": "Beide sind fertige Nudelsoßen mit Tomate und Basilikum, mit etwa 85 % Tomate und 2 % Basilikum auf dem Etikett.",
+    "evidence": "Open Prices zeigt Barilla für 1,99 für 400 g am 29. Juni 2026 und la campagna für 1,59 für 500 g am 8. Okt. 2026, beide in einem als Netto erfassten Markt in Strausberg. In Deutschland gibt es zwei Ketten namens Netto, und die Einträge sagen nicht, welche, schau also bei beiden nach la campagna.",
+    "why": "Tomaten- und Basilikumanteil liegen auf den beiden Etiketten nah beieinander, und das Glas von la campagna ist größer und kostet 40 Cent weniger. Das sind pro Gramm etwa 36 % weniger.",
+    "differences": [
+      "Barilla verwendet Sonnenblumenöl, la campagna Olivenöl, Wasser und Citronensäure.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Tomatenfruchtfleisch",
+          "amount": "71 %"
+        },
+        {
+          "name": "Tomatenkonzentrat",
+          "amount": "13,5 %"
+        },
+        {
+          "name": "Zwiebeln",
+          "amount": ""
+        },
+        {
+          "name": "Sonnenblumenöl",
+          "amount": ""
+        },
+        {
+          "name": "Basilikum",
+          "amount": "2 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Tomaten",
+          "amount": "75 %"
+        },
+        {
+          "name": "Tomatenmark",
+          "amount": "11 %"
+        },
+        {
+          "name": "Basilikum",
+          "amount": "2 %"
+        },
+        {
+          "name": "Zwiebel",
+          "amount": ""
+        },
+        {
+          "name": "Olivenöl",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "miracoli-klassiker-spaghetti-vs-mondo-italiano-spaghetti-tomatensauce-de": {
+    "summary": "Beide sind Spaghetti-Fertiggerichte in der Schachtel mit Tomatenmark und Gewürzmischung, die du zu Hause kochst.",
+    "evidence": "Open Prices zeigt Mirácoli zum regulären Preis von 4,49 am 29. Juni 2026 und Mondo Italiano für 1,69 am 19. Okt. 2026, beide in einem als Netto erfassten Markt in Strausberg. Mondo Italiano kostete auch im April 2026 bei Netto Marken-Discount dort 1,69. Verglichen nach dem auf den Packungen angegebenen Gewicht.",
+    "why": "In beiden Schachteln stecken Nudeln, Tomatenmark und ein Gewürzbeutel, und Mondo Italiano legt Käse dazu. Wenn Mirácoli nicht im Angebot ist, zahlst du pro Gramm etwa 42 % weniger.",
+    "differences": [
+      "Die Schachteln sind unterschiedlich groß, und für keine haben wir eine Portionsangabe, vergleich also nach Gewicht.",
+      "Mondo Italiano enthält geriebenen Hartkäse.",
+      "Mirácoli gibt es im Angebot: Am 19. Okt. 2026 kostete es im selben Netto 2,99, was die Ersparnis auf etwa 13 % senkt.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Nudeln aus Hartweizen",
+          "amount": ""
+        },
+        {
+          "name": "Doppelt konzentriertes Tomatenmark",
+          "amount": ""
+        },
+        {
+          "name": "Gewürzmischung",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Nudeln aus Hartweizen",
+          "amount": "63 %"
+        },
+        {
+          "name": "Doppelt konzentriertes Tomatenmark",
+          "amount": "28,7 %"
+        },
+        {
+          "name": "Gewürzmischung",
+          "amount": "4,5 %"
+        },
+        {
+          "name": "Geriebener Hartkäse",
+          "amount": "3,8 %"
+        }
+      ]
+    }
+  },
+  "bonduelle-goldmais-vs-kaufland-gemuese-mais-de": {
+    "summary": "Beide Dosen enthalten Zuckermais, Wasser und Salz, angegeben mit 285 g.",
+    "evidence": "Open Prices zeigt Bonduelle für 2,29 bei V-MARKT in Mariaberg am 10. Juni 2026 und die Kaufland-Eigenmarke für 0,69 bei Kaufland in Berlin am 5. Okt. 2026. Die beiden Preise stammen aus verschiedenen Ketten, und der Preis bei V-MARKT entspricht vielleicht nicht dem anderer Märkte. ja! Sonnenmais, ebenfalls 285 g, kostete 0,99 bei Nahkauf in Darmstadt am 17. Juni 2026.",
+    "why": "Die Zutatenlisten stimmen überein: Zuckermais, Wasser und Salz. Der von Kaufland kostet 1,60 € weniger.",
+    "differences": [
+      "Bonduelle schreibt junge Ernte auf die Dose.",
+      "Die Einträge sagen nicht, ob 285 g bei einer der beiden Dosen das Abtropfgewicht ist.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Zuckermais",
+          "amount": ""
+        },
+        {
+          "name": "Wasser",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Zuckermais",
+          "amount": ""
+        },
+        {
+          "name": "Wasser",
+          "amount": ""
+        },
+        {
+          "name": "Salz",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "golden-toast-vollkorn-vs-kornmuehle-vollkorn-toast-de": {
+    "summary": "Beide sind geschnittener Vollkorntoast mit 500 g und 58 % Weizenvollkornmehl, verkauft in derselben Kette.",
+    "evidence": "Open Prices zeigt Golden Toast für 1,99 bei Netto Marken-Discount in Strausberg am 12. Aug. 2026 und Kornmühle für 0,89 bei Netto Marken-Discount in Woltersdorf am 24. Juli 2026. Beide Etiketten nennen 58 % Weizenvollkornmehl.",
+    "why": "Gleicher Vollkornanteil, gleiches Gewicht und gleiche Kette, und das Kornmühle-Brot hat die kürzere Liste. Es kostet pro Brot 1,10 € weniger.",
+    "differences": [
+      "Golden Toast enthält zusätzlich Weizensauerteig und Zucker, die Kornmühle nicht nennt, der Geschmack kann sich also unterscheiden.",
+      "Zwei Einträge ohne genannten Markt zeigen Golden Toast im Angebot für 1,00, was den Abstand fast schließt.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Weizenvollkornmehl",
+          "amount": "58 %"
+        },
+        {
+          "name": "Weizensauerteig",
+          "amount": ""
+        },
+        {
+          "name": "Weizenmehl",
+          "amount": ""
+        },
+        {
+          "name": "Rapsöl",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Weizenvollkornmehl",
+          "amount": "58 %"
+        },
+        {
+          "name": "Weizenmehl",
+          "amount": ""
+        },
+        {
+          "name": "Rapsöl",
+          "amount": ""
+        },
+        {
+          "name": "Hefe",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "mueller-milchreis-schoko-vs-grandiso-milchreis-schoko-de": {
+    "summary": "Beide sind gekühlte 200-g-Becher Milchreis mit Schokoladenschicht.",
+    "evidence": "Open Prices zeigt müller für 0,99 bei REWE in Kempten am 27. Juli 2026 und Grandiso für 0,39 bei Netto City in München am 30. Juli 2026, dort mit demselben Preis in vier Einträgen bis zurück in den Dezember 2025. Die beiden Preise stammen aus verschiedenen Ketten.",
+    "why": "Bei gleicher Bechergröße kostet Grandiso 60 Cent weniger und hielt diesen Preis von Dezember 2025 bis Juli 2026. Wenn müller im Angebot ist, verschwindet der Abstand fast.",
+    "differences": [
+      "Die gespeicherte Zutatenliste von müller ist unleserlich, also können wir Milch-, Reis- und Schokoladenanteil nicht vergleichen. müller gibt es im Angebot: Im Mai 2026 kostete er bei einem Netto in Strausberg 0,49, nah an Grandiso.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Milchreis mit Schokolade",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Vollmilch",
+          "amount": "70 %"
+        },
+        {
+          "name": "Schokoladenzubereitung",
+          "amount": "15 %"
+        },
+        {
+          "name": "Rundkornreis",
+          "amount": "9 %"
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "heinz-beanz-vs-k-classic-baked-beans-de": {
+    "summary": "Beide sind weiße Bohnen in Tomatensoße in der Dose mit etwa 400 g, erfasst im selben Kaufland.",
+    "evidence": "Open Prices zeigt Heinz zum regulären Preis von 2,49 am 19. März 2026 und K-Classic für 0,99 am 8. Juni 2026, beide bei Kaufland in Strausberg. Heinz kostete im selben Markt am 18. Aug. 2026 im Angebot 1,79.",
+    "why": "Bei K-Classic bekommst du anteilig etwas mehr Bohnen für 1,50 € weniger pro Dose. Selbst mit Heinz im Angebot ist K-Classic pro Gramm etwa 43 % günstiger.",
+    "differences": [
+      "Heinz nennt 36 % Tomaten in seiner Soße, K-Classic Wasser und 5 % Tomatenmark, die Heinz-Soße ist also vielleicht kräftiger.",
+      "K-Classic hat anteilig mehr Bohnen.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Weiße Bohnen",
+          "amount": "50 %"
+        },
+        {
+          "name": "Tomaten",
+          "amount": "36 %"
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Branntweinessig",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Weiße Bohnen",
+          "amount": "57 %"
+        },
+        {
+          "name": "Wasser",
+          "amount": "32 %"
+        },
+        {
+          "name": "Tomatenmark",
+          "amount": "5 %"
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "spreewaldhof-spreelinge-vs-k-classic-gewuerzgurken-de": {
+    "summary": "Beide sind süßsauer eingelegte Gewürzgurken in Essig mit Dill, Zwiebel und Senfsaat, angegeben mit 360 g.",
+    "evidence": "Open Prices zeigt Spreewaldhof für 2,59 bei Netto Marken-Discount in Strausberg am 27. Okt. 2026 und bei einem Netto in Strausberg am 24. Aug. 2026 und K-Classic für 1,19 bei Kaufland in Berlin am 5. Aug. 2026. Die beiden Preise stammen aus verschiedenen Ketten.",
+    "why": "Die Zutatenlisten sind fast gleich, und die angegebenen Gewichte stimmen überein. Das K-Classic-Glas kostet 1,40 € weniger.",
+    "differences": [
+      "Die Einträge nennen weder die Gurkengröße noch, ob 360 g das Abtropfgewicht sind.",
+      "K-Classic enthält zusätzlich Paprika.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Gurken",
+          "amount": ""
+        },
+        {
+          "name": "Branntweinessig",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Zwiebeln",
+          "amount": ""
+        },
+        {
+          "name": "Dill",
+          "amount": ""
+        },
+        {
+          "name": "Senfsaat",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Gurken",
+          "amount": ""
+        },
+        {
+          "name": "Branntweinessig",
+          "amount": ""
+        },
+        {
+          "name": "Zucker",
+          "amount": ""
+        },
+        {
+          "name": "Senfsaat",
+          "amount": ""
+        },
+        {
+          "name": "Dill",
+          "amount": ""
+        },
+        {
+          "name": "Zwiebeln",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "vitalis-schoko-muesli-vs-k-classic-schokomuesli-de": {
+    "summary": "Beide sind Schokomüsli auf Haferbasis mit etwa einem Viertel Schokolade und Vollkornhafer als Hauptzutat.",
+    "evidence": "Open Prices zeigt Vitalis zum regulären Preis von 3,99 bei REWE in Kempten am 7. Jan. 2026 und K-Classic für 2,49 bei Kaufland in Strausberg am 13. Juli 2026. Vitalis kostete am 27. Apr. 2026 bei einem Netto in Strausberg im Angebot 2,49. Die beiden Preise stammen aus verschiedenen Ketten und liegen sechs Monate auseinander.",
+    "why": "K-Classic nennt mehr Hafer und etwa denselben Schokoladenanteil, und der Beutel enthält 300 g mehr. Selbst mit Vitalis im Angebot für 2,49 zahlst du pro Gramm etwa 40 % weniger.",
+    "differences": [
+      "Vitalis verwendet Zartbitter- und Milchschokolade mit karamellisierten Mandeln, K-Classic Milchschokolade mit Haselnusskrokant.",
+      "Wenn du Zartbitterschokolade lieber magst, wird der Geschmack anders sein.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Vollkornhaferflocken",
+          "amount": "61 %"
+        },
+        {
+          "name": "Schokolade",
+          "amount": "13 %"
+        },
+        {
+          "name": "Milchschokolade",
+          "amount": "10 %"
+        },
+        {
+          "name": "Karamellisierte Mandelstücke",
+          "amount": "2 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Vollkornhaferflocken",
+          "amount": "66 %"
+        },
+        {
+          "name": "Milchschokoladenstücke",
+          "amount": "25 %"
+        },
+        {
+          "name": "Cornflakes",
+          "amount": ""
+        },
+        {
+          "name": "Haselnusskrokant",
+          "amount": "1 %"
+        }
+      ]
+    }
+  },
+  "seeberger-cashewkerne-geroestet-vs-kaufland-cashew-kerne-geroestet-de": {
+    "summary": "Beide sind Beutel mit gerösteten Cashewkernen und sonst nichts auf dem Etikett, erfasst bei Kaufland im selben Monat.",
+    "evidence": "Open Prices zeigt Seeberger für 4,38 bei Kaufland in Berlin am 25. Aug. 2026 und die Kaufland-Eigenmarke für 3,79 bei Kaufland in Berlin am 11. Aug. 2026.",
+    "why": "Es ist ein Snack aus einer einzigen Zutat, auf dem Etikett gibt es also wenig, was sie unterscheidet. Der Kaufland-Beutel enthält 50 g mehr und kostet pro Gramm etwa 35 % weniger.",
+    "differences": [
+      "Kaufland schreibt ungesalzen.",
+      "Der Seeberger-Eintrag nennt nur geröstete Cashewkerne und verwendet dieses Wort nicht.",
+      "Die Einträge nennen weder Nussgröße noch Herkunft.",
+      "Für dieses Paar haben wir keinen Geschmackstest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Geröstete Cashewkerne",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Geröstete Cashewkerne",
+          "amount": "100 %"
+        }
+      ]
+    }
+  },
+  "listerine-cool-mint-mild-vs-dontodent-mundspuelung-de": {
+    "summary": "Beide sind tägliche Mundspülungen mit Natriumfluorid und ohne Alkohol laut Etikett, in der 500-ml-Flasche, gesehen bei dm.",
+    "evidence": "Open Prices zeigt Listerine Cool Mint Mild für 3,95 bei dm in Berlin am 20. Aug. 2026, mit ähnlichen Preisen bei Kaufland und Netto Marken-Discount in diesem Monat, und Dontodent für 0,85 bei dm in Barsinghausen am 7. Jan. 2026. Die Inhaltsstoffe stammen aus den Einträgen in Open Food Facts. Die beiden Preise liegen sieben Monate auseinander.",
+    "why": "Für eine tägliche Spülung mit Fluorid kostet Dontodent etwa ein Fünftel. Wenn deine Zahnärztin oder dein Zahnarzt dir Listerine empfohlen hat, bleib dabei, denn die antibakteriellen Inhaltsstoffe unterscheiden sich.",
+    "differences": [
+      "Die antibakteriellen Inhaltsstoffe sind nicht dieselben: Listerine verwendet Verbindungen aus ätherischen Ölen, Dontodent Cetylpyridiniumchlorid.",
+      "Wir haben keinen Test von Dontodent und keinen Test, der die beiden vergleicht, also können wir nicht sagen, dass sie gleich gut wirken.",
+      "Listerine kostete am 25. Aug. 2026 bei REWE in Berlin 2,99.",
+      "Frag deine Zahnärztin oder deinen Zahnarzt, wenn du eine Spülung wegen eines Zahnfleischproblems verwendest."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Eucalyptol",
+          "amount": ""
+        },
+        {
+          "name": "Thymol",
+          "amount": ""
+        },
+        {
+          "name": "Methylsalicylat",
+          "amount": ""
+        },
+        {
+          "name": "Menthol",
+          "amount": ""
+        },
+        {
+          "name": "Natriumfluorid",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Cetylpyridiniumchlorid",
+          "amount": ""
+        },
+        {
+          "name": "Natriumfluorid",
+          "amount": ""
+        },
+        {
+          "name": "Xylit",
+          "amount": ""
+        },
+        {
+          "name": "Menthol",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de": {
+    "summary": "Beide sind konzentrierte Handspülmittel, erfasst am selben Tag im selben Markt.",
+    "evidence": "Open Prices zeigt Fairy für 1,69 für 450 ml und Shine für 1,25 für 500 ml, beide in einem als Netto erfassten Markt in Strausberg am 13. Feb. 2026. Die Produkteinträge von Open Prices nennen die Größen.",
+    "why": "Beide werden als Konzentrat verkauft, und Shine ist pro Milliliter etwa ein Drittel günstiger. Prüf, wie weit ein Spritzer reicht, bevor du größere Mengen kaufst.",
+    "differences": [
+      "Keine der beiden Zutatenlisten liegt uns vor, also können wir nicht vergleichen, wie konzentriert sie sind, und du brauchst pro Abwasch vielleicht mehr oder weniger von einem.",
+      "Wir haben keinen Reinigungstest gefunden, der Shine abdeckt.",
+      "In Deutschland gibt es zwei Ketten namens Netto, schau also bei beiden nach Shine."
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Spülmittel-Konzentrat",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Spülmittel-Konzentrat",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "royal-canin-indoor-27-vs-concept-for-life-indoor-cats-de": {
+    "summary": "Beide sind Alleinfuttermittel (Trockenfutter) für erwachsene Wohnungskatzen, mit ähnlichem Fettgehalt und vergleichbarem Protein, verkauft bei zooplus.",
+    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Royal Canin Indoor 27 kostet 21,49 für 2 kg und Concept for Life Indoor Cats 19,99 für 3 kg zum regulären Shoppreis, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Katzen. Analyse: Royal Canin 27 % Protein, 13 % Fett, 4 % Rohfaser, 7 % Rohasche. Concept for Life 30 % Protein, 12,5 % Fett, 5,5 % Rohfaser, 7,2 % Rohasche.",
+    "why": "Laut Analyse gibt Concept for Life etwas mehr Protein bei ähnlichem Fett, und es wird als Alleinfutter für dieselbe Wohnungskatze verkauft. Du zahlst in jeder geprüften Größe weniger pro Kilo.",
+    "differences": [
+      "Wir haben die nächstliegenden Packungsgrößen verglichen.",
+      "In anderen Größen ist der Abstand kleiner: Royal Canin 4 kg kostet 34,99 (8,75 pro kg), und die 3 kg von Concept for Life sind pro kg etwa 24 % günstiger.",
+      "Bei 10 kg sind es 65,99 gegenüber 53,99, etwa 18 % weniger.",
+      "Die Rezepturen unterscheiden sich, und die Royal-Canin-Seite sagt bis 7 Jahre.",
+      "Uns ist keine Fütterungsstudie bekannt, die beide vergleicht.",
+      "Katzen mit einer Erkrankung brauchen den Rat der Tierärztin oder des Tierarztes.",
+      "Für Concept for Life liegt kein lizenziertes Foto vor."
+    ],
+    "aspects": [
+      {
+        "aspect": "Rohprotein",
+        "brand": "27 %",
+        "alternative": "30 %"
+      },
+      {
+        "aspect": "Rohfett",
+        "brand": "13 %",
+        "alternative": "12,5 %"
+      },
+      {
+        "aspect": "Rohfaser",
+        "brand": "4 %",
+        "alternative": "5,5 %"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Getrocknetes Geflügelprotein",
+          "amount": ""
+        },
+        {
+          "name": "Reis",
+          "amount": ""
+        },
+        {
+          "name": "Weizen",
+          "amount": ""
+        },
+        {
+          "name": "Mais",
+          "amount": ""
+        },
+        {
+          "name": "Rohprotein",
+          "amount": "27 %"
+        },
+        {
+          "name": "Rohfett",
+          "amount": "13 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Hühnerprotein",
+          "amount": "33,4 %"
+        },
+        {
+          "name": "Reis",
+          "amount": "33 %"
+        },
+        {
+          "name": "Frisches Huhn",
+          "amount": "14 %"
+        },
+        {
+          "name": "Rohprotein",
+          "amount": "30 %"
+        },
+        {
+          "name": "Rohfett",
+          "amount": "12,5 %"
+        }
+      ]
+    }
+  },
+  "royal-canin-maxi-adult-vs-concept-for-life-large-adult-de": {
+    "summary": "Beide sind Alleinfuttermittel (Trockenfutter) für große erwachsene Hunde mit denselben 26 % Protein und 17 % Fett, verkauft bei zooplus.",
+    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Royal Canin Maxi Adult kostet 64,49 für 15 kg und Concept for Life Large Adult 43,99 für 12 kg zum regulären Shoppreis, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Hunde ab 15 Monaten. Analyse: Royal Canin 26 % Protein, 17 % Fett, 1,6 % Rohfaser, 7,6 % Rohasche. Concept for Life 26 % Protein, 17 % Fett, 2 % Rohfaser, 7,2 % Rohasche.",
+    "why": "Protein- und Fettwerte stimmen genau überein, und beide werden als Alleinfutter für dieselbe Hundegröße verkauft. Für einen großen Hund, der viel frisst, summieren sich 63 Cent weniger pro Kilo.",
+    "differences": [
+      "Diese Ersparnis ist moderat, etwa 15 %.",
+      "Royal Canin nennt ein Hundegewicht von 26 bis 44 kg, der gelesene Text von Concept for Life sagt große erwachsene Hunde ohne Spanne.",
+      "Das Getreide unterscheidet sich: Royal Canin nennt Weizenmehl und Mais, Concept for Life Reis und Mais.",
+      "Beide nennen Quellen für Glucosamin und Chondroitin.",
+      "Die Doppelpacks kosten 121,99 für 30 kg und 82,99 für 24 kg.",
+      "Uns ist keine Fütterungsstudie bekannt, die beide vergleicht.",
+      "Hunde mit einer Erkrankung brauchen den Rat der Tierärztin oder des Tierarztes.",
+      "Für Concept for Life liegt kein lizenziertes Foto vor."
+    ],
+    "aspects": [
+      {
+        "aspect": "Rohprotein",
+        "brand": "26 %",
+        "alternative": "26 %"
+      },
+      {
+        "aspect": "Rohfett",
+        "brand": "17 %",
+        "alternative": "17 %"
+      },
+      {
+        "aspect": "Rohfaser",
+        "brand": "1,6 %",
+        "alternative": "2 %"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Getrocknetes Geflügelprotein",
+          "amount": ""
+        },
+        {
+          "name": "Weizenmehl",
+          "amount": ""
+        },
+        {
+          "name": "Mais",
+          "amount": ""
+        },
+        {
+          "name": "Rohprotein",
+          "amount": "26 %"
+        },
+        {
+          "name": "Rohfett",
+          "amount": "17 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Geflügelprotein",
+          "amount": "27 %"
+        },
+        {
+          "name": "Reis",
+          "amount": ""
+        },
+        {
+          "name": "Mais",
+          "amount": ""
+        },
+        {
+          "name": "Frisches Huhn",
+          "amount": "10 %"
+        },
+        {
+          "name": "Rohprotein",
+          "amount": "26 %"
+        },
+        {
+          "name": "Rohfett",
+          "amount": "17 %"
+        }
+      ]
+    }
+  },
+  "hills-science-plan-adult-huhn-vs-concept-for-life-all-cats-adult-de": {
+    "summary": "Beide sind Alleinfuttermittel (Trockenfutter) auf Hühnerbasis für erwachsene Katzen mit etwa 32 % Protein, verkauft bei zooplus im 3-kg-Sack.",
+    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Hill's Adult 1-6 Huhn kostet 28,49 für 3 kg und Concept for Life All Cats Adult 19,99 für 3 kg zum regulären Shoppreis, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Katzen. Analyse: Hill's 31,9 % Protein, 19,7 % Fett, 1,4 % Rohfaser, 5,5 % Rohasche. Concept for Life 32 % Protein, 18 % Fett, 4 % Rohfaser, 8,2 % Rohasche.",
+    "why": "Das Protein ist laut Analyse gleich, und beide werden als Alleinfutter für dieselbe Katze verkauft. In derselben Sackgröße kostet Concept for Life 8,50 € weniger.",
+    "differences": [
+      "Hill's hat mehr Fett und weniger Rohfaser und Rohasche.",
+      "Die Rezepturen unterscheiden sich: Hill's nennt Geflügelmehl, Weizen und Mais, Concept for Life Hühnerprotein, Reis und Erbsen.",
+      "Bei 10 kg betragen die Preise 73,49 und 52,99.",
+      "Uns ist keine Fütterungsstudie bekannt, die beide vergleicht.",
+      "Katzen mit einer Erkrankung brauchen den Rat der Tierärztin oder des Tierarztes.",
+      "Wir haben kein lizenziertes Foto gefunden, das wir einem der beiden Produkte genau zuordnen konnten."
+    ],
+    "aspects": [
+      {
+        "aspect": "Rohprotein",
+        "brand": "31,9 %",
+        "alternative": "32 %"
+      },
+      {
+        "aspect": "Rohfett",
+        "brand": "19,7 %",
+        "alternative": "18 %"
+      },
+      {
+        "aspect": "Rohasche",
+        "brand": "5,5 %",
+        "alternative": "8,2 %"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Hühner- und Truthahnmehl",
+          "amount": ""
+        },
+        {
+          "name": "Weizen",
+          "amount": ""
+        },
+        {
+          "name": "Mais",
+          "amount": ""
+        },
+        {
+          "name": "Rohprotein",
+          "amount": "31,9 %"
+        },
+        {
+          "name": "Rohfett",
+          "amount": "19,7 %"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Hühnerprotein",
+          "amount": "34 %"
+        },
+        {
+          "name": "Reis",
+          "amount": ""
+        },
+        {
+          "name": "Grüne Erbsen",
+          "amount": ""
+        },
+        {
+          "name": "Frisches Huhn",
+          "amount": "10 %"
+        },
+        {
+          "name": "Rohprotein",
+          "amount": "32 %"
+        },
+        {
+          "name": "Rohfett",
+          "amount": "18 %"
+        }
+      ]
+    }
+  },
+  "catsan-ultra-plus-vs-biokats-micro-classic-de": {
+    "summary": "Beide sind unparfümierte, klumpende Katzenstreu aus Ton, verkauft bei zooplus und nach Litern bepreist.",
+    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Catsan Ultra plus kostet 23,99 für 15 l und Biokat's Micro Classic 10,29 für 14 l. Foto und Barcode von Catsan, die uns vorliegen, gehören zu einer 10-l-Packung Catsan Ultra plus, und zooplus führt die 15-l-Packung unter einem anderen Barcode. Beide Seiten beschreiben klumpende Tonstreu ohne zugesetzten Duft.",
+    "why": "Gleiches Material, gleiche Aufgabe beim Klumpen, gleicher Shop, und Biokat's kostet pro Liter weniger als die Hälfte. Catsan wird besser bewertet, probier also einen Sack, bevor du das Doppelpack kaufst.",
+    "differences": [
+      "Catsan wird bei zooplus besser bewertet: 4,1 von 5 aus 98 Bewertungen gegenüber 3,6 von 5 aus 412. Die Zusammenfassung der Bewertungen zu Biokat's bei zooplus erwähnt Staub, zerfallende Klumpen und geringere Eignung für mehrere Katzen.",
+      "Biokat's hat ein sehr feines Korn.",
+      "Wie lange ein Liter reicht, wird hier nicht getestet, ein günstigerer Liter bedeutet also nicht unbedingt einen günstigeren Monat."
+    ],
+    "aspects": [
+      {
+        "aspect": "Bewertung bei zooplus",
+        "brand": "4,1 von 5 (98)",
+        "alternative": "3,6 von 5 (412)"
+      },
+      {
+        "aspect": "Material",
+        "brand": "Tongranulat",
+        "alternative": "Naturton"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Tongranulat, klumpend, unparfümiert",
+          "amount": ""
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Naturton, extra feines Korn, klumpend, unparfümiert",
+          "amount": ""
+        }
+      ]
+    }
+  }
+}

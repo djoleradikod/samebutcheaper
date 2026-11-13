@@ -1,5 +1,5 @@
 import type { Checkout } from "./delivery";
-import type { BundleInput, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairInput, PresetInput, ShelfLifeInput } from "./schema";
+import type { BundleInput, ClaimDe, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairDe, PairInput, PresetInput, ShelfLifeDe, ShelfLifeInput } from "./schema";
 import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
 import type { RatingScale } from "./rating";
@@ -41,8 +41,9 @@ export type ProductSide = Omit<PairInput["brand"], "rating"> & {
   nutrition: NutritionRecord | null;
 };
 
-export type Claim = ClaimInput;
-export type ShelfLife = ShelfLifeInput;
+/** `de`: the German text, from data/i18n/de/, when there is one. */
+export type Claim = ClaimInput & { de?: ClaimDe };
+export type ShelfLife = ShelfLifeInput & { de?: ShelfLifeDe };
 export type { ImageRecord, NutritionRecord, NutritionSource };
 
 /** What a bigger pack does for you. All from sourced prices. */
@@ -81,6 +82,8 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   freshness: Freshness;
   /** Who to credit for the nutrition records on this swap. Null when neither side has one. */
   nutritionSource: NutritionSource | null;
+  /** The German text, from data/i18n/de/, when there is one. */
+  de?: PairDe;
 };
 
 export type PresetLine = {

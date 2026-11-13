@@ -31,7 +31,7 @@ export async function Readiness() {
             : "Everything is set."
           : `${blockers.length} thing${blockers.length === 1 ? "" : "s"} to fix before opening to the public.`}
       </p>
-      <table className="card mt-3 w-full overflow-hidden text-sm">
+      <table className="stack card mt-3 w-full overflow-hidden text-sm">
         <thead className="bg-surface-2 text-left text-xs text-muted">
           <tr><th className="p-3">Check</th><th className="p-3">Now</th><th className="p-3">What to do</th></tr>
         </thead>
@@ -44,8 +44,8 @@ export async function Readiness() {
                 </span>
                 <span className="block">{c.label}</span>
               </td>
-              <td className="p-3 align-top text-ink-2">{c.detail}</td>
-              <td className="p-3 align-top text-muted">{c.ok ? "" : c.fix}</td>
+              <td data-label="Now" className="p-3 align-top text-ink-2">{c.detail}</td>
+              <td data-label="What to do" className="p-3 align-top text-muted">{c.ok ? "" : c.fix}</td>
             </tr>
           ))}
         </tbody>

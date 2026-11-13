@@ -1,0 +1,198 @@
+{
+  "toothpaste": {
+    "label": "Zahnpasta",
+    "unopened": "Etwa zwei Jahre ab Herstellungsdatum (Oral-B). Colgate nennt zwei Jahre als Höchstwert und für manche Rezepturen weniger.",
+    "opened": "Keine eigene Frist für eine geöffnete Tube. Setz die Kappe wieder auf.",
+    "storage": "Eher kühl, in einem geschlossenen Schrank. Hitze kann die Inhaltsstoffe entmischen (Colgate).",
+    "note": "Das Datum steht auf der Tube und zählt ab Herstellung, prüf es also, bevor du eine große Packung kaufst. Beide Hersteller sagen, dass es bei der Frist vor allem um das Fluorid geht, das mit der Zeit nachlassen kann. Das sind die eigenen Angaben der Hersteller."
+  },
+  "nappies": {
+    "label": "Windeln",
+    "unopened": "Kein festes Ablaufdatum. Pampers nennt bis zu 3 Jahre ab Herstellungsdatum, nicht ab Kaufdatum. Ein Artikel von Healthline aus 2019 berichtet, dass Hersteller eine Verwendung innerhalb von 2 Jahren nach dem Kauf empfehlen.",
+    "opened": "Pampers sagt, am besten innerhalb von 12 Monaten nach dem Öffnen. Healthline fand keine feste Frist für geöffnete Packungen.",
+    "storage": "Kühl und trocken in Innenräumen, ohne direkte Sonne, in der Originalverpackung.",
+    "note": "Es geht um die Leistung, nicht um ein Sicherheitsdatum: Ältere Windeln können weniger aufsaugen, und Klebestreifen und Bündchen können nachlassen. Auf Pampers-Packungen gibt die erste Ziffer des Produktionscodes das Jahr an. Die Angaben von 3 Jahren und 12 Monaten stammen vom Hersteller selbst, und die Quellen decken die Codes anderer Marken nicht ab."
+  },
+  "dry-pet-food": {
+    "label": "Trockenfutter für Hunde und Katzen",
+    "unopened": "Bis zum Mindesthaltbarkeitsdatum auf dem Sack (PetMD).",
+    "opened": "Hunde: etwa 30 Tage (PetMD). Katzen: nicht länger als zwei bis drei Monate (PetMD), wobei die Seite nicht klar sagt, ob das ab dem Öffnen gilt.",
+    "storage": "Kühl und trocken unter 80 °F (FDA), im Originalsack oder in einem sauberen Behälter mit dicht schließendem Deckel.",
+    "note": "Beide Zeitangaben stammen von PetMD, auf getrennten Seiten für Hunde und Katzen, und sie unterscheiden sich. Die Seite der FDA nennt keine Frist nach dem Öffnen. Halte dich an die Angaben auf dem Sack, wenn er welche macht."
+  },
+  "wet-pet-food": {
+    "label": "Nassfutter für Hunde und Katzen (Dosen)",
+    "unopened": "Bis zum Mindesthaltbarkeitsdatum auf der Dose (PetMD). Verbeulte, aufgeblähte oder undichte Dosen wegwerfen.",
+    "opened": "Im Kühlschrank und dicht verschlossen: drei bis vier Tage bei Hundefutter, drei Tage bei Katzenfutter (PetMD).",
+    "storage": "Ungeöffnete Dosen kühl und trocken lagern, unter 80 °F. Reste zügig in den Kühlschrank stellen, bei 40 °F (4,4 °C) oder kälter (FDA).",
+    "note": "Ungeöffnete Dosen halten bis zu ihrem Datum, das Risiko ist also die geöffnete Dose: Sie hält nur Tage, deshalb passen kleinere Dosen zu einem Tier, das langsam frisst. Die Seite der FDA nennt keine Frist für eine geöffnete Dose, die Tageszahlen stammen also nur von PetMD."
+  },
+  "dry-pasta": {
+    "label": "Trockene Nudeln",
+    "unopened": "2 Jahre im Vorratsschrank (Virginia Tech und NDSU; Nebraska nennt 1 bis 2 Jahre)",
+    "opened": "Etwa 1 Jahr im Vorratsschrank (Virginia Tech und NDSU). Eiernudeln nur 1 bis 2 Monate (NDSU)",
+    "storage": "Trocken und unter 85 °F, in der Originalpackung oder einem luftdichten Behälter",
+    "note": "Nach dem Öffnen verderben Eiernudeln laut NDSU viel früher als Spaghetti oder Makkaroni."
+  },
+  "canned-low-acid-food": {
+    "label": "Säurearme Konserven (Bohnen, Gemüse, Fleisch, Fisch)",
+    "unopened": "2 bis 5 Jahre (Virginia Tech und Nebraska; Geflügel in Dosen laut Virginia Tech 5 Jahre)",
+    "opened": "In den Kühlschrank stellen und innerhalb von etwa 3 bis 4 Tagen verbrauchen (Virginia Tech, Nebraska, NDSU). Alabama ist strenger: Fisch 1 Tag, Fleisch 2 Tage, Gemüse 3 Tage. Die Konserventabelle der NDSU nennt für Gemüse 2 Tage",
+    "storage": "Trocken und unter 85 °F, am besten bei 50 bis 70 °F",
+    "note": "Die Quellen gehen weit auseinander. Die NDSU nennt für Konserven allgemein 12 bis 18 Monate und Alabama für Gemüse- und Suppenkonserven 1 Jahr. Schinken in Dosen hält kürzer, 6 bis 9 Monate (Virginia Tech)."
+  },
+  "ground-coffee-vacuum-packed": {
+    "label": "Gemahlener Kaffee (vakuumverpackt oder in der Dose)",
+    "unopened": "2 Jahre im Vorratsschrank für gemahlenen Kaffee (Virginia Tech) und Kaffee in der Dose (NDSU); 1 Jahr für vakuumverpackten (Alabama)",
+    "opened": "2 Wochen im Vorratsschrank, 1 Monat im Kühlschrank (Virginia Tech, NDSU), 6 bis 12 Monate eingefroren (NDSU)",
+    "storage": "Bis zum Öffnen im Vorratsschrank. Alabama sagt, nach dem Öffnen in den Kühlschrank",
+    "note": "Die Quellen sind sich bei der Zeit ungeöffnet nicht einig (1 bis 2 Jahre)."
+  },
+  "alkaline-batteries": {
+    "label": "Alkaline-Batterien",
+    "unopened": "Etwa 5 bis 10 Jahre, bei manchen Batterien und Marken bis zu 15",
+    "opened": "",
+    "storage": "Kühl und trocken, ohne direkte Sonne und fern von extremen Temperaturen",
+    "note": "Battery University (aktualisiert 2021) nennt 7 bis 10 Jahre und einen Verlust von 2 bis 3 Prozent pro Jahr. NBC Select (2024) nennt im eigenen Text 5 bis 10 Jahre und zitiert einen Manager von Batteries Plus mit 5 bis 15 Jahren. NBC sagt, die Verpackung sollte die Lagerfähigkeit angeben. Die Lagerhinweise gelten für Haushaltsbatterien allgemein und stammen vom CEO von Cirba Solutions."
+  },
+  "nimh-rechargeable-batteries": {
+    "label": "NiMH-Akkus",
+    "unopened": "Die Ladung schwindet bei der Lagerung: Standardzellen verlieren in den ersten 24 Stunden nach dem Laden 10 bis 15 Prozent, danach 10 bis 15 Prozent pro Monat",
+    "opened": "",
+    "storage": "Nach einigen Wochen im Regal vor der Verwendung aufladen. Bei Lagerung über ein Jahr mindestens einmal im Jahr laden",
+    "note": "Keine Quelle nannte eine Lagerfähigkeit in Jahren. Die Werte zur Entladung stammen von Battery University (aktualisiert 2021) und gelten für Nickelzellen allgemein. Zellen mit geringer Selbstentladung halten die Ladung viel besser: Epec, ein Batteriehersteller, sagte 2014, dass sie nach einem Jahr bei Raumtemperatur bis zu 85 Prozent behalten, während ein 2009 veröffentlichter und 2012 aktualisierter Heimtest an einer einzigen Packung nach 16 Monaten 56 Prozent maß. Which? (Juni 2026) sagt, die besten Akkus bleiben zwischen den Einsätzen geladen und die schlechtesten verlieren Ladung, ohne den Zelltyp zu nennen."
+  },
+  "sunscreen": {
+    "label": "Sonnenschutz",
+    "unopened": "Richte dich nach dem Ablaufdatum auf der Flasche. Die FDA sagt, ein Sonnenschutzmittel ohne Ablaufdatum gilt drei Jahre nach dem Kauf als abgelaufen, und eines ohne Datum, das nicht in den letzten drei Jahren gekauft wurde, sollte nicht verwendet werden. Consumer Reports sagt unter Berufung auf die FDA, dass Sonnenschutzmittel ihren LSF und Breitbandschutz drei Jahre lang halten müssen und eines, das länger als drei Jahre herumsteht, seine Schutzwirkung verloren hat.",
+    "opened": "Consumer Reports sagt, dass ein Sonnenschutzmittel durch das Öffnen nicht schneller abläuft und eine angebrauchte Flasche innerhalb der drei Jahre sicher verwendet werden kann, wenn sie richtig gelagert wurde. Die Person, die dort die Sonnenschutztests leitet, sagt, dass nach der Lagerung im Labor erneut getestete Proben keinen Unterschied in der Leistung zeigten (Consumer Reports, aktualisiert am 24. Mai 2024). Die Seite der FDA nennt keine eigene Frist für eine geöffnete Flasche.",
+    "storage": "Vor direkter Sonne und starker Hitze schützen. Die FDA rät, den Behälter in Handtücher zu wickeln oder im Schatten zu halten, wenn du lange draußen in der Hitze bist. Consumer Reports sagt, dass Sonnenschutz, der direkter Sonne oder starker Hitze ausgesetzt ist, schneller nachlassen kann. Ein Badezimmerschrank ist laut Consumer Reports in Ordnung, eine Strandtasche im Kofferraum vermutlich nicht. Die Seite der FDA gibt keinen Rat zur kalten Lagerung.",
+    "note": "Die Angabe von drei Jahren ist die US-Regel. Bei einem Sonnenschutz ohne Datum zählt die FDA ab dem Kauf. Wenn du nicht weißt, wie alt eine Flasche ist, sagt die FDA, wirf sie weg. Eine Flasche, für die du länger als drei Jahre brauchst, überschreitet diese Grenze, bevor du sie aufgebraucht hast, kauf also eine Größe, die du innerhalb des Datums auf der Packung verbrauchst. Die FDA sagt, dass manche Länder Sonnenschutz anders regeln, außerhalb der USA lies also das Etikett. In der Apotheke oder bei der Ärztin oder dem Arzt kannst du dich beraten lassen, wenn du bei einer Flasche unsicher bist."
+  },
+  "dishwasher-tablets": {
+    "label": "Spülmaschinentabs",
+    "unopened": "Zwei Jahre. Finish sagt, die übliche Haltbarkeit von Spülmaschinentabs beträgt zwei Jahre, und die Seite unterscheidet nicht zwischen ungeöffneten und geöffneten Packungen. Blueland nennt zwei Jahre für seine Spülmaschinen- und Waschtabs, solange sie im Nachfüllbeutel sind.",
+    "opened": "Keine der Quellen nennt eine feste Frist für eine geöffnete Packung. Blueland sagt, dass die Haltbarkeit seiner Tabs nach dem Umfüllen aus dem Beutel in den Nachfüllbehälter davon abhängt, wie viel Feuchtigkeit sie abbekommen.",
+    "storage": "Die Tabs trocken halten. Finish sagt, Spülmittel trocken und außerhalb der Reichweite von Kindern aufbewahren. Blueland empfiehlt, das Trockenmittel im Nachfüllbehälter zu lassen, um Feuchtigkeit aufzunehmen.",
+    "note": "Alle Quellen sind die eigenen Seiten der Hersteller. Finish sagt, ein abgelaufener Tab beschädigt weder Geschirr noch Spülmaschine, wirkt aber vielleicht schwächer. Finish sagt auch, es sei besser, keine Vorräte anzulegen, falls Produkt und Verpackung mit der Zeit nachlassen, kauf also eine Packung, die du in etwa zwei Jahren verbrauchst. Die Angaben von Blueland gelten für die eigenen Tabs im Nachfüllbeutel, prüf also bei anderen Marken das Datum auf der Packung."
+  },
+  "toilet-paper": {
+    "label": "Toilettenpapier",
+    "unopened": "Kein Ablaufdatum wie bei Lebensmitteln, und das Alter macht es nicht unsicher (Naked Paper; Who Gives A Crap sagt, es schadet nicht). Die Website eines Taschentuchherstellers sagt, die meisten Hersteller empfehlen zwei bis drei Jahre, je nach Marke und Lagerung (Yuanhua Paper).",
+    "opened": "Keine eigene Frist. Who Gives A Crap sagt, Rollen erst auspacken, wenn du sie gleich verwendest.",
+    "storage": "Sauber, trocken und ohne direkte Sonne (Naked Paper). Feuchte Schuppen, Garagen und Keller meiden (Naked Paper) sowie feuchte Kellerräume und Waschküchen (Who Gives A Crap).",
+    "note": "Die Quellen sind sich nicht einig, ob es eine zeitliche Grenze gibt, und Yuanhua nennt für seine Angabe keinen Hersteller. Das eigentliche Risiko ist Feuchtigkeit: Feucht gelagerte Rollen können schimmeln und muffig riechen (Naked Paper). Über lange Zeit können Rollen vergilben und an Festigkeit verlieren (Naked Paper, Who Gives A Crap). Alle drei Quellen verkaufen Papier. Who Gives A Crap verkauft auch Abos und sagt, Vorräte seien nicht nötig."
+  },
+  "olive-oil": {
+    "label": "Olivenöl",
+    "unopened": "Die Angaben unterscheiden sich. 6 bis 12 Monate (Nebraska). America's Test Kitchen sagt, ungeöffnetes Öl kann 1 Jahr nach der Ernte ranzig werden und das Datum auf dem Etikett liegt meist 18 Monate nach der Ernte. Bertolli nennt empfohlene Lagerzeiten von 17 Monaten für nativ extra und 20 Monaten für Classico und Extra Light, ohne zu sagen, ab wann sie gelten. Filippo Berio nennt keinen allgemeinen Wert und sagt, das Mindesthaltbarkeitsdatum prüfen.",
+    "opened": "3 bis 5 Monate bei Raumtemperatur oder 4 Monate im Kühlschrank (Nebraska). 3 Monate (America's Test Kitchen). Innerhalb weniger Monate (Bertolli).",
+    "storage": "Kühl und dunkel (Bertolli, Filippo Berio), gut verschlossen (Bertolli), nicht auf der Arbeitsfläche oder der Fensterbank (America's Test Kitchen). Filippo Berio sagt, nicht in den Kühlschrank, wo es trüb und fest wird, sich bei Raumtemperatur aber wieder erholt. Die Tabelle aus Nebraska nennt trotzdem einen Wert für den Kühlschrank.",
+    "note": "America's Test Kitchen sagt, Olivenöl nicht in großen Mengen kaufen, weil es nach dem Öffnen nur sehr kurz hält. Die Angaben von Bertolli und Filippo Berio sind die eigenen der Hersteller für ihre eigenen Öle."
+  },
+  "hazelnut-spread": {
+    "label": "Nuss-Nougat-Creme",
+    "unopened": "Keine der Quellen nennt eine eigene Frist für ein ungeöffnetes Glas. Richte dich nach dem Datum auf dem Glas.",
+    "opened": "12 Monate auch nach dem Öffnen für Nutella-Portionspackungen, Gläser, Eimer und Kartuschen und 6 Monate für den Spritzbeutel (Ferrero Food Service). Tasting Table sagt ebenfalls ein Jahr nach dem Öffnen.",
+    "storage": "Bei Raumtemperatur, 18 bis 24 °C, mit fest verschlossenem Deckel, kühl und trocken. Nicht in den Kühlschrank, sonst wird sie hart und schwer streichbar. Zu viel Wärme kann die Öle absetzen lassen (Ferrero Food Service).",
+    "note": "Die Angaben von Ferrero stammen aus seinen FAQ für die Gastronomie und gelten nur für Nutella in den dort genannten Formen. Das einzige genannte Glas hat 25g, für ein Supermarktglas gibt es also keine Angabe. Keine der Quellen deckt andere Marken ab."
+  },
+  "canned-high-acid-food": {
+    "label": "Saure Konserven (Obst, Saft, Tomatensuppe)",
+    "unopened": "12 bis 18 Monate (Virginia Tech, Nebraska, NDSU)",
+    "opened": "In den Kühlschrank stellen und innerhalb von 5 bis 7 Tagen verbrauchen (Virginia Tech, Nebraska, Konserventabelle der NDSU)",
+    "storage": "Kühl und trocken unter 85 °F, am besten bei 50 bis 70 °F",
+    "note": "Die Obsttabelle der NDSU nennt für geöffnetes Dosenobst kürzere 2 bis 4 Tage."
+  },
+  "vegetable-and-salad-oil": {
+    "label": "Speiseöl (Pflanzen- und Salatöl)",
+    "unopened": "Pflanzenöl 6 Monate (Virginia Tech, NDSU) oder 6 bis 12 Monate (Nebraska). Salatöl 6 bis 12 Monate (Virginia Tech) oder 3 Monate (Alabama)",
+    "opened": "3 bis 5 Monate im Vorratsschrank, 4 Monate im Kühlschrank (Virginia Tech, NDSU, Nebraska)",
+    "storage": "Kühl und dunkel in einem dicht verschlossenen Behälter. Laut NDSU ist der Kühlschrank nicht nötig; Alabama sagt, Salatöl nach dem Öffnen in den Kühlschrank",
+    "note": "In diesen Tabellen ist der Wert für den Kühlschrank nicht länger als der für den Vorratsschrank. Kauf so viel, wie du in dieser Zeit verbrauchen kannst."
+  },
+  "flour-white-all-purpose": {
+    "label": "Weißes Mehl (Weizenmehl)",
+    "unopened": "6 bis 12 Monate im Vorratsschrank (Virginia Tech, NDSU, Nebraska)",
+    "opened": "6 bis 8 Monate im Vorratsschrank; etwa 12 Monate im Kühlschrank (Virginia Tech, NDSU, Nebraska)",
+    "storage": "Trocken und unter 85 °F in einem luftdichten Behälter",
+    "note": "Einfrieren verlängert die Haltbarkeit von weißem Mehl auf etwa 2 Jahre (Nebraska). Die NDSU sagt, es lasse sich unbegrenzt eingefroren lagern."
+  },
+  "ketchup": {
+    "label": "Ketchup",
+    "unopened": "1 Jahr (Virginia Tech, NDSU, Nebraska).",
+    "opened": "6 Monate im Kühlschrank (Virginia Tech, Nebraska). Die NDSU nennt ebenfalls 6 Monate und sagt, für längere Lagerung in den Kühlschrank. Die Vorratstabelle aus Alabama nennt 1 Monat.",
+    "storage": "Bis zum Öffnen im Schrank. America's Test Kitchen sagt, die Säure verhindert, dass er bei Raumtemperatur verdirbt, aber der Geschmack kann nachlassen, nimm also den Kühlschrank, wenn du ihn langsam verbrauchst. Heinz wird dort mit der Aussage zitiert, dass starke Hitze ihn dunkler machen und den Geschmack verändern kann.",
+    "note": "Der 1 Monat aus Alabama ist viel kürzer als in den anderen Tabellen. Nebraska sagt, dass das Kühlen haltbarer Fertigsoßen nach dem Öffnen eine Frage der Qualität ist, nicht der Sicherheit. Halte dich an das Etikett auf der Flasche, wo es abweicht."
+  },
+  "mayonnaise": {
+    "label": "Mayonnaise",
+    "unopened": "3 bis 6 Monate im Vorratsschrank (Virginia Tech, NDSU, Nebraska).",
+    "opened": "2 Monate im Kühlschrank (Virginia Tech, NDSU, Nebraska sowie Hellmann's/Best Foods, zitiert von America's Test Kitchen). Hellmann's/Best Foods nennt außerdem 1 Monat bei Raumtemperatur.",
+    "storage": "Die NDSU sagt, das Datum auf der Packung prüfen und nach dem Öffnen in den Kühlschrank stellen.",
+    "note": "Die Quellen sind sich bei Raumtemperatur nicht einig. Die NDSU sagt, nach dem Öffnen kühlen, während Hellmann's/Best Foods eine Haltbarkeit geöffnet außerhalb des Kühlschranks nennt und Nebraska sagt, dass das Kühlen haltbarer Fertigsoßen eine Frage der Qualität ist, nicht der Sicherheit. Halte dich an das Etikett auf dem Glas. America's Test Kitchen sagt, selbstgemachte Mayo gehört immer in den Kühlschrank. Die Frist nach dem Öffnen ist kurz, kleinere Gläser passen also, wenn du sie langsam verbrauchst."
+  },
+  "honey": {
+    "label": "Honig",
+    "unopened": "2 Jahre (Virginia Tech, NDSU, Nebraska). Alabama nennt 1 Jahr.",
+    "opened": "Die Tabellen nennen keine eigene Frist. America's Test Kitchen sagt, das USDA empfiehlt, Honig für die beste Qualität innerhalb von 12 Monaten zu verbrauchen.",
+    "storage": "Im Vorratsschrank (Virginia Tech, Nebraska), gut verschlossen (NDSU). America's Test Kitchen sagt, er braucht keinen Kühlschrank, dort kristallisiert er schneller.",
+    "note": "Die Angaben reichen von 1 bis 2 Jahren. Die Seite des USDA haben wir nicht gelesen, die 12 Monate sind also die Wiedergabe von America's Test Kitchen. Wenn Honig kristallisiert, rät die NDSU, das geöffnete Glas in einem Topf mit heißem Wasser zu erwärmen."
+  },
+  "jam": {
+    "label": "Konfitüre und Marmelade",
+    "unopened": "6 bis 18 Monate (Virginia Tech, NDSU, Nebraska). Alabama nennt 1 Jahr.",
+    "opened": "6 bis 12 Monate im Kühlschrank (Virginia Tech, NDSU, Nebraska).",
+    "storage": "Bis zum Öffnen im Vorratsschrank, danach gut verschlossen im Kühlschrank (NDSU). Smucker's, zitiert von America's Test Kitchen, sagt, geöffnete Produkte, die länger als 48 Stunden ungekühlt standen, wegzuwerfen.",
+    "note": "Die Angabe von 48 Stunden stammt von einem Hersteller für seine eigenen Produkte. Die Zeile aus Nebraska gilt für gekaufte Konfitüre, nicht für selbstgemachte."
+  },
+  "oats": {
+    "label": "Haferflocken",
+    "unopened": "1 Jahr (Virginia Tech und NDSU für kochfertiges oder warmes Getreide, Nebraska für Haferflocken). Alabama nennt 6 Monate für kochfertiges Getreide.",
+    "opened": "6 bis 12 Monate (Virginia Tech, NDSU, Nebraska).",
+    "storage": "Trocken, in der Originalpackung oder einem dicht verschlossenen, luftdichten Behälter (Alabama).",
+    "note": "Nur die Tabelle aus Nebraska nennt Haferflocken ausdrücklich. Die anderen führen kochfertiges oder warmes Getreide, wozu wir Hafer zählen."
+  },
+  "nuts": {
+    "label": "Nüsse",
+    "unopened": "Die Angaben unterscheiden sich. Verpackte geschälte Nüsse 1 Jahr in der Vakuumdose und 3 Monate in anderer Verpackung, Nüsse in der Schale 4 Monate (NDSU). Die Vorratstabelle aus Alabama nennt 9 Monate.",
+    "opened": "4 bis 6 Monate, gekühlt (NDSU).",
+    "storage": "Die Tabelle von Virginia Tech nennt 2 bis 4 Wochen im Vorratsschrank, 9 bis 12 Monate im Kühlschrank und 24 Monate im Gefrierschrank, ohne geöffnet und ungeöffnet zu trennen. Die NDSU sagt, nach dem Öffnen kühlen und für längere Lagerung einfrieren.",
+    "note": "Die Quellen gehen weit auseinander: Die Werte für den Vorratsschrank reichen von 2 bis 4 Wochen (Virginia Tech) bis 9 Monate (Alabama), die für den Gefrierschrank von 3 Monaten (Alabama) bis 24 Monate (Virginia Tech). Die NDSU sagt, ungesalzene und blanchierte Nüsse halten länger als gesalzene. Richte dich nach dem Datum auf der Packung."
+  },
+  "pasta-sauce": {
+    "label": "Nudelsoße (im Glas)",
+    "unopened": "Etwa 18 Monate kühl und trocken (Mashed). Eine Ernährungsexpertin in Southern Living sagt, ein Glas, das länger als 18 Monate im Schrank stand, wegzuwerfen. Bertolli empfiehlt, seine Soße bis zum Datum auf dem Deckel zu verbrauchen.",
+    "opened": "Im Kühlschrank: etwa 5 Tage bei Tomatensoßen und 3 bei Soßen auf Käsebasis (Bertolli). 3 bis 5 Tage (Southern Living). Bis zu 6 Tage bei Tomate und 4 bei Sahnesoßen (The Takeout). Mashed berichtet, dass Barilla bis zu fünf Tage empfiehlt.",
+    "storage": "Bis zum Öffnen im Schrank, fern von direktem Licht und Wärme, danach im Kühlschrank bei 40 °F oder kälter (Southern Living). Reste lassen sich einfrieren: bis zu 3 Monate (Mashed) oder für die Qualität bis zu 6 Monate (The Takeout).",
+    "note": "Ungeöffnete Gläser halten gut, das Risiko ist also das geöffnete Glas. Kleinere Gläser passen zu einem Haushalt, der ein Glas nicht in wenigen Tagen aufbraucht. Southern Living sagt, Gläser mit Dellen, Rost oder gewölbtem Deckel wegzuwerfen. Die eigene Seite von Barilla konnten wir nicht öffnen."
+  },
+  "butter": {
+    "label": "Butter",
+    "unopened": "1 bis 2 Monate im Kühlschrank (Virginia Tech, NDSU, Nebraska). 1 bis 3 Monate (Alabama). Die Tabellen trennen nicht zwischen ungeöffnet und geöffnet, prüf also das Datum auf der Packung.",
+    "opened": "1 bis 2 Tage bei Raumtemperatur (Virginia Tech, Nebraska). Alabama sagt, in der Butterdose nur einen Vorrat für 2 Tage aufbewahren.",
+    "storage": "Gut einwickeln oder abdecken (NDSU). Im Gefrierschrank 6 bis 9 Monate (Virginia Tech, NDSU, Nebraska) oder 9 Monate (Alabama).",
+    "note": "Butter lässt sich einfrieren, eine Mehrfachpackung kann sich also lohnen, wenn du Platz im Gefrierschrank hast. Nebraska sagt, die Gefrierzeiten gelten nur für die Qualität. Diese Angaben gelten für Butter, streichfähige Mischungen decken die Tabellen nicht ab."
+  },
+  "shampoo": {
+    "label": "Shampoo",
+    "unopened": "2 bis 3 Jahre (Keune). 3 Jahre (eine Kosmetikchemikerin in CHOICE).",
+    "opened": "Die Angaben unterscheiden sich. 6 bis 12 Monate (Keune). 6 Monate (CHOICE, als sehr sichere Schätzung). Healthline sagt, ein Symbol für die Haltbarkeit nach dem Öffnen zeigt meist 12, 18 oder 24 Monate.",
+    "storage": "Kühl und dunkel, mit vollständig geschlossenem Deckel (Healthline). CHOICE sagt, das Badezimmer selbst sei kein guter Ort, um Kosmetik aufzubewahren.",
+    "note": "Richte dich nach dem Tiegelsymbol auf der Flasche, wenn es eins gibt. Keune sagt, Shampoos mit vielen natürlichen Inhaltsstoffen etwas früher zu verbrauchen, und Healthline sagt, Bio- und sulfatfreie halten vielleicht weniger lange. Ein seltsamer Geruch, Klumpen oder eine Farbveränderung zeigen, dass es verdorben ist (Healthline)."
+  },
+  "shower-gel": {
+    "label": "Duschgel",
+    "unopened": "Die Angaben unterscheiden sich. Dove nennt für Duschgel 12 bis 24 Monate, ohne ungeöffnet und geöffnet zu trennen, und für Body Wash ungeöffnet bis zu 3 Jahre. Puracy sagt ungeöffnet bis zu drei Jahre. CHOICE sagt drei Jahre.",
+    "opened": "Innerhalb von 12 Monaten bei Body Wash (Dove). Ein Jahr (Puracy). 6 Monate (CHOICE, als sehr sichere Schätzung).",
+    "storage": "Kühl, trocken, ohne direkte Sonne, mit fest verschlossenem Deckel (Dove).",
+    "note": "Dove und Puracy sind Hersteller mit allgemeinen Angaben. Nachlassender Duft oder ein saurer Geruch, Klumpen oder Entmischung und Farbveränderungen zeigen, dass es verdorben ist (Dove)."
+  },
+  "mouthwash": {
+    "label": "Mundspülung",
+    "unopened": "Höchstens 2 bis 3 Jahre ab Herstellung (Healthline). Ungeöffnet bis zu drei Jahre (Lane & Associates, eine Zahnarztpraxis). Listerine sagt, die meisten seiner Produkte haben ein Ablaufdatum.",
+    "opened": "Kann innerhalb von sechs Monaten bis einem Jahr nach dem Öffnen an Wirkung verlieren (Lane & Associates). Healthline und Listerine nennen keine eigene Frist.",
+    "storage": "Wärme und Sonnenlicht können sie zersetzen (Lane & Associates).",
+    "note": "Prüf das Datum auf der Flasche. Listerine empfiehlt, Produkte nach dem Ablaufdatum zu ersetzen, und nennt keine eigene Frist. Healthline sagt, alte Mundspülung wirkt vielleicht schlechter und natürliche Varianten halten noch kürzer."
+  }
+}

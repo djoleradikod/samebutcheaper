@@ -1,4 +1,6 @@
 import { hasCents, ppu, type Currency } from "./format";
+import type { Lang } from "./i18n/lang";
+import { packDe, unitLabelDe } from "./i18n/units";
 
 /** How a unit reads on a shelf ticket, and what to multiply the per-unit price by to match. */
 export type UnitDisplay = { label: string; factor: number };
@@ -72,19 +74,25 @@ export function unitDisplay(unit: string): UnitDisplay {
   return { label: `per ${word}`, factor: 1 };
 }
 
+/** The shelf label's "per" in the page's language: "per 100 g" or "pro 100 g". */
+export function unitLabel(unit: string, lang: Lang = "en") {
+  const { label } = unitDisplay(unit);
+  return lang === "de" ? unitLabelDe(label, unit) : label;
+}
+
 /** A per-unit price at the unit it reads best in: 37¢, 3.7¢, $13.83. */
-export function unitPrice(pricePerUnit: number, unit: string, currency: Currency) {
+export function unitPrice(pricePerUnit: number, unit: string, currency: Currency, lang: Lang = "en") {
   const n = pricePerUnit * unitDisplay(unit).factor;
   // From 10 cents up, a tenth of a cent is noise.
   const rounded = Math.round(n * 100) / 100;
-  if (rounded < 0.1) return ppu(n, currency);
+  if (rounded < 0.1) return ppu(n, currency, lang);
   // The tenth only goes from "37.0 ct", never from "CHF 0.37".
-  return rounded < 1 && hasCents(currency) ? ppu(rounded, currency).replace(/\.\d/, "") : ppu(rounded, currency);
+  return rounded < 1 && hasCents(currency) ? ppu(rounded, currency, lang).replace(lang === "de" ? /,\d/ : /\.\d/, "") : ppu(rounded, currency, lang);
 }
 
 /** For two close prices, such as a pack and its bigger pack: a tenth of a cent can be the whole difference, so it stays. */
-export function unitPriceFine(pricePerUnit: number, unit: string, currency: Currency) {
-  return ppu(pricePerUnit * unitDisplay(unit).factor, currency);
+export function unitPriceFine(pricePerUnit: number, unit: string, currency: Currency, lang: Lang = "en") {
+  return ppu(pricePerUnit * unitDisplay(unit).factor, currency, lang);
 }
 
 /** Measures and counts that don't take a plural: "415 g", "6 fl oz", "30.8 oz powder", "300 count". */
@@ -98,7 +106,8 @@ function plural(word: string) {
 }
 
 /** "415 g", "30 servings", "4 batteries", "1 stylus", from the catalogue's size and unit. */
-export function packSize(size: number, unit: string) {
+export function packSize(size: number, unit: string, lang: Lang = "en") {
+  if (lang === "de") return packDe(size, unit.replace(/\s*\(.*\)\s*$/, ""));
   const clean = unit.replace(/\s*\(.*\)\s*$/, "").trim();
   const n = Number.isInteger(size) ? String(size) : size.toFixed(1);
   if (NO_PLURAL.test(clean)) return `${n} ${clean}`;

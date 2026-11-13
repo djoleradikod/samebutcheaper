@@ -2,11 +2,15 @@
 
 import { ChevronDown, Globe } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { Suspense } from "react";
-import { MARKET_ADJECTIVE } from "@/lib/localize";
-import { COUNTRY_OPTIONS, MARKET_LABEL, countryName, type MarketCode } from "@/lib/markets";
+import { Suspense, useEffect, useState } from "react";
+import { COUNTRY_OPTIONS, countryName, type MarketCode } from "@/lib/markets";
+import { useT } from "@/lib/i18n/client";
 import { countryOfPath, switchCountryPath } from "@/lib/country-url";
 import { setCountry, useCountry, useCountryOrBlank } from "@/lib/client/country";
+import { picker } from "@/lib/i18n/en/client/picker";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { picker };
 
 type PickerProps = { className?: string; withName?: boolean };
 
@@ -16,43 +20,34 @@ type PickerProps = { className?: string; withName?: boolean };
  *
  * On a prefixed page (/de/..., see src/lib/country-url.ts) it shows the URL's country, and a choice goes to the same page
  * under the new country's prefix, or to the unprefixed page for a country without one. The choice is remembered either way.
+ *
+ * The URL's country is read in a small Suspense part that renders only the label: the path is known at build time for
+ * prerendered pages, and at request time for one rendered on demand. Everything else stays outside it, so the label is
+ * in the first HTML of a prerendered page (React sends a finished boundary over 500 bytes later in the stream).
  */
-export function CountryPicker(props: PickerProps) {
-  // The path is known at build time for prerendered pages. A page rendered on demand reads it at request time.
-  return (
-    <Suspense fallback={<Picker {...props} pathname={null} />}>
-      <PathPicker {...props} />
-    </Suspense>
-  );
-}
-
-function PathPicker(props: PickerProps) {
-  return <Picker {...props} pathname={usePathname()} />;
-}
-
-function Picker({ className = "", withName = false, pathname }: PickerProps & { pathname: string | null }) {
+export function CountryPicker({ className = "", withName = false }: PickerProps) {
   const router = useRouter();
+  const t = useT(TEXT);
   const chosen = useCountryOrBlank();
-  const country = countryOfPath(pathname) ?? chosen;
+  const [fromPath, setFromPath] = useState<string | null>(null);
+  const country = fromPath ?? chosen;
   return (
     <span
       className={`relative inline-flex h-11 items-center gap-1.5 rounded-tile border border-line bg-paper px-2.5 text-sm font-medium text-ink-2 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cobalt hover:border-ink-2 hover:text-ink md:h-9 ${className}`}
     >
-      {(withName || !country) && <Globe className="h-4 w-4 text-muted" aria-hidden="true" />}
-      {country ? (
-        <span className="whitespace-nowrap">{withName ? countryName(country) : country}</span>
-      ) : (
-        withName && <span className="whitespace-nowrap">Country</span>
-      )}
+      {withName && <Globe className="h-4 w-4 text-muted" aria-hidden="true" />}
+      <Suspense fallback={<Label country={chosen} withName={withName} />}>
+        <PathLabel chosen={chosen} withName={withName} report={setFromPath} />
+      </Suspense>
       <ChevronDown className="h-3.5 w-3.5 text-muted" aria-hidden="true" />
       <select
-        aria-label="Country you shop in"
-        title="Country you shop in"
+        aria-label={t("picker.label")}
+        title={t("picker.label")}
         value={country ?? ""}
         onChange={(e) => {
           const code = e.target.value;
           if (!code) return;
-          const next = pathname ? switchCountryPath(pathname, code, window.location.search) : null;
+          const next = switchCountryPath(window.location.pathname, code, window.location.search);
           // Prices on the page follow at once. CountryProvider then asks the server for the lists and stores.
           setCountry(code);
           if (next) router.push(next);
@@ -60,11 +55,11 @@ function Picker({ className = "", withName = false, pathname }: PickerProps & { 
         className="absolute inset-0 cursor-pointer opacity-0"
       >
         <option value="" disabled>
-          Choose your country
+          {t("picker.choose")}
         </option>
         {COUNTRY_OPTIONS.map((c) => (
           <option key={c.code} value={c.code}>
-            {c.name}
+            {t("picker.name", c.code, c.name)}
           </option>
         ))}
       </select>
@@ -72,13 +67,28 @@ function Picker({ className = "", withName = false, pathname }: PickerProps & { 
   );
 }
 
+/** The label for the URL's country, else the shopper's. Tells the picker the URL's country, for its select. */
+function PathLabel({ chosen, withName, report }: { chosen: string | null; withName: boolean; report: (c: string | null) => void }) {
+  const fromPath = countryOfPath(usePathname());
+  useEffect(() => report(fromPath), [fromPath, report]);
+  return <Label country={fromPath ?? chosen} withName={withName} />;
+}
+
+function Label({ country, withName }: { country: string | null; withName: boolean }) {
+  const t = useT(TEXT);
+  if (country) return <span className="whitespace-nowrap">{withName ? t("picker.name", country, countryName(country)) : country}</span>;
+  if (withName) return <span className="whitespace-nowrap">{t("picker.country")}</span>;
+  return <Globe className="h-4 w-4 text-muted" aria-hidden="true" />;
+}
+
 /** "UK prices", in plain text, on anything priced somewhere other than where the shopper is. */
 export function MarketNote({ market, className = "" }: { market: MarketCode; className?: string }) {
+  const t = useT(TEXT);
   const country = useCountry() ?? "US";
   if (country === market) return null;
   return (
-    <span className={`whitespace-nowrap text-muted ${className}`} title={`Prices checked in ${MARKET_LABEL[market]} stores`}>
-      {MARKET_ADJECTIVE[market]} prices
+    <span className={`whitespace-nowrap text-muted ${className}`} title={t("picker.pricesCheckedIn", market)}>
+      {t("picker.marketPrices", market)}
     </span>
   );
 }

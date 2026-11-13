@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { useRef, useState } from "react";
 import { Check, Copy, ImageUp, ListPlus, Loader2, Printer, X } from "lucide-react";
 import { useLocal } from "@/lib/client/country";
@@ -367,7 +367,11 @@ function Result({
                     <button
                       type="button"
                       className="btn btn-ghost min-h-11"
-                      onClick={() => setAnswers({ ...answers, [l.slug]: false })}
+                      onClick={() => {
+                        setAnswers({ ...answers, [l.slug]: false });
+                        // We read the brand but don't have the product they buy: count it as wanted, like a line we had nothing for.
+                        if (l.counted) countNo(l.counted);
+                      }}
                       aria-label={`No, not ${swap.fromProduct}`}
                     >
                       <X className="h-4 w-4" aria-hidden="true" /> No
@@ -434,19 +438,16 @@ function SwapRow({ item, viewingShared }: { item: Line; viewingShared: boolean }
             {s.toProduct}
           </Link>
         </p>
-        <p className="mt-0.5 flex flex-wrap items-center gap-x-2 text-[13px] text-ink-2">
+        {/* No dots between the parts: when a part wraps, a dot was left hanging at the end of the line above. */}
+        <p className="mt-0.5 flex flex-wrap items-center gap-x-3 text-[13px] text-ink-2">
           <MatchBadge type={s.match} />
-          <span aria-hidden="true">·</span>
           <span>
             <Money n={s.savings} from={s.currency} prose /> less per {s.yearly?.pack ?? "pack"}, {Math.round(s.savingsPct)}% cheaper
           </span>
           {line.others > 0 && (
-            <>
-              <span aria-hidden="true">·</span>
-              <Link href={s.href} className="font-medium text-cobalt underline underline-offset-2 print:hidden">
-                {line.others === 1 ? "1 more option" : `${line.others} more options`}
-              </Link>
-            </>
+            <Link href={s.href} className="font-medium text-cobalt underline underline-offset-2 print:hidden">
+              {line.others === 1 ? "1 more option" : `${line.others} more options`}
+            </Link>
           )}
         </p>
         {counted.how === "yearly" && (
@@ -476,4 +477,14 @@ function LineFigure({ counted, swap }: { counted: Counted; swap: SwapView }) {
       <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{counted.how === "yearly" ? "a year" : "once"}</span>
     </p>
   );
+}
+
+/** Counts a "did you mean" answered No in the most-wanted log. Best effort: the answer stands whatever happens. */
+function countNo(name: string) {
+  void fetch("/api/wanted", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ q: name, source: "check" }),
+    keepalive: true,
+  }).catch(() => {});
 }

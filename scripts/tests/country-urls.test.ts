@@ -20,6 +20,7 @@ import {
   withCountry,
 } from "../../src/lib/country-url";
 import { localFor } from "../../src/lib/localize";
+import { langOfPath } from "../../src/lib/i18n/lang";
 import { alternateLanguages, headRules, indexableUrls } from "../../src/lib/seo";
 import type { Catalog } from "../../src/lib/types";
 import { countryRoute } from "../../src/proxy";
@@ -185,7 +186,7 @@ test("hreflang is reciprocal: every indexable URL names the same set, itself inc
     // One URL per region, and the region is the URL's own country.
     for (const [lang, other] of Object.entries(langs)) {
       if (lang === "x-default") continue;
-      assert.equal(`en-${countryOfPath(other)}`, lang, other);
+      assert.equal(`${langOfPath(other)}-${countryOfPath(other)}`, lang, other);
     }
   }
 });

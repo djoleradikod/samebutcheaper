@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useId } from "react";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { wishFor, type FeedbackState } from "@/app/feedback-actions";
 
 /** Searches already counted in this tab, so going back and forth doesn't send one twice. */

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { CountryPart } from "@/components/ForCountry";
 import { ShoppingCheck, type SharedStart } from "@/components/ShoppingCheck";
 import { getPair } from "@/lib/catalog";

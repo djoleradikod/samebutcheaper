@@ -1,7 +1,8 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { hostname } from "@/lib/format";
 import type { CategorySlug, Photo } from "@/lib/types";
 import { ProductThumb } from "./ProductThumb";
+import { getT, type Lang } from "@/lib/i18n";
 
 export const HEALTH_CATEGORIES = new Set(["otc-medicine", "supplements", "baby", "pet", "skincare-personal-care"]);
 
@@ -16,11 +17,12 @@ function pathOf(u: string) {
   }
 }
 
-export function SourceList({ sources }: { sources: string[] }) {
+export function SourceList({ sources, lang = "en" }: { sources: string[]; lang?: Lang }) {
+  const t = getT(lang);
   return (
     <section className="min-w-0">
-      <h2 className="display text-[22px] md:text-2xl">Sources</h2>
-      <p className="mt-1 text-sm text-ink-2">What we checked. Look for yourself.</p>
+      <h2 className="display text-[22px] md:text-2xl">{t("evidence.sources")}</h2>
+      <p className="mt-1 text-sm text-ink-2">{t("evidence.sourcesIntro")}</p>
       <ul className="mt-3 divide-y divide-line border-y border-line">
         {sources.map((s) => (
           <li key={s}>
@@ -52,12 +54,12 @@ export function Differences({ text, title = "What differs" }: { text: string; ti
   );
 }
 
-export function HealthNotice({ className = "" }: { className?: string }) {
+export function HealthNotice({ className = "", category = "", lang = "en" }: { className?: string; category?: string; lang?: Lang }) {
+  const t = getT(lang);
   return (
     <p className={`rounded-card border border-different/30 bg-different-soft p-3.5 text-sm text-ink-2 ${className}`}>
-      <span className="font-semibold text-ink">Read the label. </span>
-      This compares labels and published evidence. It isn&apos;t medical advice. Inactive ingredients (fillers, dyes,
-      flavours) can differ, which matters if you have allergies. Ask a pharmacist, doctor or vet if you&apos;re unsure.
+      <span className="font-semibold text-ink">{category === "otc-medicine" ? t("evidence.medicineLead") : t("evidence.healthLead")}</span>
+      {t("evidence.healthBody")}
     </p>
   );
 }
@@ -74,7 +76,8 @@ export function licenceUrl(licence: string) {
  * One small credit line for both photos under the shelf: each product links to its photo's page, and the
  * credit and licence print once when they match. "Background removed" comes from the credit itself.
  */
-export function PhotoLine({ items, className = "" }: { items: { name: string; photo: Photo | null }[]; className?: string }) {
+export function PhotoLine({ items, className = "", lang = "en" }: { items: { name: string; photo: Photo | null }[]; className?: string; lang?: Lang }) {
+  const t = getT(lang);
   const linkClass = "underline underline-offset-2 hover:text-ink";
   const photographed = items.filter((i) => i.photo);
   const missing = items.filter((i) => !i.photo);
@@ -88,7 +91,7 @@ export function PhotoLine({ items, className = "" }: { items: { name: string; ph
   }
   return (
     <p className={`text-xs leading-relaxed text-muted ${className}`}>
-      {photographed.length > 0 && "Photos: "}
+      {photographed.length > 0 && t("evidence.photos")}
       {[...groups.values()].map((g, i) => {
         const url = licenceUrl(g.license);
         return (
@@ -102,7 +105,7 @@ export function PhotoLine({ items, className = "" }: { items: { name: string; ph
                 </a>
               </span>
             ))}{" "}
-            by {g.credit},{" "}
+            {t("evidence.by")} {t("evidence.credit", g.credit)},{" "}
             {url ? (
               <a href={url} target="_blank" rel="noopener" className={linkClass}>
                 {g.license}
@@ -114,7 +117,7 @@ export function PhotoLine({ items, className = "" }: { items: { name: string; ph
         );
       })}
       {photographed.length > 0 && ". "}
-      {missing.length > 0 && `No licensed photo of ${missing.map((i) => i.name).join(" or ")} yet.`}
+      {missing.length > 0 && t("evidence.noPhotoOf", missing.map((i) => i.name))}
     </p>
   );
 }
@@ -122,11 +125,12 @@ export function PhotoLine({ items, className = "" }: { items: { name: string; ph
 export type CreditItem = { name: string; brand: string; photo: Photo | null; category?: CategorySlug; unit?: string };
 
 /** Who took each photo, under what licence, where it came from and what we did to it. */
-export function PhotoCredits({ items }: { items: CreditItem[] }) {
+export function PhotoCredits({ items, lang = "en" }: { items: CreditItem[]; lang?: Lang }) {
   if (!items.some((i) => i.photo)) return null;
+  const t = getT(lang);
   return (
     <section className="min-w-0">
-      <h2 className="display text-[22px] md:text-2xl">Photo credits</h2>
+      <h2 className="display text-[22px] md:text-2xl">{t("evidence.photoCredits")}</h2>
       <ul className="mt-3 divide-y divide-line border-y border-line">
         {items.map((item) => {
           const url = item.photo ? licenceUrl(item.photo.license) : null;
@@ -145,7 +149,7 @@ export function PhotoCredits({ items }: { items: CreditItem[] }) {
                 {item.photo ? (
                   <>
                     <p className="mt-0.5">
-                      {item.photo.credit},{" "}
+                      {t("evidence.credit", item.photo.credit)},{" "}
                       {url ? (
                         <a href={url} target="_blank" rel="noopener" className="text-cobalt underline underline-offset-2">
                           {item.photo.license}
@@ -160,15 +164,15 @@ export function PhotoCredits({ items }: { items: CreditItem[] }) {
                         rel="noopener noreferrer nofollow"
                         className="text-cobalt underline underline-offset-2"
                       >
-                        Where it came from
+                        {t("evidence.whereItCameFrom")}
                       </a>
                     </p>
                     {/BY-SA/i.test(item.photo.license) && (
-                      <p className="mt-0.5 text-[13px] text-muted">Adapted: cropped and placed on white.</p>
+                      <p className="mt-0.5 text-[13px] text-muted">{t("evidence.adapted")}</p>
                     )}
                   </>
                 ) : (
-                  <p className="mt-0.5">No licensed photo yet. The drawing is only a placeholder.</p>
+                  <p className="mt-0.5">{t("evidence.noPhoto")}</p>
                 )}
               </div>
             </li>
@@ -176,12 +180,12 @@ export function PhotoCredits({ items }: { items: CreditItem[] }) {
         })}
       </ul>
       <p className="mt-2 text-[13px] text-muted">
-        Pack designs and trademarks belong to their owners.{" "}
+        {t("evidence.trademarks")}{" "}
         <Link
           href="/credits"
           className="inline-flex min-h-11 items-center text-cobalt underline underline-offset-2 md:min-h-0"
         >
-          All photo credits
+          {t("footer.englishOnly", t("evidence.allCredits"))}
         </Link>
       </p>
     </section>

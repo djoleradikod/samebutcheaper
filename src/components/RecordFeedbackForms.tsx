@@ -1,15 +1,21 @@
 "use client";
 
 import { useActionState, useId, useState, type ReactNode } from "react";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { reportProblem, watchSwap, type FeedbackState } from "@/app/feedback-actions";
+import { useLang, useT } from "@/lib/i18n/client";
+import { feedback } from "@/lib/i18n/en/client/feedback";
+import { newsletter } from "@/lib/i18n/en/client/newsletter";
 
-const KINDS = [
-  { value: "price", label: "Price changed" },
-  { value: "stock", label: "Out of stock" },
-  { value: "product", label: "Not the same product" },
-  { value: "other", label: "Something else" },
-] as const;
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { feedback, newsletter };
+
+const KINDS = ["price", "stock", "product", "other"] as const;
+
+/** The page's language, sent with each form so the answer reads in it. */
+function LangField() {
+  return <input type="hidden" name="lang" value={useLang()} />;
+}
 const NOTE_MAX = 300;
 
 /**
@@ -44,22 +50,21 @@ function Honeypot() {
 function WatchForm({ slug }: { slug: string }) {
   const [state, action, pending] = useActionState<FeedbackState, FormData>(watchSwap, null);
   const id = useId();
+  const t = useT(TEXT);
+  const lang = useLang();
   return (
-    <section aria-labelledby={`${id}-t`} className="self-start rounded-card border border-line bg-paper p-4 md:p-5">
+    <section id="watch" aria-labelledby={`${id}-t`} className="scroll-mt-20 self-start rounded-card border border-line bg-paper p-4 md:p-5">
       <h2 id={`${id}-t`} className="text-base font-semibold">
-        Email me if this changes
+        {t("feedback.watchHeading")}
       </h2>
-      <p className="mt-1 text-sm text-ink-2">
-        One email when the cheaper product&apos;s price moves 5% or more, the saving drops under 5%, or we withdraw
-        this swap. We ask you to confirm your address first.
-      </p>
+      <p className="mt-1 text-sm text-ink-2">{t("feedback.watchIntro")}</p>
       {state?.ok ? (
         <Status state={state} />
       ) : (
         <form action={action} className="mt-3">
           <div className="flex flex-col gap-2 sm:flex-row">
             <label htmlFor={`${id}-e`} className="sr-only">
-              Email address
+              {t("feedback.email")}
             </label>
             <input
               id={`${id}-e`}
@@ -67,22 +72,23 @@ function WatchForm({ slug }: { slug: string }) {
               type="email"
               required
               autoComplete="email"
-              placeholder="you@example.com"
+              placeholder={t("newsletter.placeholder")}
               className="h-11 min-w-0 flex-1 rounded-tile border border-line-strong bg-paper px-3 text-base placeholder:text-muted focus:border-cobalt focus:outline-none"
             />
             <input type="hidden" name="slug" value={slug} />
+            <LangField />
             <Honeypot />
             <button type="submit" disabled={pending} className="btn btn-ghost disabled:opacity-60">
-              {pending ? "Saving…" : "Watch this swap"}
+              {pending ? t("feedback.saving") : t("feedback.watch")}
             </button>
           </div>
           <Status
             state={state}
-            idle="Only about this swap. Every email has a one-click stop link."
+            idle={t("feedback.watchIdle")}
           />
           <p className="text-[13px] text-muted">
-            <Link href="/privacy" className="inline-flex min-h-11 items-center underline underline-offset-2 md:min-h-0">
-              How we use your address
+            <Link href={lang === "de" ? "/datenschutz" : "/privacy"} className="inline-flex min-h-11 items-center underline underline-offset-2 md:min-h-0">
+              {t("feedback.howWeUse")}
             </Link>
           </p>
         </form>
@@ -95,10 +101,11 @@ function ReportForm({ record, slug }: { record: "pair" | "bundle"; slug: string 
   const [state, action, pending] = useActionState<FeedbackState, FormData>(reportProblem, null);
   const [note, setNote] = useState("");
   const id = useId();
+  const t = useT(TEXT);
   return (
     <details className="group self-start rounded-card border border-line bg-paper">
       <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-ink-2 hover:text-ink md:px-5 [&::-webkit-details-marker]:hidden">
-        <span>Something wrong on this page?</span>
+        <span>{t("feedback.somethingWrong")}</span>
         <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-45">
           +
         </span>
@@ -110,20 +117,21 @@ function ReportForm({ record, slug }: { record: "pair" | "bundle"; slug: string 
           <form action={action}>
             <input type="hidden" name="record" value={record} />
             <input type="hidden" name="slug" value={slug} />
+            <LangField />
             <Honeypot />
             <fieldset>
-              <legend className="text-sm font-semibold">What&apos;s wrong?</legend>
+              <legend className="text-sm font-semibold">{t("feedback.whatsWrong")}</legend>
               <div className="mt-1 grid gap-x-4 sm:grid-cols-2">
                 {KINDS.map((k) => (
-                  <label key={k.value} className="flex min-h-11 cursor-pointer items-center gap-2.5 text-[15px]">
-                    <input type="radio" name="kind" value={k.value} required className="h-4 w-4 accent-[var(--ink)]" />
-                    {k.label}
+                  <label key={k} className="flex min-h-11 cursor-pointer items-center gap-2.5 text-[15px]">
+                    <input type="radio" name="kind" value={k} required className="h-4 w-4 accent-[var(--ink)]" />
+                    {t(`feedback.kinds.${k}`)}
                   </label>
                 ))}
               </div>
             </fieldset>
             <label htmlFor={`${id}-n`} className="mt-2 block text-sm font-semibold">
-              Anything we should know? <span className="font-normal text-muted">(optional)</span>
+              {t("feedback.anything")} <span className="font-normal text-muted">{t("feedback.optional")}</span>
             </label>
             <textarea
               id={`${id}-n`}
@@ -133,7 +141,7 @@ function ReportForm({ record, slug }: { record: "pair" | "bundle"; slug: string 
               value={note}
               onChange={(e) => setNote(e.target.value)}
               aria-describedby={`${id}-c`}
-              placeholder="For example the price you saw, and where"
+              placeholder={t("feedback.placeholder")}
               className="mt-1 w-full rounded-tile border border-line-strong bg-paper px-3 py-2 text-base placeholder:text-muted focus:border-cobalt focus:outline-none"
             />
             <p id={`${id}-c`} className="num text-right text-xs text-muted">
@@ -141,9 +149,9 @@ function ReportForm({ record, slug }: { record: "pair" | "bundle"; slug: string 
             </p>
             <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
               <button type="submit" disabled={pending} className="btn btn-ghost disabled:opacity-60">
-                {pending ? "Sending…" : "Send"}
+                {pending ? t("feedback.sending") : t("feedback.send")}
               </button>
-              <p className="text-xs text-muted">No account or email needed. We never store your IP address.</p>
+              <p className="text-xs text-muted">{t("feedback.noAccount")}</p>
             </div>
             <Status state={state} />
           </form>

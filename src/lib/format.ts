@@ -1,4 +1,7 @@
 import type { Market } from "./markets";
+import { formatCurrencyDe, formatMoneyDe, formatNumber, monthDe } from "./i18n/format";
+import type { Lang } from "./i18n/lang";
+import { unitWordsFor } from "./i18n/units";
 
 /** What a catalogue record is priced in. */
 export type MarketCurrency = Market["currency"];
@@ -36,15 +39,22 @@ export function hostname(u: string) {
   }
 }
 
-export function money(n: number, currency: Currency) {
+export function money(n: number, currency: Currency, lang: Lang = "en") {
+  if (lang === "de") return formatMoneyDe(n, currency);
   const sym = SYMBOL[currency];
   if (n >= 100) return `${sym}${Math.round(n).toLocaleString("en-US")}`;
   return `${sym}${n.toFixed(2)}`;
 }
 
 /** Price per unit: cents (or pence) for tiny values, whole currency otherwise. */
-export function ppu(n: number, currency: Currency) {
+export function ppu(n: number, currency: Currency, lang: Lang = "en") {
   const small = CENTS[currency];
+  if (lang === "de") {
+    // "0,45 ct", "37,0 ct", "1,23 €": the German shelf label writes the sign after the figure.
+    if (small && n < 0.01) return `${formatNumber(n * 100, "de", 2)}\u00a0${small.trim()}`;
+    if (small && n < 1) return `${formatNumber(n * 100, "de", 1)}\u00a0${small.trim()}`;
+    return formatCurrencyDe(n, currency, n < 0.1 ? 3 : 2);
+  }
   if (small && n < 0.01) return `${(n * 100).toFixed(2)}${small}`;
   if (small && n < 1) return `${(n * 100).toFixed(1)}${small}`;
   return `${SYMBOL[currency]}${n.toFixed(n < 0.1 ? 3 : 2)}`;
@@ -66,12 +76,14 @@ export function unitLabel(unit: string, size = 1) {
   return unit + "s";
 }
 
-export function formatSize(size: number, unit: string) {
+export function formatSize(size: number, unit: string, lang: Lang = "en") {
+  if (lang === "de") return `${formatNumber(size, "de", Number.isInteger(size) ? 0 : 1)} ${unitWordsFor(unit, "de", size)}`;
   const n = Number.isInteger(size) ? size.toString() : size.toFixed(1);
   return `${n} ${unitLabel(unit, size)}`;
 }
 
-export function monthYear(iso: string) {
+export function monthYear(iso: string, lang: Lang = "en") {
+  if (lang === "de") return monthDe(iso);
   const [y, m] = iso.split("-").map(Number);
   if (!y || !m) return iso;
   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString("en-US", {

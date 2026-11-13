@@ -1,45 +1,48 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import type { Comparison, CompareRow, Verdict } from "@/lib/compare";
+import { getT, type Lang } from "@/lib/i18n";
 
-/** Pale fill for the row and darker text for the words. Alt-better rows stay white: yellow is for the ticket. */
-const VERDICT: Record<Verdict, { label: string; row: string; text: string }> = {
-  same: { label: "Same", row: "bg-same-soft", text: "text-same" },
-  about_same: { label: "About the same", row: "bg-same-soft", text: "text-same" },
-  alt_better: { label: "Cheaper one wins", row: "", text: "text-ink" },
-  brand_better: { label: "Brand wins", row: "bg-brand-better-soft", text: "text-brand-better" },
-  different: { label: "Differs", row: "bg-different-soft", text: "text-different" },
-  check: { label: "Check the label", row: "bg-different-soft", text: "text-different" },
-  unknown: { label: "Not on file", row: "", text: "text-muted" },
-  neutral: { label: "", row: "", text: "text-ink-2" },
+/** Pale fill for the row and darker text for the words. Alt-better rows stay white: yellow is for the ticket. The words are in the dictionary (compare.verdicts). */
+const VERDICT: Record<Verdict, { row: string; text: string }> = {
+  same: { row: "bg-same-soft", text: "text-same" },
+  about_same: { row: "bg-same-soft", text: "text-same" },
+  alt_better: { row: "", text: "text-ink" },
+  brand_better: { row: "bg-brand-better-soft", text: "text-brand-better" },
+  different: { row: "bg-different-soft", text: "text-different" },
+  check: { row: "bg-different-soft", text: "text-different" },
+  unknown: { row: "", text: "text-muted" },
+  neutral: { row: "", text: "text-ink-2" },
 };
 
 /** A cell longer than this opens from a short start, so a long ingredient list doesn't push the page down. */
 const LONG_CELL = 160;
 const CELL_START = 90;
 
-function Cell({ text }: { text: string }) {
+function Cell({ text, lang }: { text: string; lang: Lang }) {
+  const t = getT(lang);
   if (text.length <= LONG_CELL) return <>{text}</>;
   return (
     <details className="group/cell">
       <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
         <span className="group-open/cell:hidden">
-          {text.slice(0, CELL_START).trimEnd()}… <span className="font-medium text-cobalt underline underline-offset-2">Show all</span>
+          {text.slice(0, CELL_START).trimEnd()}… <span className="font-medium text-cobalt underline underline-offset-2">{t("compare.showAll")}</span>
         </span>
-        <span className="hidden font-medium text-cobalt underline underline-offset-2 group-open/cell:inline">Show less</span>
+        <span className="hidden font-medium text-cobalt underline underline-offset-2 group-open/cell:inline">{t("compare.showLess")}</span>
       </summary>
       <span className="mt-1 block">{text}</span>
     </details>
   );
 }
 
-function NutritionCredit({ group }: { group: NonNullable<Comparison["nutrition"]> }) {
+function NutritionCredit({ group, lang }: { group: NonNullable<Comparison["nutrition"]>; lang: Lang }) {
+  const t = getT(lang);
   return (
     <p className="mt-2 text-[13px] text-muted">
-      From{" "}
+      {t("compare.from")}{" "}
       <a href={group.licenseUrl} target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-ink">
         {group.source}, {group.license}
       </a>
-      . People enter these records, so check the pack. Records:{" "}
+      {t("compare.peopleEnter")}{" "}
       {group.records.map((r, i) => (
         <span key={r.page}>
           {i > 0 && ", "}
@@ -70,13 +73,16 @@ export function SameOrDifferent({
   brandName,
   altName,
   intro,
+  lang = "en",
 }: {
   comparison: Comparison;
   brandName: string;
   altName: string;
   /** One line under the heading: what's on file for this swap. */
   intro: string;
+  lang?: Lang;
 }) {
+  const t = getT(lang);
   const all = [...comparison.ingredients, ...comparison.rows];
   // Only points with data on both sides count, and the unit price differs on every swap.
   const counted = all.filter((r) => !r.uncounted && r.verdict !== "unknown" && r.verdict !== "check");
@@ -84,14 +90,14 @@ export function SameOrDifferent({
   const brandWins = all.filter((r) => r.verdict === "brand_better").length;
   const shown = comparison.ingredients.slice(0, SHOW);
   const folded = comparison.ingredients.slice(SHOW);
-  const names = { brandName, altName };
+  const names = { brandName, altName, lang };
 
   return (
     <section aria-labelledby="same-or-different">
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1">
         <div className="min-w-0 max-w-3xl">
           <h2 id="same-or-different" className="display text-[22px] md:text-2xl">
-            Same or different?
+            {t("compare.heading")}
           </h2>
           <p className="mt-1 text-[15px] text-ink-2">{intro}</p>
         </div>
@@ -99,10 +105,10 @@ export function SameOrDifferent({
           <p className="num text-sm font-semibold">
             {counted.length >= MIN_COUNTED && (
               <span className="text-same">
-                {same} of {counted.length} the same.
+                {t("compare.counted", same, counted.length)}
               </span>
             )}
-            {brandWins > 0 && <span className="text-brand-better"> Brand wins {brandWins}.</span>}
+            {brandWins > 0 && <span className="text-brand-better">{t("compare.brandWins", brandWins)}</span>}
           </p>
         )}
       </div>
@@ -114,19 +120,19 @@ export function SameOrDifferent({
             {folded.length > 0 && (
               <details className="group mt-1">
                 <summary className="flex min-h-11 cursor-pointer list-none items-center text-sm font-medium text-cobalt hover:underline [&::-webkit-details-marker]:hidden">
-                  <span className="group-open:hidden">Show {folded.length} more</span>
-                  <span className="hidden group-open:inline">Show fewer</span>
+                  <span className="group-open:hidden">{t("compare.showMore", folded.length)}</span>
+                  <span className="hidden group-open:inline">{t("compare.showFewer")}</span>
                 </summary>
-                <CompareTable caption={`${comparison.label}, continued`} rows={folded} {...names} />
+                <CompareTable caption={t("compare.continued", comparison.label)} rows={folded} {...names} />
               </details>
             )}
           </div>
         )}
-        <CompareTable caption={shown.length ? "Everything else" : "What we compared"} rows={comparison.rows} {...names} />
+        <CompareTable caption={shown.length ? t("compare.everythingElse") : t("compare.whatWeCompared")} rows={comparison.rows} {...names} />
         {comparison.nutrition && (
           <div>
             <CompareTable caption={comparison.nutrition.caption} rows={comparison.nutrition.rows} {...names} />
-            <NutritionCredit group={comparison.nutrition} />
+            <NutritionCredit group={comparison.nutrition} lang={lang} />
           </div>
         )}
       </div>
@@ -139,12 +145,15 @@ function CompareTable({
   rows,
   brandName,
   altName,
+  lang,
 }: {
   caption: string;
   rows: CompareRow[];
   brandName: string;
   altName: string;
+  lang: Lang;
 }) {
+  const t = getT(lang);
   return (
     <table className="w-full table-fixed border-collapse text-[13px] md:text-sm">
       <caption className="pb-1.5 text-left text-[13px] font-medium text-muted">{caption}</caption>
@@ -157,7 +166,7 @@ function CompareTable({
       <thead>
         <tr className="border-y border-line-strong text-left text-[13px]">
           <th scope="col" className="px-2 py-2 font-medium text-muted md:px-3">
-            What
+            {t("compare.what")}
           </th>
           <th scope="col" className="px-2 py-2 font-semibold break-words md:px-3">
             {brandName}
@@ -166,14 +175,14 @@ function CompareTable({
             {altName}
           </th>
           <th scope="col" className="hidden px-3 py-2 font-medium text-muted md:table-cell">
-            Verdict
+            {t("compare.verdictColumn")}
           </th>
         </tr>
       </thead>
       <tbody>
         {rows.map((r) => {
           const v = VERDICT[r.verdict];
-          const label = r.verdictLabel ?? v.label;
+          const label = r.verdictLabel ?? t(`compare.verdicts.${r.verdict}`);
           return (
             <tr key={r.aspect} className={`border-b border-line align-top ${v.row}`}>
               <th scope="row" className="px-2 py-2.5 text-left font-medium break-words md:px-3">
@@ -194,18 +203,18 @@ function CompareTable({
                     href={r.source}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    aria-label={`Source for ${r.aspect}`}
+                    aria-label={t("compare.sourceFor", r.aspect)}
                     className="inline-flex min-h-11 items-center text-xs font-normal text-cobalt underline underline-offset-2 md:ml-1.5 md:min-h-0"
                   >
-                    Source
+                    {t("compare.source")}
                   </a>
                 )}
               </th>
               <td className="px-2 py-2.5 break-words text-ink-2 md:px-3">
-                <Cell text={r.brand} />
+                <Cell text={r.brand} lang={lang} />
               </td>
               <td className="px-2 py-2.5 break-words text-ink-2 md:px-3">
-                <Cell text={r.alternative} />
+                <Cell text={r.alternative} lang={lang} />
               </td>
               <td className={`hidden px-3 py-2.5 font-semibold md:table-cell ${v.text}`}>{label}</td>
             </tr>

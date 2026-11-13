@@ -15,13 +15,14 @@ import type { Metadata } from "next";
 import Link from "@/components/CountryLink";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { swapDescription } from "@/lib/seo";
-import { countryHead, pageVersionsFor, swapTitleFor } from "@/lib/seo-catalog";
+import { countryHead, pageVersionsFor, swapDescriptionFor, swapTitleFor } from "@/lib/seo-catalog";
 import { VersionLinks } from "@/components/CountryIndex";
 import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
 import { BulkBox, buysOnce, packText } from "@/components/BulkBox";
 import { HEALTH_CATEGORIES, HealthNotice, PhotoCredits, PhotoLine, SourceList } from "@/components/Evidence";
 import { MarketTag } from "@/components/MarketTag";
 import { PairCard } from "@/components/PairCard";
+import { toCard } from "@/components/ShelfParts";
 import { ProductThumb } from "@/components/ProductThumb";
 import { SameOrDifferent } from "@/components/SameOrDifferent";
 import { SaveButton } from "@/components/SaveButton";
@@ -43,9 +44,16 @@ import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay } from "@/lib/unit-format";
 import { SwapQuestions } from "@/components/SwapQuestions";
-import { forCountry, localClaim, localFor, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
-import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
-import { RecordFeedback } from "@/components/RecordFeedback";
+import { getT, type Lang } from "@/lib/i18n";
+import { langForCountry } from "@/lib/i18n/lang";
+import { listWords as listWordsIn } from "@/lib/i18n/format";
+import { unitWordsFor } from "@/lib/i18n/units";
+import { unitLabel } from "@/lib/unit-format";
+import { comparisonDe, differencesDe, onFileIntroDe } from "@/lib/i18n/compare-de";
+import { claimText, germanText, subcategoryName } from "@/lib/i18n/record";
+import { forCountry, localClaim, localFor, localText, type Local } from "@/lib/localize";
+import { NotListedHere, RecordNoteSlot, SameSwapHere } from "@/components/ShelfParts";
+import { RecordFeedback, ReportedPriceNote } from "@/components/RecordFeedback";
 import { RecordPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 import { YearlyBlock } from "@/components/YearlyBlock";
@@ -54,9 +62,10 @@ import { PriceChecked } from "@/components/PriceChecked";
 /** The swap's head for its unprefixed URL (country null) or one country's: title, description, and the rule in seo.ts. */
 export function swapMetadata(slug: string, country: PrefixedCountry | null): Metadata {
   const pair = getPair(slug);
-  if (!pair) return { title: "Swap not found" };
-  const title = swapTitleFor(pair.slug) ?? pair.title;
-  const description = swapDescription(pair);
+  const lang = langForCountry(country);
+  if (!pair) return { title: getT(lang)("swap.notFound") };
+  const title = swapTitleFor(pair.slug, lang) ?? pair.title;
+  const description = swapDescriptionFor(pair.slug, lang) ?? swapDescription(pair, lang);
   const head = countryHead(`/compare/${pair.slug}`, country);
   const url = head?.alternates.canonical ?? withCountry(`/compare/${pair.slug}`, country);
   // The share image is made once per swap, at its unprefixed URL; the unprefixed page picks it up from its own folder.
@@ -67,40 +76,52 @@ export function swapMetadata(slug: string, country: PrefixedCountry | null): Met
 const BAND = "border-y border-line bg-canvas";
 const WHERE_TO_BUY = "where-to-buy";
 const WHAT_DIFFERS = "what-differs";
+/** The "Email me if this changes" form at the foot (RecordFeedbackForms). */
+const WATCH = "watch";
+
+/** Where the share button sends people: each country's indexable URL for this swap, else its canonical one. */
+function shareVersions(record: Pair) {
+  const v = pageVersionsFor(`/compare/${record.slug}`);
+  const versions = Object.fromEntries(Object.entries(v?.languages ?? {}).map(([hl, href]) => [hl.split("-")[1], href]));
+  return { versions, canonical: v?.xDefault ?? `/compare/${record.slug}` };
+}
 
 /** `country`: the URL's country on a prefixed page, null on /compare/<slug>. */
 export function SwapView({ record, country }: { record: Pair; country: PrefixedCountry | null }) {
   const cat = CATEGORY_MAP[record.category];
+  const lang = langForCountry(country);
+  const t = getT(lang);
+  const catName = t(`categories.${cat.slug}.name`);
   // The static parts: the URL's country's view, or the record's own one, which is what reads the same for everybody.
-  const fixed = localFor(country);
+  const fixed = localFor(country, false, lang);
   const pairPath = withCountry(`/compare/${record.slug}`, country);
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}${withCountry("/", country)}` },
-        { "@type": "ListItem", position: 2, name: cat.name, item: `${SITE.url}${withCountry(`/category/${cat.slug}`, country)}` },
-        { "@type": "ListItem", position: 3, name: record.title, item: `${SITE.url}${pairPath}` },
+        { "@type": "ListItem", position: 1, name: t("swap.home"), item: `${SITE.url}${withCountry("/", country)}` },
+        { "@type": "ListItem", position: 2, name: catName, item: `${SITE.url}${withCountry(`/category/${cat.slug}`, country)}` },
+        { "@type": "ListItem", position: 3, name: lang === "en" ? record.title : t("swap.title", record.brand.brand, record.alternative.brand), item: `${SITE.url}${pairPath}` },
       ],
     },
     // No Product or Offer markup: this page compares two products we don't sell, at prices that date. See docs/seo-audit.md.
   ];
   return (
     <article>
-      <RecordPart own={false}>
+      <RecordPart own={false} standIn={<RecordNoteSlot record={record} />}>
         {(local) => {
           if (local.shows(record)) return null;
           const twin = record.twin ? getPair(record.twin.slug) : undefined;
-          return twin && local.shows(twin) ? <SameSwapHere market={record.market} twin={twin} /> : <NotListedHere market={record.market} local={local} />;
+          return twin && local.shows(twin) ? <SameSwapHere market={record.market} twin={twin} lang={local.lang} /> : <NotListedHere market={record.market} local={local} />;
         }}
       </RecordPart>
       <div className="container-page pt-1 md:pt-4">
-        <nav aria-label="Breadcrumb">
+        <nav aria-label={t("swap.breadcrumb")}>
           <ol className="flex flex-wrap items-center gap-x-1 text-[13px] text-muted">
             <li>
               <Link href="/" className="inline-flex min-h-11 items-center hover:text-ink md:min-h-0">
-                Home
+                {t("swap.home")}
               </Link>
             </li>
             <li aria-hidden="true">
@@ -108,23 +129,23 @@ export function SwapView({ record, country }: { record: Pair; country: PrefixedC
             </li>
             <li>
               <Link href={`/category/${cat.slug}`} className="inline-flex min-h-11 items-center hover:text-ink md:min-h-0">
-                {cat.name}
+                {catName}
               </Link>
             </li>
             <li aria-hidden="true">
               <ChevronRight className="h-3 w-3" />
             </li>
-            <li className="text-ink-2">{record.subcategory}</li>
+            <li className="text-ink-2">{subcategoryName(record.subcategory, lang)}</li>
           </ol>
         </nav>
 
         <h1 className="display text-[28px] break-words md:mt-1.5 md:text-[40px]">
-          {record.brand.brand} vs {record.alternative.brand}
+          {t("swap.title", record.brand.brand, record.alternative.brand)}
         </h1>
       </div>
       <CompareBody record={record} fixed={fixed} />
-      <SwapQuestions record={record} />
-      <VersionLinks languages={pageVersionsFor(`/compare/${record.slug}`)?.languages ?? {}} current={pairPath} />
+      <SwapQuestions record={record} lang={lang} />
+      <VersionLinks languages={pageVersionsFor(`/compare/${record.slug}`)?.languages ?? {}} current={pairPath} lang={lang} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
     </article>
   );
@@ -149,7 +170,32 @@ function swapFor(record: Pair, local: Local) {
   });
   const fullComparison = { ...compared, ingredients: compared.ingredients.map(speak), rows };
   const tests = rows.filter((r) => r.kind === "test");
-  return { pair, compared, rows, wins, points, caveats, against, fullComparison, tests };
+  if (local.lang === "en") return { pair, compared, rows, wins, points, caveats, against, fullComparison, tests, intro: onFileIntro(fullComparison), textLang: "en" as Lang };
+  // A German page: the same findings, each in German where the record has German text (src/lib/i18n/compare-de.ts).
+  const text = germanText(record, local);
+  const t = getT("de");
+  const table = comparisonDe(fullComparison, record, text);
+  const winsDe = [...table.ingredients, ...table.rows].filter((r) => r.verdict === "brand_better");
+  const firstDrawback = drawbacks(points)[0];
+  const pairDe = {
+    ...pair,
+    ...(text ? { summary: text.summary, evidence: text.evidence, why: text.why, differences: text.differences.join(" ") } : {}),
+    evidence_claims: pair.evidence_claims.map((c) => claimText(c, local)),
+  };
+  return {
+    pair: pairDe,
+    compared,
+    rows: table.rows,
+    wins: winsDe,
+    points: differencesDe(points, record, text),
+    caveats: differencesDe(caveats, record, text),
+    against: wins.length > 0 ? t("swap.brandWinsOn", listWordsIn(winsDe.map((r) => r.aspect), "de")) : firstDrawback && differencesDe([firstDrawback], record, text)[0],
+    fullComparison: table,
+    // "Cost per wash in the test" is detail for the table, as WhyBlock reads the English.
+    tests: table.rows.filter((r, i) => r.kind === "test" && !/\bin the test$/.test(rows[i].aspect)),
+    intro: onFileIntroDe(fullComparison, table),
+    textLang: (text ? "de" : "en") as Lang,
+  };
 }
 
 /**
@@ -168,6 +214,8 @@ function whyNamesPrice(record: Pair) {
 
 function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
   const { brand: b, alternative: a } = record;
+  const lang = fixed.lang;
+  const t = getT(lang);
   const cat = CATEGORY_MAP[record.category];
   const health = HEALTH_CATEGORIES.has(record.category);
   const sameLicence = sameLicenceNumber(record);
@@ -177,8 +225,8 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
     const s = swapFor(record, local);
     return (
       <>
-        <WhyBlock pair={s.pair} tests={s.tests} caveats={s.caveats} className={BAND} />
-        <BrandWins id={WHAT_DIFFERS} brandName={b.brand} altName={a.brand} points={s.points} wins={s.wins} className="border-t-0" />
+        <WhyBlock pair={s.pair} tests={s.tests} caveats={s.caveats} className={BAND} lang={local.lang} textLang={s.textLang} />
+        <BrandWins id={WHAT_DIFFERS} brandName={b.brand} altName={a.brand} points={s.points} wins={s.wins} className="border-t-0" lang={local.lang} textLang={s.textLang} />
       </>
     );
   };
@@ -187,47 +235,51 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
     <>
       <div className="container-page pb-8 md:pb-10">
         <div className="mt-4 grid gap-x-10 gap-y-5 md:mt-5 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-          <RecordPart>{() => <Shelf pair={record} />}</RecordPart>
+          <RecordPart>{(local) => <Shelf pair={record} lang={local.lang} />}</RecordPart>
 
           <div className="min-w-0">
-            <p className="text-[22px] leading-[1.2] font-semibold tracking-[-0.01em] md:text-[28px]">{verdict(record)}</p>
+            <p className="text-[22px] leading-[1.2] font-semibold tracking-[-0.01em] md:text-[28px]">{verdict(record, lang)}</p>
 
+            <ReportedPriceNote record="pair" slug={record.slug} className="mt-3" lang={lang} />
             <div id={OFFERS} className="scroll-mt-16">
               <RecordPart>
                 {(local) => (
                   <>
                     <Offers pair={record} local={local} />
-                    <YearlyBlock pair={record} />
+                    <YearlyBlock pair={record} lang={local.lang} />
                   </>
                 )}
               </RecordPart>
             </div>
 
             <p className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5">
-              <MatchBadge type={record.match_type} long />
-              {record.match_type !== "same_kind" && <ConfidenceBadge confidence={record.confidence} />}
-              {sameLicence && <span className="text-[13px] font-medium text-same">Same licensed medicine, {sameLicence}</span>}
+              <MatchBadge type={record.match_type} long lang={lang} />
+              {record.match_type !== "same_kind" && <ConfidenceBadge confidence={record.confidence} lang={lang} />}
+              {sameLicence && <span className="text-[13px] font-medium text-same">{t("swap.sameLicence", sameLicence)}</span>}
             </p>
             <div className="mt-3 flex flex-col gap-2 sm:flex-row">
               <SaveButton slug={record.slug} className="sm:w-56" />
               <ShareButton
-                path={`/compare/${record.slug}`}
-                text={`${a.brand} does the same job as ${b.brand} for ${Math.round(record.savingsPct)}% less.`}
+                {...shareVersions(record)}
+                text={t("swap.share", a.brand, b.brand, Math.round(record.savingsPct))}
                 className="sm:w-56"
               />
+              <a href={`#${WATCH}`} className="btn btn-ghost">
+                {t("feedback.watchHeading")}
+              </a>
             </div>
             <RecordPart>{(local) => <SameAmountAndAgainst record={record} local={local} />}</RecordPart>
 
             <p className="mt-2 text-[13px] text-muted">
-              {disclosure(record)}{" "}
+              {disclosure(record, lang)}{" "}
               <Link href="/disclosure" className="inline-flex min-h-11 items-center underline underline-offset-2 md:min-h-0">
-                Details
+                {t("swap.details")}
               </Link>
             </p>
           </div>
         </div>
 
-        {health && <HealthNotice className="mt-5 max-w-4xl" />}
+        {health && <HealthNotice className="mt-5 max-w-4xl" category={record.category} lang={lang} />}
       </div>
 
       {whyNamesPrice(record) ? <RecordPart>{why}</RecordPart> : why(fixed)}
@@ -236,7 +288,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
         <RecordPart>
           {(local) => {
             const s = swapFor(record, local);
-            return <SameOrDifferent comparison={s.fullComparison} brandName={b.brand} altName={a.brand} intro={onFileIntro(s.fullComparison)} />;
+            return <SameOrDifferent comparison={s.fullComparison} brandName={b.brand} altName={a.brand} intro={s.intro} lang={local.lang} />;
           }}
         </RecordPart>
       </div>
@@ -245,7 +297,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
 
       <section id={WHERE_TO_BUY} aria-labelledby={`${WHERE_TO_BUY}-title`} className="container-page scroll-mt-16 py-8 md:py-10">
         <h2 id={`${WHERE_TO_BUY}-title`} className="display text-[22px] md:text-2xl">
-          Buying where you live
+          {t("swap.buyingWhereYouLive")}
         </h2>
         <div className="mt-3">
           <RecordPart>
@@ -255,7 +307,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
                 market={record.market}
                 retailer={a.retailer}
                 aisle={record.category}
-                retailerLabel={a.retailer === "other" ? "This store" : (RETAILER_LABEL[a.retailer] ?? "This store")}
+                retailerLabel={a.retailer === "other" ? t("swap.thisStore") : (RETAILER_LABEL[a.retailer] ?? t("swap.thisStore"))}
                 lookFor={record.lookFor}
                 health={health}
                 compareWith={fullName(b)}
@@ -266,8 +318,9 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
       </section>
 
       <div className="container-page grid gap-x-10 gap-y-8 pb-8 md:pb-10 lg:grid-cols-2">
-        <SourceList sources={sources} />
+        <SourceList sources={sources} lang={lang} />
         <PhotoCredits
+          lang={lang}
           items={[a, b].map((p) => ({
             name: fullName(p),
             brand: p.brand,
@@ -288,6 +341,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
 
 function SameAmountAndAgainst({ record, local }: { record: Pair; local: Local }) {
   const s = swapFor(record, local);
+  const t = getT(local.lang);
   const hasDifferences = s.wins.length + s.points.length > 0;
   return (
     <>
@@ -296,12 +350,12 @@ function SameAmountAndAgainst({ record, local }: { record: Pair; local: Local })
         <p className="mt-1.5 text-[15px] text-ink-2">
           {s.against && (
             <>
-              <span className="font-semibold text-brand-better">Against it: </span>
+              <span className="font-semibold text-brand-better">{t("swap.againstIt")}</span>
               {s.against}{" "}
             </>
           )}
           <a href={`#${WHAT_DIFFERS}`} className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0">
-            What differs
+            {t("swap.whatDiffers")}
           </a>
         </p>
       )}
@@ -311,7 +365,8 @@ function SameAmountAndAgainst({ record, local }: { record: Pair; local: Local })
 
 function Related({ record, local, cat }: { record: Pair; local: Local; cat: (typeof CATEGORY_MAP)[keyof typeof CATEGORY_MAP] }) {
   const b = record.brand;
-  const related = forCountry(getRelatedPairs(record, 24), local).slice(0, 4).map(toSummary);
+  const t = getT(local.lang);
+  const related = forCountry(getRelatedPairs(record, 24), local).slice(0, 4).map((p) => (local.lang === "en" ? toSummary(p) : toCard(p, local.lang)));
   const brandCount = forCountry(getBrand(brandSlugFor(b.brand))?.pairs ?? [], local).length;
   return (
     <section aria-labelledby={related.length > 0 ? "related" : undefined} className={BAND}>
@@ -319,22 +374,22 @@ function Related({ record, local, cat }: { record: Pair; local: Local; cat: (typ
         {related.length > 0 && (
           <>
             <h2 id="related" className="display text-[22px] md:text-2xl">
-              More {inSentence(cat.name)} swaps
+              {local.lang === "en" ? t("swap.moreSwaps", inSentence(cat.name)) : t("swap.moreSwaps", t(`categories.${cat.slug}.name`))}
             </h2>
             <div className="mt-4 grid grid-cols-2 gap-2 md:gap-3 lg:grid-cols-4">
               {related.map((p) => (
-                <PairCard key={p.slug} pair={p} />
+                <PairCard key={p.slug} pair={p} lang={local.lang} />
               ))}
             </div>
           </>
         )}
         <p className={`flex flex-wrap gap-x-6 text-sm font-medium ${related.length > 0 ? "mt-3" : ""}`}>
           <Link href={`/dupe/${dupeSlugFor(record)}`} className="inline-flex min-h-11 items-center text-cobalt underline underline-offset-2">
-            All cheaper matches for {b.brand}
+            {t("swap.allCheaperMatches", b.brand)}
           </Link>
           {brandCount > 1 && (
             <Link href={`/brand/${brandSlugFor(b.brand)}`} className="inline-flex min-h-11 items-center text-cobalt underline underline-offset-2">
-              {brandCount} {b.brand} products with cheaper matches
+              {t("swap.brandProducts", brandCount, b.brand)}
             </Link>
           )}
         </p>
@@ -345,6 +400,7 @@ function Related({ record, local, cat }: { record: Pair; local: Local; cat: (typ
 
 function SwapStickyBuy({ pair, local }: { pair: Pair; local: Local }) {
   const a = pair.alternative;
+  const t = getT(local.lang);
   if (!local.sells(a.retailer, pair.market)) return null;
   return (
     <StickyBuy watch={OFFERS}>
@@ -352,17 +408,17 @@ function SwapStickyBuy({ pair, local }: { pair: Pair; local: Local }) {
         <div className="min-w-0 flex-1">
           <p className="truncate text-[13px] font-medium text-ink-2">
             {a.brand}
-            {mayEarn(a, pair.market) && adLabel(pair.market) && <span className="ml-2 text-[11px] text-muted">{adLabel(pair.market)}</span>}
+            {mayEarn(a, pair.market) && adLabel(pair.market) && <span className="ml-2 text-[11px] text-muted">{t("swap.adLabel", pair.market)}</span>}
           </p>
           <p className="flex items-center gap-2">
             <span className="price text-xl">
               <Money n={a.price} from={pair.currency} />
             </span>
-            <PctTicket pct={pair.savingsPct} size="sm" />
+            <PctTicket pct={pair.savingsPct} size="sm" label={t("swap.ticket", Math.round(pair.savingsPct))} german={local.lang === "de"} />
           </p>
         </div>
         <a href={`/go/${pair.slug}/alternative`} target="_blank" rel="sponsored nofollow noopener" className="btn btn-primary shrink-0">
-          {a.retailer === "other" ? "See it online" : `See it ${atStore(a.retailer, a.url)}`}
+          {a.retailer === "other" ? t("swap.seeItOnline") : t("swap.seeItAt", atStore(a.retailer, a.url, local.lang))}
           <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
         </a>
       </div>
@@ -374,29 +430,32 @@ function SwapStickyBuy({ pair, local }: { pair: Pair; local: Local }) {
  * The answer: both packs standing on a shelf rail, the ticket on the rail between them, and a
  * shelf label under each. The columns share rows so the prices line up whatever the names do.
  */
-function Shelf({ pair }: { pair: Pair }) {
+function Shelf({ pair, lang }: { pair: Pair; lang: Lang }) {
+  const t = getT(lang);
   return (
     <div className="grid min-w-0 grid-cols-2 grid-rows-[repeat(4,auto)] gap-x-2 self-start sm:gap-x-4 md:max-w-lg lg:max-w-none">
-      <ShelfColumn pair={pair} product={pair.brand} side="brand" />
-      <ShelfColumn pair={pair} product={pair.alternative} side="alternative" />
+      <ShelfColumn pair={pair} product={pair.brand} side="brand" lang={lang} />
+      <ShelfColumn pair={pair} product={pair.alternative} side="alternative" lang={lang} />
       <div aria-hidden="true" className="col-span-2 col-start-1 row-start-1 h-[3px] self-end bg-ink" />
       <div className="z-10 col-span-2 col-start-1 row-start-1 translate-y-1/2 self-end justify-self-center">
         <PctTicket
           pct={pair.savingsPct}
           size="lg"
+          label={t("swap.ticket", Math.round(pair.savingsPct))} german={lang === "de"}
           className="md:px-3.5 md:py-2.5 md:pl-[26px] md:text-[2.25rem] md:[--hole-r:5px] md:[--hole-x:12px]"
         />
       </div>
-      <PhotoLine className="col-span-2 mt-2" items={[pair.brand, pair.alternative].map((p) => ({ name: p.brand, photo: p.photo }))} />
+      <PhotoLine className="col-span-2 mt-2" lang={lang} items={[pair.brand, pair.alternative].map((p) => ({ name: p.brand, photo: p.photo }))} />
     </div>
   );
 }
 
-function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductSide; side: "brand" | "alternative" }) {
+function ShelfColumn({ pair, product: p, side, lang }: { pair: Pair; product: ProductSide; side: "brand" | "alternative"; lang: Lang }) {
   const cheaper = side === "alternative";
-  const { label } = unitDisplay(p.unit);
+  const t = getT(lang);
+  const label = unitLabel(p.unit, lang);
   return (
-    <div className="row-span-4 grid min-w-0 grid-rows-subgrid">
+    <div className={`row-span-4 row-start-1 grid min-w-0 grid-rows-subgrid ${cheaper ? "col-start-2" : "col-start-1"}`}>
       <div className="mx-auto w-full max-w-36 pb-2.5 md:max-w-none">
         <ProductThumb
           size="tile"
@@ -407,10 +466,11 @@ function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductS
           unit={p.unit}
           eager
           sizes="(min-width: 768px) 260px, 144px"
+          lang={lang}
         />
       </div>
       <p className="min-w-0 pt-8 md:pt-9">
-        <span className="block text-[13px] font-medium text-muted">{cheaper ? "The cheaper one" : "The brand"}</span>
+        <span className="block text-[13px] font-medium text-muted">{cheaper ? t("swap.shelf.cheaper") : t("swap.shelf.brand")}</span>
         <span className="block text-[15px] leading-tight font-bold break-words md:text-lg">{p.brand}</span>
       </p>
       <p
@@ -419,8 +479,8 @@ function ShelfColumn({ pair, product: p, side }: { pair: Pair; product: ProductS
         <Money n={p.price} from={pair.currency} />
         <OriginalPrice n={p.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
       </p>
-      <div className="mt-1.5 hidden min-w-0 md:block">
-        <p className="text-sm font-medium text-ink-2">{packText(p.size, p.unit)}</p>
+      <div className="mt-1 min-w-0 md:mt-1.5">
+        <p className="text-sm font-medium text-ink-2">{packText(p.size, p.unit, lang)}</p>
         <p className="mt-0.5 flex flex-wrap items-baseline gap-x-1">
           <span className={`price text-xl md:text-2xl ${cheaper ? "text-ink" : "text-ink-2"}`}>
             <UnitAmount ppu={p.ppu} unit={p.unit} from={pair.currency} />
@@ -454,7 +514,8 @@ const OFFER_COLUMNS = "@2xl:grid-cols-[minmax(0,1fr)_5.5rem_5.5rem_5rem_6.5rem_6
 function offersFor(pair: Pair, local: Local): Offer[] {
   const { brand: b, alternative: a, bulkView } = pair;
   const sells = (retailer: string) => local.sells(retailer, pair.market);
-  const elsewhere = `A ${MARKET_ADJECTIVE[pair.market]} store`;
+  const t = getT(local.lang);
+  const elsewhere = t("swap.offers.elsewhere", pair.market);
   // A cheap pack on its own can fall under a store's free-delivery line, which a shopper should know before the click.
   // For a shopper in another country, their country's rule or "not checked", never the home market's (delivery-abroad.ts).
   const deliveryNote = (p: ProductSide) => (sells(p.retailer) ? deliveryNoteFor(sellerOf(p), pair.market, p.price, pair.currency, local) : undefined);
@@ -466,24 +527,24 @@ function offersFor(pair: Pair, local: Local): Offer[] {
     size: p.size,
     ppu: p.ppu,
     href: sells(p.retailer) ? `/go/${pair.slug}/${which}` : null,
-    buttonLabel: seeLabel(p),
+    buttonLabel: seeLabel(p, local.lang),
     primary: which === "alternative",
-    ad: mayEarn(p, pair.market) ? adLabel(pair.market) : undefined,
+    ad: mayEarn(p, pair.market) ? t("swap.adLabel", pair.market) : undefined,
   });
   const offers = [side(a, "alternative"), side(b, "brand")];
   const big = bulkView.bigger;
   if (big) {
     offers.push({
       name: big.product,
-      note: "The bigger pack",
+      note: t("swap.offers.biggerPack"),
       store: sells(big.retailer) ? storeName(big.retailer, big.url) : elsewhere,
       price: big.price,
       size: big.size,
       ppu: big.ppu,
       href: sells(big.retailer) ? `/go/${pair.slug}/bigger` : null,
-      buttonLabel: big.retailer === "other" ? "See it online" : `See it ${atStore(big.retailer)}`,
+      buttonLabel: big.retailer === "other" ? t("swap.seeItOnline") : t("swap.seeItAt", atStore(big.retailer, undefined, local.lang)),
       primary: false,
-      ad: mayEarn({ retailer: big.retailer as ProductSide["retailer"], url: big.url }, pair.market) ? adLabel(pair.market) : undefined,
+      ad: mayEarn({ retailer: big.retailer as ProductSide["retailer"], url: big.url }, pair.market) ? t("swap.adLabel", pair.market) : undefined,
     });
   }
   return offers;
@@ -492,19 +553,20 @@ function offersFor(pair: Pair, local: Local): Offer[] {
 /** The offer list: every price with its store, pack, unit price and date, on the first screen. */
 function Offers({ pair, local }: { pair: Pair; local: Local }) {
   const unit = pair.alternative.unit;
-  const { label } = unitDisplay(unit);
+  const t = getT(local.lang);
+  const label = unitLabel(unit, local.lang);
   return (
     <div className="@container mt-3">
       <PriceChecked pair={pair} local={local} tag={<MarketTag market={pair.market} whereToBuy={WHERE_TO_BUY} />} />
-      <div role="table" aria-label="Prices and stores" className="divide-y divide-line border-y border-line-strong">
+      <div role="table" aria-label={t("swap.offers.label")} className="divide-y divide-line border-y border-line-strong">
         <div role="row" className={`hidden gap-x-3 py-1.5 text-[13px] font-medium text-muted @2xl:grid ${OFFER_COLUMNS}`}>
-          <span role="columnheader">Product</span>
-          <span role="columnheader">Store</span>
-          <span role="columnheader">Price</span>
-          <span role="columnheader">Pack</span>
-          <span role="columnheader">Unit price</span>
+          <span role="columnheader">{t("swap.offers.product")}</span>
+          <span role="columnheader">{t("swap.offers.store")}</span>
+          <span role="columnheader">{t("swap.offers.price")}</span>
+          <span role="columnheader">{t("swap.offers.pack")}</span>
+          <span role="columnheader">{t("swap.offers.unitPrice")}</span>
           <span role="columnheader" className="sr-only">
-            Link
+            {t("swap.offers.link")}
           </span>
         </div>
         {offersFor(pair, local).map((o) => (
@@ -532,7 +594,7 @@ function Offers({ pair, local }: { pair: Pair; local: Local }) {
             </p>
             <div className="col-span-2 col-start-1 row-start-3 flex flex-wrap items-baseline gap-x-2 @md:col-span-1 @2xl:contents">
               <p role="cell" className="text-[13px] font-medium text-ink-2 @2xl:col-start-4 @2xl:row-start-1">
-                {packText(o.size, unit)}
+                {packText(o.size, unit, local.lang)}
               </p>
               <p role="cell" className="text-[13px] leading-tight font-medium text-muted @2xl:col-start-5 @2xl:row-start-1">
                 <span className="price text-[15px] text-ink">
@@ -550,7 +612,7 @@ function Offers({ pair, local }: { pair: Pair; local: Local }) {
                   <a href={o.href} target="_blank" rel="sponsored nofollow noopener" className={`btn w-full text-center ${o.primary ? "btn-primary" : "btn-ghost"}`}>
                     <span className="@md:hidden">{o.buttonLabel}</span>
                     <span className="hidden @md:inline">
-                      See it<span className="sr-only">: {o.buttonLabel}</span>
+                      {t("swap.seeIt")}<span className="sr-only">: {o.buttonLabel}</span>
                     </span>
                     <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
                   </a>
@@ -558,7 +620,7 @@ function Offers({ pair, local }: { pair: Pair; local: Local }) {
                 </>
               ) : (
                 <a href={`#${WHERE_TO_BUY}`} className="btn btn-ghost w-full text-center">
-                  Where to buy
+                  {t("swap.whereToBuy")}
                 </a>
               )}
             </div>
@@ -570,31 +632,27 @@ function Offers({ pair, local }: { pair: Pair; local: Local }) {
 }
 
 /** The one-sentence answer, in the words the match level allows. It names no price, so it's the same in every country. */
-function verdict(pair: Pair) {
+function verdict(pair: Pair, lang: Lang) {
   const { brand: b, alternative: a } = pair;
+  const t = getT(lang);
   const { label } = unitDisplay(b.unit);
-  const what = {
-    identical_active: `has the same active ingredient as ${b.brand}`,
-    identical_formula: `has the same formula as ${b.brand}`,
-    same_manufacturer: `comes from the same manufacturer as ${b.brand}`,
-    equivalent_spec: `does the same job as ${b.brand}`,
-    same_kind: `is the same kind of product as ${b.brand}`,
-  }[pair.match_type];
-  return `${a.brand} ${what} and costs ${Math.round(pair.savingsPct)}% less${label === "each" ? "" : ` ${label}`}.`;
+  const what = t(`swap.verdict.${pair.match_type}`, b.brand);
+  return t("swap.verdict.line", a.brand, what, Math.round(pair.savingsPct), label === "each" ? "" : unitLabel(b.unit, lang));
 }
 
 /** What the saving comes to for the same amount, since packs are often different sizes. */
 function sameAmount(pair: Pair, local: Local) {
   const { brand: b, alternative: a, savingsPerPack: saved, currency } = pair;
+  const t = getT(local.lang);
   if (a.size === b.size) {
     // "Price per cell" is a unit of something you keep buying, whatever its size says.
-    if (/\bper\b/i.test(a.product)) return `Each ${b.unit} costs ${local.money(saved, currency)} less.`;
-    if (buysOnce(a.unit, a.size)) return `You buy it once, so you save ${local.money(saved, currency)} once.`;
-    return `A pack this size costs ${local.money(saved, currency)} less.`;
+    if (/\bper\b/i.test(a.product)) return t("swap.sameAmount.each", local.lang === "en" ? b.unit : unitWordsFor(b.unit, "de", 1), local.money(saved, currency));
+    if (buysOnce(a.unit, a.size)) return t("swap.sameAmount.once", local.money(saved, currency));
+    return t("swap.sameAmount.pack", local.money(saved, currency));
   }
   // The cheaper pack is a different size, so this is its unit price times the brand's pack.
   const forSameAmount = (a.price / a.size) * b.size;
-  return `For the same ${packText(b.size, b.unit)} you pay about ${local.bare(forSameAmount, currency)} with ${a.brand} and ${local.money(b.price, currency)} with ${b.brand}.`;
+  return t("swap.sameAmount.forSame", packText(b.size, b.unit, local.lang), local.bare(forSameAmount, currency), a.brand, local.money(b.price, currency), b.brand);
 }
 
 /**
@@ -605,12 +663,13 @@ function adLabel(market: Pair["market"]) {
   return market === "DE" ? "Anzeige" : market === "GB" || market === "IE" ? "Ad" : undefined;
 }
 
-function disclosure(pair: Pair) {
+function disclosure(pair: Pair, lang: Lang) {
+  const t = getT(lang);
   const earning = [pair.alternative, pair.brand].filter((p) => mayEarn(p, pair.market));
   // A store search or bigger pack further down can still carry a tag when these two don't.
-  if (earning.length === 0) return linksEarn() ? "These two links don't earn us anything. A link further down this page may." : "We don't earn anything from these links.";
-  if (earning.length === 2) return "Affiliate links. We may earn a commission at no cost to you.";
-  return `The ${linkStoreName(earning[0])} link is an affiliate link. We may earn a commission at no cost to you.`;
+  if (earning.length === 0) return linksEarn() ? t("swap.disclosure.noneHereSomeBelow") : t("swap.disclosure.none");
+  if (earning.length === 2) return t("swap.disclosure.both");
+  return t("swap.disclosure.one", linkStoreName(earning[0]));
 }
 
 function listWords(words: string[]) {
@@ -619,11 +678,12 @@ function listWords(words: string[]) {
 }
 
 /** What the store button says. A brand's own shop reads "See it at Apple". */
-function seeLabel(p: ProductSide) {
-  if (p.retailer === "other") return `See ${p.brand} online`;
+function seeLabel(p: ProductSide, lang: Lang) {
+  const t = getT(lang);
+  if (p.retailer === "other") return t("swap.seeBrandOnline", p.brand);
   const store = RETAILER_LABEL[p.retailer];
-  if (store?.toLowerCase() === p.brand.toLowerCase()) return `See it at ${store}`;
-  return `See ${p.brand} ${atStore(p.retailer)}`;
+  if (store?.toLowerCase() === p.brand.toLowerCase()) return t("swap.seeItAtStore", store);
+  return t("swap.seeBrandAt", p.brand, atStore(p.retailer, undefined, lang));
 }
 
 function fullName(p: ProductSide) {
@@ -635,16 +695,17 @@ function fullName(p: ProductSide) {
 /** Puts the generated pack and price rows in the same words as the shelf label. Researched rows stay as written. */
 function readableRows(rows: CompareRow[], pair: Pair, local: Local): CompareRow[] {
   const { brand: b, alternative: a, currency } = pair;
+  const t = getT(local.lang);
   const researched = new Set((pair.aspects ?? []).map((r) => r.aspect));
   return rows.map((r) => {
     if (researched.has(r.aspect)) return { ...r, brand: local.prose(r.brand, currency), alternative: local.prose(r.alternative, currency) };
-    if (r.aspect === "Pack") return { ...r, brand: packText(b.size, b.unit), alternative: packText(a.size, a.unit) };
+    if (r.aspect === "Pack") return { ...r, brand: packText(b.size, b.unit, local.lang), alternative: packText(a.size, a.unit, local.lang) };
     if (r.aspect === `Price per ${b.unit}`) {
       return {
         ...r,
-        aspect: `Price ${unitDisplay(b.unit).label}`,
+        aspect: t("rows.pricePer", unitLabel(b.unit, local.lang)),
         brand: local.unit(b.ppu, b.unit, currency),
-        alternative: `${local.unit(a.ppu, a.unit, currency)} (${Math.round(pair.savingsPct)}% less)`,
+        alternative: t("rows.less", local.unit(a.ppu, a.unit, currency), Math.round(pair.savingsPct)),
       };
     }
     return r;

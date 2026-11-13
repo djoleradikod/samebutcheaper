@@ -7,6 +7,11 @@ import { unitDisplay } from "@/lib/unit-format";
 import { HEALTH_CATEGORIES } from "./Evidence";
 import { citationDate } from "./Finding";
 import { SavingsCalculator } from "./SavingsCalculator";
+import { getT, type Lang } from "@/lib/i18n";
+import { formatNumber } from "@/lib/i18n/format";
+import { packDe, unitWordsFor } from "@/lib/i18n/units";
+import { shelfText } from "@/lib/i18n/record";
+import { unitLabel } from "@/lib/unit-format";
 
 const MEASURE = /^(fl ?oz|oz|ml|cl|l|litre|liter|g|gram|gramme|mg|kg|kilo|kilogram|lb)\b/i;
 const GENERIC = /^(count|piece|each|item|unit)$/i;
@@ -42,8 +47,9 @@ export function unitWords(unit: string) {
 
 const amount = (n: number) => Number(n.toFixed(2)).toLocaleString("en-US");
 
-/** "225 caplets", "3.74 kg", "1 stylus". */
-export function packText(size: number, unit: string) {
+/** "225 caplets", "3.74 kg", "1 stylus". German: "225 Tabletten". */
+export function packText(size: number, unit: string, lang: Lang = "en") {
+  if (lang === "de") return packDe(size, unit);
   const { one, many } = unitWords(unit);
   return `${amount(size)} ${size === 1 ? one : many}`;
 }
@@ -104,32 +110,33 @@ function usageRange(size: number, unit: string) {
   return { min, max, step, start };
 }
 
-const ADVICE: Record<ShelfLife["advice"], string> = {
-  stock_up: "Worth stocking up on. It keeps for years.",
-  buy_to_use: "Buy big only if you'll use it in time.",
-  buy_small: "Buy small. It goes off or weakens.",
-};
-
-function ShelfRecord({ record }: { record: ShelfLife }) {
+function ShelfRecord({ record: english, lang }: { record: ShelfLife; lang: Lang }) {
+  const t = getT(lang);
+  const record = shelfText(english, lang);
+  // A German page without German for this record shows it in English, marked as such.
+  const textLang = lang === "de" && record.lang === "en" ? "en" : undefined;
   const rows = [
-    ["Unopened", record.unopened],
-    ["Once opened", record.opened],
-    ["Storage", withCelsius(record.storage)],
+    [t("bulk.unopened"), record.unopened],
+    [t("bulk.opened"), record.opened],
+    [t("bulk.storage"), lang === "de" && record.lang === "de" ? record.storage : withCelsius(record.storage)],
   ].filter(([, text]) => text);
   return (
     <div className="p-4 md:p-5">
-      <h3 className="text-base leading-snug">How long it keeps</h3>
-      <p className="mt-1.5 text-lg leading-snug font-semibold">{ADVICE[record.advice]}</p>
+      <h3 className="text-base leading-snug">
+        {t("bulk.keeps")}
+        {textLang && <span className="ml-2 text-[13px] font-medium text-muted">{t("record.inEnglish")}</span>}
+      </h3>
+      <p className="mt-1.5 text-lg leading-snug font-semibold">{t(`bulk.advice.${record.advice}`)}</p>
       <dl className="mt-3 space-y-2.5 text-sm">
         {rows.map(([label, text]) => (
           <div key={label} className="sm:grid sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-x-3">
             <dt className="font-medium text-ink">{label}</dt>
-            <dd className="text-ink-2">{text}</dd>
+            <dd className="text-ink-2" lang={textLang}>{text}</dd>
           </div>
         ))}
       </dl>
-      {record.note && <p className="mt-2.5 text-sm text-ink-2">{record.note}</p>}
-      <p className="mt-3 text-[13px] text-muted">From our record for {inSentence(record.label)}.</p>
+      {record.note && <p className="mt-2.5 text-sm text-ink-2" lang={textLang}>{record.note}</p>}
+      <p className="mt-3 text-[13px] text-muted">{t("bulk.fromRecord", record.lang === "de" ? record.label : inSentence(record.label))}</p>
       <ul className="mt-1 flex flex-wrap gap-x-4 text-[13px] font-medium">
         {record.sources.map((s) => (
           <li key={s.url}>
@@ -140,7 +147,7 @@ function ShelfRecord({ record }: { record: ShelfLife }) {
               title={s.title}
               className="inline-flex min-h-11 items-center text-cobalt underline underline-offset-2 md:min-h-6"
             >
-              {s.publisher}, {citationDate(s.date)}
+              {s.publisher}, {citationDate(s.date, lang)}
             </a>
           </li>
         ))}
@@ -149,11 +156,37 @@ function ShelfRecord({ record }: { record: ShelfLife }) {
   );
 }
 
-function BreakEven({ pair }: { pair: Pair }) {
+function BreakEven({ pair, lang }: { pair: Pair; lang: Lang }) {
   const { brand: b, alternative: a, bulkView, currency } = pair;
+  const t = getT(lang);
   const { many } = unitWords(a.unit);
   const units = bulkView.breakEvenUnits;
   const shown = units >= 10 ? Math.round(units) : amount(units);
+  const shownDe = units >= 10 ? formatNumber(Math.round(units), "de") : formatNumber(Number(units.toFixed(2)), "de");
+  if (lang === "de") {
+    return (
+      <div className="p-4 md:p-5">
+        <h3 className="text-lg leading-snug md:text-[1.375rem]">{t("bulk.paysAfter", shownDe, packText(a.size, a.unit, lang))}</h3>
+        <div aria-hidden="true" className="mt-3 flex h-2.5 gap-0.5">
+          <span className="rounded-l-tile bg-ink" style={{ width: `${Math.min(100, Math.max(1, (units / a.size) * 100))}%` }} />
+          <span className="flex-1 rounded-r-tile bg-ticket" />
+        </div>
+        <p className="mt-2 text-sm text-ink-2">
+          {t("bulk.atBrandPrice", b.brand)}
+          <Money n={a.price} from={currency} prose />
+          {t("bulk.buys", shownDe, unitWordsFor(a.unit, "de", Number(units.toFixed(2)) === 1 ? 1 : 2))} {t("bulk.restIsSaving")}
+          {a.price > b.price && (
+            <>
+              {" "}
+              {t("bulk.youPay")}
+              <Money n={a.price - b.price} from={currency} prose />
+              {t("bulk.moreAtTill", b.brand, formatNumber(Number((a.size / b.size).toFixed(2)), "de"))}
+            </>
+          )}
+        </p>
+      </div>
+    );
+  }
   const share = Math.min(100, Math.max(1, (units / a.size) * 100));
   return (
     <div className="p-4 md:p-5">
@@ -181,24 +214,26 @@ function BiggerPack({ pair, local }: { pair: Pair; local: Local }) {
   const { brand: b, alternative: a, bulkView, currency } = pair;
   const bigger = bulkView.bigger;
   if (!bigger) return null;
-  const { label } = unitDisplay(a.unit);
+  const lang = local.lang;
+  const t = getT(lang);
+  const label = unitLabel(a.unit, lang);
   const againstBrand = Math.round((1 - bigger.ppu / b.ppu) * 100);
   return (
     <div className="p-4 md:p-5">
-      <h3 className="text-base leading-snug">The bigger pack</h3>
+      <h3 className="text-base leading-snug">{t("bulk.biggerPack")}</h3>
       <div className="mt-1.5 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
         <div className="min-w-0">
           <p className="text-sm text-ink-2">{bigger.product}</p>
           <p className="mt-1.5 flex flex-wrap items-baseline gap-x-2">
             <span className="price text-[1.75rem]"><Money n={bigger.price} from={currency} /></span>
-            <span className="text-sm font-medium text-ink-2">{packText(bigger.size, a.unit)}</span>
+            <span className="text-sm font-medium text-ink-2">{packText(bigger.size, a.unit, lang)}</span>
             <span className="price text-lg"><UnitAmount ppu={bigger.ppu} unit={a.unit} from={currency} /></span>
             <span className="text-[13px] font-medium text-muted">{label}</span>
           </p>
           <p className="mt-1.5 text-sm text-ink-2">
             {bigger.extraSavingPct > 0
-              ? `${Math.round(bigger.extraSavingPct)}% less ${label} than the ${packText(a.size, a.unit)} pack, and ${againstBrand}% less than ${b.brand}.`
-              : `It costs no less ${label} than the ${packText(a.size, a.unit)} pack.`}
+              ? t("bulk.biggerLess", Math.round(bigger.extraSavingPct), label, packText(a.size, a.unit, lang), againstBrand, b.brand)
+              : t("bulk.biggerNoLess", label, packText(a.size, a.unit, lang))}
           </p>
         </div>
         {local.sells(bigger.retailer, pair.market) && (
@@ -208,7 +243,7 @@ function BiggerPack({ pair, local }: { pair: Pair; local: Local }) {
             rel="sponsored nofollow noopener"
             className="btn btn-ghost w-full sm:w-auto"
           >
-            {bigger.retailer === "other" ? "See it online" : `See it ${atStore(bigger.retailer)}`}
+            {bigger.retailer === "other" ? t("swap.seeItOnline") : t("swap.seeItAt", atStore(bigger.retailer, undefined, lang))}
           </a>
         )}
       </div>
@@ -224,25 +259,27 @@ export function BulkBox({ pair, local, className = "" }: { pair: Pair; local: Lo
   const { brand: b, alternative: a, bulkView, shelfLife: shelf, currency } = pair;
   const once = buysOnce(a.unit, a.size);
   if (once && !bulkView.bigger && !shelf) return null;
-  const { one, many } = unitWords(a.unit);
+  const lang = local.lang;
+  const t = getT(lang);
+  const { one, many } = lang === "de" ? { one: unitWordsFor(a.unit, "de", 1), many: unitWordsFor(a.unit, "de", 2) } : unitWords(a.unit);
 
   return (
     <section aria-labelledby="bulk" className={className}>
       <div className="container-page py-8 md:py-10">
         <h2 id="bulk" className="display text-[22px] md:text-2xl">
-          Buying in bulk
+          {t("bulk.heading")}
         </h2>
         <div className={`mt-4 grid gap-4 lg:gap-6 ${once ? "max-w-3xl" : "lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"}`}>
           <div className="card min-w-0 divide-y divide-line self-start">
             {/* A pack that costs less at the till has nothing to pay back. */}
-            {!once && a.price > b.price && <BreakEven pair={pair} />}
+            {!once && a.price > b.price && <BreakEven pair={pair} lang={lang} />}
             <BiggerPack pair={pair} local={local} />
             {shelf ? (
-              <ShelfRecord record={shelf} />
+              <ShelfRecord record={shelf} lang={lang} />
             ) : (
               !once && (
                 <p className="p-4 text-sm text-ink-2 md:p-5">
-                  We have no shelf-life record for this yet. Check the date on the pack before buying a lot.
+                  {t("bulk.noShelfRecord")}
                 </p>
               )
             )}
