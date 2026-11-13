@@ -1612,7 +1612,7 @@
    "product": "Dave's Killer Bread Organic Good Seed, 27 oz",
    "size": 27,
    "unit": "oz",
-   "price": 5.99,
+   "price": 7.49,
    "retailer": "other",
    "asin": null,
    "url": "https://www.groceryoutlet.com/",
@@ -1670,8 +1670,8 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both are 27 oz organic seeded whole wheat loaves, and ALDI's cost 30% less than the lowest regular Dave's price on file.",
-  "evidence": "Regular prices from Open Prices: Dave's Killer Bread $5.99 at Grocery Outlet, Palo Alto on 25 July 2026, and Simply Nature $4.19 at ALDI, Elwood on 4 October 2026. Dave's was $7.49 at Food Bazaar, New York on 15 September 2026 and $5.99 marked as discounted at Target, Cupertino on 23 July 2026.",
-  "differences": "The seed mixes differ: Dave's adds steel cut oats and quinoa, and Simply Nature lists sesame seeds. Chains and states differ, and the Grocery Outlet price ties a Target sale price as the lowest Dave's record, so the gap may be wider elsewhere. Nutrition per slice wasn't compared. No taste test covers this pair.",
+  "evidence": "Regular prices from Open Prices: Dave's Killer Bread $7.49 at Food Bazaar, New York on 15 September 2026, the latest regular price on record, and Simply Nature $4.19 at ALDI, Elwood on 4 October 2026. Dave's was $5.99 at Grocery Outlet, Palo Alto on 25 July 2026 and $5.99 marked as discounted at Target, Cupertino on 23 July 2026.",
+  "differences": "The seed mixes differ: Dave's adds steel cut oats and quinoa, and Simply Nature lists sesame seeds. Chains and states differ, and Dave's has been $5.99 at Grocery Outlet and on sale at Target, so the gap is smaller at those stores. Nutrition per slice wasn't compared. No taste test covers this pair.",
   "why": "The labels start the same way, with organic whole wheat, water, organic wheat flour and a grain and seed mix, followed by organic cane sugar. The seeds differ, so expect a slightly different loaf for less money.",
   "claims": [],
   "sources": [
@@ -1680,7 +1680,7 @@
    "https://prices.openfoodfacts.org/products/4099100253108",
    "https://world.openfoodfacts.org/product/4099100253108"
   ],
-  "price_checked": "2026-07"
+  "price_checked": "2026-09"
  },
  {
   "slug": "ritz-crackers-vs-krantz-golden-round-crackers",

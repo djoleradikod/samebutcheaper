@@ -751,7 +751,7 @@
    "product": "Iglo 15 Fischstäbchen, 450 g",
    "size": 450,
    "unit": "g",
-   "price": 4.88,
+   "price": 4.89,
    "retailer": "netto",
    "asin": null,
    "url": "https://www.netto-online.de/search?query=iglo+fischstaebchen",
@@ -801,7 +801,7 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both packs hold 15 fish fingers of 30 g with 65% Alaska pollock, and both were priced at one store on one day.",
-  "evidence": "Open Prices shows Iglo at 4.88 and Sea Gold at 2.49, both at Netto Marken-Discount in Dahme/Mark on 15 May 2026. Iglo was still 4.89 at a Netto in Strausberg on 29 Sep 2026. Both labels state 65% pollock fillet.",
+  "evidence": "Open Prices shows Iglo at 4.89 at a Netto in Strausberg on 29 Sep 2026 (4.88 at Netto Marken-Discount in Dahme/Mark on 15 May 2026), and Sea Gold at 2.49 at the Dahme/Mark Netto on 15 May 2026. Both labels state 65% pollock fillet.",
   "differences": "Iglo goes on offer: it was 2.49 at a Netto in Strausberg on 23 Oct 2026, the same as Sea Gold, so at that price there's nothing to save. The breadcrumb recipes differ slightly. We have no taste test for this pair.",
   "why": "The fish share, stick size and count are the same on both packs. Unless Iglo is on offer, Sea Gold costs about half as much.",
   "claims": [
