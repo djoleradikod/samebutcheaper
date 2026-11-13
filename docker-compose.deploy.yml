@@ -1,0 +1,92 @@
+# The stack the deploy workflow runs on a server, from the image it pushed to GHCR. Nothing here is built on
+# the server. scripts/ci/deploy-remote.sh drives it; docs/deploy.md has the one-time steps.
+#
+# It is its own compose project (COMPOSE_PROJECT_NAME, default "samebutcheaper") in its own directory
+# (DEPLOY_PATH), so it never touches another site's containers, and it publishes nothing but the two web ports,
+# on 127.0.0.1 only: the server's existing reverse proxy forwards to them (snippets in docs/deploy.md).
+#
+# Two web services take turns: a deploy starts the idle colour with the new image, checks it, then stops the
+# other. The proxy lists both ports and sends traffic to whichever answers, so a switch needs no proxy reload.
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+x-web: &web
+  restart: unless-stopped
+  logging: *logging
+  init: true
+  # Time for in-flight requests and the click and lookup writes queued behind them to finish.
+  stop_grace_period: 30s
+  env_file: .env
+  environment:
+    DATABASE_URL: postgres://${POSTGRES_USER:-sbc}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-samebutcheaper}
+  depends_on:
+    db:
+      condition: service_healthy
+  # A small site: a ceiling so a runaway process can't starve the other site on this server.
+  mem_limit: ${SBC_WEB_MEMORY:-768m}
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    logging: *logging
+    stop_grace_period: 30s
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sbc}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-samebutcheaper}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sbc} -d ${POSTGRES_DB:-samebutcheaper}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # One-shot: `docker compose run --rm migrate`. Uses the image being deployed, so its migrations match its code.
+  migrate:
+    image: ${SBC_IMAGE_NEW:-samebutcheaper:unset}
+    profiles: ["tools"]
+    command: ["node", "migrator/scripts/migrate.mjs"]
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-sbc}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-samebutcheaper}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+    logging: *logging
+
+  web-blue:
+    <<: *web
+    image: ${SBC_IMAGE_BLUE:-samebutcheaper:unset}
+    ports:
+      - "${SBC_BIND:-127.0.0.1}:${SBC_BLUE_PORT:-3101}:3000"
+
+  web-green:
+    <<: *web
+    image: ${SBC_IMAGE_GREEN:-samebutcheaper:unset}
+    ports:
+      - "${SBC_BIND:-127.0.0.1}:${SBC_GREEN_PORT:-3102}:3000"
+
+  # Nightly pg_dump into ./backups, newest 14 kept (BACKUP_KEEP_DAYS). Copy that folder off the server too.
+  backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    logging: *logging
+    init: true
+    entrypoint: ["/bin/sh", "/backup.sh"]
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-sbc}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-samebutcheaper}
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+    volumes:
+      - ./backup.sh:/backup.sh:ro
+      - ./backups:/backups
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

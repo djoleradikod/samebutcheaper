@@ -86,11 +86,10 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/my-list"
-              aria-label="My savings list"
               className="hidden h-11 min-w-11 items-center justify-center px-1.5 text-sm font-medium text-ink-2 hover:text-ink min-[360px]:inline-flex md:h-9"
             >
               <Bookmark className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span className="ml-1.5 hidden xl:inline">My list</span>
+              <span className="sr-only xl:not-sr-only xl:ml-1.5">My list</span>
               <SavedCount />
             </Link>
             <span className="hidden lg:block">

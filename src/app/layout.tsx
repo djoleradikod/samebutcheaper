@@ -108,13 +108,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <SiteHeader />
-        <main id="main" className="flex-1">
+        <main id="main" className="min-h-svh flex-1">
           <Suspense fallback={<div className="band-slot" aria-hidden="true" />}>
             <CountryBand />
           </Suspense>
           {children}
         </main>
         <SiteFooter />
+        <script src="/sw-register.js" async />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
       </body>
     </html>

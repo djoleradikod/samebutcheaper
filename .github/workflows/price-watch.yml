@@ -13,6 +13,8 @@ on:
         type: boolean
         default: false
 
+# Push the branch and open the pull request. GitHub also needs the repository setting "Allow GitHub Actions to
+# create and approve pull requests" (Settings > Actions > General); without it the run says so and links the branch.
 permissions:
   contents: write
   pull-requests: write
@@ -66,11 +68,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -uo pipefail
           git switch -C "$BRANCH"
           git add data/pairs data/bundles data/prices
           git commit -m "Refresh prices from licensed sources, $(date -u +%Y-%m-%d)"
           # One branch, rebuilt from the base each week: an unmerged run's changes are redone, never stacked.
-          git push --force origin "$BRANCH"
+          if ! git push --force origin "$BRANCH" 2> "$RUNNER_TEMP/push.err"; then
+            cat "$RUNNER_TEMP/push.err"
+            echo "::error title=Could not push the $BRANCH branch::The workflow token may not write to the repository. In Settings > Actions > General > Workflow permissions choose 'Read and write permissions' (or keep 'Read' and leave this workflow's own permissions block, which asks for contents: write, unless your organisation caps it). A branch protection rule matching '$BRANCH' would also block this."
+            exit 1
+          fi
           {
             cat "$RUNNER_TEMP/price-summary.md"
             echo
@@ -79,6 +86,16 @@ jobs:
           number=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
           if [ -n "$number" ]; then
             gh pr edit "$number" --body-file "$RUNNER_TEMP/pr-body.md"
-          else
-            gh pr create --base "$BASE" --head "$BRANCH" --title "Price watch: refreshed prices" --body-file "$RUNNER_TEMP/pr-body.md"
+            echo "Updated pull request #$number." | tee -a "$GITHUB_STEP_SUMMARY"
+          elif ! gh pr create --base "$BASE" --head "$BRANCH" --title "Price watch: refreshed prices" --body-file "$RUNNER_TEMP/pr-body.md" 2> "$RUNNER_TEMP/pr.err"; then
+            cat "$RUNNER_TEMP/pr.err"
+            compare="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/compare/$BASE...$BRANCH?expand=1"
+            if grep -qi "not permitted to create or approve pull requests" "$RUNNER_TEMP/pr.err"; then
+              msg="GitHub Actions may not open pull requests in this repository. The new prices are on the '$BRANCH' branch. To let this workflow open the pull request itself: Settings > Actions > General > Workflow permissions, tick 'Allow GitHub Actions to create and approve pull requests', Save (an organisation may need to allow it first, in its own Settings > Actions > General). For this week, open it by hand: $compare"
+            else
+              msg="Opening the pull request failed (see the log above). The new prices are on the '$BRANCH' branch; open it by hand: $compare"
+            fi
+            echo "::error title=Pull request not opened::$msg"
+            echo "$msg" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
           fi

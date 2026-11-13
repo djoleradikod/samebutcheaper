@@ -62,6 +62,11 @@ const nextConfig: NextConfig = {
           ...(HTTPS_SITE ? [{ key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" }] : []),
         ],
       },
+      // The service worker and its loader are checked on every visit, so a new version reaches browsers at once.
+      {
+        source: "/(sw.js|sw-register.js)",
+        headers: [{ key: "Cache-Control", value: "no-cache" }],
+      },
       // Redirects, admin and API answers are per visitor: nothing in between may keep a copy.
       {
         source: "/(admin|api|go|out)/:path*",
