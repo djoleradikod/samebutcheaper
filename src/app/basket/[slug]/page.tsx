@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { BasketCard, COLLAGE_CELLS } from "@/components/BasketCard";
-import { BasketLines, BasketProvider, BasketStoreSplit, BasketTotals, SaveAllButton } from "@/components/BasketLines";
+import { BasketCheckout, BasketLines, BasketProvider, BasketStoreSplit, BasketTotals, SaveAllButton } from "@/components/BasketLines";
 import { HealthNotice, hostname } from "@/components/Evidence";
 import { ProductThumb } from "@/components/ProductThumb";
 import { basketLines, basketPhotos, priceDates, toBasketSummary } from "@/lib/basket-view";
@@ -113,7 +113,7 @@ function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>
   };
 
   return (
-    <BasketProvider lines={lines} currency={p.currency}>
+    <BasketProvider lines={lines} currency={p.currency} market={p.market}>
       <article>
         {!local.shows(p) && <NotListedHere market={p.market} local={local} />}
         <div className="border-b border-line bg-canvas">
@@ -146,8 +146,8 @@ function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>
                 <BasketTotals />
                 <BasketStoreSplit />
                 <p className="mt-3 max-w-[62ch] text-sm text-ink-2">
-                  Both totals buy the same amount of each product, added up from each swap&apos;s price per unit. The cheaper pack
-                  may be a different size, so what you pay at the till can differ.
+                  Both totals buy the same amount of each product, added up from each swap&apos;s price per unit. Stores sell whole
+                  packs, so the till figures count the packs you&apos;d buy.
                   {dates ? ` Prices are from ${MARKETS[p.market].short}, dated ${dates}, so check them before you buy.` : ""}
                 </p>
                 <div className="mt-3">
@@ -180,6 +180,12 @@ function BasketBody({ p, local }: { p: NonNullable<ReturnType<typeof getPreset>>
           </div>
           <BasketLines />
         </section>
+
+        <div className="container-page pt-8 md:pt-10">
+          <div className="max-w-3xl">
+            <BasketCheckout />
+          </div>
+        </div>
 
         <section className="container-page grid gap-6 pt-8 md:grid-cols-2 md:gap-12 md:pt-10">
           <div>

@@ -8,6 +8,7 @@ import { CATEGORIES } from "@/lib/categories";
 import { MARKET_CODES, MARKETS, type MarketCode } from "@/lib/markets";
 import type { Bundle, Preset } from "@/lib/types";
 import { MarketFirst } from "./MarketFirst";
+import { KitFilters } from "./KitFilters";
 import { forCountry, type Local } from "@/lib/localize";
 import { CountryPart } from "@/components/ForCountry";
 
@@ -142,20 +143,21 @@ function BundlesBody({ local }: { local: Local }) {
               </p>
             </div>
           )}
-          {aisles.map((a) => (
-            <section key={a.slug} id={a.slug} className="container-page scroll-mt-24 pt-6">
-              {presets.length > 0 ? (
-                <h3 className="mb-3 text-lg">{a.name}</h3>
-              ) : (
-                <h2 className="display mb-3 text-xl md:text-2xl">{a.name}</h2>
-              )}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
-                {a.kits.map((b) => (
-                  <BundleCard key={b.slug} bundle={b} />
-                ))}
-              </div>
-            </section>
-          ))}
+          <KitFilters
+            sub={presets.length > 0}
+            aisles={aisles.map((a) => ({ slug: a.slug, name: a.name }))}
+            items={aisles
+              .flatMap((a) => a.kits)
+              .map((b, rank) => ({
+                slug: b.slug,
+                aisle: b.category,
+                oneStore: b.checkout.stores.length === 1,
+                net: local.amount(b.netSavings, b.currency),
+                netPct: b.netSavingsPct,
+                rank,
+                node: <BundleCard bundle={b} />,
+              }))}
+          />
         </div>
       )}
 

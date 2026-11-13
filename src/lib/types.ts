@@ -97,6 +97,14 @@ export type PresetLine = {
   unit: string;
   brandPpu: number;
   altPpu: number;
+  /** Who sells the cheaper product, which groups lines into one order per store. */
+  seller: string;
+  /** The cheaper product's real pack and how many of them one brand pack's amount takes. Null when it's priced per amount. */
+  pack: { price: number; per: number } | null;
+  /** Whole packs bought at the till for qty, or null with no pack to count. */
+  packs: number | null;
+  /** What those packs cost at the till. */
+  tillCost: number;
 };
 
 export type Preset = Omit<PresetInput, "items"> & {
@@ -113,6 +121,8 @@ export type Preset = Omit<PresetInput, "items"> & {
   /** Share of lines with a real photo of the cheaper item, 0 to 1. */
   photoShare: number;
   score: number;
+  /** Buying it in whole packs at its starting quantities: one order per store, each with its delivery. */
+  checkout: Checkout;
 };
 
 export type BundleComponent = BundleInput["components"][number] & {

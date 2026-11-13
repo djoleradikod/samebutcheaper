@@ -7,6 +7,7 @@ import { COLLAGE_CELLS } from "@/components/BasketCard";
 import { BundleCard } from "@/components/BundleCard";
 import { BundleWhereToBuy } from "@/components/BundleWhereToBuy";
 import { BundleCheckout } from "@/components/BundleCheckout";
+import { BundleBuyBox, BundleBuySection, BundleStickyBuy, piecesJsonLd } from "@/components/BundleBuy";
 import { HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Evidence";
 import { ProductThumb } from "@/components/ProductThumb";
 import { SaveButton } from "@/components/SaveButton";
@@ -18,7 +19,7 @@ import { CATEGORY_MAP } from "@/lib/categories";
 import { money, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay } from "@/lib/unit-format";
-import { forCountry, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import { forCountry, localText, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
 import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount } from "@/components/Money";
@@ -84,7 +85,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
   return (
     <article>
       {!local.shows(record) && <NotListedHere market={record.market} local={local} />}
-      <div className="border-b border-line bg-canvas">
+      <div id="kit-hero" className="border-b border-line bg-canvas">
         <div className="container-page pt-1 pb-6 md:pt-3 md:pb-8">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-ink-2">
             <Link href="/bundles" className="inline-flex min-h-11 items-center hover:underline md:min-h-0">
@@ -96,7 +97,8 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
             </Link>
           </nav>
 
-          <h1 className="display max-w-[30ch] text-[1.75rem] md:mt-3 md:text-[2.5rem]">{b.bundle.name}</h1>
+          {/* Store listing names run long; a long one sets smaller, so the prices still reach the first screen on a phone. */}
+          <h1 className={`display md:mt-3 ${b.bundle.name.length > 70 ? "max-w-[44ch] text-[1.375rem] md:text-[1.875rem]" : "max-w-[30ch] text-[1.75rem] md:text-[2.5rem]"}`}>{b.bundle.name}</h1>
           <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2 md:text-base">{b.summary}</p>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-8">
@@ -157,8 +159,9 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
               </div>
             </div>
 
-            <aside className="card self-start p-4">
-              <dl className="space-y-1.5 text-sm">
+            <aside className="card order-first self-start p-4 lg:order-none">
+              <BundleBuyBox b={b} local={local} />
+              <dl className="mt-3 space-y-1.5 border-t border-line pt-3 text-sm">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3">
                   <dt className="text-ink-2">Match</dt>
                   <dd>
@@ -175,20 +178,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
                   <dt className="text-ink-2">Prices checked</dt>
                   <dd className="text-[13px] font-medium">{monthYear(b.price_checked)}</dd>
                 </div>
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                  <dt className="text-ink-2">You pay today{b.checkout.delivery === null ? "" : ", delivered"}</dt>
-                  <dd className="price text-base"><Money n={b.checkout.payToday} from={b.currency} /></dd>
-                </div>
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                  <dt className="text-ink-2">Orders</dt>
-                  <dd className="text-[13px] font-medium">{b.checkout.stores.length === 1 ? "One store" : `${b.checkout.stores.length} stores`}</dd>
-                </div>
               </dl>
-              {b.upfrontTotal > b.bundle.price && (
-                <p className="mt-2 text-[13px] leading-snug text-ink-2">
-                  The full packs cost more up front. They hold more than the kit, so they last longer.
-                </p>
-              )}
               <div className="mt-3 space-y-2">
                 <SaveButton slug={b.slug} />
                 {sells(b.bundle.retailer) && (
@@ -265,7 +255,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
                             rel="sponsored nofollow noopener"
                             className="btn btn-ghost text-sm"
                           >
-                            {c.retailer === "other" ? "Go to the store" : RETAILER_LABEL[c.retailer]} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                            {RETAILER_LABEL[c.retailer === "other" ? c.seller : c.retailer] ?? "Go to the store"} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                           </a>
                         )}
                       </div>
@@ -305,29 +295,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
         </div>
 
         <aside className="space-y-3 lg:sticky lg:top-24 lg:self-start">
-          <div className="card p-4">
-            <h2 className="text-base">Shopping list</h2>
-            <ul className="mt-2 divide-y divide-line">
-              {b.components.map((c, i) => (
-                <li key={c.replaces}>
-                  <a
-                    href={sells(c.retailer) ? `/go/${b.slug}/item-${i}` : "#where-to-buy"}
-                    target={sells(c.retailer) ? "_blank" : undefined}
-                    rel="sponsored nofollow noopener"
-                    className="group flex min-h-11 items-center justify-between gap-3 py-2 text-sm"
-                  >
-                    <span className="min-w-0">
-                      <span className="block truncate font-medium group-hover:underline">{c.brand}</span>
-                      <span className="block text-xs text-muted">
-                        <span className="num"><Money n={c.price} from={b.currency} /></span> at {sells(c.retailer) ? storeName(c.retailer, c.url) : `a ${MARKET_ADJECTIVE[b.market]} store`}
-                      </span>
-                    </span>
-                    <ExternalLink className="h-3.5 w-3.5 shrink-0 text-cobalt" aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <BundleBuySection b={b} local={local} />
           <p className="text-xs text-muted">
             {earns
               ? "Some of these are affiliate links, so we may earn a commission at no extra cost to you."
@@ -369,7 +337,8 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
           </div>
         </section>
       )}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText([jsonLd, piecesJsonLd(b)]) }} />
+      <BundleStickyBuy b={b} />
     </article>
   );
 }

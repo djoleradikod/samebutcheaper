@@ -50,7 +50,9 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
           <p className="text-[13px] font-medium text-muted">Instead of the {bundle.bundle.brand} kit</p>
           <PctTicket pct={bundle.netSavingsPct ?? bundle.savingsPct} size="sm" grow className="shrink-0" />
         </div>
-        <p className="mt-0.5 leading-snug font-semibold group-hover:underline">{bundle.bundle.name}</p>
+        <p className="mt-0.5 line-clamp-3 leading-snug font-semibold group-hover:underline" title={bundle.bundle.name}>
+          {bundle.bundle.name}
+        </p>
         <ul className="mt-1.5 space-y-0.5 text-[13px] text-ink-2">
           {pieces.map((c) => (
             <li key={c.replaces} className="line-clamp-1">
@@ -66,6 +68,12 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
           <span className="text-[13px] font-medium text-muted">built yourself</span>
           <span className="price text-xl leading-none text-ink"><Money n={bundle.equivalentTotal} from={bundle.currency} /></span>
         </p>
+        {bundle.netSavings > 0 && (
+          <p className="mt-1.5 text-[13px] font-semibold text-same">
+            Saves <Money n={bundle.netSavings} from={bundle.currency} prose />{" "}
+            <span className="font-medium">{bundle.checkout?.delivery === null ? "before unchecked delivery" : "after delivery"}</span>
+          </p>
+        )}
         <p className="mt-1.5 flex flex-wrap gap-x-2 text-xs font-medium">
           <span className="text-same" title={match.description}>{match.short}</span>
           <span className="text-muted">{storesLine(bundle.sellers)}</span>

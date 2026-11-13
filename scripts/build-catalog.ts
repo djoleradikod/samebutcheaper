@@ -32,7 +32,8 @@ import { dupeSlugFor } from "../src/lib/dupes";
 import { CATEGORIES } from "../src/lib/categories";
 import { INGREDIENT_MATCHES, ingredientPageKey, slugify } from "../src/lib/ingredient-key";
 import { sellerOf } from "../src/lib/sellers";
-import { checkout } from "../src/lib/delivery";
+import { basketCheckout, checkout, tillLine, type TillLine } from "../src/lib/delivery";
+import { isPerAmountRecord } from "../src/lib/unit-format";
 import { RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../src/lib/rating";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
 
@@ -481,6 +482,14 @@ for (const file of bundleFiles) {
 
 const pairBySlug = new Map(pairs.map((p) => [p.slug, p]));
 
+/** A basket line's store and real pack, so its checkout counts whole packs at the till. A price per 100 ml has no pack to count. */
+function presetTill(p: Pair, qty: number, altCost: number): Pick<PresetLine, "seller" | "pack" | "packs" | "tillCost"> {
+  const perAmount = isPerAmountRecord(p.alternative.size, p.alternative.unit);
+  const line: TillLine = { seller: p.sellers[0], altCost, qty, pack: perAmount ? null : { price: p.alternative.price, per: p.brand.size / p.alternative.size } };
+  const till = tillLine(line, qty);
+  return { seller: line.seller, pack: line.pack, packs: till.packs, tillCost: till.cost };
+}
+
 function derivePreset(input: PresetInput): Preset | null {
   const lines: PresetLine[] = [];
   const sellers = new Set<string>();
@@ -515,6 +524,7 @@ function derivePreset(input: PresetInput): Preset | null {
       unit: p.brand.unit,
       brandPpu: p.brand.ppu,
       altPpu: p.alternative.ppu,
+      ...presetTill(p, item.qty, altCost),
     });
   }
   const brandTotal = lines.reduce((s, l) => s + l.brandCost, 0);
@@ -536,6 +546,7 @@ function derivePreset(input: PresetInput): Preset | null {
     photos: photos.slice(0, 4),
     photoShare: round(lines.filter((l) => l.altPhoto || l.brandPhoto).length / lines.length, 2),
     score: round(savings * APPROX_USD[currency], 2),
+    checkout: basketCheckout(lines, lines.map((l) => l.qty), input.market),
   };
 }
 

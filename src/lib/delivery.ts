@@ -112,3 +112,43 @@ export function checkout(lines: { seller: string; price: number }[], market: Mar
   const packs = lines.reduce((s, l) => s + l.price, 0);
   return { stores, delivery, surcharge, payToday: round2(packs + (delivery ?? 0) + surcharge) };
 }
+
+/** The stores in a checkout whose delivery we haven't checked, so a page can say so once. */
+export function uncheckedStores(c: Pick<Checkout, "stores">): string[] {
+  return c.stores.filter((s) => s.delivery === null).map((s) => s.seller);
+}
+
+/**
+ * Whole packs of the cheaper product that cover `need` packs' worth. A pack that falls short by a tenth or less
+ * counts as enough: nobody buys a second 15 oz can because the brand's is 15.5 oz.
+ */
+export function wholePacks(need: number): number {
+  if (!(need > 0)) return 0;
+  return Math.max(1, Math.ceil(need - 0.1 - 1e-9));
+}
+
+/** What one basket line needs to price its till cost at any quantity. */
+export type TillLine = {
+  seller: string;
+  /** Cost of the same amount as `qty` brand packs, at the cheaper product's unit price. */
+  altCost: number;
+  qty: number;
+  /** The cheaper product's real pack, and how many of them one brand pack's amount takes. Null when its price is per amount (per 100 ml), not a pack. */
+  pack: { price: number; per: number } | null;
+};
+
+/** A line at quantity n: whole packs at the till, or the same-amount cost where there's no pack to count. */
+export function tillLine(line: TillLine, n: number): { packs: number | null; cost: number } {
+  if (n <= 0) return { packs: 0, cost: 0 };
+  if (!line.pack) return { packs: null, cost: round2((line.altCost / line.qty) * n) };
+  const packs = wholePacks(n * line.pack.per);
+  return { packs, cost: round2(packs * line.pack.price) };
+}
+
+/** A basket's checkout at these quantities: each line in whole packs, one order per store. */
+export function basketCheckout(lines: readonly TillLine[], qty: readonly number[], market: MarketCode): Checkout {
+  const priced = lines
+    .map((l, i) => ({ seller: l.seller, price: tillLine(l, qty[i] ?? l.qty).cost }))
+    .filter((l) => l.price > 0);
+  return checkout(priced, market);
+}

@@ -1,0 +1,115 @@
+"use client";
+
+import type { ReactNode } from "react";
+import { Store, Truck } from "lucide-react";
+import type { Checkout, StoreOrder } from "@/lib/delivery";
+import type { Currency } from "@/lib/format";
+import { Money } from "./Money";
+
+/** "A, B and C". */
+export function listNames(names: string[]) {
+  if (names.length <= 1) return names.join("");
+  return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+/** One store's delivery in a sentence. Nothing when the rule is unknown: the card says that once, under the stores. */
+export function DeliveryLine({ s, currency }: { s: StoreOrder; currency: Currency }) {
+  if (s.delivery === 0) return <>Free delivery.</>;
+  if (s.delivery !== null && s.delivery > 0) {
+    return (
+      <>
+        Delivery <Money n={s.delivery} from={currency} prose />
+        {s.toFree !== null && s.freeOver !== null && (
+          <>
+            {" "}
+            (free over <Money n={s.freeOver} from={currency} prose />: add <Money n={s.toFree} from={currency} prose /> of anything you need
+            {s.pickup ? ", or pick up in store for free" : ""})
+          </>
+        )}
+        .
+      </>
+    );
+  }
+  if (s.freeOver !== null && s.toFree !== null) {
+    return (
+      <>
+        Free delivery over <Money n={s.freeOver} from={currency} prose />
+        {s.pickup ? ", or pick up in store for free" : ""}.
+      </>
+    );
+  }
+  if (s.pickup) return <>Free pickup in store.</>;
+  return null;
+}
+
+/** The sentence for stores whose delivery we haven't checked, or null when every one is known. */
+export function uncheckedNote(stores: StoreOrder[], names: Record<string, string>) {
+  const open = stores.filter((s) => s.delivery === null).map((s) => names[s.seller] ?? s.seller);
+  if (!open.length) return null;
+  return open.length === stores.length && stores.length > 1
+    ? `We haven't checked delivery at any of these stores yet, so the total leaves it out. Check each store before you order.`
+    : `We haven't checked delivery at ${listNames(open)} yet, so the total leaves ${open.length === 1 ? "it" : "them"} out.`;
+}
+
+/**
+ * What a list of pieces costs at the till: one order per store, each store's delivery against its free-delivery
+ * line, and any membership. Shared by kits and baskets; the caller adds the comparison underneath as children.
+ */
+export function CheckoutCard({
+  checkout,
+  currency,
+  names,
+  children,
+}: {
+  checkout: Checkout;
+  currency: Currency;
+  /** Each seller's display name. */
+  names: Record<string, string>;
+  children?: ReactNode;
+}) {
+  const unchecked = uncheckedNote(checkout.stores, names);
+  return (
+    <div className="card">
+      <ul className="divide-y divide-line">
+        {checkout.stores.map((s) => (
+          <li key={s.seller} className="p-3 text-sm md:p-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <p className="font-semibold">
+                <Store className="mr-1.5 inline h-4 w-4 align-[-2px] text-muted" aria-hidden="true" />
+                {names[s.seller] ?? s.seller}
+              </p>
+              <p className="price text-base">
+                <Money n={s.subtotal} from={currency} />
+              </p>
+            </div>
+            {(s.delivery !== null || s.freeOver !== null || s.pickup) && (
+              <p className="mt-1 text-[13px] text-ink-2">
+                <Truck className="mr-1 inline h-3.5 w-3.5 align-[-2px] text-muted" aria-hidden="true" />
+                <DeliveryLine s={s} currency={currency} />
+              </p>
+            )}
+            {s.membership && (
+              <p className="mt-1 text-[13px] text-different">
+                Needs a {s.membership.name} (<Money n={s.membership.price} from={currency} prose /> a {s.membership.per})
+                {s.membership.nonmember_surcharge_pct
+                  ? `, or pay ${s.membership.nonmember_surcharge_pct}% more online without one. We've counted the surcharge.`
+                  : "."}
+              </p>
+            )}
+            {s.note && !s.membership && <p className="mt-1 text-xs text-muted">{s.note}</p>}
+          </li>
+        ))}
+      </ul>
+      <div className="rounded-b-card border-t border-line-strong bg-canvas px-3 py-3 md:px-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <p className="text-sm font-medium">You pay today{checkout.delivery === null ? ", before unchecked delivery" : ", delivered"}</p>
+          <p className="price text-[1.375rem] text-ink">
+            <Money n={checkout.payToday} from={currency} />
+          </p>
+        </div>
+        {unchecked && <p className="mt-1 text-[13px] font-medium text-ink">{unchecked}</p>}
+        {children}
+      </div>
+    </div>
+  );
+}
