@@ -19,7 +19,9 @@ import postgres from "postgres";
 import catalog from "../../src/generated/catalog.json";
 import * as schema from "../../src/db/schema";
 import { PROGRAMS } from "../../src/lib/affiliate-programs";
-import { subscribeEmail } from "../../src/lib/newsletter";
+import { requestWatch, subscribeEmail } from "../../src/lib/newsletter";
+import { pricesOf } from "../../src/lib/watches";
+import type { Pair } from "../../src/lib/types";
 import { storesFor } from "../../src/lib/markets";
 
 const root = join(import.meta.dirname, "..", "..");
@@ -71,7 +73,7 @@ const freshSlug = () => slugs[slugAt++];
 before(async () => {
   if (skip) return;
   await migrate(db, { migrationsFolder: join(root, "drizzle") });
-  await db.execute(sql`truncate subscribers, clicks, conversions, lookups, submissions, app_state restart identity`);
+  await db.execute(sql`truncate subscribers, clicks, conversions, lookups, submissions, app_state, reports, wanted, watches, wishes, sends restart identity cascade`);
 
   mailServer = createServer((req, res) => {
     let body = "";
@@ -322,6 +324,81 @@ test("newsletter: the emailed link confirms, one-click unsubscribe works, and a 
 
   const button = await fetch(`${BASE}/api/newsletter/unsubscribe?token=${token}`, { method: "POST", redirect: "manual", headers: visitor().headers });
   assert.deepEqual([button.status, button.headers.get("location")], [303, "/newsletter/unsubscribed"]);
+});
+
+test("a price watch's link confirms just that watch, and its one-click link stops just that watch", { skip }, async () => {
+  const pair = (catalog.pairs as unknown as Pair[])[0];
+  const mailEnv = { RESEND_API_KEY: "re_test", MAIL_FROM: "x <x@samebutcheaper.test>", RESEND_API_URL: mailUrl };
+  assert.equal(
+    await requestWatch(db, { email: "watch-e2e@example.com", country: "US", slug: pair.slug, title: pair.title, prices: pricesOf(pair) }, { siteUrl: BASE, env: mailEnv }),
+    "sent",
+  );
+  const link = new URL(/http:\/\/\S+confirm\?token=\S+/.exec(sent.at(-1)!.text)![0]);
+  assert.match(link.search, /&for=watch-\d+$/);
+  const token = link.searchParams.get("token")!;
+  const scope = link.searchParams.get("for")!;
+  const row = async () => (await db.select().from(subscribers).where(eq(subscribers.email, "watch-e2e@example.com")))[0];
+  const watchStatus = async () => (await db.select().from(schema.watches).where(eq(schema.watches.slug, pair.slug)))[0].status;
+
+  const ok = await get(link.pathname + link.search, visitor().headers);
+  assert.deepEqual([ok.status, ok.headers.get("location")], [303, "/newsletter/confirmed/watch"]);
+  assert.equal((await get("/newsletter/confirmed/watch")).status, 200);
+  assert.deepEqual([(await row()).status, (await row()).newsletter, await watchStatus()], ["confirmed", "no", "active"]);
+
+  const page = await get(`/api/newsletter/unsubscribe?token=${token}&only=${scope}`, visitor().headers);
+  assert.equal(page.headers.get("location"), `/newsletter/unsubscribe?token=${token}&only=${scope}`);
+  const oneClick = await fetch(`${BASE}/api/newsletter/unsubscribe?token=${token}&only=${scope}`, {
+    method: "POST",
+    headers: { ...visitor().headers, "content-type": "application/x-www-form-urlencoded" },
+    body: "List-Unsubscribe=One-Click",
+  });
+  assert.equal(oneClick.status, 200);
+  assert.equal(await watchStatus(), "stopped");
+  assert.equal((await row()).status, "confirmed", "only the watch stopped");
+  const bad = await fetch(`${BASE}/api/newsletter/unsubscribe?token=${token}&only=everything`, { method: "POST", redirect: "manual", headers: visitor().headers });
+  assert.equal(bad.headers.get("location"), "/newsletter/invalid");
+  assert.equal((await row()).status, "confirmed", "an unknown scope does nothing, not everything");
+});
+
+test("searches with no results are counted once per visitor and query, never from scripts, and limited", { skip }, async () => {
+  const post = (q: unknown, headers: Record<string, string>) =>
+    fetch(`${BASE}/api/wanted`, { method: "POST", headers: { ...headers, "content-type": "application/json", cookie: "sbc_country=DE" }, body: JSON.stringify({ q }) });
+  const a = visitor();
+  assert.equal((await post("Zzyzx  Cream", a.headers)).status, 204);
+  await post("zzyzx cream", a.headers);
+  await post("Zzyzx Cream", visitor().headers);
+  await post("Zzyzx Cream", { "user-agent": "curl/8.0", "x-forwarded-for": "203.0.113.9" });
+  await post("someone@example.com", visitor().headers);
+  const rows = await db.select().from(schema.wanted);
+  assert.deepEqual(rows.map((r) => [r.query, r.source, r.country, r.count]), [["zzyzx cream", "search", "DE", 2]]);
+
+  const flood = visitor();
+  const codes = [];
+  for (let i = 0; i < 22; i++) codes.push((await post(`thing ${i}`, flood.headers)).status);
+  assert.deepEqual([codes.filter((c) => c === 204).length, codes.at(-1)], [20, 429]);
+});
+
+test("swap and kit pages carry the report form; swap pages the price watch", { skip }, async () => {
+  const swap = await (await get(`/compare/${pairs[0].slug}`, visitor().headers)).text();
+  assert.ok(swap.includes("Something wrong on this page?"));
+  assert.ok(swap.includes("Email me if this changes"));
+  const kitSlug = (catalog.bundles as { slug: string }[])[0].slug;
+  const kit = await (await get(`/bundle/${kitSlug}`, visitor().headers)).text();
+  assert.ok(kit.includes("Something wrong on this page?"));
+  assert.ok(!kit.includes("Email me if this changes"));
+});
+
+test("admin: the new queues show and the most-wanted list downloads", { skip }, async () => {
+  const auth = { ...visitor().headers, authorization: basic(ADMIN) };
+  const page = await (await get("/admin", auth)).text();
+  for (const heading of ["Something wrong?", "Most wanted", "Weekly letter"]) assert.ok(page.includes(heading), heading);
+  const csv = await get("/admin/export/wanted?days=30", auth);
+  assert.equal(csv.status, 200);
+  assert.match(await csv.text(), /^query,country,sources,last7,last30,waiting,waitingPending/);
+  const preview = await get("/admin/letter-preview?country=DE", auth);
+  assert.equal(preview.status, 200);
+  assert.match(await preview.text(), /utm_source=newsletter/);
+  assert.equal((await get("/admin/letter-preview?country=DE", visitor().headers)).status, 401);
 });
 
 test("product checks are limited per visitor", { skip }, async () => {

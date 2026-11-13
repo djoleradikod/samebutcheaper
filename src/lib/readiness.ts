@@ -1,5 +1,18 @@
 import { livePrograms, liveSubNetwork, pickAffiliateEnv, type Env } from "./affiliate-links";
+import { letterSettings } from "./letter-settings";
 import { mailConfigured } from "./mail";
+
+/** Numeric settings that fall back to a default when they don't parse. */
+const MAIL_NUMBERS = [
+  "NEWSLETTER_MAX_PER_RUN",
+  "WATCH_MAX_PER_RUN",
+  "RETENTION_CLICK_DETAIL_DAYS",
+  "RETENTION_LOOKUP_DAYS",
+  "RETENTION_REPORT_DAYS",
+  "RETENTION_WANTED_DAYS",
+  "RETENTION_WISH_DAYS",
+  "RETENTION_SEND_DAYS",
+];
 
 /**
  * What still stands between this install and a public launch. The same list feeds /admin, `npm run preflight`
@@ -126,8 +139,46 @@ export function readinessChecks(env: Env, facts: Facts): Check[] {
     label: "Email sending",
     level: "recommended",
     ok: mailConfigured(env),
-    detail: mailConfigured(env) ? "set" : "not set: sign-ups are saved but nobody gets a confirmation email",
+    detail: mailConfigured(env)
+      ? "set"
+      : "not set: sign-ups and price watches are saved but nobody gets a confirmation email, and nothing else is sent (it is only logged)",
     fix: "Create a Resend account, verify the domain, then set RESEND_API_KEY and MAIL_FROM.",
+  });
+
+  const letter = letterSettings(env);
+  add({
+    id: "weekly-letter",
+    label: "Weekly letter",
+    level: "recommended",
+    ok: letter.on && letter.postalAddress !== null && mailConfigured(env),
+    detail: !letter.on
+      ? "off: confirmed subscribers get nothing after they confirm"
+      : !letter.postalAddress
+        ? "on, but held back: MAIL_POSTAL_ADDRESS is not set"
+        : !mailConfigured(env)
+          ? "on, but email isn't set up, so it is only logged"
+          : `on, from weekday ${letter.weekday} of each week, up to ${letter.cap} a run`,
+    fix: "Look at it first (npm run newsletter:preview, or the test button below), then set MAIL_POSTAL_ADDRESS to the postal address marketing email must carry, and NEWSLETTER_WEEKLY=on.",
+  });
+
+  const badNumbers = MAIL_NUMBERS.filter((k) => env[k]?.trim() && !(Number(env[k]) >= 1 && Number.isFinite(Number(env[k]))));
+  if (env.NEWSLETTER_WEEKDAY?.trim() && !/^[1-7]$/.test(env.NEWSLETTER_WEEKDAY.trim())) badNumbers.push("NEWSLETTER_WEEKDAY");
+  add({
+    id: "mail-numbers",
+    label: "Send caps and retention periods",
+    level: "optional",
+    ok: badNumbers.length === 0,
+    detail: badNumbers.length ? `not a number, so the default is used: ${badNumbers.join(", ")}` : "defaults, or valid values",
+    fix: "Each takes a whole number of days or emails (NEWSLETTER_WEEKDAY: 1 for Monday to 7 for Sunday). See .env.example.",
+  });
+
+  add({
+    id: "admin-email",
+    label: "Admin email for test sends",
+    level: "optional",
+    ok: set("ADMIN_EMAIL"),
+    detail: set("ADMIN_EMAIL") ? "set" : "not set: type an address each time you send a test letter",
+    fix: "Set ADMIN_EMAIL to fill in the address for “Send a test to me” in /admin.",
   });
 
   add({

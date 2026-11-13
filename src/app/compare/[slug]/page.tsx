@@ -31,6 +31,7 @@ import { swapTitleFor } from "@/lib/seo-catalog";
 import { SwapQuestions } from "@/components/SwapQuestions";
 import { forCountry, localClaim, localText, MARKET_ADJECTIVE, type Local } from "@/lib/localize";
 import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
+import { RecordFeedback } from "@/components/RecordFeedback";
 import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 import { YearlyBlock } from "@/components/YearlyBlock";
@@ -242,6 +243,7 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
           }))}
         />
       </div>
+      <RecordFeedback record="pair" slug={pair.slug} />
 
       <section aria-labelledby={related.length > 0 ? "related" : undefined} className={BAND}>
         <div className="container-page py-8 md:py-10">

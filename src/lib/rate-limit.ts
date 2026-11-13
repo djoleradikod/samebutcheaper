@@ -93,4 +93,16 @@ export const LIMITS = {
   authFailures: [{ limit: 10, windowMs: 15 * MINUTE }],
   /** Email confirm and unsubscribe links. */
   tokens: [{ limit: 30, windowMs: 10 * MINUTE }],
+  /** "Something wrong?" reports on swap and kit pages. */
+  reports: [
+    { limit: 5, windowMs: 10 * MINUTE },
+    { limit: 30, windowMs: DAY },
+  ],
+  /** Searches that found nothing, sent from the search page. */
+  wanted: [
+    { limit: 20, windowMs: 10 * MINUTE },
+    { limit: 150, windowMs: DAY },
+  ],
+  /** The same visitor, record and thing counted once a day (a report, a missed search), so one person can't inflate a count. */
+  oncePerDay: [{ limit: 1, windowMs: DAY }],
 } as const satisfies Record<string, readonly Rule[]>;

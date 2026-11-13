@@ -10,6 +10,7 @@ import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
 import type { Bundle, PairSummary } from "@/lib/types";
 import { BundleCard } from "./BundleCard";
 import { PairCard } from "./PairCard";
+import { WantedPrompt } from "./WantedPrompt";
 import { useLocal } from "@/lib/client/country";
 import { forCountry } from "@/lib/localize";
 
@@ -183,6 +184,7 @@ export function SearchClient({ total, children }: { total: number; children: Rea
                   and we&apos;ll look into it.
                 </p>
               </div>
+              <WantedPrompt term={term} />
               {children}
             </>
           )}

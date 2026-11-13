@@ -52,9 +52,9 @@ export async function Readiness() {
       </table>
       <form action={runUpkeepNow} className="mt-3 flex flex-wrap items-center gap-3 text-sm text-muted">
         <span>
-          Daily upkeep (old data removed, waiting confirmation emails sent):{" "}
+          Daily upkeep (old data removed, waiting confirmation emails, price watches and the weekly letter sent):{" "}
           {upkeep
-            ? `last ran ${upkeep.ranAt.slice(0, 16).replace("T", " ")} UTC. ${upkeep.pendingSubscribersDeleted} unconfirmed sign-ups and ${upkeep.lookupsDeleted} old product checks removed, ${upkeep.confirmationsSent} confirmation emails sent.`
+            ? `last ran ${upkeep.ranAt.slice(0, 16).replace("T", " ")} UTC. ${upkeep.pendingSubscribersDeleted} unconfirmed sign-ups and ${upkeep.lookupsDeleted} old product checks removed, ${upkeep.confirmationsSent} confirmation emails sent, ${upkeep.watchMailsSent ?? 0} price-watch emails sent${upkeep.watchChangesUnsent ? ` (${upkeep.watchChangesUnsent} only logged)` : ""}. Weekly letter: ${upkeep.letter ?? "not run"}.`
             : "has not run yet."}
         </span>
         <button type="submit" className="rounded border border-line-strong px-2 py-1 font-medium text-ink">Run now</button>

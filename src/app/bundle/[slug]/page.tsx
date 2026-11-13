@@ -20,6 +20,7 @@ import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay } from "@/lib/unit-format";
 import { forCountry, localText, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
+import { RecordFeedback } from "@/components/RecordFeedback";
 import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount } from "@/components/Money";
 import { KitPriceChecked } from "@/components/PriceChecked";
@@ -290,6 +291,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
 
           <SourceList sources={b.sources} />
           {HEALTH_CATEGORIES.has(b.category) && <HealthNotice />}
+          <RecordFeedback record="bundle" slug={b.slug} />
         </div>
 
         <aside className="space-y-3 lg:sticky lg:top-24 lg:self-start">

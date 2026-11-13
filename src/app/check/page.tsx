@@ -20,7 +20,7 @@ import {
   type LookupProduct,
   type LookupSource,
 } from "@/lib/lookup";
-import { logLookup } from "@/lib/lookup/log";
+import { logLookup } from "@/lib/wanted-check";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
 import { visitorFrom } from "@/lib/visitor";
 import type { CategorySlug } from "@/lib/types";

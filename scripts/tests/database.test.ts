@@ -3,64 +3,41 @@
  * wiped (never the live one): the tests apply the migrations and empty the tables. Skipped without it.
  */
 import assert from "node:assert/strict";
-import { createServer, type Server } from "node:http";
-import { join } from "node:path";
 import { after, before, beforeEach, test } from "node:test";
-import { eq, sql } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/postgres-js";
-import { migrate } from "drizzle-orm/postgres-js/migrator";
-import postgres from "postgres";
+import { eq } from "drizzle-orm";
 import * as schema from "../../src/db/schema";
 import { lastMaintenance, runMaintenance } from "../../src/lib/maintenance";
 import { confirmSubscription, sendPendingConfirmations, subscribeEmail, subscriberCounts, unsubscribe } from "../../src/lib/newsletter";
+import { ALL_TABLES, mailStub, testDb, type Sent } from "./db-support";
 
 const url = process.env.TEST_DATABASE_URL;
 const skip = url ? false : "TEST_DATABASE_URL is not set";
 const SITE = "https://samebutcheaper.test";
 
-const client = url ? postgres(url, { max: 4, onnotice: () => {} }) : null;
-const db = client ? drizzle(client, { schema }) : null!;
+const conn = testDb(url);
+const { client, db } = conn;
 const { subscribers, clicks, conversions, lookups } = schema;
 
-/** A stand-in for Resend: records what would have been sent. */
-type Sent = { to: string[]; subject: string; text: string; html: string; headers?: Record<string, string>; from: string };
-let sent: Sent[] = [];
-let failNext = false;
-let server: Server;
+const mail = mailStub();
+const { sent } = mail.state;
 let env: Record<string, string> = {};
 
 before(async () => {
   if (!client) return;
-  await migrate(db, { migrationsFolder: join(import.meta.dirname, "..", "..", "drizzle") });
-  server = createServer((req, res) => {
-    let body = "";
-    req.on("data", (c) => (body += c));
-    req.on("end", () => {
-      if (failNext) {
-        failNext = false;
-        res.writeHead(500).end("{}");
-        return;
-      }
-      assert.equal(req.headers.authorization, "Bearer re_test");
-      sent.push(JSON.parse(body));
-      res.writeHead(200, { "content-type": "application/json" }).end(JSON.stringify({ id: `mail-${sent.length}` }));
-    });
-  });
-  await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
-  const { port } = server.address() as { port: number };
-  env = { RESEND_API_KEY: "re_test", MAIL_FROM: "SameButCheaper <hello@samebutcheaper.test>", RESEND_API_URL: `http://127.0.0.1:${port}/emails` };
+  await conn.open();
+  await mail.start();
+  env = mail.state.env;
 });
 
 after(async () => {
-  server?.close();
-  await client?.end();
+  mail.stop();
+  await conn.close();
 });
 
 beforeEach(async () => {
   if (!client) return;
-  sent = [];
-  failNext = false;
-  await db.execute(sql`truncate subscribers, clicks, conversions, lookups, submissions, app_state restart identity`);
+  mail.reset();
+  await db.execute(ALL_TABLES);
 });
 
 const row = async (email: string) => (await db.select().from(subscribers).where(eq(subscribers.email, email)))[0];
@@ -120,7 +97,7 @@ test("unsubscribe works from pending or confirmed, and re-joining starts over", 
   const back = await row("c@example.com");
   assert.equal(back.status, "pending");
   assert.equal(back.confirmedAt, null);
-  assert.deepEqual(await subscriberCounts(db), { confirmed: 0, pending: 1, unsubscribed: 0 });
+  assert.deepEqual(await subscriberCounts(db), { confirmed: 0, pending: 1, unsubscribed: 0, letter: 0 });
 });
 
 test("without email set up, sign-ups are stored and get their confirmation later", { skip }, async () => {
@@ -134,7 +111,7 @@ test("without email set up, sign-ups are stored and get their confirmation later
 });
 
 test("a failed send leaves the sign-up waiting, not marked as sent", { skip }, async () => {
-  failNext = true;
+  mail.state.failNext = 1;
   assert.equal(await subscribeEmail(db, { email: "f@example.com" }, { siteUrl: SITE, env }), "stored");
   assert.equal((await row("f@example.com")).confirmSentAt, null);
   assert.equal(await sendPendingConfirmations(db, { siteUrl: SITE, env }), 1);
@@ -163,11 +140,26 @@ test("upkeep removes what the privacy page says it removes, and nothing else", {
     { kind: "text", query: "recent", createdAt: ago(300) },
   ]);
 
-  const report = await runMaintenance(db, { siteUrl: SITE, env, now });
+  const report = await runMaintenance(db, { siteUrl: SITE, env, now, pauseMs: 0 });
   assert.ok(report);
   assert.deepEqual(
     { ...report, ranAt: undefined },
-    { ranAt: undefined, pendingSubscribersDeleted: 1, clicksStripped: 1, conversionsStripped: 1, lookupsDeleted: 1, confirmationsSent: 1 },
+    {
+      ranAt: undefined,
+      pendingSubscribersDeleted: 1,
+      clicksStripped: 1,
+      conversionsStripped: 1,
+      lookupsDeleted: 1,
+      reportsDeleted: 0,
+      wantedDeleted: 0,
+      watchesDeleted: 0,
+      wishesDeleted: 0,
+      sendsDeleted: 0,
+      confirmationsSent: 1,
+      watchMailsSent: 0,
+      watchChangesUnsent: 0,
+      letter: "off",
+    },
   );
 
   const emails = (await db.select().from(subscribers)).map((s) => s.email).sort();
@@ -183,13 +175,13 @@ test("upkeep removes what the privacy page says it removes, and nothing else", {
   assert.deepEqual((await db.select().from(lookups)).map((l) => l.query), ["recent"]);
 
   assert.equal((await lastMaintenance(db))?.ranAt, now.toISOString());
-  const again = await runMaintenance(db, { siteUrl: SITE, env, now: new Date(now.getTime() + 3600_000), minHoursSinceLast: 20 });
+  const again = await runMaintenance(db, { siteUrl: SITE, env, now: new Date(now.getTime() + 3600_000), minHoursSinceLast: 20, pauseMs: 0 });
   assert.equal(again?.ranAt, now.toISOString(), "a run within 20 hours of the last one is skipped");
 });
 
 test("retention periods can be changed", { skip }, async () => {
   const now = new Date("2026-11-10T12:00:00Z");
   await db.insert(lookups).values([{ kind: "text", query: "ten days old", createdAt: new Date(now.getTime() - 10 * 24 * 3600_000) }]);
-  const report = await runMaintenance(db, { siteUrl: SITE, env: { RETENTION_LOOKUP_DAYS: "7" }, now });
+  const report = await runMaintenance(db, { siteUrl: SITE, env: { RETENTION_LOOKUP_DAYS: "7" }, now, pauseMs: 0 });
   assert.equal(report?.lookupsDeleted, 1);
 });
