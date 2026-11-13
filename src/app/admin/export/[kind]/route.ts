@@ -77,7 +77,7 @@ export async function GET(request: Request, ctx: RouteContext<"/admin/export/[ki
       const rows = await mostWanted(db, { days: span, limit: MAX_ROWS });
       body = csv(
         rows.map((w) => ({ ...w, [`last${span}`]: w.last30 })),
-        ["query", "country", "sources", "last7", `last${span}`, "waiting", "waitingPending"],
+        ["query", "country", "sources", "last7", `last${span}`, "waiting", "waitingPending", "wouldRelease"],
       );
       break;
     }

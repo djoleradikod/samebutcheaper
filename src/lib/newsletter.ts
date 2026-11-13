@@ -1,8 +1,10 @@
-import { randomBytes } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import { and, asc, count, eq, gte, inArray, isNull, ne, or, sql } from "drizzle-orm";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import * as schema from "@/db/schema";
+import { impressumUrl } from "./legal";
 import { esc, mailConfigured, sendMail } from "./mail";
+import { LIMITS } from "./rate-limit";
 
 /**
  * Everything we email, with double opt-in. An address is stored as "pending" and gets one email with a confirm
@@ -25,9 +27,16 @@ const RESEND_AFTER_MS = 10 * 60_000;
 /** And one address gets at most this many confirmation emails a day, whatever they are for. */
 const CONFIRMS_PER_DAY = 5;
 
+/**
+ * Opening a confirm or unsubscribe page, per visitor. With Cache Components a page's dynamic part can be rendered
+ * twice for one request (once to warm caches), so a view counts twice: this allows as many views as LIMITS.tokens
+ * allows button presses.
+ */
+export const TOKEN_PAGE_LIMITS = LIMITS.tokens.map((r) => ({ ...r, limit: r.limit * 2 }));
+
 const TOKEN = /^[A-Za-z0-9_-]{20,64}$/;
 export const isToken = (v: unknown): v is string => typeof v === "string" && TOKEN.test(v);
-const newToken = () => randomBytes(24).toString("base64url");
+const newToken = () => randomBytes(32).toString("base64url");
 
 /** What a link acts on: the weekly letter, one watch or one wish. No scope means the letter (confirm) or everything (unsubscribe). */
 export type Scope = "letter" | `watch-${number}` | `wish-${number}`;
@@ -76,6 +85,8 @@ async function subscriberFor(db: DB, input: { email: string; source?: string | n
         confirmedAt: null,
         confirmSentAt: null,
         letterConfirmedAt: null,
+        letterStoppedAt: null,
+        confirmHash: null,
         country: country ?? found.country,
       })
       .where(eq(subs.id, found.id))
@@ -145,7 +156,7 @@ export async function requestWatch(
     // Stopped or ended before: watching again starts from today's prices, and needs its link again.
     [watch] = await db
       .update(watches)
-      .set({ status: "pending", ...values, confirmSentAt: null, confirmedAt: null, stoppedAt: null, lastNotifiedAt: null, createdAt: now })
+      .set({ status: "pending", ...values, confirmHash: null, confirmSentAt: null, confirmedAt: null, stoppedAt: null, lastNotifiedAt: null, createdAt: now })
       .where(eq(watches.id, watch.id))
       .returning();
   }
@@ -186,7 +197,7 @@ export async function requestWish(db: DB, input: { email: string; country?: stri
   } else if (wish.status !== "pending") {
     [wish] = await db
       .update(wishes)
-      .set({ status: "pending", confirmSentAt: null, confirmedAt: null, stoppedAt: null, createdAt: now })
+      .set({ status: "pending", confirmHash: null, confirmSentAt: null, confirmedAt: null, stoppedAt: null, answeredSlug: null, createdAt: now })
       .where(eq(wishes.id, wish.id))
       .returning();
   }
@@ -197,6 +208,16 @@ export async function requestWish(db: DB, input: { email: string; country?: stri
 type Purpose = { kind: "letter" } | { kind: "watch"; id: number; title: string } | { kind: "wish"; id: number; query: string };
 const scopeOf = (p: Purpose): Scope => (p.kind === "letter" ? "letter" : `${p.kind}-${p.id}`);
 
+/** A confirm link works this long after its email went out. Unconfirmed requests are deleted then anyway. */
+export const CONFIRM_DAYS = 30;
+
+/** The secret in a confirmation link, and the hash we keep of it. Only the hash is stored, so the database can't rebuild a working link. */
+export function newConfirmSecret() {
+  const token = randomBytes(32).toString("base64url");
+  return { token, hash: hashSecret(token) };
+}
+export const hashSecret = (token: string) => createHash("sha256").update(token).digest("hex");
+
 async function sendConfirmation(db: DB, row: Row, purpose: Purpose, opts: Opts): Promise<boolean> {
   if (!row.token || !mailConfigured(opts.env)) return false;
   const now = opts.now ?? new Date();
@@ -205,24 +226,31 @@ async function sendConfirmation(db: DB, row: Row, purpose: Purpose, opts: Opts):
     .from(sends)
     .where(and(eq(sends.subscriberId, row.id), eq(sends.kind, "confirm"), gte(sends.createdAt, new Date(now.getTime() - 24 * 3600_000))));
   if (n >= CONFIRMS_PER_DAY) return false;
-  const result = await sendMail(confirmationMail(row.email, row.token, opts.siteUrl, purpose, now), opts.env);
+  // Each email gets a fresh secret. Its hash is saved only once the email has gone, so a failed send leaves the
+  // link in the last email working; a newer email replaces it.
+  const secret = newConfirmSecret();
+  const mail = confirmationMail(row.email, secret.token, opts.siteUrl, purpose, now, { unsubscribeToken: row.token, subscriberId: row.id, hash: secret.hash });
+  const result = await sendMail(mail, opts.env);
   if (!result.ok) return false;
   await db
     .insert(sends)
     .values({ subscriberId: row.id, kind: "confirm", key: `${scopeOf(purpose)}:${now.toISOString()}`, status: "sent", providerId: result.id, createdAt: now })
     .onConflictDoNothing();
-  if (purpose.kind === "letter") await db.update(subs).set({ confirmSentAt: now }).where(eq(subs.id, row.id));
-  else if (purpose.kind === "watch") await db.update(watches).set({ confirmSentAt: now }).where(eq(watches.id, purpose.id));
-  else await db.update(wishes).set({ confirmSentAt: now }).where(eq(wishes.id, purpose.id));
+  const set = { confirmSentAt: now, confirmHash: secret.hash };
+  if (purpose.kind === "letter") await db.update(subs).set(set).where(eq(subs.id, row.id));
+  else if (purpose.kind === "watch") await db.update(watches).set(set).where(eq(watches.id, purpose.id));
+  else await db.update(wishes).set(set).where(eq(wishes.id, purpose.id));
   return true;
 }
 
-const scopeParam = (scope?: Scope) => (scope && scope !== "letter" ? `&for=${scope}` : "");
 const scopeOnly = (scope?: Scope) => (scope ? `&only=${scope}` : "");
 
-/** The link in a confirmation email. The letter's has no scope, as before scopes existed. */
-export function confirmUrl(siteUrl: string, token: string, scope?: Scope) {
-  return `${siteUrl}/api/newsletter/confirm?token=${encodeURIComponent(token)}${scopeParam(scope)}`;
+/**
+ * The link in a confirmation email. It opens a page that says what is being confirmed, with a button that posts:
+ * opening the link alone (as mail scanners such as Safe Links do) changes nothing.
+ */
+export function confirmUrl(siteUrl: string, secret: string) {
+  return `${siteUrl}/newsletter/confirm?t=${encodeURIComponent(secret)}`;
 }
 /** The page with the "unsubscribe" button, for people. With a scope it offers to stop just that, or everything. */
 export function unsubscribeUrl(siteUrl: string, token: string, scope?: Scope) {
@@ -243,9 +271,16 @@ export function listHeaders(siteUrl: string, token: string, scope?: Scope) {
 }
 
 /** The confirmation email. It only asks for the confirmation: an advert in it would itself be unsolicited mail. */
-export function confirmationMail(email: string, token: string, siteUrl: string, purpose: Purpose = { kind: "letter" }, now = new Date()) {
+export function confirmationMail(
+  email: string,
+  secret: string,
+  siteUrl: string,
+  purpose: Purpose = { kind: "letter" },
+  now = new Date(),
+  ids: { unsubscribeToken: string; subscriberId: number; hash?: string } = { unsubscribeToken: secret, subscriberId: 0 },
+) {
   const scope = scopeOf(purpose);
-  const link = confirmUrl(siteUrl, token, purpose.kind === "letter" ? undefined : scope);
+  const link = confirmUrl(siteUrl, secret);
   const host = siteUrl.replace(/^https?:\/\//, "");
   const asked =
     purpose.kind === "letter"
@@ -253,73 +288,141 @@ export function confirmationMail(email: string, token: string, siteUrl: string, 
       : purpose.kind === "watch"
         ? `to get an email from SameButCheaper if the swap “${purpose.title}” changes price or is withdrawn`
         : `to get an email from SameButCheaper when we add a swap for “${purpose.query}”`;
-  const button = purpose.kind === "letter" ? "Yes, send me new swaps" : purpose.kind === "watch" ? "Yes, watch this swap" : "Yes, tell me";
   const subject =
     purpose.kind === "letter" ? "Confirm your email for SameButCheaper" : purpose.kind === "watch" ? "Confirm your price watch on SameButCheaper" : "Confirm your request on SameButCheaper";
+  const legal = impressumUrl(siteUrl);
   const text = [
     "Please confirm your email address",
     "",
     `Someone, hopefully you, asked ${asked} (${host}) at this address.`,
     "",
-    "Confirm it here:",
+    "Open this link, then press the button on the page to confirm:",
     link,
     "",
     "If that wasn't you, ignore this email. You won't hear from us about it again, and the request is removed after 30 days.",
+    "",
+    `Impressum (legal notice): ${legal}`,
   ].join("\n");
   const html = `<!doctype html><html><body style="margin:0;padding:24px;background:#f6f5f1;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a">
 <div style="max-width:480px;margin:0 auto;background:#ffffff;border:1px solid #e3e1da;border-radius:12px;padding:28px">
 <p style="margin:0 0 4px;font-size:13px;color:#666">SameButCheaper</p>
 <h1 style="margin:0 0 16px;font-size:22px;line-height:1.25">Please confirm your email address</h1>
-<p style="margin:0 0 20px;font-size:16px;line-height:1.5">Someone, hopefully you, asked ${esc(asked)} (${esc(host)}) at this address.</p>
-<p style="margin:0 0 20px"><a href="${esc(link)}" style="display:inline-block;background:#1f4fd8;color:#ffffff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 20px;border-radius:8px">${esc(button)}</a></p>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.5">Someone, hopefully you, asked ${esc(asked)} (${esc(host)}) at this address. Open the page below and press its button to confirm.</p>
+<p style="margin:0 0 20px"><a href="${esc(link)}" style="display:inline-block;background:#1f4fd8;color:#ffffff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 20px;border-radius:8px">Open the confirmation page</a></p>
 <p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#666">Or paste this link into your browser:<br><a href="${esc(link)}" style="color:#1f4fd8;word-break:break-all">${esc(link)}</a></p>
-<p style="margin:0;font-size:13px;line-height:1.5;color:#666">If that wasn't you, ignore this email. You won't hear from us about it again, and the request is removed after 30 days.</p>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#666">If that wasn't you, ignore this email. You won't hear from us about it again, and the request is removed after 30 days.</p>
+<p style="margin:0;font-size:12px;line-height:1.5;color:#666"><a href="${esc(legal)}" style="color:#666">Impressum (legal notice)</a></p>
 </div></body></html>`;
   return {
     to: email,
     subject,
     text,
     html,
-    headers: listHeaders(siteUrl, token),
-    // One per address and purpose per ten minutes, matching the resend wait.
-    idempotencyKey: `confirm-${token}-${scope}-${Math.floor(now.getTime() / RESEND_AFTER_MS)}`,
+    headers: listHeaders(siteUrl, ids.unsubscribeToken),
+    // Per address, purpose and email. No secret goes to the mail provider in this key.
+    idempotencyKey: `confirm-${ids.subscriberId}-${scope}-${Math.floor(now.getTime() / RESEND_AFTER_MS)}-${(ids.hash ?? "").slice(0, 12)}`,
   };
 }
 
 export type TokenOutcome = "done" | "already" | "invalid";
 
+/** What a confirm link is for, as its page shows it before the button is pressed. */
+export type ConfirmTarget =
+  | { kind: "letter"; email: string }
+  | { kind: "watch"; email: string; title: string; slug: string }
+  | { kind: "wish"; email: string; query: string };
+
+/** "a•••@example.com": enough for the owner to recognise, not enough to read off someone else's screen. */
+export function maskEmail(email: string) {
+  const [user, domain] = email.split("@");
+  if (!domain) return "•••";
+  return `${user.slice(0, 1)}•••@${domain}`;
+}
+
+type Found =
+  | { kind: "letter"; sub: Row }
+  | { kind: "watch"; sub: Row; item: typeof watches.$inferSelect }
+  | { kind: "wish"; sub: Row; item: typeof wishes.$inferSelect };
+
+/** The pending thing a confirm secret belongs to, or null if it is unknown, used, replaced or too old. */
+async function findConfirm(db: DB, secret: string, now: Date, lock = false): Promise<Found | null> {
+  if (!isToken(secret)) return null;
+  const hash = hashSecret(secret);
+  const since = new Date(now.getTime() - CONFIRM_DAYS * 86400_000);
+  const fresh = (sent: Date | null) => Boolean(sent && sent >= since);
+  const subQ = db.select().from(subs).where(eq(subs.confirmHash, hash)).limit(1);
+  const [sub] = lock ? await subQ.for("update") : await subQ;
+  if (sub) return sub.status !== "unsubscribed" && sub.newsletter === "pending" && fresh(sub.confirmSentAt) ? { kind: "letter", sub } : null;
+  const [w] = await (lock
+    ? db.select({ item: watches, sub: subs }).from(watches).innerJoin(subs, eq(subs.id, watches.subscriberId)).where(eq(watches.confirmHash, hash)).limit(1).for("update")
+    : db.select({ item: watches, sub: subs }).from(watches).innerJoin(subs, eq(subs.id, watches.subscriberId)).where(eq(watches.confirmHash, hash)).limit(1));
+  if (w) return w.item.status === "pending" && w.sub.status !== "unsubscribed" && fresh(w.item.confirmSentAt) ? { kind: "watch", sub: w.sub, item: w.item } : null;
+  const [x] = await (lock
+    ? db.select({ item: wishes, sub: subs }).from(wishes).innerJoin(subs, eq(subs.id, wishes.subscriberId)).where(eq(wishes.confirmHash, hash)).limit(1).for("update")
+    : db.select({ item: wishes, sub: subs }).from(wishes).innerJoin(subs, eq(subs.id, wishes.subscriberId)).where(eq(wishes.confirmHash, hash)).limit(1));
+  if (x) return x.item.status === "pending" && x.sub.status !== "unsubscribed" && fresh(x.item.confirmSentAt) ? { kind: "wish", sub: x.sub, item: x.item } : null;
+  return null;
+}
+
+/** What the confirm page shows. Reads only: opening the link never changes anything. */
+export async function confirmTarget(db: DB, secret: string, now = new Date()): Promise<ConfirmTarget | null> {
+  const found = await findConfirm(db, secret, now);
+  if (!found) return null;
+  const email = maskEmail(found.sub.email);
+  if (found.kind === "letter") return { kind: "letter", email };
+  if (found.kind === "watch") return { kind: "watch", email, title: found.item.title, slug: found.item.slug };
+  return { kind: "wish", email, query: found.item.query };
+}
+
+export type ConfirmOutcome = { outcome: "done"; kind: Found["kind"] } | { outcome: "invalid" };
+
 /**
- * Follows a confirm link: switches on what it was for (the letter when no scope is given), and confirms the
- * address if it was pending. Following it twice is fine. A link for something that was stopped since, or from an
- * address that unsubscribed from everything, does nothing.
+ * The confirm button: switches on what the link was for, and confirms the address if it was pending. The secret
+ * is cleared as it is used, so a link works once: pressing again, replaying the request, or a link from an older
+ * email does nothing.
  */
-export async function confirmSubscription(db: DB, token: string, now = new Date(), scope?: Scope): Promise<TokenOutcome> {
-  if (!isToken(token)) return "invalid";
-  if (scope !== undefined && !isScope(scope)) return "invalid";
-  const target = parseScope(scope ?? "letter");
+export async function confirmByToken(db: DB, secret: string, now = new Date()): Promise<ConfirmOutcome> {
+  if (!isToken(secret)) return { outcome: "invalid" };
   return db.transaction(async (tx) => {
-    const [row] = await tx.select().from(subs).where(eq(subs.token, token)).limit(1).for("update");
-    if (!row || row.status === "unsubscribed") return "invalid";
-    let state: "pending" | "on" | "off";
-    if (target.kind === "letter") {
-      state = row.newsletter === "pending" ? "pending" : row.newsletter === "yes" ? "on" : "off";
-      if (state === "pending") await tx.update(subs).set({ newsletter: "yes", letterConfirmedAt: now }).where(eq(subs.id, row.id));
+    const found = await findConfirm(tx as unknown as DB, secret, now, true);
+    if (!found) return { outcome: "invalid" as const };
+    if (found.kind === "letter") {
+      await tx.update(subs).set({ newsletter: "yes", letterConfirmedAt: now, letterStoppedAt: null, confirmHash: null }).where(eq(subs.id, found.sub.id));
+    } else if (found.kind === "watch") {
+      await tx.update(watches).set({ status: "active", confirmedAt: now, confirmHash: null }).where(eq(watches.id, found.item.id));
     } else {
-      const table = target.kind === "watch" ? watches : wishes;
-      const [item] = await tx
-        .select({ status: table.status })
-        .from(table)
-        .where(and(eq(table.id, target.id), eq(table.subscriberId, row.id)))
-        .limit(1);
-      state = item?.status === "pending" ? "pending" : item?.status === "active" ? "on" : "off";
-      if (state === "pending") await tx.update(table).set({ status: "active", confirmedAt: now }).where(eq(table.id, target.id));
+      await tx.update(wishes).set({ status: "active", confirmedAt: now, confirmHash: null }).where(eq(wishes.id, found.item.id));
     }
-    if (state === "off") return "invalid";
-    if (state === "pending" && row.status === "pending") {
-      await tx.update(subs).set({ status: "confirmed", confirmedAt: now, unsubscribedAt: null }).where(eq(subs.id, row.id));
+    if (found.sub.status === "pending") {
+      await tx.update(subs).set({ status: "confirmed", confirmedAt: now, unsubscribedAt: null }).where(eq(subs.id, found.sub.id));
     }
-    return state === "pending" ? "done" : "already";
+    return { outcome: "done" as const, kind: found.kind };
   });
+}
+
+export type UnsubscribeTarget = {
+  email: string;
+  /** False when the address already gets nothing from us. */
+  anythingOn: boolean;
+  scoped: null | { kind: "letter"; on: boolean } | { kind: "watch"; title: string; on: boolean } | { kind: "wish"; query: string; on: boolean };
+};
+
+/** What an unsubscribe link would stop, for its page. Null when the link is unknown. Reads only. */
+export async function unsubscribeTarget(db: DB, token: string, scope?: Scope): Promise<UnsubscribeTarget | null> {
+  if (!isToken(token) || (scope !== undefined && !isScope(scope))) return null;
+  const [row] = await db.select().from(subs).where(eq(subs.token, token)).limit(1);
+  if (!row) return null;
+  const base = { email: maskEmail(row.email), anythingOn: row.status !== "unsubscribed" };
+  if (!scope) return { ...base, scoped: null };
+  const target = parseScope(scope);
+  if (target.kind === "letter") return { ...base, scoped: { kind: "letter", on: row.newsletter !== "no" } };
+  const live = (status: string) => status === "pending" || status === "active";
+  if (target.kind === "watch") {
+    const [w] = await db.select().from(watches).where(and(eq(watches.id, target.id), eq(watches.subscriberId, row.id))).limit(1);
+    return w ? { ...base, scoped: { kind: "watch", title: w.title, on: live(w.status) } } : null;
+  }
+  const [w] = await db.select().from(wishes).where(and(eq(wishes.id, target.id), eq(wishes.subscriberId, row.id))).limit(1);
+  return w ? { ...base, scoped: { kind: "wish", query: w.query, on: live(w.status) } } : null;
 }
 
 /**
@@ -335,13 +438,13 @@ export async function unsubscribe(db: DB, token: string, now = new Date(), scope
     return db.transaction(async (tx) => {
       const done = await tx
         .update(subs)
-        .set({ status: "unsubscribed", unsubscribedAt: now, newsletter: "no" })
+        .set({ status: "unsubscribed", unsubscribedAt: now, newsletter: "no", confirmHash: null })
         .where(and(eq(subs.id, row.id), or(eq(subs.status, "pending"), eq(subs.status, "confirmed"))))
         .returning({ id: subs.id });
       for (const table of [watches, wishes]) {
         await tx
           .update(table)
-          .set({ status: "stopped", stoppedAt: now })
+          .set({ status: "stopped", stoppedAt: now, confirmHash: null })
           .where(and(eq(table.subscriberId, row.id), inArray(table.status, ["pending", "active"])));
       }
       return done.length ? "done" : "already";
@@ -351,7 +454,7 @@ export async function unsubscribe(db: DB, token: string, now = new Date(), scope
   if (target.kind === "letter") {
     const done = await db
       .update(subs)
-      .set({ newsletter: "no" })
+      .set({ newsletter: "no", letterStoppedAt: now, confirmHash: null })
       .where(and(eq(subs.id, row.id), ne(subs.newsletter, "no")))
       .returning({ id: subs.id });
     return done.length ? "done" : "already";
@@ -364,7 +467,7 @@ export async function unsubscribe(db: DB, token: string, now = new Date(), scope
     .limit(1);
   if (!item) return "invalid";
   if (item.status !== "pending" && item.status !== "active") return "already";
-  await db.update(table).set({ status: "stopped", stoppedAt: now }).where(eq(table.id, target.id));
+  await db.update(table).set({ status: "stopped", stoppedAt: now, confirmHash: null }).where(eq(table.id, target.id));
   return "done";
 }
 

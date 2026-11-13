@@ -119,6 +119,13 @@ export const subscribers = pgTable(
     newsletter: varchar("newsletter", { length: 8 }).default("pending").notNull(),
     /** Proof of consent to the letter itself: when its confirm link was followed. */
     letterConfirmedAt: timestamp("letter_confirmed_at", { withTimezone: true }),
+    /** When the letter was last switched off on its own (an address with nothing on is deleted 30 days later). */
+    letterStoppedAt: timestamp("letter_stopped_at", { withTimezone: true }),
+    /**
+     * SHA-256 of the secret in the newest confirmation email for the letter. Only the hash is kept; each email gets a
+     * fresh secret, and following it clears this, so a link works once (src/lib/newsletter.ts).
+     */
+    confirmHash: varchar("confirm_hash", { length: 64 }),
     /** When the last confirmation email for the weekly letter went out (null: none sent yet, for example before email was set up). */
     confirmSentAt: timestamp("confirm_sent_at", { withTimezone: true }),
     /** Proof of consent: when the link in the email was followed. */
@@ -129,6 +136,7 @@ export const subscribers = pgTable(
   (t) => [
     uniqueIndex("subscribers_email_idx").on(t.email),
     uniqueIndex("subscribers_token_idx").on(t.token),
+    uniqueIndex("subscribers_confirm_idx").on(t.confirmHash),
     index("subscribers_status_idx").on(t.status),
   ],
 );
@@ -221,14 +229,22 @@ export const wishes = pgTable(
       .references(() => subscribers.id, { onDelete: "cascade" }),
     query: varchar("query", { length: 80 }).notNull(),
     country: varchar("country", { length: 2 }),
-    /** "pending" | "active" | "stopped" */
+    /** "pending" | "active" | "stopped" (they asked) | "answered" (we added a matching swap and told them) */
     status: varchar("status", { length: 16 }).default("pending").notNull(),
+    /** SHA-256 of the secret in the newest confirmation email for this request. */
+    confirmHash: varchar("confirm_hash", { length: 64 }),
     confirmSentAt: timestamp("confirm_sent_at", { withTimezone: true }),
     confirmedAt: timestamp("confirmed_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
     stoppedAt: timestamp("stopped_at", { withTimezone: true }),
+    /** The swap we wrote about when it was answered. */
+    answeredSlug: varchar("answered_slug", { length: 160 }),
   },
-  (t) => [uniqueIndex("wishes_key_idx").on(t.subscriberId, t.query), index("wishes_query_idx").on(t.query)],
+  (t) => [
+    uniqueIndex("wishes_key_idx").on(t.subscriberId, t.query),
+    index("wishes_query_idx").on(t.query),
+    uniqueIndex("wishes_confirm_idx").on(t.confirmHash),
+  ],
 );
 
 /**
@@ -255,13 +271,19 @@ export const watches = pgTable(
     savingsPct: numeric("savings_pct", { precision: 6, scale: 2 }).notNull(),
     /** The record's price_checked when these prices were taken. */
     priceChecked: varchar("price_checked", { length: 16 }),
+    /** SHA-256 of the secret in the newest confirmation email for this watch. */
+    confirmHash: varchar("confirm_hash", { length: 64 }),
     confirmSentAt: timestamp("confirm_sent_at", { withTimezone: true }),
     confirmedAt: timestamp("confirmed_at", { withTimezone: true }),
     lastNotifiedAt: timestamp("last_notified_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
     stoppedAt: timestamp("stopped_at", { withTimezone: true }),
   },
-  (t) => [uniqueIndex("watches_key_idx").on(t.subscriberId, t.slug), index("watches_status_idx").on(t.status)],
+  (t) => [
+    uniqueIndex("watches_key_idx").on(t.subscriberId, t.slug),
+    index("watches_status_idx").on(t.status),
+    uniqueIndex("watches_confirm_idx").on(t.confirmHash),
+  ],
 );
 
 /**
@@ -276,9 +298,9 @@ export const sends = pgTable(
     subscriberId: integer("subscriber_id")
       .notNull()
       .references(() => subscribers.id, { onDelete: "cascade" }),
-    /** "confirm" | "watch" | "weekly" */
+    /** "confirm" | "watch" | "weekly" | "wish" (the swap a "tell me when you add it" asked for) */
     kind: varchar("kind", { length: 16 }).notNull(),
-    /** What was sent: "2026-W46" for a letter, "watch-12:<prices>" for a watch notice, "letter:<time>" for a confirmation. */
+    /** What was sent: "2026-W46" for a letter, "watch-12:<prices>" for a watch notice, "wish-7" for an answered wish, "letter:<time>" for a confirmation. */
     key: varchar("key", { length: 160 }).notNull(),
     /** "sending" | "sent" | "empty" (nothing new for this subscriber in that letter) */
     status: varchar("status", { length: 16 }).default("sending").notNull(),

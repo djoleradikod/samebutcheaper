@@ -1,31 +1,45 @@
 import { getDb } from "@/db";
 import { log } from "@/lib/log";
-import { confirmSubscription, isScope } from "@/lib/newsletter";
+import { confirmByToken, isToken } from "@/lib/newsletter";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
 import { visitorFrom } from "@/lib/visitor";
 
+const NO_STORE = { "Cache-Control": "no-store", "X-Robots-Tag": "noindex", "Referrer-Policy": "no-referrer" };
+const to = (path: string) => new Response(null, { status: 303, headers: { ...NO_STORE, Location: path } });
+
+const DONE = { letter: "/newsletter/confirmed", watch: "/newsletter/confirmed/watch", wish: "/newsletter/confirmed/wish" } as const;
+
 /**
- * GET /api/newsletter/confirm?token=…[&for=watch-12|wish-3]  The link in a confirmation email. Confirms what it
- * was for (the weekly letter when `for` is missing) and sends the reader to a page that says so. Confirming twice is harmless, so a mail scanner that opens the link first
- * doesn't break it for the person.
+ * POST /api/newsletter/confirm, form field `t`: the button on /newsletter/confirm. Switches on what the emailed
+ * secret was for, once (the secret is cleared as it is used), and sends the reader to a page that says so.
+ * The secret travels in the body, not the address, so it stays out of access logs.
  */
-export async function GET(request: Request) {
-  const url = new URL(request.url);
-  const to = (path: string) =>
-    new Response(null, { status: 303, headers: { Location: path, "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } });
+export async function POST(request: Request) {
   if (!rateLimit("tokens", visitorFrom(request.headers).key, LIMITS.tokens).ok) {
-    return new Response("Too many requests", { status: 429, headers: { "Retry-After": "600" } });
+    return new Response("Too many requests", { status: 429, headers: { ...NO_STORE, "Retry-After": "600" } });
+  }
+  let secret = "";
+  try {
+    secret = String((await request.formData()).get("t") ?? "");
+  } catch {
+    // No body, or not a form.
   }
   const db = getDb();
-  if (!db) return to("/newsletter/invalid");
+  if (!db || !isToken(secret)) return to("/newsletter/invalid");
   try {
-    const scope = url.searchParams.get("for");
-    if (scope !== null && !isScope(scope)) return to("/newsletter/invalid");
-    const outcome = await confirmSubscription(db, url.searchParams.get("token") ?? "", new Date(), scope ?? undefined);
-    if (outcome === "invalid") return to("/newsletter/invalid");
-    return to(scope?.startsWith("watch-") ? "/newsletter/confirmed/watch" : scope?.startsWith("wish-") ? "/newsletter/confirmed/wish" : "/newsletter/confirmed");
+    const result = await confirmByToken(db, secret, new Date());
+    return to(result.outcome === "done" ? DONE[result.kind] : "/newsletter/invalid");
   } catch (err) {
     log.error("newsletter.confirm_failed", { err });
-    return to("/newsletter/invalid");
+    return new Response("Try again later", { status: 503, headers: NO_STORE });
   }
+}
+
+/**
+ * A GET never confirms anything: mail scanners (Microsoft Safe Links and others) open every link in an email. An
+ * old-style link, or anyone opening this address, is sent to the page with the button.
+ */
+export async function GET(request: Request) {
+  const t = new URL(request.url).searchParams.get("t");
+  return to(t && isToken(t) ? `/newsletter/confirm?t=${encodeURIComponent(t)}` : "/newsletter/invalid");
 }

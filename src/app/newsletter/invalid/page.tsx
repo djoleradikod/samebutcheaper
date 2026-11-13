@@ -7,10 +7,11 @@ export const metadata: Metadata = { title: "That link didn't work", robots: { in
 
 export default function InvalidLinkPage() {
   return (
-    <ProsePage title="That link didn't work" intro="It may have expired, or part of it was cut off.">
+    <ProsePage title="That link didn't work" intro="It may have been used already, expired, or part of it was cut off.">
       <p>
-        Confirmation links stop working after 30 days. You can sign up again from the <Link href="/">home page</Link>,
-        and we&apos;ll send a new one.
+        A confirmation link works once, for 30 days, and a newer email replaces it. If you&apos;ve already confirmed,
+        there&apos;s nothing more to do. Otherwise you can ask again from the <Link href="/">home page</Link> or the
+        swap&apos;s page, and we&apos;ll send a new link.
       </p>
       <p>
         Trying to unsubscribe? Email <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a> from the address

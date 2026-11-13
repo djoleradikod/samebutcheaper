@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { legalMissing, legalNotice } from "../../src/lib/legal";
 import { readinessChecks, summarize, type Facts } from "../../src/lib/readiness";
 
 const GOOD_FACTS: Facts = { siteUrl: "https://samebutcheaper.com", database: "ok", migrationsApplied: 4, migrationsExpected: 4 };
@@ -13,6 +14,9 @@ const GOOD_ENV = {
   MAIL_FROM: "SameButCheaper <hello@samebutcheaper.com>",
   NEWSLETTER_WEEKLY: "on",
   MAIL_POSTAL_ADDRESS: "SameButCheaper, 1 Example Street, Berlin",
+  LEGAL_NAME: "Example Owner",
+  LEGAL_ADDRESS: "1 Example Street | 10115 Berlin",
+  LEGAL_EMAIL: "legal@samebutcheaper.com",
 };
 const failing = (env: Record<string, string>, facts = GOOD_FACTS) => readinessChecks(env, facts).filter((c) => !c.ok).map((c) => c.id);
 
@@ -50,7 +54,7 @@ test("no affiliate IDs and no email are recommended, not blockers", () => {
   const env = { ADMIN_PASSWORD: GOOD_ENV.ADMIN_PASSWORD, CLICK_HASH_SALT: GOOD_ENV.CLICK_HASH_SALT };
   const s = summarize(readinessChecks(env, GOOD_FACTS));
   assert.equal(s.ready, true);
-  assert.deepEqual(s.recommended.map((c) => c.id).sort(), ["affiliate", "mail", "postback-secret", "weekly-letter"]);
+  assert.deepEqual(s.recommended.map((c) => c.id).sort(), ["affiliate", "legal-notice", "mail", "postback-secret", "weekly-letter"]);
 });
 
 test("the weekly letter needs its switch, a postal address and email", () => {
@@ -72,4 +76,29 @@ test("no check ever echoes a secret", () => {
   for (const secret of [GOOD_ENV.ADMIN_PASSWORD, GOOD_ENV.CLICK_HASH_SALT, GOOD_ENV.POSTBACK_SECRET, GOOD_ENV.RESEND_API_KEY]) {
     assert.ok(!text.includes(secret));
   }
+});
+
+test("the legal notice: required before any email goes out, recommended while email is off", () => {
+  const legal = (env: Record<string, string>) => readinessChecks(env, GOOD_FACTS).find((c) => c.id === "legal-notice")!;
+  assert.equal(legal(GOOD_ENV).ok, true);
+  const missing = legal({ ...GOOD_ENV, LEGAL_ADDRESS: " " });
+  assert.deepEqual([missing.ok, missing.level], [false, "blocker"]);
+  assert.match(missing.detail, /LEGAL_ADDRESS/);
+  assert.equal(summarize(readinessChecks({ ...GOOD_ENV, LEGAL_NAME: "" }, GOOD_FACTS)).ready, false, "email on, no notice: not ready");
+  assert.equal(legal({ ...GOOD_ENV, LEGAL_NAME: "", RESEND_API_KEY: "" }).level, "recommended");
+  assert.ok(!failing({ ...GOOD_ENV, WISH_MAX_PER_RUN: "50" }).includes("mail-numbers"));
+  assert.ok(failing({ ...GOOD_ENV, WISH_MAX_PER_RUN: "lots" }).includes("mail-numbers"));
+});
+
+test("the legal notice is built only from what is set, never filled in", () => {
+  assert.equal(legalNotice({ LEGAL_NAME: "A", LEGAL_EMAIL: "a@example.com" }), null);
+  assert.deepEqual(legalNotice({ LEGAL_NAME: " Ana Owner ", LEGAL_ADDRESS: "1 Main St | 10115 Berlin | Germany", LEGAL_EMAIL: "a@example.com", LEGAL_PHONE: "" }), {
+    name: "Ana Owner",
+    address: ["1 Main St", "10115 Berlin", "Germany"],
+    email: "a@example.com",
+    phone: null,
+    vatId: null,
+    responsible: null,
+  });
+  assert.deepEqual(legalMissing({ LEGAL_NAME: "x" }), ["LEGAL_ADDRESS", "LEGAL_EMAIL"]);
 });

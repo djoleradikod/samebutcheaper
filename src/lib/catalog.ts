@@ -7,6 +7,7 @@ import { dupeActives, dupeSlugFor } from "./dupes";
 import { INGREDIENT_MATCHES, ingredientKey, ingredientPageKey, slugify } from "./ingredient-key";
 import { oneOfEachSwap } from "./localize";
 import { isCutOut } from "./photos";
+import { canLeadNow } from "./reported-state";
 
 const catalog = catalogJson as unknown as Catalog;
 
@@ -74,7 +75,7 @@ export function pickByPhotos(
 ): Pair[] {
   const picked: Pair[] = [];
   for (let standing = 0; standing <= NO_PHOTO_STANDING; standing++) {
-    const tier = pool.filter((p) => !p.priceOld && photoStanding(p) === standing);
+    const tier = pool.filter((p) => canLeadNow(p) && photoStanding(p) === standing);
     const counts = new Map<string, number>();
     for (const p of tier) {
       if (picked.length >= limit) return picked;

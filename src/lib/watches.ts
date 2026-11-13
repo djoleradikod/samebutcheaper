@@ -6,7 +6,7 @@ import type { Currency } from "./format";
 import { localFor } from "./localize";
 import { log } from "./log";
 import { esc, mailConfigured, sendMail } from "./mail";
-import { button, COLORS, fullName, shell, tagged, textFooter, type Footer } from "./mail-layout";
+import { button, COLORS, fullName, shell, tagged, textFooter, yearlyNote, type Footer } from "./mail-layout";
 import { listHeaders, priceColumns, unsubscribeUrl, type WatchPrices } from "./newsletter";
 import type { Pair } from "./types";
 import { unitDisplay } from "./unit-format";
@@ -131,6 +131,8 @@ export function watchMail(
         ? `The saving against ${pair.brand.brand} is now ${Math.round(now.savingsPct)}%, under 5%, down from ${Math.round(before.savingsPct)}%.`
         : `It is ${Math.round(now.savingsPct)}% cheaper than ${pair.brand.brand} (was ${Math.round(before.savingsPct)}%).`,
     );
+    const yearly = change.savingsDropped ? null : yearlyNote(pair, local);
+    if (yearly) parts.push(yearly);
     parts.push(`Prices as we checked them in ${monthName(now.priceChecked)}. Store prices can change between our checks.`);
     subject = change.savingsDropped ? `The saving on a swap you watch is now under 5%` : `Price change on a swap you watch: ${pair.alternative.brand}`;
     const link = tagged(`${opts.siteUrl}/compare/${pair.slug}`, campaign);

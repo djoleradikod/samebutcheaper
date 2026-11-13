@@ -2,9 +2,10 @@ import { Suspense, type ReactNode } from "react";
 import { CountryProvider } from "@/components/CountryProvider";
 import type { Local } from "@/lib/localize";
 import { getCountry, getLocal } from "@/lib/server-country";
+import { reportedRecords } from "@/lib/reported";
 
 async function ForCountry({ children }: { children: (local: Local) => ReactNode }) {
-  const local = await getLocal();
+  const [local] = await Promise.all([getLocal(), reportedRecords()]);
   // The raw reading: an unknown shopper's Local stands in a default country, and client components have to know it's unknown.
   return (
     <CountryProvider country={await getCountry()} others={local.others}>

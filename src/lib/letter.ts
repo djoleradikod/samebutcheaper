@@ -1,13 +1,16 @@
-import { and, asc, eq, sql } from "drizzle-orm";
+import { createHash } from "node:crypto";
+import { and, asc, eq, inArray, not, sql } from "drizzle-orm";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import * as schema from "@/db/schema";
 import { MATCH_TYPE_META } from "./categories";
 import { catalogueData, type CatalogueView } from "./catalog-data";
+import { legalNotice, NEEDS_LEGAL_NOTICE } from "./legal";
 import { letterSettings } from "./letter-settings";
 import { localFor, type Local } from "./localize";
 import { log } from "./log";
 import { esc, mailConfigured, sendMail } from "./mail";
-import { button, COLORS, fullName, shell, tagged, textFooter, type Footer } from "./mail-layout";
+import { BATCH_MAX, sendBatch } from "./mail-batch";
+import { button, COLORS, fullName, shell, tagged, textFooter, yearlyNote, type Footer } from "./mail-layout";
 import { listHeaders, unsubscribeUrl } from "./newsletter";
 import type { Bundle, Pair } from "./types";
 import { unitDisplay } from "./unit-format";
@@ -119,18 +122,20 @@ function kitName(kit: Bundle) {
   return fullName(kit.bundle.brand, kit.bundle.name.split(":")[0].trim());
 }
 
-function pairLines(pair: Pair, local: Local, link: string) {
+/** One swap as a letter (or a wish answer) lists it, with its yearly saving where that is honest (see yearlyNote). */
+export function pairLines(pair: Pair, local: Local, link: string) {
   const unit = unitDisplay(pair.brand.unit).label;
   const head = fullName(pair.alternative.brand, pair.alternative.product);
   const instead = `instead of ${fullName(pair.brand.brand, pair.brand.product)}`;
+  const yearly = yearlyNote(pair, local);
   const facts = `${MATCH_TYPE_META[pair.match_type].label}. ${Math.round(pair.savingsPct)}% less: ${local.unit(pair.alternative.ppu, pair.brand.unit, pair.currency)} against ${local.unit(pair.brand.ppu, pair.brand.unit, pair.currency)} ${unit}.`;
   const html = `<tr><td style="padding:14px 0;border-top:1px solid ${COLORS.line}">
 <p style="margin:0;font-size:16px;line-height:1.35;font-weight:600"><a href="${esc(link)}" style="color:${COLORS.ink};text-decoration:none">${esc(head)}</a></p>
 <p style="margin:2px 0 6px;font-size:14px;line-height:1.4;color:${COLORS.ink2}">${esc(instead)}</p>
 <p style="margin:0 0 6px;font-size:14px;line-height:1.45;color:${COLORS.ink}">${esc(facts)}</p>
-<p style="margin:0;font-size:14px"><a href="${esc(link)}" style="color:${COLORS.cobalt};text-decoration:underline">What matches and what differs</a></p>
+${yearly ? `<p style="margin:0 0 6px;font-size:13px;line-height:1.45;color:${COLORS.ink2}">${esc(yearly)}</p>\n` : ""}<p style="margin:0;font-size:14px"><a href="${esc(link)}" style="color:${COLORS.cobalt};text-decoration:underline">What matches and what differs</a></p>
 </td></tr>`;
-  return { html, text: [`* ${head}`, `  ${instead}`, `  ${facts}`, `  ${link}`].join("\n") };
+  return { html, text: [`* ${head}`, `  ${instead}`, `  ${facts}`, ...(yearly ? [`  ${yearly}`] : []), `  ${link}`].join("\n") };
 }
 
 function kitLines(kit: Bundle, local: Local, link: string) {
@@ -212,13 +217,25 @@ export { letterSettings };
 export type LetterRun =
   | { status: "off" | "no-postal-address" | "not-today" }
   | { status: "no-mail"; waiting: number }
-  | { status: "ran"; issue: string; sent: number; empty: number; failed: number };
+  /** `held`: readers in DE or AT waiting for the legal notice (src/lib/legal.ts). */
+  | { status: "ran"; issue: string; sent: number; empty: number; failed: number; held: number };
 
+/** A stable key for one batch: the issue and exactly who is in it, so a retry of the same batch is the same request. */
+function batchKey(issueKey: string, ids: number[]) {
+  return `weekly-${issueKey}-${createHash("sha256").update(ids.join(",")).digest("hex").slice(0, 32)}`;
+}
 
-/** Sends this week's issue to everyone who hasn't had it, up to the run's cap. Safe to run as often as you like. */
+/**
+ * Sends this week's issue to everyone who hasn't had it, up to the run's cap. Safe to run as often as you like.
+ *
+ * Each reader's letter is claimed in `sends` (unique per reader, kind and week) before anything is sent, so two runs
+ * at once, or a run after a crash, never send it twice. Claimed letters go to Resend in batches of up to 100 (one
+ * request each, keyed on the issue and its readers). A refused batch (nothing sent) is retried one email at a time;
+ * a failed or unanswered one releases its claims, and the next run tries those readers again.
+ */
 export async function runWeeklyLetter(
   db: DB,
-  opts: { siteUrl: string; contactEmail: string; env?: Env; now?: Date; catalogue?: CatalogueView; pauseMs?: number },
+  opts: { siteUrl: string; contactEmail: string; env?: Env; now?: Date; catalogue?: CatalogueView; pauseMs?: number; batchSize?: number },
 ): Promise<LetterRun> {
   const env = opts.env ?? process.env;
   const now = opts.now ?? new Date();
@@ -227,11 +244,16 @@ export async function runWeeklyLetter(
   if (!settings.postalAddress) return { status: "no-postal-address" };
   if (isoWeekday(now) < settings.weekday) return { status: "not-today" };
   const issueKey = isoWeek(now);
-  const due = and(
-    eq(subscribers.status, "confirmed"),
-    eq(subscribers.newsletter, "yes"),
-    sql`not exists (select 1 from ${sends} where ${sends.subscriberId} = ${subscribers.id} and ${sends.kind} = 'weekly' and ${sends.key} = ${issueKey})`,
-  );
+  const notYet = sql`not exists (select 1 from ${sends} where ${sends.subscriberId} = ${subscribers.id} and ${sends.kind} = 'weekly' and ${sends.key} = ${issueKey})`;
+  const readers = and(eq(subscribers.status, "confirmed"), eq(subscribers.newsletter, "yes"), notYet);
+  // Without a published legal notice, German and Austrian readers wait (src/lib/legal.ts).
+  const legal = legalNotice(env);
+  const inHeldCountry = inArray(sql`coalesce(${subscribers.country}, '')`, [...NEEDS_LEGAL_NOTICE]);
+  const due = legal ? readers : and(readers, not(inHeldCountry));
+  const [{ n: held }] = legal
+    ? [{ n: 0 }]
+    : await db.select({ n: sql<number>`count(*)`.mapWith(Number) }).from(subscribers).where(and(readers, inHeldCountry));
+  if (held) log.info("letter.held_back", { reason: "no-legal-notice", held, issue: issueKey });
   if (!mailConfigured(env)) {
     const [{ n }] = await db.select({ n: sql<number>`count(*)`.mapWith(Number) }).from(subscribers).where(due);
     if (n) log.info("letter.not_sent", { reason: "mail-not-configured", waiting: n, issue: issueKey });
@@ -240,35 +262,69 @@ export async function runWeeklyLetter(
   const catalogue = opts.catalogue ?? catalogueData();
   const seen = await noteCatalogue(db, catalogue, now);
   const people = await db.select().from(subscribers).where(due).orderBy(asc(subscribers.id)).limit(settings.cap);
-  const run = { status: "ran" as const, issue: issueKey, sent: 0, empty: 0, failed: 0 };
-  for (const person of people) {
-    if (!person.token) continue;
-    const history = await db
-      .select({ items: sends.items })
-      .from(sends)
-      .where(and(eq(sends.subscriberId, person.id), eq(sends.kind, "weekly"), eq(sends.status, "sent")));
-    const sent = new Set(history.flatMap((h) => (Array.isArray(h.items) ? (h.items as string[]) : [])));
-    const issue = buildIssue({ catalogue, country: person.country, sent, seen, now });
-    const [claim] = await db
-      .insert(sends)
-      .values({ subscriberId: person.id, kind: "weekly", key: issueKey, status: issue ? "sending" : "empty", createdAt: now })
-      .onConflictDoNothing()
-      .returning({ id: sends.id });
-    if (!claim) continue;
-    if (!issue) {
-      run.empty++;
-      continue;
+  const run = { status: "ran" as const, issue: issueKey, sent: 0, empty: 0, failed: 0, held };
+  const size = Math.max(1, Math.min(BATCH_MAX, opts.batchSize ?? BATCH_MAX));
+  const letterOpts = { ...opts, postalAddress: settings.postalAddress };
+
+  for (let at = 0; at < people.length; at += size) {
+    const ready: { claim: number; person: (typeof people)[number]; issue: Issue; mail: ReturnType<typeof letterMail> }[] = [];
+    for (const person of people.slice(at, at + size)) {
+      if (!person.token) continue;
+      const history = await db
+        .select({ items: sends.items })
+        .from(sends)
+        .where(and(eq(sends.subscriberId, person.id), eq(sends.kind, "weekly"), eq(sends.status, "sent")));
+      const had = new Set(history.flatMap((h) => (Array.isArray(h.items) ? (h.items as string[]) : [])));
+      const issue = buildIssue({ catalogue, country: person.country, sent: had, seen, now });
+      const [claim] = await db
+        .insert(sends)
+        .values({ subscriberId: person.id, kind: "weekly", key: issueKey, status: issue ? "sending" : "empty", createdAt: now })
+        .onConflictDoNothing()
+        .returning({ id: sends.id });
+      if (!claim) continue;
+      if (!issue) {
+        run.empty++;
+        continue;
+      }
+      ready.push({ claim: claim.id, person, issue, mail: letterMail(issue, { to: person.email, token: person.token, issueKey }, letterOpts) });
     }
-    const mail = letterMail(issue, { to: person.email, token: person.token, issueKey }, { ...opts, postalAddress: settings.postalAddress });
-    const result = await sendMail({ ...mail, idempotencyKey: `weekly-${issueKey}-${person.id}` }, env);
-    if (!result.ok) {
-      await db.delete(sends).where(eq(sends.id, claim.id));
+    if (!ready.length) continue;
+
+    const done = async (r: (typeof ready)[number], id: string | null) => {
+      await db.update(sends).set({ status: "sent", providerId: id, items: r.issue.keys }).where(eq(sends.id, r.claim));
+      run.sent++;
+    };
+    const release = async (r: (typeof ready)[number]) => {
+      await db.delete(sends).where(eq(sends.id, r.claim));
       run.failed++;
+    };
+    const oneByOne = async () => {
+      for (const r of ready) {
+        const result = await sendMail({ ...r.mail, idempotencyKey: `weekly-${issueKey}-${r.person.id}` }, env);
+        if (result.ok) await done(r, result.id);
+        else await release(r);
+        if (opts.pauseMs) await new Promise((res) => setTimeout(res, opts.pauseMs));
+      }
+    };
+
+    if (ready.length === 1) {
+      await oneByOne();
       continue;
     }
-    await db.update(sends).set({ status: "sent", providerId: result.id, items: issue.keys }).where(eq(sends.id, claim.id));
-    run.sent++;
-    if (opts.pauseMs) await new Promise((r) => setTimeout(r, opts.pauseMs));
+    const result = await sendBatch(
+      ready.map((r) => r.mail),
+      batchKey(issueKey, ready.map((r) => r.person.id)),
+      env,
+    );
+    if (result.ok) {
+      for (const [i, r] of ready.entries()) await done(r, result.ids[i]);
+    } else if (result.reason === "invalid") {
+      // Resend refused the whole batch, so none of it went: send each on its own, so one bad address can't hold up the rest.
+      await oneByOne();
+    } else {
+      for (const r of ready) await release(r);
+    }
+    if (opts.pauseMs) await new Promise((res) => setTimeout(res, opts.pauseMs));
   }
   if (run.failed) log.warn("letter.some_failed", { issue: issueKey, failed: run.failed });
   return run;

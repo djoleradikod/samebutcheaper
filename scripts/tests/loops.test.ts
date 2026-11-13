@@ -8,12 +8,19 @@ import { and, eq } from "drizzle-orm";
 import catalogJson from "../../src/generated/catalog.json";
 import * as schema from "../../src/db/schema";
 import type { CatalogueView } from "../../src/lib/catalog-data";
-import { buildIssue, isoWeek, letterMail, runWeeklyLetter } from "../../src/lib/letter";
+import { buildIssue, isoWeek, letterMail, noteCatalogue, runWeeklyLetter } from "../../src/lib/letter";
+import { legalNotice } from "../../src/lib/legal";
+import { yearlyNote } from "../../src/lib/mail-layout";
+import { localFor } from "../../src/lib/localize";
 import { runMaintenance } from "../../src/lib/maintenance";
-import { confirmSubscription, requestWatch, requestWish, subscribeEmail, unsubscribe } from "../../src/lib/newsletter";
-import { cleanNote, closeReports, openReportCount, recordReport, reportQueue } from "../../src/lib/reports";
+import { confirmByToken, confirmTarget, requestWatch, requestWish, subscribeEmail, unsubscribe, unsubscribeTarget } from "../../src/lib/newsletter";
+import { cleanNote, closeReports, flaggedRecords, openReportCount, recordReport, reportQueue } from "../../src/lib/reports";
+import { canLeadNow, isReported, setReported } from "../../src/lib/reported-state";
 import { mostWanted, normaliseQuery, recordWanted } from "../../src/lib/wanted";
-import { pricesOf, runWatches, watchChange } from "../../src/lib/watches";
+import { runWishAnswers } from "../../src/lib/wanted-answer";
+import { coveredBy, namesMatch, searchFields, wishMatcher, words, wouldRelease } from "../../src/lib/wanted-match";
+import { pricesOf, runWatches, watchChange, watchMail } from "../../src/lib/watches";
+import { savingKind } from "../../src/lib/yearly";
 import type { Bundle, Catalog, Pair } from "../../src/lib/types";
 import { ALL_TABLES, mailStub, testDb, type Sent } from "./db-support";
 
@@ -50,7 +57,14 @@ before(async () => {
   await conn.open();
   await mail.start();
   env = mail.state.env;
-  letterEnv = { ...env, NEWSLETTER_WEEKLY: "on", MAIL_POSTAL_ADDRESS: "SameButCheaper, 1 Test Street, Berlin" };
+  letterEnv = {
+    ...env,
+    NEWSLETTER_WEEKLY: "on",
+    MAIL_POSTAL_ADDRESS: "SameButCheaper, 1 Test Street, Berlin",
+    LEGAL_NAME: "Test Owner",
+    LEGAL_ADDRESS: "1 Test Street | 10115 Berlin",
+    LEGAL_EMAIL: "legal@samebutcheaper.test",
+  };
 });
 after(async () => {
   mail.stop();
@@ -62,14 +76,11 @@ beforeEach(async () => {
   await db.execute(ALL_TABLES);
 });
 
-const linkIn = (m: Sent) => /(\/api\/newsletter\/confirm\?token=[A-Za-z0-9_-]+(?:&for=[a-z]+-\d+)?)/.exec(m.text)![1];
-function parseLink(link: string) {
-  const u = new URL(link, SITE);
-  return { token: u.searchParams.get("token")!, scope: (u.searchParams.get("for") ?? undefined) as never };
-}
+/** The secret in a confirmation email's link to /newsletter/confirm. */
+const linkIn = (m: Sent) => /\/newsletter\/confirm\?t=([A-Za-z0-9_-]+)/.exec(m.text)![1];
+/** Opening the link and pressing the button. */
 async function follow(m: Sent) {
-  const { token, scope } = parseLink(linkIn(m));
-  return confirmSubscription(db, token, new Date(), scope);
+  return (await confirmByToken(db, linkIn(m))).outcome;
 }
 const watchFor = (email: string, pair = usPair, country: string | null = "US") =>
   requestWatch(db, { email, country, slug: pair.slug, title: pair.title, prices: pricesOf(pair) }, { siteUrl: SITE, env });
@@ -156,8 +167,9 @@ test("misses are counted per query, country and day, with 7- and 30-day totals a
 test("a watch from a new address waits for its own link, and doesn't sign them up for the letter", { skip }, async () => {
   assert.equal(await watchFor("ana@example.com"), "sent");
   assert.equal(sent.length, 1);
-  assert.match(sent[0].text, new RegExp(`/api/newsletter/confirm\\?token=[A-Za-z0-9_-]+&for=watch-1`));
+  assert.match(sent[0].text, new RegExp(`${SITE}/newsletter/confirm\\?t=[A-Za-z0-9_-]{43}\\n`));
   assert.ok(sent[0].text.includes(usPair.title));
+  assert.ok(sent[0].text.includes(`${SITE}/impressum`), "the legal notice is linked");
   assert.equal(sent[0].headers?.["List-Unsubscribe-Post"], "List-Unsubscribe=One-Click");
   const [w] = await db.select().from(watches);
   assert.equal(w.status, "pending");
@@ -167,14 +179,20 @@ test("a watch from a new address waits for its own link, and doesn't sign them u
   assert.equal((await runWatches(db, opts({ catalogue: repriced(usPair, 1.2) }))).sent, 0);
   assert.equal(sent.length, 1);
 
+  // Opening the link shows what it is for and changes nothing; only the button does.
+  const before = await confirmTarget(db, linkIn(sent[0]));
+  assert.deepEqual(before, { kind: "watch", email: "a•••@example.com", title: usPair.title, slug: usPair.slug });
+  assert.deepEqual(await confirmTarget(db, linkIn(sent[0])), before, "opening it twice changes nothing");
+  assert.equal((await db.select().from(watches))[0].status, "pending");
   assert.equal(await follow(sent[0]), "done");
-  assert.equal(await follow(sent[0]), "already");
+  assert.equal(await follow(sent[0]), "invalid", "a used link does nothing");
+  assert.equal(await confirmTarget(db, linkIn(sent[0])), null);
   const [sub] = await db.select().from(subscribers);
   assert.deepEqual([sub.status, sub.newsletter], ["confirmed", "no"]);
   assert.equal((await db.select().from(watches))[0].status, "active");
   // Confirmed for a watch only: the weekly letter skips them.
   const run = await runWeeklyLetter(db, { ...opts(), env: letterEnv, now: THURSDAY });
-  assert.deepEqual(run, { status: "ran", issue: isoWeek(THURSDAY), sent: 0, empty: 0, failed: 0 });
+  assert.deepEqual(run, { status: "ran", issue: isoWeek(THURSDAY), sent: 0, empty: 0, failed: 0, held: 0 });
 });
 
 test("someone else typing a confirmed address can't start anything without that address's click", { skip }, async () => {
@@ -184,15 +202,17 @@ test("someone else typing a confirmed address can't start anything without that 
   assert.equal(sent.length, 2);
   const [w] = await db.select().from(watches);
   assert.equal(w.status, "pending", "a confirmed address still confirms each new thing");
-  // The letter's link doesn't switch on the watch.
-  const letterLink = parseLink(linkIn(sent[0]));
-  assert.equal(await confirmSubscription(db, letterLink.token), "already");
+  // The letter's (used) link doesn't switch on the watch, and neither does the address's unsubscribe token.
+  assert.equal(await follow(sent[0]), "invalid");
+  const bo = (await db.select().from(subscribers).where(eq(subscribers.email, "bo@example.com")))[0];
+  assert.equal((await confirmByToken(db, bo.token!)).outcome, "invalid");
   assert.equal((await db.select().from(watches))[0].status, "pending");
-  // A link for a watch that belongs to another address does nothing.
+  // Another address's watch has its own secret; confirming it leaves this one alone.
   await watchFor("cy@example.com");
   const cyWatch = (await db.select().from(watches).where(eq(watches.slug, usPair.slug))).find((x) => x.id !== w.id)!;
-  assert.equal(await confirmSubscription(db, letterLink.token, new Date(), `watch-${cyWatch.id}`), "invalid");
-  assert.equal((await db.select().from(watches).where(eq(watches.id, cyWatch.id)))[0].status, "pending");
+  assert.equal(await follow(sent.at(-1)!), "done");
+  assert.equal((await db.select().from(watches).where(eq(watches.id, cyWatch.id)))[0].status, "active");
+  assert.equal((await db.select().from(watches).where(eq(watches.id, w.id)))[0].status, "pending");
   // Its own link does.
   assert.equal(await follow(sent[1]), "done");
   assert.equal((await db.select().from(watches).where(eq(watches.id, w.id)))[0].status, "active");
@@ -213,7 +233,7 @@ test("confirmation emails are limited: one per thing per ten minutes, five per a
 test("a wish confirms on its own and counts as waiting", { skip }, async () => {
   assert.equal(await requestWish(db, { email: "em@example.com", query: "nurofen express", country: "GB" }, { siteUrl: SITE, env }), "sent");
   assert.ok(sent[0].text.includes("nurofen express"));
-  assert.match(linkIn(sent[0]), /&for=wish-1$/);
+  assert.deepEqual(await confirmTarget(db, linkIn(sent[0])), { kind: "wish", email: "e•••@example.com", query: "nurofen express" });
   assert.equal((await db.select().from(wishes))[0].status, "pending");
   assert.equal(await follow(sent[0]), "done");
   const [w] = await db.select().from(wishes);
@@ -327,8 +347,9 @@ test("unsubscribe: one watch, the letter, or everything; links only work for the
   assert.deepEqual((await db.select().from(watches).orderBy(watches.id)).map((w) => w.status), ["stopped", "stopped"]);
   await runWatches(db, opts({ catalogue: repriced(dePair, 1.5) }));
   assert.equal(sent.length, 0);
-  // An old confirm link can't bring anything back.
-  assert.equal(await confirmSubscription(db, sub.token!, new Date(), `watch-${w2.id}`), "invalid");
+  // Neither the unsubscribe token nor any old confirm link can bring anything back.
+  assert.equal((await confirmByToken(db, sub.token!)).outcome, "invalid");
+  assert.deepEqual(await unsubscribeTarget(db, sub.token!), { email: "h•••@example.com", anythingOn: false, scoped: null });
 });
 
 // ---- The weekly letter -----------------------------------------------------------------------------------------
@@ -362,7 +383,9 @@ test("the letter goes once a week to confirmed readers only, in their currency, 
   mail.reset();
 
   const first = await runWeeklyLetter(db, { ...opts(), env: letterEnv, now: THURSDAY });
-  assert.deepEqual(first, { status: "ran", issue: "2026-W46", sent: 2, empty: 0, failed: 0 });
+  assert.deepEqual(first, { status: "ran", issue: "2026-W46", sent: 2, empty: 0, failed: 0, held: 0 });
+  assert.equal(mail.state.batches.length, 1, "both went in one batch request");
+  assert.match(mail.state.batches[0].key ?? "", /^weekly-2026-W46-[0-9a-f]{32}$/);
   assert.deepEqual(sent.map((m) => m.to[0]).sort(), ["de@example.com", "us@example.com"]);
   const de = sent.find((m) => m.to[0] === "de@example.com")!;
   const us = sent.find((m) => m.to[0] === "us@example.com")!;
@@ -391,14 +414,48 @@ test("the letter goes once a week to confirmed readers only, in their currency, 
   for (const k of w2) assert.ok(!w1.has(k), `${k} was already in last week's letter`);
 });
 
-test("letters are capped per run, and a failed send is tried again", { skip }, async () => {
+test("letters are capped per run, and a failed batch is tried again with the same key", { skip }, async () => {
   for (const e of ["l1@example.com", "l2@example.com", "l3@example.com"]) await reader(e, "GB");
   mail.state.failNext = 1;
   const capped = { ...letterEnv, NEWSLETTER_MAX_PER_RUN: "2" };
-  assert.deepEqual(await runWeeklyLetter(db, { ...opts(), env: capped, now: THURSDAY }), { status: "ran", issue: "2026-W46", sent: 1, empty: 0, failed: 1 });
-  assert.deepEqual(await runWeeklyLetter(db, { ...opts(), env: capped, now: THURSDAY }), { status: "ran", issue: "2026-W46", sent: 2, empty: 0, failed: 0 });
+  const run = () => runWeeklyLetter(db, { ...opts(), env: capped, now: THURSDAY });
+  assert.deepEqual(await run(), { status: "ran", issue: "2026-W46", sent: 0, empty: 0, failed: 2, held: 0 }, "a server error releases the whole batch");
+  assert.equal((await db.select().from(sends).where(eq(sends.kind, "weekly"))).length, 0, "the claims are released");
+  assert.deepEqual(await run(), { status: "ran", issue: "2026-W46", sent: 2, empty: 0, failed: 0, held: 0 });
+  assert.deepEqual(await run(), { status: "ran", issue: "2026-W46", sent: 1, empty: 0, failed: 0, held: 0 });
+  assert.deepEqual(await run(), { status: "ran", issue: "2026-W46", sent: 0, empty: 0, failed: 0, held: 0 }, "nobody gets it twice");
   assert.equal(sent.length, 3);
   assert.equal(new Set(sent.map((m) => m.to[0])).size, 3);
+  assert.deepEqual(mail.state.batches.map((b) => b.size), [2], "two in a batch, the last one on its own");
+});
+
+test("a batch Resend refuses as a whole is sent one by one instead; batches never exceed their size", { skip }, async () => {
+  for (const e of ["v1@example.com", "v2@example.com", "v3@example.com", "v4@example.com", "v5@example.com"]) await reader(e, "US");
+  mail.state.invalidNext = 1;
+  const r = await runWeeklyLetter(db, { ...opts(), env: letterEnv, now: THURSDAY, batchSize: 2 });
+  assert.deepEqual(r, { status: "ran", issue: "2026-W46", sent: 5, empty: 0, failed: 0, held: 0 });
+  // The first batch of two was refused (nothing sent), so those two went singly; then a batch of two and a single.
+  assert.deepEqual(mail.state.batches.map((b) => b.size), [2]);
+  assert.equal(sent.length, 5);
+  assert.equal(new Set(sent.map((m) => m.to[0])).size, 5);
+  assert.deepEqual(sent.slice(0, 2).map((m) => m.idempotencyKey), [`weekly-2026-W46-1`, `weekly-2026-W46-2`]);
+  for (const m of sent) assert.equal(m.headers?.["List-Unsubscribe-Post"], "List-Unsubscribe=One-Click", "every email in a batch keeps its own list headers");
+});
+
+test("without a legal notice, readers in Germany and Austria wait for the letter; others get it", { skip }, async () => {
+  await reader("de-held@example.com", "DE");
+  await reader("at-held@example.com", "AT");
+  await reader("gb-ok@example.com", "GB");
+  await reader("unknown-ok@example.com", null);
+  const noLegal = { ...letterEnv, LEGAL_NAME: "", LEGAL_ADDRESS: "", LEGAL_EMAIL: "" };
+  assert.equal(legalNotice(noLegal), null);
+  const r = await runWeeklyLetter(db, { ...opts(), env: noLegal, now: THURSDAY });
+  assert.deepEqual(r, { status: "ran", issue: "2026-W46", sent: 2, empty: 0, failed: 0, held: 2 });
+  assert.deepEqual(sent.map((m) => m.to[0]).sort(), ["gb-ok@example.com", "unknown-ok@example.com"]);
+  mail.reset();
+  const later = await runWeeklyLetter(db, { ...opts(), env: letterEnv, now: THURSDAY });
+  assert.deepEqual(later, { status: "ran", issue: "2026-W46", sent: 2, empty: 0, failed: 0, held: 0 }, "once it is set, they get it");
+  for (const m of sent) assert.ok(m.text.includes(`${SITE}/impressum`));
 });
 
 test("new records lead the letter; the first sighting of the catalogue counts as old", { skip }, async () => {
@@ -449,4 +506,172 @@ test("upkeep deletes old reports, counts, stopped watches and unconfirmed reques
   const shorter = await runMaintenance(db, { siteUrl: SITE, env: { RETENTION_REPORT_DAYS: "7", RETENTION_WANTED_DAYS: "1" }, now, pauseMs: 0 });
   assert.equal(shorter?.reportsDeleted, 1);
   assert.equal(shorter?.wantedDeleted, 1);
+});
+
+// ---- Wave 2: answering "tell me when you add it" ----------------------------------------------------------------
+
+const kindOf = (p: Pair) => savingKind({ category: p.category, unit: p.brand.unit, size: p.brand.size, products: [p.brand.product, p.alternative.product] });
+
+test("a request matches only a swap whose brand or product name holds every word of it", () => {
+  assert.deepEqual(words("Advil Liqui-Gels 200 mg"), ["advil", "liqui", "gels", "200", "mg"]);
+  assert.deepEqual(words("Crème"), ["creme"]);
+  const advil = { brandName: "Advil", brandProduct: "Advil Liqui-Gels Ibuprofen 200 mg, 80 count", altName: "Equate", altProduct: "Equate Ibuprofen Softgels" };
+  assert.ok(namesMatch("advil", advil));
+  assert.ok(namesMatch("advil liqui-gels", advil));
+  assert.ok(namesMatch("equate ibuprofen", advil), "the cheaper product's name counts too");
+  assert.ok(!namesMatch("advil pm", advil), "every word must be there");
+  assert.ok(!namesMatch("adv", advil), "whole words only");
+  assert.ok(!namesMatch("advil softgels", advil), "the words must all name the same product");
+  assert.ok(coveredBy("advil", "advil liqui-gels") && !coveredBy("advil liqui-gels", "advil"));
+  assert.equal(
+    wouldRelease("advil liqui-gels", [
+      { query: "advil", n: 3 },
+      { query: "advil liqui-gels", n: 2 },
+      { query: "advil pm", n: 5 },
+    ]),
+    5,
+  );
+});
+
+test("the matcher is the site search, narrowed: it finds a catalogue swap by its brand, and nothing for an ingredient alone", () => {
+  const match = wishMatcher(catalog.pairs.map(searchFields));
+  const q = normaliseQuery(usPair.brand.brand)!;
+  assert.ok(match(q).some((p) => p.slug === usPair.slug), q);
+  assert.deepEqual(match("zzyzx cream"), []);
+  const ingredient = catalog.pairs.find((p) => p.brand.key_ingredients[0]?.name && !namesMatch(p.brand.key_ingredients[0].name, searchFields(p)))!;
+  const name = normaliseQuery(ingredient.brand.key_ingredients[0].name)!;
+  for (const found of match(name)) assert.ok(namesMatch(name, found), `${name} matched ${found.slug} only by its name`);
+});
+
+test("a swap that goes live answers waiting requests once, by email, and ends them", { skip }, async () => {
+  const query = normaliseQuery(usPair.brand.brand)!;
+  // The catalogue as it was when they asked: without this swap.
+  await noteCatalogue(db, without(usPair.slug), new Date());
+  await requestWish(db, { email: "wa@example.com", query, country: "US" }, { siteUrl: SITE, env });
+  await follow(sent.at(-1)!);
+  await requestWish(db, { email: "wb@example.com", query, country: "US" }, { siteUrl: SITE, env }); // never confirmed
+  await requestWish(db, { email: "wc@example.com", query: "zzyzx cream", country: "US" }, { siteUrl: SITE, env });
+  await follow(sent.at(-1)!);
+  // A request for a brand whose swaps were all there already: nothing new goes live for it.
+  const old = catalog.pairs.find((p) => p.market === "US" && !namesMatch(normaliseQuery(p.brand.brand)!, searchFields(usPair)))!;
+  await requestWish(db, { email: "wd@example.com", query: normaliseQuery(old.brand.brand)!, country: "US" }, { siteUrl: SITE, env });
+  await follow(sent.at(-1)!);
+  mail.reset();
+
+  assert.deepEqual(await runWishAnswers(db, { ...opts(), env: {}, catalogue: without(usPair.slug) }), { waiting: 3, matched: 0, sent: 0, notSent: 0 });
+  const unsent = await runWishAnswers(db, { ...opts(), env: {}, catalogue: full });
+  assert.deepEqual(unsent, { waiting: 3, matched: 1, sent: 0, notSent: 1 }, "without email it is only logged");
+  const [a, b] = await Promise.all([runWishAnswers(db, opts({ catalogue: full })), runWishAnswers(db, opts({ catalogue: full }))]);
+  assert.equal(a.sent + b.sent, 1, "two runs at once still send one");
+  assert.equal(sent.length, 1);
+  const m = sent[0];
+  assert.deepEqual(m.to, ["wa@example.com"]);
+  assert.match(m.subject, new RegExp(`We've added a swap for “${query}”`));
+  assert.ok(m.text.includes(usPair.alternative.product) || m.text.includes(usPair.alternative.brand));
+  assert.ok(m.html.includes(`/compare/${usPair.slug}?utm_source=newsletter`));
+  assert.ok(m.text.includes("this is the only email about it"));
+  assert.ok(m.text.includes(`${SITE}/impressum`));
+  assert.equal(m.headers?.["List-Unsubscribe-Post"], "List-Unsubscribe=One-Click");
+  assert.equal(m.idempotencyKey, "wish-1");
+  const rows = await db.select().from(wishes).orderBy(wishes.id);
+  assert.deepEqual(rows.map((w) => w.status), ["answered", "pending", "active", "active"]);
+  assert.equal(rows[0].answeredSlug, usPair.slug);
+  assert.equal((await db.select().from(sends).where(eq(sends.kind, "wish"))).length, 1);
+  assert.equal((await runWishAnswers(db, opts({ catalogue: full }))).sent, 0, "answered once");
+});
+
+test("a failed answer is tried again; answers are capped per run and only go to the request's country", { skip }, async () => {
+  const query = normaliseQuery(usPair.brand.brand)!;
+  await noteCatalogue(db, without(usPair.slug), new Date());
+  for (const e of ["c1@example.com", "c2@example.com", "c3@example.com"]) {
+    await requestWish(db, { email: e, query, country: "US" }, { siteUrl: SITE, env });
+    await follow(sent.at(-1)!);
+  }
+  await requestWish(db, { email: "gb@example.com", query, country: "GB" }, { siteUrl: SITE, env });
+  await follow(sent.at(-1)!);
+  mail.reset();
+  mail.state.failNext = 1;
+  const first = await runWishAnswers(db, opts({ catalogue: full, limit: 1 }));
+  assert.equal(first.sent, 1, "one failed and was released, one went, and the cap stopped the rest");
+  const local = localFor("GB");
+  const gbSees = local.shows(usPair);
+  assert.equal((await runWishAnswers(db, opts({ catalogue: full, limit: 5 }))).sent, gbSees ? 3 : 2);
+  assert.equal(new Set(sent.map((m) => m.to[0])).size, sent.length);
+  assert.equal(sent.some((m) => m.to[0] === "gb@example.com"), gbSees);
+});
+
+test("upkeep answers requests and reports it", { skip }, async () => {
+  const query = normaliseQuery(usPair.brand.brand)!;
+  await noteCatalogue(db, without(usPair.slug), new Date());
+  await requestWish(db, { email: "up@example.com", query, country: "US" }, { siteUrl: SITE, env });
+  await follow(sent.at(-1)!);
+  mail.reset();
+  const report = await runMaintenance(db, { siteUrl: SITE, env, catalogue: full, pauseMs: 0 });
+  assert.equal(report?.wishMailsSent, 1);
+});
+
+test("admin: each wanted query shows how many confirmed requests a swap for it would answer", { skip }, async () => {
+  const now = new Date();
+  await recordWanted(db, { query: "advil liqui-gels", source: "search", country: "US", now });
+  await recordWanted(db, { query: "advil", source: "search", country: "US", now });
+  for (const [e, q] of [["r1@example.com", "advil"], ["r2@example.com", "advil liqui-gels"], ["r3@example.com", "advil pm"]] as const) {
+    await requestWish(db, { email: e, query: q, country: "US" }, { siteUrl: SITE, env });
+    await follow(sent.at(-1)!);
+  }
+  await requestWish(db, { email: "r4@example.com", query: "advil", country: "US" }, { siteUrl: SITE, env }); // unconfirmed
+  const rows = await mostWanted(db, { now });
+  const by = Object.fromEntries(rows.map((r) => [r.query, r.wouldRelease]));
+  assert.deepEqual(by, { "advil liqui-gels": 2, advil: 1 });
+});
+
+// ---- Wave 2: reports that come true ----------------------------------------------------------------------------
+
+test("three different shoppers reporting price or stock in 14 days flag a record until it is resolved", { skip }, async () => {
+  const now = new Date("2026-11-13T12:00:00Z");
+  const ago = (d: number) => new Date(now.getTime() - d * 86400000);
+  for (const [h, kind] of [["a", "price"], ["b", "price"], ["c", "stock"]] as const) await recordReport(db, { recordKind: "pair", slug: usPair.slug, kind, visitorHash: h, now: ago(1) });
+  for (const h of ["a", "b"]) await recordReport(db, { recordKind: "bundle", slug: "two-only", kind: "stock", visitorHash: h, now: ago(1) });
+  for (const h of ["x", "y", "z"]) await recordReport(db, { recordKind: "pair", slug: "too-old", kind: "price", visitorHash: h, now: ago(15) });
+  for (const h of ["x", "y", "z"]) await recordReport(db, { recordKind: "pair", slug: "other-kind", kind: "product", visitorHash: h, now: ago(1) });
+  assert.deepEqual(await flaggedRecords(db, now), [{ recordKind: "pair", slug: usPair.slug, price: 2, stock: 1 }]);
+  await closeReports(db, { recordKind: "pair", slug: usPair.slug }, "resolved", now);
+  assert.deepEqual(await flaggedRecords(db, now), []);
+});
+
+test("a reported swap can't lead a list, like a stale one, until the flag clears", () => {
+  const fresh = catalog.pairs.find((p) => !p.priceOld)!;
+  setReported([]);
+  assert.ok(canLeadNow(fresh));
+  setReported([{ recordKind: "pair", slug: fresh.slug }]);
+  assert.ok(isReported("pair", fresh.slug) && !isReported("bundle", fresh.slug));
+  assert.ok(!canLeadNow(fresh));
+  setReported([]);
+  assert.ok(canLeadNow(fresh));
+});
+
+// ---- Wave 2: yearly saving in emails ---------------------------------------------------------------------------
+
+test("the yearly saving shows in emails only for things people keep buying, and names its assumption", () => {
+  const regular = catalog.pairs.find((p) => p.market === "GB" && kindOf(p) === "yearly" && p.savingsPct > 10)!;
+  const oneOff = catalog.pairs.find((p) => kindOf(p) === "once")!;
+  const perAmount = catalog.pairs.find((p) => kindOf(p) === "per-amount");
+  const gb = localFor("GB");
+  const note = yearlyNote(regular, gb)!;
+  assert.match(note, /^If you buy a pack of .+ every month, that's £[\d,.]+ a year\./);
+  assert.equal(yearlyNote(oneOff, gb), null, "never for a one-off buy");
+  if (perAmount) assert.equal(yearlyNote(perAmount, gb), null, "never for a record priced per wash");
+
+  const issue = { country: "GB", fresh: [], biggest: [regular, oneOff], kits: [], keys: [`p:${regular.slug}`, `p:${oneOff.slug}`] };
+  const letter = letterMail(issue, { to: "x@example.com", token: "t".repeat(32), issueKey: "2026-W46" }, { siteUrl: SITE, contactEmail: CONTACT });
+  assert.equal(letter.text.split("If you buy a pack").length - 1, 1, "one yearly line: the regular buy's");
+  assert.ok(letter.text.includes(note));
+
+  const watch = (pair: Pair) =>
+    watchMail(
+      { to: "x@example.com", token: "t".repeat(32), watchId: 1, title: pair.title, slug: pair.slug, country: "GB", before: pricesOf(pair), change: { withdrawn: false, move: -0.1, savingsDropped: false, prices: pricesOf(pair) }, pair },
+      { siteUrl: SITE, contactEmail: CONTACT },
+    );
+  assert.ok(watch(regular).text.includes("a year"));
+  assert.ok(!watch(oneOff).text.includes("If you buy a pack"));
+  assert.ok(watch(oneOff).text.includes(`Impressum (legal notice): ${SITE}/impressum`));
 });

@@ -29,9 +29,17 @@
 		lb_try_interval 500ms
 	}
 
+	# Email links carry secrets in the query (?t= confirms, ?token= unsubscribes): keep them out of the access log.
 	log {
 		output stdout
-		format json
+		format filter {
+			request>uri query {
+				replace t REDACTED
+				replace token REDACTED
+			}
+			request>headers>Referer delete
+			wrap json
+		}
 	}
 }
 

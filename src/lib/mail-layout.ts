@@ -1,4 +1,8 @@
+import { impressumUrl } from "./legal";
+import type { Local } from "./localize";
 import { esc } from "./mail";
+import type { Pair } from "./types";
+import { DEFAULT_FREQUENCY, frequencyLabel, savingKind, yearlySaving } from "./yearly";
 
 /**
  * The frame every list email shares: plain HTML with inline styles (mail apps drop style sheets), no images, no
@@ -41,7 +45,7 @@ export function shell(opts: { title: string; preheader: string; body: string; fo
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px"><tr><td style="padding:16px 24px;font-size:12px;line-height:1.6;color:${COLORS.muted}">
 <p style="margin:0 0 8px">${esc(f.why)}</p>
 <p style="margin:0 0 8px">${stop}</p>
-<p style="margin:0">SameButCheaper &middot; <a href="${esc(f.siteUrl)}" style="color:${COLORS.muted}">${esc(host)}</a> &middot; <a href="mailto:${esc(f.contactEmail)}" style="color:${COLORS.muted}">${esc(f.contactEmail)}</a>${f.postalAddress ? `<br>${esc(f.postalAddress)}` : ""}</p>
+<p style="margin:0">SameButCheaper &middot; <a href="${esc(f.siteUrl)}" style="color:${COLORS.muted}">${esc(host)}</a> &middot; <a href="mailto:${esc(f.contactEmail)}" style="color:${COLORS.muted}">${esc(f.contactEmail)}</a> &middot; <a href="${esc(impressumUrl(f.siteUrl))}" style="color:${COLORS.muted}">Impressum (legal notice)</a>${f.postalAddress ? `<br>${esc(f.postalAddress)}` : ""}</p>
 </td></tr></table>
 </td></tr></table>
 </body></html>`;
@@ -54,8 +58,23 @@ export function textFooter(f: Footer) {
     ...(f.stopThis ? [`${f.stopThis.label}: ${f.stopThis.url}`] : []),
     `Unsubscribe from everything: ${f.stopAll}`,
     `SameButCheaper, ${f.siteUrl.replace(/^https?:\/\//, "")}, ${f.contactEmail}`,
+    `Impressum (legal notice): ${impressumUrl(f.siteUrl)}`,
     ...(f.postalAddress ? [f.postalAddress] : []),
   ].join("\n");
+}
+
+/**
+ * What a swap saves in a year, for an email, only where a yearly figure is honest: something people keep buying
+ * (src/lib/yearly.ts savingKind "yearly"). Never for a one-off buy or a record priced per wash. We don't know how
+ * often the reader buys it, so the sentence names its assumption (one brand pack a month, the site's default) and
+ * the swap page lets them change it. Null when there is nothing honest to say.
+ */
+export function yearlyNote(pair: Pair, local: Local): string | null {
+  const { brand: b, alternative: a } = pair;
+  if (savingKind({ category: pair.category, unit: b.unit, size: b.size, products: [b.product, a.product] }) !== "yearly") return null;
+  const saved = yearlySaving({ brandPrice: b.price, brandSize: b.size, altPrice: a.price, altSize: a.size }, DEFAULT_FREQUENCY);
+  if (!(saved > 0)) return null;
+  return `If you buy a pack of ${pair.brand.brand} ${frequencyLabel(DEFAULT_FREQUENCY)}, that's ${local.money(saved, pair.currency)} a year. Set how often you buy it on the swap's page.`;
 }
 
 /** Adds the newsletter tags to a link on our own site. */

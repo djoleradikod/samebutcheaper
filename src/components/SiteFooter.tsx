@@ -18,6 +18,7 @@ const LINKS = [
   { href: "/credits", label: "Photo credits" },
   { href: "/disclosure", label: linksEarn() ? "Affiliate disclosure" : "Disclosure" },
   { href: "/privacy", label: "Privacy" },
+  { href: "/impressum", label: "Impressum" },
 ];
 
 export function SiteFooter() {
