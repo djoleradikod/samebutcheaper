@@ -72,7 +72,7 @@ export function swapMetadata(slug: string, country: PrefixedCountry | null): Met
   const url = head?.alternates.canonical ?? withCountry(`/compare/${pair.slug}`, country);
   // The share image is made once per swap, at its unprefixed URL; the unprefixed page picks it up from its own folder.
   const images = country ? { images: [{ url: `/compare/${pair.slug}/opengraph-image`, width: 1200, height: 630 }] } : {};
-  return { title, description, ...head, openGraph: { title, description, url, type: "article", ...images } };
+  return { title, description, ...head, openGraph: { title, description, url, type: "article", ...(lang === "de" ? { locale: "de_DE" } : {}), ...images } };
 }
 
 const BAND = "border-y border-line bg-canvas";

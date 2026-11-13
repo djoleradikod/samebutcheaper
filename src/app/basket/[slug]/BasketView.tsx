@@ -39,7 +39,7 @@ export function basketMetadata(slug: string, country: PrefixedCountry | null): M
   const url = head?.alternates.canonical ?? withCountry(`/basket/${p.slug}`, country);
   // The share image is made once per basket, at its unprefixed URL.
   const images = country ? { images: [{ url: `/basket/${p.slug}/opengraph-image`, width: 1200, height: 630 }] } : {};
-  return { title, description, ...head, openGraph: { title, description, url, type: "article", ...images } };
+  return { title, description, ...head, openGraph: { title, description, url, type: "article", ...(lang === "de" ? { locale: "de_DE" } : {}), ...images } };
 }
 
 /**

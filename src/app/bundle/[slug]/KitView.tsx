@@ -54,7 +54,7 @@ export function kitMetadata(slug: string, country: PrefixedCountry | null): Meta
   const url = head?.alternates.canonical ?? withCountry(`/bundle/${b.slug}`, country);
   // The share image is made once per kit, at its unprefixed URL.
   const images = country ? { images: [{ url: `/bundle/${b.slug}/opengraph-image`, width: 1200, height: 630 }] } : {};
-  return { title, description, ...head, openGraph: { title, description, url, type: "article", ...images } };
+  return { title, description, ...head, openGraph: { title, description, url, type: "article", ...(lang === "de" ? { locale: "de_DE" } : {}), ...images } };
 }
 
 /** The first image on the page that has a real photo. It loads eagerly. */
