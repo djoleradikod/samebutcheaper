@@ -36,7 +36,7 @@ import { bundleDescription, bundleTitle } from "@/lib/seo";
 import { countryHead, pageVersionsFor } from "@/lib/seo-catalog";
 import { VersionLinks } from "@/components/CountryIndex";
 import { withCountry, type PrefixedCountry } from "@/lib/country-url";
-import { getT, type Lang } from "@/lib/i18n";
+import { getT } from "@/lib/i18n";
 import { langForCountry } from "@/lib/i18n/lang";
 import { kitText } from "@/lib/i18n/record";
 import { rich } from "@/lib/i18n/rich";

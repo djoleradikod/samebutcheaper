@@ -6,10 +6,13 @@ import type { Currency } from "./format";
 import { localFor } from "./localize";
 import { log } from "./log";
 import { esc, mailConfigured, sendMail } from "./mail";
-import { button, COLORS, fullName, shell, tagged, textFooter, yearlyNote, type Footer } from "./mail-layout";
+import { button, COLORS, fullName, readerLang, shell, sitePath, tagged, textFooter, yearlyNote, type Footer } from "./mail-layout";
 import { listHeaders, priceColumns, unsubscribeUrl, type WatchPrices } from "./newsletter";
 import type { Pair } from "./types";
-import { unitDisplay } from "./unit-format";
+import { unitLabel } from "./unit-format";
+import { getT } from "./i18n";
+import { monthDe } from "./i18n/format";
+import type { Lang } from "./i18n/lang";
 
 /**
  * Price watches. A watch holds a swap's prices from when it began (or from the last email about it). Prices only
@@ -82,80 +85,83 @@ export function storedPrices(w: typeof watches.$inferSelect): WatchPrices {
 
 type MailOpts = { siteUrl: string; contactEmail: string; postalAddress?: string | null };
 
-/** The email about one change, in the subscriber's currency when we know their country. */
+/** The email about one change, in the subscriber's language, and in their currency when we know their country. */
 export function watchMail(
-  input: { to: string; token: string; watchId: number; title: string; slug: string; country: string | null; before: WatchPrices; change: WatchChange; pair: Pair | null },
+  input: { to: string; token: string; watchId: number; title: string; slug: string; country: string | null; lang?: Lang; before: WatchPrices; change: WatchChange; pair: Pair | null },
   opts: MailOpts,
 ) {
   const { change, before } = input;
+  const lang = input.lang ?? "en";
+  const t = getT(lang);
   const scope = `watch-${input.watchId}` as const;
   const footer: Footer = {
-    why: "You get this because you asked us to email you if this swap changes. This watch only writes when a price moves 5% or more, the saving drops under 5%, or the swap is withdrawn.",
-    stopThis: { label: "Stop watching this swap", url: unsubscribeUrl(opts.siteUrl, input.token, scope) },
+    why: t("mailWatch.why"),
+    stopThis: { label: t("mailWatch.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, scope) },
     stopAll: unsubscribeUrl(opts.siteUrl, input.token),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,
+    lang,
   };
   const campaign = "price-watch";
   let subject: string;
   let lines: string[];
   let html: string;
   if (change.withdrawn || !input.pair) {
-    subject = `We've withdrawn a swap you watch`;
-    lines = [
-      `We've taken “${input.title}” off SameButCheaper, so your watch on it has ended.`,
-      "We won't email you about it again.",
-    ];
-    const link = tagged(`${opts.siteUrl}/search`, campaign);
+    subject = t("mailWatch.withdrawnSubject");
+    lines = [t("mailWatch.withdrawn", input.title), t("mailWatch.noMore")];
+    const link = tagged(`${opts.siteUrl}${sitePath("/search", lang)}`, campaign);
     html =
       lines.map((l) => `<p style="margin:0 0 14px;font-size:16px;line-height:1.5">${esc(l)}</p>`).join("") +
-      `<p style="margin:8px 0 0">${button("Find another swap", link)}</p>`;
-    lines.push("", `Find another swap: ${link}`);
+      `<p style="margin:8px 0 0">${button(t("mailWatch.findAnother"), link)}</p>`;
+    lines.push("", `${t("mailWatch.findAnother")}: ${link}`);
   } else {
     const pair = input.pair;
     const now = change.prices;
-    const local = localFor(input.country);
-    const per = unitDisplay(now.unit).label;
+    const local = localFor(input.country, false, lang);
+    const per = unitLabel(now.unit, lang);
     const cur = (n: number, c: string) => `${local.unit(n, now.unit, c as Currency)} ${per}`;
     const alt = fullName(pair.alternative.brand, pair.alternative.product);
     const parts: string[] = [];
     if (change.move !== null && Math.abs(change.move) >= PRICE_MOVE - 1e-9) {
-      const dir = change.move > 0 ? "up" : "down";
-      parts.push(`${alt} has gone ${dir} ${Math.round(Math.abs(change.move) * 100)}%, to ${cur(now.altPpu, now.currency)} from ${cur(before.altPpu, before.currency)}.`);
+      parts.push(t("mailWatch.moved", alt, change.move > 0, Math.round(Math.abs(change.move) * 100), cur(now.altPpu, now.currency), cur(before.altPpu, before.currency)));
     } else if (change.move === null) {
-      parts.push(`We've re-priced ${alt}: it is now ${cur(now.altPpu, now.currency)}.`);
+      parts.push(t("mailWatch.repriced", alt, cur(now.altPpu, now.currency)));
     }
     parts.push(
       change.savingsDropped
-        ? `The saving against ${pair.brand.brand} is now ${Math.round(now.savingsPct)}%, under 5%, down from ${Math.round(before.savingsPct)}%.`
-        : `It is ${Math.round(now.savingsPct)}% cheaper than ${pair.brand.brand} (was ${Math.round(before.savingsPct)}%).`,
+        ? t("mailWatch.savingDropped", pair.brand.brand, Math.round(now.savingsPct), Math.round(before.savingsPct))
+        : t("mailWatch.cheaperThan", Math.round(now.savingsPct), pair.brand.brand, Math.round(before.savingsPct)),
     );
-    const yearly = change.savingsDropped ? null : yearlyNote(pair, local);
+    const yearly = change.savingsDropped ? null : yearlyNote(pair, local, lang);
     if (yearly) parts.push(yearly);
-    parts.push(`Prices as we checked them in ${monthName(now.priceChecked)}. Store prices can change between our checks.`);
-    subject = change.savingsDropped ? `The saving on a swap you watch is now under 5%` : `Price change on a swap you watch: ${pair.alternative.brand}`;
-    const link = tagged(`${opts.siteUrl}/compare/${pair.slug}`, campaign);
-    lines = [pair.title, "", ...parts];
+    parts.push(t("mailWatch.pricesAsOf", monthName(now.priceChecked, lang)));
+    subject = change.savingsDropped ? t("mailWatch.subjectDropped") : t("mailWatch.subjectChange", pair.alternative.brand);
+    const link = tagged(`${opts.siteUrl}${sitePath(`/compare/${pair.slug}`, lang)}`, campaign);
+    // The record's title is English; a German reader gets the two names, which read the same in both.
+    const heading = lang === "en" ? pair.title : `${pair.alternative.brand} statt ${pair.brand.brand}`;
+    lines = [heading, "", ...parts];
     html =
-      `<h1 style="margin:0 0 14px;font-size:20px;line-height:1.3">${esc(pair.title)}</h1>` +
+      `<h1 style="margin:0 0 14px;font-size:20px;line-height:1.3">${esc(heading)}</h1>` +
       parts.map((l, i) => `<p style="margin:0 0 12px;font-size:${i === parts.length - 1 ? 13 : 16}px;line-height:1.5;color:${i === parts.length - 1 ? COLORS.muted : COLORS.ink}">${esc(l)}</p>`).join("") +
-      `<p style="margin:8px 0 0">${button("See the swap", link)}</p>`;
-    lines.push("", `See the swap: ${link}`);
+      `<p style="margin:8px 0 0">${button(t("mailWatch.seeSwap"), link)}</p>`;
+    lines.push("", `${t("mailWatch.seeSwap")}: ${link}`);
   }
   return {
     to: input.to,
     subject,
     text: [...lines, "", textFooter(footer)].join("\n"),
-    html: shell({ title: subject, preheader: lines[0] === input.title ? lines[2] ?? "" : lines[0], body: html, footer }),
+    html: shell({ title: subject, preheader: lines[0] === input.title || (lang !== "en" && input.pair && !change.withdrawn) ? lines[2] ?? "" : lines[0], body: html, footer }),
     headers: listHeaders(opts.siteUrl, input.token, scope),
   };
 }
 
-function monthName(checked: string | null) {
-  if (!checked) return "our last check";
+/** "November 2026", in the reader's language. Null when the record has no check date. */
+function monthName(checked: string | null, lang: Lang): string | null {
+  if (!checked) return null;
   const [y, m] = checked.split("-").map(Number);
   if (!y || !m) return checked;
+  if (lang === "de") return monthDe(checked);
   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
 }
 
@@ -206,7 +212,7 @@ export async function runWatches(
       continue;
     }
     const mail = watchMail(
-      { to: sub.email, token: sub.token, watchId: watch.id, title: watch.title, slug: watch.slug, country: sub.country, before, change, pair },
+      { to: sub.email, token: sub.token, watchId: watch.id, title: watch.title, slug: watch.slug, country: sub.country, lang: readerLang(sub.lang), before, change, pair },
       opts,
     );
     const result = await sendMail({ ...mail, idempotencyKey: key }, env);

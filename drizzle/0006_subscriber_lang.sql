@@ -1,0 +1,1 @@
+ALTER TABLE "subscribers" ADD COLUMN "lang" varchar(2) DEFAULT 'en' NOT NULL;

@@ -43,6 +43,8 @@ export async function subscribe(_prev: FormState, formData: FormData): Promise<F
         email: email.data,
         source: String(formData.get("source") ?? "site").slice(0, 64),
         country: isKnownCountry(cookieCountry) ? cookieCountry : null,
+        // The page's language, which the emails to this address are written in.
+        lang: isLang(lang) ? lang : "en",
       },
       { siteUrl: SITE.url },
     );

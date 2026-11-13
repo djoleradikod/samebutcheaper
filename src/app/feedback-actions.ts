@@ -16,8 +16,9 @@ import { normaliseQuery } from "@/lib/wanted";
 import { pricesOf } from "@/lib/watches";
 import { getT } from "@/lib/i18n";
 
-/** The forms send the page's language, so the answer reads in it. */
-const sayFor = (formData: FormData) => getT(formData.get("lang") === "de" ? "de" : "en");
+/** The forms send the page's language, so the answer, and any email it leads to, reads in it. */
+const formLang = (formData: FormData) => (formData.get("lang") === "de" ? "de" : "en");
+const sayFor = (formData: FormData) => getT(formLang(formData));
 
 /**
  * The forms on swap, kit and search pages: "Something wrong?", "Email me if this changes" and "Tell me when you
@@ -81,7 +82,7 @@ export async function watchSwap(_prev: FeedbackState, formData: FormData): Promi
   try {
     const outcome = await requestWatch(
       db,
-      { email: email.data, country: await country(), slug: pair.slug, title: pair.title, prices: pricesOf(pair) },
+      { email: email.data, country: await country(), lang: formLang(formData), slug: pair.slug, title: pair.title, prices: pricesOf(pair) },
       { siteUrl: SITE.url },
     );
     return confirmMessage(outcome, say("actions.startWatching"), say);
@@ -103,7 +104,7 @@ export async function wishFor(_prev: FeedbackState, formData: FormData): Promise
   const db = getDb();
   if (!db) return { ok: false, message: say("actions.notOpen") };
   try {
-    const outcome = await requestWish(db, { email: email.data, country: await country(), query }, { siteUrl: SITE.url });
+    const outcome = await requestWish(db, { email: email.data, country: await country(), lang: formLang(formData), query }, { siteUrl: SITE.url });
     return confirmMessage(outcome, say("actions.confirm"), say);
   } catch (err) {
     log.error("wish.request_failed", { err });

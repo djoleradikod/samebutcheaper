@@ -10,10 +10,12 @@ import { localFor, type Local } from "./localize";
 import { log } from "./log";
 import { esc, mailConfigured, sendMail } from "./mail";
 import { BATCH_MAX, sendBatch } from "./mail-batch";
-import { button, COLORS, fullName, shell, tagged, textFooter, yearlyNote, type Footer } from "./mail-layout";
+import { button, COLORS, fullName, readerLang, shell, sitePath, tagged, textFooter, yearlyNote, type Footer } from "./mail-layout";
 import { listHeaders, unsubscribeUrl } from "./newsletter";
 import type { Bundle, Pair } from "./types";
-import { unitDisplay } from "./unit-format";
+import { unitLabel } from "./unit-format";
+import { getT } from "./i18n";
+import type { Lang } from "./i18n/lang";
 
 /**
  * The weekly letter. Once a week, to every confirmed address that asked for it (subscribers.newsletter "yes"):
@@ -117,77 +119,84 @@ export function buildIssue(input: { catalogue: CatalogueView; country: string | 
 
 type LetterOpts = { siteUrl: string; contactEmail: string; postalAddress?: string | null };
 
-/** A kit's name without the list of what's in it: "La Roche-Posay Breakout-Fighting Set - High Strength". */
-function kitName(kit: Bundle) {
-  return fullName(kit.bundle.brand, kit.bundle.name.split(":")[0].trim());
+/** A kit's name without the list of what's in it: "La Roche-Posay Breakout-Fighting Set - High Strength". German when the kit has it. */
+function kitName(kit: Bundle, lang: Lang = "en") {
+  const name = (lang === "de" && kit.de?.name) || kit.bundle.name;
+  return fullName(kit.bundle.brand, name.split(":")[0].trim());
 }
 
 /** One swap as a letter (or a wish answer) lists it, with its yearly saving where that is honest (see yearlyNote). */
-export function pairLines(pair: Pair, local: Local, link: string) {
-  const unit = unitDisplay(pair.brand.unit).label;
+export function pairLines(pair: Pair, local: Local, link: string, lang: Lang = "en") {
+  const t = getT(lang);
+  const unit = unitLabel(pair.brand.unit, lang);
   const head = fullName(pair.alternative.brand, pair.alternative.product);
-  const instead = `instead of ${fullName(pair.brand.brand, pair.brand.product)}`;
-  const yearly = yearlyNote(pair, local);
-  const facts = `${MATCH_TYPE_META[pair.match_type].label}. ${Math.round(pair.savingsPct)}% less: ${local.unit(pair.alternative.ppu, pair.brand.unit, pair.currency)} against ${local.unit(pair.brand.ppu, pair.brand.unit, pair.currency)} ${unit}.`;
+  const instead = t("mailLetter.instead", fullName(pair.brand.brand, pair.brand.product));
+  const yearly = yearlyNote(pair, local, lang);
+  const match = lang === "en" ? MATCH_TYPE_META[pair.match_type].label : t(`match.${pair.match_type}.label`);
+  const facts = t("mailLetter.facts", match, Math.round(pair.savingsPct), local.unit(pair.alternative.ppu, pair.brand.unit, pair.currency), local.unit(pair.brand.ppu, pair.brand.unit, pair.currency), unit);
   const html = `<tr><td style="padding:14px 0;border-top:1px solid ${COLORS.line}">
 <p style="margin:0;font-size:16px;line-height:1.35;font-weight:600"><a href="${esc(link)}" style="color:${COLORS.ink};text-decoration:none">${esc(head)}</a></p>
 <p style="margin:2px 0 6px;font-size:14px;line-height:1.4;color:${COLORS.ink2}">${esc(instead)}</p>
 <p style="margin:0 0 6px;font-size:14px;line-height:1.45;color:${COLORS.ink}">${esc(facts)}</p>
-${yearly ? `<p style="margin:0 0 6px;font-size:13px;line-height:1.45;color:${COLORS.ink2}">${esc(yearly)}</p>\n` : ""}<p style="margin:0;font-size:14px"><a href="${esc(link)}" style="color:${COLORS.cobalt};text-decoration:underline">What matches and what differs</a></p>
+${yearly ? `<p style="margin:0 0 6px;font-size:13px;line-height:1.45;color:${COLORS.ink2}">${esc(yearly)}</p>\n` : ""}<p style="margin:0;font-size:14px"><a href="${esc(link)}" style="color:${COLORS.cobalt};text-decoration:underline">${t("mailLetter.whatMatches")}</a></p>
 </td></tr>`;
   return { html, text: [`* ${head}`, `  ${instead}`, `  ${facts}`, ...(yearly ? [`  ${yearly}`] : []), `  ${link}`].join("\n") };
 }
 
-function kitLines(kit: Bundle, local: Local, link: string) {
-  const head = kitName(kit);
-  const facts = `Rebuilt from ${kit.components.length} cheaper pieces for ${Math.round(kit.netSavingsPct)}% less: ${local.money(kit.equivalentTotal, kit.currency)} for the same amount, against ${local.money(kit.bundle.price, kit.currency)} for the kit.`;
+function kitLines(kit: Bundle, local: Local, link: string, lang: Lang = "en") {
+  const t = getT(lang);
+  const head = kitName(kit, lang);
+  const facts = t("mailLetter.rebuilt", kit.components.length, Math.round(kit.netSavingsPct), local.money(kit.equivalentTotal, kit.currency), local.money(kit.bundle.price, kit.currency));
   const html = `<tr><td style="padding:14px 0;border-top:1px solid ${COLORS.line}">
 <p style="margin:0 0 6px;font-size:16px;line-height:1.35;font-weight:600"><a href="${esc(link)}" style="color:${COLORS.ink};text-decoration:none">${esc(head)}</a></p>
 <p style="margin:0 0 6px;font-size:14px;line-height:1.45;color:${COLORS.ink}">${esc(facts)}</p>
-<p style="margin:0;font-size:14px"><a href="${esc(link)}" style="color:${COLORS.cobalt};text-decoration:underline">See the pieces</a></p>
+<p style="margin:0;font-size:14px"><a href="${esc(link)}" style="color:${COLORS.cobalt};text-decoration:underline">${t("mailLetter.seePieces")}</a></p>
 </td></tr>`;
   return { html, text: [`* ${head}`, `  ${facts}`, `  ${link}`].join("\n") };
 }
 
 /** The email for one issue. `token` is the subscriber's link token; a test send passes a placeholder. */
-export function letterMail(issue: Issue, input: { to: string; token: string; issueKey: string; test?: boolean }, opts: LetterOpts) {
-  const local = localFor(issue.country);
+export function letterMail(issue: Issue, input: { to: string; token: string; issueKey: string; test?: boolean; lang?: Lang }, opts: LetterOpts) {
+  const lang = input.lang ?? "en";
+  const t = getT(lang);
+  const local = localFor(issue.country, false, lang);
   const campaign = `weekly-${input.issueKey}`;
-  const link = (path: string) => tagged(`${opts.siteUrl}${path}`, campaign);
+  const link = (path: string) => tagged(`${opts.siteUrl}${sitePath(path, lang)}`, campaign);
   const sections: { title: string; rows: { html: string; text: string }[] }[] = [];
   if (issue.fresh.length) {
     sections.push({
-      title: "New on the site",
-      rows: issue.fresh.map((f) => (f.kind === "pair" ? pairLines(f.pair, local, link(`/compare/${f.pair.slug}`)) : kitLines(f.kit, local, link(`/bundle/${f.kit.slug}`)))),
+      title: t("mailLetter.newOnSite"),
+      rows: issue.fresh.map((f) => (f.kind === "pair" ? pairLines(f.pair, local, link(`/compare/${f.pair.slug}`), lang) : kitLines(f.kit, local, link(`/bundle/${f.kit.slug}`), lang))),
     });
   }
   if (issue.biggest.length) {
-    sections.push({ title: "Big savings you haven't had from us yet", rows: issue.biggest.map((p) => pairLines(p, local, link(`/compare/${p.slug}`))) });
+    sections.push({ title: t("mailLetter.bigSavings"), rows: issue.biggest.map((p) => pairLines(p, local, link(`/compare/${p.slug}`), lang)) });
   }
   if (issue.kits.length) {
-    sections.push({ title: "Kits, rebuilt for less", rows: issue.kits.map((k) => kitLines(k, local, link(`/bundle/${k.slug}`))) });
+    sections.push({ title: t("mailLetter.kits"), rows: issue.kits.map((k) => kitLines(k, local, link(`/bundle/${k.slug}`), lang)) });
   }
   const lead = issue.fresh[0] ?? (issue.biggest[0] ? { kind: "pair" as const, pair: issue.biggest[0] } : issue.kits[0] ? { kind: "kit" as const, kit: issue.kits[0] } : null);
   const total = issue.keys.length;
   const leadText = !lead
-    ? "New swaps this week"
+    ? t("mailLetter.leadNone")
     : lead.kind === "pair"
-      ? `${lead.pair.alternative.brand} instead of ${lead.pair.brand.brand}, ${Math.round(lead.pair.savingsPct)}% less`
-      : `${kitName(lead.kit)}, ${Math.round(lead.kit.netSavingsPct)}% less`;
-  const subject = `${input.test ? "[Test] " : ""}${leadText}${total > 1 ? `, and ${total - 1} more` : ""}`;
-  const priceNote = `Prices are as we last checked them at the store. Where a price reads “about”, we converted it to ${local.known ? local.currency : "your currency"} at the ECB reference rate. Prices change between our checks: the store's own page has today's.`;
+      ? t("mailLetter.leadPair", lead.pair.alternative.brand, lead.pair.brand.brand, Math.round(lead.pair.savingsPct))
+      : t("mailLetter.leadKit", kitName(lead.kit, lang), Math.round(lead.kit.netSavingsPct));
+  const subject = `${input.test ? t("mailLetter.test") : ""}${leadText}${total > 1 ? t("mailLetter.andMore", total - 1) : ""}`;
+  const priceNote = t("mailLetter.priceNote", local.known ? local.currency : null);
   const footer: Footer = {
-    why: "You get this because you asked for new swaps from SameButCheaper and confirmed your address. One email a week at most.",
-    stopThis: { label: "Unsubscribe from the weekly letter", url: unsubscribeUrl(opts.siteUrl, input.token, "letter") },
+    why: t("mailLetter.why"),
+    stopThis: { label: t("mailLetter.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, "letter") },
     stopAll: unsubscribeUrl(opts.siteUrl, input.token),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,
+    lang,
   };
   const hasKits = issue.kits.length > 0 || issue.fresh.some((f) => f.kind === "kit");
-  const intro = `${total} ${hasKits ? "swaps and kits" : total === 1 ? "swap" : "swaps"} you haven't had from us yet, each checked against at least two sources.`;
+  const intro = t("mailLetter.intro", total, hasKits);
   const body =
-    `<h1 style="margin:0 0 6px;font-size:22px;line-height:1.25">This week's swaps</h1>` +
+    `<h1 style="margin:0 0 6px;font-size:22px;line-height:1.25">${t("mailLetter.heading")}</h1>` +
     `<p style="margin:0 0 18px;font-size:15px;line-height:1.5;color:${COLORS.ink2}">${esc(intro)}</p>` +
     sections
       .map(
@@ -196,14 +205,14 @@ export function letterMail(issue: Issue, input: { to: string; token: string; iss
           `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${s.rows.map((r) => r.html).join("")}</table>`,
       )
       .join("") +
-    `<p style="margin:22px 0 16px">${button("See every swap", link("/biggest-savings"))}</p>` +
+    `<p style="margin:22px 0 16px">${button(t("mailLetter.seeEvery"), link("/biggest-savings"))}</p>` +
     `<p style="margin:0;font-size:12px;line-height:1.5;color:${COLORS.muted}">${esc(priceNote)}</p>`;
   const text = [
-    "This week's swaps",
+    t("mailLetter.heading"),
     intro,
     "",
     ...sections.flatMap((s) => [s.title.toUpperCase(), "", ...s.rows.map((r) => r.text + "\n")]),
-    `See every swap: ${link("/biggest-savings")}`,
+    `${t("mailLetter.seeEvery")}: ${link("/biggest-savings")}`,
     "",
     priceNote,
     "",
@@ -286,7 +295,7 @@ export async function runWeeklyLetter(
         run.empty++;
         continue;
       }
-      ready.push({ claim: claim.id, person, issue, mail: letterMail(issue, { to: person.email, token: person.token, issueKey }, letterOpts) });
+      ready.push({ claim: claim.id, person, issue, mail: letterMail(issue, { to: person.email, token: person.token, issueKey, lang: readerLang(person.lang) }, letterOpts) });
     }
     if (!ready.length) continue;
 

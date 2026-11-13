@@ -21,10 +21,13 @@ export const HUB_PATHS = ["/", "/biggest-savings", "/bundles"] as const;
  */
 export const INDEXED_LANGUAGE_PAGES = ["/check", "/check/list"] as const;
 
-/** A translated tool's versions: the unprefixed English page, which is also the x-default, and /de's German one. */
+/**
+ * A translated tool's versions: /de's German one, and the unprefixed English page as the x-default (it serves every
+ * other country, as a hub's unprefixed page does).
+ */
 export function languagePageVersions(path: string): Versions | null {
   if (!(INDEXED_LANGUAGE_PAGES as readonly string[]).includes(path)) return null;
-  return { languages: { en: path, "de-DE": withCountry(path, "DE") }, xDefault: path };
+  return { languages: { "de-DE": withCountry(path, "DE") }, xDefault: path };
 }
 
 function recordsOf(c: CatalogLists, section: RecordSection): readonly (Pair | Bundle | Preset)[] {

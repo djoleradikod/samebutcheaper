@@ -138,6 +138,7 @@ export function unitLabelDe(englishLabel: string, unit: string) {
   if (!m) return englishLabel;
   const what = m[1];
   if (/^(100 g|100 ml|100 mg|kg|lb|fl oz|oz)$/.test(what)) return `pro ${what}`;
+  if (/^(gb|tb)$/i.test(what)) return `pro ${what.toUpperCase()}`;
   const forms = germanUnit(what) ?? germanUnit(unit);
   return forms ? `pro ${forms[0]}` : `pro ${what}`;
 }
