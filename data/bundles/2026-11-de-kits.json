@@ -396,5 +396,79 @@
       "https://www.aponeo.de/16660402-cetaphil-pro-urea-10-lotion.html"
     ],
     "price_checked": "2026-11-13"
+  },
+  {
+    "slug": "hylo-comod-2x-2x10ml-vs-hyaluron-ratiopharm-augentropfen-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "title": "HYLO COMOD eye drops 2x (2x10 ml) vs two packs of Hyaluron-ratiopharm 2x10 ml",
+    "bundle": {
+      "brand": "HYLO",
+      "name": "HYLO COMOD Augentropfen Sparset, 2x (2x10 ml)",
+      "price": 45.98,
+      "billing": "one-time",
+      "supply_days": null,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/08032300-hylo-comod-augentropfen.html",
+      "items": [
+        {
+          "name": "HYLO COMOD Augentropfen 2x10 ml, pack 1",
+          "size": 20,
+          "unit": "ml",
+          "key_ingredients": [{ "name": "Sodium hyaluronate", "amount": "1 mg/ml (0.1%)" }]
+        },
+        {
+          "name": "HYLO COMOD Augentropfen 2x10 ml, pack 2",
+          "size": 20,
+          "unit": "ml",
+          "key_ingredients": [{ "name": "Sodium hyaluronate", "amount": "1 mg/ml (0.1%)" }]
+        }
+      ],
+      "extras": []
+    },
+    "components": [
+      {
+        "replaces": 0,
+        "brand": "ratiopharm",
+        "product": "Hyaluron-ratiopharm Augentropfen, 2x10 ml",
+        "size": 20,
+        "unit": "ml",
+        "price": 16.21,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/10810220-hyaluron-ratiopharm-augentropfen.html",
+        "key_ingredients": [{ "name": "Sodium hyaluronate", "amount": "1 mg/ml (0.1%)" }],
+        "match_type": "equivalent_spec",
+        "look_for": "preservative-free 0.1% sodium hyaluronate eye drops"
+      },
+      {
+        "replaces": 1,
+        "brand": "ratiopharm",
+        "product": "Hyaluron-ratiopharm Augentropfen, 2x10 ml",
+        "size": 20,
+        "unit": "ml",
+        "price": 16.21,
+        "retailer": "aponeo",
+        "asin": null,
+        "url": "https://www.aponeo.de/10810220-hyaluron-ratiopharm-augentropfen.html",
+        "key_ingredients": [{ "name": "Sodium hyaluronate", "amount": "1 mg/ml (0.1%)" }],
+        "match_type": "equivalent_spec",
+        "look_for": "preservative-free 0.1% sodium hyaluronate eye drops"
+      }
+    ],
+    "match_type": "equivalent_spec",
+    "confidence": "medium",
+    "summary": "HYLO COMOD's saver set is four 10 ml bottles of preservative-free 0.1% sodium hyaluronate eye drops. Hyaluron-ratiopharm has the same 1 mg/ml sodium hyaluronate, is also preservative-free and keeps 6 months after opening, and two of its 2x10 ml packs cost about 30% less at the same pharmacy.",
+    "evidence": "Prices read on aponeo.de on 13 Nov 2026. HYLO COMOD Augentropfen 2x (2x10 ml) (PZN 08032300, ships as 2x PZN 04047553, URSAPHARM) €45.98; the single 2x10 ml pack PZN 04047553 is €24.99, so the set is already HYLO's cheaper way to buy. URSAPHARM's leaflet: 1 ml contains 1 mg sodium hyaluronate, citric acid, sodium citrate, sorbitol and water for injection; sterile, phosphate-free, no preservative; usable 6 months after opening. Hyaluron-ratiopharm Augentropfen 2x10 ml (PZN 10810220, ratiopharm) €16.21: sodium hyaluronate 1 mg/ml, preservative-free, 6 months after opening (aponeo's page); ratiopharm's product page lists the excipients (sodium chloride, sodium hydrogen phosphate, potassium, calcium and magnesium chlorides, sodium hydrogen carbonate, purified water), says the bottle is a preservative-free valve-and-filter dispenser, the drops suit hard and soft contact lenses, and gives PZN 10810220 for 2x10 ml. Both are medical devices, not medicines. Same store, so one basket.",
+    "differences": "Same hyaluronate strength, different solutions. HYLO COMOD is phosphate-free with a citrate buffer and sorbitol; Hyaluron-ratiopharm contains phosphate and a salt mix modelled on tears. People with a damaged cornea are sometimes told to avoid phosphate drops, so ask an eye doctor or pharmacist if that applies to you, and the brand wins there. HYLO's COMOD pump and ratiopharm's squeeze bottle feel different to use. Two ratiopharm packs come to €32.42, under aponeo's €34.99 free-delivery line, so the rebuild pays €3.99 delivery that the €45.98 set doesn't.",
+    "sources": [
+      "https://www.aponeo.de/08032300-hylo-comod-augentropfen.html",
+      "https://www.aponeo.de/04047553-hylo-comod-augentropfen.html",
+      "https://dxsat.ursapharm.de/mediaportal/live/_storage/asset/84455/storage/master/download/Beipackzettel_Hylo_Comod.pdf",
+      "https://www.aponeo.de/10810220-hyaluron-ratiopharm-augentropfen.html",
+      "https://www.ratiopharm.de/produkte/details/hyaluron-ratiopharm-augentropfen-pzn-10810214/"
+    ],
+    "price_checked": "2026-11-13"
   }
 ]

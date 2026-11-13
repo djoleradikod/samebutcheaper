@@ -288,9 +288,9 @@
     "aponeo": {
       "DE": {
         "fee": 3.99,
-        "free_over": 29.99,
+        "free_over": 34.99,
         "confidence": "official",
-        "note": "Standard DHL delivery. Orders with a prescription for a prescription-only medicine ship free at any value. Express options always cost extra.",
+        "note": "Standard DHL delivery. Re-read 13 Nov 2026: free once an order is over 34.98 euros (the help text), and the banner and footer say 34.99; an earlier read the same day had 29.99. Orders with a prescription for a prescription-only medicine ship free at any value. Express options always cost extra.",
         "sources": ["https://www.aponeo.de/hilfe/versand-und-lieferung/wie-hoch-sind-die-versandkosten"],
         "abroad": {
           "AT": {

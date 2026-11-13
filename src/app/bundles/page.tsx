@@ -4,6 +4,7 @@ import { BasketCard } from "@/components/BasketCard";
 import { BundleCard } from "@/components/BundleCard";
 import { isMedicineBasket, toBasketSummary } from "@/lib/basket-view";
 import { getAllBundles, getAllPresets } from "@/lib/catalog";
+import { kitCaution } from "@/lib/buy-list";
 import { CATEGORIES } from "@/lib/categories";
 import { MARKET_CODES, MARKETS, type MarketCode } from "@/lib/markets";
 import type { Bundle, Preset } from "@/lib/types";
@@ -40,7 +41,7 @@ function basketsByMarket(presets: Preset[]) {
 /** Kits with real photos first, then the biggest saving. */
 function kitOrder(a: Bundle, b: Bundle) {
   const photos = (x: Bundle) => x.components.filter((c) => c.photo).length + (x.photo ? 1 : 0);
-  return photos(b) - photos(a) || b.score - a.score;
+  return Number(!!kitCaution(a)) - Number(!!kitCaution(b)) || photos(b) - photos(a) || b.score - a.score;
 }
 
 export default function BundlesPage() {

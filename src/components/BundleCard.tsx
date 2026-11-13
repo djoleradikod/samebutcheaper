@@ -7,11 +7,13 @@ import { PctTicket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
 import { Money } from "./Money";
 import { RETAILER_LABEL } from "@/lib/affiliate";
+import { kitCaution } from "@/lib/buy-list";
 
 /** A brand's kit on the left, the cheaper pieces that replace it on the right. */
 export function BundleCard({ bundle }: { bundle: Bundle }) {
   const pieces = bundle.components.slice(0, 4);
   const match = MATCH_TYPE_META[bundle.match_type];
+  const caution = kitCaution(bundle);
   return (
     <Link
       href={`/bundle/${bundle.slug}`}
@@ -68,8 +70,13 @@ export function BundleCard({ bundle }: { bundle: Bundle }) {
           <span className="text-[13px] font-medium text-muted">built yourself</span>
           <span className="price text-xl leading-none text-ink"><Money n={bundle.equivalentTotal} from={bundle.currency} /></span>
         </p>
+        {caution && (
+          <p className="mt-1.5 text-[13px] font-semibold text-different">
+            {caution.moreToday > 0 ? "Costs more today than the kit" : "Small saving after delivery"}
+          </p>
+        )}
         {bundle.netSavings > 0 && (
-          <p className="mt-1.5 text-[13px] font-semibold text-same">
+          <p className={`text-[13px] font-semibold text-same ${caution ? "" : "mt-1.5"}`}>
             Saves <Money n={bundle.netSavings} from={bundle.currency} prose />{" "}
             <span className="font-medium">{bundle.checkout?.delivery === null ? "before unchecked delivery" : "after delivery"}</span>
           </p>

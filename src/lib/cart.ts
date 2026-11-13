@@ -49,6 +49,36 @@ export function cartUrl(seller: string, pieces: readonly CartPiece[], market: Ma
   return `https://www.${domain}/gp/aws/cart/add.html?${params.toString()}`;
 }
 
+/**
+ * The ASIN an Amazon product URL carries: the ten characters after /dp/, /gp/product/ or /gp/aw/d/ on an Amazon
+ * storefront. Null for search links, other stores (chewy.com also uses /dp/, with its own numbers) and anything else.
+ * Parsing our own stored URL is all this does: it never fetches the page.
+ */
+export function asinFromUrl(url: string): string | null {
+  let u: URL;
+  try {
+    u = new URL(url);
+  } catch {
+    return null;
+  }
+  if (!/(^|\.)amazon\.(com|ca|de|fr|ie|co\.uk|co\.jp|it|es|nl|com\.au)$/.test(u.hostname)) return null;
+  const m = /\/(?:dp|gp\/product|gp\/aw\/d)\/([A-Z0-9]{10})(?=[/?#]|$)/.exec(u.pathname);
+  return m ? m[1] : null;
+}
+
+/**
+ * Why a stored ASIN can't be trusted next to its URL, or null when they agree. A URL with an ASIN and no `asin`
+ * field is a miss (the cart would leave the piece out); an `asin` that differs from the URL's would put the wrong
+ * product in the basket. A URL without one says nothing either way.
+ */
+export function asinProblem(p: { url: string; asin?: string | null }): string | null {
+  const inUrl = asinFromUrl(p.url);
+  if (!inUrl) return null;
+  if (!p.asin) return `its URL carries ASIN ${inUrl} but "asin" is not set`;
+  if (p.asin !== inUrl) return `"asin" is ${p.asin} but its URL carries ${inUrl}`;
+  return null;
+}
+
 /** The /go side that logs a cart click and redirects to the cart: "cart-amazon". */
 export function cartSide(seller: string) {
   return `cart-${seller}`;

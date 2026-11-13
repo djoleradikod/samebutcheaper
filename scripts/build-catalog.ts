@@ -39,6 +39,8 @@ import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine,
 import { freshnessOf, freshnessWeight, isoDay, type Freshness, type PriceSeen } from "../src/lib/freshness";
 import { priceSeenFor } from "./prices/attach";
 import { bySide, loadObservations } from "./prices/observations";
+import { asinProblem } from "../src/lib/cart";
+import { kitCaution } from "../src/lib/buy-list";
 
 const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data", "pairs");
@@ -418,7 +420,13 @@ function deriveBundle(b: BundleInput): Bundle {
     upfrontTotal: round(upfrontTotal, 2),
     savings: round(savings, 2),
     savingsPct: round(savingsPct, 1),
-    score: round(netPct * (1 + Math.log10(1 + netSavings * APPROX_USD[currency])) * confidence * storePenalty * cashPenalty, 2),
+    // A kit that costs more today or saves under 5% after delivery never leads a list: a hundredth of its score
+    // puts it behind every kit that doesn't, wherever lists sort by score.
+    score: round(
+      netPct * (1 + Math.log10(1 + netSavings * APPROX_USD[currency])) * confidence * storePenalty * cashPenalty *
+        (kitCaution({ bundle: b.bundle, netSavings, checkout: rebuild, kitCheckout }) ? 0.01 : 1),
+      2,
+    ),
     kitSeller,
     checkout: rebuild,
     kitCheckout,
@@ -453,6 +461,11 @@ for (const file of files) {
     if (seen.has(parsed.data.slug)) {
       errors.push(`${label}: duplicate slug`);
       return;
+    }
+    // An ASIN that disagrees with its own URL would put the wrong product in a cart.
+    for (const side of ["brand", "alternative"] as const) {
+      const problem = asinProblem(parsed.data[side]);
+      if (problem) (problem.includes("not set") ? warnings : errors).push(`${label} ${side}: ${problem}`);
     }
     const pair = derive(parsed.data);
     if (pair.savingsPct < 5) {
@@ -500,6 +513,12 @@ for (const file of bundleFiles) {
     if (seen.has(parsed.data.slug)) {
       errors.push(`${label}: duplicate slug (slugs are shared with pairs)`);
       return;
+    }
+    // Every kit piece whose URL carries an ASIN states it, and the same one, so the cart holds every piece.
+    const pieces: [string, { url: string; asin?: string | null }][] = [["bundle", parsed.data.bundle], ...parsed.data.components.map((c, n): [string, typeof c] => [`components.${n}`, c])];
+    for (const [where, piece] of pieces) {
+      const problem = asinProblem(piece);
+      if (problem) errors.push(`${label} ${where}: ${problem}`);
     }
     const bundle = deriveBundle(parsed.data);
     if (bundle.savingsPct < 5) {
