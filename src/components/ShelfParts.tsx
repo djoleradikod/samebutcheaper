@@ -42,6 +42,7 @@ function toRow(p: Pair): BrowseRow {
     pct: Math.round(p.savingsPct * 10) / 10,
     unit: Number((p.alternative.ppu * unitDisplay(p.brand.unit).factor * APPROX_USD[p.currency]).toPrecision(4)),
     checked: p.price_checked,
+    ...(p.priceOld ? { stale: true } : {}),
   };
 }
 

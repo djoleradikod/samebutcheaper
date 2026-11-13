@@ -36,6 +36,9 @@ import { basketCheckout, checkout, tillLine, type TillLine } from "../src/lib/de
 import { isPerAmountRecord } from "../src/lib/unit-format";
 import { RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../src/lib/rating";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
+import { freshnessOf, freshnessWeight, isoDay, type Freshness, type PriceSeen } from "../src/lib/freshness";
+import { priceSeenFor } from "./prices/attach";
+import { bySide, loadObservations } from "./prices/observations";
 
 const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data", "pairs");
@@ -253,13 +256,43 @@ function photoFor(brand: string, productName: string): Photo | null {
 
 /* ------------------------------------------------------------------- pairs */
 
-/** A price older than this is shown as old and stays off the home page. */
-const OLD_PRICE_MONTHS = 12;
+/* -------------------------------------------------------- price freshness */
 
-function monthsSince(yearMonth: string) {
-  const [y, m] = yearMonth.split("-").map(Number);
-  const now = new Date();
-  return (now.getUTCFullYear() - y) * 12 + (now.getUTCMonth() + 1 - (m || 1));
+/** data/prices/observations/*.jsonl, validated, by "record|side". See docs/prices.md. */
+const priceLog = (() => {
+  const { observations, errors: bad } = loadObservations();
+  errors.push(...bad);
+  return bySide(observations);
+})();
+const priceLogUsed = new Set<string>();
+const BUILD_DAY = isoDay(new Date());
+
+/**
+ * When each side's current price was last seen, its history, and the record's freshness tier from the
+ * oldest side. A stale price is `priceOld`, which keeps it off the home page (pickByPhotos).
+ */
+function priceFreshness(slug: string, sides: [string, number][], priceChecked: string) {
+  const prices: Record<string, PriceSeen> = {};
+  for (const [side, price] of sides) {
+    const key = `${slug}|${side}`;
+    priceLogUsed.add(key);
+    const { seen, problem } = priceSeenFor(priceLog.get(key) ?? [], price, priceChecked);
+    if (problem) warnings.push(`${slug} ${side}: ${problem}`);
+    prices[side] = seen;
+  }
+  const freshness: Freshness = freshnessOf(Object.values(prices), BUILD_DAY);
+  return { prices, freshness, priceOld: freshness.tier === "stale" };
+}
+
+/** Ageing and stale prices rank lower, progressively (see freshnessWeight in src/lib/freshness.ts). */
+function freshScore(score: number, freshness: Freshness) {
+  return round(score * freshnessWeight(freshness.days), 2);
+}
+
+/** Lines in the log for a record or side the catalogue doesn't have: a renamed slug, or a typo. */
+function unusedPriceLog() {
+  const unused = [...priceLog.keys()].filter((k) => !priceLogUsed.has(k));
+  if (unused.length) warnings.push(`price observations for ${unused.length} record side(s) not in the catalogue: ${unused.slice(0, 5).join(", ")}${unused.length > 5 ? ", ..." : ""}`);
 }
 
 function bulkViewFor(p: PairInput, brandPpu: number, altPpu: number): BulkView {
@@ -335,7 +368,7 @@ function derive(p: PairInput): Pair {
     evidence_claims: claimsFor(p),
     shelfLife: shelfFor(p),
     bulkView: bulkViewFor(p, brandPpu, altPpu),
-    priceOld: monthsSince(p.price_checked) > OLD_PRICE_MONTHS,
+    ...(priceFreshness(p.slug, [["brand", p.brand.price], ["alternative", p.alternative.price]], p.price_checked) as Pick<Pair, "prices" | "freshness" | "priceOld">),
   };
 }
 
@@ -392,6 +425,7 @@ function deriveBundle(b: BundleInput): Bundle {
     extraDelivery,
     netSavings,
     netSavingsPct: round(netPct, 1),
+    ...priceFreshness(b.slug, [["kit", b.bundle.price], ...b.components.map((c): [string, number] => [`item-${c.replaces}`, c.price])], b.price_checked),
   };
 }
 
@@ -426,6 +460,7 @@ for (const file of files) {
       return;
     }
     seen.add(pair.slug);
+    pair.score = freshScore(pair.score, pair.freshness);
     if (parsed.data.same_swap) sameSwaps.push([pair.slug, parsed.data.same_swap]);
     // A swap with nothing compared on both sides can't claim to do the same job, whatever its record says.
     if (pair.match_type === "equivalent_spec" && !hasProof(comparison(pair))) pair.match_type = "same_kind";
@@ -474,6 +509,7 @@ for (const file of bundleFiles) {
     if (bundle.netSavings / bundle.bundle.price < 0.05)
       warnings.push(`${label}: after delivery from ${bundle.checkout.stores.length} stores the rebuild saves only ${bundle.netSavings} ${bundle.currency}`);
     seen.add(bundle.slug);
+    bundle.score = freshScore(bundle.score, bundle.freshness);
     bundles.push(bundle);
   });
 }
@@ -596,6 +632,7 @@ for (const [slug, other] of sameSwaps) {
   }
 }
 
+unusedPriceLog();
 if (warnings.length) console.warn(`\n${warnings.length} warning(s):\n  - ${warnings.join("\n  - ")}\n`);
 if (errors.length) {
   const log = lenient ? console.warn : console.error;

@@ -16,13 +16,14 @@ import { linksEarn, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
-import { money, monthYear } from "@/lib/format";
+import { money } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import { unitDisplay } from "@/lib/unit-format";
 import { forCountry, localText, type Local } from "@/lib/localize";
 import { NotListedHere } from "@/components/ShelfParts";
 import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount } from "@/components/Money";
+import { KitPriceChecked } from "@/components/PriceChecked";
 import type { Bundle } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -174,10 +175,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
                     <ConfidenceBadge confidence={b.confidence} />
                   </dd>
                 </div>
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                  <dt className="text-ink-2">Prices checked</dt>
-                  <dd className="text-[13px] font-medium">{monthYear(b.price_checked)}</dd>
-                </div>
+                <KitPriceChecked bundle={b} />
               </dl>
               <div className="mt-3 space-y-2">
                 <SaveButton slug={b.slug} />

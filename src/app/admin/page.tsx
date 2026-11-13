@@ -8,6 +8,7 @@ import { subscriberCounts } from "@/lib/newsletter";
 import { Revenue } from "./Revenue";
 import { Readiness } from "./Readiness";
 import { setSubmissionStatus } from "./actions";
+import { PriceWatchAdmin } from "@/components/PriceWatchAdmin";
 
 export const metadata: Metadata = { title: "Admin", robots: { index: false, follow: false } };
 
@@ -18,6 +19,7 @@ export default function AdminPage() {
       <Suspense fallback={<p className="mt-6 text-muted">Loading…</p>}>
         <AdminData />
       </Suspense>
+      <PriceWatchAdmin />
     </section>
   );
 }

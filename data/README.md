@@ -202,3 +202,27 @@ An unrated product stays listed and reads "No rating found yet". It sorts behind
 ## Ireland
 
 `IE` is a market with too few swaps of its own to lead (`THIN_MARKETS` in `src/lib/localize.ts`): it still falls back to UK prices under the seller rule, says so, and lists its own records as well. Take it out of `THIN_MARKETS` once it can fill the home page. Irish records so far come from zooplus.ie, whose terms show no bar on reading prices. Left out on purpose: Tesco and Aldi Ireland, Dunnes, Boots and Harvey Norman refuse automated requests; SuperValu's terms (clause 1.2) say personal, non-commercial use only; Woodie's terms bar copying without written approval. A new Irish record ships with a rating.
+
+## Price observations (`data/prices/`)
+
+Every price a record shows is backed by lines in `data/prices/observations/*.jsonl`: one JSON object per line,
+append-only, never edited. The build validates each line (`scripts/prices/observations.ts`) and dates each side
+from the latest line at the record's current price. How the refresh uses them, and the source rules, are in
+`docs/prices.md`.
+
+```json
+{"record":"nutella-vs-ja-nuss-nougat-creme-de","side":"brand","price":3.99,"currency":"EUR","seen":"2026-11-07","precision":"day","source":"rewe","url":"https://shop.rewe.de/...","method":"hand","logged":"2026-11-13"}
+```
+
+- `record`: the swap or kit slug. `side`: `brand` or `alternative` on a swap; `kit` or `item-<n>` on a kit, where
+  `n` is the bundle item the piece `replaces`.
+- `price` in the record's market currency, and `currency` saying which (`USD`, `GBP`, `CAD`, `EUR`).
+- `seen`: the ISO day the price was seen at the store or published by the source. `precision: "month"` marks
+  older hand checks that only kept a month; `seen` is then the 1st and the page shows the month.
+- `source`: a retailer id for hand checks, `open-prices`, or `awin:<merchant id>`. `url`: where to see it.
+- `method`: `hand`, `open-prices`, `feed` or `shopper-report`. `logged`: the day the line was written.
+- Optional `attribution` (Open Prices data is ODbL and carries its credit) and `note`.
+
+When you change a price by hand, log it: put the check in a CSV and run
+`npm run prices:refresh -- --manual checks.csv`, which applies the same rules as any source. `npm run prices:seed`
+backs any price with no line yet. `data/prices/review.json` holds what the refresh would not apply on its own.

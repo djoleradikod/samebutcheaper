@@ -1,0 +1,84 @@
+# Weekly price refresh from licensed sources only (docs/prices.md). Runs on GitHub's runner, which can reach
+# the sources; nothing runs on our servers. Opens or updates one pull request when a price or the log changed,
+# and does nothing otherwise. With no feeds configured it reads Open Prices alone.
+name: Price watch
+
+on:
+  schedule:
+    - cron: "17 5 * * 1" # Mondays, 05:17 UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report only: change nothing and open no pull request"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: price-watch
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      # Optional. Unset or empty means no feeds; see scripts/prices/adapters/feed.ts for the format.
+      PRICE_FEED_URLS: ${{ secrets.PRICE_FEED_URLS }}
+      BRANCH: price-watch
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Refresh prices
+        run: |
+          args=(--summary "$RUNNER_TEMP/price-summary.md")
+          if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
+          npx tsx scripts/prices/refresh.ts "${args[@]}"
+          cat "$RUNNER_TEMP/price-summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Anything changed?
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain -- data)" ]; then echo "changed=true" >> "$GITHUB_OUTPUT"; else echo "changed=false" >> "$GITHUB_OUTPUT"; echo "No price changes, nothing to do."; fi
+
+      - name: Validate the catalogue
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run catalog
+
+      # Database tests skip without TEST_DATABASE_URL; the price rules and catalogue tests run.
+      - name: Tests
+        if: steps.diff.outputs.changed == 'true'
+        run: npm test
+
+      - name: Open or update the pull request
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE: ${{ github.ref_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
+          git add data/pairs data/bundles data/prices
+          git commit -m "Refresh prices from licensed sources, $(date -u +%Y-%m-%d)"
+          # One branch, rebuilt from the base each week: an unmerged run's changes are redone, never stacked.
+          git push --force origin "$BRANCH"
+          {
+            cat "$RUNNER_TEMP/price-summary.md"
+            echo
+            echo "Opened by the price watch workflow (run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID). Check the moved prices before merging; review cases are in data/prices/review.json and on /admin."
+          } > "$RUNNER_TEMP/pr-body.md"
+          number=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh pr edit "$number" --body-file "$RUNNER_TEMP/pr-body.md"
+          else
+            gh pr create --base "$BASE" --head "$BRANCH" --title "Price watch: refreshed prices" --body-file "$RUNNER_TEMP/pr-body.md"
+          fi

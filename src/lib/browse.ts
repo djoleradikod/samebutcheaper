@@ -1,6 +1,7 @@
 import { CATEGORIES, CATEGORY_MAP, MATCH_TYPE_META } from "./categories";
 import { isThinMarket, listMarketFor } from "./localize";
 import { isMarket, MARKET_CODES, MARKET_LABEL, type MarketCode } from "./markets";
+import { leadFirst } from "./freshness";
 import type { PhotoTier } from "./photos";
 import type { Bundle, CategorySlug, MatchType, PairSummary } from "./types";
 
@@ -37,6 +38,8 @@ export type BrowseRow = {
   unit: number;
   /** When the prices were checked, ISO year-month. */
   checked: string;
+  /** The price is stale (see freshness.ts): it sorts last within its group, so it never leads a list. */
+  stale?: boolean;
 };
 
 /** The fields BundleCard reads. A whole bundle is about ten times bigger. */
@@ -163,7 +166,7 @@ const COMPARE: Record<SortKey, (a: BrowseRow, b: BrowseRow) => number> = {
  */
 export function matchRows(rows: BrowseRow[], s: BrowseState, scope: Scope) {
   const compare = COMPARE[s.sort];
-  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || Number(b.rated) - Number(a.rated) || compare(a, b));
+  return rows.filter((r) => passes(r, s, scope)).sort((a, b) => a.tier - b.tier || leadFirst(a, b) || Number(b.rated) - Number(a.rated) || compare(a, b));
 }
 
 /** Cards already in tier order, split where the first tier ends. The second part is empty with only one tier. */

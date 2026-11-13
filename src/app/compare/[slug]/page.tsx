@@ -22,7 +22,7 @@ import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } 
 import { dupeSlugFor } from "@/lib/dupes";
 import { storeOrder } from "@/lib/delivery";
 import { sellerOf } from "@/lib/sellers";
-import { inSentence, monthYear } from "@/lib/format";
+import { inSentence } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
 import { unitDisplay, unitPrice } from "@/lib/unit-format";
@@ -31,6 +31,7 @@ import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
 import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 import { YearlyBlock } from "@/components/YearlyBlock";
+import { PriceChecked } from "@/components/PriceChecked";
 
 export function generateStaticParams() {
   const params = getAllPairs().map((p) => ({ slug: p.slug }));
@@ -443,19 +444,9 @@ function offersFor(pair: Pair, local: Local): Offer[] {
 function Offers({ pair, local }: { pair: Pair; local: Local }) {
   const unit = pair.alternative.unit;
   const { label } = unitDisplay(unit);
-  const checked = monthYear(pair.price_checked);
   return (
     <div className="@container mt-3">
-      <p className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 pb-2">
-        {pair.priceOld ? (
-          <span className="text-[15px] font-semibold text-different">
-            Prices from {checked}, over a year old. Check before you buy.
-          </span>
-        ) : (
-          <span className="text-[15px] font-medium text-ink-2">Prices checked {checked}.</span>
-        )}
-        <MarketTag market={pair.market} whereToBuy={WHERE_TO_BUY} />
-      </p>
+      <PriceChecked pair={pair} local={local} tag={<MarketTag market={pair.market} whereToBuy={WHERE_TO_BUY} />} />
       <div role="table" aria-label="Prices and stores" className="divide-y divide-line border-y border-line-strong">
         <div role="row" className={`hidden gap-x-3 py-1.5 text-[13px] font-medium text-muted @2xl:grid ${OFFER_COLUMNS}`}>
           <span role="columnheader">Product</span>
