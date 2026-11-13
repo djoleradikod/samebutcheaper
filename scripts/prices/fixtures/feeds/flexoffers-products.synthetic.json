@@ -1,0 +1,4 @@
+[
+  {"pid": "88001", "name": "Test Own Brand Ketchup 460 g", "brand": "Test Own Brand", "sku": "265327225", "gtin": "", "price": 1.25, "salePrice": 0.99, "currency": "GBP", "stockAvailability": "in stock", "deepLinkURL": "https://track.flexlinkspro.com/g.ashx?foid=156074.A1000&trid=1&foc=16&fot=9999&fos=6&url=https%3A%2F%2Fwww.tesco.com%2Fgroceries%2Fen-GB%2Fproducts%2F265327225", "imageUrl": "https://img.example/k.jpg", "lastUpdated": "2026-11-12T03:00:00Z"},
+  {"pid": "88002", "name": "Heinz Tomato Ketchup 460 g", "brand": "Heinz", "sku": "254656543", "gtin": "5000157024671", "price": 3.5, "currency": "GBP", "stockAvailability": "out of stock", "deepLinkURL": "https://track.flexlinkspro.com/g.ashx?foid=156074.A1000&url=https%3A%2F%2Fwww.tesco.com%2Fgroceries%2Fen-GB%2Fproducts%2F254656543", "lastUpdated": "2026-11-12T03:00:00Z"}
+]

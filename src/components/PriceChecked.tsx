@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ageWarning, checkedDate, type Freshness, type PriceSeen } from "@/lib/freshness";
 import type { Local } from "@/lib/localize";
+import { stockNotes } from "@/lib/stock-notes";
 import type { Bundle, Pair } from "@/lib/types";
 
 /**
@@ -39,6 +40,7 @@ export function PriceChecked({ pair, local, tag }: { pair: Pair; local: Local; t
         <DateLine freshness={pair.freshness}>{pairDates(pair)}</DateLine>
         {tag}
       </p>
+      {stockNotes(pair).map((note) => <p key={note} className="text-[15px] font-semibold text-different">{note}</p>)}
       {charted.length > 0 && (
         <details className="group mt-1">
           <summary className="inline-flex min-h-11 cursor-pointer items-center text-[13px] font-medium text-cobalt underline underline-offset-2 md:min-h-0">
@@ -65,6 +67,7 @@ export function KitPriceChecked({ bundle }: { bundle: Bundle }) {
       <dd className="text-[13px] font-medium">
         {checkedDate(bundle.freshness.date, bundle.freshness.precision)}
         {warning && <span className="block font-semibold text-different">{warning}</span>}
+        {stockNotes(bundle).map((note) => <span key={note} className="block font-semibold text-different">{note}</span>)}
       </dd>
     </div>
   );

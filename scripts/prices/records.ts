@@ -27,6 +27,10 @@ export type PricedSide = {
   retailer: string;
   url: string;
   gtin: string | null;
+  /** The maker's brand as the record gives it, for matching feeds by name. */
+  brand: string;
+  /** The side's ASIN when it has one, so moving the side off Amazon can clear it. */
+  asin: string | null;
 };
 
 export type PricedRecord = {
@@ -40,9 +44,14 @@ export type PricedRecord = {
   sides: PricedSide[];
   /** Kits only: the size of each bundle item, by index, which a piece's unit price is scaled to. */
   itemSizes?: number[];
+  /** The record's sources and evidence text, for the licence buckets (licence.ts). */
+  sources?: string[];
+  evidence?: string;
 };
 
 type Raw = Record<string, unknown>;
+
+const strings = (v: unknown) => (Array.isArray(v) ? v.filter((s): s is string => typeof s === "string") : []);
 
 function retailerOf(r: unknown) {
   const id = String(r ?? "").toLowerCase().trim();
@@ -70,6 +79,8 @@ function sideOf(raw: Raw, side: string, path: JsonPath, name: string): PricedSid
     retailer: retailerOf(raw.retailer),
     url: String(raw.url ?? ""),
     gtin: typeof raw.gtin === "string" && /^\d{8,14}$/.test(raw.gtin) ? raw.gtin : null,
+    brand: String(raw.brand ?? ""),
+    asin: typeof raw.asin === "string" && raw.asin ? raw.asin : null,
   };
 }
 
@@ -89,7 +100,7 @@ export function recordsFromPairFile(file: string, text: string): PricedRecord[] 
     const a = sideOf(alt, "alternative", [index, "alternative"], nameOf(alt.brand, alt.product));
     if (!b || !a) return [];
     const market = marketOf(p);
-    return [{ slug: p.slug, kind: "swap", market, currency: MARKETS[market].currency, file, index, priceChecked: String(p.price_checked ?? ""), sides: [b, a] }];
+    return [{ slug: p.slug, kind: "swap", market, currency: MARKETS[market].currency, file, index, priceChecked: String(p.price_checked ?? ""), sides: [b, a], sources: strings(p.sources), evidence: String(p.evidence ?? "") }];
   });
 }
 
@@ -114,6 +125,8 @@ export function recordsFromBundleFile(file: string, text: string): PricedRecord[
         file,
         index,
         priceChecked: String(k.price_checked ?? ""),
+        sources: strings(k.sources),
+        evidence: String(k.evidence ?? ""),
         sides: [kitSide, ...(pieces as PricedSide[])],
         itemSizes: items.map((it) => Number(it.size)),
       },

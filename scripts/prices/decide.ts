@@ -8,7 +8,9 @@
  *   price and price_checked are rewritten in place.
  * - Anything else goes to data/prices/review.json: a bigger move (more often a multipack, a promotion or a
  *   wrong match than a real price change), a saving under 5% (the build would drop the swap, so a person
- *   decides), or a pack size that isn't the record's.
+ *   decides), a pack size that isn't the record's, or a feed row matched by name alone.
+ * - A feed listing it out of stock: logged with stock "out", price untouched. The build then says so on the page
+ *   and keeps the record from leading (src/lib/freshness.ts priceDoubtful). A later in-stock reading clears it.
  */
 import { createHash } from "node:crypto";
 import type { ValueEdit } from "./json-edit";
@@ -36,7 +38,7 @@ export type PriceChange = {
   seen: string;
 };
 
-export const REVIEW_REASONS = ["big-move", "saving-gone", "pack-mismatch"] as const;
+export const REVIEW_REASONS = ["big-move", "saving-gone", "pack-mismatch", "name-match"] as const;
 export type ReviewReason = (typeof REVIEW_REASONS)[number];
 
 export type ReviewItem = {
@@ -65,7 +67,11 @@ export type Decision = {
   review: ReviewItem[];
   /** Sides whose price a source confirmed unchanged. */
   confirmed: number;
+  /** Feed readings that change what a shopper sees besides the price: out of stock, back in stock, a new tracked link. */
+  feedChanges: FeedChange[];
 };
+
+export type FeedChange = { record: string; side: string; name: string; source: string; change: "out-of-stock" | "back-in-stock" | "link" };
 
 const METHOD_RANK: Record<Method, number> = { hand: 0, "shopper-report": 1, feed: 2, "open-prices": 3 };
 
@@ -113,6 +119,8 @@ export function toObservation(c: Candidate, today: string): Observation {
     logged: today,
     ...(c.attribution ? { attribution: c.attribution } : {}),
     ...(c.note ? { note: c.note } : {}),
+    ...(c.link ? { link: c.link } : {}),
+    ...(c.stock ? { stock: c.stock } : {}),
   };
 }
 
@@ -123,7 +131,7 @@ export function checkedMonth(record: PricedRecord, log: Map<string, Observation[
   let oldest: string | null = null;
   for (const s of record.sides) {
     const price = prices.get(s.side) ?? s.price;
-    const all = [...(log.get(`${record.slug}|${s.side}`) ?? []), ...extra.filter((o) => o.side === s.side)].filter((o) => samePrice(o.price, price));
+    const all = [...(log.get(`${record.slug}|${s.side}`) ?? []), ...extra.filter((o) => o.side === s.side)].filter((o) => samePrice(o.price, price) && o.stock !== "out");
     if (!all.length) return null; // a side with no observation: leave price_checked as it is
     const latest = all.reduce((d, o) => (o.seen > d ? o.seen : d), "");
     if (oldest === null || latest < oldest) oldest = latest;
@@ -145,7 +153,8 @@ export function decide(records: PricedRecord[], candidates: Candidate[], existin
   const log = new Map<string, Observation[]>();
   for (const o of existing) log.set(`${o.record}|${o.side}`, [...(log.get(`${o.record}|${o.side}`) ?? []), o]);
   const bySlug = new Map(records.map((r) => [r.slug, r]));
-  const decision: Decision = { updates: [], observations: [], review: [], confirmed: 0 };
+  const decision: Decision = { updates: [], observations: [], review: [], confirmed: 0, feedChanges: [] };
+  const newest = (key: string) => [...(log.get(key) ?? [])].sort((a, b) => (a.seen < b.seen ? -1 : a.seen > b.seen ? 1 : a.logged < b.logged ? -1 : 1)).at(-1);
 
   const grouped = new Map<string, Map<string, Candidate[]>>();
   for (const c of candidates) {
@@ -156,6 +165,16 @@ export function decide(records: PricedRecord[], candidates: Candidate[], existin
     // An older reading never overrides a newer one.
     const latestLogged = (log.get(`${c.record}|${c.side}`) ?? []).reduce((d, o) => (o.seen > d ? o.seen : d), "");
     if (c.seen < latestLogged) continue;
+    // Out of stock in a feed: logged so the page can say so and the record stops leading, but the price stays as it
+    // is (a listing nobody can buy says little about the price) and nothing goes to review. A name-only match
+    // proves too little to take a record out of the lead.
+    if (c.stock === "out") {
+      if (c.needsReview) continue;
+      const before = newest(`${c.record}|${c.side}`);
+      decision.observations.push(toObservation(c, opts.today));
+      if (!(before?.method === "feed" && before.stock === "out")) decision.feedChanges.push({ record: c.record, side: c.side, name: side.name, source: c.source, change: "out-of-stock" });
+      continue;
+    }
     const sides = grouped.get(c.record) ?? new Map<string, Candidate[]>();
     sides.set(c.side, [...(sides.get(c.side) ?? []), c]);
     grouped.set(c.record, sides);
@@ -177,6 +196,16 @@ export function decide(records: PricedRecord[], candidates: Candidate[], existin
     for (const s of record.sides) {
       const c = chosen.get(s.side);
       if (!c) continue;
+      if (c.needsReview) {
+        reasons.add("name-match");
+        detail.push(`${s.name}: ${c.needsReview}`);
+        if (!samePrice(c.price, s.price)) {
+          const changePct = round1(((c.price - s.price) / s.price) * 100);
+          changes.push({ side: s.side, name: s.name, from: s.price, to: Math.round(c.price * 100) / 100, changePct });
+          newPrices.set(s.side, Math.round(c.price * 100) / 100);
+        }
+        continue;
+      }
       if (packMismatch(s, c.pack)) {
         reasons.add("pack-mismatch");
         detail.push(`${s.name}: the source priced a ${c.pack!.size} ${c.pack!.unit} pack, the record is ${s.size} ${s.unit}`);
@@ -202,6 +231,16 @@ export function decide(records: PricedRecord[], candidates: Candidate[], existin
     }
     decision.confirmed += confirmations.length;
     decision.observations.push(...confirmations);
+    const noteFeed = (obs: Observation[]) => {
+      for (const o of obs) {
+        if (o.method !== "feed") continue;
+        const before = newest(`${slug}|${o.side}`);
+        const name = record.sides.find((s) => s.side === o.side)!.name;
+        if (before?.method === "feed" && before.stock === "out") decision.feedChanges.push({ record: slug, side: o.side, name, source: o.source, change: "back-in-stock" });
+        if (o.link && before?.link !== o.link) decision.feedChanges.push({ record: slug, side: o.side, name, source: o.source, change: "link" });
+      }
+    };
+    noteFeed(confirmations);
 
     if (reasons.size) {
       const observations = [...chosen.values()].filter((c) => !confirmations.some((o) => o.side === c.side)).map((c) => toObservation(c, opts.today));
@@ -223,6 +262,7 @@ export function decide(records: PricedRecord[], candidates: Candidate[], existin
     }
     const applied = [...newPrices.keys()].map((side) => toObservation(chosen.get(side)!, opts.today));
     decision.observations.push(...applied);
+    noteFeed(applied);
     const edits: ValueEdit[] = [...newPrices].map(([side, price]) => {
       const s = record.sides.find((x) => x.side === side)!;
       return { path: [...s.path, s.priceKey], value: price };

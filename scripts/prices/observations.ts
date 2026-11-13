@@ -32,7 +32,7 @@ export const observationSchema = z
     seen: isoDay,
     /** "month" when only the month is known: `seen` is then the 1st of that month. */
     precision: z.enum(["day", "month"]).default("day"),
-    /** Who reported it: a retailer id for hand checks, "open-prices", "awin:<merchant id>", "manual". */
+    /** Who reported it: a retailer id for hand checks, "open-prices", "feed:<network>" (docs/feeds.md), "manual". */
     source: z.string().min(2),
     /** Where to see it: the store page for a hand check, the Open Prices price page, the merchant's product link. */
     url: z.string().url(),
@@ -42,6 +42,10 @@ export const observationSchema = z
     /** Credit the source asks for (Open Prices is ODbL). */
     attribution: z.string().optional(),
     note: z.string().optional(),
+    /** Feeds only: the network's tracked link for this product, which /go then uses (src/lib/feed-links.ts). */
+    link: z.string().url().optional(),
+    /** Feeds only: whether the feed listed it in stock. An "out" line never dates or changes a price. */
+    stock: z.enum(["in", "out"]).optional(),
   })
   .strict();
 
@@ -49,8 +53,9 @@ export type Observation = z.infer<typeof observationSchema>;
 export type ObservationInput = z.input<typeof observationSchema>;
 
 /** Two lines with the same key say the same thing, so the second is not written. */
-export function observationKey(o: Pick<Observation, "record" | "side" | "price" | "seen" | "method" | "url">) {
-  return [o.record, o.side, o.price.toFixed(2), o.seen, o.method, o.url].join("|");
+export function observationKey(o: Pick<Observation, "record" | "side" | "price" | "seen" | "method" | "url"> & { stock?: Observation["stock"] }) {
+  // Lines written before stock existed keep their key; an out-of-stock reading differs from an in-stock one that day.
+  return [o.record, o.side, o.price.toFixed(2), o.seen, o.method, o.url, ...(o.stock === "out" ? ["out"] : [])].join("|");
 }
 
 export type LoadResult = { observations: Observation[]; errors: string[] };

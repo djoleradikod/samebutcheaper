@@ -1,22 +1,35 @@
 /**
- * Affiliate product feeds: price files a merchant publishes for its affiliates, which the affiliate
- * agreement lets us use. This is how stores that bar scraping can still be kept current.
+ * Affiliate product feeds: price files a merchant publishes for its affiliates, which the network's publisher
+ * agreement lets us use. This is how stores whose terms bar reading their pages are kept current, and how their
+ * links start earning. The owner's guide is docs/feeds.md; the rules are in docs/prices.md.
  *
  * PRICE_FEED_URLS lists feeds, separated by new lines or commas, each as
  *
  *   [network:]<retailer>@<market>=<url or local path>
  *
- * e.g. `awin:boots@GB=https://productdata.awin.com/...`. The network defaults to awin. The retailer and
- * market say whose prices these are: a row only updates a record side priced at that retailer in that
- * market, so one store's price can never land on another's. Feed URLs carry API keys: they're never printed.
+ * e.g. `awin:zooplus@DE=https://productdata.awin.com/...`. network is awin (the default, as before), impact,
+ * cj, rakuten, flexoffers, or generic (also csv, json) for any other network read through a column map. The
+ * retailer and market say whose prices these are: a row only ever prices a record side at that retailer in
+ * that market. Feed URLs carry keys: they're never printed. `user:password@` in a URL is sent as Basic auth.
  *
- * Matching: by barcode first (GTIN, EAN or UPC, compared as GTIN-14), then by the merchant's own product URL.
+ * PRICE_FEED_COLUMNS (optional) maps a feed's columns where a network's defaults are wrong or for a generic
+ * feed: one line per feed, `<retailer>@<market>: price=Sale Price; gtin=EAN|UPC; link=Tracking URL; ...`
+ * (formats.ts, MAP_FIELDS).
+ *
+ * Each feed is streamed (feeds/stream.ts), mapped onto one row shape (feeds/formats.ts) and matched
+ * conservatively (feeds/match.ts). NO REAL FEED HAS BEEN READ: every format is tested against synthetic files
+ * written from the networks' documentation (scripts/prices/fixtures/feeds/).
  */
-import { existsSync, readFileSync } from "node:fs";
-import { gunzipSync } from "node:zlib";
 import { MARKETS, RETAILERS, type MarketCode } from "../../../src/lib/markets";
-import type { PricedRecord, PricedSide } from "../records";
+import { feedLinkNetwork } from "../../../src/lib/feed-links";
+import { FORMATS, mapFor, missingFields, NETWORK_ALIASES, parseColumnMaps, rowFromMap, type ColumnMap, type FeedFormat, type RawRow } from "../feeds/formats";
+import { FeedMatcher, gtin14, normalUrl, type FeedMatch } from "../feeds/match";
+import { parsePack, type FeedRow } from "../feeds/row";
+import { csvRecords, jsonItems, openFeed, textOf } from "../feeds/stream";
+import type { PricedRecord } from "../records";
 import { addDays, type AdapterContext, type AdapterResult, type Candidate, type PriceAdapter } from "./types";
+
+export { gtin14, normalUrl };
 
 /* ------------------------------------------------------------------ config */
 
@@ -26,7 +39,7 @@ export function parseFeedConfig(value: string | undefined): { feeds: FeedConfig[
   const feeds: FeedConfig[] = [];
   const problems: string[] = [];
   const entries = (value ?? "")
-    .split(/[\n,]+/)
+    .split(/\n+|,(?=\s*(?:[a-z]+:)?[a-z0-9-]+@[A-Z]{2}=)/)
     .map((s) => s.trim())
     .filter(Boolean);
   entries.forEach((entry, i) => {
@@ -36,8 +49,9 @@ export function parseFeedConfig(value: string | undefined): { feeds: FeedConfig[
       problems.push(`${label}: expected [network:]retailer@MARKET=url`);
       return;
     }
-    const [, network = "awin", retailer, market, location] = m;
-    if (!FEED_FORMATS[network]) problems.push(`${label}: unknown network ${network} (known: ${Object.keys(FEED_FORMATS).join(", ")})`);
+    const [, given = "awin", retailer, market, location] = m;
+    const network = NETWORK_ALIASES[given] ?? given;
+    if (!FORMATS[network]) problems.push(`${label}: unknown network ${given} (known: ${Object.keys(FORMATS).join(", ")})`);
     else if (!(RETAILERS as readonly string[]).includes(retailer) || retailer === "other") problems.push(`${label}: unknown retailer ${retailer}`);
     else if (!(market in MARKETS)) problems.push(`${label}: unknown market ${market}`);
     else feeds.push({ network, retailer, market: market as MarketCode, location, label: `${network}:${retailer}@${market}` });
@@ -45,9 +59,219 @@ export function parseFeedConfig(value: string | undefined): { feeds: FeedConfig[
   return { feeds, problems };
 }
 
-/* --------------------------------------------------------------------- CSV */
+/* --------------------------------------------------------------- reading */
 
-/** RFC 4180 CSV: quoted fields, doubled quotes, new lines inside quotes. The delimiter is guessed from the header. */
+/** Headers a network needs beyond what the URL carries. */
+function headersFor(feed: FeedConfig, env: AdapterContext["env"]): Record<string, string> {
+  if (feed.network === "impact") return { Accept: "application/json" };
+  // Assumed from FlexOffers' publisher tools page (the key is created under Data Feeds > Web Services > API Keys).
+  if (feed.network === "flexoffers" && env.FLEXOFFERS_API_KEY) return { apiKey: env.FLEXOFFERS_API_KEY, Accept: "application/json" };
+  return {};
+}
+
+/** Impact's API lists items a page at a time: ask page after page until one comes back short. */
+function pagesOf(location: string): ((page: number) => string) | null {
+  try {
+    const u = new URL(location);
+    if (!/(^|\.)api\.impact\.com$/.test(u.hostname) || !/\/(Items|ItemSearch)(\.json)?$/i.test(u.pathname)) return null;
+    return (page) => {
+      const p = new URL(location);
+      if (!p.searchParams.has("PageSize")) p.searchParams.set("PageSize", "1000");
+      p.searchParams.set("Page", String(page));
+      return p.toString();
+    };
+  } catch {
+    return null;
+  }
+}
+
+function stringify(o: Record<string, unknown>): RawRow {
+  const out: RawRow = {};
+  for (const [k, v] of Object.entries(o)) {
+    if (v == null) continue;
+    out[k.trim().toLowerCase()] = typeof v === "object" ? (Array.isArray(v) && v.every((x) => typeof x !== "object") ? v.join(" ") : "") : String(v);
+  }
+  return out;
+}
+
+/** Raw rows of one file or response, streamed. */
+async function* rawRows(chunks: AsyncIterable<string>, format: FeedFormat, onFileDate: (day: string | null) => void): AsyncGenerator<RawRow> {
+  // Peek at the first characters to tell JSON from text when the format allows both.
+  const it = chunks[Symbol.asyncIterator]();
+  const first = await it.next();
+  if (first.done) return;
+  const rest = (async function* () {
+    yield first.value;
+    for (;;) {
+      const r = await it.next();
+      if (r.done) return;
+      yield r.value;
+    }
+  })();
+  const json = format.parse === "json" || (format.parse === "auto" && /^\s*[[{]/.test(first.value));
+  if (json) {
+    for await (const item of jsonItems(rest)) yield stringify(item);
+    return;
+  }
+  let header: string[] | null = format.positional ?? null;
+  for await (const rec of csvRecords(rest)) {
+    if (format.skipFirstField?.test(rec[0]?.trim() ?? "")) {
+      if (rec[0].trim() === "HDR") onFileDate(isoFromHdr(rec[3]));
+      continue;
+    }
+    if (!header) {
+      header = rec.map((h) => h.trim().toLowerCase());
+      continue;
+    }
+    const row: RawRow = {};
+    header.forEach((h, i) => (row[h] = (rec[i] ?? "").trim()));
+    yield row;
+  }
+}
+
+function isoFromHdr(s: string | undefined) {
+  const m = /^(\d{2})\/(\d{2})\/(\d{4})/.exec(s?.trim() ?? "");
+  return m ? `${m[3]}-${m[1]}-${m[2]}` : null;
+}
+
+/** Every row of a feed in our shape, one at a time, never the whole feed. */
+export async function* feedRows(feed: FeedConfig, ctx: AdapterContext, override?: ColumnMap): AsyncGenerator<FeedRow> {
+  const format = FORMATS[feed.network];
+  const map = mapFor(format, override);
+  const headers = headersFor(feed, ctx.env);
+  const page = pagesOf(feed.location);
+  const fetcher: AdapterContext["fetch"] = (url, init) => ctx.fetch(url, { ...init, headers: { ...(init?.headers ?? {}), ...headers } });
+  let fileDate: string | null = null;
+  const setDate = (d: string | null) => (fileDate = d);
+  if (!page) {
+    for await (const raw of rawRows(textOf(await openFeed(feed.location, fetcher)), format, setDate)) yield rowFromMap(raw, map, feed, fileDate);
+    return;
+  }
+  const size = Number(new URL(page(1)).searchParams.get("PageSize")) || 1000;
+  for (let n = 1; n <= 1000; n++) {
+    let count = 0;
+    for await (const raw of rawRows(textOf(await openFeed(page(n), fetcher)), format, setDate)) {
+      count++;
+      yield rowFromMap(raw, map, feed, fileDate);
+    }
+    if (count < size) return;
+    if (n > 1) await ctx.sleep(250);
+  }
+}
+
+/* ---------------------------------------------------------------- matching */
+
+/** Why a matched row can't be used at all, or null. An out-of-stock row is usable: it's logged as such. */
+export function feedRejectReason(m: Pick<FeedMatch, "row" | "record">, today: string, maxAgeDays: number): string | null {
+  const currency = m.row.currency ?? m.record.currency;
+  if (m.row.price === null) return "no price";
+  if (currency !== m.record.currency) return `in ${currency}, not ${m.record.currency}`;
+  if (m.row.updated && m.row.updated < addDays(today, -maxAgeDays)) return `not updated in ${maxAgeDays} days`;
+  return null;
+}
+
+const BY_WORDS = { gtin: "barcode", id: "store product number", name: "brand, name and pack" } as const;
+
+export function feedCandidate(m: FeedMatch, feed: FeedConfig, today: string): Candidate {
+  const link = m.row.deepLink && feedLinkNetwork(m.row.deepLink) ? m.row.deepLink : undefined;
+  const page = m.row.productUrl ?? m.row.deepLink;
+  return {
+    record: m.record.slug,
+    side: m.side.side,
+    price: m.row.price!,
+    currency: m.row.currency ?? m.record.currency,
+    // The feed is the merchant's own price list, read today. Rows not updated within the limit were rejected above.
+    seen: today,
+    source: `feed:${feed.network}`,
+    url: page && /^https?:/.test(page) ? page : m.side.url,
+    method: "feed",
+    note: `Matched by ${BY_WORDS[m.by]} in the ${feed.label} feed${m.row.merchant ? ` (merchant ${m.row.merchant})` : ""}`,
+    pack: parsePack(m.row.packText) ?? parsePack(m.row.name),
+    ...(link ? { link } : {}),
+    ...(m.row.inStock === false ? { stock: "out" as const } : m.row.inStock === true ? { stock: "in" as const } : {}),
+    ...(m.by === "name" ? { needsReview: `matched by brand, name and pack only ("${m.row.name.slice(0, 80)}"), so a person must confirm it is the same product` } : {}),
+  };
+}
+
+/** What one feed did this run, for the report, /admin and the readiness check. No URL ever goes in here. */
+export type FeedStats = {
+  label: string;
+  network: string;
+  retailer: string;
+  market: string;
+  /** Record sides at this retailer in this market. */
+  sides: number;
+  rows: number;
+  matched: { gtin: number; id: number; name: number };
+  /** Matches that became candidates (price, currency and age fine). */
+  usable: number;
+  outOfStock: number;
+  error: string | null;
+};
+
+export async function collectFeed(feed: FeedConfig, records: PricedRecord[], ctx: AdapterContext, override?: ColumnMap) {
+  const maxAge = Number(ctx.env.PRICE_FEED_MAX_AGE_DAYS) || 30;
+  const matcher = new FeedMatcher(records, feed);
+  const stats: FeedStats = { label: feed.label, network: feed.network, retailer: feed.retailer, market: feed.market, sides: matcher.sideCount, rows: 0, matched: { gtin: 0, id: 0, name: 0 }, usable: 0, outOfStock: 0, error: null };
+  const notes: string[] = [];
+  const candidates: Candidate[] = [];
+  const missing = missingFields(mapFor(FORMATS[feed.network], override));
+  if (missing.length) {
+    stats.error = `no column named for ${missing.join(", ")}: set them in PRICE_FEED_COLUMNS`;
+    return { candidates, notes: [`feed: ${feed.label}: ${stats.error}`], stats };
+  }
+  try {
+    for await (const row of feedRows(feed, ctx, override)) matcher.add(row);
+  } catch (err) {
+    stats.error = `could not be read (${err instanceof Error ? err.message : String(err)})`;
+    return { candidates, notes: [`feed: ${feed.label} ${stats.error}`], stats };
+  }
+  stats.rows = matcher.rows;
+  const { matches, ambiguous } = matcher.result();
+  const rejected = new Map<string, number>();
+  for (const m of matches) {
+    stats.matched[m.by]++;
+    const why = feedRejectReason(m, ctx.today, maxAge);
+    if (why) {
+      rejected.set(why.replace(/ in .*|, not .*/, ""), (rejected.get(why.replace(/ in .*|, not .*/, "")) ?? 0) + 1);
+      continue;
+    }
+    const c = feedCandidate(m, feed, ctx.today);
+    if (c.stock === "out") stats.outOfStock++;
+    candidates.push(c);
+    stats.usable++;
+  }
+  notes.push(
+    `feed: ${feed.label}: ${stats.rows} rows, ${matches.length} of ${stats.sides} record sides matched (${stats.matched.gtin} by barcode, ${stats.matched.id} by store number, ${stats.matched.name} by name for review), ${stats.usable} usable${stats.outOfStock ? `, ${stats.outOfStock} out of stock` : ""}`,
+  );
+  for (const [why, n] of rejected) notes.push(`feed: ${feed.label}: ${n} matched row(s) skipped: ${why}`);
+  for (const a of [...ambiguous, ...matcher.conflicts].slice(0, 10)) notes.push(`feed: ${feed.label}: ${a}`);
+  return { candidates, notes, stats };
+}
+
+export const feedAdapter: PriceAdapter & { lastStats?: FeedStats[] } = {
+  id: "feed",
+  licence: "Affiliate product feeds under each network's publisher agreement (Awin, Impact, CJ, Rakuten, FlexOffers, others by column map)",
+  async collect(records: PricedRecord[], ctx: AdapterContext): Promise<AdapterResult> {
+    const { feeds, problems } = parseFeedConfig(ctx.env.PRICE_FEED_URLS);
+    const { maps, problems: mapProblems } = parseColumnMaps(ctx.env.PRICE_FEED_COLUMNS);
+    const notes = [...problems, ...mapProblems].map((p) => `feed: ${p}`);
+    const stats: FeedStats[] = [];
+    if (!feeds.length) return { candidates: [], notes: [...notes, "feed: no feeds configured (PRICE_FEED_URLS), skipped"], feedStats: stats };
+    const candidates: Candidate[] = [];
+    for (const feed of feeds) {
+      const out = await collectFeed(feed, records, ctx, maps.get(`${feed.retailer}@${feed.market}`));
+      candidates.push(...out.candidates);
+      notes.push(...out.notes);
+      stats.push(out.stats);
+    }
+    return { candidates, notes, feedStats: stats };
+  },
+};
+
+/* -------------------------------------------- kept for older callers/tests */
+
+/** RFC 4180 CSV of a whole string, for small files (manual checks). Feeds use the streaming csvRecords. */
 export function parseCsv(text: string): Record<string, string>[] {
   const body = text.replace(/^﻿/, "");
   const firstLine = body.slice(0, body.indexOf("\n") === -1 ? body.length : body.indexOf("\n"));
@@ -85,165 +309,3 @@ export function parseCsv(text: string): Record<string, string>[] {
   const keys = header.map((h) => h.trim());
   return data.map((r) => Object.fromEntries(keys.map((k, i) => [k, (r[i] ?? "").trim()])));
 }
-
-/* ----------------------------------------------------------------- formats */
-
-/** One feed row in our terms. */
-export type FeedRow = {
-  gtins: string[];
-  url: string | null;
-  price: number | null;
-  currency: string | null;
-  inStock: boolean | null;
-  merchant: string | null;
-  updated: string | null;
-  name: string;
-};
-
-/**
- * Awin's publisher feed (Create-a-Feed CSV). Column names from Awin's documentation:
- * search_price, merchant_deep_link, aw_product_id, merchant_product_id, currency, ean
- * (help.awin.com, "Telco Data Feeds - Mobile Phones Standard Fields"), and product_GTIN, upc, in_stock,
- * last_updated, merchant_id, product_name (the "PM Feed Column Descriptions" sheet). The advertiser-side
- * names `price` and `deep_link` are read too, for a merchant's own export.
- */
-export function awinRow(r: Record<string, string>): FeedRow {
-  const num = (s: string | undefined) => {
-    if (!s) return null;
-    const n = Number(s.replace(/[^0-9.]/g, ""));
-    return Number.isFinite(n) && n > 0 ? n : null;
-  };
-  const stock = r.in_stock ?? "";
-  return {
-    gtins: [r.product_GTIN, r.ean, r.upc].filter((g): g is string => Boolean(g && /^\d{8,14}$/.test(g))),
-    url: r.merchant_deep_link || r.deep_link || null,
-    price: num(r.search_price) ?? num(r.price),
-    currency: r.currency ? r.currency.toUpperCase() : null,
-    inStock: stock === "" ? null : stock === "1" || stock.toLowerCase() === "true",
-    merchant: r.merchant_id || r.merchant_name || null,
-    updated: /^\d{4}-\d{2}-\d{2}/.test(r.last_updated ?? "") ? r.last_updated.slice(0, 10) : null,
-    name: r.product_name ?? "",
-  };
-}
-
-/** Add a network by writing its row reader here (Impact and CJ next). */
-export const FEED_FORMATS: Record<string, (r: Record<string, string>) => FeedRow> = { awin: awinRow };
-
-/* ---------------------------------------------------------------- matching */
-
-/** GTIN-8, UPC-A (12), EAN-13 and GTIN-14 of one product are the same number padded to 14. */
-export function gtin14(code: string) {
-  return code.replace(/\D/g, "").padStart(14, "0");
-}
-
-/** A product URL without tracking: lower-case host without www, no query or fragment, no trailing slash. */
-export function normalUrl(url: string) {
-  try {
-    const u = new URL(url);
-    return `${u.hostname.toLowerCase().replace(/^www\./, "")}${u.pathname.replace(/\/+$/, "")}`;
-  } catch {
-    return null;
-  }
-}
-
-export type FeedMatch = { record: PricedRecord; side: PricedSide; row: FeedRow; by: "gtin" | "url" };
-
-/** Rows matched to the record sides this feed may price: same retailer, same market. */
-export function matchFeed(rows: FeedRow[], records: PricedRecord[], feed: Pick<FeedConfig, "retailer" | "market">): FeedMatch[] {
-  const byGtin = new Map<string, FeedRow>();
-  const byUrl = new Map<string, FeedRow>();
-  for (const row of rows) {
-    for (const g of row.gtins) if (!byGtin.has(gtin14(g))) byGtin.set(gtin14(g), row);
-    const u = row.url && normalUrl(row.url);
-    if (u && !byUrl.has(u)) byUrl.set(u, row);
-  }
-  const out: FeedMatch[] = [];
-  for (const record of records) {
-    if (record.market !== feed.market) continue;
-    for (const side of record.sides) {
-      if (side.retailer !== feed.retailer) continue;
-      const g = side.gtin ? byGtin.get(gtin14(side.gtin)) : undefined;
-      if (g) {
-        out.push({ record, side, row: g, by: "gtin" });
-        continue;
-      }
-      const u = normalUrl(side.url);
-      const r = u ? byUrl.get(u) : undefined;
-      if (r) out.push({ record, side, row: r, by: "url" });
-    }
-  }
-  return out;
-}
-
-/** Why a matched row can't price this side, or null. */
-export function feedRejectReason(m: FeedMatch, today: string, maxAgeDays: number): string | null {
-  const currency = m.row.currency ?? m.record.currency;
-  if (m.row.price === null) return "no price";
-  if (currency !== m.record.currency) return `in ${currency}, not ${m.record.currency}`;
-  if (m.row.inStock === false) return "out of stock";
-  if (m.row.updated && m.row.updated < addDays(today, -maxAgeDays)) return `not updated in ${maxAgeDays} days`;
-  return null;
-}
-
-export function feedCandidate(m: FeedMatch, feed: FeedConfig, today: string): Candidate {
-  return {
-    record: m.record.slug,
-    side: m.side.side,
-    price: m.row.price!,
-    currency: m.row.currency ?? m.record.currency,
-    // The feed is the merchant's live price list, read today. Rows not updated within the limit were rejected above.
-    seen: today,
-    source: `${feed.network}:${m.row.merchant ?? feed.retailer}`,
-    url: m.row.url && /^https?:/.test(m.row.url) ? m.row.url : m.side.url,
-    method: "feed",
-    note: `Matched by ${m.by === "gtin" ? "barcode" : "product URL"} in the ${feed.label} feed`,
-  };
-}
-
-/* ------------------------------------------------------------------- fetch */
-
-async function readFeed(feed: FeedConfig, ctx: AdapterContext): Promise<string> {
-  let bytes: Buffer;
-  if (/^https?:\/\//.test(feed.location)) {
-    const res = await ctx.fetch(feed.location);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    bytes = Buffer.from(await res.arrayBuffer());
-  } else {
-    if (!existsSync(feed.location)) throw new Error("file not found");
-    bytes = readFileSync(feed.location);
-  }
-  // Awin offers gzip; zip isn't supported, choose gzip or none in Create-a-Feed.
-  if (bytes[0] === 0x1f && bytes[1] === 0x8b) bytes = gunzipSync(bytes);
-  if (bytes[0] === 0x50 && bytes[1] === 0x4b) throw new Error("zip compression isn't supported, choose gzip or none");
-  return bytes.toString("utf8");
-}
-
-export const feedAdapter: PriceAdapter = {
-  id: "feed",
-  licence: "Affiliate product feeds under each network's publisher agreement (Awin first)",
-  async collect(records: PricedRecord[], ctx: AdapterContext): Promise<AdapterResult> {
-    const { feeds, problems } = parseFeedConfig(ctx.env.PRICE_FEED_URLS);
-    const notes = problems.map((p) => `feed: ${p}`);
-    if (!feeds.length) return { candidates: [], notes: [...notes, "feed: no feeds configured (PRICE_FEED_URLS), skipped"] };
-    const maxAge = Number(ctx.env.PRICE_FEED_MAX_AGE_DAYS) || 30;
-    const candidates: Candidate[] = [];
-    for (const feed of feeds) {
-      let rows: FeedRow[];
-      try {
-        rows = parseCsv(await readFeed(feed, ctx)).map(FEED_FORMATS[feed.network]);
-      } catch (err) {
-        notes.push(`feed: ${feed.label} could not be read (${err instanceof Error ? err.message : String(err)})`);
-        continue;
-      }
-      const matches = matchFeed(rows, records, feed);
-      let used = 0;
-      for (const m of matches) {
-        if (feedRejectReason(m, ctx.today, maxAge) !== null) continue;
-        candidates.push(feedCandidate(m, feed, ctx.today));
-        used++;
-      }
-      notes.push(`feed: ${feed.label}: ${rows.length} rows, ${matches.length} matched a record, ${used} usable`);
-    }
-    return { candidates, notes };
-  },
-};

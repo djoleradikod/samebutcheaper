@@ -109,7 +109,7 @@ export function nodeAt(root: JsonNode, path: JsonPath): JsonNode | null {
   return node ?? null;
 }
 
-export type ValueEdit = { path: JsonPath; value: number | string };
+export type ValueEdit = { path: JsonPath; value: number | string | null };
 
 function setIn(obj: unknown, path: JsonPath, value: unknown) {
   let cur = obj as Record<string | number, unknown>;

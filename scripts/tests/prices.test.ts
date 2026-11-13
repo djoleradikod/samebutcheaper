@@ -5,7 +5,7 @@
  *   npx tsx --test scripts/tests/prices.test.ts
  */
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
@@ -24,14 +24,14 @@ import { matchRows, parseState, type BrowseRow } from "../../src/lib/browse";
 import { monthStart, priceSeenFor } from "../prices/attach";
 import { isChain } from "../prices/chains";
 import { decide, packMismatch, type ReviewItem } from "../prices/decide";
-import { awinRow, feedAdapter, feedRejectReason, gtin14, matchFeed, normalUrl, parseCsv, parseFeedConfig } from "../prices/adapters/feed";
+import { feedAdapter, gtin14, normalUrl, parseCsv } from "../prices/adapters/feed";
 import { manualCandidates } from "../prices/adapters/manual";
 import { openPricesAdapter, openPricesPage, openPricesUrl, pickItem, rejectReason, type OpenPricesItem } from "../prices/adapters/open-prices";
 import type { AdapterContext, Candidate } from "../prices/adapters/types";
 import { editJson, parseWithSpans } from "../prices/json-edit";
 import { appendObservations, loadObservations, observationSchema, type Observation } from "../prices/observations";
 import { recordsFromBundleFile, recordsFromPairFile, savingPct, type PricedRecord } from "../prices/records";
-import { applyEdits, mergeReview, readReview, summarize } from "../prices/refresh";
+import { accept, applyEdits, mergeReview, readReview, summarize, type Paths } from "../prices/refresh";
 import { blameDays, seedDate } from "../prices/seed";
 
 const TODAY = "2026-11-13";
@@ -336,15 +336,37 @@ const gbRecords = () => [
   }),
 ];
 
-test("feed config: retailer@market=url, never another store's prices", () => {
-  const { feeds, problems } = parseFeedConfig("awin:boots@GB=https://productdata.awin.com/x?apikey=SECRET\nsuperdrug@GB=/tmp/f.csv, nonsense, walmart@XX=/a, other@GB=/b, cj:boots@GB=/c");
-  assert.deepEqual(
-    feeds.map((f) => f.label),
-    ["awin:boots@GB", "awin:superdrug@GB"],
-  );
-  assert.equal(problems.length, 4);
-  assert.ok(!JSON.stringify(feeds.map((f) => f.label)).includes("SECRET"), "labels never carry the URL");
-  assert.deepEqual(parseFeedConfig(undefined), { feeds: [], problems: [] });
+// The feed readers, matching and adapter are tested in feeds.test.ts and feeds-match.test.ts. This keeps the cases
+// the first Awin reader was written for.
+test("awin feed: barcode, then the product page; another currency skipped; out of stock logged as such; no URL in notes", async () => {
+  const dir = mkdtempSync(join(tmpdir(), "sbc-feed-"));
+  const gz = join(dir, "boots.csv.gz");
+  writeFileSync(gz, gzipSync(readFileSync(join(FIXTURES, "awin-feed.synthetic.csv"))));
+  const base: AdapterContext = { today: TODAY, env: {}, sleep: async () => {}, fetch: async () => assert.fail("no fetch with no feeds") };
+  const none = await feedAdapter.collect(gbRecords(), base);
+  assert.deepEqual(none.candidates, []);
+  assert.match(none.notes.join(), /no feeds configured/);
+  const out = await feedAdapter.collect(gbRecords(), { ...base, env: { PRICE_FEED_URLS: `boots@GB=${gz}` } });
+  assert.deepEqual(out.candidates.map((c) => [c.record, c.side, c.price, c.method, c.source, c.seen, c.stock]).sort(), [
+    ["nurofen-vs-test-ibuprofen-gb", "alternative", 1.5, "feed", "feed:awin", TODAY, "in"],
+    ["panadol-vs-test-paracetamol-gb", "alternative", 2.1, "feed", "feed:awin", TODAY, "in"],
+    ["zirtek-vs-test-cetirizine-gb", "brand", 3, "feed", "feed:awin", TODAY, "out"],
+  ]);
+  assert.match(out.notes.join("\n"), /1 matched row\(s\) skipped: in EUR/);
+  assert.equal(out.candidates[0].link?.startsWith("https://www.awin1.com/pclick.php"), true);
+  const remote = await feedAdapter.collect(gbRecords(), {
+    ...base,
+    env: { PRICE_FEED_URLS: "boots@GB=https://productdata.awin.com/datafeed/download/apikey/SECRET/fid/1/format/csv" },
+    fetch: async () => ({ ok: false, status: 401, arrayBuffer: async () => new ArrayBuffer(0) }),
+  });
+  assert.equal(remote.candidates.length, 0);
+  assert.ok(!remote.notes.join().includes("SECRET"));
+  assert.match(remote.notes.join(), /HTTP 401/);
+});
+
+test("gtin and URL helpers", () => {
+  assert.equal(gtin14("012345678905"), gtin14("0012345678905"));
+  assert.equal(normalUrl("https://www.Test-Chemist.example/p/ibuprofen-16?utm_source=awin#x"), "test-chemist.example/p/ibuprofen-16");
 });
 
 test("csv: quotes, doubled quotes, commas and CRLF", () => {
@@ -354,66 +376,6 @@ test("csv: quotes, doubled quotes, commas and CRLF", () => {
     { a: "q", b: "", c: "" },
   ]);
   assert.deepEqual(parseCsv("a|b\n1|2\n"), [{ a: "1", b: "2" }]);
-});
-
-test("awin fixture: documented columns read into rows", () => {
-  const rows = parseCsv(readFileSync(join(FIXTURES, "awin-feed.synthetic.csv"), "utf8")).map(awinRow);
-  assert.equal(rows.length, 5);
-  assert.deepEqual(rows[0].gtins, ["5000000000017"]);
-  assert.equal(rows[0].price, 2.1);
-  assert.equal(rows[0].name, "Test Paracetamol Tablets 500mg, 32 pack");
-  assert.equal(rows[1].name, 'Test Ibuprofen "Express" 16 pack');
-  assert.equal(rows[2].inStock, false);
-  assert.equal(rows[3].currency, "EUR");
-  assert.equal(rows[4].currency, null);
-  assert.equal(rows[0].updated, "2026-11-12");
-  assert.equal(rows[0].merchant, "9999");
-});
-
-test("feed matching: barcode first, then the merchant's product URL, only for that retailer and market", () => {
-  assert.equal(gtin14("012345678905"), gtin14("0012345678905"));
-  assert.equal(normalUrl("https://www.Test-Chemist.example/p/ibuprofen-16?utm_source=awin#x"), "test-chemist.example/p/ibuprofen-16");
-  const rows = parseCsv(readFileSync(join(FIXTURES, "awin-feed.synthetic.csv"), "utf8")).map(awinRow);
-  const m = matchFeed(rows, gbRecords(), { retailer: "boots", market: "GB" });
-  const found = m.map((x) => `${x.record.slug}:${x.side.side}:${x.by}`).sort();
-  assert.deepEqual(found, [
-    "nurofen-vs-test-ibuprofen-gb:alternative:url",
-    "panadol-vs-test-paracetamol-gb:alternative:gtin",
-    "zirtek-vs-test-cetirizine-gb:alternative:gtin",
-    "zirtek-vs-test-cetirizine-gb:brand:gtin",
-  ]);
-  assert.equal(matchFeed(rows, gbRecords(), { retailer: "boots", market: "IE" }).length, 0, "another market's records are never matched");
-  const byKey = new Map(m.map((x) => [`${x.record.slug}:${x.side.side}`, x]));
-  assert.match(feedRejectReason(byKey.get("zirtek-vs-test-cetirizine-gb:brand")!, TODAY, 30)!, /out of stock/);
-  assert.match(feedRejectReason(byKey.get("zirtek-vs-test-cetirizine-gb:alternative")!, TODAY, 30)!, /in EUR, not GBP/);
-  assert.equal(feedRejectReason(byKey.get("panadol-vs-test-paracetamol-gb:alternative")!, TODAY, 30), null);
-  assert.equal(feedRejectReason(byKey.get("nurofen-vs-test-ibuprofen-gb:alternative")!, TODAY, 30), null);
-  const stale = { ...byKey.get("panadol-vs-test-paracetamol-gb:alternative")!, row: rows[4] };
-  assert.match(feedRejectReason(stale, TODAY, 30)!, /not updated/);
-  assert.equal(feedRejectReason({ ...stale, row: { ...rows[4], updated: null } }, TODAY, 30), null, "a blank currency is the feed's own market's");
-});
-
-test("feed adapter: zero feeds is safe, a gzip file works, URLs never reach the notes", async () => {
-  const base: AdapterContext = { today: TODAY, env: {}, sleep: async () => {}, fetch: async () => assert.fail("no fetch with no feeds") };
-  const none = await feedAdapter.collect(gbRecords(), base);
-  assert.deepEqual(none.candidates, []);
-  assert.match(none.notes.join(), /no feeds configured/);
-  const dir = mkdtempSync(join(tmpdir(), "sbc-feed-"));
-  const gz = join(dir, "boots.csv.gz");
-  writeFileSync(gz, gzipSync(readFileSync(join(FIXTURES, "awin-feed.synthetic.csv"))));
-  const out = await feedAdapter.collect(gbRecords(), { ...base, env: { PRICE_FEED_URLS: `boots@GB=${gz}` } });
-  assert.deepEqual(out.candidates.map((c) => [c.record, c.side, c.price, c.method, c.source, c.seen]).sort(), [
-    ["nurofen-vs-test-ibuprofen-gb", "alternative", 1.5, "feed", "awin:9999", TODAY],
-    ["panadol-vs-test-paracetamol-gb", "alternative", 2.1, "feed", "awin:9999", TODAY],
-  ]);
-  const remote = await feedAdapter.collect(gbRecords(), {
-    ...base,
-    env: { PRICE_FEED_URLS: "boots@GB=https://productdata.awin.com/datafeed/download/apikey/SECRET/fid/1/format/csv" },
-    fetch: async () => ({ ok: false, status: 401, arrayBuffer: async () => new ArrayBuffer(0) }),
-  });
-  assert.equal(remote.candidates.length, 0);
-  assert.ok(!remote.notes.join().includes("SECRET"));
-  assert.match(remote.notes.join(), /HTTP 401/);
 });
 
 /* ------------------------------------------------------------------ manual */
@@ -587,4 +549,79 @@ test("the committed log and review file are valid", () => {
   assert.deepEqual(errors, []);
   assert.ok(observations.length > 0);
   assert.ok(Array.isArray(readReview().items));
+});
+
+/* ------------------------------------------------- accepting a re-sourcing */
+
+/** A temporary copy of the data a review case touches, so the real files are never written. */
+function acceptData(pairs: unknown[], items: unknown[]): Paths {
+  const dir = mkdtempSync(join(tmpdir(), "sbc-accept-"));
+  const paths: Paths = { pairDir: join(dir, "pairs"), bundleDir: join(dir, "bundles"), observationsDir: join(dir, "obs"), reviewFile: join(dir, "review.json"), feedRunsFile: join(dir, "feed-runs.json") };
+  for (const d of [paths.pairDir, paths.bundleDir, paths.observationsDir]) mkdirSync(d, { recursive: true });
+  writeFileSync(join(paths.pairDir, "de.json"), JSON.stringify(pairs, null, 2) + "\n");
+  writeFileSync(paths.reviewFile, JSON.stringify({ updated: TODAY, items }, null, 2) + "\n");
+  return paths;
+}
+
+const RESOURCED = pairJson({
+  slug: "ben-u-ron-vs-paracetamol-de",
+  brand: { brand: "ben-u-ron", product: "ben-u-ron 500 mg, 20 tablets", size: 20, unit: "tablet", price: 3.5, retailer: "medikamente-per-klick", url: "https://www.medikamente-per-klick.de/ben-u-ron-00116694", gtin: undefined, asin: null },
+  alternative: { brand: "ADGC", product: "Paracetamol ADGC 500 mg, 20 tablets", size: 20, unit: "tablet", price: 0.99, retailer: "shopapotheke", url: "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm", gtin: undefined, rating: { stars: 4.9, count: 27, source: "https://www.shop-apotheke.com/arzneimittel/17502496/paracetamol-adgc-500-mg.htm" } },
+});
+
+function resourcedCase(over: Partial<Observation> = {}) {
+  const at = (side: string, price: number, url: string) => obs({ record: "ben-u-ron-vs-paracetamol-de", side, price, seen: TODAY, logged: TODAY, source: "aponeo", url, note: "Re-source check at aponeo", ...over });
+  return {
+    id: "8988c42bf7",
+    created: TODAY,
+    record: "ben-u-ron-vs-paracetamol-de",
+    kind: "swap",
+    market: "DE",
+    currency: "EUR",
+    reasons: ["big-move"],
+    detail: ["ben-u-ron: 3.5 to 4.99 (+42.6%), more than 35%"],
+    savingNow: 71.7,
+    savingAfter: 72.1,
+    changes: [],
+    observations: [at("brand", 4.99, "https://www.aponeo.de/00116694-ben-u-ron-500-mg-tabletten.html"), at("alternative", 1.39, "https://www.aponeo.de/17502496-paracetamol-adgc-500-mg-tabletten.html")],
+  };
+}
+
+test("accept: a reviewed price from another store moves the side's link and store with it", () => {
+  const paths = acceptData([RESOURCED], [resourcedCase()]);
+  const message = accept("8988c42bf7", TODAY, paths);
+  const [rec] = JSON.parse(readFileSync(join(paths.pairDir, "de.json"), "utf8"));
+  assert.equal(rec.brand.price, 4.99);
+  assert.equal(rec.alternative.price, 1.39);
+  assert.equal(rec.brand.url, "https://www.aponeo.de/00116694-ben-u-ron-500-mg-tabletten.html");
+  assert.equal(rec.brand.retailer, "aponeo");
+  assert.equal(rec.alternative.url, "https://www.aponeo.de/17502496-paracetamol-adgc-500-mg-tabletten.html");
+  assert.equal(rec.alternative.retailer, "aponeo");
+  assert.equal(rec.price_checked, "2026-11");
+  assert.match(message, /Moved: brand moved from medikamente-per-klick\.de to aponeo\.de; alternative moved from shop-apotheke\.com to aponeo\.de/);
+  assert.match(message, /still mention shop-apotheke\.com/, "the rating read at the old store is flagged for a person");
+  const { observations } = loadObservations(paths.observationsDir);
+  assert.equal(observations.length, 2);
+  assert.ok(observations.every((o) => o.source === "aponeo" && /Accepted from review 8988c42bf7/.test(o.note ?? "")));
+  assert.deepEqual(readReview(paths.reviewFile).items, []);
+});
+
+test("accept: a price from the record's own store moves nothing; an unknown store is refused, not guessed", () => {
+  const same = acceptData([RESOURCED], [{ ...resourcedCase(), observations: [obs({ record: "ben-u-ron-vs-paracetamol-de", side: "brand", price: 4.2, seen: TODAY, logged: TODAY, source: "medikamente-per-klick", url: "https://www.medikamente-per-klick.de/ben-u-ron-00116694" })] }]);
+  const msg = accept("8988c42bf7", TODAY, same);
+  const [rec] = JSON.parse(readFileSync(join(same.pairDir, "de.json"), "utf8"));
+  assert.equal(rec.brand.price, 4.2);
+  assert.equal(rec.brand.retailer, "medikamente-per-klick");
+  assert.doesNotMatch(msg, /Moved/);
+  const unknown = acceptData([RESOURCED], [resourcedCase({ source: "manual" })]);
+  assert.throws(() => accept("8988c42bf7", TODAY, unknown), /isn't a known retailer id/);
+  const [untouched] = JSON.parse(readFileSync(join(unknown.pairDir, "de.json"), "utf8"));
+  assert.equal(untouched.brand.price, 3.5, "nothing is written when the move is refused");
+  const amazon = acceptData(
+    [pairJson({ slug: "ben-u-ron-vs-paracetamol-de", brand: { ...RESOURCED.brand, retailer: "amazon", url: "https://www.amazon.de/dp/B000000001", asin: "B000000001" } })],
+    [{ ...resourcedCase(), observations: [resourcedCase().observations[0]] }],
+  );
+  accept("8988c42bf7", TODAY, amazon);
+  const [moved] = JSON.parse(readFileSync(join(amazon.pairDir, "de.json"), "utf8"));
+  assert.equal(moved.brand.asin, null, "off Amazon, the ASIN goes");
 });

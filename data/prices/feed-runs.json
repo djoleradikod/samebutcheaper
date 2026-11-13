@@ -1,0 +1,30 @@
+{
+  "updated": null,
+  "networks": {},
+  "licence": {
+    "swaps": {
+      "verdicts": {
+        "ok": 169,
+        "unclear": 59,
+        "barred": 230
+      },
+      "withFeeds": {
+        "ok": 169,
+        "unclear": 59,
+        "barred": 230
+      }
+    },
+    "kits": {
+      "verdicts": {
+        "ok": 5,
+        "unclear": 1,
+        "barred": 38
+      },
+      "withFeeds": {
+        "ok": 5,
+        "unclear": 1,
+        "barred": 38
+      }
+    }
+  }
+}

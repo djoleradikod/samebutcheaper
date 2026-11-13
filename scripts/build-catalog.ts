@@ -36,7 +36,7 @@ import { basketCheckout, checkout, tillLine, type TillLine } from "../src/lib/de
 import { isPerAmountRecord } from "../src/lib/unit-format";
 import { RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../src/lib/rating";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
-import { freshnessOf, freshnessWeight, isoDay, type Freshness, type PriceSeen } from "../src/lib/freshness";
+import { freshnessOf, freshnessWeight, isoDay, outOfStockSides, priceDoubtful, type Freshness, type PriceSeen } from "../src/lib/freshness";
 import { priceSeenFor } from "./prices/attach";
 import { bySide, loadObservations } from "./prices/observations";
 import { asinProblem } from "../src/lib/cart";
@@ -283,7 +283,8 @@ function priceFreshness(slug: string, sides: [string, number][], priceChecked: s
     prices[side] = seen;
   }
   const freshness: Freshness = freshnessOf(Object.values(prices), BUILD_DAY);
-  return { prices, freshness, priceOld: freshness.tier === "stale" };
+  // Stale, or out of stock in an affiliate feed: either keeps the record from leading (docs/feeds.md).
+  return { prices, freshness, priceOld: priceDoubtful(freshness, prices) };
 }
 
 /** Ageing and stale prices rank lower, progressively (see freshnessWeight in src/lib/freshness.ts). */
@@ -528,7 +529,8 @@ for (const file of bundleFiles) {
     if (bundle.netSavings / bundle.bundle.price < 0.05)
       warnings.push(`${label}: after delivery from ${bundle.checkout.stores.length} stores the rebuild saves only ${bundle.netSavings} ${bundle.currency}`);
     seen.add(bundle.slug);
-    bundle.score = freshScore(bundle.score, bundle.freshness);
+    // A kit with a piece out of stock in a feed never leads: a hundredth of its score, as for a kit that saves too little.
+    bundle.score = round(freshScore(bundle.score, bundle.freshness) * (outOfStockSides(bundle.prices).length ? 0.01 : 1), 2);
     bundles.push(bundle);
   });
 }

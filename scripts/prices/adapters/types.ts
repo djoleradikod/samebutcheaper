@@ -15,10 +15,19 @@ export type Candidate = {
   note?: string;
   /** The pack the source says it priced, when it says. Compared with the record's pack before anything changes. */
   pack?: { size: number; unit: string } | null;
+  /** Feeds: the network's tracked link, logged so /go can use it. */
+  link?: string;
+  /** Feeds: "out" when the feed lists it out of stock. Such a candidate is logged but never changes a price. */
+  stock?: "in" | "out";
+  /** Feeds: matched by name alone, so a person must confirm it (decide.ts sends it to review). */
+  needsReview?: string;
 };
 
 /** Just what the adapters need from fetch, so tests can hand them recorded responses. */
-export type Fetcher = (url: string, init?: { headers?: Record<string, string> }) => Promise<{ ok: boolean; status: number; arrayBuffer(): Promise<ArrayBuffer> }>;
+export type Fetcher = (
+  url: string,
+  init?: { headers?: Record<string, string> },
+) => Promise<{ ok: boolean; status: number; arrayBuffer(): Promise<ArrayBuffer>; /** Streamed when present (feeds are large). */ body?: ReadableStream<Uint8Array> | null }>;
 
 export type AdapterContext = {
   today: string;
@@ -28,7 +37,12 @@ export type AdapterContext = {
   sleep: (ms: number) => Promise<void>;
 };
 
-export type AdapterResult = { candidates: Candidate[]; notes: string[] };
+export type AdapterResult = {
+  candidates: Candidate[];
+  notes: string[];
+  /** Feeds only: what each feed did, for the report, /admin and the readiness check (feed.ts FeedStats). */
+  feedStats?: import("./feed").FeedStats[];
+};
 
 /**
  * One licensed price source. An adapter only ever reads its own source (an open API, a feed the merchant

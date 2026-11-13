@@ -129,7 +129,7 @@ function cheaperAnswer(pair: Pair, local?: Local) {
   const per = label === "each" ? "" : ` ${label}`;
   const pct = `${Math.round(pair.savingsPct)}%`;
   const when = `at the ${MARKET_ADJECTIVE[pair.market]} prices we checked in ${monthYear(pair.price_checked)}`;
-  const old = pair.priceOld ? " Those prices are over a year old, so check before you buy." : "";
+  const old = pair.priceOld && pair.freshness.tier === "stale" ? " Those prices are over a year old, so check before you buy." : "";
   if (!local) return `${a.brand} costs ${pct} less${per} than ${b.brand}, ${when}.${old}`;
   const at = label === "each" ? "" : ` ${label}`;
   return `${a.brand} costs ${local.unit(a.ppu, b.unit, currency)}${at} against ${local.unit(b.ppu, b.unit, currency)} for ${b.brand}, ${pct} less, ${when}.${old}`;
