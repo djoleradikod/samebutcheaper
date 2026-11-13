@@ -6,6 +6,7 @@ import { ConfidenceBadge, MatchBadge } from "@/components/Badges";
 import { COLLAGE_CELLS } from "@/components/BasketCard";
 import { BundleCard } from "@/components/BundleCard";
 import { BundleWhereToBuy } from "@/components/BundleWhereToBuy";
+import { BundleCheckout } from "@/components/BundleCheckout";
 import { HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Evidence";
 import { ProductThumb } from "@/components/ProductThumb";
 import { SaveButton } from "@/components/SaveButton";
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: PageProps<"/bundle/[slug]">):
   const { slug } = await params;
   const b = getBundle(slug);
   if (!b) return { title: "Kit not found" };
-  const title = `${b.bundle.name}: rebuilt for ${Math.round(b.savingsPct)}% less`;
+  const title = `${b.bundle.name}: rebuilt for ${Math.round(b.netSavingsPct)}% less`;
   const description = `${b.summary} ${money(b.equivalentTotal, b.currency)} for the same amount, against ${money(b.bundle.price, b.currency)} for the kit.`;
   return {
     title,
@@ -65,7 +66,7 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
     .sort((x, y) => Number(y.category === b.category) - Number(x.category === b.category) || y.score - x.score)
     .slice(0, 4);
   const perMonth =
-    b.bundle.billing === "subscription" && b.bundle.supply_days ? (b.savings / b.bundle.supply_days) * 30 : null;
+    b.bundle.billing === "subscription" && b.bundle.supply_days ? (b.netSavings / b.bundle.supply_days) * 30 : null;
   const pieces = b.components.slice(0, 4);
   const eager = eagerTarget(b);
   const earns = b.components.some((c) => mayEarn(c, b.market)) || mayEarn(b.bundle, b.market);
@@ -124,9 +125,9 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
               <div className="col-span-2 row-start-2 md:col-span-1 md:row-start-auto md:self-center">
                 <SaveTicket
                   size="lg"
-                  amount={b.savings}
+                  amount={b.netSavings}
                   currency={b.currency}
-                  sub={perMonth ? `about ${local.bare(perMonth, b.currency)} a month` : `${Math.round(b.savingsPct)}% less`}
+                  sub={perMonth ? `about ${local.bare(perMonth, b.currency)} a month` : `${Math.round(b.netSavingsPct)}% less`}
                 />
               </div>
 
@@ -175,8 +176,12 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
                   <dd className="text-[13px] font-medium">{monthYear(b.price_checked)}</dd>
                 </div>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                  <dt className="text-ink-2">Buying every full pack</dt>
-                  <dd className="price text-base"><Money n={b.upfrontTotal} from={b.currency} /></dd>
+                  <dt className="text-ink-2">You pay today{b.checkout.delivery === null ? "" : ", delivered"}</dt>
+                  <dd className="price text-base"><Money n={b.checkout.payToday} from={b.currency} /></dd>
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <dt className="text-ink-2">Orders</dt>
+                  <dd className="text-[13px] font-medium">{b.checkout.stores.length === 1 ? "One store" : `${b.checkout.stores.length} stores`}</dd>
                 </div>
               </dl>
               {b.upfrontTotal > b.bundle.price && (
@@ -274,6 +279,8 @@ function BundleBody({ record, local }: { record: NonNullable<ReturnType<typeof g
               </div>
             </div>
           </section>
+
+          <BundleCheckout b={b} local={local} />
 
           {(b.differences || b.bundle.extras.length > 0) && (
             <section className="rounded-card border border-different/30 bg-different-soft p-4 md:p-5">

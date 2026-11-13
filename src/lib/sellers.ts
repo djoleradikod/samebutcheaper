@@ -55,7 +55,8 @@ export function sellerOf(side: Sold): string {
   const host = hostOf(side.url);
   if (!host || host === "which.co.uk") return "unknown";
   if (host.startsWith("amazon.")) return "amazon";
-  return host.replace(/^shop\./, "").split(".")[0].replace(/-online$/, "");
+  // Storefront and locale subdomains (shop.x.com, us.ugreen.com, uk.x.com) name the store's country, not the store.
+  return host.replace(/^(?:shop|store|us|uk|ca|de|ie|eu|en)\./, "").split(".")[0].replace(/-online$/, "");
 }
 
 const SOLD_IN: Record<string, Set<string>> = {};

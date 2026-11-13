@@ -62,6 +62,21 @@ customer service. A row with the same `aspect` name replaces the generated one.
 
 `verdict` is `same`, `alt_better`, `brand_better` or `different`. Be honest about where the brand wins.
 
+## Delivery (`data/sellers/delivery.json`)
+
+A kit is one checkout; rebuilding it can be several. The build groups a kit's pieces by seller (see `sellers.ts`) and
+prices each store's order against that store's rule, so the saving a kit page leads with is after any extra delivery.
+
+```json
+"target": { "US": { "fee": 5.99, "free_over": 35, "pickup": false, "confidence": "official",
+                    "membership": null, "note": "optional", "sources": ["https://..."] } }
+```
+
+`fee` is standard home delivery below `free_over`, in the market's currency. `free_over: 0` means every order ships free.
+Leave a value `null` when no source confirms it: the page then says the delivery cost is unchecked instead of guessing.
+`confidence` is `official` (the store's own page) or `secondary` (a dated third-party guide). `membership` is
+`{ name, price, per, nonmember_surcharge_pct? }` for clubs like Costco; a non-member surcharge is counted in the checkout.
+
 ## Presets (`data/presets/*.json`)
 
 A basket for a life moment, built only from swaps in the catalogue, so a preset makes no new price claims. All its

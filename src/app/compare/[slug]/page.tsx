@@ -20,6 +20,8 @@ import { brandSlugFor, getAllPairs, getBrand, getPair, getRelatedPairs, ingredie
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
 import { dupeSlugFor } from "@/lib/dupes";
+import { storeOrder } from "@/lib/delivery";
+import { sellerOf } from "@/lib/sellers";
 import { inSentence, monthYear } from "@/lib/format";
 import { jsonLdText, SITE } from "@/lib/site";
 import type { Pair, ProductSide } from "@/lib/types";
@@ -395,8 +397,18 @@ function offersFor(pair: Pair, local: Local): Offer[] {
   const { brand: b, alternative: a, bulkView } = pair;
   const sells = (retailer: string) => local.sells(retailer, pair.market);
   const elsewhere = `A ${MARKET_ADJECTIVE[pair.market]} store`;
+  // A cheap pack on its own can fall under a store's free-delivery line, which a shopper should know before the click.
+  const deliveryNote = (p: ProductSide) => {
+    if (!sells(p.retailer)) return undefined;
+    const order = storeOrder(sellerOf(p), pair.market, p.price);
+    if (!order.delivery || order.freeOver === null) return undefined;
+    const fee = local.money(order.delivery, pair.currency);
+    const over = local.money(order.freeOver, pair.currency);
+    return `Delivery ${fee} on its own, free over ${over}${order.pickup ? ", or free store pickup" : ""}`;
+  };
   const side = (p: ProductSide, which: "brand" | "alternative"): Offer => ({
     name: fullName(p),
+    note: deliveryNote(p),
     store: sells(p.retailer) ? storeName(p.retailer, p.url) : elsewhere,
     price: p.price,
     size: p.size,
