@@ -30,6 +30,7 @@ import { forCountry, localClaim, localText, MARKET_ADJECTIVE, type Local } from 
 import { NotListedHere, SameSwapHere } from "@/components/ShelfParts";
 import { CountryPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
+import { YearlyBlock } from "@/components/YearlyBlock";
 
 export function generateStaticParams() {
   const params = getAllPairs().map((p) => ({ slug: p.slug }));
@@ -161,6 +162,7 @@ function CompareBody({ record, local }: { record: Pair; local: Local }) {
             <div id={OFFERS} className="scroll-mt-16">
               <Offers pair={pair} local={local} />
             </div>
+            <YearlyBlock pair={pair} />
 
             <p className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5">
               <MatchBadge type={pair.match_type} long />

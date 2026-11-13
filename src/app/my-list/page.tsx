@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CountryPart } from "@/components/ForCountry";
 import { MyList, type ListItem } from "@/components/MyList";
+import { yearlyFields } from "@/components/YearlyBlock";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getAllPairs } from "@/lib/catalog";
 
@@ -28,6 +29,7 @@ export default function MyListPage() {
       fromAlt: p.brand.product,
       toPhoto: p.alternative.photo?.src ?? null,
       toAlt: p.alternative.product,
+      yearly: yearlyFields(p),
     })),
     ...getAllBundles().map((b) => {
       const piece = b.components.find((c) => c.photo) ?? b.components[0];
@@ -46,6 +48,8 @@ export default function MyListPage() {
         fromAlt: b.bundle.name,
         toPhoto: piece.photo?.src ?? null,
         toAlt: piece.product,
+        // A kit counts once: it's a set you buy once, and we have nothing on how often anyone rebuys one.
+        yearly: null,
       };
     }),
   ];
