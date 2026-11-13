@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/brands", all],
     ["/ingredients", all],
   ];
-  const prose = ["/check", "/why", "/how-we-verify", "/suggest", "/about", "/credits", "/disclosure", "/privacy"];
+  const prose = ["/check", "/check/list", "/why", "/how-we-verify", "/suggest", "/about", "/credits", "/disclosure", "/privacy"];
 
   /** The date and weight of a page with country URLs. */
   const about = (path: string): { date: Date | null; priority: number; changeFrequency: Entry["changeFrequency"] } => {
