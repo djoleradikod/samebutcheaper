@@ -1,4 +1,4 @@
-import { atStore, tagUrl } from "@/lib/affiliate";
+import { atStore } from "@/lib/affiliate";
 import { inSentence, withCelsius } from "@/lib/format";
 import type { Local } from "@/lib/localize";
 import { Money, UnitAmount } from "./Money";
@@ -203,7 +203,7 @@ function BiggerPack({ pair, local }: { pair: Pair; local: Local }) {
         </div>
         {local.sells(bigger.retailer, pair.market) && (
           <a
-            href={tagUrl(bigger.url)}
+            href={`/go/${pair.slug}/bigger`}
             target="_blank"
             rel="sponsored nofollow noopener"
             className="btn btn-ghost w-full sm:w-auto"

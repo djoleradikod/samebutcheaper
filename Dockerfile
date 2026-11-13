@@ -12,19 +12,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
-# Affiliate tags are fixed at build time, see next.config.ts.
-ARG AMAZON_ASSOCIATE_TAG=
-ARG AMAZON_TAGS=
-ARG WALMART_AFFILIATE_TEMPLATE=
-ARG TARGET_AFFILIATE_TEMPLATE=
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
-    AMAZON_ASSOCIATE_TAG=$AMAZON_ASSOCIATE_TAG \
-    AMAZON_TAGS=$AMAZON_TAGS \
-    WALMART_AFFILIATE_TEMPLATE=$WALMART_AFFILIATE_TEMPLATE \
-    TARGET_AFFILIATE_TEMPLATE=$TARGET_AFFILIATE_TEMPLATE \
     NEXT_TELEMETRY_DISABLED=1
+# Affiliate settings are fixed at build time (next.config.ts). They arrive as the build secret "affiliate"
+# (docker compose passes .env), so they never land in an image layer.
 # The catalog is validated and compiled from data/pairs during `prebuild`.
-RUN npm run build
+RUN --mount=type=secret,id=affiliate,required=false npm run build
 
 # ---------- migrator (one-shot) ----------
 FROM node:22-alpine AS migrator

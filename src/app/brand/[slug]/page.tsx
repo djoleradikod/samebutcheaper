@@ -4,6 +4,7 @@ import { getBrand, getBrands } from "@/lib/catalog";
 import { matchSentence } from "@/lib/categories";
 import { BundleCard } from "@/components/BundleCard";
 import { CountryPart } from "@/components/ForCountry";
+import { ListSchema } from "@/components/ListSchema";
 import { atLeastOneParam, BestTicket, bestSaving, PriceFacts, ShelfHead, swapCount, SwapList } from "@/components/ShelfParts";
 import { forCountry, type Local } from "@/lib/localize";
 
@@ -97,6 +98,15 @@ export default async function BrandPage({ params }: PageProps<"/brand/[slug]">) 
           }}
         </CountryPart>
       </div>
+      <ListSchema
+        name={`Cheaper alternatives to ${brand.name}`}
+        path={`/brand/${brand.slug}`}
+        crumbs={[{ name: "Brands", path: "/brands" }]}
+        items={[
+          ...brand.pairs.map((p) => ({ name: p.title, path: `/compare/${p.slug}` })),
+          ...brand.bundles.map((b) => ({ name: b.title, path: `/bundle/${b.slug}` })),
+        ]}
+      />
     </div>
   );
 }

@@ -2,85 +2,58 @@ import { hostname } from "./format";
 import { MARKETS, type MarketCode } from "./markets";
 import type { ProductSide } from "./types";
 
+import { affiliateEnv, livePrograms, liveSubNetwork, tagLink, type TaggedLink } from "./affiliate-links";
+
+export { amazonTag } from "./affiliate-links";
+
 /**
- * Builds outbound (affiliate) URLs. Configure with env:
- *   AMAZON_ASSOCIATE_TAG=yourtag-20                 (amazon.com)
- *   AMAZON_TAGS=amazon.co.uk:tag-21,amazon.de:tag-21,amazon.ca:tag-20
- *   WALMART_AFFILIATE_TEMPLATE=https://goto.walmart.com/c/XXXX/YYYY/ZZZZ?u={url}
- *   TARGET_AFFILIATE_TEMPLATE=https://goto.target.com/c/XXXX/YYYY/ZZZZ?u={url}
- * Without a tag or template the plain URL is used, so links always work.
+ * Outbound links for catalog products. Which program tags a link, the networks' link formats, click IDs and the
+ * env settings live in affiliate-links.ts and affiliate-programs.ts (see docs/affiliate-playbook.md).
  *
- * next.config.ts fixes these values at build time, because most pages are rendered then. A tag that
- * only exists at run time does nothing, so links can't start earning under pages built saying they don't.
+ * next.config.ts fixes those settings at build time, because most pages are rendered then. A setting that only
+ * exists at run time does nothing, so links can't start earning under pages built saying they don't.
  */
 
-/** The Associates tag for an Amazon storefront, e.g. "amazon.de". */
-export function amazonTag(domain: string): string | undefined {
-  const d = domain.replace(/^www\./, "").toLowerCase();
-  for (const entry of (process.env.AMAZON_TAGS ?? "").split(",")) {
-    const [host, tag] = entry.split(":").map((s) => s?.trim());
-    if (host && tag && host.toLowerCase() === d) return tag;
-  }
-  return d === "amazon.com" ? process.env.AMAZON_ASSOCIATE_TAG || undefined : undefined;
-}
-
 /** Adds affiliate parameters to any store URL we link to. */
-export function tagUrl(url: string): string {
-  let u: URL;
-  try {
-    u = new URL(url);
-  } catch {
-    return url;
-  }
-  const host = u.hostname.replace(/^www\./, "");
-  if (host.startsWith("amazon.")) {
-    const tag = amazonTag(host);
-    if (tag) u.searchParams.set("tag", tag);
-    return u.toString();
-  }
-  const template = templateFor(host);
-  return template ? template.replace("{url}", encodeURIComponent(url)) : url;
-}
-
-/** Impact templates are per program, so only the US sites they belong to have one. */
-function templateFor(host: string) {
-  const template =
-    host === "walmart.com"
-      ? process.env.WALMART_AFFILIATE_TEMPLATE
-      : host === "target.com"
-        ? process.env.TARGET_AFFILIATE_TEMPLATE
-        : undefined;
-  return template?.includes("{url}") ? template : undefined;
+export function tagUrl(url: string, clickId = ""): string {
+  return tagLink(url, clickId).url;
 }
 
 /** Where a product's link goes before any tag: an Amazon product goes to the storefront of its market. */
-function storeUrl(p: Pick<ProductSide, "retailer" | "asin" | "url">, market: MarketCode) {
+export function productUrl(p: Pick<ProductSide, "retailer" | "asin" | "url">, market: MarketCode = "US") {
   return p.retailer === "amazon" && p.asin ? `https://www.${MARKETS[market].amazon}/dp/${p.asin}` : p.url;
 }
 
+export function affiliateLink(
+  p: Pick<ProductSide, "retailer" | "asin" | "url">,
+  market: MarketCode = "US",
+  clickId = "",
+): TaggedLink {
+  return tagLink(productUrl(p, market), clickId);
+}
+
 export function affiliateUrl(p: Pick<ProductSide, "retailer" | "asin" | "url">, market: MarketCode = "US"): string {
-  return tagUrl(storeUrl(p, market));
+  return affiliateLink(p, market).url;
 }
 
 /** Whether this link really carries a tag, so the page next to it can say so honestly. */
 export function mayEarn(p: Pick<ProductSide, "retailer" | "asin" | "url">, market: MarketCode = "US"): boolean {
-  // tagUrl tags any Amazon link, whichever retailer the record names.
-  const host = hostname(storeUrl(p, market));
-  return host.startsWith("amazon.") ? !!amazonTag(host) : !!templateFor(host);
+  return affiliateLink(p, market).program !== null;
 }
 
 /** Whether any Amazon link on the site carries a tag. Amazon's required wording only appears then. */
 export function amazonEarns() {
-  if (process.env.AMAZON_ASSOCIATE_TAG) return true;
-  return (process.env.AMAZON_TAGS ?? "").split(",").some((entry) => {
-    const [host, tag] = entry.split(":").map((s) => s?.trim());
-    return !!tag && !!host?.toLowerCase().replace(/^www\./, "").startsWith("amazon.");
-  });
+  return livePrograms().some((p) => p.network === "amazon");
 }
 
 /** Whether any link on the site can earn us anything. */
 export function linksEarn() {
-  return amazonEarns() || !!templateFor("walmart.com") || !!templateFor("target.com");
+  return livePrograms().length > 0 || liveSubNetwork() !== null;
+}
+
+/** Whether a sub-network is on, so any store link may earn. */
+export function subNetworkEarns() {
+  return liveSubNetwork(affiliateEnv()) !== null;
 }
 
 /** A store's name: ours when we have one, or else its web address, so two unnamed shops stay two shops. */

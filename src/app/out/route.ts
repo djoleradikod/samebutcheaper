@@ -1,8 +1,5 @@
-import { after } from "next/server";
 import { isKnownCountry, storeSearchUrl, storesFor } from "@/lib/markets";
-import { tagUrl } from "@/lib/affiliate";
-import { getDb, schema } from "@/db";
-import { visitorFrom } from "@/lib/visitor";
+import { redirectOut } from "@/lib/outbound";
 
 /**
  * Store search redirect for shoppers outside a listing's market:
@@ -19,29 +16,10 @@ export async function GET(request: Request) {
   const store = storesFor(country).find((s) => s.id === storeId);
   if (!store) return new Response("Unknown store", { status: 404 });
 
-  const visitor = visitorFrom(request.headers);
-  after(async () => {
-    const db = getDb();
-    if (!db || visitor.isBot) return;
-    try {
-      await db.insert(schema.clicks).values({
-        pairSlug: /^[a-z0-9-]{1,160}$/.test(from) ? from : "lookup",
-        side: "search",
-        retailer: `${store.id}:${country}`.slice(0, 32),
-        referrer: request.headers.get("referer")?.slice(0, 500) ?? null,
-        visitorHash: visitor.hash,
-      });
-    } catch (err) {
-      console.error("search click log failed", err);
-    }
-  });
-
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: tagUrl(storeSearchUrl(store, q)),
-      "Cache-Control": "no-store",
-      "X-Robots-Tag": "noindex, nofollow",
-    },
+  return redirectOut(request, {
+    url: storeSearchUrl(store, q),
+    slug: /^[a-z0-9-]{1,160}$/.test(from) ? from : "lookup",
+    side: "search",
+    retailer: `${store.id}:${country}`,
   });
 }

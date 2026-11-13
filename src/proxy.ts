@@ -29,7 +29,35 @@ export function proxy(request: NextRequest) {
   if (detected) {
     response.cookies.set(COUNTRY_COOKIE, detected, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
   }
+  if (!request.cookies.has(SOURCE_COOKIE)) {
+    const source = trafficSource(request.nextUrl.searchParams, request.headers.get("referer"), request.nextUrl.host);
+    if (source) response.cookies.set(SOURCE_COOKIE, source, { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax" });
+  }
   return response;
+}
+
+/** First-touch traffic source, so /admin can show which channel's visitors go on to buy. Read by src/lib/outbound.ts. */
+const SOURCE_COOKIE = "sbc_src";
+
+/**
+ * Where a visitor came from: the campaign tag when a link carries one (utm_source, or "ref"), else the referring
+ * site's host. Our own pages and direct visits give nothing, so the first real source sticks for 30 days.
+ */
+export function trafficSource(params: URLSearchParams, referer: string | null, ownHost: string): string | null {
+  const clean = (v: string) => v.toLowerCase().replace(/[^a-z0-9._-]+/g, "-").slice(0, 40) || null;
+  const tag = params.get("utm_source") ?? params.get("ref");
+  if (tag) {
+    const medium = params.get("utm_medium");
+    return clean(medium ? `${tag}.${medium}` : tag);
+  }
+  if (!referer) return null;
+  try {
+    const host = new URL(referer).hostname.replace(/^(www|m|l|lm|out)\./, "");
+    if (!host || host === ownHost.replace(/:\d+$/, "").replace(/^www\./, "")) return null;
+    return clean(host);
+  } catch {
+    return null;
+  }
 }
 
 /**

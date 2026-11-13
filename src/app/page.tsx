@@ -204,6 +204,14 @@ function buildFaq(aisles: string[]) {
   ];
 }
 
+/** The middle saving, rounded, so the headline claim holds for a typical swap rather than the best one. */
+function medianPct(values: number[]) {
+  if (values.length === 0) return 0;
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return Math.round(sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2);
+}
+
 /* --------------------------------------------------------------------- the page */
 
 export default function Home() {
@@ -216,11 +224,22 @@ export default function Home() {
             <h1 className="display text-[1.75rem] md:text-[2.5rem]">Same job. Lower price.</h1>
             <div className="text-[13px] leading-snug text-ink-2 md:pb-1 md:text-right">
               <CountryPart fallback={<p className="text-sm font-medium">&nbsp;</p>}>
-                {(local) => (
-                  <p className="text-sm font-medium text-ink">
-                    <span className="num">{forCountry(getAllPairs(), local).length}</span> swaps, each with at least two sources.
-                  </p>
-                )}
+                {(local) => {
+                  const listed = forCountry(getAllPairs(), local);
+                  const typical = medianPct(listed.map((p) => p.savingsPct));
+                  return (
+                    <p className="text-sm font-medium text-ink">
+                      <span className="num">{listed.length}</span> swaps, each with at least two sources
+                      {typical >= 10 ? (
+                        <>
+                          , typically <span className="num">{typical}%</span> cheaper per unit.
+                        </>
+                      ) : (
+                        "."
+                      )}
+                    </p>
+                  );
+                }}
               </CountryPart>
               <p className="hidden md:block">
                 No brand pays to be listed. {linksEarn() ? "Some links earn us a commission." : "No link earns us anything today."}{" "}

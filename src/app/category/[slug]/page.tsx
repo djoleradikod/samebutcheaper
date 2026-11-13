@@ -7,6 +7,7 @@ import { MEDICINE } from "@/lib/browse";
 import { PairBrowser } from "@/components/PairBrowser";
 import { HealthNotice } from "@/components/Evidence";
 import { CountryPart } from "@/components/ForCountry";
+import { ListSchema } from "@/components/ListSchema";
 import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount, TagLinks } from "@/components/ShelfParts";
 import type { CategorySlug } from "@/lib/types";
 import { inSentence } from "@/lib/format";
@@ -90,6 +91,14 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
           );
         }}
       </CountryPart>
+      {all.length > 0 && (
+        <ListSchema
+          name={`Cheaper ${cat.name}`}
+          path={`/category/${cat.slug}`}
+          crumbs={[]}
+          items={[...all].sort((a, b) => b.savingsPct - a.savingsPct).map((p) => ({ name: p.title, path: `/compare/${p.slug}` }))}
+        />
+      )}
     </div>
   );
 }
