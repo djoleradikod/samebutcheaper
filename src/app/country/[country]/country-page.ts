@@ -2,6 +2,7 @@ import "server-only";
 import { notFound } from "next/navigation";
 import { countryForPrefix, type PrefixedCountry } from "@/lib/country-url";
 import { setPathCountry } from "@/lib/path-country";
+import { langForCountry } from "@/lib/i18n/lang";
 
 /**
  * Every page under src/app/country/[country] starts with this. The folder is never a public URL: src/proxy.ts rewrites
@@ -21,4 +22,14 @@ export async function metadataCountry(params: Promise<{ country: string }>): Pro
   const country = countryForPrefix((await params).country);
   if (!country) notFound();
   return country;
+}
+
+/**
+ * A tool with a translated form only (LANGUAGE_PAGES in country-url.ts): /de/check is German, and there is no /uk/check,
+ * since it would be the English page again. src/proxy.ts already answers 404 for those; this is the page's own check.
+ */
+export async function languagePageCountry(params: Promise<{ country: string }>): Promise<PrefixedCountry> {
+  const country = await metadataCountry(params);
+  if (langForCountry(country) === "en") notFound();
+  return pageCountry(params);
 }

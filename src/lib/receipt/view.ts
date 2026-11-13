@@ -2,13 +2,14 @@ import "server-only";
 import { getAllPairs, getPair } from "@/lib/catalog";
 import { forCountry, type Local } from "@/lib/localize";
 import type { Pair } from "@/lib/types";
-import { packSize, unitDisplay } from "@/lib/unit-format";
+import { packSize, unitLabel } from "@/lib/unit-format";
+import type { Lang } from "@/lib/i18n/lang";
 import { savingKind } from "@/lib/yearly";
 import { buildIndex, toCandidate, type Index } from "./match";
 import type { SwapView } from "./types";
 
 /** The result's view of a swap. The yearly fields are read the same way as the swap page and My list (YearlyBlock). */
-export function swapView(p: Pair): SwapView {
+export function swapView(p: Pair, lang: Lang = "en"): SwapView {
   const { brand: b, alternative: a } = p;
   return {
     slug: p.slug,
@@ -29,17 +30,17 @@ export function swapView(p: Pair): SwapView {
     yearly: {
       kind: savingKind({ category: p.category, unit: b.unit, size: b.size, products: [b.product, a.product] }),
       prices: { brandPrice: b.price, brandSize: b.size, altPrice: a.price, altSize: a.size },
-      pack: packSize(b.size, b.unit),
-      per: unitDisplay(b.unit).label,
+      pack: packSize(b.size, b.unit, lang),
+      per: unitLabel(b.unit, lang),
     },
   };
 }
 
-export function swapViews(slugs: Iterable<string>): Record<string, SwapView> {
+export function swapViews(slugs: Iterable<string>, lang: Lang = "en"): Record<string, SwapView> {
   const out: Record<string, SwapView> = {};
   for (const slug of slugs) {
     const p = getPair(slug);
-    if (p) out[slug] = swapView(p);
+    if (p) out[slug] = swapView(p, lang);
   }
   return out;
 }

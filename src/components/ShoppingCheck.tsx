@@ -10,13 +10,23 @@ import { setSavedList, useSavedList } from "@/lib/client/savedList";
 import { MAX_TEXT } from "@/lib/receipt/parse";
 import { countSwap, shareValue, type Counted, type Shared } from "@/lib/receipt/total";
 import type { CheckResult, ResultLine, SwapView } from "@/lib/receipt/types";
-import { frequencyLabel, totalText, type FrequencyId } from "@/lib/yearly";
+import { totalText, type FrequencyId } from "@/lib/yearly";
 import { MatchBadge } from "./Badges";
 import { FrequencySelect } from "./FrequencySelect";
 import { Money } from "./Money";
 import { ProductThumb } from "./ProductThumb";
 import { Ticket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
+import { useLang, useT } from "@/lib/i18n/client";
+import type { ClientT } from "@/lib/i18n/client-dict";
+import { pageShoppingCheck } from "@/lib/i18n/en/pages/shoppingCheck";
+import { yearly as yearlyText } from "@/lib/i18n/en/client/yearly";
+import { rich } from "@/lib/i18n/rich";
+
+/** The English this file reads (src/lib/i18n/client-dict.ts); the German loads on German pages only. */
+const TEXT = { pageShoppingCheck, yearly: yearlyText };
+const german = () => import("@/lib/i18n/de/pages/shoppingCheck");
+const useCheckT = (): ClientT<typeof TEXT> => useT(TEXT, german);
 
 type Status = { kind: "idle" } | { kind: "busy"; text: string } | { kind: "error"; text: string };
 
@@ -31,6 +41,9 @@ export type SharedStart = { swaps: Record<string, SwapView>; items: Shared[]; hi
 
 export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: SharedStart | null }) {
   const local = useLocal();
+  const t = useCheckT();
+  // A German page asks in German and for the country it shows (/de is Germany), whatever the shopper's cookie says.
+  const ask = useLang() === "de" ? "?lang=de&country=DE" : "";
   const [text, setText] = useState("");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [result, setResult] = useState<CheckResult | null>(() =>
@@ -48,19 +61,19 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
 
   async function check(list: string) {
     if (!list.trim()) {
-      setStatus({ kind: "error", text: "Paste a list or a receipt first." });
+      setStatus({ kind: "error", text: t("pageShoppingCheck.emptyList") });
       return;
     }
-    setStatus({ kind: "busy", text: "Checking your list against the catalogue…" });
+    setStatus({ kind: "busy", text: t("pageShoppingCheck.checking") });
     try {
-      const res = await fetch("/check/list/match", {
+      const res = await fetch(`/check/list/match${ask}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: list.slice(0, MAX_TEXT) }),
       });
       const json = (await res.json().catch(() => null)) as ({ ok: boolean; error?: string } & Partial<CheckResult>) | null;
       if (!json?.ok || !json.lines || !json.swaps) {
-        setStatus({ kind: "error", text: json?.error ?? "That didn't work. Try again in a moment." });
+        setStatus({ kind: "error", text: json?.error ?? t("pageShoppingCheck.failed") });
         return;
       }
       setAnswers({});
@@ -68,27 +81,27 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
       setStatus({ kind: "idle" });
       requestAnimationFrame(() => resultRef.current?.focus());
     } catch {
-      setStatus({ kind: "error", text: "We couldn't reach the site. Check your connection and try again." });
+      setStatus({ kind: "error", text: t("pageShoppingCheck.unreachable") });
     }
   }
 
   async function onPhoto(file: File | undefined) {
     if (!file) return;
     try {
-      setStatus({ kind: "busy", text: "Reading your receipt…" });
+      setStatus({ kind: "busy", text: t("pageShoppingCheck.reading") });
       const body = new FormData();
       body.append("image", await shrinkImage(file, 2000), "receipt.jpg");
-      const res = await fetch("/check/list/photo", { method: "POST", body });
+      const res = await fetch(`/check/list/photo${ask ? "?lang=de" : ""}`, { method: "POST", body });
       const json = (await res.json().catch(() => null)) as { ok: boolean; error?: string; lines?: string[] } | null;
       if (!json?.ok || !json.lines?.length) {
-        setStatus({ kind: "error", text: json?.error ?? "We couldn't read that photo. Try typing the list instead." });
+        setStatus({ kind: "error", text: json?.error ?? t("pageShoppingCheck.unreadable") });
         return;
       }
       const list = json.lines.join("\n");
       setText(list);
       await check(list);
     } catch {
-      setStatus({ kind: "error", text: "Something went wrong with that photo. Try again, or type the list." });
+      setStatus({ kind: "error", text: t("pageShoppingCheck.photoWrong") });
     } finally {
       if (uploadRef.current) uploadRef.current.value = "";
     }
@@ -104,10 +117,10 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
         }}
       >
         <label htmlFor="shopping-list" className="text-[15px] font-semibold">
-          Your shopping list or receipt
+          {t("pageShoppingCheck.label")}
         </label>
         <p id="shopping-list-help" className="mt-0.5 text-[13px] text-ink-2">
-          One item per line, as you&apos;d write it or as the till printed it. Prices, totals and loyalty lines are skipped.
+          {t("pageShoppingCheck.help")}
         </p>
         <textarea
           id="shopping-list"
@@ -122,12 +135,12 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
         />
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <button type="submit" className="btn btn-primary min-h-11" disabled={busy}>
-            Check my shopping
+            {t("pageShoppingCheck.submit")}
           </button>
           {photo && (
             <>
               <button type="button" className="btn btn-ghost min-h-11" disabled={busy} onClick={() => uploadRef.current?.click()}>
-                <ImageUp className="h-4 w-4" aria-hidden="true" /> Read a receipt photo
+                <ImageUp className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.readPhoto")}
               </button>
               <input
                 ref={uploadRef}
@@ -149,7 +162,7 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
                 void check(example);
               }}
             >
-              Try an example
+              {t("pageShoppingCheck.tryExample")}
             </button>
           )}
         </div>
@@ -162,8 +175,7 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
           {status.kind === "error" && <span className="text-different">{status.text}</span>}
         </p>
         <p id="shopping-list-privacy" className="text-[13px] text-muted">
-          We read your list{photo ? " or photo" : ""} only to match it and don&apos;t keep it; we count just the names of products we have no
-          swap for, never prices, so we know what to research next.
+          {t("pageShoppingCheck.privacy", photo)}
         </p>
       </form>
 
@@ -174,8 +186,7 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
       )}
       {shared && shared.hidden > 0 && !text && (
         <p className="mt-3 text-[13px] text-ink-2">
-          {shared.hidden === 1 ? "One swap" : `${shared.hidden} swaps`} on the shared list {shared.hidden === 1 ? "isn't" : "aren't"} sold where
-          you are, so {shared.hidden === 1 ? "it's" : "they're"} left out.
+          {t("pageShoppingCheck.hiddenShared", shared.hidden)}
         </p>
       )}
     </div>
@@ -203,6 +214,8 @@ function Result({
   const choices = useBuyingOften();
   const saved = useSavedList();
   const local = useLocal();
+  const t = useCheckT();
+  const lang = useLang();
   const [copied, setCopied] = useState<"idle" | "copied" | "failed">("idle");
   const [savedAll, setSavedAll] = useState(false);
 
@@ -223,7 +236,7 @@ function Result({
   const amounts = (list: { counted: { amount: number }; swap: SwapView }[]) => list.map((s) => ({ amount: s.counted.amount, currency: s.swap.currency }));
 
   const shareItems = swaps.map((s) => ({ slug: s.swap.slug, often: s.counted.how === "yearly" && s.counted.chosen ? s.counted.often : null }));
-  const shareUrl = () => `${window.location.origin}/check/list?s=${shareValue(shareItems)}`;
+  const shareUrl = () => `${window.location.origin}${lang === "de" ? "/de" : ""}/check/list?s=${shareValue(shareItems)}`;
 
   const copyLink = () => {
     const url = shareUrl();
@@ -249,43 +262,37 @@ function Result({
 
   const notes: string[] = [];
   if (assumed.length) {
-    const which =
-      assumed.length === yearly.length
-        ? yearly.length === 1
-          ? "This assumes you buy the brand-name pack"
-          : "This assumes you buy each brand-name pack"
-        : `For ${assumed.length} of the ${yearly.length} swaps, this assumes you buy the brand-name pack`;
-    notes.push(`${which} ${frequencyLabel(assumed[0].counted.often)}. We can't know, so set how often below.`);
+    notes.push(t("pageShoppingCheck.assumes", assumed.length, yearly.length, t(`yearly.frequencies.${assumed[0].counted.often}`)));
   } else if (yearly.length) {
-    notes.push("At how often you said you buy each brand-name pack, at the dated prices on each swap page.");
+    notes.push(t("pageShoppingCheck.chosen"));
   }
-  if (once.length && yearly.length) notes.push(`Plus ${totalText(amounts(once), local)} once, from ${once.length === 1 ? "a thing you buy once" : `${once.length} things you buy once`}.`);
-  if (perAmount) notes.push(`${perAmount === 1 ? "One swap is" : `${perAmount} swaps are`} priced per wash or per amount, with no pack to count, so ${perAmount === 1 ? "it isn't" : "they aren't"} in it.`);
+  if (once.length && yearly.length) notes.push(t("pageShoppingCheck.plusOnce", totalText(amounts(once), local), once.length));
+  if (perAmount) notes.push(t("pageShoppingCheck.perAmount", perAmount));
 
   return (
     <div className="space-y-6 md:space-y-8">
       <style>{"@media print { body > header, body > nav, body > footer, .band-slot { display: none !important; } main { padding: 0 !important; } }"}</style>
       <section aria-labelledby="keep-heading" className="card p-4 md:p-5">
         <h2 id="keep-heading" className="sr-only">
-          What you&apos;d keep
+          {t("pageShoppingCheck.keepHeading")}
         </h2>
         {yearly.length ? (
           <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg font-semibold md:text-xl">
-            Switching {yearly.length === 1 ? "this" : `these ${yearly.length}`} would keep
+            {t("pageShoppingCheck.switchingThese", yearly.length)}
             <Ticket size="lg" className="whitespace-normal!">
-              {totalText(amounts(yearly), local)} a year
+              {t("pageShoppingCheck.perYear", totalText(amounts(yearly), local))}
             </Ticket>
           </p>
         ) : once.length ? (
           <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg font-semibold md:text-xl">
-            Switching would keep
+            {t("pageShoppingCheck.switching")}
             <Ticket size="lg" className="whitespace-normal!">
-              {totalText(amounts(once), local)} once
+              {t("pageShoppingCheck.onceAmount", totalText(amounts(once), local))}
             </Ticket>
           </p>
         ) : (
           <p className="text-lg font-semibold md:text-xl">
-            {maybes.length ? "Check the suggestions below to see what you'd keep." : "We didn't find anything on your list with a cheaper swap on file yet."}
+            {maybes.length ? t("pageShoppingCheck.checkSuggestions") : t("pageShoppingCheck.nothingFound")}
           </p>
         )}
         {notes.length > 0 && <p className="mt-3 max-w-[70ch] text-[13px] leading-snug text-ink-2 md:text-sm">{notes.join(" ")}</p>}
@@ -293,36 +300,36 @@ function Result({
           <div className="mt-4 flex flex-wrap gap-2 print:hidden">
             {savedAll ? (
               <Link href="/my-list" className="btn btn-primary min-h-11">
-                <Check className="h-4 w-4" aria-hidden="true" /> Saved. See my list
+                <Check className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.savedSee")}
               </Link>
             ) : (
               <button type="button" onClick={saveAll} className="btn btn-primary min-h-11">
-                <ListPlus className="h-4 w-4" aria-hidden="true" /> Save all to my list
+                <ListPlus className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.saveAll")}
               </button>
             )}
             <button type="button" onClick={copyLink} className="btn btn-ghost min-h-11">
               {copied === "copied" ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
-              {copied === "copied" ? "Link copied" : "Copy a link to this result"}
+              {copied === "copied" ? t("pageShoppingCheck.linkCopied") : t("pageShoppingCheck.copyLink")}
             </button>
             <button type="button" onClick={() => window.print()} className="btn btn-ghost min-h-11">
-              <Printer className="h-4 w-4" aria-hidden="true" /> Print
+              <Printer className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.print")}
             </button>
           </div>
         )}
         {copied === "failed" && (
           <p className="mt-2 text-[13px] text-ink-2 print:hidden">
-            Copy this link: <span className="break-all select-all">{shareUrl()}</span>
+            {t("pageShoppingCheck.copyThis")} <span className="break-all select-all">{shareUrl()}</span>
           </p>
         )}
         {swaps.length > 0 && (
-          <p className="mt-2 text-[13px] text-muted print:hidden">The link holds only the swaps and how often you buy each, not your list.</p>
+          <p className="mt-2 text-[13px] text-muted print:hidden">{t("pageShoppingCheck.linkHolds")}</p>
         )}
       </section>
 
       {swaps.length > 0 && (
         <section aria-labelledby="swaps-heading">
           <h2 id="swaps-heading" className="display text-xl md:text-2xl">
-            {swaps.length === 1 ? "One swap" : `${swaps.length} swaps`} for what you buy
+            {t("pageShoppingCheck.swapsFor", swaps.length)}
           </h2>
           <ul className="card mt-3 divide-y divide-line">
             {swaps.map((s) => (
@@ -335,11 +342,9 @@ function Result({
       {maybes.length > 0 && (
         <section aria-labelledby="maybe-heading" className="print:hidden">
           <h2 id="maybe-heading" className="display text-xl md:text-2xl">
-            Did you mean?
+            {t("pageShoppingCheck.didYouMean")}
           </h2>
-          <p className="mt-1 max-w-[70ch] text-[13px] text-ink-2 md:text-sm">
-            These lines name a brand we have, but we can&apos;t tell which product. Say yes only if it&apos;s what you buy.
-          </p>
+          <p className="mt-1 max-w-[70ch] text-[13px] text-ink-2 md:text-sm">{t("pageShoppingCheck.didYouMeanNote")}</p>
           <ul className="card mt-3 divide-y divide-line">
             {maybes.map((l) => {
               const swap = result.swaps[l.slug];
@@ -351,7 +356,7 @@ function Result({
                       {swap.fromProduct}
                       <span className="font-normal text-ink-2">
                         {" "}
-                        could be {swap.to}, <Money n={swap.savings} from={swap.currency} prose /> less a pack
+                        {rich(t("pageShoppingCheck.couldBe", swap.to), { amount: <Money n={swap.savings} from={swap.currency} prose /> })}
                       </span>
                     </p>
                   </div>
@@ -360,9 +365,9 @@ function Result({
                       type="button"
                       className="btn btn-primary min-h-11"
                       onClick={() => setAnswers({ ...answers, [l.slug]: true })}
-                      aria-label={`Yes, I buy ${swap.fromProduct}`}
+                      aria-label={t("pageShoppingCheck.yesIBuy", swap.fromProduct)}
                     >
-                      <Check className="h-4 w-4" aria-hidden="true" /> Yes, that&apos;s it
+                      <Check className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.yesThatsIt")}
                     </button>
                     <button
                       type="button"
@@ -372,9 +377,9 @@ function Result({
                         // We read the brand but don't have the product they buy: count it as wanted, like a line we had nothing for.
                         if (l.counted) countNo(l.counted);
                       }}
-                      aria-label={`No, not ${swap.fromProduct}`}
+                      aria-label={t("pageShoppingCheck.notThis", swap.fromProduct)}
                     >
-                      <X className="h-4 w-4" aria-hidden="true" /> No
+                      <X className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.no")}
                     </button>
                   </div>
                 </li>
@@ -387,7 +392,7 @@ function Result({
       {misses.length > 0 && (
         <section aria-labelledby="miss-heading">
           <h2 id="miss-heading" className="display text-xl md:text-2xl">
-            Nothing cheaper on file yet
+            {t("pageShoppingCheck.nothingCheaper")}
           </h2>
           <ul className="mt-2 grid gap-x-6 gap-y-1 text-[15px] text-ink-2 sm:grid-cols-2">
             {misses.map((l) => (
@@ -397,10 +402,10 @@ function Result({
             ))}
           </ul>
           <p className="mt-3 max-w-[70ch] text-[13px] text-ink-2 print:hidden">
-            {example ? `We count the products we had nothing for by their cleaned name alone, such as “${example}”, so the most asked-for get researched first. ` : ""}
-            Want one sooner?{" "}
+            {example ? t("pageShoppingCheck.countNote", example) : ""}
+            {t("pageShoppingCheck.wantSooner")}{" "}
             <Link href="/suggest" className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0">
-              Suggest it
+              {t("pageShoppingCheck.suggestIt")}
             </Link>
             .
           </p>
@@ -410,8 +415,8 @@ function Result({
       {(own > 0 || result.noise > 0) && (
         <p className="text-[13px] text-muted">
           {[
-            own ? `${own === 1 ? "One line is" : `${own} lines are`} already a store brand or a cheaper pick we list.` : "",
-            result.noise ? `We skipped ${result.noise === 1 ? "one line" : `${result.noise} lines`} that weren't products, such as totals, payments and loyalty points.` : "",
+            own ? t("pageShoppingCheck.own", own) : "",
+            result.noise ? t("pageShoppingCheck.skipped", result.noise) : "",
           ]
             .filter(Boolean)
             .join(" ")}
@@ -423,6 +428,7 @@ function Result({
 
 function SwapRow({ item, viewingShared }: { item: Line; viewingShared: boolean }) {
   const { swap: s, counted, line } = item;
+  const t = useCheckT();
   return (
     <li className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-3 gap-y-2 p-3 md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-x-4">
       <div className="flex gap-1">
@@ -442,19 +448,19 @@ function SwapRow({ item, viewingShared }: { item: Line; viewingShared: boolean }
         <p className="mt-0.5 flex flex-wrap items-center gap-x-3 text-[13px] text-ink-2">
           <MatchBadge type={s.match} />
           <span>
-            <Money n={s.savings} from={s.currency} prose /> less per {s.yearly?.pack ?? "pack"}, {Math.round(s.savingsPct)}% cheaper
+            {rich(t("pageShoppingCheck.lessPer", s.yearly?.pack ?? null, s.savingsPct), { amount: <Money n={s.savings} from={s.currency} prose /> })}
           </span>
           {line.others > 0 && (
             <Link href={s.href} className="font-medium text-cobalt underline underline-offset-2 print:hidden">
-              {line.others === 1 ? "1 more option" : `${line.others} more options`}
+              {t("pageShoppingCheck.moreOptions", line.others)}
             </Link>
           )}
         </p>
         {counted.how === "yearly" && (
           <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="text-[13px] font-medium text-ink-2">You buy it</span>
-            <FrequencySelect value={counted.often} onChange={(next) => setBuyingOften(s.slug, next)} label={`How often you buy ${s.fromProduct}`} />
-            {!counted.chosen && <span className="text-[13px] text-muted">Assumed</span>}
+            <span className="text-[13px] font-medium text-ink-2">{t("pageShoppingCheck.youBuyIt")}</span>
+            <FrequencySelect value={counted.often} onChange={(next) => setBuyingOften(s.slug, next)} label={t("pageShoppingCheck.howOften", s.fromProduct)} />
+            {!counted.chosen && <span className="text-[13px] text-muted">{t("pageShoppingCheck.assumed")}</span>}
           </div>
         )}
       </div>
@@ -466,15 +472,16 @@ function SwapRow({ item, viewingShared }: { item: Line; viewingShared: boolean }
 }
 
 function LineFigure({ counted, swap }: { counted: Counted; swap: SwapView }) {
+  const t = useCheckT();
   if (counted.how === "per-amount") {
-    return <p className="text-[13px] text-ink-2">Priced {swap.yearly?.per ?? "per amount"}, no yearly figure</p>;
+    return <p className="text-[13px] text-ink-2">{t("pageShoppingCheck.noYearly", swap.yearly?.per ?? null)}</p>;
   }
   return (
     <p>
       <span className="price text-[1.375rem] text-ink tabular-nums">
         <Money n={counted.amount} from={swap.currency} />
       </span>
-      <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{counted.how === "yearly" ? "a year" : "once"}</span>
+      <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{counted.how === "yearly" ? t("pageShoppingCheck.aYear") : t("pageShoppingCheck.once")}</span>
     </p>
   );
 }

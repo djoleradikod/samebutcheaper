@@ -5,7 +5,7 @@
  */
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { MAX_LINES, MAX_TEXT, parseReceipt, words, type ParsedLine } from "../../src/lib/receipt/parse";
+import { describing, MAX_LINES, MAX_TEXT, parseReceipt, words, type ParsedLine } from "../../src/lib/receipt/parse";
 import { countSwap, parseShare, shareValue, SHARE_MAX, type Countable } from "../../src/lib/receipt/total";
 import { NO_CHOICES, packSaving, withChoice } from "../../src/lib/yearly";
 import { normaliseQuery } from "../../src/lib/wanted";
@@ -58,6 +58,33 @@ test("abbreviations, umlauts, plurals and sizes of nappy read the same on a rece
   assert.deepEqual(words("Weißer Riese"), ["weisser", "riese"]);
   assert.deepEqual(words("Klarspüler"), ["klarspuler"]);
   assert.deepEqual(words("Nurofen 200mg Tabletten"), words("NUROFEN 200MG TABS"));
+});
+
+test("German list words: Stück, Packung and Tabletten are counts or filler, never part of what we match on", () => {
+  const cases: [string, string, { amount: number; unit: "count" }[]][] = [
+    ["Aspirin 500 mg 20 Stück", "Aspirin 500mg", [{ amount: 20, unit: "count" }]],
+    ["ASPIRIN 500MG 20 STÜCK 4,95 A", "ASPIRIN 500mg", [{ amount: 20, unit: "count" }]],
+    ["Nurofen 400mg 24 Stk.", "Nurofen 400mg", [{ amount: 24, unit: "count" }]],
+    ["Nurofen 400 mg 24 Tabletten", "Nurofen 400mg Tabletten", [{ amount: 24, unit: "count" }]],
+    ["Aspirin Plus C 20 Brausetabletten", "Aspirin Plus C Brausetabletten", [{ amount: 20, unit: "count" }]],
+    ["2 Packungen Tempo Taschentücher", "Tempo Taschentücher", [{ amount: 2, unit: "count" }]],
+    ["Zewa Wisch&Weg 4 Rollen", "Zewa Wisch&Weg", [{ amount: 4, unit: "count" }]],
+    ["Persil Color Gel 20 WG", "Persil Color Gel", [{ amount: 20, unit: "count" }]],
+  ];
+  for (const [line, query, sizes] of cases) {
+    const parsed = item(line);
+    assert.equal(parsed.query, query, line);
+    assert.deepEqual(parsed.sizes, sizes, line);
+  }
+  // A list line with a pack word in it says the same about the product as the till's line.
+  const said = (line: string) => describing(item(line).words);
+  assert.deepEqual(said("Nurofen 400 mg Packung"), said("NUROFEN 400MG"));
+  assert.deepEqual(said("1 Packung Nurofen 400 mg Tabletten"), said("NUROFEN 400MG TABS"));
+  assert.deepEqual(said("Aspirin 500 mg, 1 Stück"), said("ASPIRIN 500MG"));
+  assert.deepEqual(said("Nurofen Stück neu"), ["nurofen"]);
+  // The English lines read as they did.
+  assert.deepEqual(item("NUROFEN 200MG 16S").sizes, [{ amount: 16, unit: "count" }]);
+  assert.equal(item("St Ives Apricot Scrub").query, "St Ives Apricot Scrub");
 });
 
 test("totals, VAT, payments, loyalty, deposits, dates, weighed items and headings are not products", () => {

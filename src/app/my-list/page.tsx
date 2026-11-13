@@ -5,6 +5,9 @@ import { ShoppingCheckCta } from "@/components/ShoppingCheckCta";
 import { yearlyFields } from "@/components/YearlyBlock";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getAllPairs } from "@/lib/catalog";
+import { getT } from "@/lib/i18n";
+import { subcategoryName } from "@/lib/i18n/record";
+import { getLang } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "My savings list",
@@ -13,6 +16,8 @@ export const metadata: Metadata = {
 };
 
 export default function MyListPage() {
+  const lang = getLang();
+  const t = getT(lang);
   const items: ListItem[] = [
     ...getAllPairs().map((p) => ({
       slug: p.slug,
@@ -20,7 +25,7 @@ export default function MyListPage() {
       kind: "swap" as const,
       from: p.brand.brand,
       to: p.alternative.brand,
-      detail: `${p.subcategory.replace(/\s+-\s+/g, ": ")}, per ${packSize(p.brand.size, p.brand.unit)} pack`,
+      detail: t("myListPage.detail", subcategoryName(p.subcategory, lang).replace(/\s+-\s+/g, ": "), packSize(p.brand.size, p.brand.unit, lang)),
       savingsPct: p.savingsPct,
       savings: p.savingsPerPack,
       currency: p.currency,
@@ -30,7 +35,7 @@ export default function MyListPage() {
       fromAlt: p.brand.product,
       toPhoto: p.alternative.photo?.src ?? null,
       toAlt: p.alternative.product,
-      yearly: yearlyFields(p),
+      yearly: yearlyFields(p, lang),
     })),
     ...getAllBundles().map((b) => {
       const piece = b.components.find((c) => c.photo) ?? b.components[0];
@@ -39,8 +44,8 @@ export default function MyListPage() {
         href: `/bundle/${b.slug}`,
         kind: "kit" as const,
         from: b.bundle.brand,
-        to: `${b.components.length} cheaper items`,
-        detail: b.bundle.name,
+        to: t("myListPage.cheaperItems", b.components.length),
+        detail: (lang === "de" && b.de?.name) || b.bundle.name,
         savingsPct: b.savingsPct,
         savings: b.savings,
         currency: b.currency,
@@ -56,10 +61,10 @@ export default function MyListPage() {
   ];
   return (
     <section className="container-page pt-4 md:pt-6">
-      <h1 className="display text-[1.75rem] md:text-[2.5rem]">My savings list</h1>
-      <p className="mt-1.5 max-w-[62ch] text-[15px] text-ink-2 md:text-base">The swaps you&apos;ve saved, and what switching adds up to.</p>
+      <h1 className="display text-[1.75rem] md:text-[2.5rem]">{t("myListPage.h1")}</h1>
+      <p className="mt-1.5 max-w-[62ch] text-[15px] text-ink-2 md:text-base">{t("myListPage.intro")}</p>
       {/* Above the list: the list's height is only known in the browser, so anything under it would jump. */}
-      <ShoppingCheckCta className="mt-4 max-w-3xl md:mt-6" />
+      <ShoppingCheckCta className="mt-4 max-w-3xl md:mt-6" lang={lang} />
       <CountryPart fallback={<div className="card mt-4 h-40 md:mt-6" />}>{() => <MyList items={items} />}</CountryPart>
     </section>
   );

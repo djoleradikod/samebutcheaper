@@ -163,8 +163,8 @@ export function totalText(parts: readonly Amount[], local: Local) {
   if (!local.known) {
     const totals = new Map<Currency, number>();
     for (const p of parts) totals.set(p.currency, (totals.get(p.currency) ?? 0) + p.amount);
-    return [...totals].map(([currency, total]) => money(total, currency)).join(" + ");
+    return [...totals].map(([currency, total]) => money(total, currency, local.lang)).join(" + ");
   }
-  const total = money(parts.reduce((sum, p) => sum + local.amount(p.amount, p.currency), 0), local.currency);
-  return parts.some((p) => local.converts(p.currency)) ? `about ${total}` : total;
+  const total = money(parts.reduce((sum, p) => sum + local.amount(p.amount, p.currency), 0), local.currency, local.lang);
+  return parts.some((p) => local.converts(p.currency)) ? `${local.lang === "de" ? "etwa" : "about"} ${total}` : total;
 }

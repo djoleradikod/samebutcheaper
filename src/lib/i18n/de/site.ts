@@ -16,8 +16,8 @@ export const header: Shape<typeof en.header> = {
   menu: "Menü",
   aisles: "Kategorien",
   links: {
-    "/check": "Produkt prüfen (Englisch)",
-    "/my-list": "Meine Sparliste (Englisch)",
+    "/check": "Produkt prüfen",
+    "/my-list": "Meine Sparliste",
     "/biggest-savings": "Größte Ersparnisse",
     "/bundles": "Sets",
     "/bulk": "Großpackungen (Englisch)",
@@ -55,14 +55,14 @@ export const footer: Shape<typeof en.footer> = {
   readDisclosure: "Unsere Offenlegung lesen (Englisch)",
   aisles: "Kategorien",
   links: {
-    "/check": "Produkt prüfen (Englisch)",
+    "/check": "Produkt prüfen",
     "/biggest-savings": "Größte Ersparnisse",
     "/bundles": "Sets",
     "/bulk": "Großpackungen (Englisch)",
     "/why": "Warum sich der Wechsel lohnt (Englisch)",
     "/brands": "Nach Marke (Englisch)",
     "/ingredients": "Nach Inhaltsstoff (Englisch)",
-    "/my-list": "Meine Sparliste (Englisch)",
+    "/my-list": "Meine Sparliste",
     "/how-we-verify": "So prüfen wir (Englisch)",
     "/suggest": "Alternative vorschlagen (Englisch)",
     "/about": "Über uns (Englisch)",
@@ -226,7 +226,7 @@ export const subscribe: Shape<typeof en.subscribe> = {
 export const notFound: Shape<typeof en.notFound> = {
   title: "Diese Seite haben wir nicht gefunden",
   body: "Vielleicht ist der Vergleich umgezogen, oder wir haben ihn noch nicht geprüft.",
-  search: "Vergleiche durchsuchen (Englisch)",
+  search: "Vergleiche durchsuchen",
   suggest: "Einen vorschlagen (Englisch)",
 };
 
@@ -243,7 +243,7 @@ export const home: Shape<typeof en.home> = {
   noneEarn: "Derzeit bringt uns kein Link etwas ein.",
   howWeCheck: "So prüfen wir (Englisch)",
   cta: "Füg deine Einkaufsliste ein. Sieh, was du im Jahr sparst.",
-  ctaSub: "Eine Liste oder ein Kassenbon: Wir ordnen zu, was wir können, und fragen beim Rest nach. Die Seite ist auf Englisch.",
+  ctaSub: "Eine Liste oder ein Kassenbon: Wir ordnen zu, was wir können, und fragen beim Rest nach.",
   basket: "Den ganzen Einkauf umstellen",
   biggest: "Größte Ersparnisse",
   allSwaps: "Alle Vergleiche",

@@ -15,6 +15,18 @@ export type RecordSection = "compare" | "bundle" | "basket";
 /** Hubs with a prefixed form that list the whole catalogue: every country's view of them is indexable. */
 export const HUB_PATHS = ["/", "/biggest-savings", "/bundles"] as const;
 
+/**
+ * Tools with a translated form only (LANGUAGE_PAGES in country-url.ts) that are worth a search result: the English page
+ * and the German one. /my-list and /search are noindex in every form, so they have no versions.
+ */
+export const INDEXED_LANGUAGE_PAGES = ["/check", "/check/list"] as const;
+
+/** A translated tool's versions: the unprefixed English page, which is also the x-default, and /de's German one. */
+export function languagePageVersions(path: string): Versions | null {
+  if (!(INDEXED_LANGUAGE_PAGES as readonly string[]).includes(path)) return null;
+  return { languages: { en: path, "de-DE": withCountry(path, "DE") }, xDefault: path };
+}
+
 function recordsOf(c: CatalogLists, section: RecordSection): readonly (Pair | Bundle | Preset)[] {
   return section === "compare" ? c.pairs : section === "bundle" ? c.bundles : c.presets;
 }
@@ -53,7 +65,7 @@ export function hubPageVersions(c: CatalogLists, path: string): Versions | null 
 export function pageVersions(c: CatalogLists, path: string): Versions | null {
   const record = /^\/(compare|bundle|basket)\/([^/]+)$/.exec(path);
   if (record) return recordPageVersions(c, record[1] as RecordSection, record[2]);
-  return hubPageVersions(c, path);
+  return languagePageVersions(path) ?? hubPageVersions(c, path);
 }
 
 /** The head rules for one form of a page with a prefixed form: its unprefixed URL (country null) or one country's. */
@@ -100,6 +112,7 @@ export function countrySitemap(c: CatalogLists): { path: string; url: string; la
 export function allCountryPages(c: CatalogLists): { path: string; versions: Versions }[] {
   const paths = [
     ...HUB_PATHS,
+    ...INDEXED_LANGUAGE_PAGES,
     ...CATEGORIES.map((cat) => `/category/${cat.slug}`),
     ...c.pairs.map((p) => `/compare/${p.slug}`),
     ...c.bundles.map((b) => `/bundle/${b.slug}`),

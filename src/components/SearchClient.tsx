@@ -8,19 +8,23 @@ import { PAGE_SIZE, SWAP_GRID, type BundleSummary } from "@/lib/browse";
 import { loadSwapIndex } from "@/lib/client/swap-index";
 import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
 import type { Bundle, PairSummary } from "@/lib/types";
+import type { Lang } from "@/lib/i18n/lang";
 import { BundleCard } from "./BundleCard";
 import { PairCard } from "./PairCard";
 import { WantedPrompt } from "./WantedPrompt";
 import { setShowOthers, useLocal } from "@/lib/client/country";
 import { localFor } from "@/lib/localize";
 import { BUNDLE_SEARCH, PAIR_SEARCH } from "@/lib/search-options";
-import { useT } from "@/lib/i18n/client";
+import { useLang, useT } from "@/lib/i18n/client";
+import type { ClientT } from "@/lib/i18n/client-dict";
 import { search } from "@/lib/i18n/en/client/search";
+import { pageSearch } from "@/lib/i18n/en/pages/search";
+import { rich } from "@/lib/i18n/rich";
 
-/** The English this component reads (src/lib/i18n/client-dict.ts). */
-const TEXT = { search };
-
-const PATH = "/search";
+/** The English this component reads (src/lib/i18n/client-dict.ts); the page section's German loads on German pages only. */
+const TEXT = { search, pageSearch };
+const german = () => import("@/lib/i18n/de/pages/search");
+const useSearchT = (): ClientT<typeof TEXT> => useT(TEXT, german);
 
 type Engine = { pairs: Fuse<PairSummary>; bundles: Fuse<BundleSummary> };
 
@@ -49,6 +53,10 @@ function queryFor(term: string) {
  * before typing and again when nothing matches.
  */
 export function SearchClient({ total, children }: { total: number; children: ReactNode }) {
+  const t = useSearchT();
+  const lang = useLang();
+  // The page's own path: /de/search on a German page.
+  const PATH = lang === "de" ? "/de/search" : "/search";
   const query = useUrlQuery(PATH);
   const urlTerm = useMemo(() => new URLSearchParams(query).get("q")?.trim() ?? "", [query]);
   const [q, setQ] = useState("");
@@ -65,7 +73,7 @@ export function SearchClient({ total, children }: { total: number; children: Rea
     if (term === urlTerm) return;
     const timer = setTimeout(() => writeUrlQuery(PATH, queryFor(term), "replace"), 300);
     return () => clearTimeout(timer);
-  }, [term, urlTerm]);
+  }, [term, urlTerm, PATH]);
 
   const local = useLocal();
   const [engine, setEngine] = useState<Engine | null>(null);
@@ -114,8 +122,8 @@ export function SearchClient({ total, children }: { total: number; children: Rea
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onFocus={() => void start()}
-          placeholder="Brand, product or ingredient"
-          aria-label="Search swaps by brand, product or ingredient"
+          placeholder={t("pageSearch.placeholder")}
+          aria-label={t("pageSearch.label")}
           className="h-12 w-full rounded-search border border-line-strong bg-paper pr-4 pl-11 text-base placeholder:text-muted focus:border-cobalt focus:outline-none"
         />
       </form>
@@ -123,7 +131,7 @@ export function SearchClient({ total, children }: { total: number; children: Rea
       {!term && (
         <>
           <p className="mt-4 text-sm text-ink-2">
-            Start typing to search <span className="num">{total}</span> swaps.
+            {rich(t("pageSearch.startTyping"), { n: <span className="num">{total}</span> })}
           </p>
           {children}
         </>
@@ -133,7 +141,7 @@ export function SearchClient({ total, children }: { total: number; children: Rea
         <p className="mt-4 text-sm text-ink-2" role="status">
           {failed ? (
             <>
-              Search didn&apos;t load. Check your connection, then{" "}
+              {t("pageSearch.didntLoad")}{" "}
               <button
                 type="button"
                 onClick={() => {
@@ -142,12 +150,12 @@ export function SearchClient({ total, children }: { total: number; children: Rea
                 }}
                 className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"
               >
-                try again
+                {t("pageSearch.tryAgain")}
               </button>
               .
             </>
           ) : (
-            "Looking through the swaps."
+            t("pageSearch.looking")
           )}
         </p>
       )}
@@ -156,29 +164,29 @@ export function SearchClient({ total, children }: { total: number; children: Rea
         <>
           <p className="mt-4 text-sm text-ink-2" aria-live="polite">
             <span className="num font-semibold text-ink">
-              {count} result{count === 1 ? "" : "s"}
+              {t("pageSearch.results", count)}
             </span>{" "}
-            for “{term}”.
+            {t("pageSearch.forTerm", term)}
           </p>
           {results.elsewhere > 0 && <Elsewhere count={results.elsewhere} term={term} more={count > 0} />}
           {count > 0 ? (
-            <ResultList key={term} pairs={results.pairs} bundles={results.bundles} kitsFirst={results.kitsFirst} />
+            <ResultList key={term} pairs={results.pairs} bundles={results.bundles} kitsFirst={results.kitsFirst} lang={lang} />
           ) : results.elsewhere > 0 ? (
             // We have checked swaps for it, just not here: "we haven't checked" would be untrue.
             children
           ) : (
             <>
               <div className="card mt-3 p-5">
-                <p className="font-semibold">We haven&apos;t checked a swap for “{term}” yet.</p>
+                <p className="font-semibold">{t("pageSearch.notChecked", term)}</p>
                 <p className="mt-1 text-sm text-ink-2">
-                  Try the brand name on its own, or check the spelling.{" "}
+                  {t("pageSearch.tryBrand")}{" "}
                   <Link
                     href={`/suggest?brand=${encodeURIComponent(term)}`}
                     className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"
                   >
-                    Suggest “{term}”
+                    {t("pageSearch.suggest", term)}
                   </Link>{" "}
-                  and we&apos;ll look into it.
+                  {t("pageSearch.lookInto")}
                 </p>
               </div>
               <WantedPrompt term={term} />
@@ -193,7 +201,7 @@ export function SearchClient({ total, children }: { total: number; children: Rea
 
 /** Matches priced in other countries, which this shopper's lists leave out, with the way to see them. */
 function Elsewhere({ count, term, more }: { count: number; term: string; more: boolean }) {
-  const t = useT(TEXT);
+  const t = useSearchT();
   return (
     <p className="mt-2 flex flex-wrap items-center gap-x-2 text-sm text-ink-2">
       {t("search.elsewhere", count, term, more)}
@@ -212,14 +220,15 @@ function Elsewhere({ count, term, more }: { count: number; term: string; more: b
  * Swaps, then kits, unless a kit matches the search better than every swap: a search for a brand is usually for its
  * single product. Keyed by the search, so a new one starts at the top.
  */
-function ResultList({ pairs, bundles, kitsFirst }: { pairs: PairSummary[]; bundles: BundleSummary[]; kitsFirst: boolean }) {
+function ResultList({ pairs, bundles, kitsFirst, lang }: { pairs: PairSummary[]; bundles: BundleSummary[]; kitsFirst: boolean; lang: Lang }) {
+  const t = useSearchT();
   const [limit, setLimit] = useState(PAGE_SIZE);
   const kits = bundles.length > 0 && (
     <ul className={`grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4 ${kitsFirst ? "mt-3" : "mt-6"}`}>
       {bundles.map((b) => (
         <li key={b.slug} className="min-w-0">
           {/* The index carries only the fields BundleCard reads. */}
-          <BundleCard bundle={b as Bundle} />
+          <BundleCard bundle={b as Bundle} lang={lang} />
         </li>
       ))}
     </ul>
@@ -231,7 +240,7 @@ function ResultList({ pairs, bundles, kitsFirst }: { pairs: PairSummary[]; bundl
         <ul className={`${SWAP_GRID} mt-3`}>
           {pairs.slice(0, limit).map((p) => (
             <li key={p.slug} className="min-w-0">
-              <PairCard pair={p} />
+              <PairCard pair={p} lang={lang} />
             </li>
           ))}
         </ul>
@@ -239,11 +248,9 @@ function ResultList({ pairs, bundles, kitsFirst }: { pairs: PairSummary[]; bundl
       {pairs.length > limit && (
         <div className="mt-4 flex flex-col items-center gap-1">
           <button type="button" onClick={() => setLimit(limit + PAGE_SIZE)} className="btn btn-ghost w-full sm:w-auto sm:min-w-64">
-            Show {Math.min(PAGE_SIZE, pairs.length - limit)} more
+            {t("pageSearch.showMore", Math.min(PAGE_SIZE, pairs.length - limit))}
           </button>
-          <p className="num text-[13px] text-muted">
-            Showing {limit} of {pairs.length}
-          </p>
+          <p className="num text-[13px] text-muted">{t("pageSearch.showing", limit, pairs.length)}</p>
         </div>
       )}
       {!kitsFirst && kits}

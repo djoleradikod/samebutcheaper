@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { countryHead } from "@/lib/seo-catalog";
 import Link from "@/components/CountryLink";
 import { Suspense } from "react";
 import { headers } from "next/headers";
@@ -27,27 +28,25 @@ import type { CategorySlug } from "@/lib/types";
 import { forCountry } from "@/lib/localize";
 import { CountryPart } from "@/components/ForCountry";
 import { getCountry, getLocal } from "@/lib/server-country";
+import { getT } from "@/lib/i18n";
+import { getLang, pageT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Check any product: ingredients, uses and cheaper swaps",
   description:
     "Search a product name, scan its barcode or snap the label. See what's in it, what it's for, and cheaper products that deliver to your country, with what each one matches on.",
-  alternates: { canonical: "/check" },
+  ...countryHead("/check", null),
 };
 
-export default function CheckPage({ searchParams }: PageProps<"/check">) {
+export default function CheckPage({ searchParams }: Pick<PageProps<"/check">, "searchParams">) {
+  const t = pageT();
   return (
     <>
       <section className="hero-wash border-b border-line">
         <div className="container-page py-10 md:py-14">
-          <p className="text-sm font-medium text-accent">Product check</p>
-          <h1 className="display mt-1 max-w-3xl text-4xl font-medium sm:text-5xl">
-            What&apos;s in it, what it&apos;s for, and what costs less
-          </h1>
-          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">
-            Type a product, scan its barcode or snap the label. We read the official label data and show cheaper
-            products from stores that deliver where you live, with what each one matches on.
-          </p>
+          <p className="text-sm font-medium text-accent">{t("checkPage.eyebrow")}</p>
+          <h1 className="display mt-1 max-w-3xl text-4xl font-medium sm:text-5xl">{t("checkPage.h1")}</h1>
+          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-2">{t("checkPage.intro")}</p>
           <div className="mt-7">
             <Suspense fallback={<div className="h-14 max-w-2xl rounded-2xl border border-line bg-paper" />}>
               <LookupForm />
@@ -56,13 +55,13 @@ export default function CheckPage({ searchParams }: PageProps<"/check">) {
           <p className="mt-2 text-[15px]">
             <Link href="/check/list" className="inline-flex min-h-11 items-center gap-1.5 font-medium text-cobalt underline underline-offset-2">
               <ListChecks className="h-4 w-4" aria-hidden="true" />
-              Got a whole shopping list or a receipt? Check it all at once
+              {t("checkPage.listLink")}
             </Link>
           </p>
         </div>
       </section>
       <div className="container-page py-10">
-        <CountryPart fallback={<ResultsSkeleton />}>{() => <Results searchParams={searchParams} />}</CountryPart>
+        <CountryPart fallback={<ResultsSkeleton label={t("checkPage.checking")} />}>{() => <Results searchParams={searchParams} />}</CountryPart>
       </div>
     </>
   );
@@ -93,7 +92,7 @@ const PHOTO_CATEGORY: Partial<Record<LookupProduct["kind"], CategorySlug>> = {
 };
 
 /** A product built from what our label reader saw in the shopper's photo. */
-function productFromPhoto(raw: string): LookupProduct | null {
+function productFromPhoto(raw: string, yourProduct: string): LookupProduct | null {
   let parsed;
   try {
     parsed = photoSchema.safeParse(JSON.parse(raw));
@@ -109,7 +108,7 @@ function productFromPhoto(raw: string): LookupProduct | null {
     id: "photo",
     url: null,
     brand: r.b,
-    name: r.n || r.b || "Your product",
+    name: r.n || r.b || yourProduct,
     kind,
     category,
     size: r.s,
@@ -137,13 +136,15 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
   const reqHeaders = new Headers(await headers());
   const country = await getCountry();
   const local = await getLocal();
+  const lang = getLang();
+  const t = getT(lang);
 
   // Each check below can call four public label databases, which have daily quotas of their own.
   if ((q || src || digits || photo) && !rateLimit("lookups", visitorFrom(reqHeaders).key, LIMITS.lookups).ok) {
     return (
       <div className="card p-8 text-center">
-        <p className="text-lg font-semibold">That&apos;s a lot of checks in a short time.</p>
-        <p className="mt-2 text-ink-2">Give it a minute, then try again.</p>
+        <p className="text-lg font-semibold">{t("checkPage.tooMany")}</p>
+        <p className="mt-2 text-ink-2">{t("checkPage.tooManyBody")}</p>
       </div>
     );
   }
@@ -151,7 +152,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
   // 1. A product picked from the results list.
   if (src && id) {
     const [product, failed] = await productFromSource(src, id);
-    if (!product) return <NothingFound failed={failed ? [failed] : []} what="that product" />;
+    if (!product) return <NothingFound failed={failed ? [failed] : []} what={t("checkPage.thatProduct")} />;
     const detail = await detailFor(product, country);
     after(() =>
       logLookup(
@@ -163,7 +164,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
     return <ProductReport detail={detail} from="lookup" />;
   }
 
-  const fromPhoto = photo ? productFromPhoto(photo) : null;
+  const fromPhoto = photo ? productFromPhoto(photo, t("checkPage.yourProduct")) : null;
 
   // 2. A barcode, typed or scanned.
   if (digits && isGtin(digits)) {
@@ -181,7 +182,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
     }
     if (!fromPhoto) {
       after(() => logLookup({ kind: "barcode", query: digits }, reqHeaders, country));
-      return <NothingFound failed={failed} what={`barcode ${digits}`} barcode />;
+      return <NothingFound failed={failed} what={t("checkPage.barcode", digits)} barcode />;
     }
   } else if (digits && !q?.match(/[a-z]/i)) {
     return <NothingFound failed={[]} what={`${digits}`} invalidBarcode />;
@@ -194,7 +195,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
       <div className="space-y-10">
         <ProductReport detail={detail} from="lookup" />
         {outcome && outcome.candidates.length > 0 && (
-          <Candidates q={q!} candidates={outcome.candidates} title="The same product in label databases" />
+          <Candidates q={q!} candidates={outcome.candidates} title={t("checkPage.inDatabases")} />
         )}
       </div>
     );
@@ -206,22 +207,22 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
     after(() => logLookup({ kind: "text", query: q, verified: outcome.catalog.length > 0 }, reqHeaders, country));
     const swaps = forCountry(outcome.catalog, local);
     if (!swaps.length && !outcome.candidates.length) {
-      return <NothingFound failed={outcome.failed} what={`“${q}”`} />;
+      return <NothingFound failed={outcome.failed} what={t("checkPage.quoted", q)} />;
     }
     return (
       <div className="space-y-10">
         {swaps.length > 0 && (
           <section>
-            <h2 className="display text-2xl font-medium">Swaps already in our catalogue</h2>
+            <h2 className="display text-2xl font-medium">{t("checkPage.inCatalogue")}</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {swaps.map((p) => (
-                <PairCard key={p.slug} pair={toSummary(p)} />
+                <PairCard key={p.slug} pair={toSummary(p)} lang={lang} />
               ))}
             </div>
           </section>
         )}
         {outcome.candidates.length > 0 && (
-          <Candidates q={q} candidates={outcome.candidates} title="Pick your product to see what's in it" />
+          <Candidates q={q} candidates={outcome.candidates} title={t("checkPage.pick")} />
         )}
         <FailedNote failed={outcome.failed} />
       </div>
@@ -232,10 +233,11 @@ async function Results({ searchParams }: { searchParams: PageProps<"/check">["se
 }
 
 function Candidates({ q, candidates, title }: { q: string; candidates: Candidate[]; title: string }) {
+  const t = pageT();
   return (
     <section>
       <h2 className="display text-2xl font-medium">{title}</h2>
-      <p className="mt-1 text-sm text-muted">Results for “{q}” from public label databases.</p>
+      <p className="mt-1 text-sm text-muted">{t("checkPage.resultsFor", q)}</p>
       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
         {candidates.map((c) => (
           <li key={`${c.source}-${c.id}`}>
@@ -274,12 +276,7 @@ function Candidates({ q, candidates, title }: { q: string; candidates: Candidate
 
 function FailedNote({ failed }: { failed: LookupSource[] }) {
   if (!failed.length) return null;
-  return (
-    <p className="text-xs text-muted">
-      Some databases didn&apos;t answer just now ({failed.map((f) => SOURCE_LABEL[f]).join(", ")}). Try again in a
-      minute for more results.
-    </p>
-  );
+  return <p className="text-xs text-muted">{pageT()("checkPage.failed", failed.map((f) => SOURCE_LABEL[f]).join(", "))}</p>;
 }
 
 function NothingFound({
@@ -293,52 +290,31 @@ function NothingFound({
   barcode?: boolean;
   invalidBarcode?: boolean;
 }) {
+  const t = pageT();
   return (
     <div className="card max-w-2xl p-8">
       <p className="text-lg font-semibold">
-        {invalidBarcode ? `${what} isn't a valid barcode number.` : `We couldn't find ${what}.`}
+        {invalidBarcode ? t("checkPage.invalid", what) : t("checkPage.notFound", what)}
       </p>
       <p className="mt-2 text-ink-2">
-        {invalidBarcode
-          ? "Check the digits under the barcode, or search by the product's name."
-          : barcode
-            ? "It isn't in the open label databases yet. Search by the product's name instead, or snap the label so we can read it."
-            : "Try the brand and product name as printed on the pack, for example “Advil 200 mg” or “CeraVe moisturizing cream”."}
+        {invalidBarcode ? t("checkPage.checkDigits") : barcode ? t("checkPage.notInDatabases") : t("checkPage.tryName")}
       </p>
       <FailedNote failed={failed} />
       <p className="mt-4 text-sm">
         <Link href="/suggest" className="text-accent underline underline-offset-2">
-          Tell us what you were looking for
+          {t("checkPage.tellUs")}
         </Link>{" "}
-        and we&apos;ll research it.
+        {t("checkPage.wellResearch")}
       </p>
     </div>
   );
 }
 
+const STEP_ICONS = [Search, Barcode, FlaskConical, Store];
+
 function HowItWorks() {
-  const steps = [
-    {
-      icon: Search,
-      title: "Search, scan or snap",
-      text: "Type the name, scan the barcode, or photograph the label. Barcodes are read on your phone.",
-    },
-    {
-      icon: Barcode,
-      title: "We read the official label",
-      text: "FDA drug labels, the NIH supplement label database, and the open beauty and food databases.",
-    },
-    {
-      icon: FlaskConical,
-      title: "See what's really in it",
-      text: "Active ingredients and strengths, what it's for, how to use it and the main warnings.",
-    },
-    {
-      icon: Store,
-      title: "Find what costs less",
-      text: "Swaps from our catalogue, store brands with the same active ingredients on the label, and stores that deliver to your country.",
-    },
-  ];
+  const t = pageT();
+  const steps = t("checkPage.steps").map((s, i) => ({ ...s, icon: STEP_ICONS[i] }));
   const examples = ["Claritin", "Zyrtec", "Centrum Silver", "Mucinex", "Nature Made fish oil", "CeraVe"];
   return (
     <div className="space-y-10">
@@ -355,7 +331,7 @@ function HowItWorks() {
         ))}
       </ol>
       <div>
-        <p className="text-sm font-medium text-muted">Try one:</p>
+        <p className="text-sm font-medium text-muted">{t("checkPage.tryOne")}</p>
         <div className="mt-2 flex flex-wrap gap-2">
           {examples.map((e) => (
             <Link
@@ -369,15 +345,15 @@ function HowItWorks() {
         </div>
       </div>
       <p className="flex items-center gap-2 text-sm text-muted">
-        <Camera className="h-4 w-4" /> On a phone, “Scan a barcode” opens your camera.
+        <Camera className="h-4 w-4" /> {t("checkPage.onPhone")}
       </p>
     </div>
   );
 }
 
-function ResultsSkeleton() {
+function ResultsSkeleton({ label }: { label: string }) {
   return (
-    <div className="space-y-4" aria-busy="true" aria-label="Checking the label databases">
+    <div className="space-y-4" aria-busy="true" aria-label={label}>
       <div className="h-6 w-64 animate-pulse rounded bg-surface-2" />
       <div className="grid gap-3 sm:grid-cols-2">
         {[0, 1, 2, 3].map((i) => (

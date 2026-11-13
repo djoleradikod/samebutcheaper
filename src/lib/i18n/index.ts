@@ -11,7 +11,7 @@ import "./de/client-register";
 import "./de/pages-register";
 
 export type { Lang } from "./lang";
-export { langForCountry, langOfPath } from "./lang";
+export { isLang, langForCountry, langOfPath } from "./lang";
 
 const DICTS: Record<Lang, Shape<Dictionary>> = { en, de };
 
