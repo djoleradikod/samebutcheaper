@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import type { Bundle } from "@/lib/types";
 import { MATCH_TYPE_META } from "@/lib/categories";
 import { COLLAGE_CELLS } from "./BasketCard";

@@ -1,7 +1,8 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { amazonEarns, linksEarn } from "@/lib/affiliate";
 import { getCategoryStats } from "@/lib/catalog";
 import { Logo } from "./Logo";
+import { CountryIndex } from "./CountryIndex";
 
 const LINKS = [
   { href: "/check", label: "Check any product" },
@@ -69,6 +70,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
+      <CountryIndex />
       <div className="border-t border-line">
         <p className="container-page py-4 text-xs text-ink-2">
           Prices change often, so check the current price at the store. Brand names and pack designs belong to their

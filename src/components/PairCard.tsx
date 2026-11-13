@@ -1,6 +1,6 @@
 import { NO_RATING } from "@/lib/rating";
 import type { ReactNode } from "react";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import type { MatchType, PairSummary } from "@/lib/types";
 import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
 import { MarketNote } from "./CountryPicker";

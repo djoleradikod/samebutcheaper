@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import { Minus, Plus } from "lucide-react";
 import { tillLine, type Checkout, type TillLine } from "@/lib/delivery";

@@ -1,5 +1,9 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { linksEarn } from "@/lib/affiliate";
+import { homeHead } from "@/lib/seo-catalog";
+
+/** The x-default of /us, /uk, /de, /ca and /ie (src/lib/country-url.ts). */
+export const metadata = homeHead(null);
 import { assignBasketPhotos, cutOutCount, photoCount, toBasketSummary } from "@/lib/basket-view";
 import {
   bestPhoto,

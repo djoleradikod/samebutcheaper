@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
+import { countryHead } from "@/lib/seo-catalog";
 import { BasketCard } from "@/components/BasketCard";
 import { BundleCard } from "@/components/BundleCard";
 import { isMedicineBasket, toBasketSummary } from "@/lib/basket-view";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   title: "Baskets and brand kits, priced both ways",
   description:
     "Whole shopping baskets and brand kits rebuilt from cheaper products. Totals buy the same amount on both sides, and every item links to what we have on file for it.",
-  alternates: { canonical: "/bundles" },
+  ...countryHead("/bundles", null),
 };
 
 const jump =

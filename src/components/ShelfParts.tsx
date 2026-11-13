@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { ChevronRight } from "lucide-react";
 import { firstScreenSlugs, splitAtFirstTier, SWAP_GRID, type BrowseRow } from "@/lib/browse";
 import { toSummary } from "@/lib/catalog";

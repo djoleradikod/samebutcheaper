@@ -1,16 +1,39 @@
 "use client";
 
 import { ChevronDown, Globe } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Suspense } from "react";
 import { MARKET_ADJECTIVE } from "@/lib/localize";
 import { COUNTRY_OPTIONS, MARKET_LABEL, countryName, type MarketCode } from "@/lib/markets";
+import { countryOfPath, switchCountryPath } from "@/lib/country-url";
 import { setCountry, useCountry, useCountryOrBlank } from "@/lib/client/country";
+
+type PickerProps = { className?: string; withName?: boolean };
 
 /**
  * Country picker. A transparent native <select> sits over a styled label, so
  * it stays accessible and opens the platform picker on phones.
+ *
+ * On a prefixed page (/de/..., see src/lib/country-url.ts) it shows the URL's country, and a choice goes to the same page
+ * under the new country's prefix, or to the unprefixed page for a country without one. The choice is remembered either way.
  */
-export function CountryPicker({ className = "", withName = false }: { className?: string; withName?: boolean }) {
-  const country = useCountryOrBlank();
+export function CountryPicker(props: PickerProps) {
+  // The path is known at build time for prerendered pages. A page rendered on demand reads it at request time.
+  return (
+    <Suspense fallback={<Picker {...props} pathname={null} />}>
+      <PathPicker {...props} />
+    </Suspense>
+  );
+}
+
+function PathPicker(props: PickerProps) {
+  return <Picker {...props} pathname={usePathname()} />;
+}
+
+function Picker({ className = "", withName = false, pathname }: PickerProps & { pathname: string | null }) {
+  const router = useRouter();
+  const chosen = useCountryOrBlank();
+  const country = countryOfPath(pathname) ?? chosen;
   return (
     <span
       className={`relative inline-flex h-11 items-center gap-1.5 rounded-tile border border-line bg-paper px-2.5 text-sm font-medium text-ink-2 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cobalt hover:border-ink-2 hover:text-ink md:h-9 ${className}`}
@@ -27,9 +50,12 @@ export function CountryPicker({ className = "", withName = false }: { className?
         title="Country you shop in"
         value={country ?? ""}
         onChange={(e) => {
-          if (!e.target.value) return;
+          const code = e.target.value;
+          if (!code) return;
+          const next = pathname ? switchCountryPath(pathname, code, window.location.search) : null;
           // Prices on the page follow at once. CountryProvider then asks the server for the lists and stores.
-          setCountry(e.target.value);
+          setCountry(code);
+          if (next) router.push(next);
         }}
         className="absolute inset-0 cursor-pointer opacity-0"
       >

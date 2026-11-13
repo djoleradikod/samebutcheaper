@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import type { Currency } from "@/lib/format";
 import type { MarketCode } from "@/lib/markets";
 import { MarketNote } from "./CountryPicker";

@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useMemo, useRef, useSyncExternalStore, useTransition } from "react";
+import { countryOfPath } from "@/lib/country-url";
 import { localFor } from "@/lib/localize";
 import { isKnownCountry } from "@/lib/markets";
 
@@ -40,6 +41,12 @@ function readOthers() {
 export const CountryContext = createContext<string | null | undefined>(undefined);
 /** The same for the shopper's choice to see other countries' swaps. */
 export const OthersContext = createContext(false);
+/**
+ * True where the country comes from the page, not the shopper: a prefixed page (/de/..., see country-url.ts) and the
+ * record's own view that stands in until a CountryPart arrives. There the cookie is never read, so a German view stays
+ * German for a visitor whose cookie says GB, and the server's HTML and the browser's first render agree.
+ */
+export const FixedContext = createContext(false);
 
 /**
  * The shopper's country, or null when unknown. Outside a CountryPart the server hasn't read the country, and rendering
@@ -47,23 +54,29 @@ export const OthersContext = createContext(false);
  */
 export function useCountry(): string | null {
   const fromServer = useContext(CountryContext);
-  return useSyncExternalStore(subscribe, read, () => {
+  const fixed = useContext(FixedContext);
+  const live = useSyncExternalStore(subscribe, read, () => {
     if (fromServer === undefined) throw new Error("useCountry was server-rendered outside a CountryPart, so it would show every country the same prices.");
     return fromServer;
   });
+  return fixed ? (fromServer ?? null) : live;
 }
 
 /** For what's fine blank until the browser reads the cookie, and so can sit in the static HTML: the header's picker, which names no price. */
 export function useCountryOrBlank(): string | null {
   const fromServer = useContext(CountryContext);
-  return useSyncExternalStore(subscribe, read, () => fromServer ?? null);
+  const fixed = useContext(FixedContext);
+  const live = useSyncExternalStore(subscribe, read, () => fromServer ?? null);
+  return fixed ? (fromServer ?? null) : live;
 }
 
 /** Currency, conversions, fallback and which records list for the shopper's country. */
 export function useLocal() {
   const country = useCountry();
   const fromServer = useContext(OthersContext);
-  const others = useSyncExternalStore(subscribe, readOthers, () => fromServer);
+  const fixed = useContext(FixedContext);
+  const live = useSyncExternalStore(subscribe, readOthers, () => fromServer);
+  const others = fixed ? fromServer : live;
   return useMemo(() => localFor(country, others), [country, others]);
 }
 
@@ -90,21 +103,27 @@ export function setShowOthers(show: boolean) {
  * the picker, the band's control, and a change made in another tab, read on focus. router.refresh() only clears the current route,
  * so after a change in this visit every later page asks again as well. Back and forward land on pages kept from before it.
  * Until the answer arrives the page reads as updating (html[data-updating] in globals.css) instead of passing old lists off as new.
+ *
+ * `fixed` is true when the server rendered for a prefixed URL's country (/de/...). The root layout isn't rendered again on a
+ * link to another page, so moving between a prefixed page and an unprefixed one, or between prefixes, also asks again.
  */
-export function useFollowCountry(country: string | null, others: boolean) {
+export function useFollowCountry(country: string | null, others: boolean, fixed = false) {
   const router = useRouter();
   const pathname = usePathname();
   const [pending, startTransition] = useTransition();
-  const current = useCountry();
-  const local = useLocal();
+  const here = countryOfPath(pathname);
+  const cookie = useSyncExternalStore(subscribe, read, () => (fixed ? null : country));
+  const cookieOthers = useSyncExternalStore(subscribe, readOthers, () => others);
   const changed = useRef(false);
-  const differs = (current !== null && current !== country) || local.others !== others;
+  const differs = fixed
+    ? here !== country
+    : here !== null || (cookie !== null && cookie !== country) || cookieOthers !== others;
 
   useEffect(() => {
     if (!differs) return;
     changed.current = true;
     startTransition(() => router.refresh());
-  }, [differs, current, local.others, country, others, router]);
+  }, [differs, cookie, cookieOthers, country, others, here, router]);
 
   useEffect(() => {
     if (changed.current) startTransition(() => router.refresh());

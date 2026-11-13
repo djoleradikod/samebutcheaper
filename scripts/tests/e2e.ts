@@ -579,3 +579,64 @@ test("the server logged no errors in the wave 2 scenarios either", { skip }, asy
   const tokens = (await db.select({ token: subscribers.token }).from(subscribers)).map((r) => r.token!).filter(Boolean);
   for (const t of tokens) assert.ok(!serverLog.includes(t));
 });
+
+/* ---------------------------------------------- country URLs (docs/country-urls.md) */
+
+const countryPairs = catalog.pairs as unknown as Pair[];
+/** The static HTML a reader without JavaScript gets: everything before the first streamed part (which arrives hidden). */
+const firstHtml = (html: string) => html.split(/<div hidden id="S:/)[0];
+const escaped = (s: string) => s.replace(/&/g, "&amp;").replace(/'/g, "&#x27;");
+
+test("a German swap under /de/ has its euro price and verdict in the first HTML, with a self canonical", { skip }, async () => {
+  const { money } = await import("../../src/lib/format");
+  const pair = countryPairs.find((p) => p.market === "DE" && p.currency === "EUR" && !p.twin)!;
+  const res = await get(`/de/compare/${pair.slug}`, { "user-agent": "curl/8" });
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  const head = firstHtml(html);
+  assert.ok(head.includes(money(pair.alternative.price, "EUR")), "the euro price is in the static HTML");
+  assert.ok(head.includes(escaped(pair.alternative.brand)) && head.includes(`costs ${Math.round(pair.savingsPct)}% less`), "the verdict is in the static HTML");
+  assert.match(html, new RegExp(`<link rel="canonical" href="[^"]*/de/compare/${pair.slug}"`));
+  assert.match(html, /hrefLang="en-DE"/i);
+  assert.ok(!/<meta name="robots" content="noindex/.test(html));
+  // Links on the page stay in the prefix.
+  assert.match(head, /href="\/de\/category\//);
+});
+
+test("an unprefixed swap still works, with the whole argument readable without JavaScript", { skip }, async () => {
+  const pair = countryPairs.find((p) => p.market === "DE" && !p.twin)!;
+  const res = await get(`/compare/${pair.slug}`, visitor({ cookie: "sbc_country=US" }).headers);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  const head = firstHtml(html);
+  assert.ok(head.includes(`costs ${Math.round(pair.savingsPct)}% less`), "verdict");
+  assert.ok(head.includes("€"), "the record's own prices stand in until the shopper's arrive");
+  assert.match(html, new RegExp(`<link rel="canonical" href="[^"]*/de/compare/${pair.slug}"`));
+  // Links on an unprefixed page stay unprefixed, except the links to the swap's own country versions.
+  assert.match(head, /href="\/category\//);
+  assert.ok(!/href="\/(us|uk|de|ca|ie)\/category\//.test(head));
+  assert.ok(head.includes(`href="/de/compare/${pair.slug}"`), "links its indexable country version");
+});
+
+test("a US-only swap under /de/ opens, but is noindex with no canonical", { skip }, async () => {
+  const pair = countryPairs.find((p) => p.market === "US" && !p.twin)!;
+  const res = await get(`/de/compare/${pair.slug}`, visitor().headers);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.match(html, /<meta name="robots" content="noindex, follow"/);
+  assert.ok(!/<link rel="canonical"/.test(html));
+  assert.match(html, /couldn(&#x27;|')t confirm you can buy it in (<!-- -->)?Germany/);
+});
+
+test("country URLs: unknown pages and the internal folder are 404, and the sitemap lists the prefixed forms", { skip }, async () => {
+  const pair = countryPairs.find((p) => p.market === "GB" && !p.twin)!;
+  assert.equal((await get("/de/compare/not-a-swap")).status, 404);
+  assert.equal((await get("/de/brands")).status, 404);
+  assert.equal((await get(`/country/uk/compare/${pair.slug}`)).status, 404);
+  for (const path of ["/us", "/uk", "/de", "/ca", "/ie", "/uk/biggest-savings", "/de/bundles"]) assert.equal((await get(path)).status, 200, path);
+  const sitemap = await (await get("/sitemap.xml")).text();
+  assert.ok(sitemap.includes(`/uk/compare/${pair.slug}</loc>`));
+  assert.ok(!new RegExp(`<loc>https?://[^/<]+/compare/${pair.slug}</loc>`).test(sitemap), "the unprefixed swap canonicalises away");
+  const home = await (await get("/", { "user-agent": "Googlebot/2.1" })).text();
+  for (const p of ["us", "uk", "de", "ca", "ie"]) assert.ok(home.includes(`href="/${p}"`), `the footer links /${p}`);
+});

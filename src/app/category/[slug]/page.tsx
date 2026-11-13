@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/CountryLink";
+import { countryHead } from "@/lib/seo-catalog";
 import { notFound } from "next/navigation";
 import { CATEGORIES, CATEGORY_MAP } from "@/lib/categories";
 import { getCategoryStats, getPairsByCategory } from "@/lib/catalog";
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: PageProps<"/category/[slug]">
   return {
     title: categoryTitle(cat.name, count),
     description: categoryDescription(cat.name, cat.description, count),
-    alternates: { canonical: `/category/${cat.slug}` },
+    ...(countryHead(`/category/${cat.slug}`, null) ?? { alternates: { canonical: `/category/${cat.slug}` } }),
   };
 }
 

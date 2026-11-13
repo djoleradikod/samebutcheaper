@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/CountryLink";
 import { Bookmark, Menu, Search } from "lucide-react";
 import { SavedCount } from "./SaveButton";
 import { Logo } from "./Logo";
