@@ -29,8 +29,12 @@ import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
 import { ShoppingCheckCta } from "@/components/ShoppingCheckCta";
-import { inSentence } from "@/lib/format";
 import { findingShows, forCountry, isThinMarket, localClaim, type Local } from "@/lib/localize";
+import { dict, getT, type Lang } from "@/lib/i18n";
+import { getLang } from "@/lib/i18n/server";
+import { claimText, shelfText } from "@/lib/i18n/record";
+import { formatPercent } from "@/lib/i18n/format";
+import { toCard } from "@/components/ShelfParts";
 import type { MarketCode } from "@/lib/markets";
 import { CountryPart } from "@/components/ForCountry";
 import { jsonLdText } from "@/lib/site";
@@ -103,7 +107,8 @@ function featuredFor(local: Local, limit = 12): PairSummary[] {
   const order = (p: PairT) => (p.alternative.rating ? 0 : 2) + (showsOnlyCutOuts(p) ? 0 : 1);
   // A country whose few listed swaps all lack photos (Australia) gets them anyway, not an empty section.
   const fill = home.length + merged.length ? [] : forCountry(getAllPairs(), local).filter((p) => p.category !== MEDICINE).sort((a, b) => b.savingsPct - a.savingsPct).slice(0, 4);
-  return [...home, ...[...merged].sort((a, b) => order(a) - order(b)), ...fill].slice(0, limit).map(toSummary);
+  const list = [...home, ...[...merged].sort((a, b) => order(a) - order(b)), ...fill].slice(0, limit);
+  return local.lang === "en" ? list.map(toSummary) : list.map((p) => toCard(p, local.lang));
 }
 
 const MENTIONS_MEDICINE = /medicin|medicat|drug|pharmac|headache|painkiller|remed/i;
@@ -120,7 +125,8 @@ function pickFindings(local: Local, limit = 3) {
         !c.categories.includes(MEDICINE) &&
         !MENTIONS_MEDICINE.test(`${c.title} ${findingExcerpt(c.finding)}`) &&
         c.markets.length > 0 &&
-        findingShows(c, local),
+        findingShows(c, local) &&
+        (local.lang === "en" || claimText(c, local).lang === local.lang),
     )
     .sort(
       (a, b) =>
@@ -141,14 +147,10 @@ function pickFindings(local: Local, limit = 3) {
     if (picked.length >= limit) break;
     if (!picked.includes(c)) picked.push(c);
   }
-  return picked.map((c) => localClaim(c, local));
+  return picked.map((c) => (local.lang === "en" ? localClaim(c, local) : claimText(c, local)));
 }
 
-const BULK_COLUMNS: { advice: ShelfLife["advice"]; title: string; body: string }[] = [
-  { advice: "stock_up", title: "Stock up", body: "Keeps for years, so a big pack is safe." },
-  { advice: "buy_to_use", title: "Buy to use", body: "Fine in bulk if you get through it in time." },
-  { advice: "buy_small", title: "Buy small", body: "Goes off or weakens, so skip the big pack." },
-];
+const BULK_COLUMNS: ShelfLife["advice"][] = ["stock_up", "buy_to_use", "buy_small"];
 
 /** The headline figure of a shelf-life record, before its citations and exceptions. */
 function keepsFor(unopened: string) {
@@ -160,7 +162,8 @@ function bulkRows(advice: ShelfLife["advice"], local: Local, limit = 5) {
   const pairs = forCountry(getAllPairs(), local).filter((p) => p.category !== MEDICINE);
   return getShelfLife()
     .filter((r) => r.advice === advice)
-    .map((r) => {
+    .map((record) => {
+      const r = shelfText(record, local.lang);
       const swaps = pairs.filter((p) => p.shelfLife?.id === r.id);
       const best = bestPhoto(swaps);
       return {
@@ -177,39 +180,8 @@ function bulkRows(advice: ShelfLife["advice"], local: Local, limit = 5) {
     .slice(0, limit);
 }
 
-function buildFaq(aisles: string[]) {
-  const names = aisles.map(inSentence);
-  const list = names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names.join("");
-  return [
-    {
-      q: "What do you compare?",
-      a: `Everyday products where you can pay less for the same job. Today that means ${list}. Prices are compared per unit, so a big pack and a small pack can be judged fairly.`,
-    },
-    {
-      q: "If two products do the same job, why does one cost more?",
-      a: "A brand's price also pays for advertising, packaging and its place on the shelf. Sometimes the brand does earn the extra, and we show where it's better.",
-    },
-    {
-      q: "How do you decide two products match?",
-      a: "Most swaps meet one of four standards: the same active ingredient at the same strength, the same formula per the label, the same manufacturer, or doing the same job to a comparable standard. Some have nothing compared on both sides, so they say \"Same kind of product\" and claim no more than that. Every swap says which of these it is, lists what differs and links to at least two sources.",
-    },
-    {
-      q: "Should I buy the biggest pack?",
-      a: "Only if it's cheaper per unit and you'll use it before it goes off. Bigger packs usually cost less per unit, but not always.",
-    },
-    {
-      q: "How do you make money?",
-      a: `${linksEarn() ? "Some links are affiliate links, so we may earn a small commission if you buy, at no extra cost to you." : "We don't, for now. No link on this site earns us anything."} No brand or store pays to be listed or ranked. Swaps are ranked by how much you save, and we show where the brand is better too.`,
-    },
-    {
-      q: "Are the prices current?",
-      a: "Prices are typical shelf prices from the month shown on each swap, and they change often. Check the price at the store before you buy.",
-    },
-    {
-      q: "Is any of this medical advice?",
-      a: "No. For medicines and supplements, read the label and ask a pharmacist or doctor.",
-    },
-  ];
+function buildFaq(aisles: string[], lang: Lang) {
+  return getT(lang)("home.faq", aisles, linksEarn());
 }
 
 /** The middle saving, rounded, so the headline claim holds for a typical swap rather than the best one. */
@@ -223,13 +195,15 @@ function medianPct(values: number[]) {
 /* --------------------------------------------------------------------- the page */
 
 export default function Home() {
+  const lang = getLang();
+  const t = getT(lang);
   return (
     <>
       <div className="bg-canvas">
         <div className="container-page pt-4 md:pt-5">
           {/* The first screen is the shop: one line, then the baskets. */}
           <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between md:gap-8">
-            <h1 className="display text-[1.75rem] md:text-[2.5rem]">Same job. Lower price.</h1>
+            <h1 className="display text-[1.75rem] md:text-[2.5rem]">{t("home.h1")}</h1>
             <div className="text-[13px] leading-snug text-ink-2 md:pb-1 md:text-right">
               <CountryPart fallback={<p className="text-sm font-medium">&nbsp;</p>}>
                 {(local) => {
@@ -237,10 +211,13 @@ export default function Home() {
                   const typical = medianPct(listed.map((p) => p.savingsPct));
                   return (
                     <p className="text-sm font-medium text-ink">
-                      <span className="num">{listed.length}</span> swaps, each with at least two sources
+                      <span className="num">{listed.length}</span>
+                      {t("home.swapsSources", listed.length)}
                       {typical >= 10 ? (
                         <>
-                          , typically <span className="num">{typical}%</span> cheaper per unit.
+                          {t("home.typically")}
+                          <span className="num">{formatPercent(typical, lang)}</span>
+                          {t("home.cheaperPerUnit")}
                         </>
                       ) : (
                         "."
@@ -250,14 +227,14 @@ export default function Home() {
                 }}
               </CountryPart>
               <p className="hidden md:block">
-                No brand pays to be listed. {linksEarn() ? "Some links earn us a commission." : "No link earns us anything today."}{" "}
+                {t("home.noBrandPays")} {linksEarn() ? t("home.someEarn") : t("home.noneEarn")}{" "}
                 <Link href="/how-we-verify" className="text-cobalt underline underline-offset-2">
-                  How we check
+                  {t("home.howWeCheck")}
                 </Link>
               </p>
             </div>
           </div>
-          <ShoppingCheckCta className="mt-3 md:mt-4" />
+          <ShoppingCheckCta className="mt-3 md:mt-4" lang={lang} />
         </div>
       </div>
       <CountryPart>{(local) => <HomeBody local={local} />}</CountryPart>
@@ -266,13 +243,18 @@ export default function Home() {
 }
 
 function HomeBody({ local }: { local: Local }) {
-  const categories = getCategoryStats((list) => forCountry(list, local)).filter((c) => c.count > 0);
+  const lang = local.lang;
+  const t = getT(lang);
+  const aisleName = (slug: CategorySlug, name: string) => (lang === "en" ? name : dict(lang).categories[slug].name);
+  const categories = getCategoryStats((list) => forCountry(list, local))
+    .filter((c) => c.count > 0)
+    .map((c) => ({ ...c, name: aisleName(c.slug, c.name) }));
   const baskets = basketsFor(local);
   const hasBaskets = baskets.length > 0;
   const featured = featuredFor(local);
   const findings = pickFindings(local);
   const hasShelfLife = getShelfLife().length > 0;
-  const faq = buildFaq(categories.map((c) => c.name));
+  const faq = buildFaq(categories.map((c) => c.name), lang);
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -291,30 +273,30 @@ function HomeBody({ local }: { local: Local }) {
         <div className="container-page pt-4 pb-8 md:pb-10">
           {hasBaskets && (
             <section>
-              <SectionHeading title="Swap a whole basket" />
-              <FeaturedBaskets list={baskets} />
+              <SectionHeading title={t("home.basket")} />
+              <FeaturedBaskets list={baskets} lang={lang} />
             </section>
           )}
 
           <section className={hasBaskets ? "mt-8 md:mt-10" : ""}>
             <SectionHeading
-              title="Biggest savings"
+              title={t("home.biggest")}
               links={[
-                { href: "/biggest-savings", label: "All swaps" },
-                { href: "/credits", label: "Photos" },
+                { href: "/biggest-savings", label: t("home.allSwaps") },
+                { href: "/credits", label: t("home.photos") },
               ]}
             />
-            <FeaturedPairs list={featured} eagerFirst={!hasBaskets} />
+            <FeaturedPairs list={featured} eagerFirst={!hasBaskets} lang={lang} />
           </section>
         </div>
       </div>
 
       {findings.length > 0 && (
         <section className="container-page py-8 md:py-10">
-          <SectionHeading title="Why it's worth switching" links={[{ href: "/why", label: "All findings" }]} />
+          <SectionHeading title={t("home.why")} links={[{ href: "/why", label: t("home.allFindings") }]} />
           <div className="grid gap-3 md:grid-cols-3">
             {findings.map((c) => (
-              <Finding key={c.id} claim={c} />
+              <Finding key={c.id} claim={c} lang={lang} />
             ))}
           </div>
         </section>
@@ -324,21 +306,22 @@ function HomeBody({ local }: { local: Local }) {
         <section className="border-t border-line">
           <div className="container-page py-8 md:py-10">
             <SectionHeading
-              title="Buying in bulk"
-              body="A bigger pack only saves money if it's cheaper per unit and you'll use it before it goes off. These are for unopened packs."
+              title={t("home.bulk")}
+              body={t("home.bulkBody")}
               links={[
-                { href: "/bulk", label: "All bigger packs" },
-                { href: "/why", label: "All shelf lives, with sources" },
+                { href: "/bulk", label: t("home.allBulk") },
+                { href: "/why", label: t("home.allShelfLives") },
               ]}
             />
             <div className="grid gap-6 md:grid-cols-3 md:gap-8">
-              {BULK_COLUMNS.map((col) => {
-                const rows = bulkRows(col.advice, local);
+              {BULK_COLUMNS.map((advice) => {
+                const rows = bulkRows(advice, local);
                 if (!rows.length) return null;
+                const [title, body] = dict(lang).home.columns[advice];
                 return (
-                  <div key={col.advice}>
-                    <h3 className="text-lg">{col.title}</h3>
-                    <p className="text-sm text-ink-2">{col.body}</p>
+                  <div key={advice}>
+                    <h3 className="text-lg">{title}</h3>
+                    <p className="text-sm text-ink-2">{body}</p>
                     <ul className="mt-2">
                       {rows.map((r) => {
                         const body = (
@@ -373,7 +356,7 @@ function HomeBody({ local }: { local: Local }) {
 
       <section className="bg-canvas">
         <div className="container-page py-8 md:py-10">
-          <SectionHeading title="All aisles" />
+          <SectionHeading title={t("home.allAisles")} />
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5">
             {categories.map((c) => {
               const best = bestPhoto(forCountry(getPairsByCategory(c.slug), local));
@@ -399,8 +382,10 @@ function HomeBody({ local }: { local: Local }) {
                   </div>
                   <p className="mt-1.5 text-sm leading-snug font-semibold group-hover:underline">{c.name}</p>
                   <p className="text-xs font-medium text-muted">
-                    <span className="num">{c.count}</span> swap{c.count === 1 ? "" : "s"}, up to{" "}
-                    <span className="num">{Math.round(c.maxSavings)}%</span> cheaper
+                    <span className="num">{c.count}</span>
+                    {t("home.tileSwaps", c.count)}
+                    <span className="num">{formatPercent(c.maxSavings, lang)}</span>
+                    {t("home.tileCheaper")}
                   </p>
                 </Link>
               );
@@ -411,13 +396,13 @@ function HomeBody({ local }: { local: Local }) {
 
       <section className="border-b border-line">
         <div className="container-page flex flex-col gap-3 py-8 md:flex-row md:items-start md:justify-between md:gap-8">
-          <h2 className="display text-xl md:text-2xl">Get new swaps by email</h2>
+          <h2 className="display text-xl md:text-2xl">{t("home.email")}</h2>
           <NewsletterForm source="home" />
         </div>
       </section>
 
       <section className="container-page pt-8 md:pt-10">
-        <SectionHeading title="Questions" />
+        <SectionHeading title={t("home.questions")} />
         <div className="grid gap-x-8 lg:grid-cols-2">
           {faq.map((f) => (
             <details key={f.q} className="group border-t border-line">
@@ -432,9 +417,9 @@ function HomeBody({ local }: { local: Local }) {
           ))}
         </div>
         <p className="mt-6 text-sm text-ink-2">
-          Know a swap we&apos;re missing?{" "}
+          {t("home.missing")}{" "}
           <Link href="/suggest" className="font-medium text-cobalt underline underline-offset-2">
-            Suggest it
+            {t("home.suggestIt")}
           </Link>
           .
         </p>

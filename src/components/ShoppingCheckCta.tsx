@@ -1,11 +1,13 @@
 import Link from "@/components/CountryLink";
 import { ListChecks } from "lucide-react";
+import { getT, type Lang } from "@/lib/i18n";
 
 /**
  * The way into /check/list from the home page and My list. Static: it names no price, so it can sit outside a
  * CountryPart, and it promises only what the page does.
  */
-export function ShoppingCheckCta({ className = "" }: { className?: string }) {
+export function ShoppingCheckCta({ className = "", lang = "en" }: { className?: string; lang?: Lang }) {
+  const t = getT(lang);
   return (
     <Link
       href="/check/list"
@@ -16,9 +18,9 @@ export function ShoppingCheckCta({ className = "" }: { className?: string }) {
       </span>
       <span className="min-w-0 flex-1">
         <span className="block text-[15px] font-semibold group-hover:underline md:text-base">
-          Paste your shopping list. See what you&apos;d keep a year.
+          {t("home.cta")}
         </span>
-        <span className="block text-[13px] text-ink-2">A list or a receipt: we match what we can and ask about the rest.</span>
+        <span className="block text-[13px] text-ink-2">{t("home.ctaSub")}</span>
       </span>
     </Link>
   );

@@ -594,10 +594,12 @@ test("a German swap under /de/ has its euro price and verdict in the first HTML,
   assert.equal(res.status, 200);
   const html = await res.text();
   const head = firstHtml(html);
-  assert.ok(head.includes(money(pair.alternative.price, "EUR")), "the euro price is in the static HTML");
-  assert.ok(head.includes(escaped(pair.alternative.brand)) && head.includes(`costs ${Math.round(pair.savingsPct)}% less`), "the verdict is in the static HTML");
+  // German under /de/: "11,70 €" and "kostet 34 % weniger", in a page whose language is German.
+  assert.ok(head.includes(money(pair.alternative.price, "EUR", "de")), "the euro price is in the static HTML");
+  assert.ok(head.includes(escaped(pair.alternative.brand)) && new RegExp(`kostet ${Math.round(pair.savingsPct)}\\s%\\sweniger`).test(head), "the verdict is in the static HTML");
+  assert.match(html, /<html lang="de"/);
   assert.match(html, new RegExp(`<link rel="canonical" href="[^"]*/de/compare/${pair.slug}"`));
-  assert.match(html, /hrefLang="en-DE"/i);
+  assert.match(html, /hrefLang="de-DE"/i);
   assert.ok(!/<meta name="robots" content="noindex/.test(html));
   // Links on the page stay in the prefix.
   assert.match(head, /href="\/de\/category\//);
@@ -629,7 +631,7 @@ test("a US-only swap under /de/ opens, but is noindex with no canonical", { skip
   const html = await res.text();
   assert.match(html, /<meta name="robots" content="noindex, follow"/);
   assert.ok(!/<link rel="canonical"/.test(html));
-  assert.match(html, /couldn(&#x27;|')t confirm you can buy it in (<!-- -->)?Germany/);
+  assert.match(html, /konnten nicht bestätigen, dass du ihn (<!-- -->)?in Deutschland(<!-- -->)? kaufen kannst/);
 });
 
 test("country URLs: unknown pages and the internal folder are 404, and the sitemap lists the prefixed forms", { skip }, async () => {

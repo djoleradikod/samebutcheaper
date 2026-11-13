@@ -1,0 +1,28 @@
+export const calculator = {
+  underWeek: "Under a week",
+  aboutWeek: "About a week",
+  weeks: (n: number) => `About ${n} weeks`,
+  aboutMonth: "About a month",
+  months: (n: number) => `About ${n} months`,
+  years: (n: number) => `About ${n} years`,
+  days: (n: number) => `about ${n} day${n === 1 ? "" : "s"}`,
+  /** A duration above, as it reads mid-sentence. */
+  midSentence: (s: string) => s.toLowerCase(),
+  outlasts: (pack: string, keeps: string) => `At this rate ${pack} outlasts its shelf life. The shortest figure on file is ${keeps} unopened.`,
+  openTooLong: (pack: string, keeps: string) =>
+    `If ${pack} is one container, it stays open longer than it keeps. The shortest figure on file is ${keeps} once opened.`,
+  thisPack: "this pack",
+  biggerPackName: "the bigger pack",
+  heading: "How long a pack lasts you",
+  youUse: "You use",
+  aWeek: "a week",
+  perWeekText: (n: number, word: string) => `${n} ${word} a week`,
+  number: (n: number) => n.toLocaleString("en-US"),
+  lasts: (alt: string) => `${alt} pack lasts`,
+  biggerLasts: "Bigger pack lasts",
+  yearOf: (name: string) => `A year of ${name}`,
+  atThisRate: "a year at this rate",
+  workedOut: "Worked out from the unit prices on this page. Your prices may differ.",
+  sumsOnly: " It only does the sums. For how much to take or use, follow the label.",
+  save: "Save",
+};

@@ -133,7 +133,9 @@ wait_healthy() {
   local port="$1" deadline body
   deadline=$(( $(date +%s) + HEALTH_TIMEOUT ))
   say "waiting for $BIND:$port (up to ${HEALTH_TIMEOUT}s)"
-  while [ "$(date +%s)" -lt "$deadline" ]; do
+  # Always ask at least once, then again until the deadline: checking the clock first could skip every try when the
+  # deadline is a second or so away and the machine is busy (the tests run with HEALTH_TIMEOUT=1).
+  while :; do
     body="$(curl -fsS --max-time 5 "http://$BIND:$port/api/health" 2>/dev/null || true)"
     if [ -n "$body" ] && printf '%s' "$body" | grep -q '"database":"ok"' && migrations_done "$body"; then
       if curl -fsS --max-time 15 -o /dev/null "http://$BIND:$port/"; then
@@ -145,6 +147,7 @@ wait_healthy() {
         return 0
       fi
     fi
+    [ "$(date +%s)" -lt "$deadline" ] || break
     sleep 3
   done
   say "not healthy in time; last answer: ${body:-none}"

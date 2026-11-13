@@ -66,8 +66,13 @@ export function linkStoreName(p: Pick<ProductSide, "retailer" | "url">) {
   return hostname(p.url).startsWith("amazon.") ? "Amazon" : storeName(p.retailer, p.url);
 }
 
-/** "on Amazon", "at Tesco", "at uline.com". Without a URL an unnamed store is "the store". */
-export function atStore(retailer: string, url?: string) {
+/** "on Amazon", "at Tesco", "at uline.com". Without a URL an unnamed store is "the store". German: "bei Amazon", "beim Händler". */
+export function atStore(retailer: string, url?: string, lang: "en" | "de" = "en") {
+  if (lang === "de") {
+    if (retailer === "amazon") return "bei Amazon";
+    const name = url ? storeName(retailer, url) : RETAILER_LABEL[retailer];
+    return name ? `bei ${name}` : "beim Händler";
+  }
   if (retailer === "amazon") return "on Amazon";
   return `at ${url ? storeName(retailer, url) : (RETAILER_LABEL[retailer] ?? "the store")}`;
 }

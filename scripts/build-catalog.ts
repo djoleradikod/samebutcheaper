@@ -41,6 +41,7 @@ import { priceSeenFor } from "./prices/attach";
 import { bySide, loadObservations } from "./prices/observations";
 import { asinProblem } from "../src/lib/cart";
 import { kitCaution } from "../src/lib/buy-list";
+import { attachGerman, germanCoverage } from "../src/lib/i18n/attach-de";
 
 const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data", "pairs");
@@ -653,6 +654,10 @@ for (const [slug, other] of sameSwaps) {
   }
 }
 
+// German text for the /de/ pages, checked against each English record (src/lib/i18n/attach-de.ts).
+errors.push(...attachGerman(join(ROOT, "data", "i18n", "de"), pairs, claims, shelfLives));
+const german = germanCoverage(pairs);
+
 unusedPriceLog();
 if (warnings.length) console.warn(`\n${warnings.length} warning(s):\n  - ${warnings.join("\n  - ")}\n`);
 if (errors.length) {
@@ -716,5 +721,5 @@ const pct = (n: number) => (pairs.length ? Math.round((n / pairs.length) * 100) 
 console.log(
   `Catalog built: ${pairs.length} pairs from ${files.length} file(s), ${bundles.length} bundles, ${presets.length} presets, ` +
     `${claims.length} claims, ${shelfLives.length} shelf-life records. Real image: any ${anySideReal} (${pct(anySideReal)}%), both ${bothSidesReal} (${pct(bothSidesReal)}%), any counting DailyMed ${withDailymed} (${pct(withDailymed)}%). ` +
-    `Medicine ${medicine} (${pct(medicine)}%).`,
+    `Medicine ${medicine} (${pct(medicine)}%). German text: ${german.translated} of ${german.of} German swaps.`,
 );

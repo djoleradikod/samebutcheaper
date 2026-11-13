@@ -2,6 +2,11 @@
 
 import { ChevronDown } from "lucide-react";
 import { FREQUENCIES, isFrequency, type FrequencyId } from "@/lib/yearly";
+import { useT } from "@/lib/i18n/client";
+import { yearly } from "@/lib/i18n/en/client/yearly";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { yearly };
 
 /**
  * How often the shopper buys a pack. A native select, so phones open their own picker. Every option is in it from
@@ -19,6 +24,7 @@ export function FrequencySelect({
   label: string;
   className?: string;
 }) {
+  const t = useT(TEXT);
   return (
     <span className={`relative inline-flex shrink-0 ${className}`}>
       <select
@@ -31,7 +37,7 @@ export function FrequencySelect({
       >
         {FREQUENCIES.map((f) => (
           <option key={f.id} value={f.id}>
-            {f.label}
+            {t(`yearly.frequencies.${f.id}`)}
           </option>
         ))}
       </select>

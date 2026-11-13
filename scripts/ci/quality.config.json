@@ -53,8 +53,8 @@
     "width": "phone"
   },
   "budgets": {
-    "$comment": "Set 13 Nov 2026 from three measuring sessions on a shared 4-core machine: LCP is the highest session median plus 25%, rounded up to 100 ms; CLS is the highest median plus 0.02, at least 0.05; script is the swap page's compressed JS plus 5 KB.",
-    "swapScriptKb": 193,
+    "$comment": "Set 13 Nov 2026 from three measuring sessions on a shared 4-core machine: LCP is the highest session median plus 25%, rounded up to 100 ms; CLS is the highest median plus 0.02, at least 0.05; script is the swap page's compressed JS plus 5 KB (194 KB measured after the client dictionary was split by section, against about 203 KB before).",
+    "swapScriptKb": 199,
     "lcpMs": {
       "home": 1800,
       "swap": 2000,
@@ -82,7 +82,7 @@
     {
       "path": "/de/compare/nurofen-vs-ibu-ratiopharm-400mg-de",
       "home": "/de",
-      "label": "Germany"
+      "label": "Deutschland"
     },
     {
       "path": "/uk",

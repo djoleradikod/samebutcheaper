@@ -1,0 +1,42 @@
+import { swapsWord } from "./util";
+import { MARKET_LABEL, type MarketCode } from "../../../markets";
+import type { SortKey } from "../../../browse";
+
+/** The filterable list (PairBrowser.tsx). */
+export const browse = {
+  swaps: swapsWord,
+  withPhoto: "With a photo",
+  medicineIncluded: "Medicine included",
+  marketPrices: (m: string) => `${MARKET_LABEL[m as MarketCode]} prices`,
+  filters: "Filters",
+  removeFilter: (label: string) => `Remove filter: ${label}`,
+  clearAll: "Clear all",
+  unitNote: "Units differ between products, so unit prices compare best within a shelf.",
+  unitNoteFx: " Other currencies are converted at a rough rate for this order.",
+  howWeCheck: "How we check",
+  didntLoad: "The rest of the list didn't load.",
+  tryAgain: "Try again",
+  showMore: (n: number) => `Show ${n} more`,
+  showing: (shown: number, of: number) => `Showing ${shown} of ${of}`,
+  showSwaps: (n: number) => `Show ${swapsWord(n)}`,
+  withMarket: (m: string) => ` with ${MARKET_LABEL[m as MarketCode]} prices`,
+  showAllCountries: (n: number) => `Show all countries (${n})`,
+  medicineLeftOut: "Medicine is left out.",
+  addIt: (n: number) => `Add it (${n})`,
+  sortBy: "Sort by",
+  sorts: { saving: "Biggest saving", unit: "Lowest unit price", newest: "Newest check" } as Record<SortKey, string>,
+  noMatches: "No swaps match all of those filters.",
+  tryOne: "Try taking one off:",
+  addMedicineTo: (n: number) => `Add medicine to see ${swapsWord(n)}`,
+  removeTo: (label: string, n: number) => `Remove “${label}” to see ${swapsWord(n)}`,
+  clearAllFilters: "Clear all filters",
+  aisle: "Aisle",
+  shelf: "Shelf",
+  strength: "How strong the match is",
+  whatTheseMean: "What these mean",
+  pricesFrom: "Prices from",
+  allCountries: "All countries",
+  photos: "Photos",
+  fewerShelves: "Show fewer shelves",
+  allShelves: (n: number) => `Show all ${n} shelves`,
+};

@@ -24,7 +24,8 @@
   var OFFLINE_URL = "/offline.html";
   var MY_LIST_URL = "/my-list";
   /** Kept at install. /my-list is fetched too, with the static files its page names (see cacheMyList). */
-  var SHELL = [OFFLINE_URL, "/icons/icon-192.png"];
+  var OFFLINE_DE_URL = "/offline-de.html";
+  var SHELL = [OFFLINE_URL, OFFLINE_DE_URL, "/icons/icon-192.png"];
   var IMAGE_CACHE = "sbc-images-" + VERSION;
   var STATIC_MAX = 250;
   var IMAGE_MAX = 80;
@@ -161,10 +162,18 @@
     );
   });
 
-  function offline() {
-    return caches.match(OFFLINE_URL, { cacheName: SHELL_CACHE }).then(function (hit) {
-      return hit || new Response("You're offline.", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
-    });
+  /** The German page for German URLs (/de/..., /datenschutz), else the English one. */
+  function offline(req) {
+    var path = req ? new URL(req.url).pathname : "/";
+    var german = /^\/(de|datenschutz)(\/|$)/.test(path);
+    return caches
+      .match(german ? OFFLINE_DE_URL : OFFLINE_URL, { cacheName: SHELL_CACHE })
+      .then(function (hit) {
+        return hit || caches.match(OFFLINE_URL, { cacheName: SHELL_CACHE });
+      })
+      .then(function (hit) {
+        return hit || new Response("You're offline.", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+      });
   }
 
   self.addEventListener("fetch", function (event) {
@@ -173,7 +182,11 @@
     if (kind === "pass") return;
 
     if (kind === "page") {
-      event.respondWith(fetch(req).catch(offline));
+      event.respondWith(
+        fetch(req).catch(function () {
+          return offline(req);
+        }),
+      );
       return;
     }
 

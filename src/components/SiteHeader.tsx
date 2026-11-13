@@ -5,48 +5,16 @@ import { Logo } from "./Logo";
 import { Dropdown } from "./Dropdown";
 import { CountryPicker } from "./CountryPicker";
 import { getCategoryStats } from "@/lib/catalog";
-import type { CategorySlug } from "@/lib/types";
+import { dict, getT, type Lang } from "@/lib/i18n";
 
-const MENU = [
-  { href: "/check", label: "Check a product" },
-  { href: "/my-list", label: "My savings list" },
-  { href: "/biggest-savings", label: "Biggest savings" },
-  { href: "/bundles", label: "Bundles" },
-  { href: "/bulk", label: "Buy in bulk" },
-  { href: "/why", label: "Why not overpay" },
-  { href: "/brands", label: "Browse by brand" },
-  { href: "/how-we-verify", label: "How we check" },
-  { href: "/suggest", label: "Suggest a swap" },
-];
+const MENU = ["/check", "/my-list", "/biggest-savings", "/bundles", "/bulk", "/why", "/brands", "/how-we-verify", "/suggest"];
 
 /** The right-hand end of the aisle row. */
-const SHOP_LINKS = [
-  { href: "/biggest-savings", label: "Biggest savings" },
-  { href: "/bundles", label: "Bundles" },
-  { href: "/bulk", label: "Buy in bulk" },
-  { href: "/why", label: "Why not overpay" },
-];
+const SHOP_LINKS = ["/biggest-savings", "/bundles", "/bulk", "/why"];
 
-/** Short names for the aisle row, so the whole shop fits on one line. */
-const AISLE_LABEL: Record<CategorySlug, string> = {
-  "food-pantry": "Food",
-  household: "Household",
-  "skincare-personal-care": "Skincare",
-  "beauty-hair": "Beauty",
-  baby: "Baby",
-  pet: "Pet",
-  kitchen: "Kitchen",
-  "tech-tools": "Tech",
-  batteries: "Batteries",
-  "tools-diy": "Tools",
-  office: "Office",
-  car: "Car",
-  garden: "Garden",
-  supplements: "Supplements",
-  "otc-medicine": "Medicine",
-};
-
-export function SiteHeader() {
+export function SiteHeader({ lang = "en" }: { lang?: Lang }) {
+  const t = getT(lang);
+  const label = (href: string) => dict(lang).header.links[href];
   // CATEGORIES is in display order: everyday shopping first, medicine last.
   const aisles = getCategoryStats().filter((c) => c.count > 0);
   return (
@@ -58,7 +26,7 @@ export function SiteHeader() {
             <span aria-hidden="true">
               <Logo />
             </span>
-            <Link href="/" aria-label="SameButCheaper home" className="absolute inset-0" />
+            <Link href="/" aria-label={t("header.home")} className="absolute inset-0" />
           </span>
 
           <form action="/search" role="search" className="relative order-last w-full md:order-none md:w-auto md:flex-1">
@@ -69,15 +37,15 @@ export function SiteHeader() {
             <input
               name="q"
               type="search"
-              placeholder="Search swaps by brand or product"
-              aria-label="Search swaps by brand or product"
+              placeholder={t("header.searchPlaceholder")}
+              aria-label={t("header.searchPlaceholder")}
               className="h-11 w-full rounded-search border border-line-strong bg-paper pr-[4.75rem] pl-9 text-base placeholder:text-muted focus:border-cobalt focus:outline-none md:h-10 md:text-[15px]"
             />
             <button
               type="submit"
               className="absolute top-1 right-1 bottom-1 rounded-[7px] bg-ink px-3 text-sm font-semibold text-white before:absolute before:-inset-1 before:content-[''] hover:bg-ink-2"
             >
-              Search
+              {t("header.search")}
             </button>
           </form>
 
@@ -86,14 +54,14 @@ export function SiteHeader() {
               href="/check"
               className="hidden h-9 items-center px-2 text-sm font-medium text-ink-2 hover:text-ink xl:inline-flex"
             >
-              Check a product
+              {t("header.check")}
             </Link>
             <Link
               href="/my-list"
               className="hidden h-11 min-w-11 items-center justify-center px-1.5 text-sm font-medium text-ink-2 hover:text-ink min-[360px]:inline-flex md:h-9"
             >
               <Bookmark className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span className="sr-only xl:not-sr-only xl:ml-1.5">My list</span>
+              <span className="sr-only xl:not-sr-only xl:ml-1.5">{t("header.myList")}</span>
               <SavedCount />
             </Link>
             <span className="hidden lg:block">
@@ -104,18 +72,18 @@ export function SiteHeader() {
             </span>
             <Dropdown
               className="relative"
-              summaryLabel="Menu"
+              summaryLabel={t("header.menu")}
               summary={<Menu className="h-5 w-5" aria-hidden="true" />}
               summaryClassName="flex h-11 w-11 cursor-pointer list-none items-center justify-center text-ink-2 hover:text-ink md:h-9 md:w-9 [&::-webkit-details-marker]:hidden"
             >
               <div className="card absolute right-0 z-50 mt-1 w-60 p-1 shadow-xl">
-                {MENU.map((n) => (
+                {MENU.map((href) => (
                   <Link
-                    key={n.href}
-                    href={n.href}
+                    key={href}
+                    href={href}
                     className="flex min-h-11 items-center rounded-tile px-3 text-sm font-medium hover:bg-canvas"
                   >
-                    {n.label}
+                    {label(href)}
                   </Link>
                 ))}
               </div>
@@ -124,7 +92,7 @@ export function SiteHeader() {
         </div>
       </header>
 
-      <nav aria-label="Aisles" className="border-b border-line bg-paper">
+      <nav aria-label={t("header.aisles")} className="border-b border-line bg-paper">
         <div className="container-page">
           {/* Below lg the whole row scrolls sideways. From lg the shop links stay put and only the aisles scroll. */}
           <div className="rail -mx-4 flex items-center overflow-x-auto whitespace-nowrap sm:-mx-6 lg:overflow-visible">
@@ -133,22 +101,22 @@ export function SiteHeader() {
                 <li key={a.slug}>
                   <Link
                     href={`/category/${a.slug}`}
-                    title={a.name}
+                    title={t(`categories.${a.slug}.name`)}
                     className="flex h-11 items-center px-2 text-sm lg:px-1.5 focus-visible:outline-offset-[-2px] font-medium text-ink-2 hover:text-ink hover:underline md:h-10"
                   >
-                    {AISLE_LABEL[a.slug]}
+                    {dict(lang).header.aisleShort[a.slug]}
                   </Link>
                 </li>
               ))}
             </ul>
             <ul className="flex shrink-0 items-center pr-2 sm:pr-4 lg:border-l lg:border-line lg:pl-2">
-              {SHOP_LINKS.map((l) => (
-                <li key={l.href}>
+              {SHOP_LINKS.map((href) => (
+                <li key={href}>
                   <Link
-                    href={l.href}
+                    href={href}
                     className="flex h-11 items-center px-2 text-sm focus-visible:outline-offset-[-2px] font-semibold text-ink hover:underline md:h-10"
                   >
-                    {l.label}
+                    {label(href)}
                   </Link>
                 </li>
               ))}

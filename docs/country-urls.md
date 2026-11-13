@@ -148,20 +148,24 @@ response, as in `docs/seo-audit.md`) reached 2,368 pages, all 200, 1,077 of them
 1,632 sitemap URLs by links; the one left is `/check`, which the crawl skips on purpose. Before the version links on
 record pages it reached 1,549: 83 prefixed records were linked only through unprefixed brand, ingredient or dupe pages.
 
-## Ready for languages
+## Languages
 
-Nothing here assumes English except `hreflangFor` in `src/lib/seo.ts`, which says `en-<country>`. When German pages
-come (proposal 3 in `docs/seo-audit.md`):
+The language is a property of the URL (`src/lib/i18n/lang.ts`):
 
-- The prefix stays the country (whose prices); language is a second, independent choice. Either `/de/` serves German
-  and the English German-price view moves to `/de/en/`, or a language segment is added in front (`/de-de/`, `/en-de/`).
-  Both fit `readPath`/`withCountry`: they are the only places that parse or build a prefix.
-- `hreflangFor(country)` becomes `hreflangFor(country, language)`; versions gain one entry per language, and the rule
-  above is unchanged (a view is indexable where its country lists the record).
-- `<html lang>` is set in the root layout; a language segment would set it from the path the way the band reads the
-  country (a header from the proxy), or the prefixed tree gets its own root layout through a route group.
-- Copy goes through dictionaries keyed by language (the Next i18n guide's `getDictionary`), starting with the page
-  chrome, `seo.ts` and `swap-faq.ts`. Record text (`summary`, `differences`) needs German written by a person.
+- `/de/...` is German: its prices are Germany's and its words are German. Every other prefix and every unprefixed URL
+  is English, exactly as before. `/datenschutz` is the one unprefixed page written only in German.
+- Kit and basket pages (`/de/bundle/x`, `/de/basket/x`) are not translated yet, so under `/de/` they stay whole English
+  pages: `<html lang="en">`, hreflang `en-DE`, English header and footer (`ENGLISH_SECTIONS`). Never a mix.
+- `hreflangFor(country, section)` says `de-DE` for German views and `en-<country>` for the rest. Versions are still one
+  per country, so the rule above is unchanged and hreflang stays reciprocal. No German slugs: a swap has one slug.
+- `<html lang>` comes from the route segments (`Html` in `src/lib/i18n/client.tsx`), since the root layout has no params.
+  The header and footer render once per language on the server and `ByLang` draws the page's one.
+- Copy lives in typed dictionaries (`src/lib/i18n/en/*`, `de/*`, `t()` with dotted keys; a missing German key fails
+  typecheck). Client components get only the client sections they import (`useT({ kits })`, one file per section in `src/lib/i18n/en/client/`), never the whole dictionary, so a page ships only its own English.
+- Record text in German lives in `data/i18n/de/<pair file>.json` (plus `claims.json`, `shelf-life.json` and the
+  subcategory glossary), checked at `npm run catalog`: a German text whose numbers differ from the English fails the
+  build. A record without German shows its English with an "Auf Englisch" note, never half and half.
+- Numbers and dates on German pages go through Intl de-DE (`src/lib/i18n/format.ts`): 11,70 €, 88 %, 13. November 2026.
 
 ## Left as they were, on purpose
 

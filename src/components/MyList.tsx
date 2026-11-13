@@ -25,6 +25,11 @@ import { ProductThumb } from "./ProductThumb";
 import { Ticket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
 import { offlineDate, savedAt } from "@/lib/offline";
+import { useLang, useT } from "@/lib/i18n/client";
+import { myList } from "@/lib/i18n/en/client/myList";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { myList };
 
 export type ListItem = {
   slug: string;
@@ -311,6 +316,8 @@ function subscribeOnline(cb: () => void) {
  * with the date the copy was kept. Nothing while online.
  */
 function OfflineNote() {
+  const t = useT(TEXT);
+  const lang = useLang();
   const online = useSyncExternalStore(subscribeOnline, () => navigator.onLine, () => true);
   const [kept, setKept] = useState<string | null>(null);
   useEffect(() => {
@@ -320,17 +327,17 @@ function OfflineNote() {
       .match("/my-list")
       .then((res) => {
         const at = res ? savedAt(res.headers) : null;
-        if (live && at) setKept(offlineDate(at));
+        if (live && at) setKept(offlineDate(at, lang));
       })
       .catch(() => {});
     return () => {
       live = false;
     };
-  }, [online]);
+  }, [online, lang]);
   if (online) return null;
   return (
     <p role="status" className="mt-4 rounded-card border border-line-strong bg-canvas px-4 py-3 text-sm font-medium text-ink-2">
-      You&apos;re offline. Prices from your last visit{kept ? `, ${kept}` : ""}. Check each price at the store before you buy.
+      {t("myList.offline", kept)}
     </p>
   );
 }

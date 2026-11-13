@@ -4,6 +4,7 @@ import { localFor, type Local } from "@/lib/localize";
 import { getPathCountry } from "@/lib/path-country";
 import { getCountry, getLocal } from "@/lib/server-country";
 import { reportedRecords } from "@/lib/reported";
+import { getLang } from "@/lib/i18n/server";
 
 async function ForCountry({ children }: { children: (local: Local) => ReactNode }) {
   const [local] = await Promise.all([getLocal(), reportedRecords()]);
@@ -19,7 +20,7 @@ async function ForCountry({ children }: { children: (local: Local) => ReactNode 
 function FixedView({ country, children }: { country: string | null; children: (local: Local) => ReactNode }) {
   return (
     <CountryProvider country={country} others={false} fixed>
-      {children(localFor(country))}
+      {children(localFor(country, false, getLang()))}
     </CountryProvider>
   );
 }

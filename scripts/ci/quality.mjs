@@ -152,7 +152,7 @@ async function checkFirstHtml(base) {
   for (const { path, home, label } of config.firstHtml ?? []) {
     const html = await (await fetch(base + path)).text();
     const header = html.slice(html.indexOf("<header"), html.indexOf("</header>"));
-    const logo = /<a[^>]*aria-label="SameButCheaper home"[^>]*>/.exec(header)?.[0] ?? "";
+    const logo = /<a[^>]*aria-label="SameButCheaper (?:home|Startseite)"[^>]*>/.exec(header)?.[0] ?? "";
     results.firstHtml = { ...results.firstHtml, [path]: { logo, deferred: header.includes("<template id=") } };
     if (!logo.includes(`href="${home}"`)) failures.push(`${path}: the header logo in the first HTML is ${logo || "missing"}, not a link to ${home}`);
     if (!header.includes(`>${label}<`)) failures.push(`${path}: the country picker in the first HTML doesn't say ${label}`);

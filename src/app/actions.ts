@@ -10,6 +10,8 @@ import { subscribeEmail } from "@/lib/newsletter";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
 import { SITE } from "@/lib/site";
 import { visitorFrom } from "@/lib/visitor";
+import { getT } from "@/lib/i18n";
+import { isLang } from "@/lib/i18n/lang";
 
 export type FormState = { ok: boolean; message: string } | null;
 
@@ -24,13 +26,15 @@ async function formVisitor() {
 }
 
 export async function subscribe(_prev: FormState, formData: FormData): Promise<FormState> {
-  if (formData.get("company")) return { ok: true, message: "Thanks!" }; // honeypot
+  const lang = formData.get("lang");
+  const t = getT(isLang(lang) ? lang : "en");
+  if (formData.get("company")) return { ok: true, message: t("subscribe.thanks") }; // honeypot
   const email = emailSchema.safeParse(formData.get("email"));
-  if (!email.success) return { ok: false, message: "Please enter a valid email address." };
+  if (!email.success) return { ok: false, message: t("subscribe.validEmail") };
   const { allowed } = await formVisitor();
-  if (!allowed) return TOO_MANY;
+  if (!allowed) return { ok: false, message: t("subscribe.tooMany") };
   const db = getDb();
-  if (!db) return { ok: false, message: "Sign-ups are not open yet. Please check back soon." };
+  if (!db) return { ok: false, message: t("subscribe.notOpen") };
   try {
     const cookieCountry = (await cookies()).get("sbc_country")?.value;
     const outcome = await subscribeEmail(
@@ -46,12 +50,12 @@ export async function subscribe(_prev: FormState, formData: FormData): Promise<F
     return {
       ok: true,
       message: mailConfigured() && outcome !== "stored"
-        ? "Almost there. We've sent you an email: click the link in it to confirm."
-        : "You're on the list. We'll email you once to confirm before the first send.",
+        ? t("subscribe.almost")
+        : t("subscribe.onList"),
     };
   } catch (err) {
     log.error("subscribe.failed", { err });
-    return { ok: false, message: "Something went wrong. Please try again." };
+    return { ok: false, message: t("subscribe.wrong") };
   }
 }
 

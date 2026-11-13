@@ -3,6 +3,12 @@
 import { useLocal } from "@/lib/client/country";
 import type { Currency } from "@/lib/format";
 import { unitDisplay } from "@/lib/unit-format";
+import { useT } from "@/lib/i18n/client";
+import { shared } from "@/lib/i18n/en/client/shared";
+import { unitPrice } from "@/lib/i18n/en/client/unitPrice";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { shared, unitPrice };
 
 const SIZES = {
   sm: { alt: "text-lg leading-none", brand: "text-[13px]", unit: "text-xs" },
@@ -24,7 +30,7 @@ export function ToArrow({ className = "" }: { className?: string }) {
       >
         <path d="M0 5h12.5M8.5 1l4 4-4 4" />
       </svg>
-      <span className="sr-only"> to </span>
+      <span className="sr-only">{useT(TEXT)("unitPrice.to")}</span>
     </>
   );
 }
@@ -51,7 +57,9 @@ export function UnitPrice({
   size?: keyof typeof SIZES;
   className?: string;
 }) {
-  const { label } = unitDisplay(unit);
+  const t = useT(TEXT);
+  const english = unitDisplay(unit).label;
+  const label = t("unitPrice.unitLabel", { english, unit });
   const local = useLocal();
   const about = local.converts(currency);
   const cheaper = local.unitBare(alt, unit, currency);
@@ -60,14 +68,14 @@ export function UnitPrice({
   return (
     <p className={`flex flex-wrap items-baseline gap-x-1.5 ${className}`}>
       <span className="sr-only">
-        {about && "About: "}Cheaper one {cheaper} {label}, brand {dearer} {label}.
+        {t("unitPrice.priceSr", about, cheaper, dearer, label)}
       </span>
       <span aria-hidden="true" className={`price text-ink ${s.alt}`}>
-        {about && <span className="text-[0.55em] font-medium">about </span>}
+        {about && <span className="text-[0.55em] font-medium">{t("shared.about")} </span>}
         {cheaper}
       </span>
       <span aria-hidden="true" className={`price font-semibold text-muted ${s.brand}`}>
-        vs {dearer}
+        {t("unitPrice.vs")} {dearer}
       </span>
       <span aria-hidden="true" className={`leading-tight font-medium text-muted ${s.unit}`}>
         {label}

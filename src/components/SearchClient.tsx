@@ -14,6 +14,11 @@ import { WantedPrompt } from "./WantedPrompt";
 import { setShowOthers, useLocal } from "@/lib/client/country";
 import { localFor } from "@/lib/localize";
 import { BUNDLE_SEARCH, PAIR_SEARCH } from "@/lib/search-options";
+import { useT } from "@/lib/i18n/client";
+import { search } from "@/lib/i18n/en/client/search";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { search };
 
 const PATH = "/search";
 
@@ -188,15 +193,16 @@ export function SearchClient({ total, children }: { total: number; children: Rea
 
 /** Matches priced in other countries, which this shopper's lists leave out, with the way to see them. */
 function Elsewhere({ count, term, more }: { count: number; term: string; more: boolean }) {
+  const t = useT(TEXT);
   return (
     <p className="mt-2 flex flex-wrap items-center gap-x-2 text-sm text-ink-2">
-      {count} {more ? "more " : ""}for “{term}” {count === 1 ? "is" : "are"} priced in other countries.
+      {t("search.elsewhere", count, term, more)}
       <button
         type="button"
         onClick={() => setShowOthers(true)}
         className="inline-flex min-h-11 cursor-pointer items-center font-semibold text-cobalt underline underline-offset-2 md:min-h-0"
       >
-        Show swaps from other countries
+        {t("search.showOthers")}
       </button>
     </p>
   );

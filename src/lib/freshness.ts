@@ -6,6 +6,7 @@
  */
 
 import type { FeedInfo } from "./feed-links";
+import { dateDe } from "./i18n/format";
 
 export const FRESHNESS_TIERS = ["fresh", "recent", "ageing", "stale"] as const;
 export type FreshnessTier = (typeof FRESHNESS_TIERS)[number];
@@ -102,9 +103,10 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const LONG_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 /** "3 Nov 2026", or "November 2026" when we only know the month. */
-export function checkedDate(date: string, precision: DatePrecision) {
+export function checkedDate(date: string, precision: DatePrecision, lang: "en" | "de" = "en") {
   const [y, m, d] = date.split("-").map(Number);
   if (!y || !m) return date;
+  if (lang === "de") return dateDe(date, precision === "month" || !d ? "month" : "day");
   return precision === "month" || !d ? `${LONG_MONTHS[m - 1]} ${y}` : `${d} ${MONTHS[m - 1]} ${y}`;
 }
 

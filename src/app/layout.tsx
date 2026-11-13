@@ -13,6 +13,8 @@ import { shopperAttributesScript } from "@/lib/reserve";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { jsonLdText, SITE } from "@/lib/site";
+import { ByLang, Html } from "@/lib/i18n/client";
+import { getT } from "@/lib/i18n";
 
 /** One family. The width axis does the work a second typeface would do. */
 const archivo = Archivo({
@@ -105,26 +107,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     },
   ];
   return (
-    <html lang="en" className={`${archivo.variable} h-full antialiased`} suppressHydrationWarning>
+    <Html className={`${archivo.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <script dangerouslySetInnerHTML={{ __html: RESERVE_BAND }} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-tile focus:border focus:border-ink focus:bg-paper focus:px-3 focus:py-2"
         >
-          Skip to content
+          <ByLang en={getT("en")("layout.skip")} de={getT("de")("layout.skip")} />
         </a>
-        <SiteHeader />
+        <ByLang en={<SiteHeader />} de={<SiteHeader lang="de" />} />
         <main id="main" className="min-h-svh flex-1">
           <Suspense fallback={<div className="band-slot" aria-hidden="true" />}>
             <CountryBand />
           </Suspense>
           {children}
         </main>
-        <SiteFooter />
+        <ByLang en={<SiteFooter />} de={<SiteFooter lang="de" />} />
         <script src="/sw-register.js" async />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
       </body>
-    </html>
+    </Html>
   );
 }

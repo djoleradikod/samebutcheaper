@@ -1,4 +1,10 @@
 import type { CategorySlug } from "@/lib/types";
+import { clientT } from "@/lib/i18n/client-dict";
+import type { Lang } from "@/lib/i18n/lang";
+import { cards } from "@/lib/i18n/en/client/cards";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { cards };
 
 /**
  * Fixed sizes for lists, fluid sizes for card grids. `tile` keeps itself square and
@@ -55,7 +61,10 @@ export function ProductThumb({
   sizes,
   quiet = false,
   flush = false,
+  lang = "en",
 }: {
+  /** The page's language, for what a screen reader hears when there's no photo. */
+  lang?: Lang;
   image?: string | null;
   brand: string;
   /** Describes the photo. Defaults to the brand name. */
@@ -101,7 +110,7 @@ export function ProductThumb({
     );
   }
 
-  const label = `${alt ?? brand}: no photo yet`;
+  const label = clientT(lang, TEXT)("cards.noPhoto", alt ?? brand);
   const tile = `${box} bg-white [container-type:size]`;
   const band = <span aria-hidden="true" className="absolute inset-x-0 top-0 bg-ink" style={{ height: "max(3px, 3.5cqmin)" }} />;
 

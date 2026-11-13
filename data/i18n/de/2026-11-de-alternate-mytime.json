@@ -1,0 +1,164 @@
+{
+  "sandisk-nintendo-switch-128gb-microsd-vs-sandisk-extreme-128gb-de": {
+    "summary": "Die lizenzierte Nintendo-Switch-Karte von SanDisk und die eigene Extreme-Karte sind beide 128-GB-microSDXC-Karten mit U3 und V30, und die Extreme kostet weniger und nennt dabei eine höhere Lesegeschwindigkeit.",
+    "evidence": "Produktseiten von alternate.de, abgelesen am 13. Nov. 2026 und mit einem zweiten Abruf erneut geprüft, inklusive MwSt., beide sofort lieferbar: SanDisk Nintendo Switch 128 GB (EAN 0619659171520, Herstellernr. SDSQXAO-128G-GNCZN) für 48,59 Euro und SanDisk Extreme 128 GB (EAN 0619659188450, Herstellernr. SDSQXAA-128G-GN6MA) für 35,89 Euro. Beide nennen microSDXC, UHS-I, U3 und V30. Die Nintendo-Karte nennt Lesen bis 100 MB/s und Schreiben bis 90 MB/s; die Extreme nennt Lesen bis 160 MB/s, Schreiben bis 90 MB/s und A2. Beide Barcodes beginnen mit dem SanDisk-Firmenpräfix 0619659. Die SD Association legt fest, was U3, V30 und A2 bedeuten.",
+    "differences": [
+      "Die Nintendo-Karte trägt die Nintendo-Lizenz und rotes Switch-Design; die Extreme nicht.",
+      "Jede microSDXC-Karte funktioniert in einer Switch, und Nintendos eigene Hilfeseite verlangt microSDXC mit UHS-I und hoher Lesegeschwindigkeit, was beide erfüllen.",
+      "Bei der Extreme liegt ein SD-Adapter bei; die Nintendo-Seite sagt dazu nichts.",
+      "Die Beschreibung auf der Extreme-Seite nennt bis 190 MB/s beim Lesen, ihre Datentabelle 160 MB/s; wir nehmen die Tabelle.",
+      "Keine der beiden hat genug Kundenbewertungen, um zu zählen."
+    ],
+    "why": "Beide Karten kommen von SanDisk mit den gleichen Klassen U3 und V30, und die günstigere nennt die höhere Lesegeschwindigkeit. Die Nintendo-Lizenz bringt ein Design, keine Geschwindigkeit.",
+    "aspects": [
+      {
+        "aspect": "Lesegeschwindigkeit",
+        "brand": "Bis 100 MB/s",
+        "alternative": "Bis 160 MB/s"
+      },
+      {
+        "aspect": "Anwendungsklasse",
+        "brand": "Nicht angegeben",
+        "alternative": "A2"
+      },
+      {
+        "aspect": "Nintendo-Lizenz",
+        "brand": "Ja",
+        "alternative": "Nein"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "Lesegeschwindigkeit",
+          "amount": "bis 100 MB/s"
+        },
+        {
+          "name": "Schreibgeschwindigkeit",
+          "amount": "bis 90 MB/s"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "Lesegeschwindigkeit",
+          "amount": "bis 160 MB/s"
+        },
+        {
+          "name": "Schreibgeschwindigkeit",
+          "amount": "bis 90 MB/s"
+        },
+        {
+          "name": "A2",
+          "amount": ""
+        }
+      ]
+    }
+  },
+  "kingston-canvas-go-plus-128gb-microsd-vs-sandisk-extreme-128gb-de": {
+    "summary": "Beide sind 128-GB-microSDXC-Karten mit U3, V30 und A2 und mit SD-Adapter, und die SanDisk Extreme kostet im selben Shop weniger.",
+    "evidence": "Produktseiten von alternate.de, abgelesen am 13. Nov. 2026 und mit einem zweiten Abruf erneut geprüft, inklusive MwSt., beide sofort lieferbar: Kingston Canvas Go! Plus 128 GB (EAN 0740617347944, Herstellernr. SDCG4/128GB) für 51,90 Euro und SanDisk Extreme 128 GB (EAN 0619659188450, Herstellernr. SDSQXAA-128G-GN6MA) für 35,89 Euro. Beide nennen microSDXC, UHS-I, Class 10, U3, V30 und A2, und bei beiden liegt ein SD-Adapter bei. Die SD Association legt die Mindestgeschwindigkeiten fest, die diese Klassen versprechen.",
+    "differences": [
+      "Kingston nennt eine höhere Spitzen-Lesegeschwindigkeit (bis 200 MB/s gegenüber 160 MB/s) und keine Schreibgeschwindigkeit; SanDisk nennt Schreiben bis 90 MB/s.",
+      "Die Klassen, die beide tragen, versprechen die gleichen Mindestwerte, der Unterschied liegt also nur in der Spitzengeschwindigkeit, die zählt, wenn du viele Dateien auf einen Computer kopierst.",
+      "Keine der beiden hat genug Kundenbewertungen, um zu zählen, und kein Test, den wir gelesen haben, umfasst diese beiden."
+    ],
+    "why": "Die Klassen, auf die es bei Kameras, Handys und Konsolen ankommt, sind gleich, und die günstigere Karte kommt vom Marktführer.",
+    "aspects": [
+      {
+        "aspect": "Lesegeschwindigkeit",
+        "brand": "Bis 200 MB/s",
+        "alternative": "Bis 160 MB/s"
+      },
+      {
+        "aspect": "Schreibgeschwindigkeit",
+        "brand": "Nicht angegeben",
+        "alternative": "Bis 90 MB/s"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "A2",
+          "amount": ""
+        },
+        {
+          "name": "Lesegeschwindigkeit",
+          "amount": "bis 200 MB/s"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "UHS-I U3, V30",
+          "amount": "128 GB"
+        },
+        {
+          "name": "A2",
+          "amount": ""
+        },
+        {
+          "name": "Lesegeschwindigkeit",
+          "amount": "bis 160 MB/s"
+        },
+        {
+          "name": "Schreibgeschwindigkeit",
+          "amount": "bis 90 MB/s"
+        }
+      ]
+    }
+  },
+  "diamant-feinster-zucker-vs-jeden-tag-zucker-raffinade-de": {
+    "summary": "Beide sind 1-kg-Packungen feiner weißer Kristallzucker mit der gleichen Nährwerttabelle, und die Eigenmarke kostet etwa halb so viel.",
+    "evidence": "Beide am 13. Nov. 2026 auf mytime.de abgelesen und mit einem zweiten Abruf erneut geprüft, inklusive MwSt.: Diamant Feinster Zucker 1 kg (EAN 4008381145002) für 2,29 Euro und Jeden Tag Zucker Raffinade 1 kg (EAN 4306188050971) für 1,19 Euro. Beide Seiten beschreiben den Zucker als feinen Kristallzucker und nennen pro 100 g die gleichen Werte: 1700 kJ / 400 kcal, 100 g Kohlenhydrate, davon alles Zucker, und kein Fett, kein Eiweiß und kein Salz.",
+    "differences": [
+      "Keine der beiden Seiten druckt eine Zutatenliste ab oder nennt den Hersteller, was die EU-Regeln bei einem Lebensmittel aus einer Zutat nicht verlangen.",
+      "Die Jeden-Tag-Packung ist als Raffinade gekennzeichnet, die höchste Raffinationsstufe; die Diamant-Seite nennt keine Stufe, also können wir nicht sagen, dass beide die gleiche Stufe haben. myTime liefert erst ab 70 Euro kostenlos, die Ersparnis zählt also bei einem größeren Einkauf."
+    ],
+    "why": "Weißer Zucker besteht aus einer Zutat, und beide Etiketten nennen die gleiche Kristallgröße und die gleiche Nährwerttabelle.",
+    "aspects": [
+      {
+        "aspect": "Raffinationsstufe",
+        "brand": "Nicht angegeben",
+        "alternative": "Raffinade (angegeben)"
+      },
+      {
+        "aspect": "Nährwerte pro 100 g",
+        "brand": "400 kcal, 100 g Zucker",
+        "alternative": "400 kcal, 100 g Zucker"
+      }
+    ],
+    "ingredients": {
+      "brand": [
+        {
+          "name": "Feiner Kristallzucker",
+          "amount": ""
+        },
+        {
+          "name": "Zucker pro 100 g",
+          "amount": "100 g"
+        }
+      ],
+      "alternative": [
+        {
+          "name": "Feiner Kristallzucker",
+          "amount": ""
+        },
+        {
+          "name": "Zucker pro 100 g",
+          "amount": "100 g"
+        }
+      ]
+    }
+  }
+}

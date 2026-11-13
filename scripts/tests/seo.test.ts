@@ -12,6 +12,7 @@ import {
   basketTitle,
   brandTitle,
   bundleDescription,
+  hreflangFor,
   bundleTitle,
   checkedDate,
   clip,
@@ -84,8 +85,8 @@ test("twins point at each other with region codes and one shared x-default", () 
     const twin = pairs.find((x) => x.slug === p.twin!.slug)!;
     const mine = recordVersions("compare", p, twin);
     const theirs = recordVersions("compare", twin, p);
-    assert.equal(mine.languages[`en-${p.market}`], `/${prefix[p.market]}/compare/${p.slug}`);
-    assert.equal(mine.languages[`en-${twin.market}`], `/${prefix[twin.market]}/compare/${twin.slug}`);
+    assert.equal(mine.languages[hreflangFor(p.market)], `/${prefix[p.market]}/compare/${p.slug}`);
+    assert.equal(mine.languages[hreflangFor(twin.market)], `/${prefix[twin.market]}/compare/${twin.slug}`);
     assert.deepEqual(mine, theirs);
     assert.ok([`/${prefix[p.market]}/compare/${p.slug}`, `/${prefix[twin.market]}/compare/${twin.slug}`].includes(mine.xDefault));
   }

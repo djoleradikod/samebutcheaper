@@ -21,16 +21,22 @@ import {
   type Facets,
   type SortKey,
 } from "@/lib/browse";
-import { CATEGORY_MAP, MATCH_TYPE_META } from "@/lib/categories";
 import { useCountry } from "@/lib/client/country";
 import { loadSwapIndex } from "@/lib/client/swap-index";
 import { useUrlQuery, writeUrlQuery } from "@/lib/client/url-query";
-import { MARKET_LABEL, type MarketCode } from "@/lib/markets";
+import type { MarketCode } from "@/lib/markets";
+import { useLang, useT } from "@/lib/i18n/client";
+import { clientT, type ClientT } from "@/lib/i18n/client-dict";
 import { NO_PHOTO_TIER } from "@/lib/photos";
 import type { PairSummary } from "@/lib/types";
 import { FilterSheet } from "./FilterSheet";
 import { Group, OptionRow } from "./FilterOption";
 import { MoreSwapsHeading, PairCard, PairRow, PairRows } from "./PairCard";
+import { browse } from "@/lib/i18n/en/client/browse";
+import { cards } from "@/lib/i18n/en/client/cards";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { browse, cards };
 
 /** With this many shelves or fewer the whole list shows. Past it, the biggest few and a button. */
 const SHELF_LIMIT = 10;
@@ -38,26 +44,25 @@ const SHELVES_COLLAPSED = 8;
 
 const without = <T,>(list: T[], value: T) => list.filter((v) => v !== value);
 const toggled = <T,>(list: T[], value: T) => (list.includes(value) ? without(list, value) : [...list, value]);
-const swaps = (n: number) => `${n} swap${n === 1 ? "" : "s"}`;
 
 /** One filter currently on, and the state with it taken off again. */
 type ActiveFilter = { id: string; label: string; off: Partial<BrowseState> };
 
-function activeFilters(s: BrowseState, facets: Facets, fallback: MarketCode | "all"): ActiveFilter[] {
+function activeFilters(s: BrowseState, facets: Facets, fallback: MarketCode | "all", t: ClientT<typeof TEXT>): ActiveFilter[] {
   const shelfLabel = (key: string) => facets.shelves.find((o) => o.value === key)?.label ?? key.replace(/-/g, " ");
   return [
     ...s.aisles.map((a) => ({
       id: `aisle-${a}`,
-      label: CATEGORY_MAP[a].name,
+      label: t("cards.aisle", a),
       off: { aisles: without(s.aisles, a), shelves: [] },
     })),
     ...s.shelves.map((k) => ({ id: `shelf-${k}`, label: shelfLabel(k), off: { shelves: without(s.shelves, k) } })),
-    ...s.matches.map((m) => ({ id: `match-${m}`, label: MATCH_TYPE_META[m].label, off: { matches: without(s.matches, m) } })),
+    ...s.matches.map((m) => ({ id: `match-${m}`, label: t("cards.matchLabel", m), off: { matches: without(s.matches, m) } })),
     ...(s.market && s.market !== "all" && s.market !== fallback
-      ? [{ id: "market", label: `${MARKET_LABEL[s.market]} prices`, off: { market: "all" as const } }]
+      ? [{ id: "market", label: t("browse.marketPrices", s.market), off: { market: "all" as const } }]
       : []),
-    ...(s.photo ? [{ id: "photo", label: "With a photo", off: { photo: false } }] : []),
-    ...(s.medicine ? [{ id: "medicine", label: "Medicine included", off: { medicine: false } }] : []),
+    ...(s.photo ? [{ id: "photo", label: t("browse.withPhoto"), off: { photo: false } }] : []),
+    ...(s.medicine ? [{ id: "medicine", label: t("browse.medicineIncluded"), off: { medicine: false } }] : []),
   ];
 }
 
@@ -90,8 +95,20 @@ export function PairBrowser({
   const market = state.market ?? fallbackMarket;
 
   const matched = useMemo(() => matchRows(rows, state, { market, hideMedicine }), [rows, state, market, hideMedicine]);
-  const facets = useMemo(() => buildFacets(rows, state, { market, hideMedicine }), [rows, state, market, hideMedicine]);
-  const active = activeFilters(state, facets, fallbackMarket);
+  const lang = useLang();
+  const t = clientT(lang, TEXT);
+  const facets = useMemo(() => {
+    const f = buildFacets(rows, state, { market, hideMedicine });
+    if (lang === "en") return f;
+    const tr = clientT(lang, TEXT);
+    return {
+      ...f,
+      aisles: f.aisles.map((o) => ({ ...o, label: tr("cards.aisle", o.value) })),
+      matches: f.matches.map((o) => ({ ...o, label: tr("cards.matchLabel", o.value) })),
+      markets: f.markets.map((o) => ({ ...o, label: tr("cards.marketLabel", o.value) })),
+    };
+  }, [rows, state, market, hideMedicine, lang]);
+  const active = activeFilters(state, facets, fallbackMarket, t);
   const shown = matched.slice(0, state.show);
 
   const prerendered = useMemo(() => new Map(cards.map((c) => [c.slug, c])), [cards]);
@@ -166,7 +183,7 @@ export function PairBrowser({
     const ranked = showRank && defaultView && i < firstTier.length;
     return (
       <li key={r.slug} data-row={i} className="min-w-0">
-        <PairCard pair={card} rank={ranked ? i + 1 : undefined} eager={i === firstPhoto && i < 4} />
+        <PairCard pair={lang === "en" ? card : { ...card, subcategory: r.shelf }} rank={ranked ? i + 1 : undefined} eager={i === firstPhoto && i < 4} lang={lang} />
       </li>
     );
   };
@@ -180,15 +197,15 @@ export function PairBrowser({
 
   const summary = (
     <p className="min-w-0 text-sm text-ink-2" aria-live="polite">
-      <span className="num font-semibold text-ink">{swaps(matched.length)}</span>
-      {multiMarket && market !== "all" && ` with ${MARKET_LABEL[market]} prices`}.{" "}
+      <span className="num font-semibold text-ink">{t("browse.swaps", matched.length)}</span>
+      {multiMarket && market !== "all" && t("browse.withMarket", market)}.{" "}
       {multiMarket && market !== "all" && facets.allMarkets > matched.length && (
-        <InlineButton onClick={() => update({ market: "all" })}>Show all countries ({facets.allMarkets})</InlineButton>
+        <InlineButton onClick={() => update({ market: "all" })}>{t("browse.showAllCountries", facets.allMarkets)}</InlineButton>
       )}{" "}
       {medicineLeftOut > 0 && (
         <>
-          Medicine is left out.{" "}
-          <InlineButton onClick={() => update({ medicine: true })}>Add it ({medicineLeftOut})</InlineButton>
+          {t("browse.medicineLeftOut")}{" "}
+          <InlineButton onClick={() => update({ medicine: true })}>{t("browse.addIt", medicineLeftOut)}</InlineButton>
         </>
       )}
     </p>
@@ -212,7 +229,7 @@ export function PairBrowser({
     <div className={hasFilters ? "lg:grid lg:grid-cols-[232px_minmax(0,1fr)] lg:gap-6" : ""}>
       {hasFilters && (
         <aside
-          aria-label="Filters"
+          aria-label={t("browse.filters")}
           onPointerEnter={warm}
           onFocusCapture={warm}
           className="hidden lg:sticky lg:top-[4.25rem] lg:block lg:max-h-[calc(100dvh-5rem)] lg:self-start lg:overflow-y-auto lg:pr-2 lg:pl-1"
@@ -234,7 +251,7 @@ export function PairBrowser({
                   }}
                   className="btn btn-ghost flex-1 lg:hidden"
                 >
-                  Filters
+                  {t("browse.filters")}
                   {active.length > 0 && <span className="num">({active.length})</span>}
                 </button>
               )}
@@ -252,7 +269,7 @@ export function PairBrowser({
                 <button
                   type="button"
                   onClick={() => update(f.off)}
-                  aria-label={`Remove filter: ${f.label}`}
+                  aria-label={t("browse.removeFilter", f.label)}
                   className="flex h-11 items-center gap-1 rounded-tile border border-line-strong bg-paper pr-1.5 pl-2.5 text-[13px] font-medium hover:border-ink-2 lg:h-8"
                 >
                   {f.label}
@@ -266,7 +283,7 @@ export function PairBrowser({
                 onClick={clearAll}
                 className="flex h-11 items-center px-2 text-[13px] font-medium text-cobalt underline underline-offset-2 lg:h-8"
               >
-                Clear all
+                {t("browse.clearAll")}
               </button>
             </li>
           </ul>
@@ -274,43 +291,43 @@ export function PairBrowser({
 
         {state.sort === "unit" && (
           <p className="mt-1 text-[13px] text-muted lg:mt-2">
-            Units differ between products, so unit prices compare best within a shelf.
-            {multiMarket && market === "all" && " Other currencies are converted at a rough rate for this order."}
+            {t("browse.unitNote")}
+            {multiMarket && market === "all" && t("browse.unitNoteFx")}
           </p>
         )}
 
         {(explainSameJob || explainSameKind) && (
           <p className="mt-1 hidden max-w-[68ch] text-[13px] text-ink-2 md:block lg:mt-2">
-            {explainSameJob && `${MATCH_TYPE_META.equivalent_spec.short}: ${MATCH_TYPE_META.equivalent_spec.description} `}
-            {explainSameKind && `${MATCH_TYPE_META.same_kind.short}: ${MATCH_TYPE_META.same_kind.description} `}
+            {explainSameJob && `${t("cards.matchShort", "equivalent_spec")}: ${t("cards.matchDescription", "equivalent_spec")} `}
+            {explainSameKind && `${t("cards.matchShort", "same_kind")}: ${t("cards.matchDescription", "same_kind")} `}
             <Link
               href="/how-we-verify"
               className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"
             >
-              How we check
+              {t("browse.howWeCheck")}
             </Link>
           </p>
         )}
 
         {matched.length === 0 ? (
-          <NoMatches rows={rows} state={state} active={active} market={market} hideMedicine={hideMedicine} onUpdate={update} onClear={clearAll} />
+          <NoMatches rows={rows} state={state} active={active} market={market} hideMedicine={hideMedicine} onUpdate={update} onClear={clearAll} t={t} />
         ) : (
           <div ref={listRef} className="mt-2 lg:mt-3">
             {firstTier.length > 0 && <ul className={grid}>{firstTier.map((r, i) => renderCard(r, i))}</ul>}
             {laterTiers.length > 0 && (
               <>
-                <MoreSwapsHeading />
+                <MoreSwapsHeading lang={lang} />
                 <ul className={grid}>{laterTiers.map((r, i) => renderCard(r, firstTier.length + i))}</ul>
               </>
             )}
             {textRows.length > 0 && (
-              <PairRows headed={cardRows.length > 0 && laterTiers.length === 0} below={cardRows.length > 0}>
+              <PairRows headed={cardRows.length > 0 && laterTiers.length === 0} below={cardRows.length > 0} lang={lang}>
                 {textRows.map((r, i) => {
                   const card = prerendered.get(r.slug) ?? index?.get(r.slug);
                   if (!card) return index ? null : <RowPlaceholder key={r.slug} />;
                   return (
                     <li key={r.slug} data-row={cardRows.length + i} className="min-w-0">
-                      <PairRow pair={card} />
+                      <PairRow pair={lang === "en" ? card : { ...card, subcategory: r.shelf }} lang={lang} />
                     </li>
                   );
                 })}
@@ -321,18 +338,16 @@ export function PairBrowser({
 
         {indexFailed && !index && (
           <p className="mt-3 text-sm text-ink-2" role="status">
-            The rest of the list didn&apos;t load. <InlineButton onClick={warm}>Try again</InlineButton>
+            {t("browse.didntLoad")} <InlineButton onClick={warm}>{t("browse.tryAgain")}</InlineButton>
           </p>
         )}
 
         {matched.length > shown.length && (
           <div className="mt-4 flex flex-col items-center gap-1">
             <button type="button" onClick={showMore} onPointerEnter={warm} className="btn btn-ghost w-full sm:w-auto sm:min-w-64">
-              Show {Math.min(PAGE_SIZE, matched.length - shown.length)} more
+              {t("browse.showMore", Math.min(PAGE_SIZE, matched.length - shown.length))}
             </button>
-            <p className="num text-[13px] text-muted">
-              Showing {shown.length} of {matched.length}
-            </p>
+            <p className="num text-[13px] text-muted">{t("browse.showing", shown.length, matched.length)}</p>
           </div>
         )}
       </div>
@@ -344,10 +359,10 @@ export function PairBrowser({
           footer={
             <>
               <button type="button" onClick={clearAll} disabled={!active.length} className="btn btn-ghost flex-1 disabled:text-muted">
-                Clear all
+                {t("browse.clearAll")}
               </button>
               <button type="button" onClick={() => setSheetOpen(false)} className="btn btn-primary flex-[2]">
-                Show {swaps(matched.length)}
+                {t("browse.showSwaps", matched.length)}
               </button>
             </>
           }
@@ -372,9 +387,10 @@ function InlineButton({ onClick, children }: { onClick: () => void; children: Re
 }
 
 function SortSelect({ value, onChange }: { value: SortKey; onChange: (sort: SortKey) => void }) {
+  const t = useT(TEXT);
   return (
     <label className="flex flex-1 items-center gap-2 lg:flex-none">
-      <span className="sr-only text-[13px] font-medium whitespace-nowrap text-ink-2 lg:not-sr-only">Sort by</span>
+      <span className="sr-only text-[13px] font-medium whitespace-nowrap text-ink-2 lg:not-sr-only">{t("browse.sortBy")}</span>
       <span className="relative block min-w-0 flex-1">
         <select
           value={value}
@@ -383,7 +399,7 @@ function SortSelect({ value, onChange }: { value: SortKey; onChange: (sort: Sort
         >
           {SORTS.map((s) => (
             <option key={s.value} value={s.value}>
-              {s.label}
+              {t(`browse.sorts.${s.value}`)}
             </option>
           ))}
         </select>
@@ -423,7 +439,9 @@ function NoMatches({
   hideMedicine,
   onUpdate,
   onClear,
+  t,
 }: {
+  t: ClientT<typeof TEXT>;
   rows: BrowseRow[];
   state: BrowseState;
   active: ActiveFilter[];
@@ -443,18 +461,18 @@ function NoMatches({
     .slice(0, 3);
   return (
     <div className="card mt-3 p-5">
-      <p className="font-semibold">No swaps match all of those filters.</p>
-      {tries.length > 0 && <p className="mt-1 text-sm text-ink-2">Try taking one off:</p>}
+      <p className="font-semibold">{t("browse.noMatches")}</p>
+      {tries.length > 0 && <p className="mt-1 text-sm text-ink-2">{t("browse.tryOne")}</p>}
       <ul className="mt-1 text-sm">
         {tries.map(({ f, count }) => (
           <li key={f.id}>
             <InlineButton onClick={() => onUpdate(f.off)}>
-              {f === addMedicine ? "Add medicine" : `Remove “${f.label}”`} to see {swaps(count)}
+              {f === addMedicine ? t("browse.addMedicineTo", count) : t("browse.removeTo", f.label, count)}
             </InlineButton>
           </li>
         ))}
         <li>
-          <InlineButton onClick={onClear}>Clear all filters</InlineButton>
+          <InlineButton onClick={onClear}>{t("browse.clearAllFilters")}</InlineButton>
         </li>
       </ul>
     </div>
@@ -473,6 +491,7 @@ function FilterPanel({
   onChange: (patch: Partial<BrowseState>) => void;
 }) {
   const radioName = useId();
+  const t = useT(TEXT);
   const [allShelves, setAllShelves] = useState(false);
   const shelves =
     allShelves || facets.shelves.length <= SHELF_LIMIT
@@ -482,7 +501,7 @@ function FilterPanel({
   return (
     <div className="divide-y divide-line">
       {facets.aisles.length > 1 && (
-        <Group title="Aisle">
+        <Group title={t("browse.aisle")}>
           <Checks
             options={facets.aisles}
             selected={state.aisles}
@@ -492,7 +511,7 @@ function FilterPanel({
       )}
 
       {facets.shelves.length > 1 && (
-        <Group title="Shelf">
+        <Group title={t("browse.shelf")}>
           <Checks
             options={shelves}
             selected={state.shelves}
@@ -505,35 +524,35 @@ function FilterPanel({
               aria-expanded={allShelves}
               className="flex min-h-11 items-center text-sm font-medium text-cobalt underline-offset-2 hover:underline lg:min-h-8"
             >
-              {allShelves ? "Show fewer shelves" : `Show all ${facets.shelves.length} shelves`}
+              {allShelves ? t("browse.fewerShelves") : t("browse.allShelves", facets.shelves.length)}
             </button>
           )}
         </Group>
       )}
 
       {facets.matches.length > 1 && (
-        <Group title="How strong the match is">
+        <Group title={t("browse.strength")}>
           <Checks
             options={facets.matches}
             selected={state.matches}
-            titleFor={(m) => MATCH_TYPE_META[m].description}
+            titleFor={(m) => t("cards.matchDescription", m)}
             onToggle={(m) => onChange({ matches: toggled(state.matches, m) })}
           />
           <Link
             href="/how-we-verify"
             className="flex min-h-11 items-center text-[13px] font-medium text-cobalt underline-offset-2 hover:underline lg:min-h-7"
           >
-            What these mean
+            {t("browse.whatTheseMean")}
           </Link>
         </Group>
       )}
 
       {facets.markets.length > 1 && (
-        <Group title="Prices from">
+        <Group title={t("browse.pricesFrom")}>
           <OptionRow
             type="radio"
             name={radioName}
-            label="All countries"
+            label={t("browse.allCountries")}
             count={facets.allMarkets}
             checked={market === "all"}
             onChange={() => onChange({ market: "all" })}
@@ -553,10 +572,10 @@ function FilterPanel({
       )}
 
       {facets.photo !== null && (
-        <Group title="Photos">
+        <Group title={t("browse.photos")}>
           <OptionRow
             type="checkbox"
-            label="With a photo"
+            label={t("browse.withPhoto")}
             count={facets.photo}
             checked={state.photo}
             onChange={() => onChange({ photo: !state.photo })}

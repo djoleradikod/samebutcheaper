@@ -4,6 +4,11 @@ import { useContext, useState } from "react";
 import { Check, Share2 } from "lucide-react";
 import { COUNTRY_COOKIE, CountryContext, FixedContext } from "@/lib/client/country";
 import { shareTarget } from "@/lib/shopper-links";
+import { useT } from "@/lib/i18n/client";
+import { save } from "@/lib/i18n/en/client/save";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { save };
 
 function cookieCountry() {
   try {
@@ -36,6 +41,7 @@ export function ShareButton({
   const [copied, setCopied] = useState(false);
   const fixed = useContext(FixedContext);
   const pageCountry = useContext(CountryContext);
+  const t = useT(TEXT);
   async function share() {
     const country = fixed && pageCountry ? pageCountry : cookieCountry();
     const url = new URL(shareTarget(versions, canonical, country), window.location.origin);
@@ -53,13 +59,13 @@ export function ShareButton({
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      window.prompt("Copy this link", url.toString());
+      window.prompt(t("save.copyThis"), url.toString());
     }
   }
   return (
     <button type="button" onClick={share} className={`btn btn-ghost ${className}`} aria-live="polite">
       {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Share2 className="h-4 w-4" aria-hidden="true" />}
-      {copied ? "Link copied" : "Share this swap"}
+      {copied ? t("save.copied") : t("save.share")}
     </button>
   );
 }

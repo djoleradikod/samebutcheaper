@@ -7,6 +7,8 @@ import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount }
 import { forCountry, type Local } from "@/lib/localize";
 import { CountryPart } from "@/components/ForCountry";
 import { countryHead } from "@/lib/seo-catalog";
+import { getT } from "@/lib/i18n";
+import { getLang } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Biggest savings: every swap, ranked",
@@ -22,18 +24,22 @@ function everydayPairs(local: Local) {
 
 export default function BiggestSavingsPage() {
   const stats = getSiteStats();
+  const lang = getLang();
+  const t = getT(lang);
   return (
     <div className="bg-canvas pb-8 md:pb-10">
       <ShelfHead
-        crumbs={[{ href: "/", label: "Home" }, { label: "Biggest savings" }]}
+        lang={lang}
+        crumbs={[{ href: "/", label: t("lists.home") }, { label: t("lists.biggest.title") }]}
         title={
           <>
-            Biggest savings<CountryPart fallback={null}>{(local) => `: ${swapCount(forCountry(getAllPairs(), local).length)}`}</CountryPart>
+            {t("lists.biggest.title")}
+            <CountryPart fallback={null}>{(local) => `: ${swapCount(forCountry(getAllPairs(), local).length, lang)}`}</CountryPart>
           </>
         }
-        intro={`Every swap we've checked, with the biggest saving per unit first. ${stats.sources} sources back them up.`}
-        ticket={<CountryPart fallback={null}>{(local) => <BestTicket best={bestSaving(everydayPairs(local))} />}</CountryPart>}
-        facts={<CountryPart fallback={null}>{(local) => <PriceFacts pairs={everydayPairs(local)} />}</CountryPart>}
+        intro={t("lists.biggest.intro", stats.sources)}
+        ticket={<CountryPart fallback={null}>{(local) => <BestTicket best={bestSaving(everydayPairs(local))} lang={lang} />}</CountryPart>}
+        facts={<CountryPart fallback={null}>{(local) => <PriceFacts pairs={everydayPairs(local)} lang={lang} />}</CountryPart>}
       />
       <div className="container-page">
         <CountryPart>

@@ -16,6 +16,11 @@ import { countryOfPath, PREFIXED_COUNTRIES, withCountry, type PrefixedCountry } 
 import { localFor, MARKET_ADJECTIVE, oneOfEachSwap, shortMonth, type Listed } from "./localize";
 import type { Bundle, MatchType, Pair, Preset } from "./types";
 import { unitDisplay } from "./unit-format";
+import { langForPage, type Lang } from "./i18n/lang";
+import { getT } from "./i18n";
+import { shortDateDe } from "./i18n/format";
+import { subcategoryName } from "./i18n/record";
+import { unitLabel } from "./unit-format";
 
 /** Google shows about 60 characters of a title. The layout adds " | SameButCheaper" after this. */
 export const TITLE_MAX = 60;
@@ -75,32 +80,43 @@ function productPhrase(brand: string, product: string) {
 
 /* ------------------------------------------------------------------ swaps */
 
-type SwapTitleInput = Pick<Pair, "slug" | "market" | "brand" | "alternative" | "match_type" | "subcategory" | "savingsPct" | "twin">;
+type SwapTitleInput = Pick<Pair, "slug" | "market" | "brand" | "alternative" | "match_type" | "subcategory" | "savingsPct" | "twin" | "de">;
+
+/** "Loratadin 10 mg": the actives in German, from the record's German label rows. Null without them. */
+function activesPhraseDe(pair: SwapTitleInput, max = 2) {
+  if (!activesPhrase(pair, max) || !pair.de?.ingredients) return null;
+  return pair.de.ingredients.brand
+    .filter((i) => i.name.trim())
+    .slice(0, max)
+    .map((i) => `${i.name}${i.amount && i.amount.length <= 12 && /\d/.test(i.amount) ? ` ${i.amount}` : ""}`)
+    .join(" + ");
+}
 
 /**
  * Candidate titles, from the shortest to the most specific. The first that is unique in the catalogue and fits is used.
  * A twin (the same swap priced in another market) always says whose prices it has, so the two never share a title.
  */
-function swapTitleCandidates(p: SwapTitleInput): string[] {
-  const vs = `${p.brand.brand} vs ${p.alternative.brand}`;
-  const what = activesPhrase(p) ?? kindPhrase(p.subcategory);
-  const tail = `${pctText(p.savingsPct)} cheaper`;
-  const adjective = MARKET_ADJECTIVE[p.market];
-  const market = p.twin ? ` (${adjective} prices)` : "";
+function swapTitleCandidates(p: SwapTitleInput, lang: Lang = "en"): string[] {
+  const t = getT(lang);
+  const vs = t("seo.vs", p.brand.brand, p.alternative.brand);
+  const what = lang === "en" ? (activesPhrase(p) ?? kindPhrase(p.subcategory)) : (activesPhraseDe(p) ?? subcategoryName(p.subcategory, lang));
+  const tail = t("seo.cheaper", Math.round(p.savingsPct));
+  const prices = t("seo.marketPrices", p.market);
+  const market = p.twin ? ` (${prices})` : "";
   const brandProduct = productPhrase(p.brand.brand, p.brand.product);
   const altProduct = productPhrase(p.alternative.brand, p.alternative.product);
-  const named = `${p.brand.brand} ${brandProduct} vs ${p.alternative.brand}`;
+  const named = t("seo.vs", `${p.brand.brand} ${brandProduct}`, p.alternative.brand);
   const variant = p.brand.product.split(/,\s/)[1]?.trim();
   return [
     `${vs} ${what}: ${tail}${market}`,
     `${vs}: ${tail}${market}`,
     `${named}: ${tail}${market}`,
     `${named}${market}`,
-    `${named} (${adjective} prices)`,
-    `${named} ${altProduct} (${adjective} prices)`,
+    `${named} (${prices})`,
+    `${named} ${altProduct} (${prices})`,
     // Products that differ only after the first comma, such as weight bands: "23-44 lbs".
-    ...(variant ? [`${vs}, ${variant}: ${tail}${market}`, `${named}, ${variant} (${adjective} prices)`] : []),
-    `${p.brand.product} vs ${p.alternative.product} (${adjective} prices)`,
+    ...(variant ? [`${vs}, ${variant}: ${tail}${market}`, `${named}, ${variant} (${prices})`] : []),
+    `${t("seo.vs", p.brand.product, p.alternative.product)} (${prices})`,
   ];
 }
 
@@ -108,8 +124,8 @@ function swapTitleCandidates(p: SwapTitleInput): string[] {
  * One title per swap, unique across the catalogue. Each swap takes its first candidate that fits in TITLE_MAX and no
  * other swap wants; where none fits, the shortest one no other swap wants.
  */
-export function swapTitles(pairs: readonly SwapTitleInput[]): Map<string, string> {
-  const options = pairs.map((p) => ({ slug: p.slug, list: swapTitleCandidates(p) }));
+export function swapTitles(pairs: readonly SwapTitleInput[], lang: Lang = "en"): Map<string, string> {
+  const options = pairs.map((p) => ({ slug: p.slug, list: swapTitleCandidates(p, lang) }));
   const wanted = new Map<string, number>();
   for (const o of options) for (const t of new Set(o.list)) wanted.set(t.toLowerCase(), (wanted.get(t.toLowerCase()) ?? 0) + 1);
   const taken = new Set<string>();
@@ -142,32 +158,61 @@ export function matchClaim(matchType: MatchType, alt: string, brand: string) {
  * "Is Equate the same as Claritin? Equate has the same active ingredient (loratadine 10 mg) and costs 88% less per
  * tablet at US prices checked November 2026." A same-kind swap says what its record can't show.
  */
-export function swapDescription(p: Pick<Pair, "match_type" | "brand" | "alternative" | "savingsPct" | "market" | "price_checked">) {
+export function swapDescription(
+  p: Pick<Pair, "match_type" | "brand" | "alternative" | "savingsPct" | "market" | "price_checked" | "de">,
+  lang: Lang = "en",
+  /** The brand's product name in place of the brand's, where the brand alone would read like another swap. */
+  brandName?: string,
+) {
+  const t = getT(lang);
   const a = p.alternative.brand;
-  const b = p.brand.brand;
-  const actives = p.match_type === "identical_active" ? activesPhrase(p, 3) : null;
+  const b = brandName ?? p.brand.brand;
+  const actives = p.match_type === "identical_active" ? (lang === "en" ? activesPhrase(p, 3) : activesPhraseDe({ ...p, slug: "", subcategory: "", twin: null }, 3)) : null;
   const { label } = unitDisplay(p.brand.unit);
-  const per = label === "each" ? "" : ` ${label}`;
-  const price = `costs ${pctText(p.savingsPct)} less${per} at ${MARKET_ADJECTIVE[p.market]} prices checked ${shortMonth(p.price_checked)}`;
-  const claim = matchClaim(p.match_type, a, b);
-  const lead =
-    p.match_type === "same_kind"
-      ? [`${claim} and costs ${pctText(p.savingsPct)} less${per} at ${MARKET_ADJECTIVE[p.market]} prices, but our records don't show they match inside.`]
-      : [`${claim}${actives ? ` (${actives})` : ""} and ${price}.`];
-  const question = `Is ${a} the same as ${b}?`;
+  const per = label === "each" ? "" : unitLabel(p.brand.unit, lang);
+  const pct = Math.round(p.savingsPct);
+  const month = lang === "en" ? shortMonth(p.price_checked) : shortDateDe(p.price_checked, "month");
+  const price = t("seo.costsLess", pct, per, p.market, month);
+  const claim = lang === "en" ? matchClaim(p.match_type, a, b) : `${a} ${t(`swap.verdict.${p.match_type}`, b)}`;
+  const lead = p.match_type === "same_kind" ? [t("seo.sameKindLead", claim, pct, per, p.market)] : [t("seo.lead", claim, actives ?? "", price)];
+  const question = t("seo.question", a, b);
   const withQuestion = [question, ...lead].join(" ");
   const first = withQuestion.length <= DESCRIPTION_MAX ? [withQuestion] : lead;
-  return fitSentences([...first, "What differs, the sources, and where to buy."]);
+  return fitSentences([...first, t("seo.more")]);
+}
+
+/**
+ * Descriptions in German, unique across the catalogue: where two swaps would read the same (two Persil gels against one
+ * own label), each names the brand's product instead of the brand alone. English keeps swapDescription as it was.
+ */
+export function swapDescriptionsDe(pairs: readonly Pair[]): Map<string, string> {
+  // Each step names the brand's product more fully, for the swaps the step before left sharing a description.
+  const steps: ((p: Pair) => string | undefined)[] = [
+    () => undefined,
+    (p) => p.brand.product.split(/,\s/)[0],
+    (p) => p.brand.product.replace(/,\s[^,]*$/, ""),
+  ];
+  const out = new Map<string, string>();
+  let left = [...pairs];
+  for (const [i, step] of steps.entries()) {
+    const d = new Map(left.map((p) => [p.slug, swapDescription(p, "de", step(p))]));
+    const count = new Map<string, number>();
+    for (const x of d.values()) count.set(x, (count.get(x) ?? 0) + 1);
+    const last = i === steps.length - 1;
+    for (const p of left) if (last || count.get(d.get(p.slug)!) === 1) out.set(p.slug, d.get(p.slug)!);
+    left = left.filter((p) => !out.has(p.slug));
+  }
+  return out;
 }
 
 /* ----------------------------------------------- canonical, noindex, hreflang, x-default */
 
 /**
- * The page is in English everywhere. The region says whose shelf prices it has. When pages are translated, this is the
- * one place the language half changes (de-DE for a German page under /de/), see docs/country-urls.md.
+ * The language half is the page's language (German under /de/, English everywhere else), the region says whose shelf
+ * prices it has. See docs/country-urls.md.
  */
-export function hreflangFor(country: string) {
-  return `en-${country}`;
+export function hreflangFor(country: string, section = "") {
+  return `${langForPage(country, section)}-${country}`;
 }
 
 /**
@@ -205,7 +250,7 @@ export function recordVersions(section: "compare" | "bundle" | "basket", record:
   const languages: Record<string, string> = {};
   for (const c of PREFIXED_COUNTRIES) {
     const shown = group.find((r) => localFor(c).shows(r));
-    if (shown) languages[hreflangFor(c)] = withCountry(`/${section}/${shown.slug}`, c);
+    if (shown) languages[hreflangFor(c, section)] = withCountry(`/${section}/${shown.slug}`, c);
   }
   const preferred = oneOfEachSwap(group)[0] ?? record;
   return { languages, xDefault: withCountry(`/${section}/${preferred.slug}`, preferred.market) };
@@ -324,13 +369,13 @@ export function ingredientDescription(name: string, brands: string[], count: num
 }
 
 /** The count first, since it's what the search result can't show elsewhere, then the aisle's own description. */
-export function categoryDescription(name: string, description: string, count: number) {
-  const lead = count ? [`${count} cheaper alternatives to brand-name ${inSentence(name)}, compared per unit with sources.`] : [];
+export function categoryDescription(name: string, description: string, count: number, lang: Lang = "en") {
+  const lead = count ? [getT(lang)("lists.category.metaLead", name, count)] : [];
   return fitSentences([...lead, ...splitSentences(description)]);
 }
 
-export function categoryTitle(name: string, count: number) {
-  return count ? `Cheaper ${inSentence(name)}: ${count} brand-name swaps` : `Cheaper ${inSentence(name)}`;
+export function categoryTitle(name: string, count: number, lang: Lang = "en") {
+  return getT(lang)("lists.category.metaTitle", name, count);
 }
 
 /** "Momentous Nightly Sleep rebuilt for 85% less": the kit's name up to its pack details. */

@@ -1,5 +1,6 @@
 import type { Claim } from "@/lib/types";
 import { monthYear } from "@/lib/format";
+import type { Lang } from "@/lib/i18n/lang";
 
 /** Splits at sentence ends, but not after "Which?" or the usual abbreviations. */
 const SENTENCE_END = /(?<!\bWhich\?)(?<!\b(?:vs|St|Dr|No|Inc|Ltd|U\.S))(?<=[.!?])\s+(?=[A-Z0-9'"])/;
@@ -13,17 +14,18 @@ export function findingExcerpt(finding: string, max = 300) {
 }
 
 /** "2025-06-26" reads "June 2025", "2015" stays, and an undated page keeps its checked date. */
-export function citationDate(date: string) {
+export function citationDate(date: string, lang: "en" | "de" = "en") {
   const m = date.match(/(\d{4})-(\d{2})/);
   if (!m) return date;
-  const when = monthYear(`${m[1]}-${m[2]}`);
+  const when = monthYear(`${m[1]}-${m[2]}`, lang);
+  if (lang === "de") return /checked/i.test(date) ? `abgerufen ${when}` : when;
   return /checked/i.test(date) ? `checked ${when}` : when;
 }
 
-function Citation({ source }: { source: Claim["sources"][number] }) {
+function Citation({ source, lang }: { source: Claim["sources"][number]; lang: Lang }) {
   return (
     <a href={source.url} target="_blank" rel="noopener" className="text-cobalt underline underline-offset-2">
-      {source.publisher}, {citationDate(source.date)}
+      {source.publisher}, {citationDate(source.date, lang)}
     </a>
   );
 }
@@ -32,7 +34,7 @@ function Citation({ source }: { source: Claim["sources"][number] }) {
  * A cited claim: the title, the finding, and the publisher and date as a link. Cards show
  * one or two sentences. `full` shows the whole record, where the evidence stops and every source.
  */
-export function Finding({ claim, full = false, className = "" }: { claim: Claim; full?: boolean; className?: string }) {
+export function Finding({ claim, full = false, className = "", lang = "en" }: { claim: Claim; full?: boolean; className?: string; lang?: Lang }) {
   const sources = full ? claim.sources : claim.sources.slice(0, 1);
   return (
     <article className={`card flex flex-col p-4 ${className}`}>
@@ -47,7 +49,7 @@ export function Finding({ claim, full = false, className = "" }: { claim: Claim;
       <ul className="mt-auto space-y-0.5 pt-3 text-[13px] font-medium">
         {sources.map((s) => (
           <li key={s.url}>
-            <Citation source={s} />
+            <Citation source={s} lang={lang} />
           </li>
         ))}
       </ul>

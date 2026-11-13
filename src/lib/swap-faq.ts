@@ -10,21 +10,24 @@
  *   That is what a crawler sees, and what the FAQPage JSON-LD carries.
  */
 import { storeName } from "./affiliate";
-import { MATCH_TYPE_META } from "./categories";
 import { comparison, sortDifferences, splitSentences, type CompareRow } from "./compare";
 import { inSentence, monthYear } from "./format";
-import { localFor, MARKET_ADJECTIVE, type Local } from "./localize";
-import { countryInSentence, lookForQuery, pharmacyNote } from "./markets";
+import { localFor, type Local } from "./localize";
+import { lookForQuery } from "./markets";
 import { deliversTo } from "./sellers";
 import { matchClaim } from "./seo";
 import type { Pair } from "./types";
-import { unitDisplay } from "./unit-format";
+import { unitDisplay, unitLabel } from "./unit-format";
+import { getT, type Lang } from "./i18n";
+import { comparisonDe, differencesDe } from "./i18n/compare-de";
+import { listWords as listWordsIn } from "./i18n/format";
+import { germanText, subcategoryName } from "./i18n/record";
 
 export type FaqItem = { q: string; a: string };
 
-/** The record as it reads in its own market: own currency, own store. What a shopper we can't place sees. */
-export function recordLocal(): Local {
-  return localFor(null);
+/** The record as it reads in its own market: own currency, own store. What a shopper we can't place sees. In German on a German page. */
+export function recordLocal(lang: Lang = "en"): Local {
+  return localFor(null, false, lang);
 }
 
 /** Another currency than the record's, used only to find which sentences hold a price. */
@@ -59,9 +62,20 @@ function sentencesFor(text: string, pair: Pair, local?: Local) {
   return local ? list.map((s) => local.prose(s, pair.currency)) : list.filter((s) => !hasPrice(s, pair) && !namesStore(s, pair));
 }
 
-function listWords(words: string[]) {
-  if (words.length < 2) return words.join("");
-  return `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`;
+function listWords(words: string[], lang: Lang = "en") {
+  return listWordsIn(words, lang);
+}
+
+/** The table this page shows: in German on a German page, with the record's German where it has some. */
+function tableFor(pair: Pair, lang: Lang, local?: Local) {
+  const c = comparison(pair);
+  if (lang === "en") return c;
+  return comparisonDe(c, pair, local ? germanText(pair, local) : null);
+}
+
+/** "Same claim" in the page's language: "Equate has the same active ingredient as Claritin". */
+function claimIn(lang: Lang, type: Pair["match_type"], alt: string, brand: string) {
+  return lang === "en" ? matchClaim(type, alt, brand) : `${alt} ${getT(lang)(`swap.verdict.${type}`, brand)}`;
 }
 
 /** The rows a page can say match: label rows and researched rows, never the pack or the price. */
@@ -69,96 +83,95 @@ function sameRows(rows: CompareRow[]) {
   return rows.filter((r) => r.verdict === "same" && r.kind !== "pack" && r.kind !== "price");
 }
 
-const rowName = (r: CompareRow) => (r.kind === "test" ? r.aspect : inSentence(r.aspect));
+/** A row's name inside a sentence. German nouns keep their capitals. */
+const rowName = (r: CompareRow, lang: Lang) => (r.kind === "test" || lang === "de" ? r.aspect : inSentence(r.aspect));
 
-function sameAnswer(pair: Pair) {
+function sameAnswer(pair: Pair, lang: Lang, local?: Local) {
   const { brand: b, alternative: a, match_type: type } = pair;
-  const c = comparison(pair);
-  const meta = MATCH_TYPE_META[type].description;
-  const confidence =
-    type === "same_kind"
-      ? ""
-      : pair.confidence === "high"
-        ? " Both labels were confirmed from primary sources."
-        : " The evidence is strong, but not every detail came from a primary source.";
+  const t = getT(lang);
+  const c = tableFor(pair, lang, local);
+  const claim = claimIn(lang, type, a.brand, b.brand);
+  const meta = t(`match.${type}.description`);
+  const confidence = type === "same_kind" ? "" : pair.confidence === "high" ? t("faq.confidenceHigh") : t("faq.confidenceMedium");
   if (type === "same_kind") {
-    return `We can't say they are. ${matchClaim(type, a.brand, b.brand)} (${inSentence(pair.subcategory)}), priced from real sources. ${MATCH_TYPE_META.same_kind.description.replace(/^The same kind of product, priced from real sources\. /, "")}`;
+    return t("faq.sameKind", claim, lang === "en" ? inSentence(pair.subcategory) : subcategoryName(pair.subcategory, lang));
   }
   if (type === "identical_active") {
-    const actives = c.ingredients.filter((r) => r.verdict === "same").map((r) => `${inSentence(r.aspect)}${r.alternative && /\d/.test(r.alternative) ? ` ${r.alternative}` : ""}`);
+    const actives = c.ingredients
+      .filter((r) => r.verdict === "same")
+      .map((r) => `${lang === "en" ? inSentence(r.aspect) : r.aspect}${r.alternative && /\d/.test(r.alternative) ? ` ${r.alternative}` : ""}`);
     const inactive = c.rows.find((r) => r.kind === "inactive_check")
-      ? " Inactive ingredients can differ, so read the label if you have allergies."
+      ? t("faq.inactiveDiffer")
       : c.rows.some((r) => r.kind === "formula" && r.verdict === "same")
-        ? " The labels list the same inactive ingredients too."
+        ? t("faq.inactiveSame")
         : "";
-    return `${matchClaim(type, a.brand, b.brand)}${actives.length ? `: ${listWords(actives)}` : ""}. ${meta}${inactive}${confidence}`;
+    return `${t("faq.actives", claim, actives.length ? listWords(actives, lang) : "")} ${meta}${inactive}${confidence}`;
   }
   if (type === "equivalent_spec") {
     const same = sameRows([...c.ingredients, ...c.rows])
-      .map(rowName)
+      .map((r) => rowName(r, lang))
       .filter((name) => !namesStore(name, pair) && !hasPrice(name, pair));
-    const on = same.length ? ` They match on ${listWords(same.slice(0, 5))}${same.length > 5 ? ` and ${same.length - 5} more points` : ""}.` : "";
-    return `Not the same product, but ${matchClaim(type, a.brand, b.brand)}. ${meta}${on}${confidence}`;
+    const on = same.length ? t("faq.matchOn", listWords(same.slice(0, 5), lang), same.length > 5 ? same.length - 5 : 0) : "";
+    return `${t("faq.notSame", claim)} ${meta}${on}${confidence}`;
   }
-  return `${matchClaim(type, a.brand, b.brand)}. ${meta}${confidence}`;
+  return `${t("faq.claimSentence", claim)} ${meta}${confidence}`;
 }
 
-function differentAnswer(pair: Pair, local?: Local) {
+function differentAnswer(pair: Pair, lang: Lang, local?: Local) {
   const { brand: b, alternative: a } = pair;
-  const c = comparison(pair);
+  const t = getT(lang);
+  const c = tableFor(pair, lang, local);
   const wins = [...c.ingredients, ...c.rows]
     .filter((r) => r.verdict === "brand_better")
-    .map(rowName)
+    .map((r) => rowName(r, lang))
     .filter((name) => local || !namesStore(name, pair));
-  const points = sentencesFor(sortDifferences(pair.differences).points.join(" "), pair, local);
-  const parts = [
-    ...(wins.length ? [`${b.brand} wins on ${listWords(wins)}.`] : []),
-    ...points,
-  ];
+  const english = sentencesFor(sortDifferences(pair.differences).points.join(" "), pair, local);
+  const points = lang === "en" ? english : differencesDe(english, pair, local ? germanText(pair, local) : null);
+  const parts = [...(wins.length ? [t("faq.brandWinsOn", b.brand, listWords(wins, lang))] : []), ...points];
   if (!parts.length) {
-    return local || !pair.differences.trim()
-      ? `Our records show no difference between ${a.brand} and ${b.brand} beyond the pack and the price.`
-      : `The differences on file are on this page, with the prices in your currency.`;
+    return local || !pair.differences.trim() ? t("faq.noDifference", a.brand, b.brand) : t("faq.differencesOnPage");
   }
   return parts.join(" ");
 }
 
-function cheaperAnswer(pair: Pair, local?: Local) {
+function cheaperAnswer(pair: Pair, lang: Lang, local?: Local) {
   const { brand: b, alternative: a, currency } = pair;
+  const t = getT(lang);
   const { label } = unitDisplay(b.unit);
-  const per = label === "each" ? "" : ` ${label}`;
-  const pct = `${Math.round(pair.savingsPct)}%`;
-  const when = `at the ${MARKET_ADJECTIVE[pair.market]} prices we checked in ${monthYear(pair.price_checked)}`;
-  const old = pair.priceOld && pair.freshness.tier === "stale" ? " Those prices are over a year old, so check before you buy." : "";
-  if (!local) return `${a.brand} costs ${pct} less${per} than ${b.brand}, ${when}.${old}`;
-  const at = label === "each" ? "" : ` ${label}`;
-  return `${a.brand} costs ${local.unit(a.ppu, b.unit, currency)}${at} against ${local.unit(b.ppu, b.unit, currency)} for ${b.brand}, ${pct} less, ${when}.${old}`;
+  const per = label === "each" ? "" : unitLabel(b.unit, lang);
+  const pct = Math.round(pair.savingsPct);
+  const when = t("faq.when", pair.market, monthYear(pair.price_checked, lang));
+  const old = pair.priceOld && pair.freshness.tier === "stale" ? t("faq.old") : "";
+  if (!local) return `${t("faq.cheaperPlain", a.brand, pct, per, b.brand, when)}${old}`;
+  return `${t("faq.cheaperLocal", a.brand, local.unit(a.ppu, b.unit, currency), per, local.unit(b.ppu, b.unit, currency), b.brand, pct, when)}${old}`;
 }
 
-function buyAnswer(pair: Pair, local?: Local) {
+function buyAnswer(pair: Pair, lang: Lang, local?: Local) {
   const { alternative: a, market } = pair;
-  const month = monthYear(pair.price_checked);
-  const where = MARKET_ADJECTIVE[market];
-  const section = `"Buying where you live" on this page lists stores to search where you are.`;
-  if (!local) return `We checked the price at a ${where} store in ${month}. ${section}`;
+  const t = getT(lang);
+  const month = monthYear(pair.price_checked, lang);
+  const section = t("faq.section");
+  if (!local) return `${t("faq.checkedAtA", market, month)} ${section}`;
   if (local.sells(a.retailer, market)) {
     const maybe = local.known && local.country !== market && deliversTo(a.retailer, market, local.country) === "maybe";
     const store = storeName(a.retailer, a.url);
-    return `We checked the price at ${store} in ${month}.${maybe ? ` ${store} may ship it to ${countryInSentence(local.country)}, so check at checkout.` : ""} Prices change, so check at the store before you buy.`;
+    return `${t("faq.checkedAt", store, month)}${maybe ? t("faq.mayShip", store, local.country) : ""}${t("faq.pricesChange")}`;
   }
   const query = lookForQuery(pair.lookFor, local.country);
-  const pharmacy = pair.category === "otc-medicine" ? pharmacyNote(local.country) : null;
-  return `We checked the price at a ${where} store that doesn't deliver to ${countryInSentence(local.country)}. Look for "${query}" at stores there.${pharmacy ? ` ${pharmacy}` : ""} ${section}`;
+  const pharmacy = pair.category === "otc-medicine" ? t("faq.pharmacy", local.country) : null;
+  return `${t("faq.noDelivery", market, local.country, query)}${pharmacy ? ` ${pharmacy}` : ""} ${section}`;
 }
 
-/** The questions, in the order a doubtful shopper asks them. */
+/** The questions, in the order a doubtful shopper asks them. The language is the Local's (English without one). */
 export function swapFaq(pair: Pair, local?: Local): FaqItem[] {
   const { brand: b, alternative: a } = pair;
+  const lang = local?.lang ?? "en";
+  const t = getT(lang);
   return [
-    { q: `Is ${a.brand} the same as ${b.brand}?`, a: sameAnswer(pair) },
-    { q: `What is different about ${a.brand}?`, a: differentAnswer(pair, local) },
-    { q: `How much cheaper is ${a.brand} than ${b.brand}?`, a: cheaperAnswer(pair, local) },
-    { q: `Where can I buy ${a.brand}?`, a: buyAnswer(pair, local) },
+    { q: t("faq.q.same", a.brand, b.brand), a: sameAnswer(pair, lang, local) },
+    { q: t("faq.q.different", a.brand), a: differentAnswer(pair, lang, local) },
+    { q: t("faq.q.cheaper", a.brand, b.brand), a: cheaperAnswer(pair, lang, local) },
+    { q: t("faq.q.buy", a.brand), a: buyAnswer(pair, lang, local) },
   ];
 }
 

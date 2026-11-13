@@ -14,6 +14,8 @@ import { MarketFirst } from "./MarketFirst";
 import { KitFilters } from "./KitFilters";
 import { forCountry, type Local } from "@/lib/localize";
 import { CountryPart } from "@/components/ForCountry";
+import { dict, getT } from "@/lib/i18n";
+import { countryAt } from "@/lib/i18n/de/client";
 
 export const metadata: Metadata = {
   title: "Baskets and brand kits, priced both ways",
@@ -52,27 +54,28 @@ export default function BundlesPage() {
 
 /** The heading itself depends on the country: a shopper with no baskets gets "Brand kits". */
 function BundlesBody({ local }: { local: Local }) {
+  const lang = local.lang;
+  const t = getT(lang);
   const presets = forCountry(getAllPresets(), local);
   const bundles = forCountry(getAllBundles(), local);
   const markets = basketsByMarket(presets);
   const aisles = CATEGORIES.map((c) => ({
     ...c,
+    ...(lang === "en" ? {} : { name: dict(lang).categories[c.slug].name }),
     kits: bundles.filter((b) => b.category === c.slug).sort(kitOrder),
   })).filter((c) => c.kits.length > 0);
 
   if (!presets.length && !bundles.length) {
     return (
       <section className="container-page py-8 md:py-12">
-        <h1 className="display text-[1.75rem] md:text-[2.5rem]">Baskets and brand kits</h1>
-        <p className="mt-3 max-w-[62ch] text-[15px] text-ink-2">
-          None are listed yet. The single swaps are ready, and if a kit costs you too much you can tell us which one.
-        </p>
+        <h1 className="display text-[1.75rem] md:text-[2.5rem]">{t("bundlesPage.both")}</h1>
+        <p className="mt-3 max-w-[62ch] text-[15px] text-ink-2">{t("bundlesPage.none")}</p>
         <p className="mt-4 flex flex-wrap gap-2">
           <Link href="/biggest-savings" className="btn btn-primary">
-            See the biggest savings
+            {t("bundlesPage.seeBiggest")}
           </Link>
           <Link href="/suggest" className="btn btn-ghost">
-            Suggest a kit
+            {t("bundlesPage.suggestKit")}
           </Link>
         </p>
       </section>
@@ -83,31 +86,31 @@ function BundlesBody({ local }: { local: Local }) {
     <>
       <div className="border-b border-line bg-canvas">
         <div className="container-page pt-4 pb-5 md:pt-6 md:pb-6">
-          <h1 className="display text-[1.75rem] md:text-[2.5rem]">{presets.length ? "Baskets and brand kits" : "Brand kits"}</h1>
+          <h1 className="display text-[1.75rem] md:text-[2.5rem]">{presets.length ? t("bundlesPage.both") : t("bundlesPage.kitsOnly")}</h1>
           <p className="mt-1.5 max-w-[68ch] text-[15px] text-ink-2 md:text-base">
             {presets.length > 0 && (
               <>
-                <span className="num">{presets.length}</span> basket{presets.length === 1 ? "" : "s"} for a moment in life, built from
-                swaps we&apos;ve checked. Both totals buy the same amount.{" "}
+                <span className="num">{presets.length}</span>
+                {t("bundlesPage.baskets", presets.length)}
               </>
             )}
             {bundles.length > 0 && (
               <>
-                <span className="num">{bundles.length}</span> brand kit{bundles.length === 1 ? "" : "s"} taken apart and rebuilt from
-                cheaper items, one piece at a time.
+                <span className="num">{bundles.length}</span>
+                {t("bundlesPage.kits", bundles.length)}
               </>
             )}
           </p>
           {(presets.length > 0 || aisles.length > 1) && (
-            <nav aria-label="On this page" className="mt-3 flex flex-wrap gap-1.5">
+            <nav aria-label={t("bundlesPage.onThisPage")} className="mt-3 flex flex-wrap gap-1.5">
               {presets.length > 0 && (
                 <a href="#baskets" className={jump}>
-                  Baskets <span className="num font-normal text-muted">{presets.length}</span>
+                  {t("bundlesPage.basketsJump")} <span className="num font-normal text-muted">{presets.length}</span>
                 </a>
               )}
               {aisles.map((a) => (
                 <a key={a.slug} href={`#${a.slug}`} className={jump}>
-                  {a.name} kits <span className="num font-normal text-muted">{a.kits.length}</span>
+                  {t("bundlesPage.aisleKits", a.name)} <span className="num font-normal text-muted">{a.kits.length}</span>
                 </a>
               ))}
             </nav>
@@ -122,10 +125,10 @@ function BundlesBody({ local }: { local: Local }) {
               market,
               node: (
                 <section className="container-page pt-6 md:pt-8">
-                  <h2 className="display mb-3 text-xl md:text-2xl">Baskets priced in {MARKETS[market].short}</h2>
+                  <h2 className="display mb-3 text-xl md:text-2xl">{t("bundlesPage.pricedIn", lang === "en" ? MARKETS[market].short : countryAt(market))}</h2>
                   <div className="grid gap-2 sm:gap-3 md:grid-cols-2 xl:grid-cols-3">
                     {list.map((p, i) => (
-                      <BasketCard key={p.slug} basket={toBasketSummary(p)} eager={g === 0 && i === 0} />
+                      <BasketCard key={p.slug} basket={toBasketSummary(p)} eager={g === 0 && i === 0} lang={lang} />
                     ))}
                   </div>
                 </section>
@@ -139,11 +142,8 @@ function BundlesBody({ local }: { local: Local }) {
         <div className={presets.length ? "mt-8 border-t border-line md:mt-10" : ""}>
           {presets.length > 0 && (
             <div className="container-page pt-6 md:pt-8">
-              <h2 className="display text-xl md:text-2xl">Brand kits, rebuilt from cheaper items</h2>
-              <p className="mt-1 max-w-[68ch] text-sm text-ink-2 md:text-[15px]">
-                Brands sell regimens, stacks and gift sets as one price. We match each piece with a cheaper product and add up the same
-                amount.
-              </p>
+              <h2 className="display text-xl md:text-2xl">{t("bundlesPage.kitsHeading")}</h2>
+              <p className="mt-1 max-w-[68ch] text-sm text-ink-2 md:text-[15px]">{t("bundlesPage.kitsIntro")}</p>
             </div>
           )}
           <KitFilters
@@ -159,7 +159,7 @@ function BundlesBody({ local }: { local: Local }) {
                 netPct: b.netSavingsPct,
                 rank,
                 ...(kitCanLeadNow(b) ? {} : { stale: true }),
-                node: <BundleCard bundle={b} />,
+                node: <BundleCard bundle={b} lang={lang} />,
               }))}
           />
         </div>
@@ -167,10 +167,10 @@ function BundlesBody({ local }: { local: Local }) {
 
       <p className="container-page flex gap-4 pt-6 text-sm font-medium">
         <Link href="/how-we-verify" className="inline-flex min-h-11 items-center text-cobalt underline-offset-2 hover:underline md:min-h-0">
-          How we check
+          {t("lists.howWeCheck")}
         </Link>
         <Link href="/credits" className="inline-flex min-h-11 items-center text-cobalt underline-offset-2 hover:underline md:min-h-0">
-          Photos
+          {t("lists.photos")}
         </Link>
       </p>
     </>

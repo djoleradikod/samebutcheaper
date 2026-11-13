@@ -1206,7 +1206,7 @@
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are tablets with 1000 mg paracetamol, the full adult single dose in one tablet.",
-    "evidence": "APONEO lists ben-u-ron 1.000 mg Tabletten by bene Arzneimittel (PZN 16239097) and Paracetamol-ratiopharm 1000 mg Tabletten by ratiopharm (PZN 09263936), 10 tablets each. Both pages state 1000 mg paracetamol per tablet, and both are apothekenpflichtig. APONEO's ben-u-ron page has no list of other ingredients, so we read it in the ABDA drug database on aponet.de: sodium carboxymethyl starch, povidone, stearic acid, talc, maize starch and silica. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "evidence": "APONEO lists ben-u-ron 1000 mg Tabletten by bene Arzneimittel (PZN 16239097) and Paracetamol-ratiopharm 1000 mg Tabletten by ratiopharm (PZN 09263936), 10 tablets each. Both pages state 1000 mg paracetamol per tablet, and both are apothekenpflichtig. APONEO's ben-u-ron page has no list of other ingredients, so we read it in the ABDA drug database on aponet.de: sodium carboxymethyl starch, povidone, stearic acid, talc, maize starch and silica. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
     "differences": "ratiopharm's tablet has a score line so it can be halved; ben-u-ron's page doesn't say. ratiopharm lists povidone, croscarmellose sodium, maize starch, talc, microcrystalline cellulose, silica and magnesium stearate (APONEO's text breaks off at the end of the list). Neither lists lactose. Do not take more than 4000 mg paracetamol a day.",
     "sources": [
       "https://www.aponeo.de/16239097-ben-u-ron-1-000-mg-tabletten.html",
@@ -2001,7 +2001,7 @@
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are licensed vitamin D3 medicines with 25 micrograms (1000 IU) colecalciferol per tablet, not food supplements.",
-    "evidence": "APONEO lists Vigantol 1.000 I.E. Vitamin D3 Tabletten by WICK Pharma, Procter & Gamble (PZN 13155690), and Vitamin D3 Aristo 1000 I.E. Tabletten by Aristo Pharma (PZN 20009629), 200 tablets each. Both pages state 25 micrograms colecalciferol, equal to 1000 IU, per tablet, and both are apothekenpflichtig medicines; Aristo's page calls itself a medicine for adults. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "evidence": "APONEO lists Vigantol 1000 I.E. Vitamin D3 Tabletten by WICK Pharma, Procter & Gamble (PZN 13155690), and Vitamin D3 Aristo 1000 I.E. Tabletten by Aristo Pharma (PZN 20009629), 200 tablets each. Both pages state 25 micrograms colecalciferol, equal to 1000 IU, per tablet, and both are apothekenpflichtig medicines; Aristo's page calls itself a medicine for adults. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
     "differences": "Both contain sucrose, sodium ascorbate, medium-chain triglycerides and tocopherol, as the vitamin comes as a dry concentrate. Vigantol adds mannitol, talc and sodium starch glycolate; Aristo adds calcium hydrogen phosphate and crospovidone. Vigantol's smaller packs are cheap too (100 tablets for 6.49 euros on its product page), so the saving here is small.",
     "sources": [
       "https://www.aponeo.de/13155690-vigantol-1-000-i-e-vitamin-d3-tabletten.html",

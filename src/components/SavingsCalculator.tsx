@@ -4,34 +4,38 @@ import { useId, useState } from "react";
 import { useLocal } from "@/lib/client/country";
 import type { Currency } from "@/lib/format";
 import { SaveTicket } from "./Ticket";
+import { useT } from "@/lib/i18n/client";
+import type { ClientT } from "@/lib/i18n/client-dict";
+import { calculator } from "@/lib/i18n/en/client/calculator";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts). */
+const TEXT = { calculator };
 
 /** Slider positions. Low usage gets most of the track, because a light user needs the precision. */
 const TRACK = 200;
 const WEEKS_A_YEAR = 52;
 const MONTHS_PER_WEEK = 12 / WEEKS_A_YEAR;
 
-function lasts(weeks: number) {
-  if (weeks < 1) return "Under a week";
-  if (weeks < 1.5) return "About a week";
-  if (weeks < 8) return `About ${Math.round(weeks)} weeks`;
+function lasts(weeks: number, t: ClientT<typeof TEXT>) {
+  if (weeks < 1) return t("calculator.underWeek");
+  if (weeks < 1.5) return t("calculator.aboutWeek");
+  if (weeks < 8) return t("calculator.weeks", Math.round(weeks));
   const months = weeks * MONTHS_PER_WEEK;
-  if (months < 1.5) return "About a month";
-  if (months < 24) return `About ${Math.round(months)} months`;
-  return `About ${Math.round((months / 12) * 2) / 2} years`;
+  if (months < 1.5) return t("calculator.aboutMonth");
+  if (months < 24) return t("calculator.months", Math.round(months));
+  return t("calculator.years", Math.round((months / 12) * 2) / 2);
 }
 
-function keeps(months: number) {
+function keeps(months: number, t: ClientT<typeof TEXT>) {
   const weeks = months / MONTHS_PER_WEEK;
-  if (weeks >= 1) return lasts(weeks).toLowerCase();
+  if (weeks >= 1) return t("calculator.midSentence", lasts(weeks, t));
   const days = Math.max(1, Math.round(weeks * 7));
-  return `about ${days} day${days === 1 ? "" : "s"}`;
+  return t("calculator.days", days);
 }
 
-function shelfWarning(months: number, unopened: number | null, opened: number | null, pack: string) {
-  if (unopened !== null && months > unopened)
-    return `At this rate ${pack} outlasts its shelf life. The shortest figure on file is ${keeps(unopened)} unopened.`;
-  if (opened !== null && months > opened)
-    return `If ${pack} is one container, it stays open longer than it keeps. The shortest figure on file is ${keeps(opened)} once opened.`;
+function shelfWarning(months: number, unopened: number | null, opened: number | null, pack: string, t: ClientT<typeof TEXT>) {
+  if (unopened !== null && months > unopened) return t("calculator.outlasts", pack, keeps(unopened, t));
+  if (opened !== null && months > opened) return t("calculator.openTooLong", pack, keeps(opened, t));
   return null;
 }
 
@@ -71,6 +75,7 @@ export function SavingsCalculator({
   currency: Currency;
 }) {
   const id = useId();
+  const t = useT(TEXT);
   const local = useLocal();
   const money = (n: number) => local.money(n, currency);
   const { min, max, step, start } = usage;
@@ -88,21 +93,21 @@ export function SavingsCalculator({
   const brandYear = brandPpu * perWeek * WEEKS_A_YEAR;
   const altYear = altPpu * perWeek * WEEKS_A_YEAR;
   const warning =
-    shelfWarning(weeks * MONTHS_PER_WEEK, unopenedMonths, openedMonths, "this pack") ??
+    shelfWarning(weeks * MONTHS_PER_WEEK, unopenedMonths, openedMonths, t("calculator.thisPack"), t) ??
     (biggerSize
-      ? shelfWarning((biggerSize / perWeek) * MONTHS_PER_WEEK, unopenedMonths, openedMonths, "the bigger pack")
+      ? shelfWarning((biggerSize / perWeek) * MONTHS_PER_WEEK, unopenedMonths, openedMonths, t("calculator.biggerPackName"), t)
       : null);
 
   return (
     <div className="card min-w-0 p-4 md:p-5">
-      <h3 className="text-lg leading-snug">How long a pack lasts you</h3>
+      <h3 className="text-lg leading-snug">{t("calculator.heading")}</h3>
 
       <label htmlFor={id} className="mt-3 flex flex-wrap items-baseline gap-x-1.5 text-sm text-ink-2">
-        You use
+        {t("calculator.youUse")}
         <output htmlFor={id} className="price text-[1.75rem] text-ink">
-          {perWeek.toLocaleString("en-US")}
+          {t("calculator.number", perWeek)}
         </output>
-        {word} a week
+        {word} {t("calculator.aWeek")}
       </label>
       <input
         id={id}
@@ -112,33 +117,33 @@ export function SavingsCalculator({
         step={1}
         value={pos}
         onChange={(e) => setPos(Number(e.target.value))}
-        aria-valuetext={`${perWeek} ${word} a week`}
+        aria-valuetext={t("calculator.perWeekText", perWeek, word)}
         className="mt-1 h-11 w-full cursor-pointer accent-[var(--ink)]"
       />
 
       <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-line pt-3">
         <div className={biggerSize ? "" : "col-span-2"}>
-          <dt className="text-[13px] font-medium text-muted">{altName} pack lasts</dt>
-          <dd className="price mt-1 text-xl">{lasts(weeks)}</dd>
+          <dt className="text-[13px] font-medium text-muted">{t("calculator.lasts", altName)}</dt>
+          <dd className="price mt-1 text-xl">{lasts(weeks, t)}</dd>
         </div>
         {biggerSize && (
           <div>
-            <dt className="text-[13px] font-medium text-muted">Bigger pack lasts</dt>
-            <dd className="price mt-1 text-xl">{lasts(biggerSize / perWeek)}</dd>
+            <dt className="text-[13px] font-medium text-muted">{t("calculator.biggerLasts")}</dt>
+            <dd className="price mt-1 text-xl">{lasts(biggerSize / perWeek, t)}</dd>
           </div>
         )}
         <div>
-          <dt className="text-[13px] font-medium text-muted">A year of {brandName}</dt>
+          <dt className="text-[13px] font-medium text-muted">{t("calculator.yearOf", brandName)}</dt>
           <dd className="price mt-1 text-xl font-semibold text-ink-2">{money(brandYear)}</dd>
         </div>
         <div>
-          <dt className="text-[13px] font-medium text-muted">A year of {altName}</dt>
+          <dt className="text-[13px] font-medium text-muted">{t("calculator.yearOf", altName)}</dt>
           <dd className="price mt-1 text-xl">{money(altYear)}</dd>
         </div>
       </dl>
 
       <div className="mt-3">
-        <SaveTicket size="md" amount={brandYear - altYear} currency={currency} sub="a year at this rate" />
+        <SaveTicket size="md" amount={brandYear - altYear} currency={currency} sub={t("calculator.atThisRate")} word={t("calculator.save")} />
       </div>
 
       <div aria-live="polite">
@@ -150,8 +155,8 @@ export function SavingsCalculator({
       </div>
 
       <p className="mt-3 text-[13px] text-muted">
-        Worked out from the unit prices on this page. Your prices may differ.
-        {health && " It only does the sums. For how much to take or use, follow the label."}
+        {t("calculator.workedOut")}
+        {health && t("calculator.sumsOnly")}
       </p>
     </div>
   );
