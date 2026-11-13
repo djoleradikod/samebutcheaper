@@ -420,3 +420,54 @@ test("the server logged no errors while all of this ran", { skip }, async () => 
   const errors = serverLog.split("\n").filter((l) => l.includes('"level":"error"') || /⨯|Unhandled|TypeError|ReferenceError/.test(l));
   assert.deepEqual(errors, []);
 });
+
+test("check my shopping: a pasted receipt is matched in the shopper's country, misses counted by name only, results shared by slug", { skip }, async () => {
+  const v = visitor({ cookie: "sbc_country=GB", "content-type": "application/json" });
+  const receipt = [
+    "TESCO STORES LTD",
+    "HEINZ TOM KETCHUP 460G      £3.00 A",
+    "NUROFEN 200MG 16S           £2.00 A",
+    "2 x ZZQUUX TOASTIE 800G     £1.65 A",
+    "Clubcard Price Saving      -£0.50",
+    "VISA ************4242",
+  ].join("\n");
+  const res = await fetch(`${BASE}/check/list/match`, { method: "POST", headers: v.headers, body: JSON.stringify({ text: receipt }) });
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get("cache-control"), "no-store");
+  const body = (await res.json()) as { ok: boolean; noise: number; lines: { status: string; slug?: string; counted?: string }[]; swaps: Record<string, { currency: string }> };
+  assert.equal(body.ok, true);
+  assert.deepEqual(body.lines.map((l) => l.status), ["swap", "maybe", "none"]);
+  assert.equal(body.noise, 3);
+  const ketchup = body.lines[0].slug!;
+  assert.match(ketchup, /^heinz-tomato-ketchup-.*-gb$/);
+  assert.equal(body.swaps[ketchup].currency, "GBP");
+  assert.equal(body.lines[2].counted, "zzquux toastie");
+
+  // The miss is counted by its cleaned name, written after the response; nothing else from the receipt is stored.
+  let rows: (typeof schema.wanted.$inferSelect)[] = [];
+  for (let i = 0; i < 40 && !rows.length; i++) {
+    rows = (await db.select().from(schema.wanted)).filter((r) => r.query.includes("zzquux"));
+    if (!rows.length) await new Promise((r) => setTimeout(r, 50));
+  }
+  assert.deepEqual(rows.map((r) => [r.query, r.source, r.country]), [["zzquux toastie", "check", "GB"]]);
+  const stored = JSON.stringify(await db.select().from(schema.wanted)) + JSON.stringify(await db.select().from(schema.lookups));
+  for (const bit of ["4242", "1.65", "Clubcard", "TESCO STORES"]) assert.ok(!stored.includes(bit), `${bit} was stored`);
+  assert.ok(!serverLog.includes("ZZQUUX") && !serverLog.includes("4242"), "the receipt never reaches the log");
+
+  // A shared result names only slugs and frequencies, and opens the same swap.
+  const page = await (await get(`/check/list?s=${ketchup}.2w~not-a-swap`, { ...visitor().headers, cookie: "sbc_country=GB" })).text();
+  assert.ok(page.includes("Heinz Tomato Ketchup"), "the shared swap shows");
+  assert.ok(page.includes("Paste your shopping list"));
+
+  // Photo reading is off without a key, and the text check refuses scripts and floods.
+  const photo = await fetch(`${BASE}/check/list/photo`, { method: "POST", headers: visitor().headers, body: new FormData() });
+  assert.equal(photo.status, 503);
+  const script = await fetch(`${BASE}/check/list/match`, { method: "POST", headers: { "user-agent": "curl/8.0", "x-forwarded-for": "203.0.113.77" }, body: JSON.stringify({ text: "HEINZ" }) });
+  assert.equal(script.status, 403);
+  const flood = visitor({ "content-type": "application/json" });
+  const codes: number[] = [];
+  for (let i = 0; i < 21; i++) {
+    codes.push((await fetch(`${BASE}/check/list/match`, { method: "POST", headers: flood.headers, body: JSON.stringify({ text: "HEINZ KETCHUP" }) })).status);
+  }
+  assert.deepEqual([codes.filter((c) => c === 200).length, codes.at(-1)], [20, 429]);
+});

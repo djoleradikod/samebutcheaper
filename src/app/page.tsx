@@ -24,6 +24,7 @@ import { FeaturedBaskets, FeaturedPairs } from "@/components/FeaturedPairs";
 import { Finding, findingExcerpt } from "@/components/Finding";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductThumb } from "@/components/ProductThumb";
+import { ShoppingCheckCta } from "@/components/ShoppingCheckCta";
 import { inSentence } from "@/lib/format";
 import { findingShows, forCountry, isThinMarket, localClaim, type Local } from "@/lib/localize";
 import type { MarketCode } from "@/lib/markets";
@@ -252,6 +253,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <ShoppingCheckCta className="mt-3 md:mt-4" />
         </div>
       </div>
       <CountryPart>{(local) => <HomeBody local={local} />}</CountryPart>

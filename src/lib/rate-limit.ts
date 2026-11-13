@@ -87,6 +87,11 @@ export const LIMITS = {
     { limit: 8, windowMs: 10 * MINUTE },
     { limit: 40, windowMs: DAY },
   ],
+  /** Shopping lists and receipts checked on /check/list: each is matched against the whole catalogue. */
+  receipts: [
+    { limit: 20, windowMs: 10 * MINUTE },
+    { limit: 150, windowMs: DAY },
+  ],
   /** Outbound clicks we log. Past it the shopper is still redirected, the click just isn't recorded. */
   clicks: [{ limit: 60, windowMs: MINUTE }],
   /** Wrong admin passwords or postback keys. */

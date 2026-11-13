@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { headers } from "next/headers";
 import { after } from "next/server";
 import { z } from "zod";
-import { ArrowRight, Barcode, Camera, FlaskConical, Search, Store } from "lucide-react";
+import { ArrowRight, Barcode, Camera, FlaskConical, ListChecks, Search, Store } from "lucide-react";
 import { LookupForm } from "@/components/LookupForm";
 import { PairCard } from "@/components/PairCard";
 import { ProductReport } from "@/components/ProductReport";
@@ -53,6 +53,12 @@ export default function CheckPage({ searchParams }: PageProps<"/check">) {
               <LookupForm />
             </Suspense>
           </div>
+          <p className="mt-2 text-[15px]">
+            <Link href="/check/list" className="inline-flex min-h-11 items-center gap-1.5 font-medium text-cobalt underline underline-offset-2">
+              <ListChecks className="h-4 w-4" aria-hidden="true" />
+              Got a whole shopping list or a receipt? Check it all at once
+            </Link>
+          </p>
         </div>
       </section>
       <div className="container-page py-10">
