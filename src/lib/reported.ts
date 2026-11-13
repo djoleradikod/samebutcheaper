@@ -1,5 +1,5 @@
 import "server-only";
-import { cacheLife, cacheTag } from "next/cache";
+import { cacheLife, cacheTag, io } from "next/cache";
 import { getDb } from "@/db";
 import { log } from "./log";
 import { setReported } from "./reported-state";
@@ -34,8 +34,17 @@ async function cachedFlags(): Promise<FlaggedRecord[]> {
   }
 }
 
-/** Loads the flags and refreshes the snapshot ranking code reads (src/lib/reported-state.ts). */
+/**
+ * Loads the flags and refreshes the snapshot ranking code reads (src/lib/reported-state.ts).
+ *
+ * `io()` first: during a prerender it suspends, so the caller's Suspense boundary is a hole filled at request time and
+ * the short-lived cache is never entered at build. Without it every prerendered swap, kit and list page ran the
+ * database read in the cache-warming pass, could not keep the result (a short-lived entry is left out of prerenders),
+ * missed it again in the final pass and logged "Unexpected cache miss after cache warming" for each page. At request
+ * time `io()` resolves at once, so the minute-long cache works exactly as before.
+ */
 export async function reportedRecords(): Promise<FlaggedRecord[]> {
+  await io();
   const flags = await cachedFlags();
   setReported(flags);
   return flags;

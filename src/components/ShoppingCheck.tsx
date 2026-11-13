@@ -12,6 +12,7 @@ import { countSwap, shareValue, type Counted, type Shared } from "@/lib/receipt/
 import type { CheckResult, ResultLine, SwapView } from "@/lib/receipt/types";
 import { totalText, type FrequencyId } from "@/lib/yearly";
 import { MatchBadge } from "./Badges";
+import { ChooseSection, chooseKey, type ChooseLine } from "./ChooseOne";
 import { FrequencySelect } from "./FrequencySelect";
 import { Money } from "./Money";
 import { ProductThumb } from "./ProductThumb";
@@ -52,8 +53,8 @@ export function ShoppingCheck({ photo, shared }: { photo: boolean; shared: Share
       : null,
   );
   const [sharedOften] = useState<Record<string, FrequencyId | null>>(() => Object.fromEntries((shared?.items ?? []).map((s) => [s.slug, s.often])));
-  /** "Did you mean" answers: true for yes, false for no. Kept for this page view only. */
-  const [answers, setAnswers] = useState<Record<string, boolean>>({});
+  /** "Did you mean" answers: true for yes, false for no; "which one" answers: the slug picked, or false. Kept for this page view only. */
+  const [answers, setAnswers] = useState<Record<string, boolean | string>>({});
   const resultRef = useRef<HTMLDivElement>(null);
   const uploadRef = useRef<HTMLInputElement>(null);
   const busy = status.kind === "busy";
@@ -206,8 +207,8 @@ function Result({
   viewingShared,
 }: {
   result: CheckResult;
-  answers: Record<string, boolean>;
-  setAnswers: (next: Record<string, boolean>) => void;
+  answers: Record<string, boolean | string>;
+  setAnswers: (next: Record<string, boolean | string>) => void;
   sharedOften: Record<string, FrequencyId | null>;
   viewingShared: boolean;
 }) {
@@ -220,12 +221,22 @@ function Result({
   const [savedAll, setSavedAll] = useState(false);
 
   const withSwap = (l: ResultLine): l is Matched => (l.status === "swap" || l.status === "maybe") && Boolean(result.swaps[l.slug]);
+  const isChoose = (l: ResultLine): l is ChooseLine => l.status === "choose";
+  // A "which one" answered with a product counts as that swap, once, even if another line found it too.
+  const picked = (l: ResultLine): Matched[] => {
+    const pick = isChoose(l) ? answers[chooseKey(l)] : undefined;
+    return typeof pick === "string" && result.swaps[pick] ? [{ index: l.index, text: l.text, status: "swap", slug: pick, others: 0 }] : [];
+  };
   const swaps: Line[] = result.lines
-    .filter(withSwap)
+    .flatMap((l) => (withSwap(l) ? [l] : picked(l)))
     .filter((l) => l.status === "swap" || answers[l.slug] === true)
+    .filter((l, i, all) => all.findIndex((o) => o.slug === l.slug) === i)
     .map((l) => ({ line: l, swap: result.swaps[l.slug], counted: countSwap(result.swaps[l.slug], choices, sharedOften[l.slug]) }));
   const maybes = result.lines.filter(withSwap).filter((l) => l.status === "maybe" && answers[l.slug] === undefined);
-  const misses = result.lines.filter((l) => l.status === "none" || (withSwap(l) && l.status === "maybe" && answers[l.slug] === false));
+  const chooses = result.lines.filter(isChoose).filter((l) => answers[chooseKey(l)] === undefined);
+  const misses = result.lines.filter(
+    (l) => l.status === "none" || (withSwap(l) && l.status === "maybe" && answers[l.slug] === false) || (isChoose(l) && answers[chooseKey(l)] === false),
+  );
   const own = result.lines.filter((l) => l.status === "own").length;
   const example = misses.find((l) => l.counted)?.counted ?? null;
 
@@ -292,7 +303,7 @@ function Result({
           </p>
         ) : (
           <p className="text-lg font-semibold md:text-xl">
-            {maybes.length ? t("pageShoppingCheck.checkSuggestions") : t("pageShoppingCheck.nothingFound")}
+            {maybes.length || chooses.length ? t("pageShoppingCheck.checkSuggestions") : t("pageShoppingCheck.nothingFound")}
           </p>
         )}
         {notes.length > 0 && <p className="mt-3 max-w-[70ch] text-[13px] leading-snug text-ink-2 md:text-sm">{notes.join(" ")}</p>}
@@ -388,6 +399,15 @@ function Result({
           </ul>
         </section>
       )}
+
+      <ChooseSection
+        lines={chooses}
+        swaps={result.swaps}
+        onPick={(l, pick) => {
+          setAnswers({ ...answers, [chooseKey(l)]: pick });
+          if (pick === false && l.counted) countNo(l.counted);
+        }}
+      />
 
       {misses.length > 0 && (
         <section aria-labelledby="miss-heading">

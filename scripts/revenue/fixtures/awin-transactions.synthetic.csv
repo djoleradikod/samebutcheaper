@@ -1,0 +1,5 @@
+id,advertiserId,advertiserName,commissionStatus,commissionAmount,saleAmount,currency,clickRef,orderRef,transactionDate,type
+900000001,11330,Zooplus DE,pending,1.35,44.99,EUR,clk00000000000000001,ZP-1001,2026-11-03T10:15:00,Sale
+900000002,11330,Zooplus DE,approved,0.60,59.90,EUR,clk00000000000000002,ZP-1002,2026-11-05T18:40:00,Sale
+900000003,13808,Shop Apotheke DE,declined,0.84,7.00,EUR,clk00000000000000003,SA-77,2026-11-06T08:02:00,Sale
+900000004,7833,Crocus,approved,3.20,32.00,GBP,,CR-5,2026-11-07T12:00:00,Sale

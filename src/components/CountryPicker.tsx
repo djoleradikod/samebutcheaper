@@ -2,7 +2,7 @@
 
 import { ChevronDown, Globe } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useSyncExternalStore } from "react";
 import { COUNTRY_OPTIONS, countryName, type MarketCode } from "@/lib/markets";
 import { useT } from "@/lib/i18n/client";
 import { countryOfPath, switchCountryPath } from "@/lib/country-url";
@@ -78,7 +78,30 @@ function Label({ country, withName }: { country: string | null; withName: boolea
   const t = useT(TEXT);
   if (country) return <span className="whitespace-nowrap">{withName ? t("picker.name", country, countryName(country)) : country}</span>;
   if (withName) return <span className="whitespace-nowrap">{t("picker.country")}</span>;
-  return <Globe className="h-4 w-4 text-muted" aria-hidden="true" />;
+  return <UnknownLabel text={t("picker.country")} />;
+}
+
+const noop = () => () => {};
+
+/**
+ * The compact picker for a shopper with no country yet: the globe, and the word once the page has loaded. The first HTML
+ * can't know the country, so it shows the globe alone for everyone; a shopper we place gets their code in its place with
+ * barely a shift, and only one we can't place gets the wider label.
+ */
+function UnknownLabel({ text }: { text: string }) {
+  const loaded = useSyncExternalStore(noop, () => true, () => false);
+  // The word sits under the globe, small, as on a tab bar, and takes no width (it is placed against the picker's box):
+  // beside the globe, the header would wrap on a 390 px phone.
+  return (
+    <>
+      <Globe className={`h-4 w-4 text-muted ${loaded ? "-translate-y-1.5" : ""}`} aria-hidden="true" />
+      {loaded && (
+        <span className="pointer-events-none absolute inset-x-0 bottom-1 text-center text-[10px] leading-none font-medium whitespace-nowrap">
+          {text}
+        </span>
+      )}
+    </>
+  );
 }
 
 /** "UK prices", in plain text, on anything priced somewhere other than where the shopper is. */

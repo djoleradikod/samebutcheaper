@@ -67,7 +67,7 @@ test("prices, currencies, barcodes, dates and stock words from any network", () 
   assert.equal(parsePrice("0"), null);
   assert.equal(parsePrice(""), null);
   assert.equal(currencyIn("15.00 usd"), "USD");
-  assert.deepEqual(gtinsOf("0300450000017", "abc", "123", "300450000017 4006381333931"), ["0300450000017", "300450000017", "4006381333931"]);
+  assert.deepEqual(gtinsOf("0300450000019", "abc", "123", "300450000019 4006381333931"), ["0300450000019", "300450000019", "4006381333931"]);
   assert.equal(isoDayOf("2026-11-12 04:10:00"), "2026-11-12");
   assert.equal(isoDayOf("11/12/2026 03:15:42"), "2026-11-12");
   assert.equal(isoDayOf("12.11.2026"), "2026-11-12");
@@ -196,7 +196,7 @@ test("a large gzip feed streams in bounded memory", { timeout: 120_000 }, async 
 test("awin: Create-a-Feed columns, aw_deep_link as the tracked link, merchant_deep_link as the page", async () => {
   const rows = await rowsOf(`awin:boots@GB=${join(FIX, "awin-feed.synthetic.csv")}`);
   assert.equal(rows.length, 5);
-  assert.deepEqual(rows[0].gtins, ["5000000000017"]);
+  assert.deepEqual(rows[0].gtins, ["5000000000012"]);
   assert.equal(rows[0].price, 2.1);
   assert.equal(rows[0].name, "Test Paracetamol Tablets 500mg, 32 pack");
   assert.equal(rows[1].name, 'Test Ibuprofen "Express" 16 pack');
@@ -222,7 +222,7 @@ test("impact: catalogue items JSON, sale price, stock words, destination inside 
   assert.equal(feedLinkNetwork(ibu.deepLink!), "impact");
   assert.equal(ibu.inStock, true);
   assert.equal(adv.inStock, false);
-  assert.deepEqual(adv.gtins, ["300450000017"]);
+  assert.deepEqual(adv.gtins, ["300450000019"]);
   assert.equal(lor.inStock, null, "PreOrder is not a stock answer");
   assert.equal(ibu.updated, null, "items carry no date: the day read stands in");
 });
@@ -248,7 +248,7 @@ test("cj: Google-style columns, price with its currency, sale price, tracked cli
   assert.equal(rows.length, 3);
   assert.equal(rows[0].price, 4.99);
   assert.equal(rows[0].currency, "USD");
-  assert.deepEqual(rows[0].gtins, ["0300450000017"]);
+  assert.deepEqual(rows[0].gtins, ["0300450000019"]);
   assert.equal(rows[0].productUrl, "https://www.test-pharmacy.example/p/ibu-100");
   assert.equal(feedLinkNetwork(rows[1].deepLink!), "cj");
   assert.equal(rows[1].inStock, false);
@@ -261,7 +261,7 @@ test("rakuten: pipe-delimited by position, HDR date for every row, TRL skipped, 
   assert.equal(rows.length, 2);
   assert.equal(rows[0].name, "Test Value Ibuprofen Tablets 200 mg, 100 Count");
   assert.equal(rows[0].price, 5.99);
-  assert.deepEqual(rows[0].gtins, ["300450000017"]);
+  assert.deepEqual(rows[0].gtins, ["300450000019"]);
   assert.equal(rows[0].brand, "Test Value");
   assert.equal(rows[0].inStock, true);
   assert.equal(rows[1].inStock, false);
@@ -321,8 +321,8 @@ const US_PAIRS = [
   pair(
     "testvil-vs-test-value-ibuprofen",
     "US",
-    { brand: "Testvil", product: "Testvil Ibuprofen Tablets 200 mg, 100 Count", price: 11.97, retailer: "walmart", url: "https://www.walmart.com/search?q=testvil", gtin: "300450000017" },
-    { brand: "Test Value", product: "Test Value Ibuprofen Tablets 200 mg", price: 3.98, retailer: "walmart", url: "https://www.walmart.com/ip/Test-Value-Ibuprofen/10315394", gtin: "300450000024" },
+    { brand: "Testvil", product: "Testvil Ibuprofen Tablets 200 mg, 100 Count", price: 11.97, retailer: "walmart", url: "https://www.walmart.com/search?q=testvil", gtin: "300450000019" },
+    { brand: "Test Value", product: "Test Value Ibuprofen Tablets 200 mg", price: 3.98, retailer: "walmart", url: "https://www.walmart.com/ip/Test-Value-Ibuprofen/10315394", gtin: "300450000026" },
   ),
   pair(
     "claritest-vs-test-value-loratadine",
@@ -372,8 +372,8 @@ test("matching: barcode, then store number, then name for review; only that stor
 test("matching refuses what it can't be sure of: rows that disagree, two name fits, a contradicting barcode, a variant-less zooplus link, another pack", () => {
   const records = usRecords();
   const m = new FeedMatcher(records, { retailer: "walmart", market: "US" });
-  m.add(row({ gtins: ["0300450000017"], price: 11.97 }));
-  m.add(row({ gtins: ["300450000017"], price: 13.5 }));
+  m.add(row({ gtins: ["0300450000019"], price: 11.97 }));
+  m.add(row({ gtins: ["300450000019"], price: 13.5 }));
   m.add(row({ skus: ["10315394"], gtins: ["9999999999994"], price: 3.98 }));
   m.add(row({ name: "Test Value Loratadine 10 mg, 30 Count", brand: "Test Value", price: 4 }));
   m.add(row({ name: "Test Value Loratadine Tablets 10 mg 30 count", brand: "Test Value", price: 4.5 }));

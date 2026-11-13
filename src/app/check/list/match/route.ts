@@ -60,11 +60,12 @@ export async function POST(request: Request) {
 
   const result: CheckResult = {
     lines: lines.map(
-      // A "maybe" carries it too: if the shopper answers No, the page counts it (POST /api/wanted).
-      ({ query, ...line }): ResultLine => (line.status === "none" || line.status === "maybe" ? { ...line, counted: normaliseQuery(query) } : line),
+      // A "maybe" or a "which one" carries it too: if the shopper answers No or None of these, the page counts it (POST /api/wanted).
+      ({ query, ...line }): ResultLine =>
+        line.status === "none" || line.status === "maybe" || line.status === "choose" ? { ...line, counted: normaliseQuery(query) } : line,
     ),
     noise,
-    swaps: swapViews(lines.flatMap((l) => (l.status === "swap" || l.status === "maybe" ? [l.slug] : [])), lang),
+    swaps: swapViews(lines.flatMap((l) => (l.status === "swap" || l.status === "maybe" ? [l.slug] : l.status === "choose" ? l.slugs : [])), lang),
   };
 
   const tally = (s: ResultLine["status"]) => lines.filter((l) => l.status === s).length;
@@ -75,6 +76,7 @@ export async function POST(request: Request) {
     noise,
     swaps: tally("swap"),
     maybe: tally("maybe"),
+    choose: tally("choose"),
     none: tally("none"),
     own: tally("own"),
   });

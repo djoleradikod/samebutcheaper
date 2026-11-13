@@ -15,7 +15,7 @@
       "retailer": "zooplus",
       "asin": null,
       "url": "https://www.zooplus.ie/shop/dogs/dry_dog_food/royal_canin_size/medium/128332",
-      "gtin": "3182551055856",
+      "gtin": null,
       "key_ingredients": [
         {
           "name": "Dried poultry protein, wheat, maize meal, wheat flour, maize, hydrolysed animal proteins, animal fat",
@@ -504,7 +504,7 @@
           "amount": "16%"
         }
       ],
-      "gtin": "3182551055733"
+      "gtin": null
     },
     "alternative": {
       "brand": "Concept for Life",
@@ -532,7 +532,7 @@
         "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561527?activeVariant=561527.4",
         "date": "2026-11-07"
       },
-      "gtin": "4062911011861"
+      "gtin": null
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
@@ -576,7 +576,7 @@
           "amount": "16%"
         }
       ],
-      "gtin": "3182550831383"
+      "gtin": null
     },
     "alternative": {
       "brand": "Concept for Life",
@@ -604,7 +604,7 @@
         "source": "https://www.zooplus.ie/shop/dogs/dry_dog_food/concept_for_life/concept_for_life_mini/561529",
         "date": "2026-11-07"
       },
-      "gtin": "4062911012417"
+      "gtin": null
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",

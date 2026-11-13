@@ -8,6 +8,7 @@ import { ProductThumb } from "./ProductThumb";
 import { PctTicket } from "./Ticket";
 import { ToArrow, UnitPrice } from "./UnitPrice";
 import { cards } from "@/lib/i18n/en/client/cards";
+import { productDetail } from "@/lib/product-detail";
 
 /** The English this component reads (src/lib/i18n/client-dict.ts). */
 const TEXT = { cards };
@@ -65,6 +66,7 @@ export function PairCard({ pair, rank, eager = false, lang = "en" }: { pair: Pai
           <ToArrow />
           {pair.altName}
         </p>
+        <ProductLine pair={pair} className="mt-0.5 line-clamp-2" />
         <UnitPrice
           unit={pair.unit}
           alt={pair.altPpu}
@@ -84,6 +86,12 @@ export function PairCard({ pair, rank, eager = false, lang = "en" }: { pair: Pai
   );
 }
 
+/** The brand-name product, so a brand's swaps don't all read "Nurofen -> Tesco Health". */
+function ProductLine({ pair, className }: { pair: PairSummary; className: string }) {
+  const detail = productDetail(pair.brandName, pair.brandProduct);
+  return detail ? <span className={`block text-xs leading-snug text-ink-2 ${className}`}>{detail}</span> : null;
+}
+
 /**
  * A swap with no photo on either side, as one line of text on a desktop and two on a phone:
  * brand to cheaper name and the saving, then unit price against unit price and the match.
@@ -99,6 +107,7 @@ export function PairRow({ pair, lang = "en" }: { pair: PairSummary; lang?: Lang 
         {pair.brandName}
         <ToArrow />
         {pair.altName}
+        <ProductLine pair={pair} className="font-normal" />
       </p>
       <PctTicket
         pct={pair.savingsPct}

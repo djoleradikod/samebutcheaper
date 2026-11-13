@@ -9,7 +9,8 @@ import { monthDe } from "@/lib/i18n/format";
 import { SITE } from "@/lib/site";
 import type { Bundle } from "@/lib/types";
 import { BundleBuyList } from "./BundleBuyList";
-import { kitStoreNames, kitToday } from "./BundleCheckout";
+import { kitStoreNames } from "./BundleCheckout";
+import { KitSums } from "./KitSums";
 import { BundleStickyBar } from "./BundleStickyBar";
 import { Money } from "./Money";
 
@@ -67,24 +68,7 @@ export function BundleBuyBox({ b, local }: { b: Bundle; local: Local }) {
     <div>
       {caution && <KitCautionNote b={b} caution={caution} local={local} />}
       <dl className="space-y-1.5 text-sm">
-        <div className={row}>
-          <dt className="text-ink-2">{t("kitPage.kitDelivered", b.kitCheckout.delivery !== null)}</dt>
-          <dd className="price text-base text-muted">
-            <Money n={kitToday(b)} from={b.currency} />
-          </dd>
-        </div>
-        <div className={row}>
-          <dt className="text-ink-2">{t("kitPage.rebuilt", b.checkout.delivery === null)}</dt>
-          <dd className="price text-base">
-            <Money n={b.checkout.payToday} from={b.currency} />
-          </dd>
-        </div>
-        <div className={row}>
-          <dt className="font-medium text-ink">{t("kitPage.saving", b.checkout.delivery === null)}</dt>
-          <dd className="price text-lg text-same">
-            <Money n={b.netSavings} from={b.currency} />
-          </dd>
-        </div>
+        <KitSums b={b} lang={local.lang} />
         <div className={row}>
           <dt className="text-ink-2">{t("kitPage.orders")}</dt>
           <dd className="text-[13px] font-medium">{n === 1 ? t("kitPage.oneAt", stores[0]?.name ?? null) : t("kitPage.stores", n)}</dd>

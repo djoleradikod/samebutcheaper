@@ -2,7 +2,9 @@ import { hostname } from "./format";
 import { MARKETS, type MarketCode } from "./markets";
 import type { ProductSide } from "./types";
 
-import { affiliateEnv, livePrograms, liveSubNetwork, tagLink, type TaggedLink } from "./affiliate-links";
+import { affiliateEnv, livePrograms, liveSubNetwork, tagLink, type Env, type TaggedLink } from "./affiliate-links";
+import { feedLinkOr, type FeedInfo } from "./feed-links";
+import feedLinks from "../generated/feed-links.json";
 
 export { amazonTag } from "./affiliate-links";
 
@@ -36,9 +38,18 @@ export function affiliateUrl(p: Pick<ProductSide, "retailer" | "asin" | "url">, 
   return affiliateLink(p, market).url;
 }
 
-/** Whether this link really carries a tag, so the page next to it can say so honestly. */
-export function mayEarn(p: Pick<ProductSide, "retailer" | "asin" | "url">, market: MarketCode = "US"): boolean {
-  return affiliateLink(p, market).program !== null;
+/**
+ * Whether the link /go sends this product's shopper to really carries a tag, so the page next to it can say so
+ * honestly: a programme's env setting tags the store link, or an affiliate feed's tracked link replaces it (pass the
+ * side's price record, `pair.prices.alternative`, as `seen`). The same choice the /go route makes.
+ */
+export function mayEarn(
+  p: Pick<ProductSide, "retailer" | "asin" | "url">,
+  market: MarketCode = "US",
+  seen?: { feed?: FeedInfo },
+  env: Env = affiliateEnv(),
+): boolean {
+  return tagLink(feedLinkOr(seen, productUrl(p, market)), "", env).program !== null;
 }
 
 /** Whether any Amazon link on the site carries a tag. Amazon's required wording only appears then. */
@@ -46,9 +57,9 @@ export function amazonEarns() {
   return livePrograms().some((p) => p.network === "amazon");
 }
 
-/** Whether any link on the site can earn us anything. */
-export function linksEarn() {
-  return livePrograms().length > 0 || liveSubNetwork() !== null;
+/** Whether any link on the site can earn us anything: a programme switched on, a sub-network, or a feed's tracked link. */
+export function linksEarn(env: Env = affiliateEnv(), feedSides: number = feedLinks.sides) {
+  return livePrograms(env).length > 0 || liveSubNetwork(env) !== null || feedSides > 0;
 }
 
 /** Whether a sub-network is on, so any store link may earn. */

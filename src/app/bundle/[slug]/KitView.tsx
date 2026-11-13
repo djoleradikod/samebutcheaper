@@ -17,7 +17,8 @@ import { HEALTH_CATEGORIES, HealthNotice, SourceList } from "@/components/Eviden
 import { ProductThumb } from "@/components/ProductThumb";
 import { SaveButton } from "@/components/SaveButton";
 import { SaveTicket } from "@/components/Ticket";
-import { linksEarn, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
+import { linksEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
+import { kitEarns } from "@/lib/disclosure";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
@@ -102,7 +103,7 @@ function BundleBody({ record, local }: { record: Bundle; local: Local }) {
     b.bundle.billing === "subscription" && b.bundle.supply_days ? (b.netSavings / b.bundle.supply_days) * 30 : null;
   const pieces = b.components.slice(0, 4);
   const eager = eagerTarget(b);
-  const earns = b.components.some((c) => mayEarn(c, b.market)) || mayEarn(b.bundle, b.market);
+  const earns = kitEarns(b);
 
   return (
     <article>

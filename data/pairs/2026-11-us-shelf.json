@@ -1106,7 +1106,7 @@
   "title": "Dawn Liquid Dish Soap vs Uline Liquid Dish Soap",
   "brand": {
    "brand": "Dawn",
-   "product": "Dawn Liquid Dish Soap, 38 fl oz, model S-9975",
+   "product": "Dawn Liquid Dish Soap, 38 fl oz (Uline item S-9975)",
    "size": 38,
    "unit": "fl oz",
    "price": 9.5,
@@ -1117,7 +1117,7 @@
   },
   "alternative": {
    "brand": "Uline",
-   "product": "Uline Liquid Dish Soap, 38 fl oz, model S-25782",
+   "product": "Uline Liquid Dish Soap, 38 fl oz (Uline item S-25782)",
    "size": 38,
    "unit": "fl oz",
    "price": 6.5,
@@ -1127,18 +1127,23 @@
    "key_ingredients": []
   },
   "bulk": {
-   "product": "Uline Liquid Dish Soap, 1 gallon bottle, model S-25783",
+   "product": "Uline Liquid Dish Soap, 1 gallon bottle (Uline item S-25783)",
    "size": 128,
    "price": 19,
    "retailer": "other",
    "url": "https://www.uline.com/BL_6966/Dish-Soap"
   },
-  "match_type": "equivalent_spec",
+  "match_type": "same_kind",
   "confidence": "medium",
-  "summary": "Uline sells both in 38 oz bottles, and its own liquid dish soap costs 32% less per bottle than Dawn at the lowest order tier.",
+  "summary": "Uline, a supplier to businesses, sells both in 38 oz bottles by the case. At its smallest orders, 4 bottles of Dawn or 6 of its own, its own dish soap costs 32% less per bottle.",
   "evidence": "Prices read on Uline's dish soap page in November 2026: Dawn 38 oz (S-9975) $9.50 a bottle at the minimum order of 4, and Uline 38 oz (S-25782) $6.50 a bottle at the minimum of 6. In gallons, Dawn (S-14764) is $29.50 and Uline (S-25783) $19, at a minimum of 4 bottles each. Open Products Facts is cited only as a record of a retail Dawn bottle; that bottle is a different Dawn product, so no photo is used here.",
   "differences": "Neither formula is on Uline's page, and concentration isn't stated, so one bottle may not wash as many dishes as the other. No washing test covers this pair, and Dawn may well clean better per squirt. You must buy several bottles at once, and shipping isn't included. Neither side has a matching licensed photo.",
   "why": "Uline describes its soap only as tough on grease, so the case for it rests on price. It is worth trying where dishes get done in volume, and the gallon size brings the cost down further.",
+  "aspects": [
+   { "aspect": "Who sells it at this price", "brand": "Uline, a supplier to businesses", "alternative": "Only Uline, a supplier to businesses", "verdict": "same", "source": "https://www.uline.com/BL_6966/Dish-Soap" },
+   { "aspect": "Smallest order", "brand": "4 bottles", "alternative": "6 bottles", "verdict": "brand_better", "source": "https://www.uline.com/BL_6966/Dish-Soap" },
+   { "aspect": "Shipping", "brand": "Extra", "alternative": "Extra", "verdict": "same" }
+  ],
   "claims": [],
   "sources": [
    "https://www.uline.com/BL_6966/Dish-Soap",

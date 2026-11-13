@@ -467,7 +467,8 @@ test("check my shopping: a pasted receipt is matched in the shopper's country, m
   assert.equal(res.headers.get("cache-control"), "no-store");
   const body = (await res.json()) as { ok: boolean; noise: number; lines: { status: string; slug?: string; counted?: string }[]; swaps: Record<string, { currency: string }> };
   assert.equal(body.ok, true);
-  assert.deepEqual(body.lines.map((l) => l.status), ["swap", "maybe", "none"]);
+  // Two Nurofen products of 200 mg in packs of 16 are on file, so the shopper is asked which one.
+  assert.deepEqual(body.lines.map((l) => l.status), ["swap", "choose", "none"]);
   assert.equal(body.noise, 3);
   const ketchup = body.lines[0].slug!;
   assert.match(ketchup, /^heinz-tomato-ketchup-.*-gb$/);

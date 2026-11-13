@@ -158,7 +158,7 @@ async function fill(side: Side, category: string, file: string, slug: string, la
   }
   if (!found) return false;
   side.image = found.image;
-  if (!side.gtin && found.gtin) side.gtin = found.gtin;
+  // A search hit names a product, not this pack: its barcode would match another pack's price in a feed (docs/feeds.md).
   report.push({ file, slug, side: label, how: `${how} (${found.db})`, name: found.name, image: found.image });
   console.log(`  + ${slug} [${label}] via ${how}: ${found.name}`);
   return true;

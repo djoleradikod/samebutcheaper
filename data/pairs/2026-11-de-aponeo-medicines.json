@@ -2168,5 +2168,87 @@
         "source": "https://www.aponeo.de/00308169-dulcolax-10-mg-zaepfchen.html"
       }
     ]
+  },
+  {
+    "slug": "nurofen-junior-40mg-ml-vs-ibuprofen-stada-40mg-ml-saft-de",
+    "market": "DE",
+    "category": "otc-medicine",
+    "subcategory": "Children's medicine",
+    "title": "Nurofen Junior 40 mg/ml vs Ibuprofen STADA 40 mg/ml",
+    "brand": {
+      "brand": "Nurofen",
+      "product": "NUROFEN Junior Fieber- und Schmerzsaft Erdbeer 40 mg/ml, 100 ml",
+      "size": 100,
+      "unit": "ml",
+      "price": 5.82,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/16538227-nurofen-junior-fieber-u-schmerzsaft-erdbe-40-mg-ml.html",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "40 mg/ml"
+        }
+      ],
+      "license_id": "PZN 16538227"
+    },
+    "alternative": {
+      "brand": "STADA",
+      "product": "Ibuprofen STADA 40 mg/ml Suspension zum Einnehmen, 100 ml",
+      "size": 100,
+      "unit": "ml",
+      "price": 3.5,
+      "retailer": "aponeo",
+      "asin": null,
+      "url": "https://www.aponeo.de/09424322-ibuprofen-stada-40-mg-ml-suspension-zum-einnehmen.html",
+      "key_ingredients": [
+        {
+          "name": "Ibuprofen",
+          "amount": "40 mg/ml"
+        }
+      ],
+      "license_id": "PZN 09424322"
+    },
+    "match_type": "identical_active",
+    "confidence": "high",
+    "summary": "Both are oral suspensions for children with 40 mg ibuprofen per ml, for fever and pain, with a dosing syringe in the pack.",
+    "evidence": "APONEO lists NUROFEN Junior Fieber- und Schmerzsaft Erdbeer 40 mg/ml by Reckitt Benckiser (PZN 16538227) and Ibuprofen STADA 40 mg/ml Suspension zum Einnehmen by STADA Consumer Health (PZN 09424322), 100 ml each. Both pages give 40 mg ibuprofen per ml, both are apothekenpflichtig and both include a syringe. Both prices were read on aponeo.de on 13 Nov 2026 and read again with a second fetch.",
+    "differences": "Nurofen Junior is strawberry-flavoured, sugar-free and colour-free, with maltitol; APONEO's page doesn't give its full list. STADA's is cherry-flavoured and lists maltitol, saccharin and two paraben preservatives (sodium methyl and propyl parahydroxybenzoate); its page notes that the cherry flavour contains safrole. Nurofen is for children from 6 months and 7 kg, STADA from 6 months and 8 kg. Check the dose for your child's weight on the leaflet. APONEO's search list showed 5.76 euros for Nurofen and its product page 5.82 euros; we use the product page.",
+    "sources": [
+      "https://www.aponeo.de/16538227-nurofen-junior-fieber-u-schmerzsaft-erdbe-40-mg-ml.html",
+      "https://www.aponeo.de/09424322-ibuprofen-stada-40-mg-ml-suspension-zum-einnehmen.html"
+    ],
+    "price_checked": "2026-11",
+    "look_for": "Ibuprofen 40 mg/ml oral suspension for children",
+    "aspects": [
+      {
+        "aspect": "Who makes it",
+        "brand": "Reckitt Benckiser Deutschland GmbH",
+        "alternative": "STADA Consumer Health Deutschland GmbH",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/09424322-ibuprofen-stada-40-mg-ml-suspension-zum-einnehmen.html"
+      },
+      {
+        "aspect": "Flavour",
+        "brand": "Strawberry",
+        "alternative": "Cherry",
+        "verdict": "different",
+        "source": "https://www.aponeo.de/09424322-ibuprofen-stada-40-mg-ml-suspension-zum-einnehmen.html"
+      },
+      {
+        "aspect": "Preservatives",
+        "brand": "None named on the store page",
+        "alternative": "Methyl and propyl parahydroxybenzoate (parabens)",
+        "verdict": "brand_better",
+        "source": "https://www.aponeo.de/09424322-ibuprofen-stada-40-mg-ml-suspension-zum-einnehmen.html"
+      },
+      {
+        "aspect": "Youngest age",
+        "brand": "6 months, from 7 kg",
+        "alternative": "6 months, from 8 kg",
+        "verdict": "brand_better",
+        "source": "https://www.aponeo.de/09424322-ibuprofen-stada-40-mg-ml-suspension-zum-einnehmen.html"
+      }
+    ]
   }
 ]

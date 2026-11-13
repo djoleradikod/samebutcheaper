@@ -13,6 +13,7 @@
       "retailer": "target",
       "asin": null,
       "url": "https://www.target.com/p/splenda-zero-calorie-sweetener-packets-7oz-200pk/-/A-13330984",
+      "gtin": "0722776000014",
       "key_ingredients": [
         { "name": "Dextrose", "amount": "" },
         { "name": "Maltodextrin", "amount": "" },
@@ -64,6 +65,7 @@
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/19500189",
+      "gtin": "0049200045503",
       "key_ingredients": [
         {
           "name": "Sugar (cane)",
@@ -80,6 +82,7 @@
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/10315162",
+      "gtin": "0078742228037",
       "key_ingredients": [
         {
           "name": "Sugar",
@@ -164,6 +167,7 @@
       "retailer": "target",
       "asin": null,
       "url": "https://www.target.com/p/quaker-oats-old-fashioned-oats-42oz/-/A-13331320",
+      "gtin": "0030000010402",
       "key_ingredients": [
         {
           "name": "Whole grain rolled oats",
@@ -214,6 +218,7 @@
       "retailer": "target",
       "asin": null,
       "url": "https://www.target.com/p/-/A-13479028",
+      "gtin": "0052100052311",
       "key_ingredients": [
         {
           "name": "Ground black pepper",
@@ -304,6 +309,7 @@
       "retailer": "target",
       "asin": null,
       "url": "https://www.target.com/p/garlic-powder-3-12oz-good-38-gather-8482/-/A-77585075",
+      "gtin": "0085239838662",
       "key_ingredients": [
         {
           "name": "Garlic powder",
