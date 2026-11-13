@@ -282,7 +282,7 @@
    "retailer": "walmart",
    "asin": null,
    "url": "https://www.walmart.com/search?q=Heinz+Tomato+ketchup",
-   "gtin": "01346604",
+   "gtin": null,
    "image": "https://images.openfoodfacts.org/images/products/000/000/134/6604/front_en.58.400.jpg",
    "key_ingredients": [
     {

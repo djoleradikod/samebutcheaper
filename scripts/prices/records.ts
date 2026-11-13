@@ -6,6 +6,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { MARKETS, RETAILERS, type MarketCode } from "../../src/lib/markets";
 import { normalizeUnit } from "../../src/lib/schema";
+import { isGtin, isPzn, pricedPerAmount, pznFromLicence } from "../../src/lib/gtin";
 import type { JsonPath } from "./json-edit";
 import { ROOT } from "./observations";
 
@@ -27,6 +28,10 @@ export type PricedSide = {
   retailer: string;
   url: string;
   gtin: string | null;
+  /** German PZN, from the side's `pzn` or a licence number given as "PZN 01234567". Matched as a store number. */
+  pzn: string | null;
+  /** The side is priced per wash, per day or per 100 ml: it names a product, not a pack a feed row could be. */
+  perAmount: boolean;
   /** The maker's brand as the record gives it, for matching feeds by name. */
   brand: string;
   /** The side's ASIN when it has one, so moving the side off Amazon can clear it. */
@@ -78,7 +83,9 @@ function sideOf(raw: Raw, side: string, path: JsonPath, name: string): PricedSid
     unit: normalizeUnit(String(raw.unit ?? "")),
     retailer: retailerOf(raw.retailer),
     url: String(raw.url ?? ""),
-    gtin: typeof raw.gtin === "string" && /^\d{8,14}$/.test(raw.gtin) ? raw.gtin : null,
+    gtin: typeof raw.gtin === "string" && isGtin(raw.gtin) ? raw.gtin : null,
+    pzn: typeof raw.pzn === "string" && isPzn(raw.pzn) ? raw.pzn : pznFromLicence(raw.license_id as string | undefined),
+    perAmount: pricedPerAmount(String(raw.product ?? raw.name ?? "")),
     brand: String(raw.brand ?? ""),
     asin: typeof raw.asin === "string" && raw.asin ? raw.asin : null,
   };

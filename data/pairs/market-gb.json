@@ -436,6 +436,7 @@
       "retailer": "tesco",
       "asin": null,
       "url": "https://www.tesco.com/groceries/en-GB/products/287809486",
+      "gtin": "5054563060372",
       "key_ingredients": [
         {
           "name": "Cetirizine hydrochloride",
@@ -894,6 +895,7 @@
       "retailer": "tesco",
       "asin": null,
       "url": "https://www.tesco.com/groceries/en-GB/products/255211728",
+      "gtin": "5012616291715",
       "key_ingredients": [
         {
           "name": "Beclometasone dipropionate",

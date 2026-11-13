@@ -76,9 +76,9 @@ Covers 49 swaps. zooplus publishes daily product data to Awin affiliates.
    ```
 
    The commas inside an Awin address are fine.
-4. **On the server**: `AWIN_PUBLISHER_ID`, and `AFF_ZOOPLUS_DE=1` and so on for each programme (Pollin has no
-   programme entry in `src/lib/affiliate-programs.ts` yet: its links will earn through the feed, but its pages
-   won't say so until one is added).
+4. **On the server**: `AWIN_PUBLISHER_ID`, and `AFF_ZOOPLUS_DE=1` and so on for each programme (`AFF_POLLIN_DE=1`
+   for Pollin, Awin 15965). A product whose newest price came from a feed with a tracked link says it may earn
+   even before these are set, because its buy button already goes through the feed's link.
 
 ## FlexOffers or Sale Gains: Tesco
 
@@ -144,21 +144,23 @@ warns when a set-up network hasn't priced anything for 14 days.
 
 ## How products are matched
 
-A wrong match is worse than none, so in this order only: the barcode (GTIN, EAN, UPC); then the store's own
-product number, read from the link the record already has (Walmart `/ip/.../<number>`, Target `A-<number>`, zooplus
-`activeVariant`, Shop Apotheke, Chewy, Tesco, Pollin, Crocus numbers), against the feed's SKU or its product link;
-then brand, name and pack size, only when exactly one row in the whole feed fits, and those always wait for you.
-A record linked to a store search page has no number, so it needs a barcode or goes to review.
+A wrong match is worse than none, so in this order only: the barcode (the record's `gtin`: EAN-13, UPC-A, EAN-8 or
+GTIN-14, compared as GTIN-14); then the store's own product number, read from the link the record already has
+(Walmart `/ip/.../<number>`, Target `A-<number>`, zooplus `activeVariant`, Shop Apotheke, Chewy, Tesco, Pollin, Crocus
+numbers), or for a German medicine its PZN, against the feed's SKU or its product link; then brand, name and pack
+size, only when exactly one row in the whole feed fits, and those always wait for you. A record linked to a store
+search page has no number, so it needs a barcode or goes to review. A side priced per wash, per day or per 100 ml
+("price per wash" in its name) is never matched: it names a product, not a pack a feed row could be.
 
 Rates on synthetic feeds built from the real catalogue (`npx tsx scripts/prices/feed-report.ts`, 13 Nov 2026):
 
 | Store | Sides | Automatic | Review | None | Wrong |
 |---|---:|---:|---:|---:|---:|
-| Walmart US (Impact) | 205 | 186 | 4 | 15 | 0 |
+| Walmart US (Impact) | 205 | 185 | 5 | 15 | 0 |
 | Chewy US (Impact) | 6 | 6 | 0 | 0 | 0 |
 | Target US (Impact) | 65 | 64 | 1 | 0 | 0 |
 | zooplus DE (Awin) | 25 | 24 | 0 | 1 | 0 |
-| zooplus IE (Awin) | 36 | 34 | 2 | 0 | 0 |
+| zooplus IE (Awin) | 36 | 32 | 4 | 0 | 0 |
 | Shop Apotheke DE (Awin) | 5 | 5 | 0 | 0 | 0 |
 | Pollin DE (Awin) | 18 | 18 | 0 | 0 | 0 |
 | Crocus GB (Awin) | 12 | 12 | 0 | 0 | 0 |
@@ -166,8 +168,86 @@ Rates on synthetic feeds built from the real catalogue (`npx tsx scripts/prices/
 
 Read these as a best case. The synthetic feeds assume the merchant's SKU or product link carries the same number
 as the store's web address, and that the feed's name holds every word of ours. By barcode alone (if a real feed's
-numbers turn out different) the automatic column would be: Walmart 11, Target 16, zooplus DE 24, zooplus IE 16,
-Pollin 6, Tesco 8, the rest 0. Adding barcodes to records is what makes matching robust.
+numbers turn out different) the automatic column would be: Walmart 10, Target 16, zooplus DE 20, zooplus IE 11,
+Pollin 6, Tesco 8, the rest 0 (13 Nov 2026, after the barcode check below took nine codes that sat on two pack sizes
+off zooplus records). Adding barcodes to records is what makes matching robust.
+
+## Barcodes on records
+
+`gtin` on a swap side or kit piece is the pack's GS1 barcode. The catalogue build checks every one:
+
+- **Check digit.** A code that isn't 8, 12, 13 or 14 digits with a valid check digit fails `npm run catalog`
+  (`src/lib/gtin.ts`, `src/lib/schema.ts`). Before, a bad code was silently dropped; now it has to be fixed.
+- **One code, one pack.** The same code on two sides with the same unit but different sizes fails the build: one
+  of them is wrong, and it would take the other pack's price from a feed. The same roll counted in sheets on one
+  record and in square metres on another is fine.
+- **PZN is not a GTIN.** A German medicine's Pharmazentralnummer goes in `pzn` (8 digits, mod-11 check digit), or
+  stays in `license_id` as `PZN 01234567`, where the feed matcher reads it too. Only when the record's own sources
+  state it. Never put a PZN in `gtin`.
+
+How a code gets onto a record (never guessed, never from a name search):
+
+1. Candidates come from the record's own Open Facts links: the Open Food Facts record in
+   `data/evidence/nutrition.json` and the product page in `data/images.json`, both keyed by brand and product.
+2. Each candidate's page on Open Food Facts, Open Beauty Facts, Open Products Facts or Open Pet Food Facts is read
+   (ODbL; a barcode is a fact, quoted with the page as its source). It's kept only when the page shows a pack size
+   and brand, product and pack size all agree with the record. A page with no pack size, another size ("Advil 360"
+   for a 50-tablet record), another flavour or line ("Lemsip Cold and Flu" for "Lemsip Max"), or another country's
+   pack (a Dutch Nurofen code for a German record) is left out.
+3. `scripts/fetch-images.ts` no longer writes a barcode it found by searching for a name: a search hit names a
+   product, not this pack. That is how the codes on two pack sizes got in.
+
+Run on 13 Nov 2026: 65 candidates read, 18 kept (US 12, GB 4, DE 1, IE 1). Taken off: one code that failed its
+check digit (an Open Food Facts internal code on Heinz ketchup, US) and nine zooplus codes that sat on two pack sizes
+(DE 4, IE 5); one of those was confirmed as the 2 kg bag and kept there. Swap sides with a barcode now:
+
+| Market | Sides | With a barcode | Before |
+|---|---:|---:|---:|
+| US | 318 | 92 | 80 |
+| DE | 366 | 170 (and 74 with a PZN in `license_id`) | 173 |
+| GB | 240 | 93 | 89 |
+| IE | 36 | 12 | 16 |
+| CA | 22 | 0 | 0 |
+| Kit pieces (all markets) | 151 | 0 | 0 |
+
+The next barcodes are cheapest from a feed itself: once a network approves us, a row matched by store number
+carries the merchant's own EAN, which can be copied to the record after a person checks the pack.
+
+## Saying a link may earn
+
+Whether a buy button may earn is decided per link (`src/lib/disclosure.ts`, `mayEarn` in `src/lib/affiliate.ts`),
+with the same choice `/go` makes: it earns when a programme's `AFF_...` setting tags the store link, or when the
+side's newest price came from a feed with a tracked link, which `/go` sends shoppers through. Otherwise the page says
+we earn nothing from it, in English and German. The footer and `/disclosure` also count feed links: the catalogue
+build writes how many there are to `src/generated/feed-links.json`.
+
+## Revenue report
+
+On a computer with the database address, read only:
+
+```
+DATABASE_URL=postgres://... npm run report:revenue                    # last 28 days, per week
+npm run report:revenue -- --days 14 --by day --top 20
+npm run report:revenue -- --exports ~/Downloads/commissions           # Awin or Impact commission CSVs
+```
+
+It prints outbound clicks per day or week by store, programme (`walmart-us`, `feed:awin`, or untagged), shopper's
+country, page (swap, kit, basket, check, list, other) and swap; then the untagged clicks ranked by store with the
+network and sign-up page from `data/sellers/programmes.json`, so the next programme to join is the one at the top.
+Earnings per click come from sales joined to clicks by our click ID: postbacks already in the database, and any
+commission export dropped as CSV in `reports/commissions/` (ignored by git) or the folder given. An export row wins
+over a postback for the same order; declined and reversed sales are left out; currencies are never added together.
+
+- **Exports are untested against real files.** The Awin reader follows the Publisher API transactions fields
+  (`clickRef`, `commissionAmount`, `commissionStatus`, ...) and the Impact reader the Partner API Actions fields
+  (`SubId1`, `Payout`, `State`, ...), with the dashboards' spaced spellings as aliases. Fixtures written from those
+  docs are in `scripts/revenue/fixtures`. A file that matches neither is named in the report, not guessed at.
+- **Page type** comes from the click's referrer (the site sends its full address to its own `/go` and `/out`), and
+  without one from the link itself: a swap's buy link is only on its swap page, a kit piece's only on its kit page.
+  Baskets link to swaps rather than out, so a basket shopper's click counts on the swap page they click from. The
+  clicks table already held everything this needs (`program` null means untagged), so there is no migration.
+- `npx tsx scripts/revenue/rank-programmes.ts` prints the programme ranking in `docs/research/R9-programmes.md`,
+  with each programme's click share when `DATABASE_URL` is set.
 
 ## What isn't tested yet
 

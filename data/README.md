@@ -27,8 +27,11 @@ It runs automatically before `npm run dev` and `npm run build`, and the build fa
 
 ### Optional product fields
 
-- `gtin`: the UPC/EAN barcode digits (8 to 14). Used to fetch openly licensed photos
-  (`npx tsx scripts/fetch-images.ts`) and, later, to match affiliate feeds.
+- `gtin`: the pack's barcode (EAN-13, UPC-A, EAN-8 or GTIN-14). The first key affiliate feeds are matched on, so a
+  wrong check digit, or one code on two pack sizes, fails the build. Only from a page that shows this exact pack
+  (method in `docs/feeds.md`, "Barcodes on records"); never from a name search.
+- `pzn`: a German medicine's PZN, only when the record's own sources state it. Not a GTIN. A `license_id` of
+  `PZN 01234567` counts as the same thing.
 - `image`: where a product photo was found (older files). The site never loads this URL. `scripts/images/ingest.ts`
   downloads it, normalises it, and stores `public/products/<file>-160.webp` and `-480.webp` with a licence record in
   `data/images.json`, keyed by `"<brand>|<product>"`. **Only openly licensed sources**: Open Facts (CC BY-SA, credited on

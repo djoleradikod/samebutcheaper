@@ -2,6 +2,7 @@ import { z } from "zod";
 import { CATEGORY_SLUGS } from "./category-slugs";
 import { MARKET_CODES, RETAILERS } from "./markets";
 import { inRange, RATING_SCALES } from "./rating";
+import { isGtin, isPzn } from "./gtin";
 
 export { MARKET_CODES, RETAILERS };
 
@@ -114,13 +115,17 @@ const product = z.object({
   /** Product photo (https). Missing or invalid falls back to a drawn pack tile. */
   image: imageUrl,
   rating,
-  /** UPC/EAN barcode digits, used to fetch openly licensed photos and match affiliate feeds. */
+  /**
+   * The pack's GS1 barcode (EAN-13, UPC-A, EAN-8 or GTIN-14), the first key affiliate feeds are matched on
+   * (docs/feeds.md). A wrong check digit fails the build: a wrong code would match another product's price.
+   */
   gtin: z
     .string()
-    .regex(/^\d{8,14}$/)
+    .refine(isGtin, "gtin is not 8, 12, 13 or 14 digits with a valid check digit")
     .nullable()
-    .optional()
-    .catch(null),
+    .optional(),
+  /** German Pharmazentralnummer of this pack, only when the record's own sources state it. Not a GTIN. */
+  pzn: z.string().refine(isPzn, "pzn is not 8 digits with a valid check digit").nullable().optional(),
   /** Regulatory licence number: NDC (US), PL (UK), DIN (Canada), PZN (Germany). */
   license_id: z.string().min(3).max(40).nullable().optional().catch(null),
   key_ingredients: z.array(ingredient).default([]),

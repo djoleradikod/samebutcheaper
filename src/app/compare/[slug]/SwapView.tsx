@@ -31,7 +31,8 @@ import { StickyBuy } from "@/components/StickyBuy";
 import { ShareButton } from "@/components/ShareButton";
 import { WhereToBuy } from "@/components/WhereToBuy";
 import { BrandWins, WhyBlock } from "@/components/WhyBlock";
-import { atStore, linkStoreName, linksEarn, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
+import { atStore, mayEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
+import { swapDisclosure } from "@/lib/disclosure";
 import { brandSlugFor, getBrand, getPair, getRelatedPairs, ingredientSlugFor, toSummary } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
 import { comparison, drawbacks, onFileIntro, sortDifferences, type CompareRow } from "@/lib/compare";
@@ -408,7 +409,7 @@ function SwapStickyBuy({ pair, local }: { pair: Pair; local: Local }) {
         <div className="min-w-0 flex-1">
           <p className="truncate text-[13px] font-medium text-ink-2">
             {a.brand}
-            {mayEarn(a, pair.market) && adLabel(pair.market) && <span className="ml-2 text-[11px] text-muted">{t("swap.adLabel", pair.market)}</span>}
+            {mayEarn(a, pair.market, pair.prices?.alternative) && adLabel(pair.market) && <span className="ml-2 text-[11px] text-muted">{t("swap.adLabel", pair.market)}</span>}
           </p>
           <p className="flex items-center gap-2">
             <span className="price text-xl">
@@ -529,7 +530,7 @@ function offersFor(pair: Pair, local: Local): Offer[] {
     href: sells(p.retailer) ? `/go/${pair.slug}/${which}` : null,
     buttonLabel: seeLabel(p, local.lang),
     primary: which === "alternative",
-    ad: mayEarn(p, pair.market) ? t("swap.adLabel", pair.market) : undefined,
+    ad: mayEarn(p, pair.market, pair.prices?.[which]) ? t("swap.adLabel", pair.market) : undefined,
   });
   const offers = [side(a, "alternative"), side(b, "brand")];
   const big = bulkView.bigger;
@@ -663,14 +664,8 @@ function adLabel(market: Pair["market"]) {
   return market === "DE" ? "Anzeige" : market === "GB" || market === "IE" ? "Ad" : undefined;
 }
 
-function disclosure(pair: Pair, lang: Lang) {
-  const t = getT(lang);
-  const earning = [pair.alternative, pair.brand].filter((p) => mayEarn(p, pair.market));
-  // A store search or bigger pack further down can still carry a tag when these two don't.
-  if (earning.length === 0) return linksEarn() ? t("swap.disclosure.noneHereSomeBelow") : t("swap.disclosure.none");
-  if (earning.length === 2) return t("swap.disclosure.both");
-  return t("swap.disclosure.one", linkStoreName(earning[0]));
-}
+// Decided per link, feed links included (src/lib/disclosure.ts).
+const disclosure = swapDisclosure;
 
 function listWords(words: string[]) {
   if (words.length < 2) return words.join("");

@@ -909,6 +909,7 @@
    "retailer": "aldi",
    "asin": null,
    "url": "https://www.aldi.co.uk/results?q=magnum+washing+up+liquid",
+   "gtin": "4061463080424",
    "key_ingredients": []
   },
   "match_type": "equivalent_spec",
@@ -955,6 +956,7 @@
    "retailer": "aldi",
    "asin": null,
    "url": "https://www.aldi.co.uk/results?q=magnum+washing+up+liquid",
+   "gtin": "4061463080424",
    "key_ingredients": []
   },
   "match_type": "equivalent_spec",
