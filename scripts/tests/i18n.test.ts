@@ -13,6 +13,7 @@ import { dateDe, formatMoneyDe, formatPercent, monthDe, shortDateDe } from "../.
 import { langForPage, langOfPath } from "../../src/lib/i18n/lang";
 import { numberProblem, numbersIn, pairDeProblems } from "../../src/lib/i18n/record-check";
 import { getT } from "../../src/lib/i18n";
+import { productName } from "../../src/lib/i18n/product-name";
 import { money } from "../../src/lib/format";
 import { categoryDescription, categoryTitle, DESCRIPTION_MAX, hreflangFor, recordVersions, swapDescriptionsDe, swapTitles } from "../../src/lib/seo";
 import { CATEGORIES } from "../../src/lib/categories";
@@ -166,6 +167,24 @@ test("every kit and basket sold in Germany has its German text; others stay Engl
   }
   const t = getT("de");
   assert.equal(t("kits.inEnglish"), "Auf Englisch");
+});
+
+test("product names on German pages say their pack in German, and English names stay as written", () => {
+  assert.equal(productName("Aspirin 500 mg überzogene Tabletten, 80 tablets", "de"), "Aspirin 500 mg überzogene Tabletten, 80 Tabletten");
+  assert.equal(productName("Ibu-ratiopharm 400 mg akut Schmerztabletten, 50 film-coated tablets", "de"), "Ibu-ratiopharm 400 mg akut Schmerztabletten, 50 Filmtabletten");
+  assert.equal(productName("Jeden Tag Soft Toilettenpapier 3-lagig, 4 rolls of 220 sheets", "de"), "Jeden Tag Soft Toilettenpapier 3-lagig, 4 Rollen à 220 Blatt");
+  assert.equal(productName("Rewe Ja! Ultra Power Spülmittelkonzentrat, price per 100 ml", "de"), "Rewe Ja! Ultra Power Spülmittelkonzentrat, Preis pro 100 ml");
+  assert.equal(productName("Dehner Schneckenkorn, 1.2 kg", "de"), "Dehner Schneckenkorn, 1,2 kg");
+  // A part it doesn't know stays as the record has it, and the name before the first comma is never touched.
+  assert.equal(productName("SanDisk Extreme microSDXC 128 GB, UHS-I U3 V30 A2", "de"), "SanDisk Extreme microSDXC 128 GB, UHS-I U3 V30 A2");
+  assert.equal(productName("Advil Tablets 200 mg, 24 tablets", "en"), "Advil Tablets 200 mg, 24 tablets");
+  // Every German-market name in the catalogue ends in German or in something both languages share.
+  for (const p of pairs.filter((x) => x.market === "DE")) {
+    for (const s of [p.brand, p.alternative]) {
+      const tail = productName(s.product, "de").split(", ").slice(1).join(", ");
+      assert.doesNotMatch(tail, /\b(?:tablets?|capsules?|cells|washes|nappies|sheets|bags|pieces|price per|cost per)\b/i, s.product);
+    }
+  }
 });
 
 test("the tools have a German form only: /de/check, never /uk/check", () => {

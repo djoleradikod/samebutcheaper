@@ -83,8 +83,9 @@ const OWN_PRICES = MARKET_CODES.filter((m) => !hasBand(m)).join("|");
 const LONG_BAND = MARKET_CODES.filter((m) => hasBand(m) && !localFor(m).fallback).join("|") || "-";
 const RESERVE_BAND = `(function(){${PATH_COUNTRY_SCRIPT}var m=document.cookie.match(/(?:^|; )sbc_country=([A-Z]{2})/);var c=pathCountry||(m&&m[1]);if(c&&!/^(${OWN_PRICES})$/.test(c))document.documentElement.setAttribute("data-band",/^(${LONG_BAND})$/.test(c)?"long":"");${shopperAttributesScript()}})()`;
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  const jsonLd = [
+/** The site's JSON-LD; the German one searches and describes in German. */
+function siteJsonLd(lang: "en" | "de") {
+  return [
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -92,7 +93,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       url: SITE.url,
       potentialAction: {
         "@type": "SearchAction",
-        target: `${SITE.url}/search?q={search_term_string}`,
+        target: `${SITE.url}${lang === "de" ? "/de" : ""}/search?q={search_term_string}`,
         "query-input": "required name=search_term_string",
       },
     },
@@ -102,10 +103,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       name: SITE.name,
       url: SITE.url,
       logo: `${SITE.url}/apple-icon.png`,
-      description: SITE.description,
+      description: lang === "de" ? getT("de")("layout.siteDescription") : SITE.description,
       email: SITE.contactEmail,
     },
   ];
+}
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <Html className={`${archivo.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
@@ -125,7 +129,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <ByLang en={<SiteFooter />} de={<SiteFooter lang="de" />} />
         <script src="/sw-register.js" async />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(jsonLd) }} />
+        <ByLang
+          en={<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(siteJsonLd("en")) }} />}
+          de={<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(siteJsonLd("de")) }} />}
+        />
       </body>
     </Html>
   );

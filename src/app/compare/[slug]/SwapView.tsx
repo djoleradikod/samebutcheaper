@@ -48,6 +48,7 @@ import { getT, type Lang } from "@/lib/i18n";
 import { langForCountry } from "@/lib/i18n/lang";
 import { listWords as listWordsIn } from "@/lib/i18n/format";
 import { unitWordsFor } from "@/lib/i18n/units";
+import { productName } from "@/lib/i18n/product-name";
 import { unitLabel } from "@/lib/unit-format";
 import { comparisonDe, differencesDe, onFileIntroDe } from "@/lib/i18n/compare-de";
 import { claimText, germanText, subcategoryName } from "@/lib/i18n/record";
@@ -520,7 +521,7 @@ function offersFor(pair: Pair, local: Local): Offer[] {
   // For a shopper in another country, their country's rule or "not checked", never the home market's (delivery-abroad.ts).
   const deliveryNote = (p: ProductSide) => (sells(p.retailer) ? deliveryNoteFor(sellerOf(p), pair.market, p.price, pair.currency, local) : undefined);
   const side = (p: ProductSide, which: "brand" | "alternative"): Offer => ({
-    name: fullName(p),
+    name: productName(fullName(p), local.lang),
     note: deliveryNote(p),
     store: sells(p.retailer) ? storeName(p.retailer, p.url) : elsewhere,
     price: p.price,

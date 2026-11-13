@@ -9,6 +9,7 @@ import type { Preset } from "./types";
 import { isPerAmountRecord, packSize } from "./unit-format";
 import type { Local } from "@/lib/localize";
 import { getT, type Lang } from "./i18n";
+import { productName } from "./i18n/product-name";
 import { basketText, subcategoryName } from "./i18n/record";
 
 export { packSize };
@@ -164,9 +165,9 @@ export function basketLines(preset: Preset, local?: Local): BasketLineView[] {
       subcategory: subcategoryName(l.subcategory, lang),
       category: pair?.category,
       brandName: l.brandName,
-      brandProduct: pair?.brand.product ?? l.brandName,
+      brandProduct: pair ? productName(pair.brand.product, lang) : l.brandName,
       altName: l.altName,
-      altProduct: pair?.alternative.product ?? l.altName,
+      altProduct: pair ? productName(pair.alternative.product, lang) : l.altName,
       brandPhoto: l.brandPhoto,
       altPhoto: l.altPhoto,
       altStore: altStore(l.pair, local),

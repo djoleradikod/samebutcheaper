@@ -1,7 +1,7 @@
 import "server-only";
 import { getAllBundles, getAllPairs, getAllPresets } from "./catalog";
 import * as pages from "./country-pages";
-import type { PrefixedCountry } from "./country-url";
+import { withCountry, type PrefixedCountry } from "./country-url";
 import { swapDescription, swapDescriptionsDe, swapTitles } from "./seo";
 import { SITE } from "./site";
 import { langForCountry, type Lang } from "./i18n/lang";
@@ -36,6 +36,18 @@ export function countryHead(path: string, country: PrefixedCountry | null) {
 }
 
 /**
+ * The Open Graph card of a page in another language than English: its own title and description, where an English page
+ * keeps the layout's card. Nothing for English, so English heads are unchanged.
+ */
+export function languageCard(country: PrefixedCountry | null, title: string, description: string, path: string) {
+  const lang = langForCountry(country);
+  if (lang === "en") return {};
+  // A page's own openGraph drops the layout's share image, so the site's default image is named again.
+  const images = [{ url: "/opengraph-image", width: 1200, height: 630 }];
+  return { openGraph: { type: "website" as const, siteName: SITE.name, locale: "de_DE", title, description, url: withCountry(path, country), images } };
+}
+
+/**
  * The home page's head, unprefixed (null) or one country's. The layout's alternates also name the feed, and a page's
  * alternates replace the layout's whole, so the feed is named again here.
  */
@@ -43,7 +55,10 @@ export function homeHead(country: PrefixedCountry | null) {
   const head = countryHead("/", country);
   const lang = langForCountry(country);
   const t = getT(lang);
-  const own = lang === "en" ? {} : { title: { absolute: t("home.metaTitle") }, description: t("home.metaDescription") };
+  const own =
+    lang === "en"
+      ? {}
+      : { title: { absolute: t("home.metaTitle") }, description: t("home.metaDescription"), ...languageCard(country, t("home.metaTitle"), t("home.metaDescription"), "/") };
   return {
     ...own,
     ...head,

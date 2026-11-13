@@ -429,6 +429,7 @@ function Result({
 function SwapRow({ item, viewingShared }: { item: Line; viewingShared: boolean }) {
   const { swap: s, counted, line } = item;
   const t = useCheckT();
+  const lang = useLang();
   return (
     <li className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-3 gap-y-2 p-3 md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-x-4">
       <div className="flex gap-1">
@@ -446,7 +447,7 @@ function SwapRow({ item, viewingShared }: { item: Line; viewingShared: boolean }
         </p>
         {/* No dots between the parts: when a part wraps, a dot was left hanging at the end of the line above. */}
         <p className="mt-0.5 flex flex-wrap items-center gap-x-3 text-[13px] text-ink-2">
-          <MatchBadge type={s.match} />
+          <MatchBadge type={s.match} lang={lang} />
           <span>
             {rich(t("pageShoppingCheck.lessPer", s.yearly?.pack ?? null, s.savingsPct), { amount: <Money n={s.savings} from={s.currency} prose /> })}
           </span>

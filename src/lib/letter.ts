@@ -16,6 +16,7 @@ import type { Bundle, Pair } from "./types";
 import { unitLabel } from "./unit-format";
 import { getT } from "./i18n";
 import type { Lang } from "./i18n/lang";
+import { productName } from "./i18n/product-name";
 
 /**
  * The weekly letter. Once a week, to every confirmed address that asked for it (subscribers.newsletter "yes"):
@@ -129,8 +130,8 @@ function kitName(kit: Bundle, lang: Lang = "en") {
 export function pairLines(pair: Pair, local: Local, link: string, lang: Lang = "en") {
   const t = getT(lang);
   const unit = unitLabel(pair.brand.unit, lang);
-  const head = fullName(pair.alternative.brand, pair.alternative.product);
-  const instead = t("mailLetter.instead", fullName(pair.brand.brand, pair.brand.product));
+  const head = fullName(pair.alternative.brand, productName(pair.alternative.product, lang));
+  const instead = t("mailLetter.instead", fullName(pair.brand.brand, productName(pair.brand.product, lang)));
   const yearly = yearlyNote(pair, local, lang);
   const match = lang === "en" ? MATCH_TYPE_META[pair.match_type].label : t(`match.${pair.match_type}.label`);
   const facts = t("mailLetter.facts", match, Math.round(pair.savingsPct), local.unit(pair.alternative.ppu, pair.brand.unit, pair.currency), local.unit(pair.brand.ppu, pair.brand.unit, pair.currency), unit);

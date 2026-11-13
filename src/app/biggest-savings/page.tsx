@@ -46,7 +46,7 @@ export default function BiggestSavingsPage() {
           {(local) => <PairBrowser path="/biggest-savings" {...browseProps(forCountry(getAllPairs(), local), { hideMedicine: true, local })} showRank />}
         </CountryPart>
       </div>
-      <BiggestSavingsSchema />
+      <BiggestSavingsSchema lang={lang} />
     </div>
   );
 }

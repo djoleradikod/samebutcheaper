@@ -7,6 +7,7 @@ import { yearlyFields } from "@/components/YearlyBlock";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getAllPairs } from "@/lib/catalog";
 import { getT } from "@/lib/i18n";
+import { productName } from "@/lib/i18n/product-name";
 import { subcategoryName } from "@/lib/i18n/record";
 import { getLang } from "@/lib/i18n/server";
 
@@ -33,9 +34,9 @@ export default function MyListPage() {
       category: p.category,
       unit: p.brand.unit,
       fromPhoto: p.brand.photo?.src ?? null,
-      fromAlt: p.brand.product,
+      fromAlt: productName(p.brand.product, lang),
       toPhoto: p.alternative.photo?.src ?? null,
-      toAlt: p.alternative.product,
+      toAlt: productName(p.alternative.product, lang),
       yearly: yearlyFields(p, lang),
     })),
     ...getAllBundles().map((b) => {

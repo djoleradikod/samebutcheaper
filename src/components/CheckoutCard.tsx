@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Store, Truck } from "lucide-react";
 import type { Checkout, StoreOrder } from "@/lib/delivery";
 import type { Currency } from "@/lib/format";
-import { useT } from "@/lib/i18n/client";
+import { useLang, useT } from "@/lib/i18n/client";
 import type { ClientT } from "@/lib/i18n/client-dict";
 import { pageCheckout } from "@/lib/i18n/en/pages/checkout";
 import { rich } from "@/lib/i18n/rich";
@@ -68,6 +68,8 @@ export function CheckoutCard({
 }) {
   const t = useCheckoutT();
   const unchecked = uncheckedNote(checkout.stores, names, t);
+  // A store's note is our research note, in English: a German page has the delivery line above it and leaves it out.
+  const notes = useLang() === "en";
   return (
     <div className="card">
       <ul className="divide-y divide-line">
@@ -94,7 +96,7 @@ export function CheckoutCard({
                 {s.membership.nonmember_surcharge_pct ? t("pageCheckout.surcharge", s.membership.nonmember_surcharge_pct) : "."}
               </p>
             )}
-            {s.note && !s.membership && <p className="mt-1 text-xs text-muted">{s.note}</p>}
+            {notes && s.note && !s.membership && <p className="mt-1 text-xs text-muted">{s.note}</p>}
           </li>
         ))}
       </ul>

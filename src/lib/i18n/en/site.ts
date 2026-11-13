@@ -8,6 +8,9 @@ import { countryInSentence } from "../../markets";
 
 export const layout = {
   skip: "Skip to content",
+  /** The site's description in its JSON-LD (SITE.description in English). */
+  siteDescription:
+    "Cheaper alternatives to brand-name products, compared per unit. Each swap says what matches, what differs and what our records don't show, and links to at least two sources.",
 };
 
 export const header = {

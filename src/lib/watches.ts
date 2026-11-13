@@ -13,6 +13,7 @@ import { unitLabel } from "./unit-format";
 import { getT } from "./i18n";
 import { monthDe } from "./i18n/format";
 import type { Lang } from "./i18n/lang";
+import { productName } from "./i18n/product-name";
 
 /**
  * Price watches. A watch holds a swap's prices from when it began (or from the last email about it). Prices only
@@ -121,7 +122,7 @@ export function watchMail(
     const local = localFor(input.country, false, lang);
     const per = unitLabel(now.unit, lang);
     const cur = (n: number, c: string) => `${local.unit(n, now.unit, c as Currency)} ${per}`;
-    const alt = fullName(pair.alternative.brand, pair.alternative.product);
+    const alt = fullName(pair.alternative.brand, productName(pair.alternative.product, lang));
     const parts: string[] = [];
     if (change.move !== null && Math.abs(change.move) >= PRICE_MOVE - 1e-9) {
       parts.push(t("mailWatch.moved", alt, change.move > 0, Math.round(Math.abs(change.move) * 100), cur(now.altPpu, now.currency), cur(before.altPpu, before.currency)));

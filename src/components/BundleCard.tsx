@@ -66,8 +66,9 @@ export function BundleCard({ bundle, lang = "en" }: { bundle: Bundle; lang?: Lan
             german={lang === "de"}
           />
         </div>
-        <p className="mt-0.5 line-clamp-3 leading-snug font-semibold group-hover:underline" title={bundle.bundle.name}>
-          {bundle.bundle.name}
+        {lang !== "en" && !bundle.de && <p className="mt-0.5 text-xs font-medium text-muted">{t("kits.inEnglish")}</p>}
+        <p lang={lang !== "en" && !bundle.de ? "en" : undefined} className="mt-0.5 line-clamp-3 leading-snug font-semibold group-hover:underline" title={bundle.bundle.name}>
+          {(lang !== "en" && bundle.de?.name) || bundle.bundle.name}
         </p>
         <ul className="mt-1.5 space-y-0.5 text-[13px] text-ink-2">
           {pieces.map((c) => (

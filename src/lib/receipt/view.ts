@@ -4,6 +4,7 @@ import { forCountry, type Local } from "@/lib/localize";
 import type { Pair } from "@/lib/types";
 import { packSize, unitLabel } from "@/lib/unit-format";
 import type { Lang } from "@/lib/i18n/lang";
+import { productName } from "@/lib/i18n/product-name";
 import { savingKind } from "@/lib/yearly";
 import { buildIndex, toCandidate, type Index } from "./match";
 import type { SwapView } from "./types";
@@ -16,9 +17,9 @@ export function swapView(p: Pair, lang: Lang = "en"): SwapView {
     href: `/compare/${p.slug}`,
     market: p.market,
     from: b.brand,
-    fromProduct: b.product,
+    fromProduct: productName(b.product, lang),
     to: a.brand,
-    toProduct: a.product,
+    toProduct: productName(a.product, lang),
     match: p.match_type,
     savingsPct: p.savingsPct,
     savings: p.savingsPerPack,

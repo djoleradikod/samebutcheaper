@@ -5,6 +5,8 @@ import { countryAt } from "./client";
 
 export const layout: Shape<typeof en.layout> = {
   skip: "Zum Inhalt springen",
+  siteDescription:
+    "Günstigere Alternativen zu Markenprodukten, pro Einheit verglichen. Jeder Vergleich sagt, was übereinstimmt, was sich unterscheidet und was unsere Unterlagen nicht zeigen, und verlinkt auf mindestens zwei Quellen.",
 };
 
 export const header: Shape<typeof en.header> = {
