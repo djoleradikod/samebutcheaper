@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-11",
+  "checked": "2026-11-13",
   "method": "Each store's own delivery page where it could be read; a dated third-party guide where the store's page doesn't state the rule (confidence \"secondary\"). fee is standard home delivery for an order below free_over, in the market's currency. free_over 0 means every order ships free. null means we couldn't confirm it, and the site then says the delivery cost is unchecked instead of guessing. pickup true means a source says store pickup is free.",
   "sellers": {
     "target": {
@@ -8,16 +8,20 @@
         "free_over": 35,
         "confidence": "official",
         "note": "Orders paid with a Target Circle Card ship free at any size.",
-        "sources": ["https://www.target.com/help/article/000055608"]
+        "sources": [
+          "https://www.target.com/help/article/000055608"
+        ]
       }
     },
     "walmart": {
       "US": {
         "fee": 6.99,
         "free_over": 35,
-        "confidence": "secondary",
-        "note": "Walmart+ members get free shipping with no minimum.",
-        "sources": ["https://martguides.com/walmart-online-shopping/", "https://www.walmart.com/plus/free-shipping"]
+        "confidence": "official",
+        "note": "Walmart calls the fee a below-order-minimum fee. Walmart+ members get free shipping with no minimum.",
+        "sources": [
+          "https://www.walmart.com/help/article/the-walmart-site-and-app-experience/27f2678cb25a40a7b57a359fec3ca67f"
+        ]
       }
     },
     "ulta": {
@@ -26,27 +30,85 @@
         "free_over": 35,
         "pickup": true,
         "confidence": "secondary",
-        "sources": ["https://www.ulta.com/guestservices/all", "https://thekrazycouponlady.com/coupons-for/ulta/ulta-free-shipping"]
+        "note": "Ulta's own Guest Services page confirms the 6.95 standard fee but names no free-shipping threshold; the 35 dollar threshold and free pickup still rest on a third-party guide.",
+        "sources": [
+          "https://www.ulta.com/guestservices/all",
+          "https://thekrazycouponlady.com/coupons-for/ulta/ulta-free-shipping"
+        ]
       }
     },
     "anker": {
-      "US": { "fee": 0, "free_over": 0, "confidence": "official", "sources": ["https://www.anker.com/policies/shipping-policy"] },
-      "GB": { "fee": 0, "free_over": 0, "confidence": "official", "sources": ["https://www.anker.com/uk/policies/shipping-policy"] }
+      "US": {
+        "fee": 0,
+        "free_over": 0,
+        "confidence": "official",
+        "sources": [
+          "https://www.anker.com/policies/shipping-policy"
+        ]
+      },
+      "GB": {
+        "fee": 0,
+        "free_over": 0,
+        "confidence": "official",
+        "sources": [
+          "https://www.anker.com/uk/policies/shipping-policy"
+        ]
+      }
     },
     "logitech": {
       "US": {
         "fee": null,
         "free_over": 29,
         "confidence": "official",
-        "sources": ["https://logitech.com/en-us/search", "https://logitech.com/en-us/products/cameras.html"]
+        "sources": [
+          "https://logitech.com/en-us/search",
+          "https://logitech.com/en-us/products/cameras.html"
+        ]
       }
     },
     "theordinary": {
-      "US": { "fee": 4.99, "free_over": 25, "confidence": "official", "sources": ["https://theordinary.com/en-gb/faq.html"] },
-      "CA": { "fee": 4.99, "free_over": 25, "confidence": "official", "sources": ["https://theordinary.com/en-gb/faq.html"] },
-      "GB": { "fee": 4.99, "free_over": 25, "confidence": "official", "sources": ["https://theordinary.com/en-gb/faq.html"] },
-      "DE": { "fee": 4.99, "free_over": 25, "confidence": "official", "note": "The store's table lists Europe as one region.", "sources": ["https://theordinary.com/en-gb/faq.html"] },
-      "IE": { "fee": 4.99, "free_over": 25, "confidence": "official", "note": "The store's table lists Europe as one region.", "sources": ["https://theordinary.com/en-gb/faq.html"] }
+      "US": {
+        "fee": 4.99,
+        "free_over": 25,
+        "confidence": "official",
+        "sources": [
+          "https://theordinary.com/en-gb/faq.html"
+        ]
+      },
+      "CA": {
+        "fee": 4.99,
+        "free_over": 25,
+        "confidence": "official",
+        "sources": [
+          "https://theordinary.com/en-gb/faq.html"
+        ]
+      },
+      "GB": {
+        "fee": 4.99,
+        "free_over": 25,
+        "confidence": "official",
+        "sources": [
+          "https://theordinary.com/en-gb/faq.html"
+        ]
+      },
+      "DE": {
+        "fee": 4.99,
+        "free_over": 25,
+        "confidence": "official",
+        "note": "The store's table lists Europe as one region.",
+        "sources": [
+          "https://theordinary.com/en-gb/faq.html"
+        ]
+      },
+      "IE": {
+        "fee": 4.99,
+        "free_over": 25,
+        "confidence": "official",
+        "note": "The store's table lists Europe as one region.",
+        "sources": [
+          "https://theordinary.com/en-gb/faq.html"
+        ]
+      }
     },
     "shopapotheke": {
       "DE": {
@@ -54,7 +116,9 @@
         "free_over": 19,
         "confidence": "secondary",
         "note": "Prescription orders always ship free.",
-        "sources": ["https://online-apotheke.de.com/versandkosten/shop-apotheke/"]
+        "sources": [
+          "https://online-apotheke.de.com/versandkosten/shop-apotheke/"
+        ]
       }
     },
     "costco": {
@@ -62,9 +126,174 @@
         "fee": null,
         "free_over": null,
         "confidence": "secondary",
-        "membership": { "name": "Costco Gold Star membership", "price": 65, "per": "year", "nonmember_surcharge_pct": 5 },
+        "membership": {
+          "name": "Costco Gold Star membership",
+          "price": 65,
+          "per": "year",
+          "nonmember_surcharge_pct": 5
+        },
         "note": "Kirkland is sold only at Costco. Non-members can order online with a 5% surcharge.",
-        "sources": ["https://www.kiplinger.com/slideshow/spending/T050-S001-things-you-can-get-at-costco-without-a-membership/index.html"]
+        "sources": [
+          "https://www.kiplinger.com/slideshow/spending/T050-S001-things-you-can-get-at-costco-without-a-membership/index.html"
+        ]
+      }
+    },
+    "aponeo": {
+      "DE": {
+        "fee": 3.99,
+        "free_over": 29.99,
+        "confidence": "official",
+        "note": "Standard DHL delivery. Orders with a prescription for a prescription-only medicine ship free at any value. Express options always cost extra.",
+        "sources": [
+          "https://www.aponeo.de/hilfe/versand-und-lieferung/wie-hoch-sind-die-versandkosten/"
+        ]
+      }
+    },
+    "alternate": {
+      "DE": {
+        "fee": 7.99,
+        "free_over": null,
+        "confidence": "official",
+        "note": "Standard parcel. The store's page names no order value for free delivery; an order holding at least one product marked \"ALTERNATE Premium Vorteil\" ships free (parcels up to 31.5 kg). Bulky goods cost more.",
+        "sources": [
+          "https://www.alternate.de/HILFE/Versand-Lieferung",
+          "https://www.alternate.de/premium"
+        ]
+      }
+    },
+    "mytime": {
+      "DE": {
+        "fee": 5.49,
+        "free_over": 70,
+        "confidence": "official",
+        "note": "Outside myTime's own courier area, orders of 120 euro or more pay 5.49 again. Chilled and frozen goods add a freshness surcharge (5.90 below 70 euro, 2.90 above inside the courier area, 5.90 always outside it), which isn't counted here.",
+        "sources": [
+          "https://www.mytime.de/hilfe/zahlungen-und-versand"
+        ]
+      }
+    },
+    "boots": {
+      "GB": {
+        "fee": 3.95,
+        "free_over": 25,
+        "pickup": true,
+        "confidence": "official",
+        "note": "Prescription medicines, gift cards and gift boxes don't count towards the 25 pound threshold. Click & Collect is free over 15 pounds, otherwise 1.50.",
+        "sources": [
+          "https://www.boots.com/shopping/delivery"
+        ]
+      }
+    },
+    "superdrug": {
+      "GB": {
+        "fee": 3,
+        "free_over": 25,
+        "pickup": true,
+        "confidence": "official",
+        "note": "Members of the Health & Beautycard loyalty scheme get free standard delivery from 20 pounds. Standard Order & Collect to a store is free.",
+        "sources": [
+          "https://www.superdrug.com/delInfo"
+        ]
+      }
+    },
+    "toolstation": {
+      "GB": {
+        "fee": 5,
+        "free_over": 40,
+        "confidence": "official",
+        "note": "Next business day delivery. Pre-12 delivery costs 10 pounds; weekend delivery 10 pounds under 40, 5 pounds from 40 to 75, free over 75. Click & Collect in branch is offered; the FAQ gives no charge for it.",
+        "sources": [
+          "https://www.toolstation.com/help-and-advice/faqs"
+        ]
+      }
+    },
+    "viking": {
+      "GB": {
+        "fee": null,
+        "free_over": null,
+        "confidence": "official",
+        "note": "Viking's pages advertise \"Free next working day delivery\" subject to terms, and its terms say delivery charges are as stated in the order. No page we could read gives a fee or a threshold.",
+        "sources": [
+          "https://www.viking-direct.co.uk/en/returns-and-delivery",
+          "https://odeu.scene7.com/is/content/odeu13/PDF/Legal/Terms-and-Conditions/Terms-and-Conditions-UK.pdf"
+        ]
+      }
+    },
+    "sainsburys": {
+      "GB": {
+        "fee": null,
+        "free_over": null,
+        "confidence": "official",
+        "note": "Grocery home delivery needs a 25 pound minimum order. The fee depends on the slot: at most 7.50 under 50 pounds, and a slot-dependent fee above. Click & Collect has no minimum and costs 4 pounds under 25.",
+        "sources": [
+          "https://help.sainsburys.co.uk/help/terms-and-conditions/buying-online"
+        ]
+      }
+    },
+    "apple": {
+      "US": {
+        "fee": 0,
+        "free_over": 0,
+        "pickup": true,
+        "confidence": "official",
+        "note": "Standard delivery is free on all online orders.",
+        "sources": [
+          "https://www.apple.com/shop/help/shipping_delivery"
+        ]
+      }
+    },
+    "thorne": {
+      "US": {
+        "fee": 0,
+        "free_over": 0,
+        "confidence": "official",
+        "note": "Retail orders get free Ground shipping within the US, except to Alaska and Hawaii.",
+        "sources": [
+          "https://www.thorne.com/faq/will-there-be-shipping-fees-charged-on-my-order"
+        ]
+      }
+    },
+    "livemomentous": {
+      "US": {
+        "fee": null,
+        "free_over": 99,
+        "confidence": "official",
+        "note": "Free standard shipping on qualifying orders of 99 dollars or more. Below that the fee is worked out at checkout and isn't published.",
+        "sources": [
+          "https://help.livemomentous.com/hc/en-us/articles/360023129873-Why-did-I-get-charged-for-shipping"
+        ]
+      }
+    },
+    "dermstore": {
+      "US": {
+        "fee": 7,
+        "free_over": 50,
+        "confidence": "official",
+        "note": "Threshold is after discounts, before tax.",
+        "sources": [
+          "https://www.dermstore.com/c/info/delivery-information/"
+        ]
+      }
+    },
+    "belkin": {
+      "US": {
+        "fee": 7.95,
+        "free_over": 75,
+        "confidence": "official",
+        "note": "Threshold excludes taxes.",
+        "sources": [
+          "https://www.belkin.com/support-article/?articleNum=247416"
+        ]
+      }
+    },
+    "ugreen": {
+      "US": {
+        "fee": 3.99,
+        "free_over": 20,
+        "confidence": "official",
+        "sources": [
+          "https://us.ugreen.com/pages/shipping-policy"
+        ]
       }
     }
   }
