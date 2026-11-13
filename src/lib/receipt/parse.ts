@@ -60,6 +60,11 @@ const ABBREVIATIONS: Record<string, string> = {
   capsules: "capsule",
   kapseln: "capsule",
   hartkapseln: "capsule",
+  // "Zäpfchen" on a German list, "Suppositorien" on the pack
+  zapfchen: "suppository",
+  zaepfchen: "suppository",
+  suppositorien: "suppository",
+  suppositories: "suppository",
   softgel: "capsule",
   softgels: "capsule",
   sftgl: "capsule",

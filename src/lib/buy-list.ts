@@ -89,7 +89,7 @@ const ENGLISH: BuyListWords = {
   free: "free delivery",
   fee: (fee) => `delivery ${fee}`,
   notChecked: "delivery not checked",
-  total: (unchecked, amount) => `Total ${unchecked ? "before unchecked delivery" : "with delivery"}: ${amount}`,
+  total: (unchecked, amount) => `Total${unchecked ? ", plus delivery we haven't checked" : " with delivery"}: ${amount}`,
   checked: (when) => `Prices checked ${when}. Check them before you buy.`,
 };
 

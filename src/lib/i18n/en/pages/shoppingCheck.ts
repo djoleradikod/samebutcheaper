@@ -53,6 +53,13 @@ export const pageShoppingCheck = {
   notThis: (product: string) => `No, not ${product}`,
   no: "No",
   nothingCheaper: "Nothing cheaper on file yet",
+  // "Which one" (ChooseOne.tsx): a line that names only a brand with several products on file.
+  chooseTitle: "Which one do you buy?",
+  chooseNote: "These lines name a brand we have more than one product of, and nothing on the line tells them apart. Pick yours, and we'll count only that one.",
+  chooseFits: (line: string) => `Products that fit ${line}`,
+  chooseIBuy: (product: string) => `I buy ${product}`,
+  chooseThis: "This one",
+  chooseNone: "None of these",
   countNote: (example: string) =>
     `We count the products we had nothing for by their cleaned name alone, such as “${example}”, so the most asked-for get researched first. `,
   wantSooner: "Want one sooner?",

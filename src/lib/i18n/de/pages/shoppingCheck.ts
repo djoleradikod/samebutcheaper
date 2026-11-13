@@ -59,6 +59,12 @@ export const pageShoppingCheck: Shape<typeof en> = {
   notThis: (product) => `Nein, nicht ${product}`,
   no: "Nein",
   nothingCheaper: "Noch nichts Günstigeres erfasst",
+  chooseTitle: "Welches kaufst du?",
+  chooseNote: "Diese Zeilen nennen eine Marke, von der wir mehr als ein Produkt haben, und nichts in der Zeile sagt, welches gemeint ist. Wähl deins aus, dann zählen wir nur dieses.",
+  chooseFits: (line) => `Produkte, die zu ${line} passen`,
+  chooseIBuy: (product) => `Ich kaufe ${product}`,
+  chooseThis: "Dieses",
+  chooseNone: "Keins davon",
   countNote: (example) =>
     `Produkte, für die wir nichts hatten, zählen wir nur unter ihrem bereinigten Namen, etwa „${example}“, damit die meistgesuchten zuerst recherchiert werden. `,
   wantSooner: "Soll es schneller gehen?",

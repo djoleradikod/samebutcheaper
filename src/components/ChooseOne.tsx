@@ -2,7 +2,14 @@
 
 import { Check, X } from "lucide-react";
 import type { ResultLine, SwapView } from "@/lib/receipt/types";
+import { useT } from "@/lib/i18n/client";
+import { pageShoppingCheck } from "@/lib/i18n/en/pages/shoppingCheck";
+import { rich } from "@/lib/i18n/rich";
 import { Money } from "./Money";
+
+/** The English this component reads; German is loaded on /de (src/lib/i18n/client-dict.ts). */
+const TEXT = { pageShoppingCheck };
+const german = () => import("@/lib/i18n/de/pages/shoppingCheck");
 
 export type ChooseLine = Extract<ResultLine, { status: "choose" }>;
 
@@ -23,23 +30,21 @@ export function ChooseSection({
   /** The slug picked, or false for none of these. */
   onPick: (line: ChooseLine, pick: string | false) => void;
 }) {
+  const t = useT(TEXT, german);
   if (!lines.length) return null;
   return (
     <section aria-labelledby="choose-heading" className="print:hidden">
       <h2 id="choose-heading" className="display text-xl md:text-2xl">
-        Which one do you buy?
+        {t("pageShoppingCheck.chooseTitle")}
       </h2>
-      <p className="mt-1 max-w-[70ch] text-[13px] text-ink-2 md:text-sm">
-        These lines name a brand we have more than one product of, and nothing on the line tells them apart. Pick yours, and
-        we&apos;ll count only that one.
-      </p>
+      <p className="mt-1 max-w-[70ch] text-[13px] text-ink-2 md:text-sm">{t("pageShoppingCheck.chooseNote")}</p>
       <ul className="mt-3 space-y-3">
         {lines.map((l) => {
           const options = l.slugs.filter((slug) => swaps[slug]);
           return (
             <li key={l.index} className="card p-3">
               <p className="font-mono text-[13px] text-muted">{l.text}</p>
-              <ul className="mt-2 divide-y divide-line" aria-label={`Products that fit ${l.text}`}>
+              <ul className="mt-2 divide-y divide-line" aria-label={t("pageShoppingCheck.chooseFits", l.text)}>
                 {options.map((slug) => {
                   const swap = swaps[slug];
                   return (
@@ -48,23 +53,23 @@ export function ChooseSection({
                         {swap.fromProduct}
                         <span className="font-normal text-ink-2">
                           {" "}
-                          could be {swap.to}, <Money n={swap.savings} from={swap.currency} prose /> less a pack
+                          {rich(t("pageShoppingCheck.couldBe", swap.to), { amount: <Money n={swap.savings} from={swap.currency} prose /> })}
                         </span>
                       </p>
                       <button
                         type="button"
                         className="btn btn-ghost min-h-11 shrink-0"
                         onClick={() => onPick(l, slug)}
-                        aria-label={`I buy ${swap.fromProduct}`}
+                        aria-label={t("pageShoppingCheck.chooseIBuy", swap.fromProduct)}
                       >
-                        <Check className="h-4 w-4" aria-hidden="true" /> This one
+                        <Check className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.chooseThis")}
                       </button>
                     </li>
                   );
                 })}
               </ul>
               <button type="button" className="btn btn-ghost mt-1 min-h-11" onClick={() => onPick(l, false)}>
-                <X className="h-4 w-4" aria-hidden="true" /> None of these
+                <X className="h-4 w-4" aria-hidden="true" /> {t("pageShoppingCheck.chooseNone")}
               </button>
             </li>
           );

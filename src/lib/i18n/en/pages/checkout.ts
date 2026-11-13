@@ -21,7 +21,7 @@ export const pageCheckout = {
   /** {price}: the membership's price. */
   membership: (name: string, per: string) => `Needs a ${name} ({price} a ${per})`,
   surcharge: (pct: number) => `, or pay ${pct}% more online without one. We've counted the surcharge.`,
-  payToday: (unchecked: boolean) => `You pay today${unchecked ? ", before unchecked delivery" : ", delivered"}`,
+  payToday: (unchecked: boolean) => `You pay today${unchecked ? ", plus delivery we haven't checked" : ", delivered"}`,
 
   // The buying list
   buyingList: "Buying list",
@@ -31,7 +31,7 @@ export const pageCheckout = {
   addAll: (n: number, store: string) => `Add all ${n} to your ${store} basket`,
   inMyBasket: (piece: string, store: string) => `${piece}: in my ${store} basket`,
   insteadOf: (what: string) => `, instead of ${what}`,
-  total: (unchecked: boolean): string => (unchecked ? "Total, before unchecked delivery" : "Total, delivered"),
+  total: (unchecked: boolean): string => (unchecked ? "Total, plus delivery we haven't checked" : "Total, delivered"),
   copied: "Copied",
   copy: "Copy the list",
   clearTicks: "Clear ticks",
@@ -45,7 +45,7 @@ export const pageCheckout = {
     free: "free delivery",
     fee: (fee: string) => `delivery ${fee}`,
     notChecked: "delivery not checked",
-    total: (unchecked: boolean, amount: string) => `Total ${unchecked ? "before unchecked delivery" : "with delivery"}: ${amount}`,
+    total: (unchecked: boolean, amount: string) => `Total${unchecked ? ", plus delivery we haven't checked" : " with delivery"}: ${amount}`,
     checked: (when: string) => `Prices checked ${when}. Check them before you buy.`,
   },
   items: (n: number) => `${n} item${s(n)}`,

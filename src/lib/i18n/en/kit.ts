@@ -42,9 +42,14 @@ export const kitPage = {
   startWith: (store: string) => `Start with ${store}`,
   seeList: "See the buying list",
   thenTick: "Then tick off the buying list",
-  kitDelivered: (delivered: boolean) => `The kit${delivered ? ", delivered" : ""}`,
-  rebuilt: (unchecked: boolean) => `Rebuilt, ${unchecked ? "before unchecked delivery" : "delivered"}`,
-  saving: (unchecked: boolean): string => (unchecked ? "Saving, before unchecked delivery" : "Saving after delivery"),
+  // The box's sums (KitSums.tsx)
+  sumKit: "The kit",
+  sumRebuilt: "Same amount, rebuilt",
+  sumExtraDelivery: "Extra delivery for the extra orders",
+  sumSaving: (unchecked: boolean, extra: boolean): string =>
+    unchecked ? "Saving, before delivery we haven't checked" : extra ? "Saving after delivery" : "Saving",
+  sumCheckout: (unchecked: boolean) => `You pay at checkout, ${unchecked ? "plus delivery we haven't checked" : "delivered"}`,
+  sumHoldsMore: "The cheaper packs hold more than the kit.",
   orders: "Orders",
   oneAt: (store: string | null) => `One, at ${(store ?? "one store").replace(/^A /, "a ")}`,
   stores: (n: number) => `${n} stores`,
@@ -70,7 +75,7 @@ export const kitPage = {
   kitUnchecked: ", and we haven't checked its delivery",
   moreToday: (more: string, net: string) => `You pay ${more} more today, because the packs hold more than the kit. For the same amount you still save ${net}.`,
   keep: (amount: string, unchecked: boolean, holdsMore: boolean) =>
-    `You keep ${amount} today${unchecked ? ", before unchecked delivery" : ""}${holdsMore ? ", and the packs hold more than the kit" : ""}.`,
+    `You keep ${amount} today${unchecked ? ", before delivery we haven't checked" : ""}${holdsMore ? ", and the packs hold more than the kit" : ""}.`,
   extraTakenOff: (amount: string) => `The saving at the top already takes off the ${amount} of extra delivery.`,
   /** A store that doesn't sell in the shopper's country, unnamed. `n` tells two of them apart. */
   unnamedStore: (market: MarketCode, n: number | null) => `A ${MARKET_ADJECTIVE[market]} store${n ? ` (${n})` : ""}`,

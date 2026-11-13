@@ -92,6 +92,15 @@ const CASES: Case[] = [
   // --- Germany: a brand alone, with two Nurofen products on file (tablets 400 mg, Junior syrup 40 mg/ml)
   ["DE", "NUROFEN                  7,95 A", "choose", /^(?:Nurofen Ibuprofen 400 mg|NUROFEN Junior)/],
   ["DE", "NUROFEN 100ML", "swap", /^NUROFEN Junior/],
+  // --- Germany: German pack words with the brand-only rule. "Stück", "Packung" and "Flasche" say nothing about which
+  // product it is, so they never turn a question into a swap; a count or a volume they carry still narrows it.
+  ["DE", "Nurofen 24 Stück", "swap", /^Nurofen Ibuprofen 400 mg/],
+  ["DE", "Nurofen 400 mg 24 Stk.", "swap", /^Nurofen Ibuprofen 400 mg/],
+  ["DE", "NUROFEN 100 ML FLASCHE", "swap", /^NUROFEN Junior/],
+  ["DE", "Nurofen Packung", "choose", /^(?:Nurofen Ibuprofen 400 mg|NUROFEN Junior)/],
+  ["DE", "BEN-U-RON 1000 MG", "choose", /^ben-u-ron 1\.?000 mg (?:Tabletten|Suppositorien)/],
+  ["DE", "ben-u-ron 1000 mg 10 Tabletten", "swap", /^ben-u-ron 1\.000 mg Tabletten/],
+  ["DE", "ben-u-ron 1000 mg Zäpfchen", "swap", /^ben-u-ron 1000 mg Suppositorien/],
   ["DE", "MILKA ALPENMILCH 100G", "none"],
   ["DE", "JA! H-MILCH 1,5% 1L", "own"],
 ];
@@ -234,6 +243,19 @@ test("a brand alone whose one product is a variant (Junior) is only a did-you-me
 test("a brand spelt nearly right is never a swap, even with a strength only one product has", () => {
   assert.notEqual(painexLine("PAINAX 400MG").status, "swap");
   assert.equal(painexLine("PAINAX 200MG").status, "choose");
+});
+
+test("German pack words work with the brand-only rule: a count narrows the question, filler words never answer it", () => {
+  // "Stück", "Stk." and "Packung" are a count or nothing; "Tabletten" and "Kapseln" are the product's form.
+  assert.deepEqual(painexLine("PAINEX 200MG 10 Stück"), { status: "swap", slug: "painex-200-capsules", others: 0 });
+  assert.deepEqual(painexLine("Painex 200 mg 10 Stk."), { status: "swap", slug: "painex-200-capsules", others: 0 });
+  assert.deepEqual(painexLine("Painex 200 mg 10 Kapseln"), { status: "swap", slug: "painex-200-capsules", others: 0 });
+  assert.deepEqual(painexLine("Painex 400 mg Filmtabletten 24 St"), { status: "swap", slug: "painex-400-tablets", others: 0 });
+  // No 32-pack on file: still a question, about the 200 mg products only.
+  assert.deepEqual(slugsOf(painexLine("PAINEX 200MG 32 Stück")), ["painex-200-capsules", "painex-200-tablets"]);
+  // A filler word alone is still the brand alone.
+  assert.deepEqual(slugsOf(painexLine("Painex Packung")), ["painex-200-capsules", "painex-200-tablets", "painex-400-tablets", "painex-junior"]);
+  assert.deepEqual(slugsOf(painexLine("PAINEX 1 PACKUNG")), slugsOf(painexLine("PAINEX")));
 });
 
 test("the same brand-only question on two lines is asked once", () => {
