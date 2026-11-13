@@ -1,0 +1,38 @@
+import type { Shape } from "../../t";
+import type { pageBasket as en } from "../../en/pages/basket";
+import { formatPercent } from "../../format";
+
+export const pageBasket: Shape<typeof en> = {
+  empty: "Der Einkaufskorb ist leer. Leg unten einen Artikel hinein, um die Summen zu sehen.",
+  brandNames: "Markenprodukte",
+  cheaper: "Günstigere Alternativen",
+  lessSame: (pct) => `${formatPercent(pct, "de")} weniger für die gleiche Menge`,
+  save: "Spare",
+  oneOrderAt: "An der Kasse ist es eine Bestellung bei {store}: {amount} in ganzen Packungen.",
+  manyOrders: (n) => `An der Kasse sind es ${n} Bestellungen, in ganzen Packungen:`,
+  whatYouPay: "Was du an der Kasse zahlst",
+  withDelivery: "Mit Versand {amount}",
+  oneStore: "Alles kommt von einem Händler, also ist es eine Bestellung.",
+  manyStores: (n) => `Die günstigeren Artikel kommen von ${n} Händlern, also sind es ${n} Bestellungen, jede mit eigenem Versand.`,
+  wholePacks: "Händler verkaufen ganze Packungen, deshalb zählt das hier die Packungen, die du für die Mengen oben kaufen würdest.",
+  packsCostMore: "Die Packungen kosten {extra} mehr als die gleiche Menge zum Preis pro Einheit, weil manche mehr enthalten, als du brauchst. Der Rest hält dafür länger. ",
+  underTotal: "Wo eine Packung etwas weniger enthält als die der Marke (ein Zehntel oder weniger), zählen wir eine Packung, deshalb liegt das hier unter der Summe für die gleiche Menge. ",
+  brandsCost: "Die Markenprodukte kosten {amount} für die gleiche Menge, ohne ihren eigenen Versand.",
+  allSaved: (n) => `Alle ${n} auf deiner Liste`,
+  saveAll: (n) => `Alle ${n} auf meine Liste`,
+  viewList: "Meine Liste ansehen",
+  howMany: (name) => `Wie viele Packungen ${name}`,
+  fewer: (name) => `Eine Packung ${name} weniger`,
+  more: (name) => `Eine Packung ${name} mehr`,
+  pricesEvidence: "Preise und Nachweise",
+  inAll: (amount) => `${amount} insgesamt`,
+  packsOf: (n, pack) => `${n === 1 ? "Packung" : "Packungen"} à ${pack}`,
+  brandName: "Marke ",
+  saves: "Spart {amount}",
+  cheaperPct: (pct) => `${formatPercent(pct, "de")} günstiger`,
+  leftOut: "Nicht in der Summe",
+  tillPerAmount: "An der Kasse: {cost} für diese Menge. Der Preis gilt pro Menge, die Packung, die du kaufst, kann also mehr kosten.",
+  tillPacks: "An der Kasse: {packs} × {pack}, {cost}",
+  totalFor: (items) => `Summe für diese Mengen, ${items} Artikel`,
+  reset: "Mengen zurücksetzen",
+};

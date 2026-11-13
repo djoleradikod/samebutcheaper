@@ -479,5 +479,33 @@ export const shelfLifeDeSchema = z
   .strict();
 export type ShelfLifeDe = z.infer<typeof shelfLifeDeSchema>;
 
+/** One kit's German text (data/i18n/de/bundles/<the bundle file>.json, keyed by slug). Lists line up with the English. */
+export const bundleDeSchema = z
+  .object({
+    title: z.string().min(3),
+    name: z.string().min(1),
+    /** One per English bundle.items entry, same order. */
+    items: z.array(z.string().min(1)),
+    /** One per English bundle.extras entry, same order. */
+    extras: z.array(z.string().min(1)).default([]),
+    summary: z.string().min(10),
+    evidence: z.string().min(10),
+    differences: z.string().default(""),
+  })
+  .strict();
+export type BundleDe = z.infer<typeof bundleDeSchema>;
+
+/** One basket's German text (data/i18n/de/presets/<the preset file>.json, keyed by slug). Notes are keyed by the line's swap. */
+export const presetDeSchema = z
+  .object({
+    title: z.string().min(3),
+    audience: z.string().min(3),
+    blurb: z.string().min(10),
+    research: z.string().min(20),
+    notes: z.record(z.string(), z.string().min(1)).default({}),
+  })
+  .strict();
+export type PresetDe = z.infer<typeof presetDeSchema>;
+
 /** Words records share, keyed by the English: subcategory names. */
 export const glossaryDeSchema = z.object({ subcategories: z.record(z.string(), z.string().min(2)) }).strict();

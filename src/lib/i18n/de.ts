@@ -6,7 +6,11 @@
 import type { Shape } from "./t";
 import type { Dictionary } from "./en";
 import * as client from "./de/client";
+import * as email from "./de/email";
+import * as kit from "./de/kit";
+import * as pages from "./de/pages";
 import * as site from "./de/site";
 import * as swap from "./de/swap";
+import * as tools from "./de/tools";
 
-export const de: Shape<Dictionary> = { ...swap, ...client, ...site };
+export const de: Shape<Dictionary> = { ...swap, ...client, ...pages, ...kit, ...tools, ...email, ...site };

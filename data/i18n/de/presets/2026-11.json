@@ -1,0 +1,93 @@
+{
+  "weekly-staples-de": {
+    "title": "Grundvorrat für die Woche",
+    "audience": "Ein normaler Vorratseinkauf",
+    "blurb": "Butter, H-Milch, Kaffee, Toast, Mehl, Honig und Nudeln, bei denen die Eigenmarke deutlich weniger kostet.",
+    "research": "Die Liste stützt sich auf die Tabellen der Bundesregierung zur Lebensmittelversorgung, die Butter, H-Milch, Kaffee, abgepacktes Vollkornbrot, Mehl, Honig und Nudeln nennen. Stiftung Warentest hat 2011 in einer Auswertung von 37 Lebensmitteltests Marken nicht besser gefunden als Produkte vom Discounter, und wir haben für jeden Artikel einen Vergleich behalten.",
+    "notes": {}
+  },
+  "student-kitchen-de": {
+    "title": "Studentenküche",
+    "audience": "Studierende, die selbst kochen",
+    "blurb": "Nudelsoße, Öl, Mikrowellenreis, Nuss-Nougat-Creme, Nudeln und Ketchup für die Küche mit wenig Geld.",
+    "research": "Nudeln, Soße im Glas und Speiseöl stammen von der College-Einkaufsliste von Spoon University, und die Geldseite der Staffordshire University für Studierende rät, Eigenmarken auszuprobieren. Mikrowellenreis, Nuss-Nougat-Creme und Ketchup haben wir als günstige Alltagsartikel ergänzt, weil wir keine deutsche Liste für Studierende gelesen haben.",
+    "notes": {}
+  },
+  "new-flat-de": {
+    "title": "Die erste eigene Wohnung",
+    "audience": "Einzug, der erste Einkauf für die Schränke",
+    "blurb": "Spülmittel, Öl, Salz, Reiniger, Toilettenpapier und ein Handy-Ladegerät für die erste Woche.",
+    "research": "Die Liste folgt zwei deutschen Checklisten für die erste Wohnung, von Uniplaces und HanseMerkur, die Spülmittel, Öl, Salz, Allzweck- und Badreiniger, Toilettenpapier und ein Ladegerät nennen. Wir haben für jeden Bedarf einen Vergleich behalten, deshalb fehlen Müllbeutel und Küchenrolle noch.",
+    "notes": {}
+  },
+  "cleaning-cupboard-de": {
+    "title": "Putzschrank",
+    "audience": "Für alle, die ein Putzregal bestücken",
+    "blurb": "Spülmittel, Allzweck- und Badreiniger, Schwämme, Glasreiniger und WC-Reiniger.",
+    "research": "Spülmittel, Schwämme, Glasreiniger, Bad- und WC-Reiniger und Allzweckreiniger stehen alle auf der Checkliste von HanseMerkur für die erste Wohnung, und die Checkliste von Uniplaces nennt Bad- und Allzweckreiniger ebenfalls. Wir haben für jede Aufgabe einen Vergleich behalten.",
+    "notes": {}
+  },
+  "bathroom-cabinet-de": {
+    "title": "Badregal",
+    "audience": "Für alle, die ein Badregal bestücken",
+    "blurb": "Mundspülung, Zahnpasta, Shampoo, Wattepads und Wattestäbchen, Sonnenmilch und Toilettenpapier.",
+    "research": "Zahnpasta und Shampoo stammen von der Checkliste für die erste Wohnung von This Old House, Mundspülung und Watte von der Bad-Checkliste einer Vermietungsfirma aus Philadelphia. Die Sonnenmilch stammt aus dem Beitrag von Stiftung Warentest über Kosmetik für die Reise und das Toilettenpapier von der Checkliste von HanseMerkur für die erste Wohnung; die Wattestäbchen haben wir ergänzt, mit je einem Vergleich.",
+    "notes": {
+      "pantene-volumen-pur-vs-dm-balea-volumen-shampoo-de": "Preis für 300 ml.",
+      "avene-sonnenmilch-dry-touch-vs-dm-sundance-sonnenmilch-lsf-50-de": "Preis für 200 ml.",
+      "q-tips-pflegestaebchen-papierschaft-vs-la-ligne-wattestaebchen-papierschaft-de": "La Ligne ist ein Nachfüllbeutel, du brauchst also eine eigene Dose."
+    }
+  },
+  "babys-first-year-de": {
+    "title": "Das erste Babyjahr",
+    "audience": "Eltern eines Babys unter einem Jahr",
+    "blurb": "Windeln, sensitive Feuchttücher, Babyshampoo, Wattepads und Spülmittel für die Fläschchen.",
+    "research": "Die Windeln stammen aus dem Windel-Kaufratgeber von Which?, Feuchttücher, Watte und Babywaschmittel von den NHS-Seiten über Windeldermatitis und das Waschen eines Babys, das Spülen der Fläschchen aus dem NHS-Ratgeber zum Sterilisieren. Das sind britische Ratgeber, weil wir keine deutsche Checkliste gelesen haben, und wir haben für jeden Bedarf einen Vergleich behalten, ohne Arzneimittel.",
+    "notes": {
+      "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de": "Fürs Fläschchen: Laut NHS werden Flaschen und Sauger vor dem Sterilisieren in heißem Spülwasser gereinigt.",
+      "buebchen-baby-shampoo-sensitiv-vs-penaten-baby-shampoo-de": "Laut NHS reicht bei einem jungen Baby klares Wasser, dieses hier ist also optional. Beide enthalten Parfum.",
+      "demak-up-expert-wattepads-vs-la-ligne-duo-wattepads-de": "Für Make-up verkauft, aber beide sind aus 100 % Baumwolle. Der NHS nimmt feuchte Watte für die Babywäsche.",
+      "pampers-baby-dry-gr-4-vs-jeden-tag-babywindeln-maxi-gr-4-de": "Preise für Größe 4. Ein jüngeres Baby braucht eine kleinere Größe, die wir nicht geprüft haben.",
+      "pampers-feuchte-tuecher-sensitive-vs-jeden-tag-baby-feuchttuecher-sensitiv-de": "Beide werden ohne zugesetztes Parfum verkauft, wie es der NHS beim Wickeln empfiehlt."
+    }
+  },
+  "batteries-charging-de": {
+    "title": "Batterien und Laden",
+    "audience": "Haushalte mit Handys, Laptops und Fernbedienungen",
+    "blurb": "AA-, AAA-, Akku- und Knopfzellen, Ladegeräte für Handy und Laptop und ein USB-C-Kabel.",
+    "research": "Die Notfallset-Seite des Roten Kreuzes nennt Ersatzbatterien und ein Handy-Ladegerät, und die Ratgeber von Which? zu Schnellladegeräten und Kabeln für zu Hause nennen USB-C-Kabel und Laptop-Ladegeräte mit 60W. Wir haben für jede Aufgabe einen Vergleich behalten, deshalb fehlen Powerbanks noch.",
+    "notes": {
+      "apple-20w-usb-c-adapter-vs-goobay-20w-usb-c-pd-gan-nano-de": "Which? rät zur Vorsicht bei auffällig billigen Ladegeräten ohne Marke.",
+      "ugreen-nexode-pro-65w-vs-d-link-dcp-651-65w-de": "Which? rät, zum Laden eines Laptops auf 60W oder mehr zu achten."
+    }
+  },
+  "kitchen-basics-de": {
+    "title": "Küchengrundausstattung",
+    "audience": "Für die eigene Küche",
+    "blurb": "Kaffeefilter, Spülmittel, Spülmaschinentabs, Backpapier, Schwämme, Alufolie und Gefrierbeutel.",
+    "research": "Backpapier, Alufolie, Schwämme, Spülmittel und eine Kaffeemaschine stammen von der Checkliste von HanseMerkur für die erste Wohnung, Gefrierbeutel und Spülmaschinenmittel von der Checkliste von Capital One für die erste Wohnung. Wir haben für jeden Bedarf einen Vergleich behalten und für die Maschine Kaffeefilter ergänzt.",
+    "notes": {}
+  },
+  "laundry-de": {
+    "title": "Wäsche",
+    "audience": "Für alle, die selbst waschen",
+    "blurb": "Waschmittel für Weißes, Buntes und Feines, dazu Fleckensalz und Weichspüler.",
+    "research": "Die drei Waschmittel folgen dem Rat der Verbraucherzentrale, dass die meisten Haushalte nur Voll-, Color- und Feinwaschmittel brauchen, und Stiftung Warentest fand günstige Eigenmarken-Pulver unter den besten Waschmitteln. Fleckensalz und Weichspüler haben wir ergänzt, weil viele sie kaufen, mit je einem Vergleich.",
+    "notes": {
+      "persil-universal-kraft-gel-vs-jeden-tag-vollwaschmittel-fluessig-de": "Flüssigwaschmittel enthalten kein Bleichmittel, deshalb empfiehlt Stiftung Warentest für Weißes weiter ein gutes Pulver.",
+      "perwoll-black-renew-vs-jeden-tag-feinwaschmittel-black-sensation-de": "Laut Verbraucherzentrale braucht es kein eigenes Waschmittel für dunkle Wäsche, ein normales Feinwaschmittel tut es also auch.",
+      "lenor-weichspueler-aprilfrisch-vs-jeden-tag-weichspueler-meeresfrische-de": "Laut Verbraucherzentrale macht Weichspüler die Wäsche nicht sauberer, du kannst ihn also weglassen. Lenor rät davon ab, ihn für Kinder-Nachtwäsche zu verwenden."
+    }
+  },
+  "cat-care-de": {
+    "title": "Katzenpflege",
+    "audience": "Für Katzenhalter, neue und erfahrene",
+    "blurb": "Klumpstreu, Trockenfutter, Nassfutter und Spülmittel für das Katzenklo.",
+    "research": "Die Liste folgt dem allgemeinen Katzen-Ratgeber der ASPCA, der Streu und das Reinigen des Klos mit mildem Spülmittel behandelt, sowie der Checkliste von VetPartners für neue Kätzchen und der Futterseite der RSPCA, die Futter und Reinigung behandeln. Wir haben für jeden Bedarf einen Vergleich behalten, deshalb fehlen Leckerlis und Zahnpflege-Sticks noch.",
+    "notes": {
+      "sheba-filets-huhn-vs-miamor-feine-filets-huhn-pur-de": "Beide sind Ergänzungsfutter, füttere sie also zusätzlich zu einem Alleinfutter.",
+      "fairy-konzentrat-vs-shine-spuelmittel-konzentrat-de": "Laut ASPCA soll das Klo wöchentlich mit mildem Spülmittel gereinigt werden, ohne Duft, vor allem ohne Zitrone, schau also aufs Etikett.",
+      "royal-canin-indoor-27-vs-concept-for-life-indoor-cats-de": "Beide sind Alleinfutter für erwachsene Wohnungskatzen. Stell das Futter langsam um, und frag deine Tierärztin oder deinen Tierarzt, wenn deine Katze eine besondere Diät braucht."
+    }
+  }
+}

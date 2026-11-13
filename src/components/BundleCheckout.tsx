@@ -1,7 +1,8 @@
 import { RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import type { Bundle } from "@/lib/types";
-import { MARKET_ADJECTIVE, type Local } from "@/lib/localize";
-import { countryInSentence } from "@/lib/markets";
+import type { Local } from "@/lib/localize";
+import { getT } from "@/lib/i18n";
+import { rich } from "@/lib/i18n/rich";
 import { CheckoutCard } from "./CheckoutCard";
 import { Money } from "./Money";
 
@@ -14,7 +15,7 @@ export function kitStoreNames(b: Bundle, local: Local): Record<string, string> {
     const c = b.components.find((x) => x.seller === s.seller);
     if (c && !local.sells(c.retailer, b.market)) {
       unnamed++;
-      names[s.seller] = `A ${MARKET_ADJECTIVE[b.market]} store${unnamedCount > 1 ? ` (${unnamed})` : ""}`;
+      names[s.seller] = getT(local.lang)("kitPage.unnamedStore", b.market, unnamedCount > 1 ? unnamed : null);
     } else names[s.seller] = RETAILER_LABEL[s.seller] ?? (c ? storeName(c.retailer, c.url) : s.seller);
   }
   return names;
@@ -35,40 +36,29 @@ export function BundleCheckout({ b, local }: { b: Bundle; local: Local }) {
   const moreToday = checkout.payToday - kitToday(b);
   const one = checkout.stores.length === 1;
   const kitStore = kitCheckout.stores[0];
-  const abroad = local.known && local.country !== b.market ? countryInSentence(local.country) : null;
+  const abroad = local.known && local.country !== b.market ? local.country : null;
+  const t = getT(local.lang);
+  const money = (n: number) => <Money n={n} from={b.currency} prose />;
   return (
     <section id="checkout" className="scroll-mt-20">
-      <h2 className="display mb-1 text-xl md:text-2xl">What you pay at checkout</h2>
+      <h2 className="display mb-1 text-xl md:text-2xl">{t("kitPage.checkout")}</h2>
       <p className="mb-3 max-w-[68ch] text-[15px] text-ink-2">
-        {one
-          ? `Everything comes from one store, so it's one order, like the kit.`
-          : `The pieces come from ${checkout.stores.length} stores, so it's ${checkout.stores.length} orders where the kit is one. Each store's delivery is counted below.`}
-        {abroad && ` Delivery is counted to ${abroad}, and only where the store's own page gives a price for it.`}
+        {one ? t("kitPage.oneOrder") : t("kitPage.manyOrders", checkout.stores.length)}
+        {abroad && t("kitPage.abroad", abroad)}
       </p>
       <CheckoutCard checkout={checkout} currency={b.currency} names={kitStoreNames(b, local)}>
         <p className="mt-1 text-[13px] text-ink-2">
-          The kit: <Money n={b.bundle.price} from={b.currency} prose />
-          {kitCheckout.delivery !== null && kitCheckout.delivery > 0 && (
-            <>
-              {" "}plus <Money n={kitCheckout.delivery} from={b.currency} prose /> delivery
-            </>
-          )}
-          {kitCheckout.delivery === 0 && kitStore?.freeOver !== null && " with free delivery"}
-          {kitCheckout.delivery === null && ", and we haven't checked its delivery"}
+          {rich(t("kitPage.kitIs"), { price: money(b.bundle.price) })}
+          {kitCheckout.delivery !== null && kitCheckout.delivery > 0 && rich(t("kitPage.plusDelivery"), { fee: money(kitCheckout.delivery) })}
+          {kitCheckout.delivery === 0 && kitStore?.freeOver !== null && t("kitPage.withFree")}
+          {kitCheckout.delivery === null && t("kitPage.kitUnchecked")}
           .{" "}
-          {moreToday > 0.005 ? (
-            <>
-              You pay {local.money(moreToday, b.currency)} more today, because the packs hold more than the kit. For the same amount you
-              still save {local.money(b.netSavings, b.currency)}.
-            </>
-          ) : (
-            <>You keep {local.money(-moreToday, b.currency)} today{checkout.delivery === null ? ", before unchecked delivery" : ""}{b.upfrontTotal > b.bundle.price ? ", and the packs hold more than the kit" : ""}.</>
-          )}
+          {moreToday > 0.005
+            ? t("kitPage.moreToday", local.money(moreToday, b.currency), local.money(b.netSavings, b.currency))
+            : t("kitPage.keep", local.money(-moreToday, b.currency), checkout.delivery === null, b.upfrontTotal > b.bundle.price)}
         </p>
         {b.extraDelivery !== null && b.extraDelivery > 0 && (
-          <p className="mt-1 text-xs text-muted">
-            The saving at the top already takes off the {local.money(b.extraDelivery, b.currency)} of extra delivery.
-          </p>
+          <p className="mt-1 text-xs text-muted">{t("kitPage.extraTakenOff", local.money(b.extraDelivery, b.currency))}</p>
         )}
       </CheckoutCard>
     </section>

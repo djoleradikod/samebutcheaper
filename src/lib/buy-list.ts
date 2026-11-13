@@ -76,6 +76,23 @@ export function groupByStore<T extends { seller: string }>(checkout: Pick<Checko
  * The list as plain text: a heading, each store with its pieces, sizes and prices, the total and the page link.
  * `money` formats an amount in the shopper's currency, so the text matches what the page shows.
  */
+/** The words of the plain-text list, in the page's language (src/lib/i18n/en/pages/checkout.ts, `text`). */
+export type BuyListWords = {
+  free: string;
+  fee: (fee: string) => string;
+  notChecked: string;
+  total: (unchecked: boolean, amount: string) => string;
+  checked: (when: string) => string;
+};
+
+const ENGLISH: BuyListWords = {
+  free: "free delivery",
+  fee: (fee) => `delivery ${fee}`,
+  notChecked: "delivery not checked",
+  total: (unchecked, amount) => `Total ${unchecked ? "before unchecked delivery" : "with delivery"}: ${amount}`,
+  checked: (when) => `Prices checked ${when}. Check them before you buy.`,
+};
+
 export function buyListText({
   title,
   url,
@@ -83,6 +100,7 @@ export function buyListText({
   checkout,
   money,
   checked,
+  words = ENGLISH,
 }: {
   title: string;
   url: string;
@@ -91,18 +109,18 @@ export function buyListText({
   money: (n: number) => string;
   /** "Nov 2026", when the prices were checked. */
   checked?: string;
+  words?: BuyListWords;
 }): string {
   const lines: string[] = [title, ""];
   for (const store of stores) {
     const order = checkout.stores.find((s) => s.seller === store.seller);
-    const delivery =
-      order?.delivery === 0 ? "free delivery" : order?.delivery ? `delivery ${money(order.delivery)}` : "delivery not checked";
+    const delivery = order?.delivery === 0 ? words.free : order?.delivery ? words.fee(money(order.delivery)) : words.notChecked;
     lines.push(`${store.name}${order ? ` (${money(order.subtotal)}, ${delivery})` : ""}`);
     for (const p of store.pieces) lines.push(`- ${pieceLabel(p)}: ${money(p.price)}`);
     lines.push("");
   }
-  lines.push(`Total ${checkout.delivery === null ? "before unchecked delivery" : "with delivery"}: ${money(checkout.payToday)}`);
-  if (checked) lines.push(`Prices checked ${checked}. Check them before you buy.`);
+  lines.push(words.total(checkout.delivery === null, money(checkout.payToday)));
+  if (checked) lines.push(words.checked(checked));
   lines.push(url);
   return lines.join("\n");
 }

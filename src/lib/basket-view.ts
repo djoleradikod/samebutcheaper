@@ -7,7 +7,9 @@ import { monthYear } from "./format";
 import { isCutOut } from "./photos";
 import type { Preset } from "./types";
 import { isPerAmountRecord, packSize } from "./unit-format";
-import { MARKET_ADJECTIVE, type Local } from "@/lib/localize";
+import type { Local } from "@/lib/localize";
+import { getT, type Lang } from "./i18n";
+import { basketText, subcategoryName } from "./i18n/record";
 
 export { packSize };
 
@@ -107,8 +109,10 @@ function tileNames(preset: Preset) {
   return unique.length ? unique : [preset.title];
 }
 
-export function toBasketSummary(preset: Preset, photos = basketPhotos(preset, 4, true)): BasketSummary {
+export function toBasketSummary(preset: Preset, photos = basketPhotos(preset, 4, true), lang: Lang = "en"): BasketSummary {
   return {
+    // Only a German page's cards carry the German, so an English page ships none.
+    ...(lang === "de" && preset.de ? { de: { title: preset.de.title, audience: preset.de.audience } } : {}),
     slug: preset.slug,
     market: preset.market,
     title: preset.title,
@@ -128,10 +132,11 @@ export function toBasketSummary(preset: Preset, photos = basketPhotos(preset, 4,
 /** Where a line's cheaper side is sold. */
 function altStore(slug: string, local?: Local) {
   const pair = getPair(slug);
-  if (!pair) return "Other stores";
+  const t = getT(local?.lang ?? "en");
+  if (!pair) return t("basketPage.otherStores");
   const alt = pair.alternative;
   // We never name a store that doesn't sell where the shopper is.
-  if (local && !local.sells(alt.retailer, pair.market)) return `${MARKET_ADJECTIVE[pair.market]} stores`;
+  if (local && !local.sells(alt.retailer, pair.market)) return t("basketPage.marketStores", pair.market);
   return storeName(alt.retailer, alt.url);
 }
 
@@ -148,13 +153,15 @@ export function isMedicineBasket(preset: Preset) {
 
 /** What the stepper needs, and the product names the alt text uses. */
 export function basketLines(preset: Preset, local?: Local): BasketLineView[] {
+  const lang = local?.lang ?? "en";
+  const notes = local ? new Map(basketText(preset, local).lines.map((l) => [l.pair, l.note])) : null;
   return preset.lines.map((l) => {
     const pair = getPair(l.pair);
     return {
       slug: l.pair,
       qty: l.qty,
-      note: l.note,
-      subcategory: l.subcategory,
+      note: notes ? notes.get(l.pair) : l.note,
+      subcategory: subcategoryName(l.subcategory, lang),
       category: pair?.category,
       brandName: l.brandName,
       brandProduct: pair?.brand.product ?? l.brandName,
@@ -169,22 +176,22 @@ export function basketLines(preset: Preset, local?: Local): BasketLineView[] {
       unit: l.unit,
       brandPpu: l.brandPpu,
       altPpu: l.altPpu,
-      pack: pair ? packSize(pair.brand.size, pair.brand.unit) : null,
+      pack: pair ? packSize(pair.brand.size, pair.brand.unit, lang) : null,
       measure: pair && isPerAmountRecord(pair.brand.size, pair.brand.unit) ? { size: pair.brand.size, unit: pair.brand.unit } : null,
       till: { seller: l.seller, altCost: l.altCost, qty: l.qty, pack: l.pack },
-      altPack: pair && l.pack ? packSize(pair.alternative.size, pair.alternative.unit) : null,
+      altPack: pair && l.pack ? packSize(pair.alternative.size, pair.alternative.unit, lang) : null,
     };
   });
 }
 
 /** "November 2026", or "July to November 2026" when a basket's prices span months. */
-export function priceDates(preset: Preset) {
+export function priceDates(preset: Preset, lang: Lang = "en") {
   const dates = preset.lines
     .map((l) => getPair(l.pair)?.price_checked)
     .filter((d): d is string => !!d)
     .sort();
   if (!dates.length) return null;
-  const first = monthYear(dates[0]);
-  const last = monthYear(dates[dates.length - 1]);
-  return first === last ? last : `${first} to ${last}`;
+  const first = monthYear(dates[0], lang);
+  const last = monthYear(dates[dates.length - 1], lang);
+  return first === last ? last : getT(lang)("basketPage.dateRange", first, last);
 }

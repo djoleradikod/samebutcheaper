@@ -1,0 +1,21 @@
+{
+  "medicine-cabinet-de": {
+    "title": "Hausapotheke",
+    "audience": "Für die Hausapotheke",
+    "blurb": "Paracetamol, Ibuprofen, ein Schleimlöser, ein Nasenspray, Loperamid, ein Abführmittel, eine Tablette gegen Reiseübelkeit, ein Antihistaminikum, ein Gel gegen Juckreiz und ein Schmerzgel.",
+    "research": "Die Liste folgt drei deutschen Checklisten für die Hausapotheke. Das Apothekenportal aponet.de nennt Paracetamol, Ibuprofen, einen Schleimlöser und Loperamid. Die AOK nennt Erkältungsmittel, Mittel gegen Verstopfung und Durchfall, ein Gel gegen Insektenstiche und Juckreiz und eine Salbe für Sportverletzungen. Die Techniker Krankenkasse ergänzt Mittel gegen Übelkeit und gegen Allergien. Wir haben für jeden Bedarf einen Vergleich behalten, alle aus einer Apotheke, damit eine Bestellung die ganze Liste abdeckt.",
+    "notes": {
+      "ben-u-ron-1000mg-tabletten-vs-paracetamol-ratiopharm-1000mg-de": "Jede Tablette enthält 1000 mg, die Dosis für Erwachsene. Für Kinder frag in der Apotheke nach einer niedrigeren Stärke."
+    }
+  },
+  "hay-fever-de": {
+    "title": "Heuschnupfenzeit",
+    "audience": "Vorbereitet auf die Pollensaison",
+    "blurb": "Eine Tablette gegen Allergien, ein Kortison-Nasenspray und zwei Arten Augentropfen gegen juckende Augen.",
+    "research": "Stiftung Warentest und die Techniker Krankenkasse nennen beide Cetirizin als Tablette ohne Rezept und Mometason als Kortison-Nasenspray bei stärkeren Beschwerden. Die Techniker Krankenkasse nennt außerdem Azelastin-Augentropfen und Cromoglicinsäure als mildes Mittel, das man vorbeugend nimmt. Wir haben für jedes einen Vergleich behalten, alle aus einer Apotheke.",
+    "notes": {
+      "zyrtec-vs-cetirizin-adgc-10mg-de": "Eine Packung mit 100 Tabletten, das reicht bei einer Tablette am Tag etwa drei Monate.",
+      "vividrin-antiallergische-augentropfen-vs-cromo-micro-labs-20mg-ml-de": "Cromoglicinsäure wirkt vorbeugend, fang also vor der Pollensaison damit an."
+    }
+  }
+}

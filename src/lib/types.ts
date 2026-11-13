@@ -1,5 +1,5 @@
 import type { Checkout } from "./delivery";
-import type { BundleInput, ClaimDe, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairDe, PairInput, PresetInput, ShelfLifeDe, ShelfLifeInput } from "./schema";
+import type { BundleDe, BundleInput, ClaimDe, ClaimInput, ImageRecord, NutritionRecord, NutritionSource, PairDe, PairInput, PresetDe, PresetInput, ShelfLifeDe, ShelfLifeInput } from "./schema";
 import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
 import type { RatingScale } from "./rating";
@@ -131,6 +131,8 @@ export type Preset = Omit<PresetInput, "items"> & {
   score: number;
   /** Buying it in whole packs at its starting quantities: one order per store, each with its delivery. */
   checkout: Checkout;
+  /** The German text, from data/i18n/de/presets/, when there is one. */
+  de?: PresetDe;
 };
 
 export type BundleComponent = BundleInput["components"][number] & {
@@ -173,6 +175,8 @@ export type Bundle = Omit<BundleInput, "components"> & {
   prices: Record<string, PriceSeen>;
   /** The tier from the oldest piece's date. */
   freshness: Freshness;
+  /** The German text, from data/i18n/de/bundles/, when there is one. */
+  de?: BundleDe;
 };
 
 export type Catalog = {

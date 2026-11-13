@@ -655,8 +655,9 @@ for (const [slug, other] of sameSwaps) {
 }
 
 // German text for the /de/ pages, checked against each English record (src/lib/i18n/attach-de.ts).
-errors.push(...attachGerman(join(ROOT, "data", "i18n", "de"), pairs, claims, shelfLives));
+errors.push(...attachGerman(join(ROOT, "data", "i18n", "de"), pairs, claims, shelfLives, bundles, presets));
 const german = germanCoverage(pairs);
+const germanKits = germanCoverage([...bundles, ...presets]);
 
 unusedPriceLog();
 if (warnings.length) console.warn(`\n${warnings.length} warning(s):\n  - ${warnings.join("\n  - ")}\n`);
@@ -721,5 +722,5 @@ const pct = (n: number) => (pairs.length ? Math.round((n / pairs.length) * 100) 
 console.log(
   `Catalog built: ${pairs.length} pairs from ${files.length} file(s), ${bundles.length} bundles, ${presets.length} presets, ` +
     `${claims.length} claims, ${shelfLives.length} shelf-life records. Real image: any ${anySideReal} (${pct(anySideReal)}%), both ${bothSidesReal} (${pct(bothSidesReal)}%), any counting DailyMed ${withDailymed} (${pct(withDailymed)}%). ` +
-    `Medicine ${medicine} (${pct(medicine)}%). German text: ${german.translated} of ${german.of} German swaps.`,
+    `Medicine ${medicine} (${pct(medicine)}%). German text: ${german.translated} of ${german.of} German swaps, ${germanKits.translated} of ${germanKits.of} German kits and baskets.`,
 );

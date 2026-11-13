@@ -6,7 +6,60 @@
  * Pure, so the tests use it too.
  */
 import { splitSentences } from "../compare";
-import type { ClaimDe, PairDe, ShelfLifeDe } from "../schema";
+import type { BundleDe, ClaimDe, PairDe, PresetDe, ShelfLifeDe } from "../schema";
+
+type EnglishBundle = {
+  title: string;
+  summary: string;
+  evidence: string;
+  differences: string;
+  bundle: { name: string; items: { name: string }[]; extras: string[] };
+};
+
+/** What's wrong with one kit's German text: the lists line up with the English and every field keeps its numbers. */
+export function bundleDeProblems(en: EnglishBundle, de: BundleDe): string[] {
+  const problems: string[] = [];
+  const same = (field: string, english: string, german: string) => {
+    if (!english !== !german) problems.push(`${field}: empty on one side only`);
+    const p = numberProblem(english, german);
+    if (p) problems.push(`${field}: numbers differ from the English (${p})`);
+  };
+  same("title", en.title, de.title);
+  same("name", en.bundle.name, de.name);
+  same("summary", en.summary, de.summary);
+  same("evidence", en.evidence, de.evidence);
+  same("differences", en.differences, de.differences);
+  const lists: [string, readonly string[], readonly string[]][] = [
+    ["items", en.bundle.items.map((i) => i.name), de.items],
+    ["extras", en.bundle.extras, de.extras],
+  ];
+  for (const [field, english, german] of lists) {
+    if (english.length !== german.length) problems.push(`${field}: ${german.length} German entries for ${english.length} English ones`);
+    else english.forEach((e, i) => same(`${field}[${i}]`, e, german[i]));
+  }
+  return problems;
+}
+
+type EnglishPreset = { title: string; audience: string; blurb: string; research: string; items: { pair: string; note?: string }[] };
+
+/** What's wrong with one basket's German text: a German note for exactly the lines with an English one, numbers kept. */
+export function presetDeProblems(en: EnglishPreset, de: PresetDe): string[] {
+  const problems: string[] = [];
+  for (const field of ["title", "audience", "blurb", "research"] as const) {
+    const p = numberProblem(en[field], de[field]);
+    if (p) problems.push(`${field}: numbers differ from the English (${p})`);
+  }
+  const notes = new Map(en.items.filter((i) => i.note).map((i) => [i.pair, i.note!]));
+  for (const [pair, note] of notes) {
+    if (!de.notes[pair]) problems.push(`notes.${pair}: the English line has a note, the German has none`);
+    else {
+      const p = numberProblem(note, de.notes[pair]);
+      if (p) problems.push(`notes.${pair}: numbers differ from the English (${p})`);
+    }
+  }
+  for (const pair of Object.keys(de.notes)) if (!notes.has(pair)) problems.push(`notes.${pair}: no English note on this line`);
+  return problems;
+}
 
 /**
  * The numbers in a text, written one way: "1,234.5" (English) and "1.234,5" (German) both read "1234.5", "88%" and
