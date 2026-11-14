@@ -34,7 +34,8 @@ test("the confirmation email: German words, the same link, headers and opt-in", 
     assert.match(de.subject, /^Bestätige deine/);
     assert.ok(de.text.startsWith("Bitte bestätige deine E-Mail-Adresse"));
     assert.ok(de.html.includes('<html lang="de">'));
-    assert.ok(de.text.includes(`${SITE}/newsletter/confirm?t=${"s".repeat(43)}`));
+    assert.ok(de.text.includes(`${SITE}/de/newsletter/confirm?t=${"s".repeat(43)}`));
+    assert.ok(en.text.includes(`${SITE}/newsletter/confirm?t=${"s".repeat(43)}`), "the English link has no prefix");
     assert.ok(de.text.includes(`Impressum: ${SITE}/impressum`));
     assert.doesNotMatch(visible(de.text), ENGLISH);
     assert.deepEqual(de.headers, en.headers);

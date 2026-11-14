@@ -91,7 +91,7 @@ dailymed.nlm.nih.gov/dailymed/drugInfo.cfm
 target.com/p/ibuprofen-nsaid-pain-reliever-fever-reducer-tablets-up-up/-/A-51218403
 target.com/p/ibuprofen-nsaid-pain-reliever-38-fever-reducer-caplets-200ct-up-38-up-8482/-/A-14923389
 nber.org/papers/w20295
-Read the label. This compares labels and published evidence. It isn't medical advice. Inactive ingredients (fillers, dyes, flavours) can differ, which matters if you have allergies. Ask a pharmacist, doctor or vet if you're unsure.
+Read the label. This compares labels and published evidence. It isn't medical advice. Inactive ingredients (fillers, dyes, flavours) can differ, which matters if you have allergies. Ask a pharmacist or doctor if you're unsure.
 Something wrong on this page?+
 What's wrong?
 Price changed
@@ -101,7 +101,7 @@ Something else
 Anything we should know? (optional)
 0/300
 Send
-No account or email needed. We never store your IP address.
+No account or email needed. We don't store your IP address with your report.
 Buying list
 0 of 2 in your basket
 Target

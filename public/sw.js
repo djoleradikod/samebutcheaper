@@ -1,6 +1,6 @@
 /*
  * SameButCheaper service worker. Small on purpose:
- *  - pages always come from the network; when the network fails, /my-list is served from its last copy (the list
+ *  - pages always come from the network; when the network fails, /my-list (and the German /de/my-list) is served from its last copy (the list
  *    itself lives in localStorage) and every other page gets /offline.html;
  *  - /_next/static files (content-hashed, so never stale) are kept after first use, so My list's scripts and the
  *    fonts work offline;
@@ -18,11 +18,19 @@
 (function (self) {
   "use strict";
 
-  var VERSION = "v2";
+  var VERSION = "v3";
   var SHELL_CACHE = "sbc-shell-" + VERSION;
   var STATIC_CACHE = "sbc-static-" + VERSION;
   var OFFLINE_URL = "/offline.html";
   var MY_LIST_URL = "/my-list";
+  /** Both languages of My list: each is kept at install and on every visit, and served offline under its own address. */
+  var MY_LIST_URLS = [MY_LIST_URL, "/de/my-list"];
+
+  /** The My list address a path is, or null. */
+  function myListOf(path) {
+    var p = path.length > 1 && path.charAt(path.length - 1) === "/" ? path.slice(0, -1) : path;
+    return MY_LIST_URLS.indexOf(p) === -1 ? null : p;
+  }
   /** Kept at install. /my-list is fetched too, with the static files its page names (see cacheMyList). */
   var OFFLINE_DE_URL = "/offline-de.html";
   var SHELL = [OFFLINE_URL, OFFLINE_DE_URL, "/icons/icon-192.png"];
@@ -60,7 +68,7 @@
     var h = req.headers;
     if (h && (h.get("Next-Action") || h.get("RSC") || h.get("Next-Router-Prefetch") || h.get("Next-Router-State-Tree"))) return "pass";
     if (url.searchParams.has("_rsc")) return "pass";
-    if (req.mode === "navigate") return path === MY_LIST_URL || path === MY_LIST_URL + "/" ? "my-list" : "page";
+    if (req.mode === "navigate") return myListOf(path) ? "my-list" : "page";
     if (path.indexOf("/_next/static/") === 0) return "static";
     // Product photos: the same everywhere, so a copy of the last few dozen lets My list show them offline.
     if (path === "/_next/image" || path.indexOf("/products/") === 0) return "image";
@@ -95,15 +103,15 @@
     });
   }
 
-  /** Keep /my-list's HTML and the static files it names, so it opens offline. */
-  function cacheMyList(res) {
+  /** Keep a My list page (`at`: /my-list or /de/my-list) and the static files it names, so it opens offline. */
+  function cacheMyList(res, at) {
     return res.text().then(function (html) {
       // X-Sbc-Saved: when this copy was kept, so My list can say how old its prices are when it is served offline.
       var copy = new Response(html, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8", "X-Sbc-Saved": new Date().toISOString() } });
       var urls = staticUrlsIn(html);
       return Promise.all([
         caches.open(SHELL_CACHE).then(function (c) {
-          return c.put(MY_LIST_URL, copy);
+          return c.put(at, copy);
         }),
         caches.open(STATIC_CACHE).then(function (c) {
           return Promise.all(
@@ -128,12 +136,16 @@
           return c.addAll(SHELL);
         })
         .then(function () {
-          // Best effort: a failure here must not stop the worker installing.
-          return fetch(MY_LIST_URL, { credentials: "same-origin" })
-            .then(function (res) {
-              return cacheable(res) ? cacheMyList(res) : null;
-            })
-            .catch(function () {});
+          // Best effort, both languages: a failure here must not stop the worker installing.
+          return Promise.all(
+            MY_LIST_URLS.map(function (at) {
+              return fetch(at, { credentials: "same-origin" })
+                .then(function (res) {
+                  return cacheable(res) ? cacheMyList(res, at) : null;
+                })
+                .catch(function () {});
+            }),
+          );
         })
         .then(function () {
           return self.skipWaiting();
@@ -191,15 +203,16 @@
     }
 
     if (kind === "my-list") {
+      var at = myListOf(new URL(req.url).pathname);
       event.respondWith(
         fetch(req)
           .then(function (res) {
-            if (cacheable(res)) event.waitUntil(cacheMyList(res.clone()).catch(function () {}));
+            if (cacheable(res)) event.waitUntil(cacheMyList(res.clone(), at).catch(function () {}));
             return res;
           })
           .catch(function () {
-            return caches.match(MY_LIST_URL, { cacheName: SHELL_CACHE }).then(function (hit) {
-              return hit || offline();
+            return caches.match(at, { cacheName: SHELL_CACHE }).then(function (hit) {
+              return hit || offline(req);
             });
           }),
       );

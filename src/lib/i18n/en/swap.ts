@@ -126,7 +126,10 @@ export const evidence = {
   /** On a medicine. German law wants its own notice there (Heilmittelwerbegesetz). */
   medicineLead: "Read the label. ",
   healthBody:
-    "This compares labels and published evidence. It isn't medical advice. Inactive ingredients (fillers, dyes, flavours) can differ, which matters if you have allergies. Ask a pharmacist, doctor or vet if you're unsure.",
+    "This compares labels and published evidence. It isn't medical advice. Inactive ingredients (fillers, dyes, flavours) can differ, which matters if you have allergies. Ask a pharmacist or doctor if you're unsure.",
+  /** The same, where the page shows pet products. */
+  healthBodyPet:
+    "This compares labels and published evidence. It isn't veterinary advice. Inactive ingredients (fillers, dyes, flavours) can differ, which matters if your pet has allergies. Ask a vet or pharmacist if you're unsure.",
   photos: "Photos: ",
   by: "by",
   noPhotoOf: (names: string[]) => `No licensed photo of ${names.join(" or ")} yet.`,

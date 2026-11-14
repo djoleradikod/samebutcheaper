@@ -20,5 +20,5 @@ export const feedback = {
   placeholder: "For example the price you saw, and where",
   sending: "Sending…",
   send: "Send",
-  noAccount: "No account or email needed. We never store your IP address.",
+  noAccount: "No account or email needed. We don't store your IP address with your report.",
 };

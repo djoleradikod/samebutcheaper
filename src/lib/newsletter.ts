@@ -260,12 +260,12 @@ const scopeOnly = (scope?: Scope) => (scope ? `&only=${scope}` : "");
  * The link in a confirmation email. It opens a page that says what is being confirmed, with a button that posts:
  * opening the link alone (as mail scanners such as Safe Links do) changes nothing.
  */
-export function confirmUrl(siteUrl: string, secret: string) {
-  return `${siteUrl}/newsletter/confirm?t=${encodeURIComponent(secret)}`;
+export function confirmUrl(siteUrl: string, secret: string, lang: Lang = "en") {
+  return `${siteUrl}${lang === "de" ? "/de" : ""}/newsletter/confirm?t=${encodeURIComponent(secret)}`;
 }
-/** The page with the "unsubscribe" button, for people. With a scope it offers to stop just that, or everything. */
-export function unsubscribeUrl(siteUrl: string, token: string, scope?: Scope) {
-  return `${siteUrl}/newsletter/unsubscribe?token=${encodeURIComponent(token)}${scopeOnly(scope)}`;
+/** The page with the "unsubscribe" button, for people, in their language. With a scope it offers to stop just that, or everything. */
+export function unsubscribeUrl(siteUrl: string, token: string, scope?: Scope, lang: Lang = "en") {
+  return `${siteUrl}${lang === "de" ? "/de" : ""}/newsletter/unsubscribe?token=${encodeURIComponent(token)}${scopeOnly(scope)}`;
 }
 /** Where mail apps POST for one-click unsubscribe (RFC 8058). With a scope it stops just that; without, everything. */
 export function oneClickUrl(siteUrl: string, token: string, scope?: Scope) {
@@ -293,7 +293,7 @@ export function confirmationMail(
 ) {
   const t = getT(lang);
   const scope = scopeOf(purpose);
-  const link = confirmUrl(siteUrl, secret);
+  const link = confirmUrl(siteUrl, secret, lang);
   const host = siteUrl.replace(/^https?:\/\//, "");
   const asked =
     purpose.kind === "letter"
@@ -342,10 +342,11 @@ export function confirmationMail(
 export type TokenOutcome = "done" | "already" | "invalid";
 
 /** What a confirm link is for, as its page shows it before the button is pressed. */
-export type ConfirmTarget =
+/** `lang`: the language the subscriber reads in, so the page answers in it. */
+export type ConfirmTarget = { lang: Lang } & (
   | { kind: "letter"; email: string }
   | { kind: "watch"; email: string; title: string; slug: string }
-  | { kind: "wish"; email: string; query: string };
+  | { kind: "wish"; email: string; query: string });
 
 /** "a•••@example.com": enough for the owner to recognise, not enough to read off someone else's screen. */
 export function maskEmail(email: string) {
@@ -384,9 +385,9 @@ export async function confirmTarget(db: DB, secret: string, now = new Date()): P
   const found = await findConfirm(db, secret, now);
   if (!found) return null;
   const email = maskEmail(found.sub.email);
-  if (found.kind === "letter") return { kind: "letter", email };
-  if (found.kind === "watch") return { kind: "watch", email, title: found.item.title, slug: found.item.slug };
-  return { kind: "wish", email, query: found.item.query };
+  if (found.kind === "letter") return { kind: "letter", email, lang: cleanLang(found.sub.lang) };
+  if (found.kind === "watch") return { kind: "watch", email, title: found.item.title, slug: found.item.slug, lang: cleanLang(found.sub.lang) };
+  return { kind: "wish", email, query: found.item.query, lang: cleanLang(found.sub.lang) };
 }
 
 export type ConfirmOutcome = { outcome: "done"; kind: Found["kind"] } | { outcome: "invalid" };
@@ -417,6 +418,8 @@ export async function confirmByToken(db: DB, secret: string, now = new Date()): 
 
 export type UnsubscribeTarget = {
   email: string;
+  /** The language the subscriber reads in, so the page answers in it. */
+  lang: Lang;
   /** False when the address already gets nothing from us. */
   anythingOn: boolean;
   scoped: null | { kind: "letter"; on: boolean } | { kind: "watch"; title: string; on: boolean } | { kind: "wish"; query: string; on: boolean };
@@ -427,7 +430,7 @@ export async function unsubscribeTarget(db: DB, token: string, scope?: Scope): P
   if (!isToken(token) || (scope !== undefined && !isScope(scope))) return null;
   const [row] = await db.select().from(subs).where(eq(subs.token, token)).limit(1);
   if (!row) return null;
-  const base = { email: maskEmail(row.email), anythingOn: row.status !== "unsubscribed" };
+  const base = { email: maskEmail(row.email), anythingOn: row.status !== "unsubscribed", lang: cleanLang(row.lang) };
   if (!scope) return { ...base, scoped: null };
   const target = parseScope(scope);
   if (target.kind === "letter") return { ...base, scoped: { kind: "letter", on: row.newsletter !== "no" } };

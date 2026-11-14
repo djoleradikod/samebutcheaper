@@ -42,7 +42,7 @@ export function wishMail(input: { to: string; token: string; query: string; coun
   const rows = input.pairs.map((p) => pairLines(p, local, tagged(`${opts.siteUrl}${sitePath(`/compare/${p.slug}`, lang)}`, campaign), lang));
   const footer: Footer = {
     why: t("mailWish.why", input.query),
-    stopAll: unsubscribeUrl(opts.siteUrl, input.token),
+    stopAll: unsubscribeUrl(opts.siteUrl, input.token, undefined, lang),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,

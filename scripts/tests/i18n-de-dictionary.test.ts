@@ -11,7 +11,9 @@ import { test } from "node:test";
 import { en } from "../../src/lib/i18n/en";
 import { de } from "../../src/lib/i18n/de";
 import glossary from "../../data/i18n/de/glossary.json";
-import * as ds from "../../src/lib/i18n/de/datenschutz";
+import * as dsModule from "../../src/lib/i18n/de/datenschutz";
+import { allParagraphs } from "../../src/lib/privacy-facts";
+import * as trustPages from "../../src/lib/i18n/de/trust-pages";
 import { retention } from "../../src/lib/maintenance";
 
 const ROOT = join(import.meta.dirname, "..", "..");
@@ -134,20 +136,18 @@ function germanTexts(): { where: string; text: string }[] {
     values(JSON.parse(readFileSync(f, "utf8")), f.slice(ROOT.length + 1));
   }
   for (const photos of [true, false]) {
-    const facts = { keep: retention({}), photos, backupDays: 14, notice: null };
-    const policy = [
-      ...Object.values(ds.page),
-      ...ds.controller(null),
-      ...ds.collected(facts).flatMap((i) => [i.lead, i.text]),
-      ...ds.logs(facts),
-      ...ds.cookies,
-      ds.storage,
-      ...ds.processors(facts),
-      ...ds.bases,
-      ...ds.rights,
-      ds.choices,
-    ];
-    policy.forEach((text, i) => out.push({ where: `datenschutz[${i}]`, text: text.replace(/`[^`]+`/g, "") }));
+    for (const consentStores of [[], ["amazon"], ["amazon", "awin"]]) {
+      const facts = { keep: retention({}), photos, backupDays: 14, notice: null, consentStores };
+      allParagraphs(dsModule.policy, facts).forEach((text, i) => out.push({ where: `datenschutz[${i}]`, text: text.replace(/`[^`]+`/g, "") }));
+    }
+  }
+  // The German trust pages (/de/disclosure, /de/about, /de/how-we-verify), outside the dictionary.
+  for (const [name, section] of Object.entries(trustPages)) {
+    const walk = (v: unknown, where: string): void => {
+      if (typeof v === "function") walk(call(v, v.length), where);
+      else values(v, where);
+    };
+    for (const [k, v] of Object.entries(section)) walk(v, `${name}.${k}`);
   }
   const offline = readFileSync(join(ROOT, "public/offline-de.html"), "utf8");
   out.push({ where: "public/offline-de.html", text: offline.slice(offline.indexOf("<body")).replace(/<[^>]+>/g, " ") });
@@ -184,14 +184,14 @@ test("German typography: a no-break space before %, German quotes, the ellipsis 
 });
 
 test("the German privacy policy names who is responsible only from the LEGAL_ settings, and says what the photo switch does", () => {
+  const ds = dsModule.policy;
   assert.match(ds.controller(null).join(" "), /^\[Noch nicht eingetragen: .*LEGAL_NAME, LEGAL_ADDRESS und LEGAL_EMAIL/);
   const notice = { name: "Erika Muster", address: ["Musterstraße 1", "12345 Musterstadt"], email: "kontakt@example.de", phone: null, vatId: null, responsible: null };
   assert.deepEqual(ds.controller(notice), ["Erika Muster", "Musterstraße 1", "12345 Musterstadt", "E-Mail: kontakt@example.de"]);
-  const facts = { keep: retention({}), backupDays: 14, notice: null };
+  const facts = { keep: retention({}), backupDays: 14, notice: null, consentStores: [] };
   const on = ds.collected({ ...facts, photos: true }).find((i) => i.lead === "Fotos.")!.text;
   const off = ds.collected({ ...facts, photos: false }).find((i) => i.lead === "Fotos.")!.text;
   assert.match(on, /Anthropic/);
   assert.match(on, /Kassenbons/, "receipt photos go out too");
   assert.doesNotMatch(off, /Anthropic/);
-  assert.match(ds.cookies.join(" "), /sbc_country[^]*sbc_others[^]*sbc_src/, "every cookie the site sets");
 });

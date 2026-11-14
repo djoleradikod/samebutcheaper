@@ -311,7 +311,7 @@ function BundleBody({ record, local }: { record: Bundle; local: Local }) {
           </section>
 
           <SourceList sources={b.sources} lang={lang} />
-          {HEALTH_CATEGORIES.has(b.category) && <HealthNotice lang={lang} />}
+          {HEALTH_CATEGORIES.has(b.category) && <HealthNotice category={b.category} lang={lang} />}
           <RecordFeedback record="bundle" slug={b.slug} />
         </div>
 

@@ -231,7 +231,7 @@ function BasketBody({ p: record, local }: { p: Preset; local: Local }) {
 
         {health && (
           <div className="container-page pt-6">
-            <HealthNotice lang={lang} />
+            <HealthNotice pets={p.lines.some((l) => getPair(l.pair)?.category === "pet")} lang={lang} />
           </div>
         )}
 

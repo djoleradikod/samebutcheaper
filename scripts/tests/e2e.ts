@@ -151,8 +151,8 @@ test("pages carry the security headers", { skip }, async () => {
 
 test("a click is redirected, tagged when a program covers the store, and logged with its context", { skip }, async () => {
   const slug = freshSlug();
-  const v = visitor({ cookie: "sbc_country=DE; sbc_src=google.cpc", referer: `${BASE}/compare/${slug}` });
-  const res = await get(`/go/${slug}/alternative`, v.headers);
+  const v = visitor({ cookie: "sbc_country=DE", referer: `${BASE}/compare/${slug}` });
+  const res = await get(`/go/${slug}/alternative?src=google.cpc`, v.headers);
   assert.equal(res.status, 302);
   assert.equal(res.headers.get("cache-control"), "no-store");
   assert.match(res.headers.get("x-robots-tag") ?? "", /noindex/);
@@ -559,9 +559,9 @@ test("impressum: linked from the footer, and while the LEGAL_ settings are unset
 
 test("privacy: the retention periods in force, and what happens to pasted lists and receipts", { skip }, async () => {
   const html = await (await get("/privacy", visitor().headers)).text();
-  assert.match(html, /delete the hash and the page you came from/);
+  assert.match(html, /delete the hash and the page you clicked on/);
   assert.match(html, /180 days/);
-  assert.match(html, /paste a shopping list or upload a receipt/);
+  assert.match(html, /paste a shopping list or the text of a receipt/);
   assert.match(html, /href="\/impressum"/);
 });
 
@@ -645,6 +645,13 @@ test("country URLs: unknown pages and the internal folder are 404, and the sitem
   const pair = countryPairs.find((p) => p.market === "GB" && !p.twin)!;
   assert.equal((await get("/de/compare/not-a-swap")).status, 404);
   assert.equal((await get("/de/brands")).status, 404);
+  // A missing /de page answers 404 in German, inside the German header and footer.
+  const missing = await get("/de/no-such-page");
+  assert.equal(missing.status, 404);
+  const missingHtml = await missing.text();
+  assert.match(missingHtml, /<html lang="de"/);
+  assert.match(missingHtml, /Diese Seite haben wir nicht gefunden/);
+  assert.match(missingHtml, /<\/html>\s*$/);
   assert.equal((await get(`/country/uk/compare/${pair.slug}`)).status, 404);
   for (const path of ["/us", "/uk", "/de", "/ca", "/ie", "/uk/biggest-savings", "/de/bundles"]) assert.equal((await get(path)).status, 200, path);
   const sitemap = await (await get("/sitemap.xml")).text();

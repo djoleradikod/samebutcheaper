@@ -140,7 +140,9 @@ export const evidence: Shape<typeof en.evidence> = {
   healthLead: "Lies das Etikett. ",
   medicineLead: "Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihre Ärztin, Ihren Arzt oder in Ihrer Apotheke. ",
   healthBody:
-    "Dieser Vergleich stützt sich auf Packungsangaben und veröffentlichte Belege und ist keine medizinische Beratung. Hilfsstoffe (Füllstoffe, Farbstoffe, Aromen) können sich unterscheiden, was bei Allergien wichtig ist. Frag im Zweifel in der Apotheke oder in der Arztpraxis nach, für dein Tier in der Tierarztpraxis.",
+    "Dieser Vergleich stützt sich auf Packungsangaben und veröffentlichte Belege und ist keine medizinische Beratung. Hilfsstoffe (Füllstoffe, Farbstoffe, Aromen) können sich unterscheiden, was bei Allergien wichtig ist. Frag im Zweifel in der Apotheke oder in der Arztpraxis nach.",
+  healthBodyPet:
+    "Dieser Vergleich stützt sich auf Packungsangaben und veröffentlichte Belege und ist keine tierärztliche Beratung. Hilfsstoffe (Füllstoffe, Farbstoffe, Aromen) können sich unterscheiden, was bei Allergien deines Tiers wichtig ist. Frag im Zweifel in der Tierarztpraxis oder in der Apotheke nach.",
   photos: "Fotos: ",
   by: "von",
   noPhotoOf: (names) => `Noch kein lizenziertes Foto von ${names.join(" oder ")}.`,

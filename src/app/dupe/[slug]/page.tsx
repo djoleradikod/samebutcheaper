@@ -194,7 +194,7 @@ function DupeBody({ d, local }: { d: DupeEntry; local: Local }) {
         />
         {shown.some((p) => HEALTH_CATEGORIES.has(p.category)) && (
           <div className="container-page mb-4">
-            <HealthNotice />
+            <HealthNotice pets={shown.some((p) => p.category === "pet")} />
           </div>
         )}
 

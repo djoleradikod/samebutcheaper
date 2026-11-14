@@ -73,7 +73,7 @@ function IngredientBody({ ing, local }: { ing: NonNullable<ReturnType<typeof get
       />
       {pairs.some((p) => HEALTH_CATEGORIES.has(p.category)) && (
         <div className="container-page mb-4">
-          <HealthNotice />
+          <HealthNotice pets={pairs.some((p) => p.category === "pet")} />
         </div>
       )}
       <div className="container-page">

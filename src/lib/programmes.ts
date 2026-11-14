@@ -32,6 +32,8 @@ const entrySchema = z
       .object({
         /** false: the terms bar price tracking or price alerts for the store's products (src/lib/watch-terms.ts). */
         priceAlerts: z.boolean().optional(),
+        /** true: the terms say the programme's tracking may only run after the visitor's consent (src/lib/consent.ts). */
+        consentBeforeTracking: z.boolean().optional(),
         /** The programme's own terms page that says so. */
         source: z.string().url(),
         /** The clause, quoted, with its section. */

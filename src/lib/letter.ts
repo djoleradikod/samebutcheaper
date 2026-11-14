@@ -187,8 +187,8 @@ export function letterMail(issue: Issue, input: { to: string; token: string; iss
   const priceNote = t("mailLetter.priceNote", local.known ? local.currency : null);
   const footer: Footer = {
     why: t("mailLetter.why"),
-    stopThis: { label: t("mailLetter.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, "letter") },
-    stopAll: unsubscribeUrl(opts.siteUrl, input.token),
+    stopThis: { label: t("mailLetter.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, "letter", lang) },
+    stopAll: unsubscribeUrl(opts.siteUrl, input.token, undefined, lang),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,

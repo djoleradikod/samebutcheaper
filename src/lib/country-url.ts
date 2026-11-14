@@ -62,8 +62,15 @@ export const PREFIXED_SECTIONS: Record<string, "page" | "slug"> = {
  * Tools with no country view of their own to index (the product check, the shopping-list check, my list, search). Their
  * prefixed form exists only where the prefix changes the language: /de/check is the German /check, with German prices.
  * Under an English prefix they have none, so /uk/check is a 404 and a link to /check on a /uk page stays /check.
+ * The same goes for the short trust pages with a German text and the pages an email's links open (TRUST_PAGES).
  */
-export const LANGUAGE_PAGES: ReadonlySet<string> = new Set(["/check", "/check/list", "/my-list", "/search"]);
+export const TRUST_PAGES = [
+  "/disclosure",
+  "/about",
+  "/how-we-verify",
+  ...["confirm", "confirmed", "confirmed/watch", "confirmed/wish", "invalid", "stopped", "unsubscribe", "unsubscribed"].map((p) => `/newsletter/${p}`),
+] as const;
+export const LANGUAGE_PAGES: ReadonlySet<string> = new Set(["/check", "/check/list", "/my-list", "/search", ...TRUST_PAGES]);
 
 /** Prefixes whose pages are not in English (src/lib/i18n/lang.ts says which language). */
 export const TRANSLATED_PREFIXES: ReadonlySet<CountryPrefix> = new Set(["de"]);

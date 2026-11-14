@@ -8,6 +8,8 @@ import { LIMITS, rateLimit } from "./rate-limit";
 import { isPrefetch, visitorFrom } from "./visitor";
 import { SITE } from "./site";
 import { viaOfClick } from "./via";
+import { clickSource } from "./traffic-source";
+import { gateLink, readConsent } from "./consent";
 
 /** The hosts a referrer of ours can have: the site's own and the one this request came in on. */
 function ourHosts(request: Request) {
@@ -31,11 +33,13 @@ export function redirectOut(
 ): Response {
   const visitor = visitorFrom(request.headers);
   const clickId = newClickId();
-  const link = tagLink(target.url, clickId);
   const referrer = request.headers.get("referer");
   const cookieCountry = /(?:^|;\s*)sbc_country=([A-Z]{2})/.exec(request.headers.get("cookie") ?? "")?.[1];
   const country = isKnownCountry(cookieCountry) ? cookieCountry : null;
-  const source = /(?:^|;\s*)sbc_src=([a-z0-9._-]{1,40})(?:;|$)/.exec(request.headers.get("cookie") ?? "")?.[1] ?? null;
+  // A programme whose terms ask for consent first is tagged only for a visitor who gave it (src/lib/consent.ts).
+  const link = gateLink(tagLink(target.url, clickId), target.url, { consent: readConsent(request.headers.get("cookie")), country });
+  // The first-touch source rides on the link itself, never in a cookie (src/lib/traffic-source.ts).
+  const source = clickSource(request.url, referrer, ourHosts(request));
   let host: string | null = null;
   try {
     host = new URL(target.url).hostname.replace(/^www\./, "").slice(0, 80);

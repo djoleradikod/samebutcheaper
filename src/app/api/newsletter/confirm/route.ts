@@ -19,16 +19,20 @@ export async function POST(request: Request) {
     return new Response("Too many requests", { status: 429, headers: { ...NO_STORE, "Retry-After": "600" } });
   }
   let secret = "";
+  // The page the button was on says its language (`lang`), so the next page is in it too.
+  let at = (path: string) => path;
   try {
-    secret = String((await request.formData()).get("t") ?? "");
+    const form = await request.formData();
+    secret = String(form.get("t") ?? "");
+    if (form.get("lang") === "de") at = (path) => `/de${path}`;
   } catch {
     // No body, or not a form.
   }
   const db = getDb();
-  if (!db || !isToken(secret)) return to("/newsletter/invalid");
+  if (!db || !isToken(secret)) return to(at("/newsletter/invalid"));
   try {
     const result = await confirmByToken(db, secret, new Date());
-    return to(result.outcome === "done" ? DONE[result.kind] : "/newsletter/invalid");
+    return to(at(result.outcome === "done" ? DONE[result.kind] : "/newsletter/invalid"));
   } catch (err) {
     log.error("newsletter.confirm_failed", { err });
     return new Response("Try again later", { status: 503, headers: NO_STORE });

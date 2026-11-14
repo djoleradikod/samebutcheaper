@@ -43,8 +43,10 @@ export async function POST(request: Request) {
     }
   }
   if (oneClick) return new Response(outcome === "invalid" ? "Unknown link" : "Unsubscribed", { status: outcome === "invalid" ? 404 : 200, headers: NO_STORE });
-  const done = scope ? "/newsletter/stopped" : "/newsletter/unsubscribed";
-  return new Response(null, { status: 303, headers: { ...NO_STORE, Location: outcome === "invalid" ? "/newsletter/invalid" : done } });
+  // The page the button was on says its language (`lang`), so the next page is in it too.
+  const at = field("lang") === "de" ? "/de" : "";
+  const done = `${at}${scope ? "/newsletter/stopped" : "/newsletter/unsubscribed"}`;
+  return new Response(null, { status: 303, headers: { ...NO_STORE, Location: outcome === "invalid" ? `${at}/newsletter/invalid` : done } });
 }
 
 /** A GET is someone following the raw link: show them the page with the button. It never changes anything. */

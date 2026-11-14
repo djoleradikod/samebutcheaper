@@ -12,6 +12,8 @@ import { PATH_COUNTRY_SCRIPT } from "@/lib/country-url";
 import { shopperAttributesScript } from "@/lib/reserve";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SourceCarrier } from "@/components/SourceCarrier";
+import { ConsentSlot } from "@/components/ConsentSlot";
 import { jsonLdText, SITE } from "@/lib/site";
 import { ByLang, Html } from "@/lib/i18n/client";
 import { getT } from "@/lib/i18n";
@@ -128,6 +130,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <ByLang en={<SiteFooter />} de={<SiteFooter lang="de" />} />
+        <SourceCarrier />
+        <ByLang en={<ConsentSlot />} de={<ConsentSlot lang="de" />} />
         <script src="/sw-register.js" async />
         <ByLang
           en={<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(siteJsonLd("en")) }} />}

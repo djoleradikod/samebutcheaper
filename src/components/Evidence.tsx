@@ -54,12 +54,13 @@ export function Differences({ text, title = "What differs" }: { text: string; ti
   );
 }
 
-export function HealthNotice({ className = "", category = "", lang = "en" }: { className?: string; category?: string; lang?: Lang }) {
+/** `pets`: the page shows pet products, so a vet is named too. A single record says so with its `category`. */
+export function HealthNotice({ className = "", category = "", pets, lang = "en" }: { className?: string; category?: string; pets?: boolean; lang?: Lang }) {
   const t = getT(lang);
   return (
     <p className={`rounded-card border border-different/30 bg-different-soft p-3.5 text-sm text-ink-2 ${className}`}>
       <span className="font-semibold text-ink">{category === "otc-medicine" ? t("evidence.medicineLead") : t("evidence.healthLead")}</span>
-      {t("evidence.healthBody")}
+      {t((pets ?? category === "pet") ? "evidence.healthBodyPet" : "evidence.healthBody")}
     </p>
   );
 }

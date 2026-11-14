@@ -44,6 +44,9 @@ test("pages come from the network with the offline page behind them; only My lis
   assert.equal(nav("/my-list/"), "my-list");
   assert.equal(nav("/my-list?from=home"), "my-list");
   assert.equal(nav("/my-listing"), "page");
+  assert.equal(nav("/de/my-list"), "my-list", "the German My list opens offline too");
+  assert.equal(nav("/de/my-list/"), "my-list");
+  assert.equal(nav("/uk/my-list"), "page");
 });
 
 test("redirects, admin, API routes and the worker files are never answered, even as a navigation", () => {

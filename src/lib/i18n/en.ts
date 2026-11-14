@@ -10,8 +10,9 @@ import * as pages from "./en/pages";
 import * as site from "./en/site";
 import * as swap from "./en/swap";
 import * as tools from "./en/tools";
+import * as trust from "./en/trust";
 
-export const en = { ...swap, ...client, ...pages, ...kit, ...tools, ...email, ...site };
+export const en = { ...swap, ...client, ...pages, ...kit, ...tools, ...email, ...site, ...trust };
 
 export type Dictionary = typeof en;
 export type ClientDictionary = typeof client;

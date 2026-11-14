@@ -26,14 +26,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/brands", all],
     ["/ingredients", all],
   ];
-  // /check and /check/list have a German form, so they come with the country pages, alternates and all.
-  const prose = ["/why", "/how-we-verify", "/suggest", "/about", "/credits", "/disclosure", "/privacy"];
+  // /check, /check/list and the trust pages in TRUST_PROSE have a German form, so they come with the country pages, alternates and all.
+  const prose = ["/why", "/suggest", "/credits", "/privacy"];
+  const TRUST_PROSE = ["/how-we-verify", "/about", "/disclosure"];
 
   /** The date and weight of a page with country URLs. */
   const about = (path: string): { date: Date | null; priority: number; changeFrequency: Entry["changeFrequency"] } => {
     const [, section, slug] = path.split("/");
     if (path === "/") return { date: all, priority: 1, changeFrequency: "weekly" };
-    if (section === "check") return { date: null, priority: 0.4, changeFrequency: "monthly" };
+    if (section === "check" || TRUST_PROSE.includes(path)) return { date: null, priority: 0.4, changeFrequency: "monthly" };
     if (path === "/biggest-savings") return { date: newest(pairs.map((p) => p.price_checked)), priority: 0.6, changeFrequency: "weekly" };
     if (path === "/bundles") {
       const dates = [...getAllBundles().map((b) => b.price_checked), ...getAllPresets().flatMap((p) => p.lines.map((l) => getPair(l.pair)?.price_checked))];

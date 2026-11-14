@@ -4,6 +4,7 @@ import knownSlugs from "@/generated/known-slugs.json";
 import { isAdminAuthorized } from "@/lib/admin-auth";
 import { isLimited, LIMITS, rateLimit } from "@/lib/rate-limit";
 import { clientIp, isBotAgent } from "@/lib/visitor";
+import { log } from "@/lib/log";
 import { INTERNAL_ROOT, internalPath, isPrefixable, readPath } from "@/lib/country-url";
 
 const COUNTRY_COOKIE = "sbc_country";
@@ -32,6 +33,7 @@ export function proxy(request: NextRequest) {
   const route = countryRoute(pathname);
   if (route === "missing" || isMissingPage(pathname)) {
     // These pages stream, so they can't set a 404 themselves once rendering starts.
+    if (pathname === "/de" || pathname.startsWith("/de/")) return germanNotFound(request);
     return NextResponse.rewrite(new URL("/page-not-found", request.url), { status: 404 });
   }
 
@@ -58,35 +60,35 @@ export function proxy(request: NextRequest) {
   if (detected) {
     response.cookies.set(COUNTRY_COOKIE, detected, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
   }
-  if (!request.cookies.has(SOURCE_COOKIE)) {
-    const source = trafficSource(request.nextUrl.searchParams, request.headers.get("referer"), request.nextUrl.host);
-    if (source) response.cookies.set(SOURCE_COOKIE, source, { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax" });
-  }
+  // sbc_src, the old 30-day source cookie, is retired (src/lib/traffic-source.ts): a browser that still has one loses it.
+  if (request.cookies.has(RETIRED_SOURCE_COOKIE)) response.cookies.set(RETIRED_SOURCE_COOKIE, "", { path: "/", maxAge: 0 });
   return response;
 }
 
-/** First-touch traffic source, so /admin can show which channel's visitors go on to buy. Read by src/lib/outbound.ts. */
-const SOURCE_COOKIE = "sbc_src";
+const RETIRED_SOURCE_COOKIE = "sbc_src";
 
 /**
- * Where a visitor came from: the campaign tag when a link carries one (utm_source, or "ref"), else the referring
- * site's host. Our own pages and direct visits give nothing, so the first real source sticks for 30 days.
+ * A missing /de/... page in German: src/app/country/[country]/page-not-found draws the 404 inside /de's layout. A
+ * rewrite there would answer 200 (Next keeps a rewrite's status only when no page matches), so it is fetched from this
+ * server and passed on with 404. If that fails, the English 404 still answers 404.
  */
-export function trafficSource(params: URLSearchParams, referer: string | null, ownHost: string): string | null {
-  const clean = (v: string) => v.toLowerCase().replace(/[^a-z0-9._-]+/g, "-").slice(0, 40) || null;
-  const tag = params.get("utm_source") ?? params.get("ref");
-  if (tag) {
-    const medium = params.get("utm_medium");
-    return clean(medium ? `${tag}.${medium}` : tag);
-  }
-  if (!referer) return null;
+async function germanNotFound(request: NextRequest): Promise<NextResponse> {
+  // Always this server over loopback, and none of the visitor's headers: the internal token and cookies must never
+  // travel to a host named by the request.
+  const headers = new Headers({ [INTERNAL_HEADER]: INTERNAL_TOKEN, "accept-encoding": "identity", accept: "text/html" });
+  const self = `http://127.0.0.1:${process.env.PORT || 3000}`;
   try {
-    const host = new URL(referer).hostname.replace(/^(www|m|l|lm|out)\./, "");
-    if (!host || host === ownHost.replace(/:\d+$/, "").replace(/^www\./, "")) return null;
-    return clean(host);
-  } catch {
-    return null;
+    const page = await fetch(`${self}${INTERNAL_ROOT}/de/page-not-found`, { headers, redirect: "manual", cache: "no-store" });
+    if (page.ok && page.headers.get("content-type")?.startsWith("text/html")) {
+      const out = new Headers(page.headers);
+      for (const h of ["content-encoding", "content-length", "transfer-encoding", "connection", "keep-alive"]) out.delete(h);
+      return new NextResponse(page.body, { status: 404, headers: out });
+    }
+    log.warn("german_404_fetch_failed", { status: page.status });
+  } catch (err) {
+    log.warn("german_404_fetch_failed", { err });
   }
+  return NextResponse.rewrite(new URL("/page-not-found", request.url), { status: 404 });
 }
 
 /**

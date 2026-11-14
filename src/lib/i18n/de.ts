@@ -12,5 +12,6 @@ import * as pages from "./de/pages";
 import * as site from "./de/site";
 import * as swap from "./de/swap";
 import * as tools from "./de/tools";
+import * as trust from "./de/trust";
 
-export const de: Shape<Dictionary> = { ...swap, ...client, ...pages, ...kit, ...tools, ...email, ...site };
+export const de: Shape<Dictionary> = { ...swap, ...client, ...pages, ...kit, ...tools, ...email, ...site, ...trust };

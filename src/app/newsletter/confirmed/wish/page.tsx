@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Link from "@/components/CountryLink";
 import { ProsePage } from "@/components/ProsePage";
+import { pageT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = { title: "Request confirmed", robots: { index: false, follow: false } };
 
+/** In the page's language: /de/newsletter/confirmed/wish is the German one. */
 export default function WishConfirmedPage() {
+  const t = pageT();
   return (
-    <ProsePage title="Request confirmed" intro="Your email address is confirmed for this request.">
+    <ProsePage title={t("newsletterPages.wishTitle")} intro={t("newsletterPages.wishIntro")}>
+      <p>{t("newsletterPages.wishBody")}</p>
+      <p>{t("newsletterPages.wishOnly")}</p>
       <p>
-        We count every request like yours, and the products most people ask for are the ones we research first. We
-        only add a swap once at least two sources back it up, so we can&apos;t promise when, or that we will.
-      </p>
-      <p>This doesn&apos;t sign you up for anything else.</p>
-      <p>
-        <Link href="/suggest">Know a cheaper product that does the same job? Tell us</Link>
+        <Link href="/suggest">{t("newsletterPages.suggest")}</Link>
       </p>
     </ProsePage>
   );

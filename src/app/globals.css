@@ -377,3 +377,14 @@ html[data-updating] #main {
   opacity: 0.45;
   transition: opacity 120ms;
 }
+
+/*
+ * German compounds are long ("Natriumhyaluronat", "Hydroxypropylmethylcellulose"). Where a narrow cell has to break
+ * one, break it between syllables with a hyphen, by the rules of the text's own `lang` (English text marked lang="en"
+ * on a German page keeps English rules).
+ */
+html[lang="de"] .break-words,
+html[lang="de"] td,
+html[lang="de"] th {
+  hyphens: auto;
+}
