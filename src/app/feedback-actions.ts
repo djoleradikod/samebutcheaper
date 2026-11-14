@@ -2,7 +2,7 @@
 
 import { cookies, headers } from "next/headers";
 import { z } from "zod";
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { getBundle, getPair } from "@/lib/catalog";
 import { log } from "@/lib/log";
 import { mailConfigured } from "@/lib/mail";
@@ -50,7 +50,7 @@ export async function reportProblem(_prev: FeedbackState, formData: FormData): P
   if (!rateLimit("reports", visitor.key, LIMITS.reports).ok) return tooMany(say);
   // The same visitor reporting the same thing about the same page again today: thank them, count it once.
   if (!rateLimit("report-once", `${visitor.key}:${recordKind}:${slug}:${kind}`, LIMITS.oncePerDay).ok) return thanks;
-  const db = getDb();
+  const db = getFormDb();
   if (!db) return { ok: false, message: say("actions.reportsClosed") };
   try {
     await recordReport(db, { recordKind, slug, kind, note: formData.get("note") as string | null, country: await country(), visitorHash: visitor.hash });
@@ -79,7 +79,7 @@ export async function watchSwap(_prev: FeedbackState, formData: FormData): Promi
   if (watchTerms(pair).alternative) return { ok: false, message: say("actions.watchBarred") };
   const visitor = visitorFrom(new Headers(await headers()));
   if (!rateLimit("forms", visitor.key, LIMITS.forms).ok) return tooMany(say);
-  const db = getDb();
+  const db = getFormDb();
   if (!db) return { ok: false, message: say("actions.watchesClosed") };
   try {
     const outcome = await requestWatch(
@@ -103,7 +103,7 @@ export async function wishFor(_prev: FeedbackState, formData: FormData): Promise
   if (!query) return { ok: false, message: say("actions.searchFirst") };
   const visitor = visitorFrom(new Headers(await headers()));
   if (!rateLimit("forms", visitor.key, LIMITS.forms).ok) return tooMany(say);
-  const db = getDb();
+  const db = getFormDb();
   if (!db) return { ok: false, message: say("actions.notOpen") };
   try {
     const outcome = await requestWish(db, { email: email.data, country: await country(), lang: formLang(formData), query }, { siteUrl: SITE.url });

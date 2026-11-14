@@ -25,6 +25,8 @@ import {
   termsOff,
 } from "../../src/lib/programme-terms";
 import { applyProgrammeTerms, withoutPrices } from "../programme-terms";
+import { quotesPrice, withholdPair, withoutSavings, withoutStorePrices } from "../../src/lib/price-expiry";
+import { linkStoreName } from "../../src/lib/affiliate";
 import type { CatalogueView } from "../../src/lib/catalog-data";
 import { buildIssue } from "../../src/lib/letter";
 import type { Catalog, Pair } from "../../src/lib/types";
@@ -217,7 +219,7 @@ test("the build pass withholds a price, zeroes every saving built on it and drop
   assert.deepEqual(pair.prices.brand.history, []);
   assert.equal(pair.brand.photo, null);
   assert.deepEqual(parts.credits.map((c) => c.src), [], "a photo no page shows leaves the credits");
-  assert.deepEqual(counts, { pairs: 1, bundles: 0, presets: 0, photos: 1, histories: 1 });
+  assert.deepEqual(counts, { pairs: 1, bundles: 0, presets: 0, photos: 1, histories: 1, limitedPairs: 0, limitedBundles: 0, quotes: 0 });
 
   // Switched off, the same swap is left as it was.
   const before: Pair = structuredClone(pair);
@@ -243,6 +245,52 @@ test("a withheld record's prose loses the prices it quotes and keeps the rest", 
   }
 });
 
+test("cents signs count as prices, a cut never splits brackets, and a withheld summary states no saving", () => {
+  assert.equal(withoutPrices("Same surfactants. It works out at 85.1¢/fl oz."), "Same surfactants.");
+  assert.equal(
+    withoutPrices("Both are 2-in-1 pods (membership needed; third-party Walmart sellers charge about $32). Same enzymes."),
+    "Same enzymes.",
+    "no cut inside the brackets",
+  );
+  assert.equal(withoutPrices("Same pods (big box; sold online), and a tub costs $12."), "Same pods (big box; sold online).");
+  assert.equal(withoutSavings("Same 10 mg loratadine. It costs 62% less per tablet."), "Same 10 mg loratadine.");
+  assert.equal(withoutSavings("62% less per tablet.", "Left out."), "Left out.");
+  assert.equal(withoutSavings("Same 0.5% salicylic acid."), "Same 0.5% salicylic acid.", "a strength is not a saving");
+
+  const pair = structuredClone(catalog.pairs.find((p) => !p.withheld)!) as Pair;
+  pair.summary = "Same active ingredient; 40% less per dose. About $3.20 cheaper a pack.";
+  withholdPair(pair, { brand: { store: "test", only: "feed", date: DAY, precision: "day" } });
+  assert.equal(pair.summary, "Same active ingredient.");
+
+  for (const r of [...catalog.pairs, ...catalog.bundles].filter((r) => r.withheld)) {
+    assert.ok(!quotesPrice(r.summary) && !/% less/i.test(r.summary), `${r.slug}: a withheld record's summary states no price or saving`);
+  }
+});
+
+test("a priced record's passing quote of a withheld store's price goes, and nothing else of its prose", () => {
+  assert.equal(
+    withoutStorePrices("Both are pasture-raised. Vital Farms was $6.67 at Walmart Supercenter, so the gap is smaller there. Sprouts sells a dozen for $5.99.", ["Walmart"]),
+    "Both are pasture-raised. Sprouts sells a dozen for $5.99.",
+  );
+  assert.equal(withoutStorePrices("Walmart.ca listed it at $5.97.", ["Walmart"]), "Walmart.ca listed it at $5.97.", "walmart.ca is another programme");
+  assert.equal(withoutStorePrices("Walmart sells it for $5.97.", []), "Walmart sells it for $5.97.");
+
+  const ruled = withTerms.find((w) => w.terms.prices && w.store !== "amazon");
+  assert.ok(ruled);
+  const free = (p: Pair) => !rulesFor(p.brand, p.market, ON) && !rulesFor(p.alternative, p.market, ON);
+  const other = structuredClone(catalog.pairs.find((p) => p.market === ruled.market && free(p))) as Pair;
+  const withheldOne = structuredClone(other);
+  withheldOne.slug = "test-withheld";
+  withheldOne.brand = { ...withheldOne.brand, ...at(ruled.store) } as Pair["brand"];
+  withheldOne.prices.brand = { ...withheldOne.prices.brand, feed: undefined };
+  const name = linkStoreName(withheldOne.brand);
+  other.evidence = `Same active. It was $9.99 at ${name}. Our own check found $4.00 at the other store.`;
+  const { counts } = applyProgrammeTerms({ pairs: [other, withheldOne], bundles: [], presets: [], credits: [] }, DAY, ON);
+  assert.equal(other.withheld, undefined);
+  assert.equal(other.evidence, "Same active. Our own check found $4.00 at the other store.");
+  assert.equal(counts.quotes, 1);
+});
+
 test("a link to a path the terms bar fails the build", () => {
   const barred = withTerms.find((w) => w.terms.barredPaths?.length);
   if (!barred) return;
@@ -255,7 +303,8 @@ test("a link to a path the terms bar fails the build", () => {
 // Run with the same PROGRAMME_TERMS_ON / PROGRAMME_TERMS_OFF and affiliate settings the catalogue was built with.
 
 test("in the built catalogue, every withheld record shows no saving and every priced one passes its programme's rules", () => {
-  const day = catalog.generatedAt.slice(0, 10);
+  // The build judges each price at its own moment, a few milliseconds before generatedAt.
+  const day = catalog.generatedAt;
   for (const p of catalog.pairs) {
     for (const side of ["brand", "alternative"] as const) {
       const w = priceWithheld(p[side], p.prices[side], p.market, day);

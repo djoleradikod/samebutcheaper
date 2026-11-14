@@ -1,4 +1,4 @@
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { log } from "@/lib/log";
 import { confirmByToken, isToken } from "@/lib/newsletter";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
   } catch {
     // No body, or not a form.
   }
-  const db = getDb();
+  const db = getFormDb();
   if (!db || !isToken(secret)) return to(at("/newsletter/invalid"));
   try {
     const result = await confirmByToken(db, secret, new Date());

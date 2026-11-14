@@ -158,6 +158,8 @@ export const evidence: Shape<typeof en.evidence> = {
 export const prices: Shape<typeof en.prices> = {
   checked: (day) => `Preise geprüft: ${day}.`,
   checkedEach: (brand, brandDay, alt, altDay) => `Preis für ${brand} geprüft: ${brandDay}, für ${alt}: ${altDay}.`,
+  checkedOne: (brand, day) => `Preis für ${brand} geprüft: ${day}.`,
+  checkedWithheld: (day) => `Die Preise des Händlers zeigen wir hier nicht. Zuletzt von uns geprüft: ${day}.`,
   history: "Preisverlauf",
   ageing: "Vor über 3 Monaten geprüft, schau deshalb beim Händler nach dem aktuellen Preis.",
   stale: "Vor über 6 Monaten geprüft, schau deshalb beim Händler nach dem aktuellen Preis.",
@@ -365,13 +367,21 @@ export const rows: Shape<typeof en.rows> = {
   },
 };
 
+/** "Walmart erlaubt seinen Partnern ...", "Walmart und Amazon erlauben ihren Partnern ...". */
+const nurEigenePreise = (stores: string) =>
+  / und /.test(stores)
+    ? `${stores} erlauben ihren Partnern nur Preise, die sie selbst liefern und aktuell halten.`
+    : `${stores} erlaubt seinen Partnern nur Preise, die ${stores} selbst liefert und aktuell hält.`;
+
 export const terms: Shape<typeof en.terms> = {
   seePrice: (store) => `Preis bei ${store} ansehen`,
   lastChecked: (date) => `Zuletzt von uns geprüft: ${date}`,
   why: (stores) =>
-    `${stores} erlaubt seinen Partnern nur Preise, die ${stores} selbst liefert und aktuell hält. Deshalb zeigt diese Seite dafür keinen Preis und keine Ersparnis. Vergleiche den Grundpreis beim Händler.`,
+    `${nurEigenePreise(stores)} Deshalb zeigt diese Seite dafür keinen Preis und keine Ersparnis. Vergleiche den Grundpreis beim Händler.`,
   verdict: (alt, what) => `${alt} ${what}.`,
   share: (alt, brand) => `${alt} statt ${brand}: was übereinstimmt und was sich unterscheidet`,
+  hub: (stores) =>
+    `${nurEigenePreise(stores)} Deshalb zeigen wir hier für ${stores} keinen Preis und keine Ersparnis. Die Seite jedes Vergleichs sagt, was übereinstimmt und was sich unterscheidet.`,
   notice: {
     "store-price-applies": (store) => `Weicht der Preis bei ${store} ab, gilt der Preis von ${store}.`,
     "as-of-time": () => "Produktpreise und Verfügbarkeit gelten zum angegebenen Datum und können sich ändern.",
@@ -382,9 +392,9 @@ export const terms: Shape<typeof en.terms> = {
   replaces: (item) => `Anstelle von: ${item}`,
   insteadOf: (brand) => `statt ${brand}`,
   kit: (stores) =>
-    `${stores} erlaubt seinen Partnern nur Preise, die ${stores} selbst liefert und aktuell hält. Deshalb zeigt dieses Set keine Preise und keine Summen. Jedes Teil führt zu seinem Händler.`,
+    `${nurEigenePreise(stores)} Deshalb zeigt dieses Set keine Preise und keine Summen. Jedes Teil führt zu seinem Händler.`,
   basket: (stores) =>
-    `${stores} erlaubt seinen Partnern nur Preise, die ${stores} selbst liefert und aktuell hält. Deshalb zeigt dieser Einkauf keine Summen. Jede Zeile führt zu ihrem Vergleich.`,
+    `${nurEigenePreise(stores)} Deshalb zeigt dieser Einkauf keine Summen. Jede Zeile führt zu ihrem Vergleich.`,
   whyPlain:
     "Der Händler erlaubt seinen Partnern nur Preise, die er selbst liefert und aktuell hält. Deshalb zeigt diese Seite dafür keinen Preis und keine Ersparnis. Vergleiche den Grundpreis beim Händler.",
 };

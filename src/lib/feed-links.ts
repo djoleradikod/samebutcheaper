@@ -72,6 +72,8 @@ export type FeedInfo = {
   link?: string;
   /** The day the feed was read. */
   seen: string;
+  /** When the feed was read (ISO time), on readings logged since it was kept. A 24-hour price rule counts from it. */
+  at?: string;
   stock: "in" | "out" | "unknown";
 };
 

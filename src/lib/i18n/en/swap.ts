@@ -146,6 +146,10 @@ export const evidence = {
 export const prices = {
   checked: (day: string) => `Prices checked ${day}.`,
   checkedEach: (brand: string, brandDay: string, alt: string, altDay: string) => `${brand} price checked ${brandDay}, ${alt} ${altDay}.`,
+  /** A swap whose one price shows and other is withheld (programme terms). */
+  checkedOne: (brand: string, day: string) => `${brand} price checked ${day}.`,
+  /** A swap whose prices are all withheld (programme terms): the date stays, the prices don't. */
+  checkedWithheld: (day: string) => `Store prices withheld here. Last checked by us: ${day}.`,
   history: "Price history",
   ageing: "Checked over 3 months ago, so check the price at the store.",
   stale: "Checked over 6 months ago, so check the price at the store.",
@@ -371,14 +375,23 @@ export const rows = {
  * What a page says where an affiliate programme's own terms don't let us show a price (src/lib/programme-terms.ts):
  * the store, the day we last checked, and why there's no figure.
  */
+/** "Walmart lets its affiliates ...", "Walmart and Amazon let their affiliates ...". */
+const onlyTheirPrices = (stores: string) =>
+  / and /.test(stores)
+    ? `${stores} let their affiliates show only prices they supply and keep current`
+    : `${stores} lets its affiliates show only prices it supplies and keeps current`;
+
 export const terms = {
   seePrice: (store: string) => `See the price at ${store}`,
   lastChecked: (date: string) => `Last checked by us: ${date}`,
   why: (stores: string) =>
-    `${stores} lets its affiliates show only prices it supplies and keeps current, so this page shows no price or saving for it. Compare the price per unit at the store.`,
+    `${onlyTheirPrices(stores)}, so this page shows no price or saving for it. Compare the price per unit at the store.`,
   /** The verdict without a saving. */
   verdict: (alt: string, what: string) => `${alt} ${what}.`,
   share: (alt: string, brand: string) => `${alt} instead of ${brand}: what matches and what differs`,
+  /** A hub's answer where the swaps it lists show no saving: why there is no figure. */
+  hub: (stores: string) =>
+    `${onlyTheirPrices(stores)}, so we show no price or saving for ${stores} here. Each swap's page says what matches and what differs.`,
   /** The notice a programme wants beside a price we do show for it. */
   notice: {
     "store-price-applies": (store: string) => `If the price at ${store} differs, ${store}'s price applies.`,
@@ -391,9 +404,9 @@ export const terms = {
   replaces: (item: string) => `In place of: ${item}`,
   insteadOf: (brand: string) => `instead of ${brand}`,
   kit: (stores: string) =>
-    `${stores} lets its affiliates show only prices it supplies and keeps current, so this kit shows no prices or totals. Each piece links to its store.`,
+    `${onlyTheirPrices(stores)}, so this kit shows no prices or totals. Each piece links to its store.`,
   basket: (stores: string) =>
-    `${stores} lets its affiliates show only prices it supplies and keeps current, so this basket shows no totals. Each line links to its swap.`,
+    `${onlyTheirPrices(stores)}, so this basket shows no totals. Each line links to its swap.`,
   /** The same, naming no store, for text every country's view shares. */
   whyPlain: "The store lets its affiliates show only prices it supplies and keeps current, so this page shows no price or saving for it. Compare the price per unit at the store.",
 };

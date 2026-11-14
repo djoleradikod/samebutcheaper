@@ -63,3 +63,26 @@ jobs:
           name: quality
           path: .next/quality.json
           if-no-files-found: ignore
+
+  # The site as it reads once the affiliate programmes' display rules apply (src/lib/programme-terms.ts): every price a
+  # programme's terms withhold is withheld. Pages change only in that state, so it needs its own build; a job of its
+  # own, beside the one above, so it adds no time to it (measured: build 2 min 23 s, browser checks 2 min 55 s).
+  terms-on:
+    runs-on: ubuntu-latest
+    env:
+      PROGRAMME_TERMS_ON: all
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build with every programme's rules on
+        run: npm run build
+      - name: Withheld pages
+        run: npx tsx --test scripts/tests/programme-terms.test.ts scripts/tests/programme-terms-pages.test.ts
+      - name: Install Chromium for the browser checks
+        run: npx playwright install --with-deps chromium
+      - name: Accessibility, phone width and performance budget, rules on
+        run: node scripts/ci/quality.mjs

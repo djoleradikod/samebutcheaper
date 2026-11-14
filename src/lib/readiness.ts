@@ -4,6 +4,7 @@ import { feedReadiness, type FeedRuns } from "./feed-status";
 import { legalMissing } from "./legal";
 import { letterSettings } from "./letter-settings";
 import { mailConfigured } from "./mail";
+import { termsChecks, type TermsBuild } from "./readiness-terms";
 
 /** Numeric settings that fall back to a default when they don't parse. */
 const MAIL_NUMBERS = [
@@ -48,6 +49,8 @@ export type Facts = {
   affiliateEnv?: Env;
   /** The contact address pages were built with (NEXT_PUBLIC_CONTACT_EMAIL at build time); unchecked when absent. */
   contactEmail?: string;
+  /** The catalogue the site was built with, for the programme terms checks (src/lib/readiness-terms.ts). */
+  build?: TermsBuild;
 };
 
 const PLACEHOLDER = /^(change-?me.*|sbc|password|admin|secret|test|changeme)$/i;
@@ -160,6 +163,7 @@ export function readinessChecks(env: Env, facts: Facts): Check[] {
     detail: live || sub ? `${live} direct program${live === 1 ? "" : "s"}${sub ? ` + ${sub}` : ""}` : "none: no link earns anything",
     fix: "Add the IDs from each network as you are approved (docs/affiliate-playbook.md), then rebuild.",
   });
+  checks.push(...termsChecks(env, aff, facts.build));
 
   const postback = env.POSTBACK_SECRET?.trim() ?? "";
   add({

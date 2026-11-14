@@ -27,7 +27,7 @@ export function readConsent(cookie: string | null | undefined): ConsentChoice | 
   return v === "yes" || v === "no" ? v : null;
 }
 
-/** The Set-Cookie value (or document.cookie assignment) that remembers a choice. */
-export function consentCookie(choice: ConsentChoice): string {
-  return `${CONSENT_COOKIE}=${choice}; Path=/; Max-Age=${CONSENT_DAYS * 86400}; SameSite=Lax`;
+/** The Set-Cookie value (or document.cookie assignment) that remembers a choice. `secure` on a page served over https. */
+export function consentCookie(choice: ConsentChoice, secure = false): string {
+  return `${CONSENT_COOKIE}=${choice}; Path=/; Max-Age=${CONSENT_DAYS * 86400}; SameSite=Lax${secure ? "; Secure" : ""}`;
 }

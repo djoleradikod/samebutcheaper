@@ -108,6 +108,11 @@ export const LIMITS = {
     { limit: 20, windowMs: 10 * MINUTE },
     { limit: 150, windowMs: DAY },
   ],
+  /** Product photos /check shows, fetched through our server (src/app/api/product-image). A results page shows up to 18. */
+  images: [
+    { limit: 120, windowMs: MINUTE },
+    { limit: 2000, windowMs: DAY },
+  ],
   /** The same visitor, record and thing counted once a day (a report, a missed search), so one person can't inflate a count. */
   oncePerDay: [{ limit: 1, windowMs: DAY }],
 } as const satisfies Record<string, readonly Rule[]>;

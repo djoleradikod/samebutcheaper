@@ -131,7 +131,7 @@ function DupeBody({ d, local }: { d: DupeEntry; local: Local }) {
       q: `Is there a ${h.noun} for ${d.brand}?`,
       // A top swap whose prices a store's affiliate terms withhold (src/lib/programme-terms.ts) quotes no saving.
       a: top.withheld
-        ? matchCountAnswer(shown)
+        ? `${matchCountAnswer(shown)} ${getT("en")("terms.hub", withheldStores(top))}`
         : `${matchCountAnswer(shown)} The biggest saving is ${top.alternative.brand}, ${Math.round(top.savingsPct)}% less ${per} at the prices we checked in ${monthYear(top.price_checked)}.`,
     },
     {
@@ -200,7 +200,7 @@ function DupeBody({ d, local }: { d: DupeEntry; local: Local }) {
           best={top.savingsPct}
           facts={
             <>
-              Prices checked {monthYear(top.price_checked)}. Check the price at the store before you buy.
+              {top.withheld ? getT("en")("prices.checkedWithheld", monthYear(top.price_checked)) : `Prices checked ${monthYear(top.price_checked)}. Check the price at the store before you buy.`}
               <ListLinks />
             </>
           }

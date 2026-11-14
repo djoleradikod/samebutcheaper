@@ -2,7 +2,7 @@
 
 import { cookies, headers } from "next/headers";
 import { z } from "zod";
-import { getDb, schema } from "@/db";
+import { getFormDb, schema } from "@/db";
 import { log } from "@/lib/log";
 import { mailConfigured } from "@/lib/mail";
 import { isKnownCountry } from "@/lib/markets";
@@ -33,7 +33,7 @@ export async function subscribe(_prev: FormState, formData: FormData): Promise<F
   if (!email.success) return { ok: false, message: t("subscribe.validEmail") };
   const { allowed } = await formVisitor();
   if (!allowed) return { ok: false, message: t("subscribe.tooMany") };
-  const db = getDb();
+  const db = getFormDb();
   if (!db) return { ok: false, message: t("subscribe.notOpen") };
   try {
     const cookieCountry = (await cookies()).get("sbc_country")?.value;
@@ -95,7 +95,7 @@ export async function suggestSwap(_prev: FormState, formData: FormData): Promise
   if (!parsed.success) return { ok: false, message: parsed.error.issues[0].message };
   const { allowed } = await formVisitor();
   if (!allowed) return TOO_MANY;
-  const db = getDb();
+  const db = getFormDb();
   if (!db) return { ok: false, message: "Suggestions are not open yet. Please check back soon." };
   try {
     await db.insert(schema.submissions).values(parsed.data);

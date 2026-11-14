@@ -87,15 +87,20 @@ function changing() {
   document.documentElement.setAttribute("data-updating", "");
 }
 
+/** Over https a cookie is sent only over https, so nobody on the network can read or plant it on a plain request. */
+export function secureFlag() {
+  return location.protocol === "https:" ? "; Secure" : "";
+}
+
 export function setCountry(code: string) {
   if (code === read()) return;
-  document.cookie = `${COUNTRY_COOKIE}=${code}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  document.cookie = `${COUNTRY_COOKIE}=${code}; Path=/; Max-Age=31536000; SameSite=Lax${secureFlag()}`;
   changing();
   window.dispatchEvent(new Event(EVENT));
 }
 
 export function setShowOthers(show: boolean) {
-  document.cookie = `${OTHERS_COOKIE}=${show ? "1" : "0"}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  document.cookie = `${OTHERS_COOKIE}=${show ? "1" : "0"}; Path=/; Max-Age=31536000; SameSite=Lax${secureFlag()}`;
   changing();
   window.dispatchEvent(new Event(EVENT));
 }

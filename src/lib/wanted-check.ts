@@ -1,5 +1,5 @@
 import "server-only";
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { log } from "@/lib/log";
 import { logLookup as logLookupOnly, type LookupLog } from "@/lib/lookup/log";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
@@ -14,7 +14,7 @@ export async function logLookup(entry: LookupLog, headers: Headers, country: str
   await logLookupOnly(entry, headers, country);
   if (entry.verified || !entry.productName || (entry.kind !== "product" && entry.kind !== "barcode")) return;
   const query = normaliseQuery(entry.productName);
-  const db = getDb();
+  const db = getFormDb();
   const visitor = visitorFrom(headers);
   if (!query || !db || visitor.isBot) return;
   if (!rateLimit("wanted", visitor.key, LIMITS.wanted).ok) return;

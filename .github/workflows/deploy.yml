@@ -11,15 +11,21 @@
 #   DEPLOY_KNOWN_HOSTS (secret, optional but advised)  the server's SSH host key line, so the runner can't be fooled
 #   DEPLOY_SSH_PORT (variable, optional)               default 22
 #
+#   PRICE_FEED_URLS, PRICE_FEED_COLUMNS, FLEXOFFERS_API_KEY (secrets, optional; the price watch's own, docs/feeds.md)
+#                                    when a feed is set for a store whose programme lets a shown price be at most 24
+#                                    hours old (Walmart), every build reads that feed first and the site is rebuilt daily
+#
 # Runs on every push to main, weekly (freshness tiers are worked out when the catalogue is built, so the site must
-# be rebuilt at least once a week), and by hand: Actions > Deploy > Run workflow, with "rollback" or "status".
+# be rebuilt at least once a week), daily instead once such a feed is set (scripts/ci/price-schedule.mjs decides;
+# docs/prices-daily.md has why and what it costs), and by hand: Actions > Deploy > Run workflow, with "rollback" or
+# "status". The scheduled run starts every day; on a day with nothing to refresh it stops after a few seconds.
 name: Deploy
 
 on:
   push:
     branches: [main]
   schedule:
-    - cron: "30 6 * * 1" # Mondays 06:30 UTC, after the price watch has run
+    - cron: "30 6 * * *" # 06:30 UTC; builds on Mondays (after the price watch has run), and daily with a 24-hour feed
   workflow_dispatch:
     inputs:
       action:
@@ -45,10 +51,26 @@ jobs:
       build: ${{ steps.plan.outputs.build }}
       ssh: ${{ steps.plan.outputs.ssh }}
       image: ${{ steps.plan.outputs.image }}
+      daily: ${{ steps.prices.outputs.daily }}
     steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            data/sellers/programmes.json
+            scripts/ci/price-schedule.mjs
+          sparse-checkout-cone-mode: false
+      # Store ids only; the feed addresses are never printed.
+      - name: Daily or weekly
+        id: prices
+        env:
+          PRICE_FEED_URLS: ${{ secrets.PRICE_FEED_URLS }}
+        run: node scripts/ci/price-schedule.mjs
       - name: What is configured
         id: plan
         env:
+          DAILY: ${{ steps.prices.outputs.daily }}
+          DAILY_STORES: ${{ steps.prices.outputs.stores }}
+          EVENT: ${{ github.event_name }}
           ACTION: ${{ inputs.action || 'deploy' }}
           SITE_URL: ${{ vars.SITE_URL }}
           HAS_HOST: ${{ secrets.DEPLOY_HOST != '' || vars.DEPLOY_HOST != '' }}
@@ -59,9 +81,18 @@ jobs:
         run: |
           set -euo pipefail
           build=false; ssh=false
-          image="ghcr.io/${GITHUB_REPOSITORY,,}:sha-${GITHUB_SHA::12}"
+          # The run number too: a scheduled build of the same commit carries newer prices, and a tag shared with the
+          # build before it would make `rollback` start the new image again instead of the previous one.
+          image="ghcr.io/${GITHUB_REPOSITORY,,}:sha-${GITHUB_SHA::12}-r${GITHUB_RUN_NUMBER}"
           # Written once, however the step ends.
           trap 'printf "action=%s\nbuild=%s\nssh=%s\nimage=%s\n" "$ACTION" "$build" "$ssh" "$image" >> "$GITHUB_OUTPUT"' EXIT
+
+          # The schedule fires daily. Without a 24-hour feed only Monday's run builds; the others stop here.
+          if [ "$EVENT" = schedule ] && [ "$DAILY" != true ] && [ "$(date -u +%u)" != 1 ]; then
+            echo "No feed needs a daily build (scripts/ci/price-schedule.mjs), so the scheduled deploy runs on Mondays only. Nothing ran." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          [ "$DAILY" = true ] && echo "Daily build: the feed for $DAILY_STORES is read first, so its prices show for the next 23 hours (docs/prices-daily.md)." >> "$GITHUB_STEP_SUMMARY"
 
           if [ -z "$SITE_URL" ]; then
             echo "::notice title=Deploy not configured::Nothing was built or deployed. To turn deploys on, set the repository variable SITE_URL and the DEPLOY_* secrets (docs/deploy.md)."
@@ -106,7 +137,7 @@ jobs:
     needs: plan
     if: needs.plan.outputs.build == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 50
     permissions:
       contents: read
       packages: write
@@ -114,6 +145,27 @@ jobs:
       IMAGE: ${{ needs.plan.outputs.image }}
     steps:
       - uses: actions/checkout@v4
+      # A store whose programme lets a shown price be at most 24 hours old: read its feed now, into this build only
+      # (nothing is committed; the weekly price watch keeps the record). Small moves apply, big ones wait for review
+      # as always, and a side the feed didn't confirm today shows no price once its last reading is 23 hours old
+      # (src/lib/price-expiry.ts). If the read fails, the build goes on with the readings it has, which is safe.
+      - uses: actions/setup-node@v4
+        if: needs.plan.outputs.daily == 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - name: Read the 24-hour feeds
+        if: needs.plan.outputs.daily == 'true'
+        continue-on-error: true
+        timeout-minutes: 20
+        env:
+          PRICE_FEED_URLS: ${{ secrets.PRICE_FEED_URLS }}
+          PRICE_FEED_COLUMNS: ${{ secrets.PRICE_FEED_COLUMNS }}
+          FLEXOFFERS_API_KEY: ${{ secrets.FLEXOFFERS_API_KEY }}
+        run: |
+          npm ci --ignore-scripts
+          npx tsx scripts/prices/refresh.ts --only feed --summary "$RUNNER_TEMP/feed.md"
+          cat "$RUNNER_TEMP/feed.md" >> "$GITHUB_STEP_SUMMARY"
       - uses: docker/setup-buildx-action@v3
       - name: Affiliate settings for the build
         env:

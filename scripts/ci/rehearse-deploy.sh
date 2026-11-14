@@ -326,6 +326,8 @@ check "home 200 within 10 s" test "$(code "http://127.0.0.1:$BLUE/" 10)" = 200
 check "swap page 200 within 10 s" test "$(code "http://127.0.0.1:$BLUE/compare/$SWAP" 10)" = 200
 check "/go redirects within 10 s" test "$(code "http://127.0.0.1:$BLUE/go/$SWAP/alternative" 10)" = 302
 check "/api/health answers within 5 s" test "$(code "http://127.0.0.1:$BLUE/api/health" 5)" = 200
+# A visitor's write gives up after a few seconds (src/db/timed.ts) and says so, instead of spinning until TCP gives up.
+check "a form's write gives up within 10 s (503)" test "$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 -X POST -d t=rehearsal-token-0123456789abcdef "http://127.0.0.1:$BLUE/api/newsletter/confirm" || true)" = 503
 db_unhang
 for _ in $(seq 1 40); do grep -q '"database":"ok"' <<< "$(body "http://127.0.0.1:$BLUE/api/health")" && break; sleep 1; done
 check "recovers after the hang" grep -q '"database":"ok"' <<< "$(body "http://127.0.0.1:$BLUE/api/health")"

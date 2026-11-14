@@ -32,6 +32,10 @@ function pairDates(pair: Pair, lang: Lang) {
   const b = pair.prices.brand;
   const a = pair.prices.alternative;
   const day = (s: PriceSeen) => checkedDate(s.date, s.precision, lang);
+  // A price a store's terms withhold isn't on the page, so its date doesn't read as a shown price's (programme terms).
+  const shown = (["alternative", "brand"] as const).filter((s) => !pair.withheld?.[s]);
+  if (!shown.length) return t("prices.checkedWithheld", day(b.date >= a.date ? b : a));
+  if (shown.length === 1) return t("prices.checkedOne", pair[shown[0]].brand, day(pair.prices[shown[0]]));
   if (day(b) === day(a)) return t("prices.checked", day(b));
   return t("prices.checkedEach", pair.brand.brand, day(b), pair.alternative.brand, day(a));
 }

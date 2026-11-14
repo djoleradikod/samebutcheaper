@@ -136,7 +136,7 @@ export const policy: PolicyText = {
     photos
       ? "Photos you choose to have read go to Anthropic, as described above. Resend and Anthropic are in the USA, so your data may be processed there."
       : "Resend is in the USA, so your data may be processed there.",
-    "To look up a product, our server asks public product databases: Open Food Facts, Open Beauty Facts and Open Pet Food Facts, the US Food and Drug Administration's openFDA and the US National Institutes of Health's Dietary Supplement Label Database. They receive what was looked up, from our server, and nothing about you. The product photos in the product check's results load straight from Open Food Facts' image servers, so, as with any website, those servers see your IP address and your browser's name.",
+    "To look up a product, our server asks public product databases: Open Food Facts, Open Beauty Facts and Open Pet Food Facts, the US Food and Drug Administration's openFDA and the US National Institutes of Health's Dietary Supplement Label Database. They receive what was looked up, from our server, and nothing about you. The product photos in the product check's results come through our server too (it keeps the last few in memory and fetches only photos from those databases' own image servers), so those servers never see your IP address or your browser.",
     `When you follow a store link, our redirect (\`/go\`) sends you to the store, sometimes through an affiliate network (${NETWORKS}). The network and the store see your IP address like any website you open, and receive our random click number, nothing else from us.${consentStores.length > 0 ? ` For ${stores(consentStores)}, that only happens with your consent, as described under Cookies.` : ""}`,
   ],
 

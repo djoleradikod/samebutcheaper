@@ -1,3 +1,4 @@
+import { servedTermsBuild } from "@/lib/server/terms-build";
 import { connection, type NextRequest } from "next/server";
 import { affiliateEnv } from "@/lib/affiliate-links";
 import { getSiteStats } from "@/lib/catalog";
@@ -54,6 +55,7 @@ export async function GET(req: NextRequest) {
     migrationsExpected: MIGRATIONS_EXPECTED,
     affiliateEnv: affiliateEnv(),
     contactEmail: SITE.contactEmail,
+    build: servedTermsBuild(),
   });
   const { ready, blockers } = summarize(checks);
   const body: Record<string, unknown> = {

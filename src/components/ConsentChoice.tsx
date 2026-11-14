@@ -48,7 +48,7 @@ export function ConsentChoice({ text, policyHref }: { text: ConsentText; policyH
 
   if (!open) return null;
   const choose = (c: Choice) => {
-    document.cookie = consentCookie(c);
+    document.cookie = consentCookie(c, location.protocol === "https:");
     setReopened(false);
     window.dispatchEvent(new Event(CHOSEN));
   };

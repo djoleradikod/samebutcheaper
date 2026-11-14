@@ -14,6 +14,9 @@ import postgres from "postgres";
 import { readinessChecks, summarize } from "../src/lib/readiness";
 import journal from "../drizzle/meta/_journal.json";
 import knownSlugs from "../src/generated/known-slugs.json";
+import catalogJson from "../src/generated/catalog.json";
+import { termsBuildFacts } from "../src/lib/readiness-terms";
+import type { Catalog } from "../src/lib/types";
 import { goLiveChecks, type LiveCheck } from "./go-live";
 
 const color = process.stdout.isTTY && !process.env.NO_COLOR;
@@ -71,6 +74,8 @@ async function main(): Promise<number> {
     migrationsApplied,
     migrationsExpected: journal.entries.length,
     contactEmail: env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@samebutcheaper.com",
+    // The catalogue built here, not the one the site serves: /admin and /api/health judge that one.
+    build: termsBuildFacts(catalogJson as unknown as Catalog, false),
   });
   const tag = { blocker: "must fix", recommended: "should fix", optional: "optional" } as const;
   console.log(`\nConfiguration (${existsSync(file) ? file : "environment"})`);

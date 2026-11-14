@@ -1,4 +1,4 @@
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { log } from "@/lib/log";
 import { isKnownCountry } from "@/lib/markets";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
   } catch {
     return done();
   }
-  const db = getDb();
+  const db = getFormDb();
   if (!asked || !db) return done();
   const { query, source } = asked;
   if (!rateLimit("wanted-once", `${visitor.key}:${query}`, LIMITS.oncePerDay).ok) return done();

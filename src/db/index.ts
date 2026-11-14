@@ -2,10 +2,14 @@ import "server-only";
 import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
+import { timedClient } from "./timed";
 
 export type DB = PostgresJsDatabase<typeof schema>;
 
-const globalForDb = globalThis as unknown as { __sbcDb?: DB | null };
+const globalForDb = globalThis as unknown as { __sbcDb?: DB | null; __sbcFormDb?: DB | null };
+
+/** How long a visitor's form waits for the database before it says something went wrong (src/db/timed.ts). */
+export const FORM_DB_TIMEOUT_MS = Math.max(500, Number(process.env.DB_FORM_TIMEOUT_MS) || 4_000);
 
 /**
  * Returns the database, or null when DATABASE_URL is not configured. The site
@@ -30,7 +34,17 @@ export function getDb(): DB | null {
     onnotice: () => {},
   });
   globalForDb.__sbcDb = drizzle(client, { schema });
+  globalForDb.__sbcFormDb = drizzle(timedClient(client, FORM_DB_TIMEOUT_MS), { schema });
   return globalForDb.__sbcDb;
+}
+
+/**
+ * The same database for what a visitor waits on (forms, confirm and unsubscribe buttons): each statement gives up
+ * after FORM_DB_TIMEOUT_MS, so a database that hangs fails the form in seconds instead of keeping it spinning.
+ */
+export function getFormDb(): DB | null {
+  if (!getDb()) return null;
+  return globalForDb.__sbcFormDb ?? null;
 }
 
 export { schema };

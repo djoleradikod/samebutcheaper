@@ -1,3 +1,4 @@
+import { servedTermsBuild } from "@/lib/server/terms-build";
 import { getDb } from "@/db";
 import { affiliateEnv } from "@/lib/affiliate-links";
 import { lastMaintenance } from "@/lib/maintenance";
@@ -18,6 +19,7 @@ export async function Readiness() {
     migrationsExpected: MIGRATIONS_EXPECTED,
     affiliateEnv: affiliateEnv(),
     contactEmail: SITE.contactEmail,
+    build: servedTermsBuild(),
   });
   const { ready, blockers, recommended } = summarize(checks);
   const upkeep = db ? await lastMaintenance(db).catch(() => null) : null;

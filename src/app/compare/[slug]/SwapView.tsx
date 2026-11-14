@@ -543,7 +543,8 @@ function offersFor(pair: Pair, local: Local): Offer[] {
   const deliveryNote = (p: ProductSide) => (sells(p.retailer) ? deliveryNoteFor(sellerOf(p), pair.market, p.price, pair.currency, local) : undefined);
   const side = (p: ProductSide, which: "brand" | "alternative"): Offer => ({
     name: productName(fullName(p), local.lang),
-    note: deliveryNote(p),
+    // A withheld price carries no free-delivery line either: that line is the store's price talking.
+    note: sidePriced(pair, which) ? deliveryNote(p) : undefined,
     store: sells(p.retailer) ? storeName(p.retailer, p.url) : elsewhere,
     price: p.price,
     size: p.size,
