@@ -17,6 +17,7 @@
   "viking": { "network": "unknown", "programme": "viking-gb", "markets": [], "note": "affiliate-programs.ts lists Viking GB on Partnerize; no programme page was opened to confirm it." },
   "alternate": { "network": "awin", "programme": "alternate-de", "markets": ["DE"], "source": "https://ui.awin.com/merchant-profile/11731", "note": "ALTERNATE DE, Awin 11731: pay per sale on German orders, 30-day cookie; rate not shown publicly." },
   "uline": { "network": "unknown", "markets": [], "note": "No programme page found." },
+  "batteryjunction": { "network": "unknown", "markets": [], "note": "No programme page found on 14 Nov 2026 (searched the store and FlexOffers' battery listings). Its terms don't bar reading prices (docs/research/R10-source-verdicts.json)." },
   "rossmann": { "network": "unknown", "markets": [], "note": "No open programme page found. Third-party directories list its Webgains and Affilinet programmes as closed." },
   "sainsburys": { "network": "unknown", "programme": "sainsburys", "markets": [], "note": "No open grocery programme page found; third-party directories list it as retired. affiliate-programs.ts still has an entry (CJ, unconfirmed)." },
   "kaufland": { "network": "unknown", "programme": "kaufland-de", "markets": [], "note": "No public programme page found; affiliate-programs.ts marks it unverified." },

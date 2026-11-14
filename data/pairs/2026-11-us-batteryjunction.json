@@ -1,0 +1,731 @@
+[
+ {
+  "slug": "duracell-coppertop-aa-4-vs-rayovac-ultra-pro-aa-24",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Duracell Coppertop AA vs Rayovac Ultra Pro AA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Coppertop Duralock AA LR6 alkaline, 4-pack retail card (MN1500B4)",
+   "size": 4,
+   "unit": "cell",
+   "price": 7.15,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/duracell-mn1500b4",
+   "gtin": "041333415017",
+   "key_ingredients": [
+    {
+     "name": "AA (LR6) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Rayovac",
+   "product": "Rayovac Ultra Pro AL-AA-24 alkaline, 24-pack",
+   "size": 24,
+   "unit": "cell",
+   "price": 9.45,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/rayovac-alaa-24",
+   "gtin": "012800474097",
+   "rating": {
+    "score": 4.9,
+    "scale": "stars-5",
+    "count": 32,
+    "source": "https://www.batteryjunction.com/products/rayovac-alaa-24",
+    "date": "2026-11-14"
+   },
+   "key_ingredients": [
+    {
+     "name": "AA (LR6) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V AA alkaline cells with a stated 10-year shelf life from the same shop, and the Rayovac 24-pack costs 78% less per cell.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026: Duracell USD 7.15 for 4 (USD 1.79 a cell, no reduction shown) and Rayovac USD 9.45 for 24 (39 cents a cell, a sale price; regular USD 10.50, which is still 76% less per cell). Duracell's page gives alkaline, 1.5 V, LR6 and a 10-year shelf life; Rayovac's gives alkaline, 1.5 V and a 10-year shelf life (85% of its life kept after 10 years).",
+  "differences": "The Rayovac is a 24-cell contractor pack, so you spend more at the checkout. Duracell sells the same MN1500 cell in bulk boxes at Battery Junction too, which is cheaper than the 4-card. No test we read compares these two.",
+  "why": "Same size, chemistry, voltage and stated shelf life, at under a quarter of the price per cell if you can use 24.",
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/duracell-mn1500b4",
+   "https://www.batteryjunction.com/products/rayovac-alaa-24"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-coppertop-aaa-4-vs-rayovac-ultra-pro-aaa-24",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "AAA batteries",
+  "title": "Duracell Coppertop AAA vs Rayovac Ultra Pro AAA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Coppertop Power Boost AAA LR03 alkaline, 4-pack retail card (MN2400B4)",
+   "size": 4,
+   "unit": "cell",
+   "price": 6.6,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/duracell-mn2400b4",
+   "gtin": "041333424019",
+   "key_ingredients": [
+    {
+     "name": "AAA (LR03) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Rayovac",
+   "product": "Rayovac Ultra Pro AL-AAA-24 alkaline, 24-pack",
+   "size": 24,
+   "unit": "cell",
+   "price": 10.5,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/rayovac-alaaa-24",
+   "gtin": "012800507986",
+   "key_ingredients": [
+    {
+     "name": "AAA (LR03) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V AAA alkaline cells with a stated 10-year shelf life from the same shop, and the Rayovac 24-pack costs 73% less per cell.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026, no reduction shown on either: Duracell USD 6.60 for 4 (USD 1.65 a cell) and Rayovac USD 10.50 for 24 (44 cents a cell). Duracell's page gives alkaline, 1.5 V, LR03 and a 10-year shelf life; Rayovac's gives alkaline, 1.5 V and a 10-year shelf life.",
+  "differences": "The Rayovac is a 24-pack, so the checkout total is higher. No test we read compares these two.",
+  "why": "Same size, chemistry, voltage and stated shelf life, at about a quarter of the price per cell.",
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/duracell-mn2400b4",
+   "https://www.batteryjunction.com/products/rayovac-alaaa-24"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-coppertop-9v-2-vs-rayovac-ultra-pro-9v-12",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "9V batteries",
+  "title": "Duracell Coppertop 9V vs Rayovac Ultra Pro 9V",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Coppertop Duralock 9V 6LR61 alkaline, 2-pack retail card (MN1604B2)",
+   "size": 2,
+   "unit": "cell",
+   "price": 11.48,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/duracell-mn1604b2",
+   "gtin": "041333216010",
+   "key_ingredients": [
+    {
+     "name": "9 V alkaline block battery",
+     "amount": "9 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "5 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Rayovac",
+   "product": "Rayovac Ultra Pro AL-9V-12 alkaline, 12-pack",
+   "size": 12,
+   "unit": "cell",
+   "price": 16.99,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/rayovac-al9v-12",
+   "gtin": "012800507832",
+   "key_ingredients": [
+    {
+     "name": "9 V alkaline block battery",
+     "amount": "9 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "5 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 9 V alkaline batteries with a stated 5-year shelf life from the same shop, and the Rayovac 12-pack costs 75% less per battery.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026, both at sale prices: Duracell USD 11.48 for 2 (USD 5.74 each; regular USD 12.75) and Rayovac USD 16.99 for 12 (USD 1.42 each; regular USD 20.50). At the regular prices the gap is 73%. Both pages give alkaline, 9 V and a 5-year shelf life. Several of these prices are Battery Junction's Black Friday sale prices, so they may rise again.",
+  "differences": "The Rayovac comes as 12, which suits a house full of smoke alarms more than a single replacement. Neither page gives a capacity. No test we read compares these two.",
+  "why": "Same chemistry, voltage and stated shelf life, at about a quarter of the price per battery.",
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/duracell-mn1604b2",
+   "https://www.batteryjunction.com/products/rayovac-al9v-12"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-coppertop-d-2-vs-rayovac-ultra-pro-d-12",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "D batteries",
+  "title": "Duracell Coppertop D vs Rayovac Ultra Pro D",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Coppertop Duralock D LR20 alkaline, 2-pack retail card (MN1300B2)",
+   "size": 2,
+   "unit": "cell",
+   "price": 5.5,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/duracell-mn1300b2",
+   "gtin": "041333213019",
+   "rating": {
+    "score": 5.0,
+    "scale": "stars-5",
+    "count": 17,
+    "source": "https://www.batteryjunction.com/products/duracell-mn1300b2",
+    "date": "2026-11-14"
+   },
+   "key_ingredients": [
+    {
+     "name": "D (LR20) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Rayovac",
+   "product": "Rayovac Ultra Pro AL-D-12 alkaline, 12-pack",
+   "size": 12,
+   "unit": "cell",
+   "price": 15.26,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/rayovac-ald-12",
+   "gtin": "012800474127",
+   "key_ingredients": [
+    {
+     "name": "D (LR20) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V D alkaline cells with a stated 10-year shelf life from the same shop, and the Rayovac 12-pack costs 54% less per cell.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026: Duracell USD 5.50 for 2 (USD 2.75 a cell, no reduction shown) and Rayovac USD 15.26 for 12 (USD 1.27 a cell, a sale price; regular USD 16.95, still 49% less per cell). Duracell's page gives alkaline, 1.5 V, LR20 and a 10-year shelf life; Rayovac's gives alkaline, 1.5 V and a 10-year shelf life.",
+  "differences": "The Rayovac is a 12-pack. Duracell's card has shopper reviews on the page (5 of 5 from 17); Rayovac's shows none. No test we read compares these two.",
+  "why": "Same size, chemistry and stated shelf life, at under half the price per cell for anyone who goes through D cells in a lantern or radio.",
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/duracell-mn1300b2",
+   "https://www.batteryjunction.com/products/rayovac-ald-12"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-coppertop-c-2-vs-rayovac-ultra-pro-c-12",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "C batteries",
+  "title": "Duracell Coppertop C vs Rayovac Ultra Pro C",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Coppertop Duralock C LR14 alkaline, 2-pack retail card (MN1400B2)",
+   "size": 2,
+   "unit": "cell",
+   "price": 5.4,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/duracell-mn1400b2",
+   "gtin": "041333214016",
+   "key_ingredients": [
+    {
+     "name": "C (LR14) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Rayovac",
+   "product": "Rayovac Ultra Pro AL-C-12 alkaline, 12-pack",
+   "size": 12,
+   "unit": "cell",
+   "price": 11.48,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/rayovac-alc-12",
+   "gtin": "012800474110",
+   "key_ingredients": [
+    {
+     "name": "C (LR14) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V C alkaline cells with a stated 10-year shelf life from the same shop, and the Rayovac 12-pack costs 65% less per cell.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026, both at sale prices: Duracell USD 5.40 for 2 (USD 2.70 a cell; regular USD 6.00) and Rayovac USD 11.48 for 12 (96 cents a cell; regular USD 12.75). At the regular prices the gap is also 65%. Duracell's page gives alkaline, 1.5 V, LR14 and a 10-year shelf life; Rayovac's gives alkaline, 1.5 V and a 10-year shelf life. Several of these prices are Battery Junction's Black Friday sale prices, so they may rise again.",
+  "differences": "The Rayovac is a 12-pack. No test we read compares these two.",
+  "why": "Same size, chemistry and stated shelf life, at about a third of the price per cell.",
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/duracell-mn1400b2",
+   "https://www.batteryjunction.com/products/rayovac-alc-12"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-cr2032-4-vs-panasonic-cr2032",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "CR2032 batteries",
+  "title": "Duracell CR2032 vs Panasonic CR2032",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Duralock CR2032 3V lithium coin cell, 4-pack retail card (DL2032B4PK)",
+   "size": 4,
+   "unit": "cell",
+   "price": 6.21,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/duracell-dl2032b4pk",
+   "gtin": "041333663913",
+   "rating": {
+    "score": 4.9,
+    "scale": "stars-5",
+    "count": 53,
+    "source": "https://www.batteryjunction.com/duracell-dl2032b4pk",
+    "date": "2026-11-14"
+   },
+   "key_ingredients": [
+    {
+     "name": "CR2032 lithium (LiMnO2) coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Panasonic",
+   "product": "Panasonic CR2032 3V lithium coin cell, single on a tear strip",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.45,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/panasonic-cr2032",
+   "rating": {
+    "score": 4.8,
+    "scale": "stars-5",
+    "count": 11,
+    "source": "https://www.batteryjunction.com/panasonic-cr2032",
+    "date": "2026-11-14"
+   },
+   "key_ingredients": [
+    {
+     "name": "CR2032 lithium (LiMnO2) coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 3 V CR2032 lithium manganese dioxide coin cells from the same shop, and the Panasonic costs 71% less per cell. Duracell adds a bitter coating; Panasonic's page doesn't mention one.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026, both at sale prices: Duracell USD 6.21 for 4 (USD 1.55 a cell; regular USD 6.90) and Panasonic USD 0.45 each (regular USD 0.50, a 71% gap too). Both pages give lithium, LiMnO2, 3 V. Duracell's states 225 mAh and Panasonic's 220 mAh and a 5-year shelf life. Several of these prices are Battery Junction's Black Friday sale prices, so they may rise again.",
+  "differences": "Duracell's listing mentions a bitter coating to discourage children from swallowing the cell; Panasonic's comes loose on a tear strip with no coating mentioned. Panasonic's page shows two different UPCs, so we left its barcode off.",
+  "why": "Any CR2032 fits a key fob, scale or motherboard. Buy the Duracell if small children are around, for the bitter coating; otherwise the Panasonic is the same cell type at under a third of the price.",
+  "aspects": [
+   {
+    "aspect": "Capacity, stated",
+    "brand": "225 mAh",
+    "alternative": "220 mAh",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Bitter coating against swallowing",
+    "brand": "Mentioned",
+    "alternative": "Not mentioned",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Packaging",
+    "brand": "Child-resistant retail card",
+    "alternative": "Loose on a tear strip",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/duracell-dl2032b4pk",
+   "https://www.batteryjunction.com/panasonic-cr2032"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-cr2025-2-vs-panasonic-cr2025",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "CR2025 batteries",
+  "title": "Duracell CR2025 vs Panasonic CR2025",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell CR2025 3V lithium coin cell, 2-pack retail card (DL2025B2PK)",
+   "size": 2,
+   "unit": "cell",
+   "price": 3.47,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/duracell-dl2025b2pk",
+   "gtin": "041333663876",
+   "key_ingredients": [
+    {
+     "name": "CR2025 lithium (LiMnO2) coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Panasonic",
+   "product": "Panasonic CR2025 3V lithium coin cell, single on a tear strip",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.5,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/panasonic-cr2025",
+   "gtin": "8887549579882",
+   "key_ingredients": [
+    {
+     "name": "CR2025 lithium (LiMnO2) coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 3 V CR2025 lithium manganese dioxide coin cells from the same shop, and the Panasonic costs 71% less per cell.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026: Duracell USD 3.47 for 2 (USD 1.74 a cell, a sale price; regular USD 3.85, a 74% gap) and Panasonic USD 0.50 each, no reduction shown. Both pages give lithium, LiMnO2, 3 V. Duracell's states 150 mAh and a 10-year shelf life; Panasonic's states 165 mAh and a 5-year shelf life.",
+  "differences": "Duracell states the longer shelf life; Panasonic states the higher capacity. Panasonic's cell comes loose on a tear strip.",
+  "why": "The same cell type at under a third of the price, with a higher stated capacity.",
+  "aspects": [
+   {
+    "aspect": "Capacity, stated",
+    "brand": "150 mAh",
+    "alternative": "165 mAh",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Shelf life, stated",
+    "brand": "10 years",
+    "alternative": "5 years",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/duracell-dl2025b2pk",
+   "https://www.batteryjunction.com/products/panasonic-cr2025"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-cr2016-2-vs-panasonic-cr2016",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "CR2016 batteries",
+  "title": "Duracell CR2016 vs Panasonic CR2016",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell CR2016 3V lithium coin cell, 2-pack retail card (DL2016B2PK)",
+   "size": 2,
+   "unit": "cell",
+   "price": 3.85,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/duracell-dl2016b2pk",
+   "gtin": "041333663852",
+   "key_ingredients": [
+    {
+     "name": "CR2016 lithium (LiMnO2) coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Panasonic",
+   "product": "Panasonic CR2016 3V lithium coin cell, single on a tear strip",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.5,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/panasonic-cr2016",
+   "gtin": "8887549579875",
+   "key_ingredients": [
+    {
+     "name": "CR2016 lithium (LiMnO2) coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 3 V CR2016 lithium manganese dioxide coin cells from the same shop, and the Panasonic costs 74% less per cell.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026, no reduction shown: Duracell USD 3.85 for 2 (USD 1.93 a cell) and Panasonic USD 0.50 each. Both pages give lithium, LiMnO2, 3 V. Duracell's states 75 mAh and a 10-year shelf life; Panasonic's states 90 mAh, and gives its shelf life as 5 years in one place and 10 years in another.",
+  "differences": "Duracell states a 10-year shelf life; Panasonic's page contradicts itself. Panasonic states the higher capacity.",
+  "why": "The same cell type at about a quarter of the price, with a higher stated capacity.",
+  "aspects": [
+   {
+    "aspect": "Capacity, stated",
+    "brand": "75 mAh",
+    "alternative": "90 mAh",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/duracell-dl2016b2pk",
+   "https://www.batteryjunction.com/products/panasonic-cr2016"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-cr123a-2-vs-panasonic-cr123a-2",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "CR123A batteries",
+  "title": "Duracell Ultra CR123A vs Panasonic CR123A",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Ultra DL123A CR123A 3V lithium, 2-pack retail card (DL123AB2PK)",
+   "size": 2,
+   "unit": "cell",
+   "price": 16.74,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/duracell-dl123ab2pk",
+   "gtin": "041333212104",
+   "key_ingredients": [
+    {
+     "name": "CR123A lithium (LiMnO2) cell",
+     "amount": "3 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Panasonic",
+   "product": "Panasonic CR123A 3V lithium, 2-pack retail card",
+   "size": 2,
+   "unit": "cell",
+   "price": 5.95,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/panasonic-cr123-2pk-card",
+   "gtin": "073096700390",
+   "key_ingredients": [
+    {
+     "name": "CR123A lithium (LiMnO2) cell",
+     "amount": "3 V"
+    },
+    {
+     "name": "Stated shelf life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 3 V CR123A lithium manganese dioxide cells with a stated 10-year shelf life, two to a card at the same shop, and the Panasonic costs 64% less.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026: Duracell USD 16.74 for 2 (a sale price; regular USD 18.60, a 68% gap) and Panasonic USD 5.95 for 2, no reduction shown. Both pages give lithium, LiMnO2, 3 V and a 10-year shelf life. Panasonic's states 1550 mAh; Duracell's title says 1470 mAh and its specifications say 1550 mAh.",
+  "differences": "Duracell's own page gives two capacities, so we can't say which is higher. No test we read compares these two.",
+  "why": "For cameras, flashlights and alarm sensors, the Panasonic is the same cell type and pack size for about a third of the price.",
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/duracell-dl123ab2pk",
+   "https://www.batteryjunction.com/products/panasonic-cr123-2pk-card"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "energizer-377-vs-maxell-377",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "Watch batteries",
+  "title": "Energizer 377 vs Maxell 377",
+  "brand": {
+   "brand": "Energizer",
+   "product": "Energizer 377 silver oxide button cell, 1 in a blister pack (377BPZ)",
+   "size": 1,
+   "unit": "cell",
+   "price": 1.13,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/energizer-377bpz",
+   "gtin": "039800109644",
+   "key_ingredients": [
+    {
+     "name": "377 / SR626SW silver oxide button cell",
+     "amount": "1.55 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Maxell",
+   "product": "Maxell SR626SW 377 silver oxide button cell, single on a tear strip",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.85,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/maxell-377",
+   "gtin": "025215736780",
+   "key_ingredients": [
+    {
+     "name": "377 / SR626SW silver oxide button cell",
+     "amount": "1.55 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 377 (SR626SW) silver oxide watch cells, mercury-free, from the same shop, and the Maxell costs 25% less with a higher stated capacity.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026: Energizer USD 1.13 (a sale price; regular USD 1.25, a 32% gap) and Maxell USD 0.85, no reduction shown. Energizer's page lists silver oxide, SR626SW among its equivalents, 1.55 V in the specifications, 24 mAh, zero mercury. Maxell's gives silver oxide, SR626SW, 1.55 V, 27 mAh, mercury-free.",
+  "differences": "Energizer comes in a blister pack; Maxell's is loose on a tear strip. No test we read compares these two.",
+  "why": "The same watch cell at a quarter less, with slightly more stated capacity.",
+  "aspects": [
+   {
+    "aspect": "Capacity, stated",
+    "brand": "24 mAh",
+    "alternative": "27 mAh",
+    "verdict": "alt_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/products/energizer-377bpz",
+   "https://www.batteryjunction.com/products/maxell-377"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "energizer-a76-vs-maxell-lr44",
+  "market": "US",
+  "category": "batteries",
+  "subcategory": "Button cell batteries",
+  "title": "Energizer A76 vs Maxell LR44",
+  "brand": {
+   "brand": "Energizer",
+   "product": "Energizer A76 LR44 alkaline button cell, 1 in a blister pack (A76BPZ)",
+   "size": 1,
+   "unit": "cell",
+   "price": 1.45,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/energizer-a76-lr44-coin-cell-watch-battery-1-piece-blister-pack",
+   "gtin": "039800110909",
+   "key_ingredients": [
+    {
+     "name": "LR44 (A76) alkaline button cell",
+     "amount": "1.5 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Maxell",
+   "product": "Maxell LR44 alkaline button cell, on a tear strip, sold in twos",
+   "size": 1,
+   "unit": "cell",
+   "price": 0.53,
+   "retailer": "batteryjunction",
+   "asin": null,
+   "url": "https://www.batteryjunction.com/products/maxell-lr44-hologram-packaging",
+   "gtin": "025215761041",
+   "rating": {
+    "score": 4.9,
+    "scale": "stars-5",
+    "count": 98,
+    "source": "https://www.batteryjunction.com/products/maxell-lr44-hologram-packaging",
+    "date": "2026-11-14"
+   },
+   "key_ingredients": [
+    {
+     "name": "LR44 (A76) alkaline button cell",
+     "amount": "1.5 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V LR44 (A76) alkaline button cells from the same shop, and the Maxell costs 63% less per cell.",
+  "evidence": "Both product pages read on batteryjunction.com on 14 November 2026, no reduction shown on either: Energizer USD 1.45 for one cell and Maxell USD 0.53 a cell, sold in multiples of two. Energizer's page gives alkaline, 1.5 V, size LR44 / A76 and 153 mAh. Maxell's gives alkaline, 1.5 V and lists LR44 and A76 among its equivalents.",
+  "differences": "Maxell's page gives no capacity and no mercury claim, and you have to buy at least two. Energizer's comes singly in a blister pack. No test we read compares these two.",
+  "why": "For a kitchen timer, a calculator or a toy, the Maxell is the same button cell size and chemistry at about a third of the price.",
+  "aspects": [
+   {
+    "aspect": "Capacity, stated",
+    "brand": "153 mAh",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Smallest order",
+    "brand": "1 cell",
+    "alternative": "2 cells",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.batteryjunction.com/energizer-a76-lr44-coin-cell-watch-battery-1-piece-blister-pack",
+   "https://www.batteryjunction.com/products/maxell-lr44-hologram-packaging"
+  ],
+  "price_checked": "2026-11"
+ }
+]
