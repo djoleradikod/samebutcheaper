@@ -273,6 +273,8 @@ export const home = {
   allAisles: "All aisles",
   tileSwaps: (n: number) => ` swap${n === 1 ? "" : "s"}, up to `,
   tileCheaper: " cheaper",
+  /** An aisle whose savings all depend on prices a store's affiliate terms withhold: the count alone. */
+  tileCount: (n: number) => ` swap${n === 1 ? "" : "s"}`,
   email: "Get new swaps by email",
   questions: "Questions",
   missing: "Know a swap we're missing?",

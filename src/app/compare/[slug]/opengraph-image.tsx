@@ -19,7 +19,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     title: pair.alternative.brand,
     sub: pair.summary,
     pct: pair.savingsPct,
-    prices: {
+    // No figures where a store's affiliate terms withhold the prices (src/lib/programme-terms.ts).
+    prices: pair.withheld ? undefined : {
       cheap: unitPrice(pair.alternative.ppu, pair.brand.unit, pair.currency),
       brand: unitPrice(pair.brand.ppu, pair.brand.unit, pair.currency),
       unit: unitDisplay(pair.brand.unit).label,

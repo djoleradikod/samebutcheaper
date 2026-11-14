@@ -29,7 +29,7 @@ export function photoParam(r: PhotoResult) {
   });
 }
 
-export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
+export function LookupForm({ autoFocus = false, photo = true }: { autoFocus?: boolean; /** Photos can be read (ANTHROPIC_API_KEY is set). */ photo?: boolean }) {
   const router = useRouter();
   const params = useSearchParams();
   // A status belongs to the page it was set on, so it clears once the results page loads.
@@ -148,7 +148,7 @@ export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
         )}
         {status.kind === "error" && <span className="text-warn">{status.text}</span>}
         {status.kind === "idle" && (
-          <span className="text-xs text-muted">{t("pageLookup.privacy")}</span>
+          <span className="text-xs text-muted">{t("pageLookup.privacy", photo)}</span>
         )}
       </p>
     </div>

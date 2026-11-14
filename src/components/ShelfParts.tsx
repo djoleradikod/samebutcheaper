@@ -48,10 +48,11 @@ function toRow(p: Pair, lang: Lang = "en"): BrowseRow {
     photo: Boolean(p.brand.photo || p.alternative.photo),
     tier: photoTier(p.brand.photo, p.alternative.photo),
     rated: Boolean(p.alternative.rating),
-    pct: Math.round(p.savingsPct * 10) / 10,
-    unit: Number((p.alternative.ppu * unitDisplay(p.brand.unit).factor * APPROX_USD[p.currency]).toPrecision(4)),
+    // A price a store's terms withhold (src/lib/programme-terms.ts) ranks nowhere: no saving, and last in its group.
+    pct: p.withheld ? 0 : Math.round(p.savingsPct * 10) / 10,
+    unit: p.withheld ? 0 : Number((p.alternative.ppu * unitDisplay(p.brand.unit).factor * APPROX_USD[p.currency]).toPrecision(4)),
     checked: p.price_checked,
-    ...(p.priceOld || isReported("pair", p.slug) ? { stale: true } : {}),
+    ...(p.priceOld || p.withheld || isReported("pair", p.slug) ? { stale: true } : {}),
   };
 }
 
@@ -120,11 +121,13 @@ export function ListLinks({ lang = "en" }: { lang?: Lang }) {
 /** "Average saving 34%. Prices last checked November 2026." */
 export function PriceFacts({ pairs, lang = "en" }: { pairs: { savingsPct: number; price_checked: string }[]; lang?: Lang }) {
   const t = getT(lang);
-  const average = pairs.reduce((sum, p) => sum + p.savingsPct, 0) / (pairs.length || 1);
+  // A saving of 0 is one a store's affiliate terms withhold (src/lib/programme-terms.ts): it isn't averaged in.
+  const priced = pairs.filter((p) => p.savingsPct > 0);
+  const average = priced.reduce((sum, p) => sum + p.savingsPct, 0) / (priced.length || 1);
   const latest = pairs.reduce((newest, p) => (p.price_checked > newest ? p.price_checked : newest), "");
   return (
     <>
-      {pairs.length > 1 && (
+      {priced.length > 1 && (
         <>
           {t("lists.averageSaving")} <span className="num">{formatPercent(average, lang)}</span>.{" "}
         </>

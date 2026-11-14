@@ -101,8 +101,8 @@ export function watchMail(
   const scope = `watch-${input.watchId}` as const;
   const footer: Footer = {
     why: t("mailWatch.why"),
-    stopThis: { label: t("mailWatch.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, scope) },
-    stopAll: unsubscribeUrl(opts.siteUrl, input.token),
+    stopThis: { label: t("mailWatch.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, scope, lang) },
+    stopAll: unsubscribeUrl(opts.siteUrl, input.token, undefined, lang),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,

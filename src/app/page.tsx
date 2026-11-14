@@ -383,9 +383,15 @@ function HomeBody({ local }: { local: Local }) {
                   <p className="mt-1.5 text-sm leading-snug font-semibold group-hover:underline">{c.name}</p>
                   <p className="text-xs font-medium text-muted">
                     <span className="num">{c.count}</span>
-                    {t("home.tileSwaps", c.count)}
-                    <span className="num">{formatPercent(c.maxSavings, lang)}</span>
-                    {t("home.tileCheaper")}
+                    {c.maxSavings > 0 ? (
+                      <>
+                        {t("home.tileSwaps", c.count)}
+                        <span className="num">{formatPercent(c.maxSavings, lang)}</span>
+                        {t("home.tileCheaper")}
+                      </>
+                    ) : (
+                      t("home.tileCount", c.count)
+                    )}
                   </p>
                 </Link>
               );

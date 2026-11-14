@@ -3,6 +3,7 @@ import { amazonEarns, linksEarn } from "@/lib/affiliate";
 import { getCategoryStats } from "@/lib/catalog";
 import { Logo } from "./Logo";
 import { CountryIndex } from "./CountryIndex";
+import { ConsentFooterItem } from "./ConsentSlot";
 import { dict, getT, type Lang } from "@/lib/i18n";
 
 const LINKS = [
@@ -64,6 +65,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                 </Link>
               </li>
             ))}
+            <ConsentFooterItem lang={lang} />
           </ul>
         </div>
       </div>

@@ -43,6 +43,7 @@ import { bySide, loadObservations } from "./prices/observations";
 import { asinProblem } from "../src/lib/cart";
 import { kitCaution } from "../src/lib/buy-list";
 import { attachGerman, germanCoverage } from "../src/lib/i18n/attach-de";
+import { applyProgrammeTerms } from "./programme-terms";
 
 const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data", "pairs");
@@ -663,6 +664,10 @@ const germanKits = germanCoverage([...bundles, ...presets]);
 errors.push(...gtinConflicts([...pairs.flatMap((p) => (["brand", "alternative"] as const).map((s) => ({ ...p[s], where: `${p.slug} ${s}` }))), ...bundles.flatMap((b) => b.components.map((c, i) => ({ ...c, where: `${b.slug} item ${i}` })))], normalizeUnit));
 
 unusedPriceLog();
+// Each affiliate programme's own terms on prices, price history and photos (src/lib/programme-terms.ts), applied last
+// so every figure above is worked out from the real prices first. PROGRAMME_TERMS_OFF switches programmes off.
+const termsApplied = applyProgrammeTerms({ pairs, bundles, presets, credits }, BUILD_DAY);
+errors.push(...termsApplied.errors);
 if (warnings.length) console.warn(`\n${warnings.length} warning(s):\n  - ${warnings.join("\n  - ")}\n`);
 if (errors.length) {
   const log = lenient ? console.warn : console.error;
@@ -729,3 +734,12 @@ console.log(
     `${claims.length} claims, ${shelfLives.length} shelf-life records. Real image: any ${anySideReal} (${pct(anySideReal)}%), both ${bothSidesReal} (${pct(bothSidesReal)}%), any counting DailyMed ${withDailymed} (${pct(withDailymed)}%). ` +
     `Medicine ${medicine} (${pct(medicine)}%). German text: ${german.translated} of ${german.of} German swaps, ${germanKits.translated} of ${germanKits.of} German kits and baskets.`,
 );
+{
+  const c = termsApplied.counts;
+  const off = process.env.PROGRAMME_TERMS_OFF?.trim();
+  const on = process.env.PROGRAMME_TERMS_ON?.trim();
+  console.log(
+    `Programme terms (applied to joined programmes${on ? `, and to: ${on}` : ""}${off ? `; off for: ${off}` : ""}): prices withheld on ${c.pairs} swaps, ${c.bundles} kits, ${c.presets} baskets; ` +
+      `${c.histories} price histories and ${c.photos} photos left out. See src/lib/programme-terms.ts.`,
+  );
+}

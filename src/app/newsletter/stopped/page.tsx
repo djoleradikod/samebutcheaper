@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Link from "@/components/CountryLink";
 import { ProsePage } from "@/components/ProsePage";
+import { pageT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = { title: "Stopped", robots: { index: false, follow: false } };
 
+/** In the page's language: /de/newsletter/stopped is the German one. */
 export default function StoppedPage() {
+  const t = pageT();
   return (
-    <ProsePage title="Stopped" intro="We won't email you about that again.">
+    <ProsePage title={t("newsletterPages.stoppedTitle")} intro={t("newsletterPages.stoppedIntro")}>
+      <p>{t("newsletterPages.stoppedBody")}</p>
       <p>
-        Anything else you asked us for carries on. To stop everything, use the &ldquo;Unsubscribe from
-        everything&rdquo; link at the foot of any of our emails.
-      </p>
-      <p>
-        <Link href="/">Back to the home page</Link>
+        <Link href="/">{t("newsletterPages.backHome")}</Link>
       </p>
     </ProsePage>
   );

@@ -45,7 +45,7 @@ export type BrowseRow = {
 };
 
 /** The fields BundleCard reads. A whole bundle is about ten times bigger. */
-export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers" | "category" | "match_type" | "savingsPct" | "netSavingsPct" | "netSavings" | "equivalentTotal" | "currency"> & {
+export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers" | "category" | "match_type" | "savingsPct" | "netSavingsPct" | "netSavings" | "equivalentTotal" | "currency" | "withheld"> & {
   /** The German name, for a German page. */
   de?: { name: string };
   checkout: Pick<Bundle["checkout"], "delivery">;

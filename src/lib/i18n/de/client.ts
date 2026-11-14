@@ -284,6 +284,7 @@ export const unitPrice: Shape<typeof en.unitPrice> = {
 
 export const cards: Shape<typeof en.cards> = {
   moreSwaps: "Weitere Vergleiche",
+  seePriceAt: (store) => `Preis bei ${store}`,
   cheaperPct: (n) => `${n} % günstiger`,
   save: "Spare",
   noRating: "Noch keine Bewertung gefunden",
@@ -322,6 +323,7 @@ export const kits: Shape<typeof en.kits> = {
   insteadOf: (brand) => `Statt des Sets von ${brand}`,
   andMore: (n) => `und ${n} weitere`,
   kit: "Set",
+  pricesAtStores: "Preise beim Händler",
   builtYourself: "selbst zusammengestellt",
   costsMore: "Kostet heute mehr als das Set",
   smallSaving: "Nach Versandkosten kaum Ersparnis",

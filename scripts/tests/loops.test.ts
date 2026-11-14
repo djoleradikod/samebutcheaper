@@ -183,7 +183,7 @@ test("a watch from a new address waits for its own link, and doesn't sign them u
 
   // Opening the link shows what it is for and changes nothing; only the button does.
   const before = await confirmTarget(db, linkIn(sent[0]));
-  assert.deepEqual(before, { kind: "watch", email: "a•••@example.com", title: usPair.title, slug: usPair.slug });
+  assert.deepEqual(before, { lang: "en", kind: "watch", email: "a•••@example.com", title: usPair.title, slug: usPair.slug });
   assert.deepEqual(await confirmTarget(db, linkIn(sent[0])), before, "opening it twice changes nothing");
   assert.equal((await db.select().from(watches))[0].status, "pending");
   assert.equal(await follow(sent[0]), "done");
@@ -235,7 +235,7 @@ test("confirmation emails are limited: one per thing per ten minutes, five per a
 test("a wish confirms on its own and counts as waiting", { skip }, async () => {
   assert.equal(await requestWish(db, { email: "em@example.com", query: "nurofen express", country: "GB" }, { siteUrl: SITE, env }), "sent");
   assert.ok(sent[0].text.includes("nurofen express"));
-  assert.deepEqual(await confirmTarget(db, linkIn(sent[0])), { kind: "wish", email: "e•••@example.com", query: "nurofen express" });
+  assert.deepEqual(await confirmTarget(db, linkIn(sent[0])), { lang: "en", kind: "wish", email: "e•••@example.com", query: "nurofen express" });
   assert.equal((await db.select().from(wishes))[0].status, "pending");
   assert.equal(await follow(sent[0]), "done");
   const [w] = await db.select().from(wishes);
@@ -372,7 +372,7 @@ test("unsubscribe: one watch, the letter, or everything; links only work for the
   assert.equal(sent.length, 0);
   // Neither the unsubscribe token nor any old confirm link can bring anything back.
   assert.equal((await confirmByToken(db, sub.token!)).outcome, "invalid");
-  assert.deepEqual(await unsubscribeTarget(db, sub.token!), { email: "h•••@example.com", anythingOn: false, scoped: null });
+  assert.deepEqual(await unsubscribeTarget(db, sub.token!), { lang: "en", email: "h•••@example.com", anythingOn: false, scoped: null });
 });
 
 // ---- The weekly letter -----------------------------------------------------------------------------------------
@@ -483,7 +483,7 @@ test("without a legal notice, readers in Germany and Austria wait for the letter
 
 test("new records lead the letter; the first sighting of the catalogue counts as old", { skip }, async () => {
   const seen = Object.fromEntries([...catalog.pairs.map((p) => [`p:${p.slug}`, "1970-01-01"]), ...catalog.bundles.map((b) => [`b:${b.slug}`, "1970-01-01"])]);
-  const fresh = catalog.pairs.find((p) => p.market === "GB")!;
+  const fresh = catalog.pairs.find((p) => p.market === "GB" && !p.withheld)!;
   seen[`p:${fresh.slug}`] = "2026-11-11";
   const issue = buildIssue({ catalogue: full, country: "GB", sent: new Set(), seen, now: THURSDAY })!;
   assert.equal(issue.fresh[0].kind === "pair" && issue.fresh[0].pair.slug, fresh.slug);

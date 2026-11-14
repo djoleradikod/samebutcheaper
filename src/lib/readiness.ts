@@ -46,6 +46,8 @@ export type Facts = {
   migrationsExpected: number;
   /** Affiliate settings the site was built with; defaults to the ones in `env`. */
   affiliateEnv?: Env;
+  /** The contact address pages were built with (NEXT_PUBLIC_CONTACT_EMAIL at build time); unchecked when absent. */
+  contactEmail?: string;
 };
 
 const PLACEHOLDER = /^(change-?me.*|sbc|password|admin|secret|test|changeme)$/i;
@@ -95,6 +97,37 @@ export function readinessChecks(env: Env, facts: Facts): Check[] {
         ? "Run the migrate service (docker compose up migrate) or npm run db:migrate."
         : "Set DATABASE_URL (docker compose does this) and make sure Postgres is up. Without it no click, sale or sign-up is recorded.",
   });
+
+  // Docker compose reads it from .env, and the web containers get the same .env. Only checked where it is known.
+  const pg = env.POSTGRES_PASSWORD?.trim();
+  if (pg !== undefined) {
+    add({
+      id: "postgres-password",
+      label: "Database password",
+      level: "blocker",
+      ok: pg.length >= 16 && !PLACEHOLDER.test(pg),
+      detail: !pg ? "not set" : PLACEHOLDER.test(pg) ? "still the placeholder from .env.example" : pg.length < 16 ? "shorter than 16 characters" : "set",
+      fix: "Set POSTGRES_PASSWORD in .env to a long random string (openssl rand -hex 24) before the first deploy. It only takes effect when the database is first created; to change it later, see docs/deploy.md, \"Rotating a secret\".",
+    });
+  }
+
+  if (facts.contactEmail !== undefined) {
+    const domain = (a: string) => /@([^\s>]+)>?\s*$/.exec(a)?.[1]?.toLowerCase() ?? "";
+    const siteDomain = host.replace(/^www\./, "");
+    const onSite = (a: string) => Boolean(siteDomain) && (domain(a) === siteDomain || domain(a).endsWith(`.${siteDomain}`));
+    const off = [
+      onSite(facts.contactEmail) ? null : `contact address ${facts.contactEmail}`,
+      !env.MAIL_FROM?.trim() || onSite(env.MAIL_FROM) ? null : `MAIL_FROM ${env.MAIL_FROM.trim()}`,
+    ].filter(Boolean);
+    add({
+      id: "own-addresses",
+      label: "Email addresses on the site's domain",
+      level: "recommended",
+      ok: local || off.length === 0,
+      detail: local ? "no public address yet" : off.length ? `not on ${siteDomain}: ${off.join("; ")}` : `on ${siteDomain}`,
+      fix: "The contact address is fixed when the site is built: set the repository variable CONTACT_EMAIL (NEXT_PUBLIC_CONTACT_EMAIL for a local build) to an address on your domain and rebuild. MAIL_FROM must be on the domain verified in Resend.",
+    });
+  }
 
   const admin = env.ADMIN_PASSWORD?.trim() ?? "";
   add({

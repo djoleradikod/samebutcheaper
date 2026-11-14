@@ -18,6 +18,7 @@ import { deliversTo } from "./sellers";
 import { matchClaim } from "./seo";
 import type { Pair } from "./types";
 import { unitDisplay, unitLabel } from "./unit-format";
+import { withheldStores } from "./withheld";
 import { getT, type Lang } from "./i18n";
 import { comparisonDe, differencesDe } from "./i18n/compare-de";
 import { listWords as listWordsIn } from "./i18n/format";
@@ -139,6 +140,8 @@ function cheaperAnswer(pair: Pair, lang: Lang, local?: Local) {
   const t = getT(lang);
   const { label } = unitDisplay(b.unit);
   const per = label === "each" ? "" : unitLabel(b.unit, lang);
+  // A store's affiliate terms withhold a price here (src/lib/programme-terms.ts): say why there's no figure.
+  if (pair.withheld) return local ? t("terms.why", withheldStores(pair, lang)) : t("terms.whyPlain");
   const pct = Math.round(pair.savingsPct);
   const when = t("faq.when", pair.market, monthYear(pair.price_checked, lang));
   const old = pair.priceOld && pair.freshness.tier === "stale" ? t("faq.old") : "";

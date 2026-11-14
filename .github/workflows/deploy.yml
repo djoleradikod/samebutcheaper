@@ -3,6 +3,7 @@
 # The owner's steps are in docs/deploy.md.
 #
 #   SITE_URL (variable)              turns on the image build and push; the public https address the site is built for
+#   CONTACT_EMAIL (variable)         the contact address shown on every page (default hello@samebutcheaper.com); fixed at build
 #   AFFILIATE_ENV (secret, optional) AFF_* lines, as in .env; fixed into the build (next.config.ts)
 #   DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY, DEPLOY_PATH (secrets; host, user and path may be variables instead)
 #                                    turn on the SSH deploy. All four or none: a partial set fails, and nothing runs
@@ -130,6 +131,7 @@ jobs:
           tags: ${{ env.IMAGE }}
           build-args: |
             NEXT_PUBLIC_SITE_URL=${{ vars.SITE_URL }}
+            NEXT_PUBLIC_CONTACT_EMAIL=${{ vars.CONTACT_EMAIL || 'hello@samebutcheaper.com' }}
             SOURCE_COMMIT=${{ github.sha }}
             SOURCE_REPO=${{ github.server_url }}/${{ github.repository }}
           secret-files: |
@@ -156,6 +158,10 @@ jobs:
             || { echo "::error::The image runs as root or lacks the migrator"; exit 1; }
           echo "Image size: $(docker image inspect -f '{{.Size}}' "$IMAGE" | awk '{printf "%.0f MB", $1/1e6}')" | tee -a "$GITHUB_STEP_SUMMARY"
           docker rm -f smoke
+      # This image through the real docker-compose.deploy.yml and deploy-remote.sh, on the runner, before it is
+      # pushed: migrations, blue/green, rollback, a failing deploy, backup and restore, database outage (two minutes).
+      - name: Launch rehearsal
+        run: bash scripts/ci/rehearse-deploy.sh docker "$IMAGE"
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
@@ -248,6 +254,9 @@ jobs:
             *) args="status" ;;
           esac
           ssh deploy-target "DEPLOY_PATH='$DEPLOY_PATH' SITE_URL='$SITE_URL' bash '$DEPLOY_PATH/deploy-remote.sh' $args" 2>&1 | tee "$RUNNER_TEMP/deploy.log"
+          # The server's own state (backups, disk, ports, memory ceiling): a warning, never a failed deploy.
+          ssh deploy-target "DEPLOY_PATH='$DEPLOY_PATH' bash '$DEPLOY_PATH/deploy-remote.sh' check" 2>&1 | tee -a "$RUNNER_TEMP/deploy.log" \
+            || echo "::warning title=Server check::deploy-remote.sh check found something to fix on the server (see the log above)."
           { echo '```'; tail -n 40 "$RUNNER_TEMP/deploy.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
       - name: Registry logout on the server
         if: always() && env.ACTION == 'deploy'

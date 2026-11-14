@@ -1,17 +1,71 @@
 {
  "checked": "2026-11-13",
  "method": "Every store the catalogue's buy links open (src/lib/programmes.ts linkStore) and every store in data/sellers. A network is given only where the network's own public programme page or the store's own affiliate page says so, opened on 13 Nov 2026 through a summarising fetch tool unless the note says the page could not be opened (then the claim rests on the page's title in a web search, and says so). Third-party directories (affi.io, affilitizer, linkclicky) are never a source. A FlexOffers listing is FlexOffers' own page, but FlexOffers relays many programmes it doesn't run, so those say so. No account was signed into; commission and cookie terms change, so check the network before joining. 'unknown' means no such page was found or looked for, not that there is no programme.",
+ "networks": {
+  "flexoffers": { "terms": {
+    "email": "no-links",
+    "source": "https://www.flexoffers.com/terms-and-conditions",
+    "quote": "FlexOffers publisher terms (updated 15 June 2026): no promoting an advertiser's programme by email, newsletter, SMS or push without written approval, and then only with verifiable consent; links must be unmasked; no bidding on advertisers' trademarks.",
+    "checked": "2026-11-14",
+    "clauses": [
+     { "rules": ["email"], "section": "4.13", "quote": "Publishers may not promote any Advertiser program through email, newsletters, SMS, push notifications" },
+     { "rules": ["email"], "section": "4.14", "quote": "verifiable lawful consent for each recipient as required by applicable law [once written approval is granted]" }
+    ]
+   } }
+ },
  "stores": {
-  "walmart": { "network": "impact", "programme": "walmart-us", "markets": ["US"], "source": "https://affiliates.walmart.com/faqs", "signup": "https://affiliates.walmart.com/", "note": "\"Walmart.com uses Impact Radius as our Affiliate Service Provider.\" walmart.ca is a separate programme (walmart-ca in affiliate-programs.ts, Rakuten, not confirmed here). Terms ban price-alert features for Walmart products.", "terms": { "priceAlerts": false, "source": "https://affiliates.walmart.com/terms", "quote": "Section 3(a), General Prohibitions: you may not use \"price tracking and/or price alerting functionality relating to products sold on the Sites\". Section 8 also allows prices only as Walmart supplies them, and section 13 wants them updated within 24 hours of a change.", "checked": "2026-11-14" } },
+  "walmart": { "network": "impact", "programme": "walmart-us", "markets": ["US"], "source": "https://affiliates.walmart.com/faqs", "signup": "https://affiliates.walmart.com/", "note": "\"Walmart.com uses Impact Radius as our Affiliate Service Provider.\" walmart.ca is a separate programme (walmart-ca in affiliate-programs.ts, Rakuten, not confirmed here). Terms ban price-alert features for Walmart products.", "terms": {
+    "priceAlerts": false,
+    "priceHistory": false,
+    "prices": { "only": "feed", "maxAgeHours": 24 },
+    "priceNotice": "store-price-applies",
+    "email": "none",
+    "dupeWording": false,
+    "disclosure": "paid-link",
+    "images": "programme",
+    "barredPaths": ["/pharmacy"],
+    "source": "https://affiliates.walmart.com/terms",
+    "quote": "Terms \"Last updated June 2026\". No price tracking or price alerts for Walmart products; prices only as Walmart supplies them, updated within 24 hours, with a note that Walmart's own price governs; no Walmart names, products or links in email without written permission; no \"dupe\" comparisons; a \"paid link\" or \"#WalmartPartner\" label next to each link; product images only as Walmart provides them; never promote Walmart Pharmacy.",
+    "checked": "2026-11-14",
+    "clauses": [
+     { "rules": ["priceAlerts", "priceHistory"], "section": "3(a) General Prohibitions", "quote": "include in your Affiliate Website any price tracking and/or price alerting functionality relating to products sold on the Sites;" },
+     { "rules": ["prices", "priceNotice"], "section": "8", "quote": "You may include current price information in your product descriptions only if such information is provided to you by Walmart, provided that you remain responsible for maintaining accurate and up-to-date pricing information and disclosing to users, where applicable, that in the event of any price difference between your website and the Site, the price listed on the Site will govern." },
+     { "rules": ["prices"], "section": "13", "quote": "updating product information, content and item descriptions (including, but not limited to, product price and availability) within 24 hours of any update of such product information, content and/or item description at the Site or from data feed content provided through the Program;" },
+     { "rules": ["email"], "section": "3(b)", "quote": "You may NOT do any of the following using Electronic Communication unless you first obtain in advance Walmart's express written permission. [...] generate or use Electronic Communication using or containing Trademarks (as defined in Exhibit A), or any variation or misspelling thereof, or products, or any of the Qualifying Links or URLS provided to you as part of the Program;" },
+     { "rules": ["dupeWording"], "section": "3(a) General Prohibitions", "quote": "use “dupe” language as a means of product comparison to that of another brand." },
+     { "rules": ["disclosure"], "section": "4", "quote": "ensure that your Endorsements of any Walmart product or service are clearly and conspicuously identified and labeled as “#WalmartPartner” or “paid link” when including Qualifying Links in your Endorsement;" },
+     { "rules": ["disclosure"], "section": "2", "quote": "there will be a clear and conspicuous disclosure that it is an advertisement placed next to the Qualifying Links so the disclosure is unavoidable." },
+     { "rules": ["images"], "section": "Exhibit A, 24", "quote": "You may not use Walmart’s or its vendors or suppliers' logos, trade names, trademarks, graphic images, product images, product references and similar identifying material unless expressly and specifically provided by Walmart for use in the Program, unless used within a keyword string (i.e. Hanes T-Shirts)." },
+     { "rules": ["barredPaths"], "section": "3(a) General Prohibitions", "quote": "promote, or participate in the promotion of, Walmart.com's Pharmacy (www.walmart.com/pharmacy)" }
+    ]
+   } },
   "tesco": { "network": "flexoffers", "programme": "tesco", "markets": ["GB"], "source": "https://www.flexoffers.com/affiliate-programs/tesco-stores-affiliate-program", "note": "FlexOffers lists Tesco Stores (1.6% marketplace and F&F, 3.2% new customers, 30-day cookie) but shows no programme status or country. affiliate-programs.ts still files Tesco under CJ, unconfirmed: set AFF_TESCO to the full FlexOffers link template once approved." },
-  "aponeo": { "network": "awin", "programme": "aponeo", "markets": ["DE"], "source": "https://ui.awin.com/merchant-profile/15521", "note": "APONEO DE, Awin 15521: 1% of net merchandise value, 30-day cookie." },
+  "aponeo": { "network": "awin", "programme": "aponeo", "markets": ["DE"], "source": "https://ui.awin.com/merchant-profile/15521", "note": "APONEO DE, Awin 15521: 1% of net merchandise value, 30-day cookie. Read 14 Nov 2026: \"Keyword Advertising ist für \"APONEO\" ausgeschlossen\", no competitors' brands in ad text or keywords, only vouchers Awin supplies, no sites about violence, gambling, erotica or filesharing, and publishers with no traffic in 12 months are removed. Nothing on prices, feeds, email or disclosure." },
   "mytime": { "network": "awin", "programme": "mytime-de", "markets": ["DE"], "source": "https://ui.awin.com/merchant-profile/14902", "note": "myTime DE, Awin 14902: 7% new customers, 2% existing, 60-day cookie." },
   "zooplus": { "network": "awin", "programme": "zooplus-de", "markets": ["DE", "IE", "GB"], "source": "https://ui.awin.com/merchant-profile/11330", "note": "One Awin programme per shop: zooplus DE 11330 (3% first three orders, then 1%, 30 days), zooplus IE 33309 (https://ui.awin.com/merchant-profile/33309: 6% first order, 2% after, 30 days), zooplus.co.uk 2940. zooplus's own affiliate page (https://www.zooplus.co.uk/info/about/affiliate_programme) offers daily CSV product data with deep links." },
-  "amazon": { "network": "amazon", "programme": "amazon", "markets": ["US", "GB", "DE", "CA"], "source": "https://affiliate-program.amazon.com/", "note": "Amazon Associates runs its own programme per storefront (affiliate-program.amazon.co.uk for the UK). Closes an account without 3 sales in 180 days." },
+  "amazon": { "network": "amazon", "programme": "amazon", "markets": ["US", "GB", "DE", "CA", "IE"], "source": "https://affiliate-program.amazon.com/", "note": "Amazon Associates runs its own programme per storefront (affiliate-program.amazon.co.uk for the UK). Closes an account without 3 sales in 180 days. Terms: the US and UK operating agreements (15 Oct 2025) and programme policies (US updated 14 Apr 2026; UK page undated), read 14 Nov 2026. amazon.de and amazon.ca terms were not read; the strictest of the US and UK rules is applied everywhere.", "terms": {
+    "priceAlerts": false,
+    "priceHistory": false,
+    "prices": { "only": "api", "maxAgeHours": 24 },
+    "priceNotice": "as-of-time",
+    "email": "no-links",
+    "disclosure": "amazon-associate",
+    "source": "https://affiliate-program.amazon.com/help/operating/policies",
+    "quote": "No price tracking or price alerts; prices and availability only when Amazon serves them or they come from its Creators API or PA API, refreshed at least every 24 hours, with a date/time stamp and the \"accurate as of\" notice beside them; the statement \"As an Amazon Associate I earn from qualifying purchases.\" on the site; no Special Links in email in the UK (US: only to opted-in readers); no link shortening or cloaking that hides that the link goes to Amazon.",
+    "checked": "2026-11-14",
+    "clauses": [
+     { "rules": ["priceAlerts", "priceHistory"], "section": "Participation Requirements 2(y)", "quote": "Unless otherwise agreed by Amazon, your Site must not have price tracking and/or price alerting functionality." },
+     { "rules": ["prices"], "section": "Participation Requirements 2(b)", "quote": "Because prices for and availability of Products that you have listed on your Site may change, your Site may only show prices and availability if: (a) we serve the link in which that price and availability data are displayed, or (b) you obtain Product pricing and availability data via Creators API or PA API" },
+     { "rules": ["prices", "priceNotice"], "section": "IP License 2(i) (UK policies)", "quote": "include a date/time stamp adjacent to your display of pricing or availability information. [...] Product prices and availability are accurate as of the date/time indicated and are subject to change.", "source": "https://affiliate-program.amazon.co.uk/help/operating/policiesoct1" },
+     { "rules": ["prices"], "section": "IP License 2(h) (UK policies)", "quote": "[non-image Product Advertising Content may be cached for up to 24 hours, after which you] must immediately thereafter refresh and re-display the Product Advertising Content.", "source": "https://affiliate-program.amazon.co.uk/help/operating/policiesoct1" },
+     { "rules": ["email"], "section": "Participation Requirements 4 (UK policies)", "quote": "You will not engage in any promotional, marketing, or other advertising activities in any offline manner, including by using any of our or our affiliates' trademarks or logos (including any Amazon Mark), any Program Content, or any Special Link in connection with email, offline promotion or in any offline manner (e.g., in any printed material, ebook, mailing, or attachment to email, or other document, or any oral solicitation).", "source": "https://affiliate-program.amazon.co.uk/help/operating/policiesoct1" },
+     { "rules": ["disclosure"], "section": "Operating Agreement 5", "quote": "As an Amazon Associate I earn from qualifying purchases.", "source": "https://affiliate-program.amazon.com/help/operating/agreement" }
+    ]
+   } },
   "aldi": { "network": "unknown", "markets": [], "note": "No programme page found for Aldi UK, Aldi Nord, Aldi Süd or Aldi US." },
   "netto": { "network": "awin", "programme": "netto-de", "markets": ["DE"], "source": "https://ui.awin.com/merchant-profile/13812", "note": "Netto Marken-Discount DE (netto-online.de), Awin 13812: 4% standard sales, 60-day cookie. Links to netto.de (the Danish-owned Netto stores) are not covered." },
   "rewe": { "network": "unknown", "markets": [], "note": "REWE has a partner programme page (https://www.rewe.de/partnerprogramm/), but it could not be opened from here, so its network isn't confirmed." },
-  "target": { "network": "impact", "programme": "target", "markets": ["US"], "source": "https://partners.target.com/faqs", "signup": "https://partners.target.com/", "note": "Target Partners is Target's own programme; its pages need JavaScript and couldn't be read here, so Impact as the platform is from affiliate-programs.ts, not confirmed today." },
+  "target": { "network": "impact", "programme": "target", "markets": ["US"], "source": "https://partners.target.com/faqs", "signup": "https://partners.target.com/", "note": "Target Partners is Target's own programme; its pages need JavaScript and couldn't be read here (again on 14 Nov 2026), so Impact as the platform is from affiliate-programs.ts, not confirmed today, and its terms are unread. Raptive's help centre told its publishers the Target affiliate programme was \"set to conclude on January 5, 2026\" (https://help.raptive.com/hc/en-us/articles/42984904871067-The-Target-affiliate-program-is-ending-here-s-what-to-know); whether that was Target Partners itself or only Raptive's access isn't clear. Check that the programme still takes applications before counting on it." },
   "safeway": { "network": "flexoffers", "markets": ["US"], "source": "https://www.flexoffers.com/affiliate-programs/safeway-com-affiliate-program/", "note": "A FlexOffers listing only; programme status not confirmed. No entry in affiliate-programs.ts yet." },
   "lidl": { "network": "awin", "programme": "lidl-de", "markets": ["DE"], "source": "https://www.lidl.de/c/das-lidl-partnerprogramm/s10005552", "note": "Lidl's own page: the programme runs on Awin, up to 5% per online-shop order. Covers lidl.de only; no Lidl GB programme found. affiliate-programs.ts files it as a template; with AWIN_PUBLISHER_ID set, AFF_LIDL_DE takes the Awin merchant ID once known." },
   "viking": { "network": "unknown", "programme": "viking-gb", "markets": [], "note": "affiliate-programs.ts lists Viking GB on Partnerize; no programme page was opened to confirm it." },
@@ -30,9 +84,9 @@
   "edeka": { "network": "unknown", "markets": [], "note": "Not looked up." },
   "samsclub": { "network": "rakuten", "programme": "samsclub", "markets": ["US"], "source": "https://samsclub.com/content/affiliates", "note": "Sam's Club's own page: \"Partner with Rakuten Advertising to track sales.\"" },
   "crocus": { "network": "awin", "programme": "crocus", "markets": ["GB"], "source": "https://ui.awin.com/merchant-profile/7833", "note": "Crocus, Awin 7833: 10% on plants, 7% on products, 30-day cookie." },
-  "chewy": { "network": "impact", "programme": "chewy", "markets": ["US"], "source": "https://www.chewy.com/app/content/affiliate-program", "note": "Chewy's own affiliate page names Impact (read for docs/research/R7-resourcing.md; it refused this round's fetch)." },
+  "chewy": { "network": "impact", "programme": "chewy", "markets": ["US"], "source": "https://www.chewy.com/app/content/affiliate-program", "note": "Chewy's own affiliate page names Impact (read for docs/research/R7-resourcing.md; it refused this round's fetch and again on 14 Nov 2026, so its terms are unread)." },
   "morrisons": { "network": "unknown", "markets": [], "note": "Not looked up." },
-  "anker": { "network": "impact", "programme": "anker", "markets": ["US"], "source": "https://www.anker.com/become-an-affiliate", "note": "Anker's own page links to Impact and to Rakuten (LinkShare): 8% on all sales, 30-day cookie." },
+  "anker": { "network": "impact", "programme": "anker", "markets": ["US"], "source": "https://www.anker.com/become-an-affiliate", "note": "Anker's own page links to Impact and to Rakuten (LinkShare): 8% on all sales, 30-day cookie. Read 14 Nov 2026: it bars \"Hiding links under other content\", \"Tricking people into clicking links\" and \"Putting links directly into search engines\"; anker.com copy and images only \"on a case-by-case basis\". Its programme agreement isn't linked from the page, so no rule is applied here." },
   "autoglym": { "network": "unknown", "markets": [], "note": "A brand's own shop; not looked up." },
   "which": { "network": "none", "markets": [], "source": "https://www.which.co.uk/", "note": "Not a store: links to Which? test results, which sell nothing." },
   "asda": { "network": "unknown", "markets": [], "note": "Not looked up." },

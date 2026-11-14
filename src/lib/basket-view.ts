@@ -118,10 +118,10 @@ export function toBasketSummary(preset: Preset, photos = basketPhotos(preset, 4,
     market: preset.market,
     title: preset.title,
     audience: preset.audience,
-    brandTotal: preset.brandTotal,
-    altTotal: preset.altTotal,
-    savings: preset.savings,
-    savingsPct: preset.savingsPct,
+    // A total built on a price a store's affiliate terms withhold isn't sent at all (src/lib/programme-terms.ts).
+    ...(preset.withheld?.length
+      ? { withheld: true, brandTotal: 0, altTotal: 0, savings: 0, savingsPct: 0 }
+      : { brandTotal: preset.brandTotal, altTotal: preset.altTotal, savings: preset.savings, savingsPct: preset.savingsPct }),
     currency: preset.currency,
     itemCount: preset.lines.length,
     storeCount: basketStores(preset).length,

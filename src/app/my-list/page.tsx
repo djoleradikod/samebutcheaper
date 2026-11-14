@@ -22,7 +22,8 @@ export default function MyListPage() {
   const lang = getLang();
   const t = getT(lang);
   const items: ListItem[] = [
-    ...getAllPairs().map((p) => ({
+    // Swaps and kits whose prices a store's affiliate terms withhold (src/lib/programme-terms.ts) have no saving to add up.
+    ...getAllPairs().filter((p) => !p.withheld).map((p) => ({
       slug: p.slug,
       href: withVia(`/compare/${p.slug}`, "list"),
       kind: "swap" as const,
@@ -40,7 +41,7 @@ export default function MyListPage() {
       toAlt: productName(p.alternative.product, lang),
       yearly: yearlyFields(p, lang),
     })),
-    ...getAllBundles().map((b) => {
+    ...getAllBundles().filter((b) => !b.withheld).map((b) => {
       const piece = b.components.find((c) => c.photo) ?? b.components[0];
       return {
         slug: b.slug,

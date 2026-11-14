@@ -23,6 +23,8 @@ export function BundleCard({ bundle, lang = "en", via }: { bundle: Bundle; lang?
   const t = clientT(lang, TEXT);
   const pieces = bundle.components.slice(0, 4);
   const caution = kitCaution(bundle);
+  // A store's affiliate terms withhold a price in this kit (src/lib/programme-terms.ts): the card shows none.
+  const withheld = !!bundle.withheld && Object.keys(bundle.withheld).length > 0;
   return (
     <Link
       href={via ? withVia(`/bundle/${bundle.slug}`, via) : `/bundle/${bundle.slug}`}
@@ -80,14 +82,18 @@ export function BundleCard({ bundle, lang = "en", via }: { bundle: Bundle; lang?
           ))}
           {bundle.components.length > 4 && <li className="text-muted">{t("kits.andMore", bundle.components.length - 4)}</li>}
         </ul>
-        <p className="mt-auto flex flex-wrap items-baseline gap-x-1 pt-2.5 leading-none">
-          <span className="text-[13px] font-medium text-muted">{t("kits.kit")}</span>
-          <span className="price text-base leading-none font-semibold text-muted"><Money n={bundle.bundle.price} from={bundle.currency} /></span>
-          <ToArrow className="text-muted" />
-          <span className="text-[13px] font-medium text-muted">{t("kits.builtYourself")}</span>
-          <span className="price text-xl leading-none text-ink"><Money n={bundle.equivalentTotal} from={bundle.currency} /></span>
-        </p>
-        {caution && (
+        {withheld ? (
+          <p className="mt-auto pt-2.5 text-[13px] font-semibold">{t("kits.pricesAtStores")}</p>
+        ) : (
+          <p className="mt-auto flex flex-wrap items-baseline gap-x-1 pt-2.5 leading-none">
+            <span className="text-[13px] font-medium text-muted">{t("kits.kit")}</span>
+            <span className="price text-base leading-none font-semibold text-muted"><Money n={bundle.bundle.price} from={bundle.currency} /></span>
+            <ToArrow className="text-muted" />
+            <span className="text-[13px] font-medium text-muted">{t("kits.builtYourself")}</span>
+            <span className="price text-xl leading-none text-ink"><Money n={bundle.equivalentTotal} from={bundle.currency} /></span>
+          </p>
+        )}
+        {caution && !withheld && (
           <p className="mt-1.5 text-[13px] font-semibold text-different">
             {caution.moreToday > 0 ? t("kits.costsMore") : t("kits.smallSaving")}
           </p>

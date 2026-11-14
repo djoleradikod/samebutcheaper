@@ -8,6 +8,8 @@ import { CATEGORIES } from "@/lib/categories";
 import { ingredientNames, type AisleNames } from "@/lib/search-index";
 
 function toBundleSummary(b: Bundle): BundleSummary {
+  // A kit whose prices a store's affiliate terms withhold (src/lib/programme-terms.ts) sends no prices at all.
+  const hidden = !!b.withheld;
   return {
     slug: b.slug,
     title: b.title,
@@ -19,12 +21,13 @@ function toBundleSummary(b: Bundle): BundleSummary {
     netSavingsPct: b.netSavingsPct,
     netSavings: b.netSavings,
     checkout: { delivery: b.checkout.delivery },
-    equivalentTotal: b.equivalentTotal,
+    equivalentTotal: hidden ? 0 : b.equivalentTotal,
+    ...(hidden ? { withheld: b.withheld } : {}),
     currency: b.currency,
     bundle: {
       brand: b.bundle.brand,
       name: b.bundle.name,
-      price: b.bundle.price,
+      price: hidden ? 0 : b.bundle.price,
       items: b.bundle.items.map((i) => ({ name: i.name })),
     },
     ...(b.de ? { de: { name: b.de.name } } : {}),

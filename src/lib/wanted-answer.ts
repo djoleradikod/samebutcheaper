@@ -12,6 +12,7 @@ import type { Lang } from "./i18n/lang";
 import { listHeaders, unsubscribeUrl } from "./newsletter";
 import type { Pair } from "./types";
 import { searchFields, wishMatcher } from "./wanted-match";
+import { pairMailable } from "./programme-terms";
 
 /**
  * Answers "tell me when you add it". Daily upkeep looks for active, confirmed requests that a swap now answers
@@ -42,7 +43,7 @@ export function wishMail(input: { to: string; token: string; query: string; coun
   const rows = input.pairs.map((p) => pairLines(p, local, tagged(`${opts.siteUrl}${sitePath(`/compare/${p.slug}`, lang)}`, campaign), lang));
   const footer: Footer = {
     why: t("mailWish.why", input.query),
-    stopAll: unsubscribeUrl(opts.siteUrl, input.token),
+    stopAll: unsubscribeUrl(opts.siteUrl, input.token, undefined, lang),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,
@@ -98,7 +99,8 @@ export async function runWishAnswers(db: DB, opts: MailOpts & { env?: Env; now?:
   if (!rows.length) return run;
   const seen = await noteCatalogue(db, catalogue, now);
   const bySlug = new Map(catalogue.pairs.map((p) => [p.slug, p]));
-  const match = wishMatcher(catalogue.pairs.map(searchFields));
+  // Only a swap that may go out by email answers a wish (src/lib/programme-terms.ts); the rest wait for one that can.
+  const match = wishMatcher(catalogue.pairs.filter((p) => pairMailable(p)).map(searchFields));
   const canSend = mailConfigured(env);
   for (const { wish, sub } of rows) {
     const pairs = answersFor({ query: wish.query, country: wish.country ?? sub.country, createdAt: wish.createdAt }, match, bySlug, seen);

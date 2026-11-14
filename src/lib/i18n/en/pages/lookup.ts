@@ -15,7 +15,9 @@ export const pageLookup = {
   or: "or",
   snap: "snap the label",
   upload: "Upload a photo",
-  privacy: "Barcodes are read on your device. If there's no barcode, the photo goes to our label reader and isn't stored.",
+  /** `photo`: photos can be read (ANTHROPIC_API_KEY is set). */
+  privacy: (photo: boolean): string =>
+    photo ? "Barcodes are read on your device. Without a barcode, the photo goes to an outside AI service (Anthropic) to be read, and isn't stored." : "Barcodes are read on your device.",
   findIn: (country: string, flag: string) => `Find it in ${countryInSentence(country)} ${flag}`,
   findWhere: "Find it where you live",
   searchThis: "Search for this, then compare the price per unit:",

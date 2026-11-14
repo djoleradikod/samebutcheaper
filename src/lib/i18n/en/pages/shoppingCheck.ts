@@ -13,7 +13,7 @@ export const pageShoppingCheck = {
   readPhoto: "Read a receipt photo",
   tryExample: "Try an example",
   privacy: (photo: boolean) =>
-    `We read your list${photo ? " or photo" : ""} only to match it and don't keep it; we count just the names of products we have no swap for, never prices, so we know what to research next.`,
+    `We read your list${photo ? " or photo" : ""} only to match it and don't keep it.${photo ? " Photos go to an outside AI service (Anthropic) to be read." : ""} We count just the names of products we have no swap for, never prices, so we know what to research next.`,
   hiddenShared: (n: number) =>
     `${n === 1 ? "One swap" : `${n} swaps`} on the shared list ${n === 1 ? "isn't" : "aren't"} sold where you are, so ${n === 1 ? "it's" : "they're"} left out.`,
   keepHeading: "What you'd keep",

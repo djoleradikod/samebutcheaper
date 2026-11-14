@@ -166,6 +166,9 @@ and 10+ indexed pages. Most networks reject a site they can't browse.
 
 ## Rules that can get us banned
 
+Each programme's terms, quoted, and what the site does about them: docs/research/R11-programme-terms.md. The rules
+below on Walmart and Amazon prices are now applied by the catalogue build from `data/sellers/programmes.json`.
+
 1. **Walmart's terms ban "price tracking or price alert features".** They only allow prices that Walmart
    supplies, updated within 24 h of a change, with a note that Walmart's price applies. Our catalog
    prices are monthly snapshots. Before applying, either show "checked <date>" with no Walmart price, or

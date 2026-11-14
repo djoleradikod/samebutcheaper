@@ -17,6 +17,7 @@ import { unitLabel } from "./unit-format";
 import { getT } from "./i18n";
 import type { Lang } from "./i18n/lang";
 import { productName } from "./i18n/product-name";
+import { kitMailable, pairMailable } from "./programme-terms";
 
 /**
  * The weekly letter. Once a week, to every confirmed address that asked for it (subscribers.newsletter "yes"):
@@ -92,8 +93,9 @@ export function buildIssue(input: { catalogue: CatalogueView; country: string | 
   const local = localFor(input.country);
   const since = new Date(input.now.getTime() - NEW_DAYS * 86400000).toISOString().slice(0, 10);
   const isNew = (key: string) => (input.seen[key] ?? BEFORE_LETTERS) >= since;
-  const pairs = input.catalogue.pairs.filter((p) => local.shows(p) && !input.sent.has(pairKey(p.slug)));
-  const kits = input.catalogue.bundles.filter((b) => local.shows(b) && !input.sent.has(kitKey(b.slug)));
+  // A record whose prices a store's affiliate terms withhold, or whose store bars email, is left out (programme-terms.ts).
+  const pairs = input.catalogue.pairs.filter((p) => local.shows(p) && pairMailable(p) && !input.sent.has(pairKey(p.slug)));
+  const kits = input.catalogue.bundles.filter((b) => local.shows(b) && kitMailable(b) && !input.sent.has(kitKey(b.slug)));
   const seenOn = (key: string) => input.seen[key] ?? BEFORE_LETTERS;
 
   const fresh: Issue["fresh"] = [
@@ -187,8 +189,8 @@ export function letterMail(issue: Issue, input: { to: string; token: string; iss
   const priceNote = t("mailLetter.priceNote", local.known ? local.currency : null);
   const footer: Footer = {
     why: t("mailLetter.why"),
-    stopThis: { label: t("mailLetter.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, "letter") },
-    stopAll: unsubscribeUrl(opts.siteUrl, input.token),
+    stopThis: { label: t("mailLetter.stopThis"), url: unsubscribeUrl(opts.siteUrl, input.token, "letter", lang) },
+    stopAll: unsubscribeUrl(opts.siteUrl, input.token, undefined, lang),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,

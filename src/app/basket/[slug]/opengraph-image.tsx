@@ -21,6 +21,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     title: p.title,
     sub: `${p.lines.length} brand-name items and the cheaper swap for each. ${p.blurb}`,
     pct: p.savingsPct,
-    prices: { cheap: money(p.altTotal, p.currency), brand: money(p.brandTotal, p.currency), unit: "for the same shop" },
+    // No totals where a store's affiliate terms withhold a line's prices (src/lib/programme-terms.ts).
+    prices: p.withheld ? undefined : { cheap: money(p.altTotal, p.currency), brand: money(p.brandTotal, p.currency), unit: "for the same shop" },
   });
 }

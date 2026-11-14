@@ -53,6 +53,7 @@ export async function GET(req: NextRequest) {
     ...status,
     migrationsExpected: MIGRATIONS_EXPECTED,
     affiliateEnv: affiliateEnv(),
+    contactEmail: SITE.contactEmail,
   });
   const { ready, blockers } = summarize(checks);
   const body: Record<string, unknown> = {

@@ -16,7 +16,8 @@ export const pageLookup: Shape<typeof en> = {
   or: "oder",
   snap: "Etikett fotografieren",
   upload: "Foto hochladen",
-  privacy: "Barcodes werden auf deinem Gerät gelesen. Ohne Barcode schicken wir das Foto zum Lesen an einen externen KI-Dienst (Anthropic). Wir speichern es nicht.",
+  privacy: (photo) =>
+    photo ? "Barcodes werden auf deinem Gerät gelesen. Ohne Barcode schicken wir das Foto zum Lesen an einen externen KI-Dienst (Anthropic). Wir speichern es nicht." : "Barcodes werden auf deinem Gerät gelesen.",
   findIn: (country, flag) => `So findest du es ${countryAt(country)} ${flag}`,
   findWhere: "So findest du es bei dir",
   searchThis: "Such danach und vergleich dann den Grundpreis:",

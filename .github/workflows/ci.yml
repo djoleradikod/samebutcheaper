@@ -49,6 +49,13 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Accessibility, phone width and performance budget
         run: node scripts/ci/quality.mjs
+      # The server deploy, end to end, on this runner (about two minutes): deploy-remote.sh unchanged against real
+      # processes, migrations and backups; blue/green, rollback, a failing health check, the refusals, a backup
+      # restored into a second database, and the database going away and coming back (docs/deploy.md, "The rehearsal").
+      - name: Launch rehearsal
+        env:
+          REHEARSAL_PG: postgres://sbc:sbc@localhost:5432/postgres
+        run: bash scripts/ci/rehearse-deploy.sh standalone
       - name: Keep the quality numbers
         if: always()
         uses: actions/upload-artifact@v4

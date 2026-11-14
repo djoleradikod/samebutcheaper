@@ -19,7 +19,7 @@ export const HUB_PATHS = ["/", "/biggest-savings", "/bundles"] as const;
  * Tools with a translated form only (LANGUAGE_PAGES in country-url.ts) that are worth a search result: the English page
  * and the German one. /my-list and /search are noindex in every form, so they have no versions.
  */
-export const INDEXED_LANGUAGE_PAGES = ["/check", "/check/list"] as const;
+export const INDEXED_LANGUAGE_PAGES = ["/check", "/check/list", "/disclosure", "/about", "/how-we-verify"] as const;
 
 /**
  * A translated tool's versions: /de's German one, and the unprefixed English page as the x-default (it serves every

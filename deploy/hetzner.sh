@@ -18,6 +18,23 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
+# For a server of its own only: this starts Caddy on ports 80 and 443. Refuse where another site already runs (other
+# containers, or something else on 80/443): there, use the Deploy workflow and docs/deploy.md, which never touch them.
+if [ "${SBC_OWN_SERVER:-}" != yes ]; then
+  foreign=""; ours_caddy=""
+  if command -v docker >/dev/null 2>&1; then
+    foreign="$(docker ps --format '{{.Names}} {{.Label "com.docker.compose.project"}}' 2>/dev/null | awk '$2 != "samebutcheaper" {print $1}' | tr '\n' ' ')"
+    ours_caddy="$(docker ps -q --filter label=com.docker.compose.project=samebutcheaper --filter label=com.docker.compose.service=caddy 2>/dev/null || true)"
+  fi
+  web_ports="$(ss -ltnH 2>/dev/null | awk '{print $4}' | grep -E ':(80|443)$' | tr '\n' ' ' || true)"
+  if [ -n "$foreign" ] || { [ -n "$web_ports" ] && [ -z "$ours_caddy" ]; }; then
+    echo "Refusing: this server already runs something else (${foreign:+containers: $foreign}${web_ports:+ports: $web_ports})." >&2
+    echo "This script would take ports 80 and 443. On a shared server, follow docs/deploy.md instead." >&2
+    echo "Only if this server is yours alone and nothing on it matters: SBC_OWN_SERVER=yes." >&2
+    exit 1
+  fi
+fi
+
 if ! command -v docker >/dev/null 2>&1; then
   echo "Installing Docker..."
   curl -fsSL https://get.docker.com | sh

@@ -102,3 +102,24 @@ test("the legal notice is built only from what is set, never filled in", () => {
   });
   assert.deepEqual(legalMissing({ LEGAL_NAME: "x" }), ["LEGAL_ADDRESS", "LEGAL_EMAIL"]);
 });
+
+test("the database password: the .env.example placeholder or a short one blocks; unknown is not checked", () => {
+  assert.ok(failing({ ...GOOD_ENV, POSTGRES_PASSWORD: "change-me-to-a-long-random-string" }).includes("postgres-password"));
+  assert.ok(failing({ ...GOOD_ENV, POSTGRES_PASSWORD: "short" }).includes("postgres-password"));
+  assert.ok(!failing({ ...GOOD_ENV, POSTGRES_PASSWORD: "4f9a1c7e2b8d6a0f3c5e7b9d" }).includes("postgres-password"));
+  assert.equal(readinessChecks(GOOD_ENV, GOOD_FACTS).find((c) => c.id === "postgres-password"), undefined);
+  const text = JSON.stringify(readinessChecks({ ...GOOD_ENV, POSTGRES_PASSWORD: "4f9a1c7e2b8d6a0f3c5e7b9d" }, GOOD_FACTS));
+  assert.ok(!text.includes("4f9a1c7e2b8d6a0f3c5e7b9d"));
+});
+
+test("addresses on another domain than the site's are flagged: the built-in contact address and MAIL_FROM", () => {
+  const facts = { ...GOOD_FACTS, siteUrl: "https://www.cheaper.example", contactEmail: "hello@samebutcheaper.com" };
+  const c = readinessChecks({ ...GOOD_ENV, MAIL_FROM: "Cheaper <hi@cheaper.example>" }, facts).find((x) => x.id === "own-addresses")!;
+  assert.deepEqual([c.ok, c.level], [false, "recommended"]);
+  assert.match(c.detail, /contact address hello@samebutcheaper\.com/);
+  assert.doesNotMatch(c.detail, /MAIL_FROM/);
+  assert.ok(!failing({ ...GOOD_ENV, MAIL_FROM: "x <hi@mail.cheaper.example>" }, { ...facts, contactEmail: "hello@cheaper.example" }).includes("own-addresses"));
+  assert.ok(failing(GOOD_ENV, { ...facts, contactEmail: "hello@cheaper.example" }).includes("own-addresses"), "MAIL_FROM on samebutcheaper.com");
+  assert.ok(!failing(GOOD_ENV, { ...GOOD_FACTS, contactEmail: "hello@samebutcheaper.com" }).includes("own-addresses"));
+  assert.ok(!failing(GOOD_ENV, { ...GOOD_FACTS, siteUrl: "http://localhost:3000", contactEmail: "a@b.example" }).includes("own-addresses"));
+});

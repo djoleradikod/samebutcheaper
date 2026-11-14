@@ -43,7 +43,7 @@ export function swapViews(slugs: Iterable<string>, lang: Lang = "en"): Record<st
   const out: Record<string, SwapView> = {};
   for (const slug of slugs) {
     const p = getPair(slug);
-    if (p) out[slug] = swapView(p, lang);
+    if (p && !p.withheld) out[slug] = swapView(p, lang);
   }
   return out;
 }
@@ -55,7 +55,8 @@ export function indexFor(local: Local): Index {
   const key = `${local.known ? local.country : "?"}${local.others ? "+" : ""}`;
   let index = indexes.get(key);
   if (!index) {
-    index = buildIndex(forCountry(getAllPairs(), local).map(toCandidate));
+    // A swap whose prices a store's affiliate terms withhold (src/lib/programme-terms.ts) has no saving to suggest.
+    index = buildIndex(forCountry(getAllPairs().filter((p) => !p.withheld), local).map(toCandidate));
     indexes.set(key, index);
   }
   return index;

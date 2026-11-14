@@ -19,7 +19,8 @@ function kitName(b: Pick<Bundle, "bundle" | "de">) {
 
 export function bundleTitleDe(b: Pick<Bundle, "bundle" | "netSavingsPct" | "de">) {
   const name = kitName(b);
-  const tail = ` für ${pct(b.netSavingsPct)} weniger nachgebaut`;
+  // 0: a store's affiliate terms withhold the prices (src/lib/programme-terms.ts), so no figure is quoted.
+  const tail = b.netSavingsPct > 0 ? ` für ${pct(b.netSavingsPct)} weniger nachgebaut` : " aus günstigeren Teilen nachgebaut";
   return name.length + tail.length <= TITLE_MAX ? `${name}${tail}` : clip(name, TITLE_MAX);
 }
 
@@ -27,14 +28,14 @@ export function bundleDescriptionDe(b: Pick<Bundle, "bundle" | "netSavingsPct" |
   const n = b.components.length;
   return fitSentences([
     `${kitName(b)}, nachgebaut aus ${n} günstigeren ${n === 1 ? "Produkt" : "Produkten"} für dieselbe Menge.`,
-    `${pct(b.netSavingsPct)} weniger nach Versand, zu ${PRICES[b.market]}, geprüft im ${monthDe(b.price_checked)}.`,
+    ...(b.netSavingsPct > 0 ? [`${pct(b.netSavingsPct)} weniger nach Versand, zu ${PRICES[b.market]}, geprüft im ${monthDe(b.price_checked)}.`] : []),
     "Jedes Teil mit seinen Quellen.",
   ]);
 }
 
 export function basketTitleDe(p: Pick<Preset, "title" | "savingsPct" | "de">) {
   const title = p.de?.title ?? p.title;
-  const t = `${title}: derselbe Einkauf für ${pct(p.savingsPct)} weniger`;
+  const t = p.savingsPct > 0 ? `${title}: derselbe Einkauf für ${pct(p.savingsPct)} weniger` : title;
   return t.length <= TITLE_MAX ? t : clip(title, TITLE_MAX);
 }
 
@@ -42,6 +43,8 @@ export function basketDescriptionDe(p: Pick<Preset, "audience" | "lines" | "savi
   const n = p.lines.length;
   return fitSentences([
     `${p.de?.audience ?? p.audience}.`,
-    `${n} Markenprodukte und für jedes ein günstigerer Vergleich: dieselbe Menge für ${pct(p.savingsPct)} weniger, zu ${PRICES[p.market]}.`,
+    p.savingsPct > 0
+      ? `${n} Markenprodukte und für jedes ein günstigerer Vergleich: dieselbe Menge für ${pct(p.savingsPct)} weniger, zu ${PRICES[p.market]}.`
+      : `${n} Markenprodukte und für jedes ein günstigerer Vergleich.`,
   ]);
 }

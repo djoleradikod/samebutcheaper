@@ -107,7 +107,11 @@ function swapTitleCandidates(p: SwapTitleInput, lang: Lang = "en"): string[] {
   const altProduct = productPhrase(p.alternative.brand, p.alternative.product);
   const named = t("seo.vs", `${p.brand.brand} ${brandProduct}`, p.alternative.brand);
   const variant = p.brand.product.split(/,\s/)[1]?.trim();
-  return [
+  // A saving of 0 is one a store's affiliate terms withhold (src/lib/programme-terms.ts): no title quotes it.
+  if (p.savingsPct <= 0) return [...new Set(swapTitleList().map((s) => s.replace(`: ${tail}`, "")))];
+  return swapTitleList();
+  function swapTitleList() {
+    return [
     `${vs} ${what}: ${tail}${market}`,
     `${vs}: ${tail}${market}`,
     `${named}: ${tail}${market}`,
@@ -117,7 +121,8 @@ function swapTitleCandidates(p: SwapTitleInput, lang: Lang = "en"): string[] {
     // Products that differ only after the first comma, such as weight bands: "23-44 lbs".
     ...(variant ? [`${vs}, ${variant}: ${tail}${market}`, `${named}, ${variant} (${prices})`] : []),
     `${t("seo.vs", p.brand.product, p.alternative.product)} (${prices})`,
-  ];
+    ];
+  }
 }
 
 /**
@@ -174,7 +179,13 @@ export function swapDescription(
   const month = lang === "en" ? shortMonth(p.price_checked) : shortDateDe(p.price_checked, "month");
   const price = t("seo.costsLess", pct, per, p.market, month);
   const claim = lang === "en" ? matchClaim(p.match_type, a, b) : `${a} ${t(`swap.verdict.${p.match_type}`, b)}`;
-  const lead = p.match_type === "same_kind" ? [t("seo.sameKindLead", claim, pct, per, p.market)] : [t("seo.lead", claim, actives ?? "", price)];
+  // A saving of 0 is one a store's affiliate terms withhold (src/lib/programme-terms.ts): the claim stands, with no figure.
+  const lead =
+    pct <= 0
+      ? [p.match_type === "same_kind" ? t("seo.sameKindNoPrice", claim) : t("seo.leadNoPrice", claim, actives ?? "")]
+      : p.match_type === "same_kind"
+        ? [t("seo.sameKindLead", claim, pct, per, p.market)]
+        : [t("seo.lead", claim, actives ?? "", price)];
   const question = t("seo.question", a, b);
   const withQuestion = [question, ...lead].join(" ");
   const first = withQuestion.length <= DESCRIPTION_MAX ? [withQuestion] : lead;
@@ -315,6 +326,8 @@ export function dupeHeading(d: { brand: string; actives: string[] | null; subcat
 
 export function dupeTitle(d: Parameters<typeof dupeHeading>[0], bestPct: number) {
   const h = dupeHeading(d);
+  // 0: every saving here is one a store's affiliate terms withhold (src/lib/programme-terms.ts), so none is quoted.
+  if (bestPct <= 0) return `${h.title} (${h.what})`.length <= TITLE_MAX ? `${h.title} (${h.what})` : clip(h.title, TITLE_MAX);
   const full = `${h.title} (${h.what}): save up to ${pctText(bestPct)}`;
   if (full.length <= TITLE_MAX) return full;
   const short = `${h.title}: save up to ${pctText(bestPct)}`;
@@ -337,12 +350,15 @@ export function dupeDescription(
       : `${n} cheaper product${n === 1 ? "" : "s"} of the same kind as ${d.brand}, compared per unit.`;
   return fitSentences([
     lead,
-    `${matchClaim(top.match_type, top.alternative.brand, d.brand)} and costs ${pctText(top.savingsPct)} less at ${MARKET_ADJECTIVE[top.market]} prices.`,
+    top.savingsPct > 0
+      ? `${matchClaim(top.match_type, top.alternative.brand, d.brand)} and costs ${pctText(top.savingsPct)} less at ${MARKET_ADJECTIVE[top.market]} prices.`
+      : `${matchClaim(top.match_type, top.alternative.brand, d.brand)}.`,
     "Sources and differences on each.",
   ]);
 }
 
 export function brandTitle(name: string, bestPct: number) {
+  if (bestPct <= 0) return clip(`Cheaper alternatives to ${name}`, TITLE_MAX);
   const full = `Cheaper alternatives to ${name}: save up to ${pctText(bestPct)}`;
   return full.length <= TITLE_MAX ? full : clip(`Cheaper alternatives to ${name}`, TITLE_MAX);
 }
@@ -381,7 +397,7 @@ export function categoryTitle(name: string, count: number, lang: Lang = "en") {
 /** "Momentous Nightly Sleep rebuilt for 85% less": the kit's name up to its pack details. */
 export function bundleTitle(b: Pick<Bundle, "bundle" | "netSavingsPct">) {
   const name = b.bundle.name.split(/,\s|\s\(/)[0].trim();
-  const tail = ` rebuilt for ${pctText(b.netSavingsPct)} less`;
+  const tail = b.netSavingsPct > 0 ? ` rebuilt for ${pctText(b.netSavingsPct)} less` : " rebuilt from cheaper pieces";
   return name.length + tail.length <= TITLE_MAX ? `${name}${tail}` : clip(name, TITLE_MAX);
 }
 
@@ -390,13 +406,13 @@ export function bundleDescription(b: Pick<Bundle, "bundle" | "netSavingsPct" | "
   const n = b.components.length;
   return fitSentences([
     `${name}, rebuilt from ${n} cheaper product${n === 1 ? "" : "s"} that cover the same amount.`,
-    `${pctText(b.netSavingsPct)} less after delivery, at ${MARKET_ADJECTIVE[b.market]} prices checked ${monthYear(b.price_checked)}.`,
+    ...(b.netSavingsPct > 0 ? [`${pctText(b.netSavingsPct)} less after delivery, at ${MARKET_ADJECTIVE[b.market]} prices checked ${monthYear(b.price_checked)}.`] : []),
     "Each piece with its sources.",
   ]);
 }
 
 export function basketTitle(p: Pick<Preset, "title" | "savingsPct" | "market">) {
-  const t = `${p.title}: the same shop for ${pctText(p.savingsPct)} less`;
+  const t = p.savingsPct > 0 ? `${p.title}: the same shop for ${pctText(p.savingsPct)} less` : p.title;
   return t.length <= TITLE_MAX ? t : clip(p.title, TITLE_MAX);
 }
 
@@ -404,7 +420,9 @@ export function basketDescription(p: Pick<Preset, "audience" | "lines" | "saving
   const n = p.lines.length;
   return fitSentences([
     `${p.audience}.`,
-    `${n} brand-name items and the cheaper swap for each: the same amount for ${pctText(p.savingsPct)} less, at ${MARKET_ADJECTIVE[p.market]} prices.`,
+    p.savingsPct > 0
+      ? `${n} brand-name items and the cheaper swap for each: the same amount for ${pctText(p.savingsPct)} less, at ${MARKET_ADJECTIVE[p.market]} prices.`
+      : `${n} brand-name items and the cheaper swap for each.`,
   ]);
 }
 

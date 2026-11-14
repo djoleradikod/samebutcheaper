@@ -1,11 +1,11 @@
-import Fuse, { type IFuseOptions } from "fuse.js";
-import { PAIR_SEARCH } from "./search-options";
+import { ingredientNames, searchPairs, type PairSearchFields } from "./search-index";
 import type { Pair, PairSummary } from "./types";
 
 /**
  * Whether a swap answers a "tell me when you add it" request. Conservative on purpose, since a wrong match sends
  * someone an email about a product they didn't ask for:
- *  1. the site's own search (the same Fuse settings as the search box) must find the swap for the words; and
+ *  1. the site's own search (src/lib/search-rank.ts, as the search box ranks) must find the swap for the words as
+ *     typed: a "did you mean" correction never counts; and
  *  2. every word of the request must be a whole word of the brand-name product (brand and product name) or of the
  *     cheaper product (brand and product name). Ingredients, aisles and keywords never count on their own.
  * So "advil" matches an Advil swap, "advil liqui-gels" only one whose product name says Liqui-Gels, and
@@ -35,32 +35,32 @@ export function namesMatch(query: string, p: Pick<PairSummary, "brandName" | "br
   return coveredBy(query, `${p.brandName} ${p.brandProduct}`) || coveredBy(query, `${p.altName} ${p.altProduct}`);
 }
 
-/** The fields the site search reads, as src/lib/catalog.ts toSummary fills them (that file is server-only). */
-export type SearchFields = Pick<PairSummary, "slug" | "title" | "subcategory" | "brandName" | "brandProduct" | "altName" | "altProduct" | "keywords">;
+/** The fields the site search reads (src/lib/search-index.ts), as the search index route fills them. */
+export type SearchFields = PairSearchFields & Pick<PairSummary, "brandName" | "brandProduct" | "altName" | "altProduct">;
 export function searchFields(p: Pair): SearchFields {
   return {
     slug: p.slug,
     title: p.title,
+    category: p.category,
     subcategory: p.subcategory,
     brandName: p.brand.brand,
     brandProduct: p.brand.product,
     altName: p.alternative.brand,
     altProduct: p.alternative.product,
-    keywords: [p.brand.key_ingredients.map((i) => i.name).join(" "), p.subcategory].join(" "),
+    ing: ingredientNames(p),
   };
 }
 
 /** A matcher over a set of swaps, built once and asked many times. */
 export function wishMatcher<T extends SearchFields>(pairs: readonly T[]) {
-  const fuse = new Fuse(pairs, PAIR_SEARCH as unknown as IFuseOptions<T>);
+  // Aisle names only ever widen a search, and a wish is answered by names alone (step 2), so none are passed.
+  const search = searchPairs(pairs, {});
   const memo = new Map<string, T[]>();
   return (query: string): T[] => {
     let found = memo.get(query);
     if (!found) {
-      found = fuse
-        .search(query)
-        .map((r) => r.item)
-        .filter((p) => namesMatch(query, p));
+      const result = search.search(query);
+      found = (result.didYouMean ? [] : result.hits).map((h) => h.item).filter((p) => namesMatch(query, p));
       memo.set(query, found);
     }
     return found;
