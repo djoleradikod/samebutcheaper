@@ -17,6 +17,7 @@ export async function Readiness() {
     ...status,
     migrationsExpected: MIGRATIONS_EXPECTED,
     affiliateEnv: affiliateEnv(),
+    contactEmail: SITE.contactEmail,
   });
   const { ready, blockers, recommended } = summarize(checks);
   const upkeep = db ? await lastMaintenance(db).catch(() => null) : null;

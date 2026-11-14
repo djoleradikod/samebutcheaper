@@ -25,8 +25,10 @@ x-web: &web
   depends_on:
     db:
       condition: service_healthy
-  # A small site: a ceiling so a runaway process can't starve the other site on this server.
+  # Ceilings, so a runaway process can't starve the other site on this server. Under load the web process stayed
+  # under 250 MB (scripts/ci/rehearse-deploy.sh, docs/deploy.md "Sharing the server safely"); rendering uses one core.
   mem_limit: ${SBC_WEB_MEMORY:-768m}
+  cpus: ${SBC_WEB_CPUS:-1}
 
 services:
   db:
@@ -40,6 +42,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-samebutcheaper}
     volumes:
       - pgdata:/var/lib/postgresql/data
+    mem_limit: ${SBC_DB_MEMORY:-512m}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sbc} -d ${POSTGRES_DB:-samebutcheaper}"]
       interval: 5s
@@ -81,6 +84,7 @@ services:
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER:-sbc}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-samebutcheaper}
       BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+    mem_limit: 256m
     volumes:
       - ./backup.sh:/backup.sh:ro
       - ./backups:/backups

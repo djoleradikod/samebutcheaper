@@ -7,7 +7,9 @@
 # ---------- deps ----------
 FROM node:22-alpine AS deps
 WORKDIR /app
-RUN apk add --no-cache libc6-compat
+# No `apk add libc6-compat`: npm picks the musl builds of every native package (Next's SWC, lightningcss, Tailwind's
+# oxide), and the build was rehearsed without it (scripts/ci/rehearse-deploy.sh). It made each build depend on the
+# Alpine package mirror for nothing.
 COPY package.json package-lock.json ./
 RUN npm ci
 
@@ -16,14 +18,22 @@ FROM node:22-alpine AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# NEXT_PUBLIC_* values are fixed into the pages and scripts when they are built: setting them in the server's .env later
+# changes nothing. The deploy workflow passes the repository variables SITE_URL and CONTACT_EMAIL.
 ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
+ARG NEXT_PUBLIC_CONTACT_EMAIL=hello@samebutcheaper.com
+# The commit, as the deployment ID: during a blue/green switch, a browser holding a page from the old build reloads
+# instead of asking the new server for scripts and server actions it doesn't have (docs/deploy.md, "Sharing the server safely").
+ARG SOURCE_COMMIT=
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
+    NEXT_PUBLIC_CONTACT_EMAIL=$NEXT_PUBLIC_CONTACT_EMAIL \
     NEXT_TELEMETRY_DISABLED=1
 # Affiliate settings are fixed at build time (next.config.ts). They arrive as the build secret "affiliate"
 # (docker compose passes .env; the deploy workflow passes the AFFILIATE_ENV secret), so they never land in a layer.
 # `npm run build` runs `prebuild` first, which validates data/pairs and compiles the catalogue, and with it the
 # freshness tiers: an image is as fresh as the day it was built, which is why the workflow rebuilds weekly.
-RUN --mount=type=secret,id=affiliate,required=false npm run build
+RUN --mount=type=secret,id=affiliate,required=false \
+    if [ -n "$SOURCE_COMMIT" ]; then export NEXT_DEPLOYMENT_ID="$SOURCE_COMMIT"; fi; npm run build
 
 # ---------- migration tool: drizzle-orm and postgres only ----------
 FROM node:22-alpine AS migrate-deps

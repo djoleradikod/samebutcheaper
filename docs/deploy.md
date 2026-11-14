@@ -1,41 +1,113 @@
-# Deploying SameButCheaper
+# Going live: the runbook
 
-Pushing to `main` builds the site into a Docker image, puts it on GitHub's registry (GHCR) and, once you have
-done the steps below, starts it on your server beside the old version, checks it, and switches over. Nothing
-happens until you set it up: today every run of the Deploy workflow says "not configured" and stops.
+This is the whole procedure for putting SameButCheaper on its own domain, on a server that already runs another
+production site (Leasebook), without disturbing that site. Follow it top to bottom on the day. Every box is one copy
+and paste; everything can be done from a phone (an SSH app such as Termius or Blink for the server, the GitHub app or
+github.com for the settings).
 
-It is built to share a server with another site (Leasebook) without touching it:
+If you would rather not use the server at all, read `docs/deploy-options.md` first: it says what Vercel or
+Cloudflare would need, and why the server is the recommended path.
 
-- everything lives in one directory of its own (`/srv/samebutcheaper` below) and one Docker Compose project of its
-  own (`samebutcheaper`); the deploy refuses to run anywhere without the marker file from step 2;
-- it never restarts Docker, the reverse proxy or any other container, never runs `docker compose down` or
-  `docker system prune`, and only removes old images of its own;
-- the site listens on two ports on 127.0.0.1 only. Your existing reverse proxy forwards the domain to them (step 8).
-  You add that once, by hand; the workflow never edits or reloads the proxy.
+**Never run `deploy/hetzner.sh` on the shared server.** It is for a server of its own: it installs Docker, builds on
+the server and starts Caddy on ports 80 and 443, which the other site's proxy already owns. It refuses to start
+where other containers run or something else holds 80 or 443.
 
-**Do not run `deploy/hetzner.sh` on the shared server.** That script is for a server of its own: it installs Docker,
-builds there, and starts Caddy on ports 80 and 443, which the other site's proxy already uses.
+Contents: [How it works](#how-it-works) · [Before the day](#before-the-day) · [Settings](#every-setting-in-one-place) ·
+[Steps 1 to 9](#on-the-day) · [Verify](#verify) · [Sharing the server](#sharing-the-server-safely) ·
+[First 48 hours](#the-first-48-hours) · [Rollback](#rolling-back) · [Backups](#backups-and-restoring-one) ·
+[Rotate a secret](#rotating-a-secret) · [Every day after](#every-day-after-that) · [Rehearsal](#the-rehearsal) ·
+[When something is wrong](#when-something-is-wrong)
 
-Everything below can be done from a phone: an SSH app (Termius, Blink, JuiceSSH) for the server, and the GitHub app
-or github.com for the settings. Each box is one copy and paste.
+## How it works
 
-## What you need
+Pushing to `main` (and every Monday, and by hand) runs **Actions > Deploy**: it builds the site into a Docker image,
+starts it in a throwaway copy of the whole server setup on GitHub's machine (the launch rehearsal), pushes it to
+GitHub's registry (GHCR), then logs in to your server over SSH and runs `deploy-remote.sh` there, which:
 
-- the server's address, and an account on it that can use `sudo`;
-- the domain (samebutcheaper.com) and access to its DNS;
-- about 30 minutes.
+1. pulls the image and makes sure the site's own database container is up;
+2. backs up the database;
+3. applies database migrations with the new image (they only ever add tables and columns);
+4. starts the new version on the idle port (3101 "blue" or 3102 "green", on 127.0.0.1 only), waits until it says the
+   database answers with every migration applied and the home page renders;
+5. stops the old version, keeping its container for a rollback in seconds.
 
-## One-time steps
+Your existing reverse proxy forwards the domain to both ports and uses whichever answers, so a switch needs no proxy
+change. If the new version never gets healthy it is stopped and the old one keeps serving.
+
+What it never does: restart Docker or the proxy, touch any container outside its own Compose project
+(`samebutcheaper`), run `docker compose down` or `docker system prune`, listen on 80 or 443 or on a public address, or
+run anywhere without the marker file from step 2.
+
+## Before the day
+
+You need:
+
+- [ ] the server's address and an account on it that can use `sudo`;
+- [ ] the domain, and access to its DNS;
+- [ ] admin access to the GitHub repository;
+- [ ] a password manager, for the admin password and the backup of `.env`;
+- [ ] to know which reverse proxy the other site uses (step 8 finds out);
+- [ ] optional, can come later: a Resend account with the domain verified (email), affiliate IDs, the owner's legal
+      details for `/impressum`;
+- [ ] about an hour, at a quiet time for the other site.
+
+On your own computer, with this repository and Node 22: `npm ci && npm run catalog` once, so you can run the checks
+in [Verify](#verify).
+
+## Every setting in one place
+
+**GitHub: Settings > Secrets and variables > Actions.** Values marked *build* are fixed into the image when it is
+built; changing one needs a new deploy.
+
+| Where | Name | Value | Needed |
+|---|---|---|---|
+| Variables | `SITE_URL` | `https://yourdomain.com` (no trailing slash) *build* | yes: nothing is built without it |
+| Variables | `CONTACT_EMAIL` | the contact address shown on every page, on your domain *build* | yes if the domain is not samebutcheaper.com |
+| Variables | `DEPLOY_SSH_PORT` | only if SSH is not on 22 | no |
+| Secrets | `DEPLOY_HOST` | the server's IP address or host name | yes |
+| Secrets | `DEPLOY_USER` | `sbcdeploy` | yes |
+| Secrets | `DEPLOY_PATH` | `/srv/samebutcheaper` | yes |
+| Secrets | `DEPLOY_SSH_KEY` | the private key from step 4 | yes |
+| Secrets | `DEPLOY_KNOWN_HOSTS` | the line from step 5 | strongly advised |
+| Secrets | `AFFILIATE_ENV` | the `AMAZON_*`, `AWIN_*`, `AFF_*`... lines, one per line, as approvals arrive *build* | later |
+
+All four `DEPLOY_` settings or none: with some missing the workflow stops and names them.
+
+**The server: `/srv/samebutcheaper/.env`** (step 3 writes the first version). The full list with explanations is
+`.env.example`.
+
+| Name | Value | Needed |
+|---|---|---|
+| `POSTGRES_PASSWORD` | random, made in step 3. Only read when the database is first created | yes (the deploy refuses the example value) |
+| `ADMIN_PASSWORD` | random, made in step 3; `/admin` user is `admin` | yes (launch checklist blocker) |
+| `CLICK_HASH_SALT` | random, made in step 3 | yes (blocker) |
+| `POSTBACK_SECRET` | random, made in step 3; goes into each network's postback URL | when networks report sales |
+| `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_CONTACT_EMAIL` | the same values as `SITE_URL` and `CONTACT_EMAIL` above. The site ignores them here (they are *build*); `npm run preflight` reads them | advised |
+| `RESEND_API_KEY`, `MAIL_FROM` | from Resend; `MAIL_FROM` on the verified domain | for any email |
+| `LEGAL_NAME`, `LEGAL_ADDRESS`, `LEGAL_EMAIL` | the owner's real details | before any email to Germany (blocker once email is on) |
+| `MAIL_POSTAL_ADDRESS`, `NEWSLETTER_WEEKLY=on` | for the weekly letter | later |
+| `ANTHROPIC_API_KEY`, `OPENFDA_API_KEY`, `ADMIN_EMAIL` | optional features | no |
+| `SBC_BLUE_PORT`, `SBC_GREEN_PORT` | default 3101 and 3102 | only if those are taken |
+| `SBC_BIND` | default 127.0.0.1; the Docker bridge address if the proxy runs in a container | see step 8 |
+| `SBC_WEB_MEMORY`, `SBC_WEB_CPUS`, `SBC_DB_MEMORY` | defaults 768m, 1, 512m | no |
+| `CLIENT_IP_HEADER` | `cf-connecting-ip` only once Cloudflare sits in front | no |
+
+Nothing secret is ever sent to the browser: the built scripts were searched for every variable name and for the
+fake values used in the rehearsal, and none appear. Logs never print them either.
+
+## On the day
 
 ### 1. DNS
 
-At your DNS provider, add:
+At your DNS provider, add (the other site's records stay as they are):
 
 | Type | Name | Value |
 |---|---|---|
-| A | `@` (samebutcheaper.com) | the server's IPv4 address |
+| A | `@` | the server's IPv4 address |
 | A | `www` | the same address |
 | AAAA | `@` and `www` | the server's IPv6 address, only if it has one and the other site uses it too |
+
+Do this first: certificates can only be issued once the names point at the server.
 
 ### 2. A user and a directory for the site
 
@@ -49,23 +121,26 @@ sudo -u sbcdeploy touch /srv/samebutcheaper/.samebutcheaper-deploy
 ```
 
 The empty `.samebutcheaper-deploy` file is what the deploy looks for before it does anything. Being in the `docker`
-group lets this user run containers, which on Linux is as powerful as root: keep its key only in GitHub.
+group is as powerful as root: keep this user's key only in GitHub.
 
-Check the two ports the site will use are free (no output means free):
+Check the two ports are free and there is room on the disk:
 
 ```sh
-sudo ss -ltn | grep -E ':(3101|3102) '
+sudo ss -ltn | grep -E ':(3101|3102) ' ; df -h /srv /var/lib/docker ; free -m
 ```
 
-If something is listed, pick two other ports and use them below and in step 8.
+No line from `ss` means the ports are free (otherwise pick two others and use them in step 3 and step 8). You want
+at least 10 GB free on both disks and about 1.5 GB of memory the other site isn't using (see
+[Sharing the server](#sharing-the-server-safely)).
 
 ### 3. The site's settings
 
-This writes `/srv/samebutcheaper/.env` with new random passwords:
+This writes `/srv/samebutcheaper/.env` with new random passwords. Replace `yourdomain.com` first.
 
 ```sh
 sudo -u sbcdeploy sh -c 'umask 077; cat > /srv/samebutcheaper/.env' <<EOF
-NEXT_PUBLIC_SITE_URL=https://samebutcheaper.com
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+NEXT_PUBLIC_CONTACT_EMAIL=hello@yourdomain.com
 POSTGRES_PASSWORD=$(openssl rand -hex 24)
 CLICK_HASH_SALT=$(openssl rand -hex 24)
 POSTBACK_SECRET=$(openssl rand -hex 24)
@@ -73,12 +148,12 @@ ADMIN_PASSWORD=$(openssl rand -base64 18 | tr -d '/+=')
 SBC_BLUE_PORT=3101
 SBC_GREEN_PORT=3102
 EOF
-sudo grep ADMIN_PASSWORD /srv/samebutcheaper/.env
+sudo cat /srv/samebutcheaper/.env
 ```
 
-The last line shows the `/admin` password (user `admin`); keep it in your password manager. Email, photo reading
-and the other settings go in the same file later (`sudo -u sbcdeploy nano /srv/samebutcheaper/.env`; the list with
-explanations is in `.env.example`). After changing it, run the Deploy workflow again (step 7) to restart with it.
+Copy the whole printed file into your password manager: it is the only copy of the database password, and
+`ADMIN_PASSWORD` is how you get into `/admin` (user `admin`). Other settings go in the same file later
+(`sudo -u sbcdeploy nano /srv/samebutcheaper/.env`), then run the Deploy workflow again to restart with them.
 
 ### 4. A key for GitHub to log in with
 
@@ -89,8 +164,8 @@ sudo -u sbcdeploy sh -c 'mkdir -p ~/.ssh && chmod 700 ~/.ssh && ssh-keygen -q -t
 sudo -u sbcdeploy cat /home/sbcdeploy/.ssh/github
 ```
 
-Copy everything the last command prints, from `-----BEGIN` to `-----END OPENSSH PRIVATE KEY-----` inclusive. That is
-the `DEPLOY_SSH_KEY` secret in step 6. Once it is saved in GitHub, delete the server's copy of the private half:
+Copy everything the last command prints, from `-----BEGIN` to `-----END OPENSSH PRIVATE KEY-----` inclusive: that
+is `DEPLOY_SSH_KEY`. Once it is saved in GitHub (step 6), delete the server's copy of the private half:
 
 ```sh
 sudo -u sbcdeploy rm /home/sbcdeploy/.ssh/github
@@ -98,66 +173,40 @@ sudo -u sbcdeploy rm /home/sbcdeploy/.ssh/github
 
 ### 5. The server's fingerprint
 
-So GitHub only ever talks to your server, not something pretending to be it. Replace `203.0.113.10` with exactly
-what you will put in `DEPLOY_HOST` (the IP address, or a host name):
+So GitHub only ever talks to your server. Replace `203.0.113.10` with exactly what you will put in `DEPLOY_HOST`:
 
 ```sh
 echo "203.0.113.10 $(cut -d' ' -f1,2 /etc/ssh/ssh_host_ed25519_key.pub)"
 ```
 
-The printed line is the `DEPLOY_KNOWN_HOSTS` secret. If SSH listens on a port other than 22, write the start as
-`[203.0.113.10]:2222` instead.
+The printed line is `DEPLOY_KNOWN_HOSTS`. If SSH listens on another port than 22, write the start as
+`[203.0.113.10]:2222`.
 
 ### 6. GitHub settings
 
-In the repository: **Settings > Secrets and variables > Actions**.
+Add the variables and secrets from [the table above](#every-setting-in-one-place). Two optional settings:
 
-On the **Variables** tab, add:
-
-| Name | Value |
-|---|---|
-| `SITE_URL` | `https://samebutcheaper.com` |
-| `DEPLOY_SSH_PORT` | only if SSH is not on port 22 |
-
-On the **Secrets** tab, add:
-
-| Name | Value |
-|---|---|
-| `DEPLOY_HOST` | the server's IP address or host name |
-| `DEPLOY_USER` | `sbcdeploy` |
-| `DEPLOY_PATH` | `/srv/samebutcheaper` |
-| `DEPLOY_SSH_KEY` | the private key from step 4 |
-| `DEPLOY_KNOWN_HOSTS` | the line from step 5 |
-| `AFFILIATE_ENV` | optional: the `AFF_...` lines from your `.env`, one per line, once a network approves you |
-
-All four `DEPLOY_` settings or none: with only some of them the workflow stops and says which are missing. With
-`SITE_URL` and no `DEPLOY_` settings it builds and publishes the image only.
-
-Affiliate IDs are fixed into the image when it is built (see `next.config.ts`), which is why they go in GitHub and
-not in the server's `.env`.
-
-Two more settings, both optional:
-
-- **Settings > Environments > production > Required reviewers**: tick yourself, and every deploy waits for your tap
-  in the GitHub app before it touches the server.
-- **Settings > Actions > General > Workflow permissions**: tick "Allow GitHub Actions to create and approve pull
-  requests". The weekly price watch needs it to open its pull request; without it the run fails with a link to the
-  branch so you can open the pull request yourself.
+- **Settings > Environments > production > Required reviewers**: tick yourself, and every deploy waits for your tap.
+- **Settings > Actions > General > Workflow permissions**: "Allow GitHub Actions to create and approve pull
+  requests", for the weekly price watch.
 
 ### 7. First deploy
 
-**Actions > Deploy > Run workflow**, leave "deploy", **Run workflow**. It takes about ten minutes the first time.
-The run's summary ends with what is live:
+**Actions > Deploy > Run workflow**, leave "deploy", **Run workflow**. About fifteen minutes the first time (build,
+rehearsal, push, deploy). The run's summary ends with:
 
 ```
 live: web-blue on 127.0.0.1:3101 (ghcr.io/...:sha-...)
 ```
 
-The site now answers on the server itself, not yet on the domain. Check from the server:
+The site now answers on the server itself, not yet on the domain:
 
 ```sh
 curl -s http://127.0.0.1:3101/api/health
 ```
+
+expect `"database":"ok"` and `"migrations":"8/8"` (the two numbers equal). `"ready":false` is normal until every
+blocker on the launch checklist is fixed; `"blockers"` names them.
 
 ### 8. Reverse proxy
 
@@ -167,14 +216,16 @@ Find out which proxy the other site uses:
 docker ps --format '{{.Names}} {{.Image}} {{.Ports}}' | grep -Ei 'caddy|nginx|traefik'; systemctl is-active caddy nginx 2>/dev/null
 ```
 
-A line with `0.0.0.0:443` means the proxy runs in a container; `active` means it runs on the server itself.
+A line with `0.0.0.0:443` means the proxy runs in a container; `active` means it runs on the server itself. Before
+changing anything, copy its configuration: `sudo cp -a /etc/caddy/Caddyfile /etc/caddy/Caddyfile.before-sbc` (or
+`/etc/nginx` for nginx).
 
 #### Caddy
 
-Add this block to the existing Caddyfile, below the other site's block. Do not change the other block.
+Add this block to the existing Caddyfile, below the other site's block, with your domain. Do not change the other block.
 
 ```caddy
-samebutcheaper.com {
+yourdomain.com {
 	encode zstd gzip
 	request_body {
 		max_size 6MB
@@ -195,25 +246,23 @@ samebutcheaper.com {
 	}
 }
 
-www.samebutcheaper.com {
-	redir https://samebutcheaper.com{uri} permanent
+www.yourdomain.com {
+	redir https://yourdomain.com{uri} permanent
 }
 ```
 
-Check, then reload. A reload keeps the other site's connections; a restart would not.
+Check, then reload. A reload keeps the other site's connections; a restart would drop them.
 
 ```sh
 caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
 ```
 
-If Caddy runs in a container, use `docker exec <caddy container> caddy validate --config /etc/caddy/Caddyfile` and
-`docker exec <caddy container> caddy reload --config /etc/caddy/Caddyfile`, and see "Proxy in a container" below.
-
-Caddy fetches the HTTPS certificate on the first visit.
+Caddy fetches the certificate on the first visit and renews it itself. It sets `X-Forwarded-For` to the real visitor
+address and ignores one sent by the visitor, which the site's rate limits rely on.
 
 #### nginx
 
-Create `/etc/nginx/sites-available/samebutcheaper` with:
+Create `/etc/nginx/sites-available/samebutcheaper` with your domain:
 
 ```nginx
 upstream samebutcheaper {
@@ -226,7 +275,7 @@ upstream samebutcheaper {
 server {
     listen 80;
     listen [::]:80;
-    server_name samebutcheaper.com www.samebutcheaper.com;
+    server_name yourdomain.com www.yourdomain.com;
     client_max_body_size 6m;
 
     location /_next/static/ {
@@ -242,7 +291,8 @@ server {
         proxy_http_version 1.1;
         proxy_set_header Connection "";
         proxy_set_header Host $host;
-        # Replace, never append: the site counts visitors and rate limits by the first address in this header.
+        # Replace, never append ($proxy_add_x_forwarded_for): the site rate limits sign-ups and admin password
+        # attempts by the first address in this header, which a visitor could otherwise choose.
         proxy_set_header X-Forwarded-For $remote_addr;
         proxy_set_header X-Forwarded-Proto $scheme;
         # Pages stream in parts; pass each part on as it comes.
@@ -253,12 +303,12 @@ server {
 }
 ```
 
-Then switch it on, check, reload, and get the certificate (certbot adds the HTTPS part and the redirect):
+Switch it on, check, reload, and get the certificate (certbot adds the HTTPS part and the redirect from http):
 
 ```sh
 sudo ln -s /etc/nginx/sites-available/samebutcheaper /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
-sudo certbot --nginx -d samebutcheaper.com -d www.samebutcheaper.com
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 ```
 
 `nginx -t` must say "syntax is ok" before the reload; if it doesn't, remove the link again
@@ -274,33 +324,106 @@ Inside a container, `127.0.0.1` is the container itself. Make the site listen on
    `docker exec <proxy container> wget -qO- http://172.17.0.1:3101/api/health`.
 
 If that test times out, the server's firewall blocks containers from reaching the host; ask before changing it,
-since the other site depends on it. Never set `SBC_BIND=0.0.0.0`: Docker publishes ports around the firewall, so the
-site would be reachable without HTTPS. The deploy refuses it.
+since the other site depends on it. Never `SBC_BIND=0.0.0.0`: Docker publishes ports around the firewall. The deploy
+refuses it.
 
-### 9. Check from outside
+### 9. Verify
 
-Open `https://samebutcheaper.com/api/health` on your phone. `"database":"ok"` and `"migrations":"11/11"` (or
-whatever the two numbers are, as long as they match) mean the site is up. `"ready":false` lists what the launch
-checklist still wants; `/admin` explains each. The **Site check** workflow looks at the same address every morning
-and emails you (GitHub's failed-run email) if it is down.
+Go through [Verify](#verify) below. When everything passes, the site is live.
 
-## Every day after that
+## Verify
 
-| When | What | Where |
+Run these after the first deploy, and after any change to the proxy, the domain or `.env`.
+
+**On the server** (the server's own state; reads only):
+
+```sh
+cd /srv/samebutcheaper && DEPLOY_PATH=$PWD bash deploy-remote.sh check
+```
+
+Every line should say `PASS`: `.env` private, database password set, a backup from the last 26 hours, at least 5 GB
+free under the site and under Docker, ports 3101/3102 only on 127.0.0.1, the live version healthy, and a memory
+ceiling on it. The Deploy workflow runs the same check after each deploy and warns in its summary if a line fails.
+
+**From your computer** (what visitors, crawlers and attackers see). Copy the server's `.env` to your computer as
+`.env.server` (it holds secrets: delete it afterwards), then:
+
+```sh
+npm run preflight -- .env.server --url https://yourdomain.com
+```
+
+It prints `PASS`, `WARN` (should fix), `FAIL` (must fix) or `SKIP` for every item of the launch checklist, then
+checks the live site: health and migrations, the redirect from http to https, HSTS, the security headers
+(Content-Security-Policy, frame, nosniff, referrer and permissions policies), the canonical link, robots.txt and the
+sitemap naming your domain, cookie flags, `/admin` asking for a password, `/go` reaching a store and refusing to
+redirect anywhere else, and the service worker never being cached. It exits with 1 while anything must be fixed.
+
+**By hand**, on your phone over mobile data:
+
+| Open | Expect |
+|---|---|
+| `https://yourdomain.com/api/health` | `"database":"ok"`, `"migrations":"8/8"` (equal numbers), `"ready":true`, `"blockers":[]` |
+| `http://yourdomain.com` | ends up on `https://yourdomain.com`, padlock shown |
+| `https://www.yourdomain.com` | ends up on `https://yourdomain.com` |
+| `https://yourdomain.com` | the home page; the footer's contact address is yours |
+| `https://yourdomain.com/de` | the German home page |
+| any swap page, then its store button | the store's page opens (with your tag once affiliate IDs are in) |
+| `https://yourdomain.com/admin` | asks for a password; with `admin` and `ADMIN_PASSWORD`, the dashboard, whose launch checklist says "Safe to open to the public" |
+| `https://yourdomain.com/robots.txt` | ends with `Sitemap: https://yourdomain.com/sitemap.xml` |
+| `https://yourdomain.com/impressum` | the owner's details, once `LEGAL_*` are set |
+| sign up on the home page with your own address | the confirmation email arrives (once Resend is set), not in spam |
+| **the other site** | loads as before; `docker ps` shows its containers with the same "Up" time as before you started |
+
+## Sharing the server safely
+
+What SameButCheaper takes on the server, measured in the rehearsal (`scripts/ci/rehearse-deploy.sh`) and a load test
+of the production image under its own ceiling:
+
+| Resource | Use | Ceiling (in `docker-compose.deploy.yml`) |
 |---|---|---|
-| Each push to `main` | build, deploy, health check, switch | Actions > Deploy |
-| Mondays 05:17 UTC | price watch opens a pull request with new prices | Actions > Price watch |
-| Mondays 06:30 UTC | rebuild and deploy, even with no changes | Actions > Deploy |
-| Daily 07:11 UTC | check the live site from outside | Actions > Site check |
-| Daily, inside the site | upkeep: retention, confirmation and price-watch emails, the weekly letter | `src/lib/maintenance.ts` |
-| Nightly 03:15 UTC, and before each deploy | database backup | `/srv/samebutcheaper/backups` |
+| Ports | 3101 and 3102 on 127.0.0.1 only; nothing on 80/443; Postgres publishes no port at all | `SBC_BIND`, `SBC_*_PORT` |
+| Memory, web | about 180 MB idle, under 250 MB at 20 concurrent visitors; two copies for a minute during a deploy | 768 MB each (`SBC_WEB_MEMORY`) |
+| Memory, database | 50 to 150 MB | 512 MB (`SBC_DB_MEMORY`) |
+| Memory, backup | a few MB, more during the nightly dump | 256 MB |
+| CPU | one core while rendering; pages took about 30 ms each, so one core serves 25 to 50 pages a second | 1 core (`SBC_WEB_CPUS`) |
+| Disk, images | about 1.3 GB per version, two kept (live and previous), older ones removed by each deploy | |
+| Disk, logs | at most 50 MB per container (10 MB x 5), four containers | in the compose file |
+| Disk, backups | one file a day, 14 kept (`BACKUP_KEEP_DAYS`); a few MB each at first | |
+| Disk, database | grows with clicks and sign-ups; tens of MB in the first months | |
 
-Why weekly: how fresh each price looks ("checked this week", "checked a month ago") is worked out when the site is
-built (`docs/prices.md`). A site not rebuilt for weeks would keep calling old prices fresh.
+So plan for about 1.5 GB of memory and 5 GB of disk. The ceilings mean a fault in this site ends in its own container
+being restarted, not in the other site running out of memory or CPU.
 
-The upkeep needs no outside trigger: it runs inside the web server every six hours and does its work once a day
-(`src/lib/server/startup.ts`). With two colours briefly running together during a deploy, a database lock stops it
-running twice.
+If the server ever runs short:
+
+- `docker stats --no-stream` shows each container's use; the other site's should not change when this one deploys;
+- the database can do with less: `SBC_DB_MEMORY=384m` in `.env`, then deploy (the database container restarts once,
+  for a few seconds; the site keeps serving pages while it does, as rehearsed);
+- disk: `docker system df` shows what Docker holds; remove only `ghcr.io/<you>/samebutcheaper` images that are not
+  in use (`docker image ls ghcr.io/*/samebutcheaper`), never `docker system prune` on a shared server.
+
+**Version skew.** During a switch, someone with a page open from the old version may click on into the new one. The
+image is built with the commit as Next's deployment ID, so their browser reloads the page instead of asking the new
+server for scripts it doesn't have. The service worker also keeps static files a visitor already loaded.
+
+## The first 48 hours
+
+| When | Look at | Healthy |
+|---|---|---|
+| First hour | `deploy-remote.sh check` and `npm run preflight -- ... --url` | all PASS |
+| First hour | errors in the log: `cd /srv/samebutcheaper && docker compose -p samebutcheaper -f docker-compose.deploy.yml logs --since 1h web-blue web-green \| grep '"level":"error"'` | nothing, or a handful you understand |
+| First hour | the other site | as before; its memory in `docker stats --no-stream` unchanged |
+| A few hours in | `/admin`: clicks, product checks, sign-ups | real visits appear |
+| A few hours in | each affiliate network's dashboard | clicks counted there too |
+| Next morning | Actions > Site check | green |
+| Next morning | `ls -l /srv/samebutcheaper/backups` | a new file from about 03:15 UTC |
+| Next morning | `/admin`, "Daily upkeep" line | ran in the last 24 hours |
+| Next morning | `docker stats --no-stream`, `df -h` | web under 400 MB; disk use not climbing fast |
+| Day 1 and 2 | Resend dashboard | confirmation emails delivered, few bounces |
+| Day 1 and 2 | Google Search Console: add the domain, submit `https://yourdomain.com/sitemap.xml` | sitemap read, no "blocked by robots" for pages you want found |
+| Day 2 | the proxy's access log, 5xx answers | close to none; a burst means look at the web log at that time |
+| Day 2 | certificate | valid; the proxy renews it itself (`sudo certbot renew --dry-run` for nginx) |
+| First Monday | Actions > Deploy (weekly rebuild) and Price watch | both green |
 
 ## Rolling back
 
@@ -310,104 +433,161 @@ From the phone: **Actions > Deploy > Run workflow**, choose **rollback**. Or on 
 cd /srv/samebutcheaper && DEPLOY_PATH=$PWD bash deploy-remote.sh rollback
 ```
 
-It starts the previous version (its container was only stopped, so this takes seconds), checks it, and stops the
-current one. Run it again to go forward again. `status` instead of `rollback` shows what runs:
+It starts the previous version (its container was only stopped, so this takes seconds), checks it, then stops the
+current one. Run it again to go forward again. `status` shows what runs:
 
 ```sh
 cd /srv/samebutcheaper && DEPLOY_PATH=$PWD bash deploy-remote.sh status
 ```
 
-Database changes are not undone by a rollback. They only ever add tables and columns, so the older version runs on
-the newer database. If a change ever needs undoing, restore a backup (below) taken before that deploy.
+Database changes are not undone. They only ever add tables and columns (a test fails the build if a migration
+drops or renames anything), so the older version runs on the newer database. If data itself must go back, restore a
+backup (below).
 
-A deploy that fails its health check never goes live: the new version is stopped, the old one keeps serving, and the
-run fails with the new version's last log lines.
-
-## Backups
+## Backups, and restoring one
 
 The `backup` container writes `backups/samebutcheaper-YYYY-MM-DD.sql.gz` every night at about 03:15 UTC, and once
-more before every deploy; it keeps 14 days (`BACKUP_KEEP_DAYS` in `.env`).
+more before every deploy, and keeps 14 days (`BACKUP_KEEP_DAYS`). They sit on the same disk as the database, so copy
+them elsewhere too:
 
-They are on the same disk as the database, so also copy them somewhere else. Two simple ways:
-
-- **Hetzner Storage Box** (or any SSH storage): as `sbcdeploy`, add a nightly copy with `crontab -e`:
+- **Hetzner Storage Box** (or any SSH storage): as `sbcdeploy`, `crontab -e`, add
   `30 4 * * * rsync -a /srv/samebutcheaper/backups/ u12345@u12345.your-storagebox.de:samebutcheaper/`
-- **To your own computer** now and then: `scp sbcdeploy@203.0.113.10:/srv/samebutcheaper/backups/*.gz .`
+- **to your own computer** now and then: `scp sbcdeploy@203.0.113.10:/srv/samebutcheaper/backups/*.gz .`
 
-Restore (replaces what is in the database with the backup; take a fresh one first):
-
-```sh
-cd /srv/samebutcheaper
-docker compose -p samebutcheaper -f docker-compose.deploy.yml exec -T backup /bin/sh /backup.sh once
-gunzip -c backups/samebutcheaper-2026-11-10.sql.gz | docker compose -p samebutcheaper -f docker-compose.deploy.yml exec -T db psql -U sbc -d samebutcheaper
-```
-
-Try a restore once into a scratch database before you need it for real.
-
-## Other hosts: Vercel or Cloudflare
-
-Not built; this is what would change if you preferred one.
-
-**Vercel** (closest fit; Next.js runs as-is):
-
-- the database moves to a hosted Postgres (Neon or Supabase) and `DATABASE_URL` is set in Vercel; migrations run
-  from a GitHub Action (`npm run db:migrate`) before each production deploy;
-- daily upkeep has no long-running server to live in: add a route such as `/api/cron/upkeep` that checks a
-  `CRON_SECRET` header and calls `runMaintenance`, a Vercel Cron entry for it in `vercel.json`, and a readiness
-  check for `CRON_SECRET`;
-- rate limits are kept in memory (`src/lib/rate-limit.ts`), so each serverless instance would count separately:
-  they need a shared store (Postgres or Upstash Redis) first;
-- country detection already reads `x-vercel-ip-country` (`src/proxy.ts`), and `AFFILIATE_ENV` becomes ordinary
-  Vercel environment variables (they are read at build time);
-- the weekly rebuild becomes a Deploy Hook URL called from a scheduled GitHub Action;
-- the image build, SSH deploy, Caddy/nginx and backup sections here would not apply.
-
-**Cloudflare** (Workers via the OpenNext adapter): everything in the Vercel list, plus the Node-only parts would need
-checking one by one: `postgres` over TCP (Hyperdrive), `sharp` and the share-image fonts read from disk
-(`outputFileTracingIncludes` in `next.config.ts`), and the photo upload size. More work than Vercel, and not tried.
-
-## Quality checks in CI
-
-Each push and pull request runs, after the existing tests, `scripts/ci/quality.mjs` against the built site:
-
-- **accessibility**: axe on home, a swap, a kit, a basket, search, `/check` and My list, at 390 px and 1280 px;
-  a serious or critical finding fails the run;
-- **phone width**: none of those pages may scroll sideways at 390 px, in the US and in Germany;
-- **performance budget**: at phone width with the CPU slowed four times and nothing cached, the script sent for the
-  swap page, and largest contentful paint and layout shift for every page, as the browser's own
-  PerformanceObserver reports them (median of five loads; a page over its timing budget is measured once more and
-  fails only if both medians are over). No Lighthouse.
-
-The pages and budgets are in `scripts/ci/quality.config.json`. Budgets are the numbers measured when they were set,
-plus a margin. To see today's numbers and suggested budgets: `npm run build`, then
+Short form for the commands below (paste once per SSH session):
 
 ```sh
-npx playwright install chromium   # once; playwright and @axe-core/playwright are pinned devDependencies
-node scripts/ci/quality.mjs --measure
+cd /srv/samebutcheaper && dc() { docker compose -p samebutcheaper --project-directory "$PWD" -f docker-compose.deploy.yml "$@"; }
 ```
 
-The numbers are from GitHub's runner or a laptop over the loopback, not a real phone on a mobile network: read
-them as "did this change make it worse", not as what visitors see.
+**Try a restore without touching the live data** (do it once in the first week, so you know it works):
 
-## The app on a home screen
+```sh
+dc exec -T db psql -q -U sbc -d samebutcheaper -c "create database restore_test"
+gunzip -c "$(ls -t backups/*.sql.gz | head -1)" | dc exec -T db psql -q -U sbc -d restore_test
+dc exec -T db psql -U sbc -d restore_test -c "select count(*) as clicks from clicks"
+dc exec -T db psql -q -U sbc -d samebutcheaper -c "drop database restore_test"
+```
 
-`/manifest.webmanifest` (`src/app/manifest.ts`) and the icons in `public/icons` (made from the favicon by
-`node scripts/ci/make-icons.mjs`) let phones add the site to the home screen. `public/sw.js` keeps the offline page,
-My list and the static files, so My list opens without a connection; it never keeps other pages, prices or anything
-that depends on the country, and it never handles `/go/`, `/out`, `/admin` or `/api/`. Its routing is tested in
-`scripts/tests/service-worker.test.ts`. To change what it does, edit it and raise `VERSION` at the top; browsers
-pick up the new one on their next visit. The file's header has a kill switch that removes it from every browser.
+The count should match `/admin`'s total. (The rehearsal goes further: it starts the site on the restored copy and
+checks it serves with every migration in place.)
 
-## When something goes wrong
+**Restore for real** (replaces the live data with the backup; anything recorded since the backup is lost):
+
+```sh
+dc exec -T backup /bin/sh /backup.sh once        # a fresh backup of what is there now, just in case
+ls -lt backups | head                             # choose the file to restore
+gunzip -c backups/samebutcheaper-2026-11-10.sql.gz | dc exec -T db psql -q -U sbc -d samebutcheaper
+curl -s http://127.0.0.1:3101/api/health; curl -s http://127.0.0.1:3102/api/health
+```
+
+The site keeps serving pages during the restore; a click or sign-up in that minute may not be saved. One of the two
+health answers should say `"database":"ok"` with equal migration numbers (the other port is the stopped colour).
+
+## Rotating a secret
+
+Change the value, then make the site pick it up. For values in the server's `.env`: edit the file
+(`sudo -u sbcdeploy nano /srv/samebutcheaper/.env`), then **Actions > Deploy > Run workflow** ("deploy"): the new
+colour starts with the new `.env`, the old one stops. Settings marked *build* need the same, after changing them in
+GitHub.
+
+| Secret | How | Side effects |
+|---|---|---|
+| `ADMIN_PASSWORD` | `openssl rand -base64 18 \| tr -d '/+='`, into `.env`, deploy | log in again |
+| `CLICK_HASH_SALT` | `openssl rand -hex 24`, into `.env`, deploy | unique-visitor counts start afresh; nothing else |
+| `POSTBACK_SECRET` | `openssl rand -hex 24`, into `.env`, deploy, then update the postback URL in every network the same hour | sales reported with the old key in between are refused (the network retries) |
+| `RESEND_API_KEY` | new key in Resend, into `.env`, deploy, then delete the old key in Resend | none |
+| `ANTHROPIC_API_KEY`, `OPENFDA_API_KEY` | new key, into `.env`, deploy, revoke the old one | none |
+| `POSTGRES_PASSWORD` | see below | a few seconds of database restart |
+| `DEPLOY_SSH_KEY` | repeat step 4 (it appends a new key), save it in GitHub, then remove the old line from `/home/sbcdeploy/.ssh/authorized_keys` | none |
+| Affiliate IDs (`AFFILIATE_ENV`) | edit the secret in GitHub, deploy | links use the new IDs from the new version on |
+
+`POSTGRES_PASSWORD` is only read when the database is first created, so change it in the database first:
+
+```sh
+NEW=$(openssl rand -hex 24)
+dc exec -T db psql -U sbc -d samebutcheaper -c "alter user sbc with password '$NEW'"
+sudo -u sbcdeploy sed -i "s/^POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD=$NEW/" .env
+dc up -d backup
+```
+
+then deploy. Between the `alter user` and the deploy, the running site can't open new database connections (pages
+still serve; clicks wait or are lost), so do the three lines and start the deploy straight away. Save the new `.env`
+in your password manager.
+
+A secret you think has leaked: rotate it first, then look at `/admin` and the logs for what it could have been used for.
+
+## Every day after that
+
+| When | What | Where |
+|---|---|---|
+| Each push to `main` | build, rehearse, push, deploy, check | Actions > Deploy |
+| Mondays 05:17 UTC | price watch opens a pull request with new prices | Actions > Price watch |
+| Mondays 06:30 UTC | rebuild and deploy, even with no changes | Actions > Deploy |
+| Daily 07:11 UTC | check the live site from outside | Actions > Site check |
+| Daily, inside the site | upkeep: retention, confirmation and price-watch emails, the weekly letter | `src/lib/maintenance.ts` |
+| Nightly 03:15 UTC, and before each deploy | database backup | `/srv/samebutcheaper/backups` |
+
+Why weekly: how fresh each price looks ("checked this week", "checked a month ago") is worked out when the site is
+built (`docs/prices.md`). A site not rebuilt for weeks would keep calling old prices fresh.
+
+The upkeep needs no outside trigger: it runs inside the web server a minute after it starts and every six hours, and
+does its work once a day (`src/lib/server/startup.ts`). A database lock stops it running twice while both colours
+are briefly up.
+
+## The rehearsal
+
+`scripts/ci/rehearse-deploy.sh` runs this whole path on one machine, with nothing outside it, and is what made the
+fixes in this release (see the commit history of this file). It runs `deploy-remote.sh` unchanged, as the server
+does, and checks: the refusals (no marker, a shared directory, `SBC_BIND=0.0.0.0`, a malformed image, the example
+database password); a first deploy (backup, every migration, blue live, pages, sitemap, `/admin`, `/go` and a click
+saved); a second deploy (green live, blue stopped, previous image kept); rollback; a deploy that never gets healthy
+(stopped, blue keeps serving, state untouched); `deploy-remote.sh check`; a backup restored into a second database
+with the site running on it; the database going away (every page and `/go` still answer, health says "down", and it
+recovers by itself without a restart); a database that hangs instead of failing (pages still answer at once, health
+in two seconds); and that the upkeep ran.
+
+```sh
+# with Docker, against an image built from the Dockerfile (the Deploy workflow does this before every push)
+bash scripts/ci/rehearse-deploy.sh docker ghcr.io/you/samebutcheaper:sha-abc
+# without Docker (CI does this on every push): the standalone build, started as the image starts it
+npm run build && REHEARSAL_PG=postgres://postgres@127.0.0.1:5432/postgres bash scripts/ci/rehearse-deploy.sh standalone
+```
+
+`REHEARSAL_PORTS="3101 3102 3103 3104"` changes the four ports it uses.
+
+What it cannot rehearse: your DNS, the certificate, the other site's proxy and firewall, GitHub's SSH step into your
+server, pulling from GHCR with the real token, and the server's own disk and memory. Those are what
+[Verify](#verify) checks on the day.
+
+## When something is wrong
 
 | What you see | What to do |
 |---|---|
-| Deploy says "not configured" | Expected until `SITE_URL` is set (step 6). |
+| Deploy says "not configured" | Expected until `SITE_URL` is set. |
 | "Deploy half configured" | Add the missing `DEPLOY_` setting it names, or remove the others. |
 | "Not set up" / marker missing | Step 2 on the server, or `DEPLOY_PATH` doesn't match the directory. |
 | "Host key verification failed" | `DEPLOY_KNOWN_HOSTS` doesn't match `DEPLOY_HOST`; redo step 5 with exactly the same host. |
+| "POSTGRES_PASSWORD ... still the placeholder" | Step 3: the file still has the example value. |
 | "Port ... is already in use" | Pick other ports in `.env` (`SBC_BLUE_PORT`, `SBC_GREEN_PORT`) and in the proxy snippet. |
 | "did not become healthy" | Read the log lines in the run. The old version is still live. Fix and push again. |
+| "Launch rehearsal" failed in the run | The image was not pushed and the server was not touched. The run's log says which check failed. |
 | Health fine on the server, domain doesn't load | DNS (step 1), the proxy block (step 8), or ports 80/443 closed in the Hetzner firewall. |
+| `"database":"down"` | Pages and store links keep working; sign-ups, clicks and `/admin` figures don't. `dc ps db` and `dc logs --tail 50 db`; `dc up -d db` starts it. The site reconnects by itself. |
 | "pre-deploy backup failed" | Disk full? `df -h /srv`. Nothing was changed. |
+| "Could not pull ... not on this server" (a deploy started on the server) | Use the Deploy workflow: it logs in to GHCR for the run. |
+| The other site is slow during a deploy | Two copies run for about a minute; lower `SBC_WEB_CPUS` (for example `0.5`) and deploy at quiet hours. |
 | Price watch: "not permitted to create pull requests" | Step 6, the Workflow permissions box; or open the pull request from the link in the run. |
+
+## Quality checks in CI
+
+Each push and pull request runs, after the tests, `scripts/ci/quality.mjs` against the built site (accessibility with
+axe at 390 and 1280 px, no sideways scroll at 390 px, and the performance budget in `scripts/ci/quality.config.json`),
+then the launch rehearsal. To see today's numbers: `npm run build`, then `node scripts/ci/quality.mjs --measure`.
+
+## The app on a home screen
+
+`/manifest.webmanifest` and the icons in `public/icons` let phones add the site to the home screen. `public/sw.js`
+keeps the offline page, My list and the static files; it never keeps other pages, prices or anything that depends on
+the country, and never handles `/go/`, `/out`, `/admin` or `/api/`. To change it, edit it and raise `VERSION` at the
+top; the file's header has a kill switch that removes it from every browser.

@@ -23,7 +23,7 @@ async function upkeep() {
 async function reportReadiness() {
   try {
     const status = await dbStatus();
-    const checks = readinessChecks(process.env, { siteUrl: SITE.url, ...status, migrationsExpected: MIGRATIONS_EXPECTED, affiliateEnv: affiliateEnv() });
+    const checks = readinessChecks(process.env, { siteUrl: SITE.url, ...status, migrationsExpected: MIGRATIONS_EXPECTED, affiliateEnv: affiliateEnv(), contactEmail: SITE.contactEmail });
     const { ready, blockers, recommended } = summarize(checks);
     log[ready ? "info" : "warn"]("startup.readiness", {
       ready,

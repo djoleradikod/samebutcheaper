@@ -34,7 +34,8 @@ if [ "$1" = compose ]; then
   exit 0
 fi
 case "$1" in
-  image) [ "$2" = inspect ] && echo "sha256:$(printf '%s' "\${@: -1}" | cksum | cut -d' ' -f1)" ;;
+  pull) [ -z "$FAIL_PULL" ] || exit 1 ;;
+  image) [ "$2" = inspect ] && { [ -z "$NO_LOCAL_IMAGE" ] || exit 1; echo "sha256:$(printf '%s' "\${@: -1}" | cksum | cut -d' ' -f1)"; } ;;
   ps) ;;
 esac
 exit 0
@@ -175,6 +176,26 @@ test("health: migrations must all be applied; more than expected (after a rollba
   assert.equal(run(t, ["deploy", IMG1], { HEALTH_BODY: HEALTHY.replace("11/11", "12/11") }).code, 0);
   const u = site({ env: "POSTGRES_PASSWORD=x\nDEPLOY_REQUIRE_READY=1\n" });
   assert.equal(run(u, ["deploy", IMG1], { NOT_READY: "1" }).code, 1);
+});
+
+test("a pull that fails uses the image already on the server, and stops when there is none", () => {
+  const s = site();
+  let r = run(s, ["deploy", IMG1], { FAIL_PULL: "1" });
+  assert.equal(r.code, 0, r.out);
+  assert.match(r.out, /using the copy already on this server/);
+  const t = site();
+  r = run(t, ["deploy", IMG1], { FAIL_PULL: "1", NO_LOCAL_IMAGE: "1" });
+  assert.equal(r.code, 1);
+  assert.match(r.out, /not on this server/);
+  assert.doesNotMatch(r.log, /up -d db/);
+});
+
+test("refuses the .env.example database password", () => {
+  const s = site({ env: "POSTGRES_PASSWORD=change-me-to-a-long-random-string\n" });
+  const r = run(s, ["deploy", IMG1]);
+  assert.equal(r.code, 1);
+  assert.match(r.out, /still the placeholder/);
+  assert.equal(r.log, "");
 });
 
 test("stops before touching the site when migrations fail or a port is taken", () => {

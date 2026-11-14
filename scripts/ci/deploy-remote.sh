@@ -202,12 +202,18 @@ case "$cmd" in
     [[ "$image" =~ ^[a-z0-9./_-]+(:[A-Za-z0-9._-]+)?(@sha256:[a-f0-9]{64})?$ ]] || die "usage: deploy <image reference> (got '$image')"
     [ -f .env ] || die "No $DEPLOY_PATH/.env. Create it from .env.example first (docs/deploy.md, step 3)."
     [ -n "$(envval POSTGRES_PASSWORD)" ] || die "POSTGRES_PASSWORD is empty in $DEPLOY_PATH/.env."
+    ! [[ "$(envval POSTGRES_PASSWORD)" =~ ^[Cc]hange-?[Mm]e ]] || die "POSTGRES_PASSWORD in $DEPLOY_PATH/.env is still the placeholder. Set a long random one (openssl rand -hex 24) before the first deploy."
     exec 9> "$STATE_DIR/lock"
     flock -n 9 || die "Another deploy is running."
     check_project_is_ours
 
     say "pulling $image"
-    docker pull -q "$image"
+    # The workflow logs out of the registry after each deploy, so a deploy started by hand on the server can't pull a
+    # private image again. An image already here (the one running, to restart it with a changed .env) is good enough.
+    if ! docker pull -q "$image"; then
+      docker image inspect "$image" >/dev/null 2>&1 || die "Could not pull $image, and it is not on this server. Run the Deploy workflow instead."
+      say "warning: could not pull $image; using the copy already on this server"
+    fi
 
     say "database and backups"
     dc up -d db backup
@@ -249,7 +255,58 @@ case "$cmd" in
     [ -f "$COMPOSE_FILE_PATH" ] && dc ps || true
     ;;
 
+  check)
+    # The server's own state, PASS or FAIL per line (docs/deploy.md, "Verify"). Reads only; changes nothing.
+    fails=0
+    row() {
+      if [ "$1" = ok ]; then printf '  PASS  %s\n' "$2"; else
+        printf '  FAIL  %s\n' "$2"; [ -z "${3:-}" ] || printf '        -> %s\n' "$3"; fails=$((fails + 1)); fi
+    }
+    if [ -f .env ]; then
+      mode="$(stat -c %a .env 2>/dev/null || echo '?')"
+      if [[ "$mode" =~ ^[0-7]00$ ]]; then row ok ".env readable by its owner only ($mode)"; else row no ".env has mode $mode" "chmod 600 $DEPLOY_PATH/.env"; fi
+      pw="$(envval POSTGRES_PASSWORD)"
+      if [ "${#pw}" -ge 16 ] && ! [[ "$pw" =~ ^[Cc]hange-?[Mm]e ]]; then row ok "POSTGRES_PASSWORD is set"; else row no "POSTGRES_PASSWORD is short or the placeholder" "openssl rand -hex 24 (docs/deploy.md, step 3)"; fi
+    else
+      row no ".env is missing" "docs/deploy.md, step 3"
+    fi
+    newest="$(ls -t backups/samebutcheaper-*.sql.gz 2>/dev/null | head -n1 || true)"
+    if [ -n "$newest" ] && [ $(( $(date +%s) - $(stat -c %Y "$newest") )) -lt $((26 * 3600)) ]; then
+      row ok "newest backup: $newest ($(du -h "$newest" | cut -f1))"
+    else
+      row no "no backup from the last 26 hours${newest:+ (newest: $newest)}" "dc logs backup; the backup service writes one nightly (docs/deploy.md, \"Backups, and restoring one\")"
+    fi
+    for d in "$DEPLOY_PATH" "$(docker info -f '{{.DockerRootDir}}' 2>/dev/null || echo /var/lib/docker)"; do
+      read -r avail pct <<< "$(df -Pk "$d" 2>/dev/null | awk 'NR==2 {print $4, $5}')"
+      pct="${pct%\%}"
+      if [ -n "$avail" ] && [ "$avail" -gt $((5 * 1024 * 1024)) ] && [ "$pct" -lt 85 ]; then row ok "disk under $d: $((avail / 1024 / 1024)) GB free, $pct% used"
+      else row no "disk under $d: ${avail:-?} KB free, ${pct:-?}% used" "both sites stop when the disk fills: docs/deploy.md, \"Sharing the server safely\""; fi
+    done
+    if command -v ss >/dev/null 2>&1; then
+      for port in "$BLUE_PORT" "$GREEN_PORT"; do
+        addrs="$(ss -ltnH 2>/dev/null | awk '{print $4}' | grep -E ":$port\$" | tr '\n' ' ' || true)"
+        public=""
+        for a in $addrs; do [[ "$a" =~ ^(127\.|\[::1\]|10\.|172\.(1[6-9]|2[0-9]|3[01])\.|192\.168\.) ]] || public="$public $a"; done
+        if [ -z "$addrs" ]; then row ok "port $port: not listening"
+        elif [ -n "$public" ]; then row no "port $port listens on$public" "only 127.0.0.1 or a private address: SBC_BIND in .env"
+        else row ok "port $port: $addrs"; fi
+      done
+    fi
+    if [ -n "$ACTIVE" ]; then
+      port="$(port_of "$ACTIVE")"
+      body="$(curl -fsS --max-time 5 "http://$BIND:$port/api/health" 2>/dev/null || true)"
+      if printf '%s' "$body" | grep -q '"database":"ok"' && migrations_done "$body"; then row ok "web-$ACTIVE healthy: $body"
+      else row no "web-$ACTIVE: ${body:-no answer} on $BIND:$port" "dc logs web-$ACTIVE; deploy-remote.sh rollback"; fi
+      id="$(dc ps -q "web-$ACTIVE" 2>/dev/null || true)"
+      mem="$( [ -n "$id" ] && docker inspect -f '{{.HostConfig.Memory}}' "$id" 2>/dev/null || echo 0)"
+      if [ "${mem:-0}" -gt 0 ]; then row ok "web-$ACTIVE memory ceiling: $((mem / 1024 / 1024)) MB"; else row no "web-$ACTIVE has no memory ceiling" "SBC_WEB_MEMORY in .env (docker-compose.deploy.yml)"; fi
+    else
+      row no "nothing deployed yet" "run the Deploy workflow (docs/deploy.md, step 7)"
+    fi
+    [ "$fails" -eq 0 ] && say "all checks pass" || die "$fails check(s) failed"
+    ;;
+
   *)
-    die "unknown command '$cmd' (deploy <image> | rollback | status | login <user>)"
+    die "unknown command '$cmd' (deploy <image> | rollback | status | check | login <user>)"
     ;;
 esac
