@@ -385,7 +385,7 @@ of the production image under its own ceiling:
 | Memory, web | about 180 MB idle, under 250 MB at 20 concurrent visitors; two copies for a minute during a deploy | 768 MB each (`SBC_WEB_MEMORY`) |
 | Memory, database | 50 to 150 MB | 512 MB (`SBC_DB_MEMORY`) |
 | Memory, backup | a few MB, more during the nightly dump | 256 MB |
-| CPU | one core while rendering; pages took about 30 ms each, so one core serves 25 to 50 pages a second | 1 core (`SBC_WEB_CPUS`) |
+| CPU | one core while rendering; an unprefixed page takes 15 to 35 ms, a prefixed swap about 25 ms, a prefixed home (a static file) about 5 ms (see "Load test") | 1 core (`SBC_WEB_CPUS`) |
 | Disk, images | about 1.3 GB per version, two kept (live and previous), older ones removed by each deploy | |
 | Disk, logs | at most 50 MB per container (10 MB x 5), four containers | in the compose file |
 | Disk, backups | one file a day, 14 kept (`BACKUP_KEEP_DAYS`); a few MB each at first | |
@@ -582,8 +582,84 @@ server, pulling from GHCR with the real token, and the server's own disk and mem
 ## Quality checks in CI
 
 Each push and pull request runs, after the tests, `scripts/ci/quality.mjs` against the built site (accessibility with
-axe at 390 and 1280 px, no sideways scroll at 390 px, and the performance budget in `scripts/ci/quality.config.json`),
-then the launch rehearsal. To see today's numbers: `npm run build`, then `node scripts/ci/quality.mjs --measure`.
+axe at 390 and 1280 px, no sideways scroll at 390 px, and the performance budget in `scripts/ci/quality.config.json`,
+which includes each page's HTML weight, raw and gzipped), then the launch rehearsal. To see today's numbers:
+`npm run build`, then `node scripts/ci/quality.mjs --measure`.
+
+## Load test
+
+Optional, and never a CI gate: the numbers depend on the machine and on whatever else runs on it, so compare runs on
+the same machine, back to back. `scripts/ci/loadtest.mjs` (no dependencies) keeps 20 connections busy on one page at a
+time (home, `/de`, a US swap with and without its `/us` prefix, a German swap, a kit, a hub, search, the search
+index, a `/go` redirect and the health check) and reports requests a second, p50/p95/p99 latency, the HTML's size raw,
+gzipped and brotli, and, given the server's process ID on the same Linux machine, its CPU time per request:
+
+```bash
+npm run build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/
+(cd .next/standalone && PORT=3000 node --max-old-space-size=512 server.js &)
+node scripts/ci/loadtest.mjs --url http://127.0.0.1:3000 --pid <the server's pid> --runs 3
+```
+
+`--runs 3` repeats each page and shows the best run and the spread; `--only home,swap-de` picks pages; `--json out.json`
+keeps the raw numbers; `--encoding gzip` asks for compressed pages, as a browser does. The shopper has a US cookie, so
+unprefixed pages render their per-country parts as a returning visitor's would. To try the production image under its
+ceilings instead, start it with `docker run --cpus 1 --memory 768m` and point `--url` at it (no `--pid` then; use
+`docker stats`).
+
+**14 Nov 2026, before and after the serving work** (one shared 4-core machine, 20 connections, 8 s a page, best of
+three; the server alone on one core is what counts, so read the CPU column):
+
+| Page | req/s (spread) | p50 / p95 / p99 ms | CPU ms/req | HTML KB raw / gzip |
+|---|---|---|---|---|
+| home `/` | 31.7 (±0.2) → 41.7 (±2.3) | 636 / 703 / 1749 → 478 / 527 / 1327 | 41.5 → 33.7 | 327 / 48 → 269 / 39 |
+| home-de `/de` | 28.1 (±0.2) → 225 (±3.4) | 712 / 778 / 1585 → 85.0 / 123 / 128 | 43.3 → 4.8 | 378 / 57 → 253 / 37 |
+| swap-us `/compare/tylenol-extra-strength-vs-eq...` | 12.5 (±0.2) → 38.6 (±1.7) | 1530 / 3260 / 4779 → 497 / 626 / 1360 | 91.3 → 34.8 | 390 / 59 → 275 / 42 |
+| swap-us-pfx `/us/compare/tylenol-extra-strength-vs...` | 16.3 (±0.4) → 50.1 (±3.5) | 1197 / 1814 / 3026 → 398 / 455 / 837 | 70.6 → 24.9 | 295 / 46 → 184 / 30 |
+| swap-de `/de/compare/aspirin-vs-ass-500-1a-pha...` | 16.2 (±0.5) → 45.8 (±0.6) | 1168 / 1993 / 2964 → 430 / 488 / 1032 | 71.1 → 26.8 | 314 / 49 → 196 / 33 |
+| kit `/bundle/advil-20ct-300ct-value-bundle...` | 29.4 (±0.7) → 44.7 (±1.6) | 672 / 725 / 1925 → 434 / 518 / 1245 | 44.2 → 29.1 | 387 / 55 → 278 / 40 |
+| hub `/dupe/zyrtec-cetirizine-dihydrochloride` | 49.4 (±0.6) → 78.5 (±6.6) | 388 / 511 / 967 → 245 / 323 / 513 | 25.8 → 16.1 | 163 / 25 → 107 / 17 |
+| search `/search` | 53.8 (±0.4) → 90.8 (±2.3) | 358 / 471 / 922 → 217 / 279 / 414 | 24.0 → 14.1 | 156 / 23 → 100 / 15 |
+| search-index `/search/index.json` | 666 (±53.2) → 658 (±28.7) | 27.8 / 44.4 / 59.9 → 28.5 / 45.0 / 65.1 | 1.6 → 1.6 | 466 / 97 → 466 / 97 |
+| go `/go/tylenol-extra-strength-vs-equate-...` | 817 (±40.9) → 854 (±18.9) | 23.1 / 38.9 / 51.2 → 22.2 / 36.2 / 48.6 | 1.4 → 1.3 | - / 0 → - / 0 |
+| health `/api/health` | 201 (±8.7) → 416 (±22.1) | 94.0 / 134 / 172 → 45.6 / 64.8 / 83.2 | 5.3 → 2.5 | 0 / 0 → 0 / 0 |
+
+What changed, and what each page now costs:
+
+- **Prefixed pages are static files.** `/de/...`, `/us/...` and the other prefixes no longer read the request: the country
+  band moved from the root layout into each section's layout (`src/components/CountryBand.tsx`), so the root layout
+  is static and a prefixed home, aisle, basket or info page is served from the build as a file. A prefixed swap or kit
+  page has one hole left, the shoppers' price reports (`src/lib/reported.ts`, read per request, cached for a minute).
+- **Unprefixed pages render only what depends on the shopper.** The band and the per-country parts stream into a
+  static shell, as before; the shell itself is no longer rendered twice per request (`partialPrefetching: false` in
+  `next.config.ts`: with it on, every dynamic request also rendered a second, prefetch copy of the page and put it in
+  the HTML, about 100 KB).
+- **Work done once, not per request.** Which affiliate programmes are live and which store terms are off
+  (`src/lib/affiliate-links.ts`, `src/lib/programme-terms.ts`) was recomputed for every store on every render, about a
+  quarter of a swap page's CPU; it is now remembered until the settings change.
+- **Caching.** A static page carries `s-maxage` and an ETag (a repeat visit gets 304). A response that sets the country
+  cookie is `private, no-cache` (`src/proxy.ts`), so no cache in between ever hands one shopper's detected country to
+  the next; `scripts/tests/serving.test.ts` checks both. `revalidatePath` after a price expiry
+  (docs/prices-daily.md) still reaches every page: the static ones are rebuilt files like any other.
+- **Compression** stays in Next (gzip, about 1 ms a page); Caddy's `encode zstd gzip` passes an already compressed
+  response through, and compresses whatever Next doesn't.
+- **What remains.** An unprefixed swap or kit still renders per request (its prices are the shopper's country's), and so
+  does a hub (`/dupe/...`), whose whole list is per country; prefixed hubs would make them static too. The HTML still
+  carries both languages' header and footer (about 15 KB raw).
+
+The search index and `/go` were already cheap and stay so. The health check got faster as a side effect: it reads the
+same programme settings, now remembered. On the server (one core) the CPU column is the ceiling: 1000 divided by it is
+about how many of that page one core serves a second, so a prefixed page is now about 40 a second per core for a swap
+and 200 for a prefixed home, and an unprefixed swap about 30.
+
+**Memory.** Five minutes of mixed load (every page above in turn, 20 connections, 30 s each) with
+`node --max-old-space-size=512`: the server started at 180 MB, was at 300 MB within 10 s, rose slowly to 360 MB while
+each page type warmed its caches, and stayed at 358 to 359 MB for the last 90 s, with no errors logged. The same
+pages before this work peaked at about 500 MB. Both are well inside the 768 MB ceiling.
+
+**Database.** The pool is `DB_POOL_MAX` connections (default 10) per web container, so 20 while two copies run during
+a deploy, against Postgres' default of 100: plenty for one core, where a request rarely holds a connection for more
+than a few milliseconds. `/go` answers before it writes the click (`after()` in `src/lib/outbound.ts`), so a slow
+database never holds up a redirect.
 
 ## The app on a home screen
 

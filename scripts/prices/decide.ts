@@ -112,6 +112,7 @@ export function toObservation(c: Candidate, today: string): Observation {
     price: Math.round(c.price * 100) / 100,
     currency: c.currency as Observation["currency"],
     seen: c.seen,
+    ...(c.at ? { at: c.at } : {}),
     precision: "day",
     source: c.source,
     url: c.url,

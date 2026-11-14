@@ -6,6 +6,8 @@ import { runMaintenance } from "@/lib/maintenance";
 import { readinessChecks, summarize } from "@/lib/readiness";
 import { SITE } from "@/lib/site";
 import { dbStatus, MIGRATIONS_EXPECTED } from "./db-status";
+import { startPriceClock } from "./price-clock";
+import { servedTermsBuild } from "./terms-build";
 
 const HOUR = 3600_000;
 
@@ -23,7 +25,7 @@ async function upkeep() {
 async function reportReadiness() {
   try {
     const status = await dbStatus();
-    const checks = readinessChecks(process.env, { siteUrl: SITE.url, ...status, migrationsExpected: MIGRATIONS_EXPECTED, affiliateEnv: affiliateEnv(), contactEmail: SITE.contactEmail });
+    const checks = readinessChecks(process.env, { siteUrl: SITE.url, ...status, migrationsExpected: MIGRATIONS_EXPECTED, affiliateEnv: affiliateEnv(), contactEmail: SITE.contactEmail, build: servedTermsBuild() });
     const { ready, blockers, recommended } = summarize(checks);
     log[ready ? "info" : "warn"]("startup.readiness", {
       ready,
@@ -42,6 +44,8 @@ export function startServerTasks() {
   g.__sbcStarted = true;
   // Not in development, and not in the workers `next build` starts to prerender pages.
   if (process.env.NODE_ENV !== "production" || process.env.NEXT_PHASE === "phase-production-build") return;
+  // Before anything is served: a time-limited price whose window has closed is withheld from the first render on.
+  startPriceClock();
   void reportReadiness();
   // A minute after start (migrations have finished by then), then every six hours; a run within 20 hours of the
   // last one does nothing, so this comes to once a day however often the server restarts.

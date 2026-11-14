@@ -1,4 +1,5 @@
 import { CountryProvider } from "@/components/CountryProvider";
+import { FixedBand } from "@/components/CountryBand";
 import { countryForPrefix, PREFIXES } from "@/lib/country-url";
 
 /**
@@ -14,10 +15,14 @@ export function generateStaticParams() {
  * and every CountryLink. The server components get it from the page (see country-page.ts).
  */
 export default async function CountryLayout({ children, params }: LayoutProps<"/country/[country]">) {
-  const country = countryForPrefix((await params).country);
+  const prefix = (await params).country;
+  const country = countryForPrefix(prefix);
   return (
-    <CountryProvider country={country} others={false} fixed>
-      {children}
-    </CountryProvider>
+    <>
+      <FixedBand prefix={prefix} />
+      <CountryProvider country={country} others={false} fixed>
+        {children}
+      </CountryProvider>
+    </>
   );
 }

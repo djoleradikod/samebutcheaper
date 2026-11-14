@@ -1,8 +1,9 @@
 /**
  * A kit or basket page where a store's affiliate terms withhold some of its prices (src/lib/programme-terms.ts). A kit
  * or basket is its totals, and a total built on a withheld price can't be shown, so the page keeps what stands without
- * one: what it is, the pieces or lines and where they lead, how it was checked and its sources. Every piece names its
- * store and links to it; every basket line links to its swap, which says the rest.
+ * one: what it is, how close a match it is, the pieces or lines and where they lead, what differs (safety notes live
+ * there, so it always shows), how it was checked and its sources. Every piece names its store and links to it; every
+ * basket line names both products and its match, and links to its swap, which says the rest.
  */
 import Link from "@/components/CountryLink";
 import { ExternalLink } from "lucide-react";
@@ -14,6 +15,8 @@ import { kitWithheldStores, basketWithheldStores } from "@/lib/withheld";
 import { getPair } from "@/lib/catalog";
 import { withVia } from "@/lib/via";
 import type { Bundle, Preset, ProductSide } from "@/lib/types";
+import { productName } from "@/lib/i18n/product-name";
+import { MatchBadge } from "./Badges";
 import { SourceList } from "./Evidence";
 
 type Piece = { key: string; name: string; replaces?: string; side: Pick<ProductSide, "retailer" | "url" | "brand">; href: string };
@@ -58,6 +61,10 @@ export function WithheldKit({ b, lang }: { b: Bundle; lang: Lang }) {
     <div className="container-page grid gap-8 py-6 md:py-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <div className="min-w-0 space-y-6">
         <p className="max-w-[68ch] text-[15px] text-ink-2">{t("terms.kit", kitWithheldStores(b, lang))}</p>
+        <p className="text-[15px]">
+          <span className="text-ink-2">{t("kitPage.match")}: </span>
+          <MatchBadge type={b.match_type} long lang={lang} />
+        </p>
         <section>
           <h2 className="display text-xl md:text-2xl">{t("terms.theKit")}</h2>
           <ul className="mt-2 divide-y divide-line border-y border-line">
@@ -72,6 +79,12 @@ export function WithheldKit({ b, lang }: { b: Bundle; lang: Lang }) {
             ))}
           </ul>
         </section>
+        {b.differences && (
+          <section className="rounded-card border border-different/30 bg-different-soft p-4 md:p-5">
+            <h2 className="display text-xl md:text-2xl">{t("kitPage.differs")}</h2>
+            <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2">{b.differences}</p>
+          </section>
+        )}
         <section>
           <h2 className="display text-xl md:text-2xl">{t("kitPage.howChecked")}</h2>
           <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2">{b.evidence}</p>
@@ -90,15 +103,27 @@ export function WithheldBasket({ p, lang, notes = {} }: { p: Preset; lang: Lang;
       <p className="max-w-[62ch] text-[15px] text-ink-2">{t("terms.basket", basketWithheldStores(p, getPair, lang))}</p>
       <h2 className="display mt-4 text-xl md:text-2xl">{t("basketPage.whatsInIt")}</h2>
       <ul className="mt-2 divide-y divide-line border-y border-line">
-        {p.lines.map((l) => (
-          <li key={l.pair} className="py-2.5">
-            <Link href={withVia(`/compare/${l.pair}`, "basket")} className="inline-flex min-h-11 flex-col justify-center text-[15px] leading-snug hover:underline">
-              <span className="font-semibold">{l.altName}</span>
-              <span className="text-[13px] text-ink-2">{t("terms.insteadOf", l.brandName)}</span>
-            </Link>
-            {notes[l.pair] && <p className="max-w-[62ch] text-[13px] text-ink-2">{notes[l.pair]}</p>}
-          </li>
-        ))}
+        {p.lines.map((l) => {
+          const pair = getPair(l.pair);
+          const named = (brand: string, product?: string) => {
+            const name = product ? productName(product, lang) : "";
+            return !name ? brand : name.toLowerCase().startsWith(brand.toLowerCase()) ? name : `${brand} ${name}`;
+          };
+          return (
+            <li key={l.pair} className="py-2.5">
+              <Link href={withVia(`/compare/${l.pair}`, "basket")} className="inline-flex min-h-11 flex-col justify-center text-[15px] leading-snug hover:underline">
+                <span className="font-semibold">{named(l.altName, pair?.alternative.product)}</span>
+                <span className="text-[13px] text-ink-2">{t("terms.insteadOf", named(l.brandName, pair?.brand.product))}</span>
+              </Link>
+              {pair && (
+                <p>
+                  <MatchBadge type={pair.match_type} lang={lang} />
+                </p>
+              )}
+              {notes[l.pair] && <p className="max-w-[62ch] text-[13px] text-ink-2">{notes[l.pair]}</p>}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

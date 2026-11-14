@@ -172,7 +172,7 @@ export function feedRejectReason(m: Pick<FeedMatch, "row" | "record">, today: st
 
 const BY_WORDS = { gtin: "barcode", id: "store product number", name: "brand, name and pack" } as const;
 
-export function feedCandidate(m: FeedMatch, feed: FeedConfig, today: string): Candidate {
+export function feedCandidate(m: FeedMatch, feed: FeedConfig, today: string, at?: string): Candidate {
   const link = m.row.deepLink && feedLinkNetwork(m.row.deepLink) ? m.row.deepLink : undefined;
   const page = m.row.productUrl ?? m.row.deepLink;
   return {
@@ -182,6 +182,7 @@ export function feedCandidate(m: FeedMatch, feed: FeedConfig, today: string): Ca
     currency: m.row.currency ?? m.record.currency,
     // The feed is the merchant's own price list, read today. Rows not updated within the limit were rejected above.
     seen: today,
+    ...(at ? { at } : {}),
     source: `feed:${feed.network}`,
     url: page && /^https?:/.test(page) ? page : m.side.url,
     method: "feed",
@@ -236,7 +237,7 @@ export async function collectFeed(feed: FeedConfig, records: PricedRecord[], ctx
       rejected.set(why.replace(/ in .*|, not .*/, ""), (rejected.get(why.replace(/ in .*|, not .*/, "")) ?? 0) + 1);
       continue;
     }
-    const c = feedCandidate(m, feed, ctx.today);
+    const c = feedCandidate(m, feed, ctx.today, ctx.now);
     if (c.stock === "out") stats.outOfStock++;
     candidates.push(c);
     stats.usable++;

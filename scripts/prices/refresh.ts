@@ -292,6 +292,7 @@ async function main() {
       if (!adapters.length) throw new Error(`unknown source ${only}; known: ${all.map((a) => a.id).join(", ")}`);
       const ctx: AdapterContext = {
         today,
+        now: new Date().toISOString(),
         env: process.env,
         fetch: (url, init) => fetch(url, { ...init, signal: AbortSignal.timeout(600_000) }),
         sleep: (ms) => new Promise((r) => setTimeout(r, ms)),

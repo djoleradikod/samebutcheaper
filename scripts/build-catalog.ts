@@ -37,13 +37,14 @@ import { isPerAmountRecord } from "../src/lib/unit-format";
 import { gtinConflicts } from "../src/lib/gtin";
 import { RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../src/lib/rating";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
-import { freshnessOf, freshnessWeight, isoDay, outOfStockSides, priceDoubtful, type Freshness, type PriceSeen } from "../src/lib/freshness";
+import { freshnessOf, freshnessWeight, outOfStockSides, priceDoubtful, type Freshness, type PriceSeen } from "../src/lib/freshness";
 import { priceSeenFor } from "./prices/attach";
 import { bySide, loadObservations } from "./prices/observations";
 import { asinProblem } from "../src/lib/cart";
 import { kitCaution } from "../src/lib/buy-list";
 import { attachGerman, germanCoverage } from "../src/lib/i18n/attach-de";
 import { applyProgrammeTerms } from "./programme-terms";
+import { buildEnv } from "../src/lib/affiliate-env-file";
 
 const ROOT = join(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "data", "pairs");
@@ -270,7 +271,8 @@ const priceLog = (() => {
   return bySide(observations);
 })();
 const priceLogUsed = new Set<string>();
-const BUILD_DAY = isoDay(new Date());
+const BUILD_MOMENT = new Date().toISOString();
+const BUILD_DAY = BUILD_MOMENT.slice(0, 10);
 
 /**
  * When each side's current price was last seen, its history, and the record's freshness tier from the
@@ -666,7 +668,7 @@ errors.push(...gtinConflicts([...pairs.flatMap((p) => (["brand", "alternative"] 
 unusedPriceLog();
 // Each affiliate programme's own terms on prices, price history and photos (src/lib/programme-terms.ts), applied last
 // so every figure above is worked out from the real prices first. PROGRAMME_TERMS_OFF switches programmes off.
-const termsApplied = applyProgrammeTerms({ pairs, bundles, presets, credits }, BUILD_DAY);
+const termsApplied = applyProgrammeTerms({ pairs, bundles, presets, credits }, BUILD_MOMENT);
 errors.push(...termsApplied.errors);
 if (warnings.length) console.warn(`\n${warnings.length} warning(s):\n  - ${warnings.join("\n  - ")}\n`);
 if (errors.length) {
@@ -689,6 +691,7 @@ for (const p of pairs) markets[p.market] = (markets[p.market] ?? 0) + 1;
 
 const catalog: Catalog = {
   generatedAt: new Date().toISOString(),
+  programmeTerms: { on: buildEnv().PROGRAMME_TERMS_ON?.trim() || null, off: buildEnv().PROGRAMME_TERMS_OFF?.trim() || null },
   pairs,
   bundles,
   presets,
@@ -740,6 +743,9 @@ console.log(
   const on = process.env.PROGRAMME_TERMS_ON?.trim();
   console.log(
     `Programme terms (applied to joined programmes${on ? `, and to: ${on}` : ""}${off ? `; off for: ${off}` : ""}): prices withheld on ${c.pairs} swaps, ${c.bundles} kits, ${c.presets} baskets; ` +
-      `${c.histories} price histories and ${c.photos} photos left out. See src/lib/programme-terms.ts.`,
+      `${c.histories} price histories and ${c.photos} photos left out` +
+      (c.quotes ? `; ${c.quotes} passing quotes of those stores' prices left out of other records` : "") +
+      (c.limitedPairs || c.limitedBundles ? `; feed prices shown until their 24-hour window closes on ${c.limitedPairs} swaps, ${c.limitedBundles} kits` : "") +
+      ". See src/lib/programme-terms.ts.",
   );
 }

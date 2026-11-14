@@ -210,11 +210,29 @@ export function tagLink(url: string, clickId = "", env: Env = affiliateEnv()): T
   return { url, program: null, network: null };
 }
 
-/** Programs whose IDs are set, so their links earn. */
+/** Every setting directLink reads. */
+const PROGRAM_SETTINGS = [
+  ...new Set([...PROGRAMS.map((p) => programEnvKey(p.id)), "AMAZON_TAGS", "AMAZON_ASSOCIATE_TAG", "AWIN_PUBLISHER_ID", "RAKUTEN_SITE_ID", "CJ_PID"]),
+];
+
+/** The settings that decide which programs are live, as one string: equal strings, equal answers. */
+export function programSettingsKey(env: Env): string {
+  return PROGRAM_SETTINGS.map((k) => env[k] ?? "").join("\u0000");
+}
+
+let lastLive: { env: Env; key: string; live: Program[] } | null = null;
+
+/**
+ * Programs whose IDs are set, so their links earn. Pages ask this many times per render (footer, every price's terms
+ * through programme-terms.ts), and each answer builds a URL per store host, so the last answer is kept while the
+ * settings it was read from are the same.
+ */
 export function livePrograms(env: Env = affiliateEnv()): Program[] {
-  return PROGRAMS.filter((p) =>
-    p.hosts.some((h) => directLink(p, `https://www.${h}/`, "", env) !== null),
-  );
+  const key = programSettingsKey(env);
+  if (lastLive && lastLive.env === env && lastLive.key === key) return lastLive.live;
+  const live = PROGRAMS.filter((p) => p.hosts.some((h) => directLink(p, `https://www.${h}/`, "", env) !== null));
+  lastLive = { env, key, live };
+  return live;
 }
 
 /** The sub-network that catches stores without a direct program, if one is set. */

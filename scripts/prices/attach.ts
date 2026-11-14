@@ -36,6 +36,7 @@ export function feedInfoFor(observations: Observation[], currentPrice: number): 
     network: feedNetworkOf(newest.source),
     ...(newest.link && feedLinkNetwork(newest.link) ? { link: newest.link } : {}),
     seen: newest.seen,
+    ...(newest.at ? { at: newest.at } : {}),
     stock: newest.stock ?? "unknown",
   };
 }

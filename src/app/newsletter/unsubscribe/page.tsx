@@ -3,7 +3,7 @@ import Link from "@/components/CountryLink";
 import { Suspense } from "react";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { log } from "@/lib/log";
 import { isScope, isToken, TOKEN_PAGE_LIMITS, unsubscribeTarget, type UnsubscribeTarget } from "@/lib/newsletter";
 import { ProsePage } from "@/components/ProsePage";
@@ -46,7 +46,7 @@ async function Buttons({ searchParams }: { searchParams: SearchParams }) {
   if (!rateLimit("token-pages", visitorFrom(new Headers(await headers())).key, TOKEN_PAGE_LIMITS).ok) {
     return <p>{t("newsletterPages.tooMany")}</p>;
   }
-  const db = getDb();
+  const db = getFormDb();
   let target: UnsubscribeTarget | null = null;
   try {
     target = db ? await unsubscribeTarget(db, token, only) : null;

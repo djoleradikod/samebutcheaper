@@ -182,8 +182,8 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "The onn 100W GaN charger covers every USB-C Power Delivery level of Apple's 96W adapter at equal or higher current and adds a 6 ft cable, for about half the price.",
-    "evidence": "Walmart (sold and shipped by Walmart.com) lists the Apple 96W USB-C Power Adapter, model A2166, at $79.00, with a 1-year warranty and the cable sold separately. Mac Otakara lists the A2166's Power Delivery levels as 5.2V/3A, 9V/3A, 15V/3A and 20.5V/4.7A. Walmart (also sold and shipped by Walmart.com) lists the onn GaN 100W charger at $39.97 with outputs of 5V/3A, 9V/3A, 12V/3A, 15V/3A and 20V/5A (100 W max), plus a 6 ft USB-C to USB-C cable. Apple's 5.2 V and 20.5 V are its slightly raised versions of the standard 5 V and 20 V levels, and the onn matches or exceeds the current at each one.",
+    "summary": "The onn 100W GaN charger covers every USB-C Power Delivery level of Apple's 96W adapter at equal or higher current and adds a 6 ft cable.",
+    "evidence": "Mac Otakara lists the Power Delivery levels of the Apple 96W USB-C Power Adapter (A2166) as 5.2V/3A, 9V/3A, 15V/3A and 20.5V/4.7A. Walmart lists the onn GaN 100W charger's outputs as 5V/3A, 9V/3A, 12V/3A, 15V/3A and 20V/5A (100 W max), with a 6 ft USB-C to USB-C cable. Apple's 5.2 V and 20.5 V are its slightly raised versions of the standard 5 V and 20 V levels, and the onn matches or exceeds the current at each one. Walmart lists the Apple with a 1-year warranty and the cable sold separately. In November 2026 Walmart.com sold the Apple at $79.00 and the onn at $39.97.",
     "differences": "Walmart doesn't state the current rating of the included onn cable. 100 W needs a 5A e-marked cable, and a 3A cable would cap the kit at 60 W. We found no independent test (such as ChargerLAB) of the onn, and its listing gives no manufacturer warranty or safety certification. Apple's adapter has a 1-year warranty. Walmart shoppers rate the Apple 4.8 (39 ratings) and the onn 4.4 (170 ratings).",
     "aspects": [
       {
@@ -295,8 +295,8 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "Both kits pair a 20W USB-C Power Delivery charger with a USB-C to Lightning cable for iPhone fast charging, and the onn kit, listed as MFi and USB-IF certified, costs about 62% less.",
-    "evidence": "Belkin's US page lists the WCA006dq1MWH-B5 kit at $34.99: a 20W charger described as 'USB-C PD 3.1 certified with PPS', a 3.3 ft/1 m PVC USB-C to Lightning cable, and a 2-year warranty with $2,500 connected-equipment cover. Walmart lists the onn kit at $13.26 with a 20W USB-C Power Delivery port and a 3 ft USB-C to Lightning cable, and lists it as 'MFi certified' and 'USB-IF certified'. Lightning iPhones fast-charge over USB Power Delivery, which both chargers support at the same 20 W.",
+    "summary": "Both kits pair a 20W USB-C Power Delivery charger with a USB-C to Lightning cable for iPhone fast charging, and the onn kit is listed as MFi and USB-IF certified.",
+    "evidence": "Belkin's US page describes the WCA006dq1MWH-B5 kit as a 20W charger, 'USB-C PD 3.1 certified with PPS', with a 3.3 ft/1 m PVC USB-C to Lightning cable and a 2-year warranty with connected-equipment cover. Walmart lists the onn kit with a 20W USB-C Power Delivery port and a 3 ft USB-C to Lightning cable, and lists it as 'MFi certified' and 'USB-IF certified'. Lightning iPhones fast-charge over USB Power Delivery, which both chargers support at the same 20 W. In November 2026 Belkin listed its kit at $34.99 and Walmart the onn kit at $13.26.",
     "differences": "Walmart doesn't say which part carries which certification, and it notes that it hasn't verified manufacturer information. Belkin's page doesn't mention MFi for its cable. Belkin's spec table lists 2 USB-C ports, while the onn has one. Belkin also offers PPS, which iPhones don't use. Belkin's warranty is 2 years plus connected-equipment cover, and Walmart's page states no onn warranty. The onn cable is 3 ft against Belkin's 1 m.",
     "aspects": [
       {
@@ -412,9 +412,9 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "Anker's Nano 30W offers the same four USB-C Power Delivery levels as Apple's 30W adapter, plus PPS for Samsung and Pixel phones, for 60% less.",
-    "evidence": "Target lists the Apple 30W USB-C Power Adapter at $39.99 (UPC 195949376351, 1-year limited warranty, 4.5 stars from 21 reviews). An Apple Support Communities user guide gives the 30W adapter's outputs as 5V/3A, 9V/3A, 15V/2A and 20V/1.5A. Anker's A2147 page lists the Nano Charger (30W) at 5V/3A, 9V/3A, 15V/2A and 20V/1.5A, plus PPS at 3.3-11V/3A and 3.3-16V/2A. Techtest.org measured the same profiles on the 511 Nano 3 and found 84-91% efficiency and no problems in a 6-hour full-load run. Walmart lists the Anker 511 Nano 3 30W at $15.99 in black or white (4.8 stars from 298 ratings).",
-    "differences": "The Apple figures come from a user-written Apple Support Communities guide, not an Apple spec sheet. Anker's US store showed the A2147 sold out, and Walmart's Anker listing doesn't name its seller (other colours cost $16.99). Techtest measured a surface temperature of about 71 °C at a constant 30 W. Walmart's page gives both 18-month and 24-month warranty terms, and Apple's is 1 year. Neither charger includes a cable.",
+    "summary": "Anker's Nano 30W offers the same four USB-C Power Delivery levels as Apple's 30W adapter, plus PPS for Samsung and Pixel phones.",
+    "evidence": "An Apple Support Communities user guide gives the Apple 30W USB-C Power Adapter's outputs as 5V/3A, 9V/3A, 15V/2A and 20V/1.5A. Anker's A2147 page lists the Nano Charger (30W) at the same four levels, plus PPS at 3.3-11V/3A and 3.3-16V/2A. Techtest.org measured the same profiles on the 511 Nano 3 and found 84-91% efficiency and no problems in a 6-hour full-load run. Target lists the Apple adapter with UPC 195949376351, a 1-year limited warranty and 4.5 stars from 21 reviews; Walmart lists the Anker in black or white with 4.8 stars from 298 ratings. In November 2026 Target listed the Apple at $39.99 and Walmart the Anker at $15.99.",
+    "differences": "The Apple figures come from a user-written Apple Support Communities guide, not an Apple spec sheet. Anker's US store showed the A2147 sold out. Walmart's Anker listing doesn't name its seller, and in November 2026 other colours cost $16.99 there. Techtest measured a surface temperature of about 71 °C at a constant 30 W. Walmart's page gives both 18-month and 24-month warranty terms, and Apple's is 1 year. Neither charger includes a cable.",
     "aspects": [
       {
         "aspect": "Power Delivery levels",

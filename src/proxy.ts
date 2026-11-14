@@ -58,14 +58,29 @@ export function proxy(request: NextRequest) {
     response = NextResponse.next({ request: { headers: forward } });
   }
   if (detected) {
-    response.cookies.set(COUNTRY_COOKIE, detected, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
+    response.cookies.set(COUNTRY_COOKIE, detected, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax", secure: servedOverHttps(request) });
   }
   // sbc_src, the old 30-day source cookie, is retired (src/lib/traffic-source.ts): a browser that still has one loses it.
-  if (request.cookies.has(RETIRED_SOURCE_COOKIE)) response.cookies.set(RETIRED_SOURCE_COOKIE, "", { path: "/", maxAge: 0 });
+  if (request.cookies.has(RETIRED_SOURCE_COOKIE)) response.cookies.set(RETIRED_SOURCE_COOKIE, "", { path: "/", maxAge: 0, secure: servedOverHttps(request) });
+
+  // A prefixed page is a static file any cache may keep (Next marks it s-maxage), but not with this visitor's cookie on it:
+  // a shared cache would hand one shopper's detected country to the next. Next keeps a Cache-Control set here.
+  if (response.cookies.getAll().length) response.headers.set("Cache-Control", "private, no-cache");
   return response;
 }
 
 const RETIRED_SOURCE_COOKIE = "sbc_src";
+
+/**
+ * Whether the visitor reached the site over https: the request itself, the reverse proxy's X-Forwarded-Proto (Caddy
+ * sets it), or a site built for an https address (which sends HSTS, so browsers don't use plain http). Cookies then
+ * carry Secure and are never sent over plain http.
+ */
+export function servedOverHttps(request: Pick<NextRequest, "nextUrl" | "headers">) {
+  if (request.nextUrl.protocol === "https:") return true;
+  if (request.headers.get("x-forwarded-proto")?.split(",")[0].trim().toLowerCase() === "https") return true;
+  return (process.env.NEXT_PUBLIC_SITE_URL ?? "").startsWith("https://");
+}
 
 /**
  * A missing /de/... page in German: src/app/country/[country]/page-not-found draws the 404 inside /de's layout. A

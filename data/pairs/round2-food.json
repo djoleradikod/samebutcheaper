@@ -40,7 +40,7 @@
     "confidence": "medium",
     "summary": "Both are 1 g packets of dextrose, maltodextrin and sucralose, the same three ingredients in the same order.",
     "evidence": "Target's Splenda listing gives the ingredients as dextrose, maltodextrin, Splenda sucralose. Walmart's Great Value page confirms 200 packets, 7 oz, made with sucralose, but its ingredient panel was empty. A grocery listing of the same Great Value product shows 'Dextrose with maltodextrin, sucralose'. Other store brands (H-E-B, Stop & Shop) use the same statement.",
-    "differences": "The Great Value ingredient list comes from a third-party grocery listing, not Walmart's own page. The $3.28 price is a Walmart rollback (it was listed at $6.14, and $3.50 in the multi-pack listing). Even at $6.14 it is cheaper per oz than Splenda.",
+    "differences": "The Great Value ingredient list comes from a third-party grocery listing, not Walmart's own page. In November 2026 the Great Value price we used was a Walmart rollback of $3.28 (it was listed at $6.14, and $3.50 in the multi-pack listing). Even at $6.14 it was cheaper per oz than Splenda.",
     "sources": [
       "https://www.target.com/p/splenda-zero-calorie-sweetener-packets-7oz-200pk/-/A-13330984",
       "https://www.walmart.com/ip/10533727",
@@ -141,7 +141,7 @@
     "confidence": "high",
     "summary": "Both are distilled white vinegar diluted with water to 5% acidity, the standard strength for cooking, pickling and cleaning.",
     "evidence": "Walmart lists the Great Value ingredients as 'White distilled vinegar, diluted with water to 5% acidity'. Heinz's label (on Target and Shipt listings) reads 'Distilled white vinegar diluted with water to 5% (50 grains) acidity'. The strength and ingredients are the same.",
-    "differences": "Heinz says its vinegar is made from American-grown corn. Great Value does not name its grain source. The Heinz $8.73 price is from Walmart's white vinegar category page. Its single product page showed a marketplace price of $19.96.",
+    "differences": "Heinz says its vinegar is made from American-grown corn. Great Value does not name its grain source. In November 2026 the Heinz price we used ($8.73) came from Walmart's white vinegar category page, while its own product page showed a marketplace price of $19.96.",
     "sources": [
       "https://www.walmart.com/ip/10450998",
       "https://www.walmart.com/ip/13908042",

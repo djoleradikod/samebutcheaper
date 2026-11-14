@@ -3,7 +3,7 @@ import Link from "@/components/CountryLink";
 import { Suspense } from "react";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { log } from "@/lib/log";
 import { confirmTarget, isToken, TOKEN_PAGE_LIMITS, type ConfirmTarget } from "@/lib/newsletter";
 import { ProsePage } from "@/components/ProsePage";
@@ -42,7 +42,7 @@ async function Confirm({ searchParams }: { searchParams: SearchParams }) {
   if (!rateLimit("token-pages", visitor.key, TOKEN_PAGE_LIMITS).ok) {
     return <p>{t("newsletterPages.tooMany")}</p>;
   }
-  const db = getDb();
+  const db = getFormDb();
   let target: ConfirmTarget | null = null;
   if (db && isToken(secret)) {
     try {

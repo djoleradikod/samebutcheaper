@@ -1,5 +1,5 @@
 import "server-only";
-import { getDb, schema } from "@/db";
+import { getFormDb, schema } from "@/db";
 import { log } from "@/lib/log";
 import { visitorFrom } from "@/lib/visitor";
 
@@ -14,7 +14,7 @@ export type LookupLog = {
 
 /** Records a lookup. Call inside after() so it never slows the response. */
 export async function logLookup(entry: LookupLog, headers: Headers, country: string | null) {
-  const db = getDb();
+  const db = getFormDb();
   const visitor = visitorFrom(headers);
   if (!db || visitor.isBot) return;
   try {

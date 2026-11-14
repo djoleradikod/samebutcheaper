@@ -32,6 +32,8 @@ export const observationSchema = z
     seen: isoDay,
     /** "month" when only the month is known: `seen` is then the 1st of that month. */
     precision: z.enum(["day", "month"]).default("day"),
+    /** Feeds only: when the feed was read, as an ISO time. A programme's 24-hour price rule counts from it. */
+    at: z.iso.datetime().optional(),
     /** Who reported it: a retailer id for hand checks, "open-prices", "feed:<network>" (docs/feeds.md), "manual". */
     source: z.string().min(2),
     /** Where to see it: the store page for a hand check, the Open Prices price page, the merchant's product link. */

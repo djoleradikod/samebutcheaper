@@ -11,6 +11,10 @@ What a feed does once it's set up, every Monday (or when you run it):
   change.
 - A record priced from a feed counts as licensed, so the "barred" count in `/admin` goes down.
 
+A feed for a store whose programme allows a shown price to be at most 24 hours old (Walmart) is also read every day by
+the Deploy workflow, which then rebuilds the site; the server withholds such a price by itself once it gets too old.
+docs/prices-daily.md has how and what it costs.
+
 Nothing has been tried against a real feed yet: no account is approved and the build machine can't reach the
 networks. "What isn't tested yet" at the end lists what to watch on the first run.
 

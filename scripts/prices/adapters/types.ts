@@ -8,6 +8,8 @@ export type Candidate = {
   price: number;
   currency: string;
   seen: string;
+  /** Feeds: when the feed was read (ISO time), so a 24-hour price rule can count from it. */
+  at?: string;
   source: string;
   url: string;
   method: Method;
@@ -31,6 +33,8 @@ export type Fetcher = (
 
 export type AdapterContext = {
   today: string;
+  /** This run's moment as an ISO time; feed readings carry it (Candidate.at). */
+  now?: string;
   fetch: Fetcher;
   env: Record<string, string | undefined>;
   /** Waits between requests to one host. Tests pass a no-op. */

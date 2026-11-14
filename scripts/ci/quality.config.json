@@ -76,6 +76,18 @@
       "myList": 0.05,
       "swapConverted": 0.05,
       "swapPrefixed": 0.05
+    },
+    "htmlKbComment": "Each page's whole document in KB, raw and gzipped, as a shopper in the page's country gets it. Set 14 Nov 2026 from the measured size plus 5% (raw rounded up to 5 KB), after the HTML cut in docs/deploy.md, 'Load test'.",
+    "htmlKb": {
+      "home": { "raw": 275, "gzip": 41 },
+      "swap": { "raw": 285, "gzip": 46 },
+      "kit": { "raw": 295, "gzip": 42 },
+      "basket": { "raw": 300, "gzip": 40 },
+      "search": { "raw": 105, "gzip": 16 },
+      "check": { "raw": 110, "gzip": 18 },
+      "myList": { "raw": 525, "gzip": 93 },
+      "swapConverted": { "raw": 305, "gzip": 48 },
+      "swapPrefixed": { "raw": 210, "gzip": 36 }
     }
   },
   "firstHtml": [

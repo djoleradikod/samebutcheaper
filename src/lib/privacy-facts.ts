@@ -14,7 +14,8 @@
  *    address, in memory only), src/lib/visitor.ts (the daily hash);
  *  - outside services: src/lib/mail.ts (Resend), src/app/api/identify/route.ts and src/lib/receipt/photo.ts (Anthropic,
  *    only with ANTHROPIC_API_KEY), src/lib/lookup/* (the product databases, asked by our server), /check's result
- *    photos (loaded by the browser from Open Food Facts' image servers), src/lib/affiliate-links.ts (the networks a
+ *    photos (fetched by our server, src/app/api/product-image/route.ts, so the image hosts never see a visitor),
+ *    src/lib/affiliate-links.ts (the networks a
  *    store link can pass through), docs/deploy.md (Hetzner).
  */
 import { gatedStores } from "./consent";

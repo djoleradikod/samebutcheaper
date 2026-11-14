@@ -4,7 +4,7 @@ import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
 import type { RatingScale } from "./rating";
 import type { Freshness, PriceSeen } from "./freshness";
-import type { Withheld } from "./programme-terms";
+import type { Limited, Withheld } from "./programme-terms";
 
 export type MatchType = PairInput["match_type"];
 export type CategorySlug = PairInput["category"];
@@ -88,6 +88,11 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
    * is: the page then shows no price, unit price or saving for the swap, only "see the price at <store>".
    */
   withheld?: Partial<Record<"brand" | "alternative", Withheld>>;
+  /**
+   * Sides whose price shows only until a time, under a programme rule like "refreshed within 24 hours": at `until` the
+   * side becomes withheld by itself (src/lib/price-expiry.ts). Set only when one is.
+   */
+  limited?: Partial<Record<"brand" | "alternative", Limited>>;
   /** The German text, from data/i18n/de/, when there is one. */
   de?: PairDe;
 };
@@ -187,10 +192,14 @@ export type Bundle = Omit<BundleInput, "components"> & {
   de?: BundleDe;
   /** "kit" and "item-<n>" prices a store's affiliate terms don't let us show; the kit then shows no prices or totals. */
   withheld?: Record<string, Withheld>;
+  /** The same as a swap's `limited`, for "kit" and "item-<n>". */
+  limited?: Record<string, Limited>;
 };
 
 export type Catalog = {
   generatedAt: string;
+  /** PROGRAMME_TERMS_ON and PROGRAMME_TERMS_OFF as the catalogue was built with them, for the readiness checks. */
+  programmeTerms?: { on: string | null; off: string | null };
   pairs: Pair[];
   bundles: Bundle[];
   presets: Preset[];

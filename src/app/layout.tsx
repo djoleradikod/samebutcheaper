@@ -1,18 +1,14 @@
-import { Suspense } from "react";
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
-import { CountryProvider, FollowCountry } from "@/components/CountryProvider";
-import { FallbackBand } from "@/components/Money";
-import { getAllPairs } from "@/lib/catalog";
 import { hasBand, localFor } from "@/lib/localize";
 import { MARKET_CODES } from "@/lib/markets";
-import { getCountry, getLocal, getUrlCountry } from "@/lib/server-country";
 import { PATH_COUNTRY_SCRIPT } from "@/lib/country-url";
 import { shopperAttributesScript } from "@/lib/reserve";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SourceCarrier } from "@/components/SourceCarrier";
+import { BandCode } from "@/components/BandCode";
 import { ConsentSlot } from "@/components/ConsentSlot";
 import { jsonLdText, SITE } from "@/lib/site";
 import { ByLang, Html } from "@/lib/i18n/client";
@@ -54,26 +50,6 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
   colorScheme: "light",
 };
-
-/**
- * Says whose prices the page shows and asks the server again when the country changes. This is the one per-request part
- * every page has. The parts of a page that depend on the country are each in their own CountryPart, and the rest is static.
- */
-async function CountryBand() {
-  const country = await getCountry();
-  const { others } = await getLocal();
-  // A prefixed URL (/de/...) is that country's view and can't show other countries' swaps, so it offers none.
-  const fixed = (await getUrlCountry()) !== null;
-  const strict = localFor(country);
-  const wide = localFor(country, true);
-  const hidden = fixed ? 0 : getAllPairs().filter((p) => wide.shows(p) && !strict.shows(p)).length;
-  return (
-    <CountryProvider country={country} others={others} fixed={fixed}>
-      <FollowCountry country={country} others={others} fixed={fixed} />
-      <FallbackBand hidden={hidden} />
-    </CountryProvider>
-  );
-}
 
 /**
  * The band streams in after the first paint, so without this it pushes a fallback country's whole page down. Static HTML can't
@@ -124,13 +100,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <ByLang en={<SiteHeader />} de={<SiteHeader lang="de" />} />
         <main id="main" className="min-h-svh flex-1">
-          <Suspense fallback={<div className="band-slot" aria-hidden="true" />}>
-            <CountryBand />
-          </Suspense>
+          {/* The country band opens every page's own tree, so a prefixed page can stay static: src/components/CountryBand.tsx. */}
           {children}
         </main>
         <ByLang en={<SiteFooter />} de={<SiteFooter lang="de" />} />
         <SourceCarrier />
+        <BandCode />
         <ByLang en={<ConsentSlot />} de={<ConsentSlot lang="de" />} />
         <script src="/sw-register.js" async />
         <ByLang

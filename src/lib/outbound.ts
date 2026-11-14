@@ -1,6 +1,6 @@
 import "server-only";
 import { after } from "next/server";
-import { getDb, schema } from "@/db";
+import { getFormDb, schema } from "@/db";
 import { newClickId, tagLink } from "./affiliate-links";
 import { log } from "./log";
 import { isKnownCountry } from "./markets";
@@ -56,7 +56,7 @@ export function redirectOut(
     rateLimit("clicks", visitor.key, LIMITS.clicks).ok;
 
   after(async () => {
-    const db = getDb();
+    const db = getFormDb();
     if (!db || !counts) return;
     try {
       await db.insert(schema.clicks).values({

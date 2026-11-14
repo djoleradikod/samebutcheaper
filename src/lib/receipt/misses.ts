@@ -1,5 +1,5 @@
 import "server-only";
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { log } from "@/lib/log";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
 import { visitorFrom } from "@/lib/visitor";
@@ -14,7 +14,7 @@ export const MISSES_PER_LIST = 15;
  * a price or the rest of the receipt, once per visitor, name and day, within the visitor's wanted limit. Call inside after().
  */
 export async function countMisses(queries: readonly string[], headers: Headers, country: string | null) {
-  const db = getDb();
+  const db = getFormDb();
   const visitor = visitorFrom(headers);
   if (!db || visitor.isBot) return;
   const names = [...new Set(queries.map((q) => normaliseQuery(q)).filter((q): q is string => Boolean(q)))].slice(0, MISSES_PER_LIST);

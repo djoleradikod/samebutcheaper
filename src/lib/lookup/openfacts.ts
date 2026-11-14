@@ -5,6 +5,7 @@ import { COUNTRIES } from "@/lib/markets";
 import { SITE } from "@/lib/site";
 import type { Candidate, LookupProduct, LookupSource } from "./types";
 import { sentenceCase } from "./text";
+import { proxiedImage } from "@/lib/product-image";
 
 /**
  * Open Beauty Facts, Open Food Facts and Open Pet Food Facts: open,
@@ -107,7 +108,8 @@ function toProduct(db: Db, p: OffProduct): LookupProduct {
       .map((t) => COUNTRY_BY_TAG[t.replace(/^en:/, "")])
       .filter((c): c is string => !!c),
     manufacturer: null,
-    image: p.image_front_small_url ?? null,
+    // Through our own server, so the visitor's browser never contacts the image host (src/lib/product-image.ts).
+    image: proxiedImage(p.image_front_small_url),
   };
 }
 

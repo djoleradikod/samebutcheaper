@@ -9,20 +9,43 @@ import { oneOfEachSwap } from "./localize";
 import { isCutOut } from "./photos";
 import { canLeadNow } from "./reported-state";
 import { linkStoreName } from "./affiliate";
+import { catalogNow } from "./price-clock";
 
-const catalog = catalogJson as unknown as Catalog;
+const built = catalogJson as unknown as Catalog;
+
+/**
+ * The catalogue as it reads now: the build's, with any price whose programme window has closed withheld since
+ * (src/lib/price-expiry.ts, driven by the server's price clock). The same object until something expires.
+ */
+function cat(): Catalog {
+  return catalogNow(built);
+}
+
+/** A value worked out from the catalogue once per view of it, so an index never holds a record that expired since. */
+function perView<T>(make: (c: Catalog) => T): () => T {
+  let seen: Catalog | null = null;
+  let value: T;
+  return () => {
+    const c = cat();
+    if (c !== seen) {
+      value = make(c);
+      seen = c;
+    }
+    return value;
+  };
+}
 
 /** All pairs, ordered by ranking score (biggest savings first). */
 export function getAllPairs(): Pair[] {
-  return catalog.pairs;
+  return cat().pairs;
 }
 
 export function getPair(slug: string): Pair | undefined {
-  return catalog.pairs.find((p) => p.slug === slug);
+  return cat().pairs.find((p) => p.slug === slug);
 }
 
 export function getPairsByCategory(category: CategorySlug): Pair[] {
-  return catalog.pairs.filter((p) => p.category === category);
+  return cat().pairs.filter((p) => p.category === category);
 }
 
 /** The worst standing: no photo on either side. */
@@ -95,7 +118,7 @@ export function pickByPhotos(
 
 export function getFeaturedPairs(limit = 12, market?: MarketCode, pick: (pairs: Pair[]) => Pair[] = (pairs) => pairs): Pair[] {
   // Medicine never leads. Within a photo standing: high confidence, one per subcategory and three per aisle, then fill.
-  const inMarket = market ? catalog.pairs.filter((p) => p.market === market) : catalog.pairs;
+  const inMarket = market ? cat().pairs.filter((p) => p.market === market) : cat().pairs;
   const pool = pick(inMarket).filter((p) => p.category !== "otc-medicine").sort((a, b) => b.score - a.score);
   return pickByPhotos(pool, limit, (p) => [
     { key: "confidence", max: p.confidence === "high" ? Infinity : 0 },
@@ -106,13 +129,13 @@ export function getFeaturedPairs(limit = 12, market?: MarketCode, pick: (pairs: 
 
 export function getBiggestDollarSavings(limit = 6): Pair[] {
   const usd = (p: Pair) => p.savingsPerPack * APPROX_USD[p.currency];
-  return [...catalog.pairs].sort((a, b) => usd(b) - usd(a)).slice(0, limit);
+  return [...cat().pairs].sort((a, b) => usd(b) - usd(a)).slice(0, limit);
 }
 
 export function getRelatedPairs(pair: Pair, limit = 4): Pair[] {
   // Same country's prices first, then the closest product type.
   const rank = (p: Pair) => (p.market === pair.market ? 0 : 2) + (p.subcategory === pair.subcategory ? 0 : 1);
-  const others = catalog.pairs.filter((p) => p.slug !== pair.slug && p.category === pair.category);
+  const others = cat().pairs.filter((p) => p.slug !== pair.slug && p.category === pair.category);
   // These are image cards, so swaps with a photo go first and text-only cards show only in an aisle with no photos at all.
   const withPhoto = others.filter((p) => p.brand.photo || p.alternative.photo);
   return (withPhoto.length ? withPhoto : others)
@@ -125,7 +148,7 @@ export function getRelatedPairs(pair: Pair, limit = 4): Pair[] {
 /** Markets with verified prices, with how many swaps each has. */
 export function getMarketCounts(): Partial<Record<MarketCode, number>> {
   const counts: Partial<Record<MarketCode, number>> = {};
-  for (const p of catalog.pairs) counts[p.market] = (counts[p.market] ?? 0) + 1;
+  for (const p of cat().pairs) counts[p.market] = (counts[p.market] ?? 0) + 1;
   return counts;
 }
 
@@ -143,7 +166,7 @@ export function getCategoryStats(pick: (pairs: Pair[]) => Pair[] = (pairs) => pa
 
 export function getSiteStats() {
   // A swap priced in two markets is one swap.
-  const pairs = oneOfEachSwap(catalog.pairs);
+  const pairs = oneOfEachSwap(cat().pairs);
   const avg = pairs.length ? pairs.reduce((s, p) => s + p.savingsPct, 0) / pairs.length : 0;
   const sources = pairs.reduce((s, p) => s + p.sources.length, 0);
   return {
@@ -151,7 +174,7 @@ export function getSiteStats() {
     avgSavings: avg,
     sources,
     categories: CATEGORIES.filter((c) => pairs.some((p) => p.category === c.slug)).length,
-    generatedAt: catalog.generatedAt,
+    generatedAt: cat().generatedAt,
   };
 }
 
@@ -200,7 +223,7 @@ function summaryOf(p: Pair): PairSummary {
 /* ---------------------------------------------------------------- bundles */
 
 export function getAllBundles(): Bundle[] {
-  return catalog.bundles ?? [];
+  return cat().bundles ?? [];
 }
 
 export function getBundle(slug: string): Bundle | undefined {
@@ -210,7 +233,7 @@ export function getBundle(slug: string): Bundle | undefined {
 /* ---------------------------------------------------------------- presets */
 
 export function getAllPresets(): Preset[] {
-  return catalog.presets ?? [];
+  return cat().presets ?? [];
 }
 
 export function getPreset(slug: string): Preset | undefined {
@@ -229,19 +252,19 @@ export function getPresetsFor(market: MarketCode, pool: Preset[] = getAllPresets
 /* --------------------------------------------------------------- evidence */
 
 export function getClaims(): Claim[] {
-  return catalog.claims ?? [];
+  return cat().claims ?? [];
 }
 
 export function getShelfLife() {
-  return catalog.shelfLife ?? [];
+  return cat().shelfLife ?? [];
 }
 
 export function getCredits() {
-  return catalog.credits ?? [];
+  return cat().credits ?? [];
 }
 
 export function getCoverage() {
-  return catalog.coverage;
+  return cat().coverage;
 }
 
 /* ---------------------------------------------------- ingredients & brands */
@@ -265,7 +288,7 @@ function ingredientLabel(name: string) {
 
 export type IngredientEntry = { slug: string; name: string; pairs: Pair[] };
 
-const ingredientIndex: Map<string, IngredientEntry> = (() => {
+const ingredientIndex = perView((catalog): Map<string, IngredientEntry> => {
   const map = new Map<string, IngredientEntry>();
   for (const p of catalog.pairs) {
     if (!INGREDIENT_MATCHES.has(p.match_type)) continue;
@@ -278,24 +301,24 @@ const ingredientIndex: Map<string, IngredientEntry> = (() => {
     }
   }
   return map;
-})();
+});
 
 export function getIngredients(): IngredientEntry[] {
-  return [...ingredientIndex.values()].sort((a, b) => b.pairs.length - a.pairs.length || a.name.localeCompare(b.name));
+  return [...ingredientIndex().values()].sort((a, b) => b.pairs.length - a.pairs.length || a.name.localeCompare(b.name));
 }
 
 export function getIngredient(slug: string) {
-  return ingredientIndex.get(slug);
+  return ingredientIndex().get(slug);
 }
 
 export function ingredientSlugFor(name: string): string | undefined {
   const slug = ingredientKey(name);
-  return ingredientIndex.has(slug) ? slug : undefined;
+  return ingredientIndex().has(slug) ? slug : undefined;
 }
 
 export type BrandEntry = { slug: string; name: string; pairs: Pair[]; bundles: Bundle[] };
 
-const brandIndex: Map<string, BrandEntry> = (() => {
+const brandIndex = perView((catalog): Map<string, BrandEntry> => {
   const map = new Map<string, BrandEntry>();
   const get = (name: string) => {
     const slug = slugify(name);
@@ -306,14 +329,14 @@ const brandIndex: Map<string, BrandEntry> = (() => {
   for (const p of catalog.pairs) get(p.brand.brand).pairs.push(p);
   for (const b of catalog.bundles ?? []) get(b.bundle.brand).bundles.push(b);
   return map;
-})();
+});
 
 export function getBrands(): BrandEntry[] {
-  return [...brandIndex.values()].sort((a, b) => a.name.localeCompare(b.name));
+  return [...brandIndex().values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function getBrand(slug: string) {
-  return brandIndex.get(slug);
+  return brandIndex().get(slug);
 }
 
 export function brandSlugFor(name: string): string {
@@ -332,7 +355,7 @@ export type DupeEntry = {
   pairs: Pair[];
 };
 
-const dupeIndex: Map<string, DupeEntry> = (() => {
+const dupeIndex = perView((catalog): Map<string, DupeEntry> => {
   const map = new Map<string, DupeEntry>();
   for (const p of catalog.pairs) {
     const slug = dupeSlugFor(p);
@@ -348,14 +371,14 @@ const dupeIndex: Map<string, DupeEntry> = (() => {
   }
   for (const e of map.values()) e.pairs.sort((a, b) => b.savingsPct - a.savingsPct);
   return map;
-})();
+});
 
 export function getDupes(): DupeEntry[] {
-  return [...dupeIndex.values()];
+  return [...dupeIndex().values()];
 }
 
 export function getDupe(slug: string) {
-  return dupeIndex.get(slug);
+  return dupeIndex().get(slug);
 }
 
 /** Other brands' pages for the same actives. */

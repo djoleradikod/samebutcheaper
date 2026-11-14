@@ -1,4 +1,4 @@
-import { getDb } from "@/db";
+import { getFormDb } from "@/db";
 import { log } from "@/lib/log";
 import { isScope, isToken, unsubscribe } from "@/lib/newsletter";
 import { LIMITS, rateLimit } from "@/lib/rate-limit";
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
   const only = field("only") || null;
   const scope = only !== null && isScope(only) ? only : undefined;
   const token = field("token") ?? "";
-  const db = getDb();
+  const db = getFormDb();
   let outcome: "done" | "already" | "invalid" = "invalid";
   if (db && isToken(token) && (only === null || scope)) {
     try {

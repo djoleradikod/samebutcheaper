@@ -20,9 +20,16 @@
  *    never deploy a build made with it.
  * Both are read when the catalogue is built. docs/affiliate-application-checklist.md walks through it.
  *
+ * A price from a programme's own feed also proves membership: a side priced from Walmart's feed carries Walmart's
+ * rules even in a build with no AFF_* setting for it (`feedStores`).
+ *
+ * Time: a price shown under a `maxAgeHours` rule is shown only until its feed reading turns that old. The build
+ * records that moment as the side's `limited` entry, and the server withholds the side by itself when it comes
+ * (src/lib/price-expiry.ts), so no page keeps a price longer than the programme allows, deploy or no deploy.
+ *
  * Pure: no server-only imports, so the build script, pages and tests share it.
  */
-import { livePrograms } from "./affiliate-links";
+import { livePrograms, programSettingsKey } from "./affiliate-links";
 import { linkStore, NETWORK_TERMS, PROGRAMME_REGISTRY, programmeOf, TERM_RULES, type ProgrammeTerms } from "./programmes";
 import type { DatePrecision, PriceSeen } from "./freshness";
 
@@ -40,10 +47,42 @@ const idList = (raw: string | undefined): Set<string> | "all" => {
   return v === "all" ? "all" : new Set(v.split(/[\s,]+/).filter(Boolean));
 };
 
+/**
+ * Store ids with a line in PRICE_FEED_URLS ("[network:]store@MARKET=url", one per line or comma-separated). The same as
+ * scripts/ci/price-schedule.mjs, which the deploy workflow runs before anything is installed.
+ */
+export function feedLineStores(raw: string | undefined): string[] {
+  const ids = (raw ?? "")
+    .split(/\n+|,(?=\s*(?:[a-z]+:)?[a-z0-9-]+@[A-Z]{2}=)/)
+    .map((s) => /^\s*(?:[a-z]+:)?([a-z0-9-]+)@[A-Z]{2}=/.exec(s)?.[1])
+    .filter((s): s is string => !!s);
+  return [...new Set(ids)];
+}
+
+/** The price rule a store's programme sets, with its network's under it, or null. */
+export function priceRuleOf(store: string) {
+  const entry = programmeOf(store);
+  return entry.terms?.prices ?? NETWORK_TERMS[entry.network]?.prices ?? null;
+}
+
+/**
+ * Stores whose feed is configured and whose programme lets a shown price be only so many hours old: their prices show
+ * only while the last read of their feed is that fresh, so the deploy reads the feed and rebuilds daily
+ * (.github/workflows/deploy.yml, scripts/ci/price-schedule.mjs).
+ */
+export function dailyStores(env: Record<string, string | undefined> = process.env): string[] {
+  return feedLineStores(env.PRICE_FEED_URLS)
+    .filter((store) => {
+      const rule = priceRuleOf(store);
+      return rule?.only === "feed" && rule.maxAgeHours > 0;
+    })
+    .sort();
+}
+
 /** Whether this build is a member of the store's programme: its affiliate setting or a feed line for it is present. */
 export function joined(store: string, env: Record<string, string | undefined> = process.env): boolean {
   const entry = programmeOf(store);
-  if ((env.PRICE_FEED_URLS ?? "").toLowerCase().includes(`:${store}@`)) return true;
+  if (feedLineStores(env.PRICE_FEED_URLS).includes(store)) return true;
   return livePrograms(env).some((p) => p.id === entry.programme || (entry.network === "amazon" && p.network === "amazon"));
 }
 
@@ -51,13 +90,45 @@ export function joined(store: string, env: Record<string, string | undefined> = 
  * Store ids whose display rules are off for this build, or "all": every programme not joined (unless
  * PROGRAMME_TERMS_ON names it), plus whatever PROGRAMME_TERMS_OFF names.
  */
-export function termsOff(env: Record<string, string | undefined> = process.env): Set<string> | "all" {
+export function termsOff(env: Record<string, string | undefined> = process.env, fed: ReadonlySet<string> = NO_FEEDS): Set<string> | "all" {
+  // Every shown price asks this; the answer is kept while the settings it reads are the same (see livePrograms).
+  if (fed.size) return computeTermsOff(env, fed);
+  const key = [env.PROGRAMME_TERMS_OFF, env.PROGRAMME_TERMS_ON, env.PRICE_FEED_URLS, programSettingsKey(env)].join("\u0001");
+  if (lastOff?.env === env && lastOff.key === key) return lastOff.off;
+  const off = computeTermsOff(env, fed);
+  lastOff = { env, key, off };
+  return off;
+}
+
+const NO_FEEDS: ReadonlySet<string> = new Set();
+let lastOff: { env: object; key: string; off: Set<string> | "all" } | null = null;
+
+function computeTermsOff(env: Record<string, string | undefined>, fed: ReadonlySet<string>): Set<string> | "all" {
   const off = idList(env.PROGRAMME_TERMS_OFF);
   if (off === "all") return "all";
   const on = idList(env.PROGRAMME_TERMS_ON);
   if (on === "all") return off;
-  for (const store of Object.keys(PROGRAMME_REGISTRY)) if (!on.has(store) && !joined(store, env)) off.add(store);
+  const named = new Set(off);
+  for (const store of Object.keys(PROGRAMME_REGISTRY)) {
+    if (on.has(store) || joined(store, env) || (fed.has(store) && !named.has(store))) continue;
+    off.add(store);
+  }
   return off;
+}
+
+/**
+ * The stores some of these sides were priced from through the store's own programme feed. Having its feed means being
+ * a member, so the build passes these to `termsOff` and their rules apply even when the build has no AFF_* setting
+ * for them (the Docker build reads affiliate settings from a file, and the feed list lives only in the workflow).
+ */
+export function feedStores(sides: Iterable<{ side: Side; seen?: Pick<PriceSeen, "feed"> }>): Set<string> {
+  const out = new Set<string>();
+  for (const { side, seen } of sides) {
+    if (!seen?.feed) continue;
+    const store = linkStore({ retailer: side.retailer, url: side.url ?? null });
+    if (programmeOf(store).network === seen.feed.network) out.add(store);
+  }
+  return out;
 }
 
 const isOff = (store: string, off: Set<string> | "all") => off === "all" || off.has(store);
@@ -83,24 +154,53 @@ export function rulesFor(side: Side, market: string, off: Set<string> | "all" = 
 /** A side whose price we may not show: which store, which rule, and the day we last checked it ourselves. */
 export type Withheld = { store: string; only: "feed" | "api"; date: string; precision: DatePrecision };
 
-const DAY_MS = 86_400_000;
+/** A side whose price may show only until `until` (an ISO time), when it becomes `Withheld` by itself. */
+export type Limited = Withheld & { until: string };
 
-/** Hours from an ISO day to the build day. A day-precise reading counts from the start of its day. */
-function hoursSince(day: string, buildDay: string) {
-  return (Date.parse(`${buildDay}T00:00:00Z`) - Date.parse(`${day}T00:00:00Z`)) / (DAY_MS / 24);
+const HOUR_MS = 3_600_000;
+
+/** A moment in milliseconds: an ISO time, or an ISO day read as the start of that day (UTC). */
+export function momentOf(iso: string) {
+  return Date.parse(/^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T00:00:00Z` : iso);
 }
 
 /**
- * Whether this side's price must be withheld. A feed rule is met by a reading from that programme's own network feed
- * seen within maxAgeHours of the build day; we read no programme's API, so an "api" rule is never met yet.
+ * When a feed reading was made. Readings with a time (`at`) count from it; older ones kept only the day and count from
+ * its start, which can only make them look older than they are.
  */
-export function priceWithheld(side: Side, seen: Pick<PriceSeen, "date" | "precision" | "feed">, market: string, buildDay: string, off?: Set<string> | "all"): Withheld | null {
+export function readAt(feed: { seen: string; at?: string }) {
+  return momentOf(feed.at ?? feed.seen);
+}
+
+/**
+ * What a price rule does to this side at `now` (an ISO time; a bare day means its start). Null: no price rule, so the
+ * price shows. `withheld`: it may not show. `limited`: it shows until `limited.until`, when the feed reading it came
+ * from turns maxAgeHours old. A feed rule is met only by a reading from that programme's own network feed; we read no
+ * programme's API, so an "api" rule is never met yet.
+ */
+export function priceLimit(
+  side: Side,
+  seen: Pick<PriceSeen, "date" | "precision" | "feed">,
+  market: string,
+  now: string,
+  off?: Set<string> | "all",
+): { withheld: Withheld } | { limited: Limited } | null {
   const rules = rulesFor(side, market, off);
   const rule = rules?.prices;
   if (!rules || !rule) return null;
+  const withheld: Withheld = { store: rules.store, only: rule.only, date: seen.date, precision: seen.precision };
   const feed = seen.feed;
-  if (rule.only === "feed" && feed && feed.network === rules.network && hoursSince(feed.seen, buildDay) < rule.maxAgeHours) return null;
-  return { store: rules.store, only: rule.only, date: seen.date, precision: seen.precision };
+  if (rule.only === "feed" && feed && feed.network === rules.network) {
+    const until = readAt(feed) + rule.maxAgeHours * HOUR_MS;
+    if (momentOf(now) < until) return { limited: { ...withheld, until: new Date(until).toISOString() } };
+  }
+  return { withheld };
+}
+
+/** Whether this side's price must be withheld at `now` (see priceLimit). */
+export function priceWithheld(side: Side, seen: Pick<PriceSeen, "date" | "precision" | "feed">, market: string, now: string, off?: Set<string> | "all"): Withheld | null {
+  const r = priceLimit(side, seen, market, now, off);
+  return r && "withheld" in r ? r.withheld : null;
 }
 
 /** Whether the store's terms bar price history (a chart or table of past prices) for this side. */

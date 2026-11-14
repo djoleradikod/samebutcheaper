@@ -27,12 +27,10 @@ In order of how likely they are to cost us a programme. Items 1 to 4 are not sol
    store names on one page, sometimes in one row of buttons. That is what the site is. Ask Walmart's affiliate team
    (affiliates-help-ext@wal-mart.com) whether a comparison page counts before relying on the programme; if it does, US
    swaps with a Walmart side would need to link only Walmart.
-3. **Walmart: prices must come from Walmart, within 24 hours, on pages built once a week.** §8 and §13. Without
-   Walmart's feed nothing of Walmart's is priced (done, below). Once its feed is joined, a price is shown only when
-   the feed was read on the day of the build. But the site is rebuilt weekly (`.github/workflows/price-watch.yml` and
-   `deploy.yml`, Mondays), so a price shown on Monday is still on the page on Sunday. **Before turning on Walmart's
-   feed, the price watch and the deploy must run daily**, or Walmart prices stay withheld (which is safe). Same for
-   Amazon's API once we have it.
+3. **Walmart: prices must come from Walmart, within 24 hours.** §8 and §13. Without Walmart's feed nothing of
+   Walmart's is priced (done, below). With its feed set, the Deploy workflow reads it and rebuilds every day, and the
+   server withholds a feed price by itself an hour before it turns 24 hours old, deploy or no deploy (done:
+   docs/prices-daily.md). Same for Amazon's API once we have it.
 4. **Amazon: the account closes without sales, and the API needs sales first.** Not a terms breach, but the reason
    Amazon prices stay withheld: Participation Requirements 2(b) allows prices only when Amazon serves them or they come
    from the Creators API or PA API, and docs/affiliate-playbook.md records that the Creators API needs qualifying
