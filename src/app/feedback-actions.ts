@@ -14,6 +14,7 @@ import { SITE } from "@/lib/site";
 import { visitorFrom } from "@/lib/visitor";
 import { normaliseQuery } from "@/lib/wanted";
 import { pricesOf } from "@/lib/watches";
+import { watchTerms } from "@/lib/watch-terms";
 import { getT } from "@/lib/i18n";
 
 /** The forms send the page's language, so the answer, and any email it leads to, reads in it. */
@@ -75,6 +76,7 @@ export async function watchSwap(_prev: FeedbackState, formData: FormData): Promi
   if (!email.success) return { ok: false, message: say("actions.validEmail") };
   const pair = getPair(String(formData.get("slug") ?? ""));
   if (!pair) return { ok: false, message: say("actions.noSwap") };
+  if (watchTerms(pair).alternative) return { ok: false, message: say("actions.watchBarred") };
   const visitor = visitorFrom(new Headers(await headers()));
   if (!rateLimit("forms", visitor.key, LIMITS.forms).ok) return tooMany(say);
   const db = getDb();

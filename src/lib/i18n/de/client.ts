@@ -217,6 +217,9 @@ export const feedback: Shape<typeof en.feedback> = {
   saving: "Wird gespeichert …",
   watch: "Vergleich beobachten",
   watchIdle: "Nur zu diesem Vergleich. Jede E-Mail enthält einen Link, mit dem du dich mit einem Klick abmeldest.",
+  watchBarred: (store) => `Keine Preisbeobachtung hier: Die Partnerbedingungen von ${store} erlauben keine Preisalarme für seine Produkte.`,
+  watchBrandBarred: (store) =>
+    `Die Partnerbedingungen von ${store} erlauben keine Preisalarme für seine Produkte. Diese Beobachtung folgt deshalb nur dem Preis des günstigeren Produkts, nicht der Ersparnis.`,
   howWeUse: "Wie wir deine Adresse verwenden",
   somethingWrong: "Stimmt etwas auf dieser Seite nicht?",
   whatsWrong: "Was stimmt nicht?",

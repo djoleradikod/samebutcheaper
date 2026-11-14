@@ -265,6 +265,7 @@ export const actions: Shape<typeof en.actions> = {
   validEmail: "Bitte gib eine gültige E-Mail-Adresse ein.",
   noSwap: "Wir konnten diesen Vergleich nicht finden.",
   watchesClosed: "Die Preisbeobachtung ist noch nicht verfügbar. Schau bald wieder vorbei.",
+  watchBarred: "Die Partnerbedingungen dieses Shops erlauben keine Preisalarme, deshalb lässt sich dieser Vergleich nicht beobachten.",
   startWatching: "diesen Vergleich zu beobachten",
   searchFirst: "Such zuerst nach einem Produktnamen.",
   notOpen: "Das ist noch nicht verfügbar. Schau bald wieder vorbei.",

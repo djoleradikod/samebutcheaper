@@ -5,6 +5,7 @@
  * scripts/report-revenue.ts reads the database and the export folder and hands the rows in.
  */
 import { clickStore, programmeOf, signupOf } from "../../src/lib/programmes";
+import { isVia, viaOfLink, viaOfPath, type PageType } from "../../src/lib/via";
 import type { Earning } from "./exports";
 
 export type ClickRow = {
@@ -17,36 +18,27 @@ export type ClickRow = {
   host: string | null;
   referrer: string | null;
   clickId: string | null;
+  /** Where the click came from, recorded with it since migration 0007 (src/lib/via.ts); null on older rows. */
+  via?: string | null;
 };
 
-export type PageType = "swap" | "kit" | "basket" | "check" | "list" | "search" | "other";
-
-const COUNTRY_PREFIX = /^\/(?:us|uk|de|ca|ie|country\/[a-z]{2})(?=\/|$)/;
+export type { PageType };
 
 /**
- * The page a click was made on. The referrer's path when it is ours (the site sends a full same-origin referrer), else
- * what the link itself says: /go/<swap>/<side> is only linked from swap pages, /go/<kit>/item-N and cart-* only from kit
- * pages, and a store search with no referrer is counted as "other". A basket links to swaps rather than out, so its
- * shoppers' clicks count on the swap page they click from.
+ * The page type a click came from. Its recorded `via` when it has one: a basket, the list check, search or an email
+ * that led to the swap page it was made on, or that page. Older rows have none, so the guess from before: the
+ * referrer's path when it is ours (the site sends a full same-origin referrer), else what the link itself says
+ * (/go/<swap>/<side> is only linked from swap pages, item-N and cart-* only from kit pages, and a store search with no
+ * referrer is "other").
  */
-export function pageTypeOf(click: Pick<ClickRow, "referrer" | "side" | "slug">, isKit: (slug: string) => boolean = () => false): PageType {
+export function pageTypeOf(click: Pick<ClickRow, "referrer" | "side" | "slug" | "via">, isKit: (slug: string) => boolean = () => false): PageType {
+  if (isVia(click.via)) return click.via;
   let path: string | null = null;
   try {
-    if (click.referrer) path = new URL(click.referrer).pathname.replace(COUNTRY_PREFIX, "") || "/";
+    if (click.referrer) path = new URL(click.referrer).pathname;
   } catch {}
-  if (path) {
-    if (/^\/compare\//.test(path) || /^\/dupe\//.test(path)) return "swap";
-    if (/^\/bundle\//.test(path)) return "kit";
-    if (/^\/basket\//.test(path)) return "basket";
-    if (/^\/check(\/|$)/.test(path)) return "check";
-    if (/^\/my-list(\/|$)/.test(path)) return "list";
-    if (/^\/search(\/|$)/.test(path)) return "search";
-    return "other";
-  }
-  if (click.side === "search") return "other";
-  if (/^(item-\d+|cart-)/.test(click.side) || isKit(click.slug)) return "kit";
-  if (["alternative", "brand", "bigger"].includes(click.side)) return "swap";
-  return "other";
+  if (path) return viaOfPath(path);
+  return viaOfLink(click.side, isKit(click.slug));
 }
 
 /** The day, or the Monday of the ISO week, in UTC. */

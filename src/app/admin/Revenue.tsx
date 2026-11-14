@@ -1,8 +1,11 @@
-import { and, desc, eq, gte, isNull, ne, sql, count } from "drizzle-orm";
+import { and, desc, eq, gte, ne, sql, count } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 import { getBundle, getPair } from "@/lib/catalog";
 import { PROGRAMS } from "@/lib/affiliate-programs";
-import { livePrograms, liveSubNetwork, programEnvKey, programFor } from "@/lib/affiliate-links";
+import { livePrograms, liveSubNetwork, programEnvKey } from "@/lib/affiliate-links";
+import type { PageType } from "@/lib/via";
+import { buildReport, type ClickRow } from "../../../scripts/revenue/report";
+import type { Earning } from "../../../scripts/revenue/exports";
 
 /**
  * Affiliate money on the dashboard: which links are tagged, which swaps earn
@@ -16,7 +19,7 @@ export async function Revenue({ since }: { since: Date }) {
   const v = schema.conversions;
   const earned = sql<number>`coalesce(sum(${v.commission}) filter (where ${v.status} <> 'reversed'), 0)`.mapWith(Number);
 
-  const [[tagged], money, bySwap, leaks, bySource] = await Promise.all([
+  const [[tagged], money, bySwap, clickRows, sales, bySource] = await Promise.all([
     db
       .select({ all: count(), tagged: sql<number>`count(${c.program})`.mapWith(Number) })
       .from(c)
@@ -39,13 +42,16 @@ export async function Revenue({ since }: { since: Date }) {
       .groupBy(c.pairSlug)
       .orderBy(desc(earned), desc(sql`count(distinct ${c.id})`))
       .limit(25),
+    // The window's clicks, for the untagged ranking and the page split as the revenue report works them out.
     db
-      .select({ host: c.host, n: count() })
+      .select({ createdAt: c.createdAt, slug: c.pairSlug, side: c.side, retailer: c.retailer, program: c.program, country: c.country, host: c.host, referrer: c.referrer, clickId: c.clickId, via: c.via })
       .from(c)
-      .where(and(gte(c.createdAt, since), isNull(c.program)))
-      .groupBy(c.host)
-      .orderBy(desc(count()))
-      .limit(15),
+      .where(gte(c.createdAt, since))
+      .limit(CLICK_ROWS),
+    db
+      .select({ clickId: v.clickId, network: v.network, orderId: v.orderId, commission: v.commission, currency: v.currency, status: v.status })
+      .from(v)
+      .where(and(gte(v.createdAt, since), ne(v.status, "reversed"))),
     db
       .select({
         source: c.source,
@@ -62,6 +68,19 @@ export async function Revenue({ since }: { since: Date }) {
       .limit(15),
   ]);
 
+  const earnings: Earning[] = sales.map((s) => ({
+    network: s.network,
+    orderId: s.orderId,
+    clickId: s.clickId,
+    advertiser: "",
+    commission: Number(s.commission),
+    sale: null,
+    currency: s.currency,
+    status: s.status === "approved" ? "approved" : "pending",
+    day: null,
+    file: "database",
+  }));
+  const report = buildReport(clickRows as ClickRow[], earnings, { by: "week", isKit: (slug) => Boolean(getBundle(slug)) });
   const rate = tagged?.all ? Math.round((100 * tagged.tagged) / tagged.all) : 0;
   const earnedText = money.length ? money.map((m) => fmt(m.earned, m.currency)).join(" + ") : "0";
   const salesCount = money.reduce((n, m) => n + m.sales, 0);
@@ -150,36 +169,79 @@ export async function Revenue({ since }: { since: Date }) {
       <div>
         <h2 className="text-xl font-semibold">Clicks that earned nothing, by store</h2>
         <p className="mt-1 text-sm text-muted">
-          Shoppers we sent to these stores without an affiliate tag. Join the top ones first.
+          Shoppers we sent to these stores without an affiliate tag, most first. Join the top ones first. Network and
+          sign-up page from data/sellers/programmes.json, as in <code>npm run report:revenue</code>.
         </p>
-        <table className="card num mt-3 w-full overflow-hidden text-sm">
+        <table className="stack card num mt-3 w-full overflow-hidden text-sm">
           <thead className="bg-surface-2 text-left text-xs text-muted">
-            <tr><th className="p-3">Store</th><th className="p-3">Program to join</th><th className="p-3 text-right">Clicks</th></tr>
+            <tr>
+              <th className="p-3">Store</th>
+              <th className="p-3 text-right">Untagged</th>
+              <th className="p-3 text-right">Share of untagged</th>
+              <th className="p-3 text-right">Of the store&apos;s clicks</th>
+              <th className="p-3">Programme to join</th>
+            </tr>
           </thead>
           <tbody className="divide-y divide-line">
-            {leaks.map((r) => {
-              const p = r.host ? programFor(`https://${r.host}/`) : undefined;
-              return (
-                <tr key={r.host ?? "unknown"}>
-                  <td className="p-3">{r.host ?? "(older clicks, store not logged)"}</td>
-                  <td className="p-3 text-muted">
-                    {p ? (
-                      <a href={p.signup} className="text-accent underline" target="_blank" rel="noreferrer">
-                        {p.name} ({p.network})
-                      </a>
-                    ) : (
-                      "none listed; a sub-network (Skimlinks or Sovrn) may cover it"
-                    )}
-                  </td>
-                  <td className="p-3 text-right font-semibold">{r.n}</td>
-                </tr>
-              );
-            })}
-            {leaks.length === 0 && (
-              <tr><td colSpan={3} className="p-6 text-center text-muted">Every click was tagged.</td></tr>
+            {report.leaks.slice(0, 15).map((l) => (
+              <tr key={l.store}>
+                <td className="p-3">{l.store}</td>
+                <td data-label="Untagged" className="p-3 text-right font-semibold">{l.untagged}</td>
+                <td data-label="Share of untagged" className="p-3 text-right">{pct(l.share)}</td>
+                <td data-label="Of the store's clicks" className="p-3 text-right">{pct(l.ofStore)}</td>
+                <td data-label="Programme" className="p-3 text-muted">
+                  {l.signup ? (
+                    <a href={l.signup} className="text-accent underline" target="_blank" rel="noreferrer">
+                      {l.programme ?? l.network} ({l.network})
+                    </a>
+                  ) : l.network === "unknown" ? (
+                    "none found yet; a sub-network (Skimlinks or Sovrn) may cover it"
+                  ) : (
+                    l.network
+                  )}
+                </td>
+              </tr>
+            ))}
+            {report.leaks.length === 0 && (
+              <tr><td colSpan={5} className="p-6 text-center text-muted">Every click was tagged.</td></tr>
             )}
           </tbody>
         </table>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-semibold">Clicks by page type, last 30 days</h2>
+        <p className="mt-1 text-sm text-muted">
+          Where each click came from: the page it was made on, or the basket, list check, search or email that led
+          there. Clicks before the page was recorded are worked out from the referrer and the link. Commission is summed
+          across currencies.
+        </p>
+        <table className="card num mt-3 w-full overflow-hidden text-sm">
+          <thead className="bg-surface-2 text-left text-xs text-muted">
+            <tr>
+              <th className="p-3">Page</th>
+              <th className="p-3 text-right">Clicks</th>
+              <th className="p-3 text-right">Tagged</th>
+              <th className="p-3 text-right">Commission</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-line">
+            {report.tables.page.map((r) => (
+              <tr key={r.key}>
+                <td className="p-3">{PAGE_LABEL[r.key as PageType] ?? r.key}</td>
+                <td className="p-3 text-right font-semibold">{r.clicks}</td>
+                <td className="p-3 text-right">{pct(r.tagged / r.clicks)}</td>
+                <td className="p-3 text-right">{Object.values(r.earned).reduce((a, b) => a + b, 0).toFixed(2)}</td>
+              </tr>
+            ))}
+            {report.tables.page.length === 0 && (
+              <tr><td colSpan={4} className="p-6 text-center text-muted">No outbound clicks yet.</td></tr>
+            )}
+          </tbody>
+        </table>
+        {clickRows.length >= CLICK_ROWS && (
+          <p className="mt-2 text-xs text-muted">The first {CLICK_ROWS.toLocaleString("en-US")} clicks of the window; run the revenue report for all of them.</p>
+        )}
       </div>
 
       <div>
@@ -227,6 +289,24 @@ export async function Revenue({ since }: { since: Date }) {
     </div>
   );
 }
+
+/** Most clicks the card reads for its tables; the CLI report reads them all. */
+const CLICK_ROWS = 50_000;
+
+const PAGE_LABEL: Record<PageType, string> = {
+  swap: "Swap page",
+  kit: "Kit page",
+  basket: "Basket",
+  check: "Product check",
+  listcheck: "List check",
+  list: "My list",
+  search: "Search",
+  letter: "Weekly letter",
+  email: "Other emails (watches, wishes)",
+  other: "Other (store searches with no referrer)",
+};
+
+const pct = (n: number) => `${Math.round(n * 100)}%`;
 
 function fmt(n: number, currency: string) {
   try {

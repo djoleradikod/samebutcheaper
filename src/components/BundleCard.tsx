@@ -13,18 +13,19 @@ import { kitCaution } from "@/lib/buy-list";
 import { cards } from "@/lib/i18n/en/client/cards";
 import { kits } from "@/lib/i18n/en/client/kits";
 import { productName } from "@/lib/i18n/product-name";
+import { withVia, type Via } from "@/lib/via";
 
 /** The English this component reads (src/lib/i18n/client-dict.ts). */
 const TEXT = { cards, kits };
 
 /** A brand's kit on the left, the cheaper pieces that replace it on the right. */
-export function BundleCard({ bundle, lang = "en" }: { bundle: Bundle; lang?: Lang }) {
+export function BundleCard({ bundle, lang = "en", via }: { bundle: Bundle; lang?: Lang; via?: Via }) {
   const t = clientT(lang, TEXT);
   const pieces = bundle.components.slice(0, 4);
   const caution = kitCaution(bundle);
   return (
     <Link
-      href={`/bundle/${bundle.slug}`}
+      href={via ? withVia(`/bundle/${bundle.slug}`, via) : `/bundle/${bundle.slug}`}
       className="card group flex h-full min-w-0 flex-col p-2.5 transition-colors hover:border-ink-2"
     >
       <div className="grid grid-cols-2 gap-1.5">

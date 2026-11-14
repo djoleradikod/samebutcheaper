@@ -10,10 +10,13 @@
  * - A strength on the line must be the product's strength ("NUROFEN 400MG" is not the 200 mg pack).
  * - A variant word on the line that the product doesn't have (zero, light, max, children, pods, size 5) rules it out,
  *   and one the product has that the line doesn't say makes it a "did you mean" at most.
+ * - A form on the line ("SAFT", "Tabletten", "spray", "syrup": ./forms.ts) narrows the brand's products to those in
+ *   that form, and rules out the rest; with the brand it counts like a brand-only line ("NUROFEN SAFT 100ML").
  * - A brand spelt nearly right (found with the site search's fuzzy matcher, Fuse) is only ever a "did you mean".
  * Confident matches show as swaps, uncertain ones as "did you mean", and the rest as nothing on file yet.
  */
 import Fuse from "fuse.js";
+import { formOf, formsIn, type Form } from "./forms";
 import { describing, strengthsIn, umlautsWrittenOut, words, type ParsedLine, type Size } from "./parse";
 
 /** What the matcher reads from a swap. Build it with toCandidate. */
@@ -77,8 +80,14 @@ const VARIANTS = new Set([
   "whole", "crunchy", "smooth", "creamy", "reduced", "low", "fresh", "akut", "forte", "duo", "dual", "rapid", "express",
   "aa", "aaa", "cr2032", "9v", "pm", "nighttime", "sleep", "sinus", "cold", "flu", "cough", "migraine", "arthritis", "nacht",
 ]);
-/** Dosage forms. One on the line that the product lacks rules it out; the line leaving it out is fine. */
-const FORMS = new Set(["tablet", "capsule", "liquid", "syrup", "suspension", "cream", "ointment", "drop", "sachet", "chewable", "lozenge"]);
+/**
+ * Forms ("Saft", "Tabletten", "spray": ./forms.ts). A form on the line that the product doesn't come in rules it out;
+ * the line leaving the form out is fine. A form word counts as one of the product's words when the product has it.
+ */
+const isForm = (w: string) => formOf(w) !== null;
+
+/** The words that say which of a brand's products a line means: not filler, a number, a size of nappy or a form. */
+const naming = (list: string[], brandWords: string[]) => describing(list).filter((w) => !brandWords.includes(w) && !isSpec(w) && !isForm(w));
 
 /** A size of nappy, a stage or a pasta number: "size4", "no5". Two different ones are two products. */
 const isSpec = (w: string) => /^(?:size|no)\d+$/.test(w);
@@ -104,6 +113,8 @@ type Group = {
   words: Set<string>;
   strengths: Set<string>;
   size: Size | null;
+  /** The forms the product's name and pack unit say it comes in ("Fieber- und Schmerzsaft": a liquid). */
+  forms: Set<Form>;
 };
 
 export type Index = {
@@ -163,6 +174,7 @@ export function buildIndex(candidates: readonly Candidate[]): Index {
       words: new Set([...words(text), ...words(umlautsWrittenOut(text))].filter((w) => !own.has(w))),
       strengths: new Set(strengthsIn([c.product, ...c.actives.map((a) => a.amount)].join(" "))),
       size: brandSize(c.size, c.unit),
+      forms: formsIn([...words(`${c.product} ${c.unit}`), ...words(umlautsWrittenOut(c.product))]),
     };
     groups.push(group);
     const key = brandWords.join(" ");
@@ -197,6 +209,12 @@ function brandOnLine(brand: string[], line: string[]) {
   return brand.every((w) => line.includes(w)) || line.includes(joined);
 }
 
+/** The word names a form the product comes in. */
+function hasForm(group: Group, w: string) {
+  const form = formOf(w);
+  return form !== null && group.forms.has(form);
+}
+
 type Scored = { group: Group; coverage: number; matched: number; sizeMatch: boolean; missingVariant: boolean };
 
 function score(item: Item, group: Group, brandWords: string[]): Scored | null {
@@ -209,10 +227,11 @@ function score(item: Item, group: Group, brandWords: string[]): Scored | null {
   const groupSpecs = [...group.words].filter(isSpec);
   if (specs.length && !specs.some((s) => groupSpecs.includes(s))) return null;
   // A variant or a form the line names that the product doesn't have.
-  if (lineWords.some((w) => (VARIANTS.has(w) || FORMS.has(w)) && !group.words.has(w))) return null;
+  if (lineWords.some((w) => VARIANTS.has(w) && !isForm(w) && !group.words.has(w))) return null;
+  for (const form of formsIn(lineWords)) if (!group.forms.has(form)) return null;
 
   const plain = lineWords.filter((w) => !isSpec(w));
-  const matched = plain.filter((w) => found(w, group.words)).length;
+  const matched = plain.filter((w) => found(w, group.words) || hasForm(group, w)).length;
   const coverage = plain.length ? matched / plain.length : item.strengths.length ? 1 : 0;
   const sizeMatch = Boolean(group.size && item.sizes.some((s) => sameSize(s, group.size!)));
   const said = new Set(lineWords);
@@ -257,7 +276,8 @@ export function matchLine(item: Item, index: Index): LineMatch {
   if (!top) return { status: "none" };
   const pick = { slug: top.group.slugs[0], others: top.group.slugs.length - 1 };
 
-  const said = describing(line).filter((w) => !brandWords.includes(w) && !isSpec(w)).length;
+  // Nothing but the brand, and perhaps a strength, a size or a form ("NUROFEN SAFT 100ML"): narrow the brand's products.
+  const said = naming(line, brandWords).length;
   if (said === 0) return brandOnly(item, scored, true);
   // The line's words are the product's, it wins outright, and nothing the product is (a variant) went unsaid unless the pack size says it.
   const confident = ahead(top, next) && (!top.missingVariant || top.sizeMatch) && top.coverage >= 0.75 && top.matched >= 1;
@@ -323,7 +343,7 @@ function fuzzyMatch(item: Item, index: Index): LineMatch {
         .sort(better);
       const top = scored[0];
       if (!top) continue;
-      const said = describing(fixed.words).filter((w) => !brandWords.includes(w) && !isSpec(w)).length;
+      const said = naming(fixed.words, brandWords).length;
       // A brand spelt nearly right and nothing else to go on is too little, even for a question.
       if (said === 0 && (item.strengths.length || scored.some((s) => s.sizeMatch))) return brandOnly(fixed, scored, false);
       if (said > 0 && top.coverage >= 0.5) {

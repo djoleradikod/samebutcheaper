@@ -19,6 +19,7 @@ import { useLang, useT } from "@/lib/i18n/client";
 import type { ClientT } from "@/lib/i18n/client-dict";
 import { pageBasket } from "@/lib/i18n/en/pages/basket";
 import { rich } from "@/lib/i18n/rich";
+import { withVia } from "@/lib/via";
 
 /** The English this file reads (src/lib/i18n/client-dict.ts); the German loads on German pages only. */
 const TEXT = { pageBasket };
@@ -317,7 +318,7 @@ function Line({ line, index }: { line: BasketLineView; index: number }) {
   const lang = useLang();
   const n = qty[index];
   const cost = scaled(line, n);
-  const href = `/compare/${line.slug}`;
+  const href = withVia(`/compare/${line.slug}`, "basket");
   const kind = line.subcategory.replace(/\s+-\s+/g, ": ");
   return (
     <li className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-2.5 p-3 md:grid-cols-[auto_minmax(0,1fr)_auto_11rem] md:items-center md:gap-x-5 md:p-4">

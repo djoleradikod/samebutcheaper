@@ -22,12 +22,12 @@ const NOTE_MAX = 300;
  * The foot of a swap or kit page: "Email me if this changes" (swaps only) and a small "Something wrong?" form.
  * Both are plain forms posting to server actions, so they work with keyboard and screen reader alike.
  */
-export function RecordFeedbackForms({ record, slug, note }: { record: "pair" | "bundle"; slug: string; note?: ReactNode }) {
+export function RecordFeedbackForms({ record, slug, note, watch = {} }: { record: "pair" | "bundle"; slug: string; note?: ReactNode; watch?: WatchLimits }) {
   const inner = (
     <>
       {note}
       <div className={`grid gap-4 ${record === "pair" ? "lg:grid-cols-2" : ""}`}>
-        {record === "pair" && <WatchForm slug={slug} />}
+        {record === "pair" && <WatchForm slug={slug} limits={watch} />}
         <ReportForm record={record} slug={slug} />
       </div>
     </>
@@ -47,7 +47,13 @@ function Honeypot() {
   return <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />;
 }
 
-function WatchForm({ slug }: { slug: string }) {
+/**
+ * What a store's affiliate terms leave of the price watch (src/lib/watch-terms.ts), by store name: `barred` when the
+ * cheaper product's price may not be watched (no watch), `brandBarred` when only the brand's may not (no saving).
+ */
+export type WatchLimits = { barred?: string; brandBarred?: string };
+
+function WatchForm({ slug, limits }: { slug: string; limits: WatchLimits }) {
   const [state, action, pending] = useActionState<FeedbackState, FormData>(watchSwap, null);
   const id = useId();
   const t = useT(TEXT);
@@ -57,8 +63,15 @@ function WatchForm({ slug }: { slug: string }) {
       <h2 id={`${id}-t`} className="text-base font-semibold">
         {t("feedback.watchHeading")}
       </h2>
-      <p className="mt-1 text-sm text-ink-2">{t("feedback.watchIntro")}</p>
-      {state?.ok ? (
+      {limits.barred ? (
+        <p className="mt-1 text-sm text-ink-2">{t("feedback.watchBarred", limits.barred)}</p>
+      ) : (
+        <>
+          <p className="mt-1 text-sm text-ink-2">{t("feedback.watchIntro")}</p>
+          {limits.brandBarred && <p className="mt-1 text-sm text-ink-2">{t("feedback.watchBrandBarred", limits.brandBarred)}</p>}
+        </>
+      )}
+      {limits.barred ? null : state?.ok ? (
         <Status state={state} />
       ) : (
         <form action={action} className="mt-3">

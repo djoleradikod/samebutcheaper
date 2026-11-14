@@ -58,7 +58,7 @@ async function main() {
     const v = schema.conversions;
     const [clicks, conversions] = await Promise.all([
       db
-        .select({ createdAt: c.createdAt, slug: c.pairSlug, side: c.side, retailer: c.retailer, program: c.program, country: c.country, host: c.host, referrer: c.referrer, clickId: c.clickId })
+        .select({ createdAt: c.createdAt, slug: c.pairSlug, side: c.side, retailer: c.retailer, program: c.program, country: c.country, host: c.host, referrer: c.referrer, clickId: c.clickId, via: c.via })
         .from(c)
         .where(and(gte(c.createdAt, since), lt(c.createdAt, until))),
       db.select().from(v).where(gte(v.createdAt, since)),

@@ -10,6 +10,7 @@ import { getT } from "@/lib/i18n";
 import { productName } from "@/lib/i18n/product-name";
 import { subcategoryName } from "@/lib/i18n/record";
 import { getLang } from "@/lib/i18n/server";
+import { withVia } from "@/lib/via";
 
 export const metadata: Metadata = {
   title: "My savings list",
@@ -23,7 +24,7 @@ export default function MyListPage() {
   const items: ListItem[] = [
     ...getAllPairs().map((p) => ({
       slug: p.slug,
-      href: `/compare/${p.slug}`,
+      href: withVia(`/compare/${p.slug}`, "list"),
       kind: "swap" as const,
       from: p.brand.brand,
       to: p.alternative.brand,
@@ -43,7 +44,7 @@ export default function MyListPage() {
       const piece = b.components.find((c) => c.photo) ?? b.components[0];
       return {
         slug: b.slug,
-        href: `/bundle/${b.slug}`,
+        href: withVia(`/bundle/${b.slug}`, "list"),
         kind: "kit" as const,
         from: b.bundle.brand,
         to: t("myListPage.cheaperItems", b.components.length),

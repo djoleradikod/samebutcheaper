@@ -1,8 +1,11 @@
 import { getAllBundles, getAllPairs, toSummary } from "@/lib/catalog";
-import type { BundleSummary, SwapIndex } from "@/lib/browse";
+import type { BundleSummary, IndexPair, SwapIndex } from "@/lib/browse";
 import type { Bundle, Pair } from "@/lib/types";
 import { subcategoryName } from "@/lib/i18n/record";
 import { ratingLabelDe } from "@/lib/i18n/compare-de";
+import { getT } from "@/lib/i18n";
+import { CATEGORIES } from "@/lib/categories";
+import { ingredientNames, type AisleNames } from "@/lib/search-index";
 
 function toBundleSummary(b: Bundle): BundleSummary {
   return {
@@ -36,10 +39,19 @@ function toBundleSummary(b: Bundle): BundleSummary {
   };
 }
 
-/** A swap's card, with its shelf and rating in German for German pages (src/lib/browse.ts). */
-function toIndexPair(p: Pair) {
+/**
+ * A swap's card, with its shelf and rating in German for German pages (src/lib/browse.ts), and its ingredient names in
+ * English and German for the search (src/lib/search-index.ts), which reads them in place of the card's `keywords`.
+ */
+function toIndexPair(p: Pair): IndexPair {
   const rating = p.alternative.rating;
-  return { ...toSummary(p), de: { subcategory: subcategoryName(p.subcategory, "de"), altRating: rating ? ratingLabelDe(rating) : null } };
+  return { ...toSummary(p), keywords: "", ing: ingredientNames(p), de: { subcategory: subcategoryName(p.subcategory, "de"), altRating: rating ? ratingLabelDe(rating) : null } };
+}
+
+/** Each aisle's names to search by: the English name and the German one. */
+function aisleNames(): AisleNames {
+  const de = getT("de");
+  return Object.fromEntries(CATEGORIES.map((c) => [c.slug, `${c.name}\n${de(`categories.${c.slug}.name`)}`]));
 }
 
 /**
@@ -50,6 +62,7 @@ export async function GET() {
   const index: SwapIndex = {
     pairs: getAllPairs().map(toIndexPair),
     bundles: getAllBundles().map(toBundleSummary),
+    aisles: aisleNames(),
   };
   return Response.json(index);
 }

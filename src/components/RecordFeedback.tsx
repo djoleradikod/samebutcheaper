@@ -2,13 +2,19 @@ import { Suspense } from "react";
 import { reportedRecords } from "@/lib/reported";
 import { RecordFeedbackForms } from "./RecordFeedbackForms";
 import { getT, type Lang } from "@/lib/i18n";
+import { getPair } from "@/lib/catalog";
+import { watchTerms } from "@/lib/watch-terms";
 
 /**
  * The foot of a swap or kit page: "Email me if this changes" (swaps only) and the "Something wrong?" form. The shoppers'
  * reports note sits by the price instead (ReportedPriceNote). The forms read the page's language themselves (useT).
  */
 export function RecordFeedback({ record, slug }: { record: "pair" | "bundle"; slug: string }) {
-  return <RecordFeedbackForms record={record} slug={slug} />;
+  // A price from a store whose affiliate terms bar price alerts is never watched (src/lib/watch-terms.ts).
+  const pair = record === "pair" ? getPair(slug) : undefined;
+  const terms = pair ? watchTerms(pair) : null;
+  const watch = terms?.alternative ? { barred: terms.alternative.name } : terms?.brand ? { brandBarred: terms.brand.name } : {};
+  return <RecordFeedbackForms record={record} slug={slug} watch={watch} />;
 }
 
 /**

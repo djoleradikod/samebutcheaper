@@ -5,6 +5,7 @@ import { leadFirst } from "./freshness";
 import type { PhotoTier } from "./photos";
 import type { Bundle, CategorySlug, MatchType, PairSummary } from "./types";
 import type { Lang } from "./i18n/lang";
+import type { AisleNames } from "./search-index";
 
 /**
  * How a list of swaps is filtered and sorted. Pure, so the server can work out what the
@@ -59,14 +60,22 @@ export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers"
  * A swap in the index, with what a German page shows in place of the English: the shelf and the rating. The index is
  * one file for every page, so the German rides along rather than being a second download.
  */
-export type IndexPair = PairSummary & { de?: { subcategory: string; altRating: string | null } };
+export type IndexPair = PairSummary & {
+  /**
+   * Active ingredient names, English and German, one per line: what the search finds by ingredient (search-index.ts).
+   * The index leaves `keywords` empty, as the search reads this instead.
+   */
+  ing: string;
+  de?: { subcategory: string; altRating: string | null };
+};
 
 /** A card as the page's language shows it. */
-export function cardIn(p: IndexPair, lang: Lang): PairSummary {
+export function cardIn(p: PairSummary & Pick<IndexPair, "de">, lang: Lang): PairSummary {
   return lang !== "en" && p.de ? { ...p, ...p.de } : p;
 }
 
-export type SwapIndex = { pairs: IndexPair[]; bundles: BundleSummary[] };
+/** `aisles`: each aisle's names in English and German, for the search (src/lib/search-index.ts). */
+export type SwapIndex = { pairs: IndexPair[]; bundles: BundleSummary[]; aisles: AisleNames };
 
 export const SORTS = [
   { value: "saving", label: "Biggest saving" },

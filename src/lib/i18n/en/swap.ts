@@ -255,6 +255,7 @@ export const actions = {
   validEmail: "Please enter a valid email address.",
   noSwap: "We couldn't find this swap.",
   watchesClosed: "Price watches aren't open yet. Please check back soon.",
+  watchBarred: "This store's affiliate terms don't allow price alerts, so this swap can't be watched.",
   startWatching: "start watching this swap",
   searchFirst: "Search for a product name first.",
   notOpen: "This isn't open yet. Please check back soon.",

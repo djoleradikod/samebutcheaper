@@ -34,6 +34,8 @@ export const clicks = pgTable(
     host: varchar("host", { length: 80 }),
     /** First-touch traffic source (utm_source or referring site), from the sbc_src cookie set in src/proxy.ts. */
     source: varchar("source", { length: 40 }),
+    /** The page type the click came from ("basket", "search", "letter": src/lib/via.ts). Null on older rows. */
+    via: varchar("via", { length: 16 }),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => [
