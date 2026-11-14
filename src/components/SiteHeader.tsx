@@ -56,14 +56,15 @@ export function SiteHeader({ lang = "en" }: { lang?: Lang }) {
             >
               {t("header.check")}
             </Link>
-            <Link
-              href="/my-list"
-              className="hidden h-11 min-w-11 items-center justify-center px-1.5 text-sm font-medium text-ink-2 hover:text-ink min-[360px]:inline-flex md:h-9"
-            >
+            {/* The link is an overlay, like the logo's: a small boundary stays in the first HTML (see CountryLink). */}
+            <span className="relative hidden h-11 min-w-11 items-center justify-center px-1.5 text-sm font-medium text-ink-2 hover:text-ink min-[360px]:inline-flex md:h-9">
               <Bookmark className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span className="sr-only xl:not-sr-only xl:ml-1.5">{t("header.myList")}</span>
+              <span aria-hidden="true" className="hidden xl:ml-1.5 xl:inline">
+                {t("header.myList")}
+              </span>
               <SavedCount />
-            </Link>
+              <Link href="/my-list" aria-label={t("header.myList")} className="absolute inset-0" />
+            </span>
             <span className="hidden lg:block">
               <CountryPicker withName />
             </span>
