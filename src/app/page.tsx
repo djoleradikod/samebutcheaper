@@ -62,7 +62,7 @@ function basketsFor(local: Local) {
     .sort((a, b) => rank(a) - rank(b) || unrated(a) - unrated(b))
     .slice(0, 6);
   const photos = assignBasketPhotos(chosen);
-  return chosen.map((p) => toBasketSummary(p, photos.get(p.slug)));
+  return chosen.map((p) => toBasketSummary(p, photos.get(p.slug), local.lang));
 }
 
 /**

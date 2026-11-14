@@ -60,6 +60,11 @@ const ABBREVIATIONS: Record<string, string> = {
   capsules: "capsule",
   kapseln: "capsule",
   hartkapseln: "capsule",
+  // "Zäpfchen" on a German list, "Suppositorien" on the pack
+  zapfchen: "suppository",
+  zaepfchen: "suppository",
+  suppositorien: "suppository",
+  suppositories: "suppository",
   softgel: "capsule",
   softgels: "capsule",
   sftgl: "capsule",
@@ -123,6 +128,8 @@ const ABBREVIATIONS: Record<string, string> = {
 const FILLER = new Set([
   "the", "and", "with", "of", "for", "in", "a", "an", "und", "mit", "fur", "fuer", "der", "die", "das",
   "pack", "pk", "new", "promo", "offer", "multibuy", "each", "ea", "x", "uk", "us", "de",
+  // German list words: "Packung", "Stück", "neu", "Aktion"
+  "packung", "packungen", "pckg", "stuck", "stueck", "stk", "stck", "flasche", "beutel", "neu", "aktion", "angebot",
 ]);
 
 /**
@@ -197,10 +204,13 @@ const MEASURE_UNITS: Record<string, { unit: Size["unit"]; times: number }> = {
   lbs: { unit: "oz", times: 16 },
 };
 
-/** A measured amount or a count, with what follows the number. Forms (tabs, caps) are counted but their word stays. */
+/**
+ * A measured amount or a count, with what follows the number. Forms (tabs, caps) are counted but their word stays.
+ * The German words come first, so "24 Stück" isn't read as "24 St" with "ück" left over.
+ */
 const SIZE =
-  /(\d+(?:[.,]\d+)?)\s?(fl\.?\s?oz|ml|cl|ltr|litres?|liters?|lt|l|kg|grams?|gr|g|oz|lbs?|ct|count|pk|packs?|s|st|stk|stuck|stueck|wl|washes|wash|loads?|rolls?|rol|sheets?|bags?|nappies|pants|wipes?|pads?|cells?|filters?|tea\s?bags)(?![a-z])/gi;
-const COUNTED_FORM = /(\d+)\s?(?:tabs?|tablets?|tabletten|caps|capsules?|caplets?|cplts?|softgels?|kapseln)\b/gi;
+  /(\d+(?:[.,]\d+)?)\s?(stc?k\.|btl\.|pckg?\.|st(?:ü|ue|u)ck|stck|packungen?|pckg?|pkg|flaschen?|beutel|btl|rollen?|t(?:ü|ue|u)cher|blatt|waschg(?:ä|ae|a)nge|waschladungen?|wg|fl\.?\s?oz|ml|cl|ltr|litres?|liters?|lt|l|kg|grams?|gr|g|oz|lbs?|ct|count|pk|packs?|s|st|stk|stuck|stueck|wl|washes|wash|loads?|rolls?|rol|sheets?|bags?|nappies|pants|wipes?|pads?|cells?|filters?|tea\s?bags)(?![a-z])/gi;
+const COUNTED_FORM = /(\d+)\s?(?:tabs?|tablets?|(?:film|brause|kau|lutsch|schmelz)?tabletten|dragees|caps|capsules?|caplets?|cplts?|softgels?|(?:weich|hart)?kapseln)\b/gi;
 const MULTIPACK = /(\d+)\s?[x×]\s?(\d+(?:[.,]\d+)?)\s?(ml|cl|l|g|kg|oz)\b/gi;
 
 function sizeFrom(amount: string, unit: string): Size | null {

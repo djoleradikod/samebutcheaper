@@ -68,11 +68,10 @@
   },
   "ben-u-ron-vs-paracetamol-adgc-500mg-de": {
     "summary": "Beide sind Tabletten mit 500 mg Paracetamol in der 20er-Packung, die ohne Rezept verkauft wird.",
-    "evidence": "medikamente-per-klick (Händler: sonstige) führt ben-u-ron 500 mg Tabletten von bene Arzneimittel (PZN 00116694), 20 Tabletten. Shop Apotheke (Händler: sonstige) führt Paracetamol ADGC 500 mg Tabletten von Zentiva (PZN 17502496) mit 500 mg Paracetamol pro Tablette, apothekenpflichtig. In Deutschland sind nur Packungen bis 10 g Paracetamol (20 x 500 mg) rezeptfrei; Shop Apotheke kennzeichnet die ben-u-ron-Packung mit 50 Tabletten als verschreibungspflichtig.",
+    "evidence": "APONEO führt ben-u-ron 500 mg Tabletten von bene Arzneimittel (PZN 00116694), 20 Tabletten, und Paracetamol ADGC 500 mg Tabletten von Zentiva (PZN 17502496) mit 500 mg Paracetamol pro Tablette; beide sind apothekenpflichtig. Beide Preise wurden am 13. Nov. 2026 auf aponeo.de abgelesen und mit einem zweiten Abruf erneut geprüft.",
     "differences": [
-      "Die Preise stammen aus zwei verschiedenen Online-Apotheken.",
-      "Die Hilfsstoffe können sich unterscheiden.",
-      "Paracetamol-ratiopharm 500 mg (20 Tabletten, 2,59 EUR bei Shop Apotheke) ist eine weitere geprüfte Option."
+      "Beide Preise stammen von APONEO.",
+      "Die Hilfsstoffe unterscheiden sich, und die ADGC-Tabletten enthalten zwei Parabene als Konservierungsmittel."
     ],
     "aspects": [
       { "aspect": "Hersteller", "brand": "bene Arzneimittel GmbH, München", "alternative": "Zentiva Pharma GmbH (ADGC-Linie)" },

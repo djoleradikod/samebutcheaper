@@ -48,3 +48,6 @@ __pycache__/
 
 # database backups written by the backup service
 /backups/
+
+# Commission exports for npm run report:revenue (order ids and amounts)
+/reports/

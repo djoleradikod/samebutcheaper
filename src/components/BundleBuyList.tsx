@@ -6,7 +6,7 @@ import { buyListText, namesPack, type BuyStore } from "@/lib/buy-list";
 import type { Checkout } from "@/lib/delivery";
 import type { Currency } from "@/lib/format";
 import { useLocal } from "@/lib/client/country";
-import { DeliveryLine } from "./CheckoutCard";
+import { DeliveryLine, useCheckoutT } from "./CheckoutCard";
 import { Money } from "./Money";
 
 /* Ticks live on this device only, one list per kit. */
@@ -76,6 +76,7 @@ export function BundleBuyList({
   checked: string;
 }) {
   const local = useLocal();
+  const t = useCheckoutT();
   const ticks = useSyncExternalStore(subscribe, () => readTicks(slug), () => NONE);
   const [copied, setCopied] = useState<"yes" | "no" | null>(null);
   const total = stores.reduce((n, s) => n + s.pieces.length, 0);
@@ -84,7 +85,13 @@ export function BundleBuyList({
   const toggle = (index: number) => writeTicks(slug, ticks.includes(index) ? ticks.filter((t) => t !== index) : [...ticks, index]);
 
   const copy = async () => {
-    const text = buyListText({ title, url, stores, checkout, money: (n) => local.money(n, currency), checked });
+    const text = buyListText({ title, url, stores, checkout, money: (n) => local.money(n, currency), checked, words: {
+      free: t("pageCheckout.text.free"),
+      fee: (fee) => t("pageCheckout.text.fee", fee),
+      notChecked: t("pageCheckout.text.notChecked"),
+      total: (unchecked, amount) => t("pageCheckout.text.total", unchecked, amount),
+      checked: (when) => t("pageCheckout.text.checked", when),
+    } });
     try {
       await navigator.clipboard.writeText(text);
       setCopied("yes");
@@ -99,10 +106,10 @@ export function BundleBuyList({
       <div className="border-b border-line px-4 pt-3 pb-2.5">
         <div className="flex items-baseline justify-between gap-3">
           <h2 id="buy-list-title" className="text-base">
-            Buying list
+            {t("pageCheckout.buyingList")}
           </h2>
           <p className="text-[13px] font-medium text-ink-2" aria-live="polite">
-            {done === total ? `All ${total} in your basket` : `${done} of ${total} in your basket`}
+            {done === total ? t("pageCheckout.allInBasket", total) : t("pageCheckout.someInBasket", done, total)}
           </p>
         </div>
         <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-line" aria-hidden="true">
@@ -120,7 +127,7 @@ export function BundleBuyList({
                 <h3 className="text-sm font-semibold">
                   {stores.length > 1 && <span className="text-muted">{n + 1}. </span>}
                   {store.name}
-                  {storeDone && <span className="sr-only">, done</span>}
+                  {storeDone && <span className="sr-only">{t("pageCheckout.done")}</span>}
                 </h3>
                 {order && (
                   <p className="price text-sm">
@@ -135,7 +142,7 @@ export function BundleBuyList({
               )}
               {store.cartHref && (
                 <a href={store.cartHref} target="_blank" rel="sponsored nofollow noopener" className="btn btn-primary mt-2 w-full text-sm">
-                  <ShoppingCart className="h-4 w-4" aria-hidden="true" /> Add all {store.pieces.length} to your {store.name} basket
+                  <ShoppingCart className="h-4 w-4" aria-hidden="true" /> {t("pageCheckout.addAll", store.pieces.length, store.name)}
                 </a>
               )}
               <ul className="mt-1.5 space-y-0.5">
@@ -152,7 +159,7 @@ export function BundleBuyList({
                           checked={on}
                           onChange={() => toggle(p.index)}
                           className="h-5 w-5 cursor-pointer accent-same"
-                          aria-label={`${p.name}: in my ${store.name} basket`}
+                          aria-label={t("pageCheckout.inMyBasket", p.name, store.name)}
                         />
                       </label>
                       <div className="min-w-0 flex-1 py-2.5">
@@ -174,7 +181,7 @@ export function BundleBuyList({
                         <p className="mt-0.5 text-xs text-muted">
                           {!namesPack(p.name, p.pack) && `${p.pack}, `}
                           <span className="num"><Money n={p.price} from={currency} /></span>
-                          <span className="sr-only">, instead of {p.replaces}</span>
+                          <span className="sr-only">{t("pageCheckout.insteadOf", p.replaces)}</span>
                         </p>
                       </div>
                     </li>
@@ -188,7 +195,7 @@ export function BundleBuyList({
 
       <div className="rounded-b-card border-t border-line-strong bg-canvas px-4 py-3">
         <div className="flex items-baseline justify-between gap-3">
-          <p className="text-sm font-medium">{checkout.delivery === null ? "Total, before unchecked delivery" : "Total, delivered"}</p>
+          <p className="text-sm font-medium">{t("pageCheckout.total", checkout.delivery === null)}</p>
           <p className="price text-lg">
             <Money n={checkout.payToday} from={currency} />
           </p>
@@ -196,7 +203,7 @@ export function BundleBuyList({
         <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
           <button type="button" onClick={copy} className="btn btn-ghost text-sm">
             {copied === "yes" ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
-            {copied === "yes" ? "Copied" : "Copy the list"}
+            {copied === "yes" ? t("pageCheckout.copied") : t("pageCheckout.copy")}
           </button>
           {done > 0 && (
             <button
@@ -204,15 +211,15 @@ export function BundleBuyList({
               onClick={() => writeTicks(slug, [])}
               className="inline-flex min-h-11 items-center text-[13px] font-medium text-cobalt underline underline-offset-2"
             >
-              Clear ticks
+              {t("pageCheckout.clearTicks")}
             </button>
           )}
           <span className="sr-only" aria-live="polite">
-            {copied === "yes" ? "The list is copied." : copied === "no" ? "Your browser didn't let us copy. Select the list and copy it instead." : ""}
+            {copied === "yes" ? t("pageCheckout.copiedNote") : copied === "no" ? t("pageCheckout.copyFailedNote") : ""}
           </span>
         </div>
-        {copied === "no" && <p className="mt-1 text-xs text-different">Your browser didn&apos;t let us copy. Try again, or use the store links above.</p>}
-        <p className="mt-1 text-xs text-muted">Ticks stay on this device only.</p>
+        {copied === "no" && <p className="mt-1 text-xs text-different">{t("pageCheckout.copyFailed")}</p>}
+        <p className="mt-1 text-xs text-muted">{t("pageCheckout.ticksHere")}</p>
       </div>
     </section>
   );

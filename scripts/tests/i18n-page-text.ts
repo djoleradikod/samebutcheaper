@@ -15,6 +15,8 @@ const BLOCK = /<\/?(p|div|li|ul|ol|h[1-6]|section|article|header|footer|nav|main
 export function pageText(html: string) {
   const body = html.slice(html.indexOf("<body"));
   return body
+    // A boundary React finished later in the stream: hidden, and swapped in for its fallback, which was read in place.
+    .replace(/<div hidden id="S:\d+">[\s\S]*?<\/div>(?=<script\b)/g, "")
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
     .replace(/<style\b[\s\S]*?<\/style>/gi, "")
     .replace(/<template\b[\s\S]*?<\/template>/gi, "")

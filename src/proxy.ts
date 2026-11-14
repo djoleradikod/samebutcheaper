@@ -127,7 +127,7 @@ export function countryRoute(pathname: string): { country: string; internal: str
   if (isInternalPath(pathname)) return "missing";
   const { country, rest } = readPath(pathname);
   if (!country) return null;
-  if (!isPrefixable(rest) || isMissingPage(rest)) return "missing";
+  if (!isPrefixable(rest, country) || isMissingPage(rest)) return "missing";
   return { country, internal: internalPath(pathname)! };
 }
 

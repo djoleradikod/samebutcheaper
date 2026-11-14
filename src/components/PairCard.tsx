@@ -8,6 +8,8 @@ import { ProductThumb } from "./ProductThumb";
 import { PctTicket } from "./Ticket";
 import { ToArrow, UnitPrice } from "./UnitPrice";
 import { cards } from "@/lib/i18n/en/client/cards";
+import { productDetail } from "@/lib/product-detail";
+import { productName } from "@/lib/i18n/product-name";
 
 /** The English this component reads (src/lib/i18n/client-dict.ts). */
 const TEXT = { cards };
@@ -65,6 +67,7 @@ export function PairCard({ pair, rank, eager = false, lang = "en" }: { pair: Pai
           <ToArrow />
           {pair.altName}
         </p>
+        <ProductLine pair={pair} lang={lang} className="mt-0.5 line-clamp-2" />
         <UnitPrice
           unit={pair.unit}
           alt={pair.altPpu}
@@ -84,6 +87,13 @@ export function PairCard({ pair, rank, eager = false, lang = "en" }: { pair: Pai
   );
 }
 
+/** The brand-name product, so a brand's swaps don't all read "Nurofen -> Tesco Health". */
+function ProductLine({ pair, lang, className }: { pair: PairSummary; lang: Lang; className: string }) {
+  // On a German page the pack words after the comma are German ("24 Tabletten"), as everywhere else (product-name.ts).
+  const detail = productDetail(pair.brandName, productName(pair.brandProduct, lang));
+  return detail ? <span className={`block text-xs leading-snug text-ink-2 ${className}`}>{detail}</span> : null;
+}
+
 /**
  * A swap with no photo on either side, as one line of text on a desktop and two on a phone:
  * brand to cheaper name and the saving, then unit price against unit price and the match.
@@ -99,6 +109,7 @@ export function PairRow({ pair, lang = "en" }: { pair: PairSummary; lang?: Lang 
         {pair.brandName}
         <ToArrow />
         {pair.altName}
+        <ProductLine pair={pair} lang={lang} className="font-normal" />
       </p>
       <PctTicket
         pct={pair.savingsPct}

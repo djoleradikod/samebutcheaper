@@ -13,9 +13,11 @@ import { dateDe, formatMoneyDe, formatPercent, monthDe, shortDateDe } from "../.
 import { langForPage, langOfPath } from "../../src/lib/i18n/lang";
 import { numberProblem, numbersIn, pairDeProblems } from "../../src/lib/i18n/record-check";
 import { getT } from "../../src/lib/i18n";
+import { productName } from "../../src/lib/i18n/product-name";
 import { money } from "../../src/lib/format";
 import { categoryDescription, categoryTitle, DESCRIPTION_MAX, hreflangFor, recordVersions, swapDescriptionsDe, swapTitles } from "../../src/lib/seo";
 import { CATEGORIES } from "../../src/lib/categories";
+import { isPrefixable, withCountry } from "../../src/lib/country-url";
 import type { Catalog, Pair } from "../../src/lib/types";
 
 const catalog = catalogJson as unknown as Catalog;
@@ -100,18 +102,20 @@ test("German aisle titles and descriptions are unique and fit", () => {
   assert.equal(categoryTitle("Household & Cleaning", 3), "Cheaper household & cleaning: 3 brand-name swaps", "English unchanged");
 });
 
-test("a URL's language: /de is German, kits and baskets stay whole English pages, the rest is English", () => {
+test("a URL's language: /de is German, kits, baskets and the tools included; the rest is English", () => {
   assert.equal(langOfPath("/de"), "de");
   assert.equal(langOfPath("/de/compare/x"), "de");
   assert.equal(langOfPath("/country/de/category/household"), "de");
-  assert.equal(langOfPath("/de/bundle/x"), "en");
-  assert.equal(langOfPath("/de/basket/x"), "en");
+  assert.equal(langOfPath("/de/bundle/x"), "de");
+  assert.equal(langOfPath("/de/basket/x"), "de");
+  assert.equal(langOfPath("/de/check/list"), "de");
+  assert.equal(langOfPath("/de/my-list"), "de");
   assert.equal(langOfPath("/datenschutz"), "de");
   assert.equal(langOfPath("/us/compare/x"), "en");
   assert.equal(langOfPath("/compare/x"), "en");
   assert.equal(langForPage("DE", "compare"), "de");
   assert.equal(hreflangFor("DE"), "de-DE");
-  assert.equal(hreflangFor("DE", "bundle"), "en-DE");
+  assert.equal(hreflangFor("DE", "bundle"), "de-DE");
   assert.equal(hreflangFor("GB"), "en-GB");
 });
 
@@ -142,11 +146,9 @@ test("client code carries only its own client sections", () => {
 });
 
 test("German text uses the pharmacy terms, never 'identisch', and carries the legal notice", () => {
-  const dir = join(ROOT, "data/i18n/de");
-  const texts = [
-    ...readdirSync(dir).map((f) => readFileSync(join(dir, f), "utf8")),
-    ...["swap.ts", "client.ts", "site.ts", "datenschutz.ts"].map((f) => readFileSync(join(ROOT, "src/lib/i18n/de", f), "utf8")),
-  ].join("\n");
+  const files = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? files(join(dir, e.name)) : [join(dir, e.name)]));
+  const texts = [...files(join(ROOT, "data/i18n/de")), ...files(join(ROOT, "src/lib/i18n/de"))].map((f) => readFileSync(f, "utf8")).join("\n");
   assert.ok(!/identisch/i.test(texts));
   assert.match(texts, /Wirkstoffgleich/);
   assert.match(texts, /Gleicher Wirkstoff/);
@@ -154,4 +156,56 @@ test("German text uses the pharmacy terms, never 'identisch', and carries the le
   assert.ok(
     texts.includes("Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihre Ärztin, Ihren Arzt oder in Ihrer Apotheke"),
   );
+});
+
+test("every kit and basket sold in Germany has its German text; others stay English and say so", () => {
+  for (const b of catalog.bundles) {
+    if (b.market === "DE") assert.ok(b.de, `kit ${b.slug} has no German text in data/i18n/de/bundles`);
+  }
+  for (const p of catalog.presets) {
+    if (p.market === "DE") assert.ok(p.de, `basket ${p.slug} has no German text in data/i18n/de/presets`);
+  }
+  const t = getT("de");
+  assert.equal(t("kits.inEnglish"), "Auf Englisch");
+});
+
+test("product names on German pages say their pack in German, and English names stay as written", () => {
+  assert.equal(productName("Aspirin 500 mg überzogene Tabletten, 80 tablets", "de"), "Aspirin 500 mg überzogene Tabletten, 80 Tabletten");
+  assert.equal(productName("Ibu-ratiopharm 400 mg akut Schmerztabletten, 50 film-coated tablets", "de"), "Ibu-ratiopharm 400 mg akut Schmerztabletten, 50 Filmtabletten");
+  assert.equal(productName("Jeden Tag Soft Toilettenpapier 3-lagig, 4 rolls of 220 sheets", "de"), "Jeden Tag Soft Toilettenpapier 3-lagig, 4 Rollen à 220 Blatt");
+  assert.equal(productName("Rewe Ja! Ultra Power Spülmittelkonzentrat, price per 100 ml", "de"), "Rewe Ja! Ultra Power Spülmittelkonzentrat, Preis pro 100 ml");
+  assert.equal(productName("Dehner Schneckenkorn, 1.2 kg", "de"), "Dehner Schneckenkorn, 1,2 kg");
+  // A part it doesn't know stays as the record has it, and the name before the first comma is never touched.
+  assert.equal(productName("SanDisk Extreme microSDXC 128 GB, UHS-I U3 V30 A2", "de"), "SanDisk Extreme microSDXC 128 GB, UHS-I U3 V30 A2");
+  assert.equal(productName("Advil Tablets 200 mg, 24 tablets", "en"), "Advil Tablets 200 mg, 24 tablets");
+  // Every German-market name in the catalogue ends in German or in something both languages share.
+  for (const p of pairs.filter((x) => x.market === "DE")) {
+    for (const s of [p.brand, p.alternative]) {
+      const tail = productName(s.product, "de").split(", ").slice(1).join(", ");
+      assert.doesNotMatch(tail, /\b(?:tablets?|capsules?|cells|washes|nappies|sheets|bags|pieces|price per|cost per)\b/i, s.product);
+    }
+  }
+});
+
+test("the tools have a German form only: /de/check, never /uk/check", () => {
+  for (const path of ["/check", "/check/list", "/my-list", "/search"]) {
+    assert.equal(withCountry(path, "DE"), `/de${path}`);
+    for (const c of ["US", "GB", "CA", "IE"]) assert.equal(withCountry(path, c), path, `${path} for ${c}`);
+    assert.equal(isPrefixable(path), true, "a link on a German page gets the prefix");
+  }
+  assert.equal(withCountry("/check?q=x", "DE"), "/de/check?q=x");
+});
+
+test("German page text has no English left in it, and the English pages' words are where they were", () => {
+  const t = getT("de");
+  for (const key of ["home.ctaSub", "header.links./check", "header.links./my-list", "notFound.search"] as const) {
+    assert.doesNotMatch(t(key), /Englisch/, key);
+  }
+  const e = getT("en");
+  assert.equal(e("checkPage.h1"), "What's in it, what it's for, and what costs less");
+  assert.equal(e("pageShoppingCheck.switchingThese", 2), "Switching these 2 would keep");
+  assert.equal(e("pageMyList.plusOnce", "$3.00", 1, 2), "Plus $3.00 once, from a kit and 2 things you buy once.");
+  assert.equal(t("pageMyList.plusOnce", "3,00 €", 1, 2), "Dazu einmalig 3,00 € für ein Set und 2 Dinge, die du nur einmal kaufst.");
+  // German typography: a no-break space before the percent sign.
+  assert.match(t("pageShoppingCheck.lessPer", "24 Tabletten", 41.6), /^\{amount\} weniger je Packung \(24 Tabletten\), 42[\u00a0\u202f]% günstiger$/);
 });

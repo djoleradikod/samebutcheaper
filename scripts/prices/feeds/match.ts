@@ -2,18 +2,21 @@
  * Which feed rows are which catalogue record sides. A wrong match is worse than a miss, so in this order and no
  * further:
  *
- *   1. barcode: the row's GTIN, EAN or UPC equals the side's, compared as GTIN-14;
- *   2. store number: the number in the side's product URL (ids.ts) equals the row's merchant SKU or product id,
- *      or the number in the row's own product URL. A row whose barcode contradicts the side's is never used;
+ *   1. barcode: the row's GTIN, EAN or UPC equals the side's (the record's `gtin`), compared as GTIN-14;
+ *   2. store number: the number in the side's product URL (ids.ts), or the side's German PZN, equals the row's
+ *      merchant SKU or product id, or the number in the row's own product URL. A row whose barcode contradicts
+ *      the side's is never used;
  *   3. name: same brand, every word of the side's product name in the row's name, and the same pack, and only
  *      when exactly one row in the whole feed fits. These always go to review, never straight onto the site.
  *
- * Only sides at the feed's own retailer in the feed's own market are considered, and a side two different rows
+ * Only sides at the feed's own retailer in the feed's own market are considered, never a side priced per wash or per
+ * day (it names no pack a row could be), and a side two different rows
  * claim at different prices is left alone (reported as ambiguous). Rows are streamed in one at a time; only
  * the few that hit a side are kept.
  */
 import { fold } from "../chains";
 import type { PricedRecord, PricedSide } from "../records";
+import { isPzn } from "../../../src/lib/gtin";
 import { isSearchUrl, needsVariant, storeIdOf } from "./ids";
 import { parsePack, type FeedRow, type Pack } from "./row";
 
@@ -77,11 +80,13 @@ export class FeedMatcher {
     for (const record of records) {
       if (record.market !== feed.market) continue;
       for (const side of record.sides) {
-        if (side.retailer !== feed.retailer) continue;
+        if (side.retailer !== feed.retailer || side.perAmount) continue;
         const brand = fold(side.brand);
         const s: SideState = { record, side, gtin: [], id: [], name: [], words: nameWords(side.name, side.brand), brand };
         this.sides.push(s);
         if (side.gtin) push(this.byGtin, gtin14(side.gtin), s);
+        // Pharmacies' feeds carry the PZN as their own product number.
+        if (side.pzn) push(this.byId, `pzn:${side.pzn}`, s);
         const sid = storeIdOf(side.url);
         if (sid && (!needsVariant(sid.store) || sid.variant)) push(this.byId, sid.variant ?? sid.id, s);
         // The same product page, for stores without a number pattern. Never a search page, never a variant store.
@@ -107,6 +112,10 @@ export class FeedMatcher {
       }
     }
     const rowIds = new Set<string>(row.skus);
+    for (const sku of row.skus) {
+      const digits = sku.replace(/^PZN[\s:-]*/i, "");
+      if (/^\d{7,8}$/.test(digits) && isPzn(digits.padStart(8, "0"))) rowIds.add(`pzn:${digits.padStart(8, "0")}`);
+    }
     const sid = storeIdOf(row.productUrl);
     if (sid) rowIds.add(sid.variant ?? sid.id);
     const page = row.productUrl ? normalUrl(row.productUrl) : null;

@@ -8,9 +8,10 @@ import type { Lang } from "./lang";
 import { makeT, type Shape, type TFn } from "./t";
 // Server code renders client components too (PairCard on a server list): they need the German client text loaded here.
 import "./de/client-register";
+import "./de/pages-register";
 
 export type { Lang } from "./lang";
-export { langForCountry, langOfPath } from "./lang";
+export { isLang, langForCountry, langOfPath } from "./lang";
 
 const DICTS: Record<Lang, Shape<Dictionary>> = { en, de };
 

@@ -5,6 +5,8 @@ import * as schema from "@/db/schema";
 import { impressumUrl } from "./legal";
 import { esc, mailConfigured, sendMail } from "./mail";
 import { LIMITS } from "./rate-limit";
+import { getT } from "./i18n";
+import { isLang, type Lang } from "./i18n/lang";
 
 /**
  * Everything we email, with double opt-in. An address is stored as "pending" and gets one email with a confirm
@@ -60,17 +62,25 @@ type Row = typeof subs.$inferSelect;
 type Opts = { siteUrl: string; env?: Env; now?: Date };
 
 const cleanCountry = (c: string | null | undefined) => (c && /^[A-Z]{2}$/.test(c) ? c : null);
+const cleanLang = (l: string | null | undefined): Lang => (isLang(l) ? l : "en");
+
+/** Who is asking: the address, where the form was, their country and the language of the page they asked on. */
+type Asker = { email: string; source?: string | null; country?: string | null; lang?: string | null };
 
 /**
  * The subscriber row for an address, made if new. Someone who unsubscribed from everything and asks again starts
  * over as pending, with nothing switched on. `letter` says whether this request is for the weekly letter.
+ *
+ * The language is set when the row is made, and again when someone who unsubscribed starts over: a form can't change
+ * the language an existing subscriber reads in, so typing their address on another page has no effect on them.
  */
-async function subscriberFor(db: DB, input: { email: string; source?: string | null; country?: string | null }, letter: boolean): Promise<Row | null> {
+async function subscriberFor(db: DB, input: Asker, letter: boolean): Promise<Row | null> {
   const email = input.email.trim().toLowerCase();
   const country = cleanCountry(input.country);
+  const lang = cleanLang(input.lang);
   await db
     .insert(subs)
-    .values({ email, source: input.source?.slice(0, 64) ?? "site", country, status: "pending", token: newToken(), newsletter: letter ? "pending" : "no" })
+    .values({ email, source: input.source?.slice(0, 64) ?? "site", country, lang, status: "pending", token: newToken(), newsletter: letter ? "pending" : "no" })
     .onConflictDoNothing();
   const [found] = await db.select().from(subs).where(eq(subs.email, email)).limit(1);
   if (!found) return null;
@@ -88,6 +98,7 @@ async function subscriberFor(db: DB, input: { email: string; source?: string | n
         letterStoppedAt: null,
         confirmHash: null,
         country: country ?? found.country,
+        lang,
       })
       .where(eq(subs.id, found.id))
       .returning();
@@ -100,7 +111,7 @@ async function subscriberFor(db: DB, input: { email: string; source?: string | n
 /** Asks for the weekly letter. */
 export async function subscribeEmail(
   db: DB,
-  input: { email: string; source?: string | null; country?: string | null },
+  input: Asker,
   opts: Opts,
 ): Promise<SubscribeOutcome> {
   const now = opts.now ?? new Date();
@@ -132,11 +143,11 @@ const MAX_WISHES = 30;
 /** Asks for a price watch on one swap. Nothing is sent about it until its own confirm link is followed. */
 export async function requestWatch(
   db: DB,
-  input: { email: string; country?: string | null; slug: string; title: string; prices: WatchPrices },
+  input: { email: string; country?: string | null; lang?: string | null; slug: string; title: string; prices: WatchPrices },
   opts: Opts,
 ): Promise<SubscribeOutcome> {
   const now = opts.now ?? new Date();
-  const row = await subscriberFor(db, { email: input.email, country: input.country, source: "watch" }, false);
+  const row = await subscriberFor(db, { email: input.email, country: input.country, lang: input.lang, source: "watch" }, false);
   if (!row) return "stored";
   const values = { ...priceColumns(input.prices), title: input.title.slice(0, 200) };
   const [existing] = await db.select().from(watches).where(and(eq(watches.subscriberId, row.id), eq(watches.slug, input.slug))).limit(1);
@@ -177,9 +188,9 @@ export function priceColumns(p: WatchPrices) {
 }
 
 /** Asks to be told when we add a swap for a search that found nothing. `query` is already normalised (src/lib/wanted.ts). */
-export async function requestWish(db: DB, input: { email: string; country?: string | null; query: string }, opts: Opts): Promise<SubscribeOutcome> {
+export async function requestWish(db: DB, input: { email: string; country?: string | null; lang?: string | null; query: string }, opts: Opts): Promise<SubscribeOutcome> {
   const now = opts.now ?? new Date();
-  const row = await subscriberFor(db, { email: input.email, country: input.country, source: "wish" }, false);
+  const row = await subscriberFor(db, { email: input.email, country: input.country, lang: input.lang, source: "wish" }, false);
   if (!row) return "stored";
   const [existing] = await db.select().from(wishes).where(and(eq(wishes.subscriberId, row.id), eq(wishes.query, input.query))).limit(1);
   let wish = existing;
@@ -229,7 +240,7 @@ async function sendConfirmation(db: DB, row: Row, purpose: Purpose, opts: Opts):
   // Each email gets a fresh secret. Its hash is saved only once the email has gone, so a failed send leaves the
   // link in the last email working; a newer email replaces it.
   const secret = newConfirmSecret();
-  const mail = confirmationMail(row.email, secret.token, opts.siteUrl, purpose, now, { unsubscribeToken: row.token, subscriberId: row.id, hash: secret.hash });
+  const mail = confirmationMail(row.email, secret.token, opts.siteUrl, purpose, now, { unsubscribeToken: row.token, subscriberId: row.id, hash: secret.hash }, cleanLang(row.lang));
   const result = await sendMail(mail, opts.env);
   if (!result.ok) return false;
   await db
@@ -278,40 +289,44 @@ export function confirmationMail(
   purpose: Purpose = { kind: "letter" },
   now = new Date(),
   ids: { unsubscribeToken: string; subscriberId: number; hash?: string } = { unsubscribeToken: secret, subscriberId: 0 },
+  lang: Lang = "en",
 ) {
+  const t = getT(lang);
   const scope = scopeOf(purpose);
   const link = confirmUrl(siteUrl, secret);
   const host = siteUrl.replace(/^https?:\/\//, "");
   const asked =
     purpose.kind === "letter"
-      ? "to get new swaps from SameButCheaper"
+      ? t("mailConfirm.askedLetter")
       : purpose.kind === "watch"
-        ? `to get an email from SameButCheaper if the swap “${purpose.title}” changes price or is withdrawn`
-        : `to get an email from SameButCheaper when we add a swap for “${purpose.query}”`;
+        ? t("mailConfirm.askedWatch", purpose.title)
+        : t("mailConfirm.askedWish", purpose.query);
   const subject =
-    purpose.kind === "letter" ? "Confirm your email for SameButCheaper" : purpose.kind === "watch" ? "Confirm your price watch on SameButCheaper" : "Confirm your request on SameButCheaper";
+    purpose.kind === "letter" ? t("mailConfirm.subjectLetter") : purpose.kind === "watch" ? t("mailConfirm.subjectWatch") : t("mailConfirm.subjectWish");
   const legal = impressumUrl(siteUrl);
+  // Our own words go into the HTML as they are; what a visitor typed (a title, a search) is escaped.
+  const someone = t("mailConfirm.someone", asked, host);
   const text = [
-    "Please confirm your email address",
+    t("mailConfirm.heading"),
     "",
-    `Someone, hopefully you, asked ${asked} (${host}) at this address.`,
+    someone,
     "",
-    "Open this link, then press the button on the page to confirm:",
+    t("mailConfirm.openLink"),
     link,
     "",
-    "If that wasn't you, ignore this email. You won't hear from us about it again, and the request is removed after 30 days.",
+    t("mailConfirm.notYou"),
     "",
-    `Impressum (legal notice): ${legal}`,
+    `${t("mailCommon.impressum")}: ${legal}`,
   ].join("\n");
-  const html = `<!doctype html><html><body style="margin:0;padding:24px;background:#f6f5f1;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a">
+  const html = `<!doctype html><html${lang === "en" ? "" : ` lang="${lang}"`}><body style="margin:0;padding:24px;background:#f6f5f1;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a">
 <div style="max-width:480px;margin:0 auto;background:#ffffff;border:1px solid #e3e1da;border-radius:12px;padding:28px">
 <p style="margin:0 0 4px;font-size:13px;color:#666">SameButCheaper</p>
-<h1 style="margin:0 0 16px;font-size:22px;line-height:1.25">Please confirm your email address</h1>
-<p style="margin:0 0 20px;font-size:16px;line-height:1.5">Someone, hopefully you, asked ${esc(asked)} (${esc(host)}) at this address. Open the page below and press its button to confirm.</p>
-<p style="margin:0 0 20px"><a href="${esc(link)}" style="display:inline-block;background:#1f4fd8;color:#ffffff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 20px;border-radius:8px">Open the confirmation page</a></p>
-<p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#666">Or paste this link into your browser:<br><a href="${esc(link)}" style="color:#1f4fd8;word-break:break-all">${esc(link)}</a></p>
-<p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#666">If that wasn't you, ignore this email. You won't hear from us about it again, and the request is removed after 30 days.</p>
-<p style="margin:0;font-size:12px;line-height:1.5;color:#666"><a href="${esc(legal)}" style="color:#666">Impressum (legal notice)</a></p>
+<h1 style="margin:0 0 16px;font-size:22px;line-height:1.25">${t("mailConfirm.heading")}</h1>
+<p style="margin:0 0 20px;font-size:16px;line-height:1.5">${t("mailConfirm.someone", esc(asked), esc(host))} ${t("mailConfirm.openPage")}</p>
+<p style="margin:0 0 20px"><a href="${esc(link)}" style="display:inline-block;background:#1f4fd8;color:#ffffff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 20px;border-radius:8px">${t("mailConfirm.button")}</a></p>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#666">${t("mailConfirm.orPaste")}<br><a href="${esc(link)}" style="color:#1f4fd8;word-break:break-all">${esc(link)}</a></p>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.5;color:#666">${t("mailConfirm.notYou")}</p>
+<p style="margin:0;font-size:12px;line-height:1.5;color:#666"><a href="${esc(legal)}" style="color:#666">${t("mailCommon.impressum")}</a></p>
 </div></body></html>`;
   return {
     to: email,

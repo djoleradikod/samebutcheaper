@@ -11,7 +11,7 @@ export const kits = {
   costsMore: "Costs more today than the kit",
   smallSaving: "Small saving after delivery",
   saves: "Saves",
-  beforeDelivery: "before unchecked delivery",
+  beforeDelivery: "before delivery we haven't checked",
   afterDelivery: "after delivery",
   oneOrderAt: (store: string) => `One order at ${store}`,
   oneStore: "One store",

@@ -14,7 +14,8 @@
  */
 import { useSelectedLayoutSegments } from "next/navigation";
 import { createContext, use, useContext, type ReactNode } from "react";
-import { clientT, hasClientDict, type ClientT, type Sections } from "./client-dict";
+import { clientT, hasClientDict, hasPageSection, registerPageSections, type ClientT, type Sections } from "./client-dict";
+import type { PageClientDictionary } from "./en";
 import { HTML_LANG, langOfPath, type Lang } from "./lang";
 
 const LangContext = createContext<Lang>("en");
@@ -24,9 +25,37 @@ export function useLang(): Lang {
   return useContext(LangContext);
 }
 
-/** `t()` over the given client sections (see ./client-dict.ts), in the page's language. */
-export function useT<S extends Sections>(sections: S): ClientT<S> {
-  return clientT(useLang(), sections);
+/** A German page section's module, as `() => import("@/lib/i18n/de/pages/basket")` gives it. */
+export type PageLoader = () => Promise<Partial<Record<keyof PageClientDictionary, unknown>>>;
+
+const loading = new Map<string, Promise<void>>();
+
+/** Page sections are named with a "page" prefix ("pageBasket"); shared ones aren't. */
+function isPageSection(name: string): name is keyof PageClientDictionary {
+  return name.startsWith("page");
+}
+
+/**
+ * `t()` over the given client sections (see ./client-dict.ts), in the page's language. A component that reads a page
+ * section passes that section's German loader too: on a German page the section loads once, before the component
+ * renders, and an English page never fetches it.
+ */
+export function useT<S extends Sections>(sections: S, german?: PageLoader): ClientT<S> {
+  const lang = useLang();
+  if (german && lang === "de") {
+    // Once a section has started loading, every render waits on the same promise, loaded or not. React replays a
+    // component that suspended with the hooks it saw first, so `use` must not drop out between the two renders.
+    const section = Object.keys(sections).find((k) => isPageSection(k) && (loading.has(k) || !hasPageSection(lang, k)));
+    if (section) {
+      let pending = loading.get(section);
+      if (!pending) {
+        pending = german().then((m) => registerPageSections("de", m as never));
+        loading.set(section, pending);
+      }
+      use(pending);
+    }
+  }
+  return clientT(lang, sections);
 }
 
 /** The language from the root layout's view of the route: "country/de/compare/x" is German. */
@@ -51,7 +80,8 @@ let germanText: Promise<unknown> | null = null;
 
 /** Waits for the German client text on a German page (once per page load), so nothing under it renders in English first. */
 function LoadText({ lang, children }: { lang: Lang; children: ReactNode }) {
-  if (lang === "de" && !hasClientDict("de")) use((germanText ??= import("./de/client-register")));
+  // Waits on the same promise once it exists, for the reason in useT.
+  if (lang === "de" && (germanText || !hasClientDict("de"))) use((germanText ??= import("./de/client-register")));
   return <>{children}</>;
 }
 

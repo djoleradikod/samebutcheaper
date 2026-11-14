@@ -29,7 +29,7 @@ export function SiteHeader({ lang = "en" }: { lang?: Lang }) {
             <Link href="/" aria-label={t("header.home")} className="absolute inset-0" />
           </span>
 
-          <form action="/search" role="search" className="relative order-last w-full md:order-none md:w-auto md:flex-1">
+          <form action={lang === "de" ? "/de/search" : "/search"} role="search" className="relative order-last w-full md:order-none md:w-auto md:flex-1">
             <Search
               className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted"
               aria-hidden="true"
@@ -56,14 +56,15 @@ export function SiteHeader({ lang = "en" }: { lang?: Lang }) {
             >
               {t("header.check")}
             </Link>
-            <Link
-              href="/my-list"
-              className="hidden h-11 min-w-11 items-center justify-center px-1.5 text-sm font-medium text-ink-2 hover:text-ink min-[360px]:inline-flex md:h-9"
-            >
+            {/* The link is an overlay, like the logo's: a small boundary stays in the first HTML (see CountryLink). */}
+            <span className="relative hidden h-11 min-w-11 items-center justify-center px-1.5 text-sm font-medium text-ink-2 hover:text-ink min-[360px]:inline-flex md:h-9">
               <Bookmark className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span className="sr-only xl:not-sr-only xl:ml-1.5">{t("header.myList")}</span>
+              <span aria-hidden="true" className="hidden xl:ml-1.5 xl:inline">
+                {t("header.myList")}
+              </span>
               <SavedCount />
-            </Link>
+              <Link href="/my-list" aria-label={t("header.myList")} className="absolute inset-0" />
+            </span>
             <span className="hidden lg:block">
               <CountryPicker withName />
             </span>

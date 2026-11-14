@@ -58,6 +58,16 @@ export const PREFIXED_SECTIONS: Record<string, "page" | "slug"> = {
   category: "slug",
 };
 
+/**
+ * Tools with no country view of their own to index (the product check, the shopping-list check, my list, search). Their
+ * prefixed form exists only where the prefix changes the language: /de/check is the German /check, with German prices.
+ * Under an English prefix they have none, so /uk/check is a 404 and a link to /check on a /uk page stays /check.
+ */
+export const LANGUAGE_PAGES: ReadonlySet<string> = new Set(["/check", "/check/list", "/my-list", "/search"]);
+
+/** Prefixes whose pages are not in English (src/lib/i18n/lang.ts says which language). */
+export const TRANSLATED_PREFIXES: ReadonlySet<CountryPrefix> = new Set(["de"]);
+
 function splitPath(path: string) {
   const [pathname, rest = ""] = splitOnce(path, /[?#]/);
   return { pathname, rest };
@@ -68,10 +78,18 @@ function splitOnce(s: string, at: RegExp): [string, string?] {
   return m ? [s.slice(0, m.index), s.slice(m.index)] : [s];
 }
 
-/** Whether an unprefixed path ("/compare/x", "/", "/bundles?x=1") has a prefixed form. */
-export function isPrefixable(path: string) {
+/**
+ * Whether an unprefixed path ("/compare/x", "/", "/bundles?x=1") has a prefixed form: in this country's prefix, or in
+ * any prefix when no country is given. Only LANGUAGE_PAGES differ by country.
+ */
+export function isPrefixable(path: string, country?: string | null) {
   const { pathname } = splitPath(path);
   if (!pathname.startsWith("/")) return false;
+  if (LANGUAGE_PAGES.has(pathname.replace(/(.)\/$/, "$1"))) {
+    if (country === undefined) return true;
+    const prefix = prefixFor(country);
+    return prefix !== null && TRANSLATED_PREFIXES.has(prefix);
+  }
   const parts = pathname.split("/").slice(1);
   if (parts.length && parts[parts.length - 1] === "") parts.pop();
   const kind = PREFIXED_SECTIONS[parts[0] ?? ""];
@@ -105,7 +123,7 @@ export function countryOfPath(pathname: string | null | undefined) {
  */
 export function withCountry(path: string, country: string | null | undefined) {
   const prefix = prefixFor(country);
-  if (!prefix || !isPrefixable(path)) return path;
+  if (!prefix || !isPrefixable(path, country)) return path;
   const { pathname, rest } = splitPath(path);
   return `/${prefix}${pathname === "/" ? "" : pathname.replace(/\/$/, "")}${rest}`;
 }

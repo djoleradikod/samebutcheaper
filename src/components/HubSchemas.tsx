@@ -2,6 +2,8 @@ import { ListSchema } from "@/components/ListSchema";
 import { MEDICINE } from "@/lib/browse";
 import { getAllPairs, getBrands, getIngredient, getIngredients } from "@/lib/catalog";
 import { oneOfEachSwap } from "@/lib/localize";
+import { withCountry } from "@/lib/country-url";
+import { getT, type Lang } from "@/lib/i18n";
 
 /**
  * BreadcrumbList and ItemList for the hubs whose lists render per country. These are static, so they list one record of
@@ -24,7 +26,20 @@ export function IngredientSchema({ slug }: { slug: string }) {
 }
 
 /** The everyday list, as the page shows it: medicine is left out, biggest saving first. */
-export function BiggestSavingsSchema() {
+export function BiggestSavingsSchema({ lang = "en" }: { lang?: Lang }) {
+  if (lang !== "en") {
+    // The German view lists Germany's swaps, at their /de addresses.
+    const german = getAllPairs().filter((p) => p.market === "DE" && p.category !== MEDICINE);
+    return (
+      <ListSchema
+        name={getT(lang)("lists.biggest.title")}
+        path={withCountry("/biggest-savings", "DE")}
+        crumbs={[]}
+        items={german.sort((a, b) => b.savingsPct - a.savingsPct).map((p) => ({ name: p.title, path: withCountry(`/compare/${p.slug}`, "DE") }))}
+        lang={lang}
+      />
+    );
+  }
   const pairs = oneOfEachSwap(getAllPairs()).filter((p) => p.category !== MEDICINE);
   return (
     <ListSchema

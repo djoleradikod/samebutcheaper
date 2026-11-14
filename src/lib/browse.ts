@@ -4,6 +4,7 @@ import { isMarket, MARKET_CODES, MARKET_LABEL, type MarketCode } from "./markets
 import { leadFirst } from "./freshness";
 import type { PhotoTier } from "./photos";
 import type { Bundle, CategorySlug, MatchType, PairSummary } from "./types";
+import type { Lang } from "./i18n/lang";
 
 /**
  * How a list of swaps is filtered and sorted. Pure, so the server can work out what the
@@ -44,6 +45,8 @@ export type BrowseRow = {
 
 /** The fields BundleCard reads. A whole bundle is about ten times bigger. */
 export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers" | "category" | "match_type" | "savingsPct" | "netSavingsPct" | "netSavings" | "equivalentTotal" | "currency"> & {
+  /** The German name, for a German page. */
+  de?: { name: string };
   checkout: Pick<Bundle["checkout"], "delivery">;
   bundle: Pick<Bundle["bundle"], "brand" | "name" | "price"> & { items: { name: string }[] };
   photo: { src: string } | null;
@@ -52,7 +55,18 @@ export type BundleSummary = Pick<Bundle, "slug" | "title" | "market" | "sellers"
   })[];
 };
 
-export type SwapIndex = { pairs: PairSummary[]; bundles: BundleSummary[] };
+/**
+ * A swap in the index, with what a German page shows in place of the English: the shelf and the rating. The index is
+ * one file for every page, so the German rides along rather than being a second download.
+ */
+export type IndexPair = PairSummary & { de?: { subcategory: string; altRating: string | null } };
+
+/** A card as the page's language shows it. */
+export function cardIn(p: IndexPair, lang: Lang): PairSummary {
+  return lang !== "en" && p.de ? { ...p, ...p.de } : p;
+}
+
+export type SwapIndex = { pairs: IndexPair[]; bundles: BundleSummary[] };
 
 export const SORTS = [
   { value: "saving", label: "Biggest saving" },

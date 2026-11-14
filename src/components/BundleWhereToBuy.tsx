@@ -1,9 +1,15 @@
 "use client";
 
-import { MARKETS, countryInSentence, lookForQuery, storesFor, type LookFor, type MarketCode } from "@/lib/markets";
+import { lookForQuery, storesFor, type LookFor, type MarketCode } from "@/lib/markets";
 import { useCountry } from "@/lib/client/country";
 import { deliversTo, separateSite } from "@/lib/sellers";
+import { useT } from "@/lib/i18n/client";
+import { pageKitWhere } from "@/lib/i18n/en/pages/kitWhere";
 import { CountryPicker } from "./CountryPicker";
+
+/** The English this component reads (src/lib/i18n/client-dict.ts); the German loads on German pages only. */
+const TEXT = { pageKitWhere };
+const german = () => import("@/lib/i18n/de/pages/kitWhere");
 
 type Item = { retailer: string; retailerLabel: string; replaces: string; lookFor: LookFor };
 
@@ -20,15 +26,14 @@ export function BundleWhereToBuy({
   health?: boolean;
 }) {
   const country = useCountry();
+  const t = useT(TEXT, german);
   if (!country) return null;
   const blocked = items.filter((i) => deliversTo(i.retailer, market, country) !== "yes");
 
   if (!blocked.length) {
     return (
       <p className="text-[13px] text-ink-2">
-        {country === market
-          ? `Every store on this list sells in ${countryInSentence(country)}. Check each one for delivery.`
-          : `Every store on this list delivers to ${countryInSentence(country)}, by its own delivery page. Delivery there is charged at its own rate.`}
+        {country === market ? t("pageKitWhere.allSell", country) : t("pageKitWhere.allDeliver", country)}
       </p>
     );
   }
@@ -39,21 +44,18 @@ export function BundleWhereToBuy({
   return (
     <div className="card">
       <div className="flex items-center justify-between gap-2 border-b border-line px-4 py-2">
-        <h2 className="text-sm">Buying in {countryInSentence(country)}</h2>
+        <h2 className="text-sm">{t("pageKitWhere.buyingIn", country)}</h2>
         <CountryPicker />
       </div>
       <div className="p-4 text-sm">
-        <p className="text-ink-2">
-          These prices were checked in {MARKETS[market].short}, and some of the stores don&apos;t deliver to{" "}
-          {countryInSentence(country)}. Look for these locally:
-        </p>
+        <p className="text-ink-2">{t("pageKitWhere.checkedIn", market, country)}</p>
         <ul className="mt-2 divide-y divide-line">
           {blocked.map((item, i) => {
             const q = lookForQuery(item.lookFor, country);
             const own = separateSite(item.retailer, country);
             return (
               <li key={i} className="py-2">
-                <p className="text-xs text-muted">Instead of {item.replaces}</p>
+                <p className="text-xs text-muted">{t("pageKitWhere.insteadOf", item.replaces)}</p>
                 <p className="mt-0.5 font-semibold">{q}</p>
                 <p className="flex flex-wrap gap-x-3 text-[13px]">
                   {own && (
@@ -63,7 +65,7 @@ export function BundleWhereToBuy({
                       rel="nofollow noopener"
                       className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-7"
                     >
-                      {item.retailerLabel} in {countryInSentence(country)}
+                      {t("pageKitWhere.storeIn", item.retailerLabel, country)}
                     </a>
                   )}
                   {stores.map((s) => (
@@ -74,7 +76,7 @@ export function BundleWhereToBuy({
                       rel="sponsored nofollow noopener"
                       className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-7"
                     >
-                      Search {s.name}
+                      {t("pageKitWhere.search", s.name)}
                     </a>
                   ))}
                 </p>
@@ -83,10 +85,7 @@ export function BundleWhereToBuy({
           })}
         </ul>
         {health && (
-          <p className="mt-2 text-xs leading-relaxed text-ink-2">
-            Medicine rules differ by country. Something sold off the shelf in {MARKETS[market].short} may need a pharmacist or a
-            prescription where you live.
-          </p>
+          <p className="mt-2 text-xs leading-relaxed text-ink-2">{t("pageKitWhere.medicine", market)}</p>
         )}
       </div>
     </div>

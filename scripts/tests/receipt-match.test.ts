@@ -33,7 +33,7 @@ function isProduct(slug: string, product: RegExp) {
   return Boolean(p && product.test(p.brand.product));
 }
 
-type Case = [country: string, line: string, want: "swap" | "maybe" | "none" | "own", product?: RegExp];
+type Case = [country: string, line: string, want: LineMatch["status"], product?: RegExp];
 
 const CASES: Case[] = [
   // --- UK: true matches
@@ -48,7 +48,7 @@ const CASES: Case[] = [
   ["GB", "LEMSIP MAX ALL IN ONE CAPS 16S  4.50", "swap", /^Lemsip Max All in One Capsules/],
   ["GB", "HEINZ CREAM OF TOMATO SOUP 400G 1.60", "swap", /^Heinz Cream of Tomato Soup/],
   // --- UK: unsure, so asked
-  ["GB", "NUROFEN 200MG 16S          £2.00 A", "maybe", /^Nurofen .*200mg/],
+  ["GB", "NUROFEN 200MG 16S          £2.00 A", "choose", /^Nurofen .*200mg/],
   ["GB", "CLARITIN 10MG 30S", "maybe", /^Clarityn/],
   // --- UK: near misses that must not match
   ["GB", "NUROFEN 400MG 12S", "none"],
@@ -89,6 +89,18 @@ const CASES: Case[] = [
   ["DE", "COCA COLA ZERO 1,25L", "none"],
   ["DE", "PAMPERS BABY DRY GR. 6", "none"],
   ["DE", "NUROFEN 200MG 24ST", "none"],
+  // --- Germany: a brand alone, with two Nurofen products on file (tablets 400 mg, Junior syrup 40 mg/ml)
+  ["DE", "NUROFEN                  7,95 A", "choose", /^(?:Nurofen Ibuprofen 400 mg|NUROFEN Junior)/],
+  ["DE", "NUROFEN 100ML", "swap", /^NUROFEN Junior/],
+  // --- Germany: German pack words with the brand-only rule. "Stück", "Packung" and "Flasche" say nothing about which
+  // product it is, so they never turn a question into a swap; a count or a volume they carry still narrows it.
+  ["DE", "Nurofen 24 Stück", "swap", /^Nurofen Ibuprofen 400 mg/],
+  ["DE", "Nurofen 400 mg 24 Stk.", "swap", /^Nurofen Ibuprofen 400 mg/],
+  ["DE", "NUROFEN 100 ML FLASCHE", "swap", /^NUROFEN Junior/],
+  ["DE", "Nurofen Packung", "choose", /^(?:Nurofen Ibuprofen 400 mg|NUROFEN Junior)/],
+  ["DE", "BEN-U-RON 1000 MG", "choose", /^ben-u-ron 1\.?000 mg (?:Tabletten|Suppositorien)/],
+  ["DE", "ben-u-ron 1000 mg 10 Tabletten", "swap", /^ben-u-ron 1\.000 mg Tabletten/],
+  ["DE", "ben-u-ron 1000 mg Zäpfchen", "swap", /^ben-u-ron 1000 mg Suppositorien/],
   ["DE", "MILKA ALPENMILCH 100G", "none"],
   ["DE", "JA! H-MILCH 1,5% 1L", "own"],
 ];
@@ -105,6 +117,9 @@ for (const [country, line, want, product] of CASES) {
     assert.equal(got.status, want, JSON.stringify(got));
     if (product && (got.status === "swap" || got.status === "maybe")) {
       assert.ok(isProduct(got.slug, product), `${got.slug} is not ${product}`);
+    }
+    if (product && got.status === "choose") {
+      for (const slug of got.slugs) assert.ok(isProduct(slug, product), `${slug} is not ${product}`);
     }
   });
 }
@@ -153,7 +168,7 @@ test("a whole receipt: one swap per product, noise counted, misses kept apart", 
   assert.equal(noise, 4);
   assert.deepEqual(
     lines.map((l) => l.status),
-    ["maybe", "swap", "swap", "none"],
+    ["choose", "swap", "swap", "none"],
     "the ketchup named twice shows once",
   );
 });
@@ -163,4 +178,87 @@ test("every country can build its index, and a country we can't place falls back
     const index = indexFor(c);
     assert.ok(index.groups.length > 0, c);
   }
+});
+
+// ---------------------------------------------------------------------------------------------------------------------
+// A line that names only a brand: a match only when exactly one product fits, otherwise a question listing those that do.
+
+function candidate(slug: string, product: string, size: number, unit: string, amount: string, savingsPct = 40) {
+  return toCandidate({
+    slug,
+    subcategory: "Pain relief",
+    savingsPct,
+    brand: { brand: "Painex", product, size, unit, key_ingredients: [{ name: "Ibuprofen", amount }] },
+    alternative: { brand: "Own Label" },
+  });
+}
+const painex = buildIndex([
+  candidate("painex-200-tablets", "Painex Tablets 200mg 16s", 16, "tablet", "200 mg"),
+  candidate("painex-200-capsules", "Painex Capsules 200mg 10s", 10, "capsule", "200 mg", 30),
+  candidate("painex-400-tablets", "Painex Tablets 400mg 24s", 24, "tablet", "400 mg"),
+  candidate("painex-junior", "Painex Junior Syrup 100mg/5ml 100ml", 100, "ml", "100 mg per 5 ml"),
+]);
+const painexLine = (line: string) => matchLine(parseReceipt(line)[0] as Extract<ParsedLine, { kind: "item" }>, painex);
+const slugsOf = (m: LineMatch) => (m.status === "choose" ? [...m.slugs].sort() : []);
+
+test("a bare brand with several products asks which one, listing every product of that brand", () => {
+  const got = painexLine("PAINEX");
+  assert.equal(got.status, "choose");
+  assert.deepEqual(slugsOf(got), ["painex-200-capsules", "painex-200-tablets", "painex-400-tablets", "painex-junior"]);
+});
+
+test("a brand and a strength lists only the products of that strength", () => {
+  const got = painexLine("PAINEX 200MG");
+  assert.equal(got.status, "choose");
+  assert.deepEqual(slugsOf(got), ["painex-200-capsules", "painex-200-tablets"]);
+});
+
+test("a brand and a strength only one product has is a swap, however many other products the brand has", () => {
+  assert.deepEqual(painexLine("PAINEX 400MG"), { status: "swap", slug: "painex-400-tablets", others: 0 });
+});
+
+test("a pack size narrows the products of that strength to the one it fits", () => {
+  assert.deepEqual(painexLine("PAINEX 200MG 10S"), { status: "swap", slug: "painex-200-capsules", others: 0 });
+  // No 32-pack on file: the size rules nothing out, so both 200 mg products are still asked about.
+  assert.equal(painexLine("PAINEX 200MG 32S").status, "choose");
+});
+
+test("a strength no product has is nothing on file, never a question about the others", () => {
+  assert.deepEqual(painexLine("PAINEX 600MG"), { status: "none" });
+});
+
+test("a brand with one product on file, named alone, is that swap", () => {
+  const one = buildIndex([candidate("painex-400-tablets", "Painex Tablets 400mg 24s", 24, "tablet", "400 mg")]);
+  const got = matchLine(parseReceipt("PAINEX")[0] as Extract<ParsedLine, { kind: "item" }>, one);
+  assert.deepEqual(got, { status: "swap", slug: "painex-400-tablets", others: 0 });
+});
+
+test("a brand alone whose one product is a variant (Junior) is only a did-you-mean, unless the pack size says it", () => {
+  const one = buildIndex([candidate("painex-junior", "Painex Junior Syrup 100mg/5ml 100ml", 100, "ml", "100 mg per 5 ml")]);
+  const line = (l: string) => matchLine(parseReceipt(l)[0] as Extract<ParsedLine, { kind: "item" }>, one);
+  assert.deepEqual(line("PAINEX"), { status: "maybe", slug: "painex-junior", others: 0 });
+  assert.deepEqual(line("PAINEX 100ML"), { status: "swap", slug: "painex-junior", others: 0 });
+});
+
+test("a brand spelt nearly right is never a swap, even with a strength only one product has", () => {
+  assert.notEqual(painexLine("PAINAX 400MG").status, "swap");
+  assert.equal(painexLine("PAINAX 200MG").status, "choose");
+});
+
+test("German pack words work with the brand-only rule: a count narrows the question, filler words never answer it", () => {
+  // "Stück", "Stk." and "Packung" are a count or nothing; "Tabletten" and "Kapseln" are the product's form.
+  assert.deepEqual(painexLine("PAINEX 200MG 10 Stück"), { status: "swap", slug: "painex-200-capsules", others: 0 });
+  assert.deepEqual(painexLine("Painex 200 mg 10 Stk."), { status: "swap", slug: "painex-200-capsules", others: 0 });
+  assert.deepEqual(painexLine("Painex 200 mg 10 Kapseln"), { status: "swap", slug: "painex-200-capsules", others: 0 });
+  assert.deepEqual(painexLine("Painex 400 mg Filmtabletten 24 St"), { status: "swap", slug: "painex-400-tablets", others: 0 });
+  // No 32-pack on file: still a question, about the 200 mg products only.
+  assert.deepEqual(slugsOf(painexLine("PAINEX 200MG 32 Stück")), ["painex-200-capsules", "painex-200-tablets"]);
+  // A filler word alone is still the brand alone.
+  assert.deepEqual(slugsOf(painexLine("Painex Packung")), ["painex-200-capsules", "painex-200-tablets", "painex-400-tablets", "painex-junior"]);
+  assert.deepEqual(slugsOf(painexLine("PAINEX 1 PACKUNG")), slugsOf(painexLine("PAINEX")));
+});
+
+test("the same brand-only question on two lines is asked once", () => {
+  const { lines } = matchReceipt(parseReceipt("PAINEX 200MG\nPAINEX 200MG\nPAINEX 400MG"), painex);
+  assert.deepEqual(lines.map((l) => l.status), ["choose", "swap"]);
 });

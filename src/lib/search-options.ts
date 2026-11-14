@@ -14,6 +14,8 @@ export const PAIR_SEARCH: IFuseOptions<PairSummary> = {
     { name: "altName", weight: 1.5 },
     { name: "altProduct", weight: 1 },
     { name: "subcategory", weight: 1 },
+    // The shelf in German, from the search index, so /de/search finds "Erkältung" as well as "cold".
+    { name: "de.subcategory", weight: 1 },
     { name: "keywords", weight: 1 },
   ],
   threshold: 0.35,

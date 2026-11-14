@@ -111,6 +111,8 @@ export const subscribers = pgTable(
     token: varchar("token", { length: 64 }),
     /** Country selected when they signed up, for sending swaps they can buy. */
     country: varchar("country", { length: 2 }),
+    /** The language of the page they signed up on ("en" | "de"), which every email to them is written in. */
+    lang: varchar("lang", { length: 2 }).default("en").notNull(),
     /**
      * The weekly letter, consented to on its own: "no" | "pending" (asked, waiting for the link in the email) | "yes".
      * An address can be confirmed for a price watch only, and still never get the letter. Sends need status

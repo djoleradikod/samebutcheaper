@@ -1,6 +1,6 @@
 aw_deep_link,product_name,aw_product_id,merchant_product_id,search_price,store_price,merchant_name,merchant_id,currency,merchant_deep_link,last_updated,ean,product_GTIN,upc,in_stock
-https://www.awin1.com/pclick.php?p=1001&a=0&m=9999,"Test Paracetamol Tablets 500mg, 32 pack",1001,TP-32,2.10,,Test Chemist,9999,GBP,https://www.test-chemist.example/p/paracetamol-32,2026-11-12 04:10:00,5000000000017,,,1
+https://www.awin1.com/pclick.php?p=1001&a=0&m=9999,"Test Paracetamol Tablets 500mg, 32 pack",1001,TP-32,2.10,,Test Chemist,9999,GBP,https://www.test-chemist.example/p/paracetamol-32,2026-11-12 04:10:00,5000000000012,,,1
 https://www.awin1.com/pclick.php?p=1002&a=0&m=9999,"Test Ibuprofen ""Express"" 16 pack",1002,TI-16,1.50,,Test Chemist,9999,GBP,https://www.test-chemist.example/p/ibuprofen-16?utm_source=awin,2026-11-12 04:10:00,,,,1
 https://www.awin1.com/pclick.php?p=1003&a=0&m=9999,Test Cetirizine 30 pack,1003,TC-30,3.00,,Test Chemist,9999,GBP,https://www.test-chemist.example/p/cetirizine-30,2026-11-12 04:10:00,,,012345678905,0
-https://www.awin1.com/pclick.php?p=1004&a=0&m=9999,Test Loratadine 30 pack,1004,TL-30,2.75,,Test Chemist,9999,EUR,https://www.test-chemist.example/p/loratadine-30,2026-11-12 04:10:00,,05000000000024,,1
+https://www.awin1.com/pclick.php?p=1004&a=0&m=9999,Test Loratadine 30 pack,1004,TL-30,2.75,,Test Chemist,9999,EUR,https://www.test-chemist.example/p/loratadine-30,2026-11-12 04:10:00,,05000000000029,,1
 https://www.awin1.com/pclick.php?p=1005&a=0&m=9999,Test Vitamin D 90 pack,1005,TD-90,4.20,,Test Chemist,9999,,https://www.test-chemist.example/p/vitamin-d-90,2026-08-01 04:10:00,5000000000031,,,1

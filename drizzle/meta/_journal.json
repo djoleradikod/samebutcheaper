@@ -43,6 +43,13 @@
       "when": 1794593707698,
       "tag": "0005_safe_links",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1794611806044,
+      "tag": "0006_subscriber_lang",
+      "breakpoints": true
     }
   ]
 }

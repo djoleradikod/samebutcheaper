@@ -10,6 +10,7 @@ import { CountryPart } from "@/components/ForCountry";
 import { ListSchema } from "@/components/ListSchema";
 import { BestTicket, bestSaving, browseProps, PriceFacts, ShelfHead, swapCount, TagLinks } from "@/components/ShelfParts";
 import { forCountry } from "@/lib/localize";
+import { withCountry } from "@/lib/country-url";
 import { getT, type Lang } from "@/lib/i18n";
 import { getLang } from "@/lib/i18n/server";
 import { aisleMetadata, aisleText, lookup } from "./aisle-meta";
@@ -77,10 +78,13 @@ export default async function CategoryPage({ params }: PageProps<"/category/[slu
       </CountryPart>
       {all.length > 0 && (
         <ListSchema
-          name={`Cheaper ${cat.name}`}
-          path={`/category/${cat.slug}`}
+          name={lang === "en" ? `Cheaper ${cat.name}` : t("lists.category.cheaper", text.name)}
+          path={lang === "en" ? `/category/${cat.slug}` : withCountry(`/category/${cat.slug}`, "DE")}
           crumbs={[]}
-          items={[...all].sort((a, b) => b.savingsPct - a.savingsPct).map((p) => ({ name: p.title, path: `/compare/${p.slug}` }))}
+          items={[...(lang === "en" ? all : all.filter((p) => p.market === "DE"))]
+            .sort((a, b) => b.savingsPct - a.savingsPct)
+            .map((p) => ({ name: p.title, path: lang === "en" ? `/compare/${p.slug}` : withCountry(`/compare/${p.slug}`, "DE") }))}
+          lang={lang}
         />
       )}
     </div>

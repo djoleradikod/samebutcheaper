@@ -68,6 +68,8 @@ const at = (code: string) => c(code)[1];
 const to = (code: string) => c(code)[2];
 /** "nach Irland", "in die USA". */
 export const countryTo = to;
+/** "Irland", "USA": a country's German name, or null when we have none. */
+export const countryNameDe = (code: string): string | null => COUNTRY_DE[code]?.[0] ?? null;
 /** "in Irland", "in den USA". */
 export const countryAt = at;
 const from = (code: string) => c(code)[3];
@@ -321,7 +323,7 @@ export const kits: Shape<typeof en.kits> = {
   costsMore: "Kostet heute mehr als das Set",
   smallSaving: "Nach Versandkosten kaum Ersparnis",
   saves: "Spart",
-  beforeDelivery: "vor ungeprüften Versandkosten",
+  beforeDelivery: "vor Versandkosten, die wir nicht geprüft haben",
   afterDelivery: "nach Versandkosten",
   oneOrderAt: (store) => `Eine Bestellung bei ${store}`,
   oneStore: "Ein Händler",

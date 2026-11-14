@@ -91,6 +91,35 @@ test("signing up again doesn't send a second email within ten minutes, or once c
   assert.equal((await db.select().from(subscribers)).length, 1);
 });
 
+test("a sign-up on a German page is kept in German, with the same opt-in and headers; English is the default", { skip }, async () => {
+  assert.equal(await subscribeEmail(db, { email: "de@example.com", country: "DE", lang: "de" }, { siteUrl: SITE, env }), "sent");
+  assert.equal(await subscribeEmail(db, { email: "en@example.com", country: "DE" }, { siteUrl: SITE, env }), "sent");
+  assert.equal(await subscribeEmail(db, { email: "xx@example.com", lang: "fr" }, { siteUrl: SITE, env }), "sent");
+  const de = await row("de@example.com");
+  assert.equal(de.lang, "de");
+  assert.equal((await row("en@example.com")).lang, "en");
+  assert.equal((await row("xx@example.com")).lang, "en", "a language we don't write in reads as English");
+  const [german, english] = sent;
+  assert.equal(german.subject, "Bestätige deine E-Mail-Adresse für SameButCheaper");
+  assert.ok(german.text.includes("Bitte bestätige deine E-Mail-Adresse") && german.html.includes('lang="de"'));
+  assert.equal(english.subject, "Confirm your email for SameButCheaper");
+  assert.ok(!english.html.includes("lang="), "the English email is as it was");
+  // Double opt-in and the unsubscribe headers are the same in German.
+  assert.equal(de.status, "pending");
+  assert.equal(german.headers?.["List-Unsubscribe"], `<${SITE}/api/newsletter/unsubscribe?token=${de.token}>`);
+  assert.equal(german.headers?.["List-Unsubscribe-Post"], "List-Unsubscribe=One-Click");
+  assert.equal(await confirm(tokenIn(german)), "done");
+  assert.equal((await row("de@example.com")).status, "confirmed");
+
+  // Someone typing the address on an English page can't change the language its owner reads in.
+  await subscribeEmail(db, { email: "de@example.com", lang: "en" }, { siteUrl: SITE, env });
+  assert.equal((await row("de@example.com")).lang, "de");
+  // Starting over after unsubscribing takes the language of the page they start over on.
+  await unsubscribe(db, de.token!);
+  await subscribeEmail(db, { email: "de@example.com", lang: "en" }, { siteUrl: SITE, env });
+  assert.equal((await row("de@example.com")).lang, "en");
+});
+
 test("unsubscribe works from pending or confirmed, and re-joining starts over", { skip }, async () => {
   await subscribeEmail(db, { email: "c@example.com" }, { siteUrl: SITE, env });
   const secret = tokenIn(sent[0]);

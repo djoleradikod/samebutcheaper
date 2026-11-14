@@ -23,12 +23,13 @@ export function langForCountry(country: string | null | undefined): Lang {
 }
 
 /**
- * Sections not yet translated: a kit or basket page is prices and record text throughout, and both are English for now.
- * Under /de/ they stay whole English pages (`<html lang="en">`, hreflang en-DE, English header and footer), never a mix.
+ * Sections not translated yet, which stay whole English pages under a German prefix (`<html lang="en">`, hreflang
+ * en-DE, English header and footer), never a mix. None since kits, baskets and the tools went German (13 Nov 2026);
+ * kept so a new section can start English.
  */
-export const ENGLISH_SECTIONS: ReadonlySet<string> = new Set(["bundle", "basket"]);
+export const ENGLISH_SECTIONS: ReadonlySet<string> = new Set<string>();
 
-/** The language of one section of a country's pages: "/de/bundle/x" is English, "/de/compare/x" German. */
+/** The language of one section of a country's pages: "/de/compare/x" is German, "/uk/compare/x" English. */
 export function langForPage(country: string | null | undefined, section: string): Lang {
   return ENGLISH_SECTIONS.has(section) ? "en" : langForCountry(country);
 }

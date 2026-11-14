@@ -18,6 +18,16 @@ const PAGES = [
     fixture: "uk-bundle-la-roche-posay-effaclar-breakout-fighting-set-vs-cerave-foaming-cleanser-the-ordinary-gb.txt",
     html: "country/uk/bundle/la-roche-posay-effaclar-breakout-fighting-set-vs-cerave-foaming-cleanser-the-ordinary-gb.html",
   },
+  // The pages the German kit, basket and tool work touched, saved from the branch before it.
+  {
+    fixture: "us-bundle-advil-20ct-300ct-value-bundle-vs-up-and-up-ibuprofen-200mg.txt",
+    html: "country/us/bundle/advil-20ct-300ct-value-bundle-vs-up-and-up-ibuprofen-200mg.html",
+  },
+  { fixture: "us-basket-babys-first-year-us.txt", html: "country/us/basket/babys-first-year-us.html" },
+  { fixture: "check.txt", html: "check.html" },
+  { fixture: "check-list.txt", html: "check/list.html" },
+  { fixture: "my-list.txt", html: "my-list.html" },
+  { fixture: "search.txt", html: "search.html" },
 ];
 
 for (const page of PAGES) {

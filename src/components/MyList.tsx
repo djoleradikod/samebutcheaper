@@ -10,7 +10,6 @@ import { useLocal } from "@/lib/client/country";
 import type { Currency } from "@/lib/format";
 import {
   frequencyFor,
-  frequencyLabel,
   totalText,
   yearlySaving,
   type FrequencyId,
@@ -26,10 +25,16 @@ import { Ticket } from "./Ticket";
 import { ToArrow } from "./UnitPrice";
 import { offlineDate, savedAt } from "@/lib/offline";
 import { useLang, useT } from "@/lib/i18n/client";
+import type { ClientT } from "@/lib/i18n/client-dict";
 import { myList } from "@/lib/i18n/en/client/myList";
+import { yearly as yearlyText } from "@/lib/i18n/en/client/yearly";
+import { pageMyList } from "@/lib/i18n/en/pages/myList";
+import { rich } from "@/lib/i18n/rich";
 
-/** The English this component reads (src/lib/i18n/client-dict.ts). */
-const TEXT = { myList };
+/** The English this component reads (src/lib/i18n/client-dict.ts); the page section's German loads on German pages only. */
+const TEXT = { myList, yearly: yearlyText, pageMyList };
+const german = () => import("@/lib/i18n/de/pages/myList");
+const useListT = (): ClientT<typeof TEXT> => useT(TEXT, german);
 
 export type ListItem = {
   slug: string;
@@ -78,21 +83,22 @@ export function MyList({ items }: { items: ListItem[] }) {
   const byslug = new Map(items.map((i) => [i.slug, i]));
   const list = slugs.map((s) => byslug.get(s)).filter((x): x is ListItem => Boolean(x));
   const local = useLocal();
+  const t = useListT();
+  const lang = useLang();
   const perRestock = totalText(list.map((i) => ({ amount: i.savings, currency: i.currency })), local);
 
   if (!list.length) {
     return (
       <div className="mt-4 max-w-[62ch]">
         <p className="text-[15px] text-ink-2">
-          Nothing saved yet. Press <span className="font-medium text-ink">Add to my savings list</span> on a swap or kit, or save a whole
-          basket, and this page adds up what switching saves.
+          {rich(t("pageMyList.nothingSaved"), { button: <span className="font-medium text-ink">{t("pageMyList.addButton")}</span> })}
         </p>
         <p className="mt-4 flex flex-wrap gap-2">
           <Link href="/bundles" className="btn btn-primary">
-            See the baskets
+            {t("pageMyList.seeBaskets")}
           </Link>
           <Link href="/biggest-savings" className="btn btn-ghost">
-            See the biggest savings
+            {t("pageMyList.seeBiggest")}
           </Link>
         </p>
       </div>
@@ -105,7 +111,7 @@ export function MyList({ items }: { items: ListItem[] }) {
   const perAmount = lines.filter((l) => l.how === "per-amount");
 
   const copyLink = () => {
-    const url = `${window.location.origin}/my-list?items=${list.map((i) => i.slug).join(",")}`;
+    const url = `${window.location.origin}${lang === "de" ? "/de" : ""}/my-list?items=${list.map((i) => i.slug).join(",")}`;
     navigator.clipboard?.writeText(url).then(
       () => setCopied(true),
       () => setCopied(false),
@@ -139,7 +145,7 @@ export function MyList({ items }: { items: ListItem[] }) {
                     </Link>
                   </p>
                   <p className="text-[13px] leading-snug text-ink-2">
-                    {i.kind === "kit" ? "Kit: " : ""}
+                    {i.kind === "kit" ? t("pageMyList.kit") : ""}
                     {i.detail}
                   </p>
                 </div>
@@ -148,14 +154,14 @@ export function MyList({ items }: { items: ListItem[] }) {
                 </div>
                 {line.how === "yearly" && (
                   <div className="col-span-2 col-start-2 row-start-3 flex flex-wrap items-center gap-x-2 gap-y-1 md:col-span-3 md:col-start-2 md:row-start-2">
-                    <span className="text-[13px] font-medium text-ink-2">You buy it</span>
+                    <span className="text-[13px] font-medium text-ink-2">{t("pageMyList.youBuyIt")}</span>
                     <FrequencySelect
                       value={line.often}
                       onChange={(next) => setBuyingOften(i.slug, next)}
-                      label={`How often you buy ${i.from}`}
+                      label={t("pageMyList.howOften", i.from)}
                     />
                     <span className={`text-[13px] text-muted ${line.chosen ? "invisible" : ""}`} aria-hidden={line.chosen || undefined}>
-                      Assumed
+                      {t("pageMyList.assumed")}
                     </span>
                   </div>
                 )}
@@ -163,7 +169,7 @@ export function MyList({ items }: { items: ListItem[] }) {
                   <button
                     type="button"
                     onClick={() => toggleSaved(i.slug)}
-                    aria-label={`Remove ${i.from} from my list`}
+                    aria-label={t("pageMyList.remove", i.from)}
                     className="col-start-3 row-start-1 grid h-11 w-11 place-items-center rounded-tile text-muted transition-colors hover:bg-canvas hover:text-ink md:col-start-4"
                   >
                     <Trash2 className="h-4 w-4" aria-hidden="true" />
@@ -177,26 +183,24 @@ export function MyList({ items }: { items: ListItem[] }) {
         <aside className="space-y-3 lg:sticky lg:top-24 lg:self-start">
           <div className="card p-4">
             <p className="text-sm font-medium text-ink-2">
-              Restocking {list.length === 1 ? "this one" : `all ${list.length}`} once
+              {t("pageMyList.restocking", list.length)}
             </p>
             <Ticket size="lg" className="mt-2 whitespace-normal!">
-              Save {perRestock}
+              {t("pageMyList.saveAmount", perRestock)}
             </Ticket>
-            <p className="mt-3 text-[13px] leading-snug text-ink-2">
-              Per brand-name pack for a swap and per kit for a kit, at the dated prices on each page.
-            </p>
+            <p className="mt-3 text-[13px] leading-snug text-ink-2">{t("pageMyList.perPackNote")}</p>
           </div>
           {viewingShared ? (
             <button type="button" onClick={() => setSavedList([...saved, ...shared])} className="btn btn-primary w-full">
-              Save these to my list
+              {t("pageMyList.saveThese")}
             </button>
           ) : (
             <button type="button" onClick={copyLink} className="btn btn-ghost w-full">
               {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
-              {copied ? "Link copied" : "Copy a link to this list"}
+              {copied ? t("pageMyList.linkCopied") : t("pageMyList.copyList")}
             </button>
           )}
-          <p className="text-xs text-muted">Your list and how often you buy each thing stay in this browser. We don&apos;t store them.</p>
+          <p className="text-xs text-muted">{t("pageMyList.staysHere")}</p>
         </aside>
       </div>
     </>
@@ -206,13 +210,14 @@ export function MyList({ items }: { items: ListItem[] }) {
 /** The line's own figure: what it saves in a year, once, or per wash. */
 function LineFigure({ line }: { line: Counted }) {
   const i = line.item;
+  const t = useListT();
   if (line.how === "yearly") {
     return (
       <p>
         <span className="price text-[1.375rem] text-ink tabular-nums">
           <Money n={line.amount} from={i.currency} />
         </span>
-        <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">a year, {Math.round(i.savingsPct)}% less</span>
+        <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{t("pageMyList.yearLess", i.savingsPct)}</span>
       </p>
     );
   }
@@ -222,7 +227,7 @@ function LineFigure({ line }: { line: Counted }) {
         <span className="price text-[1.375rem] text-ink">
           <Money n={line.amount} from={i.currency} />
         </span>
-        <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">once, {Math.round(i.savingsPct)}% less</span>
+        <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">{t("pageMyList.onceLess", i.savingsPct)}</span>
       </p>
     );
   }
@@ -232,7 +237,7 @@ function LineFigure({ line }: { line: Counted }) {
         <Money n={i.savings} from={i.currency} />
       </span>
       <span className="ml-1.5 text-xs font-medium text-ink-2 md:ml-0 md:block">
-        {line.per}, {Math.round(i.savingsPct)}% less
+        {t("pageMyList.perLess", line.per, i.savingsPct)}
       </span>
     </p>
   );
@@ -249,57 +254,44 @@ function Lead({
   perAmount: number;
 }) {
   const local = useLocal();
+  const t = useListT();
   const assumed = yearly.filter((l) => !l.chosen);
   const onceText = once.length ? totalText(amounts(once), local) : null;
   const notes: string[] = [];
 
   if (yearly.length && assumed.length) {
-    const label = frequencyLabel(assumed[0].often);
-    const which =
-      assumed.length === yearly.length
-        ? yearly.length === 1
-          ? "This assumes you buy the brand-name pack"
-          : "This assumes you buy each brand-name pack"
-        : `For ${assumed.length} of the ${yearly.length} swaps, this assumes you buy the brand-name pack`;
-    notes.push(`${which} ${label}. We can't know, so set how often below.`);
+    notes.push(t("pageMyList.assumes", assumed.length, yearly.length, t(`yearly.frequencies.${assumed[0].often}`)));
   } else if (yearly.length) {
-    notes.push("At how often you said you buy each brand-name pack, at the dated prices on each page.");
+    notes.push(t("pageMyList.chosen"));
   }
-  if (onceText && yearly.length) notes.push(`Plus ${onceText} once, from ${onceWhat(once)}.`);
-  if (perAmount) notes.push(`${perAmount === 1 ? "One swap is" : `${perAmount} swaps are`} priced per wash or per amount, with no pack to count, so ${perAmount === 1 ? "it isn't" : "they aren't"} in it.`);
+  if (onceText && yearly.length) {
+    const kits = once.filter((l) => l.item.kind === "kit").length;
+    notes.push(t("pageMyList.plusOnce", onceText, kits, once.length - kits));
+  }
+  if (perAmount) notes.push(t("pageMyList.perAmount", perAmount));
 
   return (
     <div className="card mt-4 p-4 md:mt-6 md:p-5">
       {yearly.length ? (
         <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg font-semibold md:text-xl">
-          Your list saves
+          {t("pageMyList.listSaves")}
           <Ticket size="lg" className="whitespace-normal!">
-            {totalText(amounts(yearly), local)} a year
+            {t("pageMyList.perYear", totalText(amounts(yearly), local))}
           </Ticket>
         </p>
       ) : onceText ? (
         <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg font-semibold md:text-xl">
-          Your list saves
+          {t("pageMyList.listSaves")}
           <Ticket size="lg" className="whitespace-normal!">
-            {onceText} once
+            {t("pageMyList.onceAmount", onceText)}
           </Ticket>
         </p>
       ) : (
-        <p className="text-lg font-semibold md:text-xl">Nothing on your list has a pack to count over a year.</p>
+        <p className="text-lg font-semibold md:text-xl">{t("pageMyList.nothingToCount")}</p>
       )}
       {notes.length > 0 && <p className="mt-3 max-w-[70ch] text-[13px] leading-snug text-ink-2 md:text-sm">{notes.join(" ")}</p>}
     </div>
   );
-}
-
-function onceWhat(once: Counted[]) {
-  const kits = once.filter((l) => l.item.kind === "kit").length;
-  const things = once.length - kits;
-  const parts = [
-    kits ? (kits === 1 ? "a kit" : `${kits} kits`) : null,
-    things ? (things === 1 ? "a thing you buy once" : `${things} things you buy once`) : null,
-  ].filter(Boolean);
-  return parts.join(" and ");
 }
 
 function subscribeOnline(cb: () => void) {
@@ -316,7 +308,7 @@ function subscribeOnline(cb: () => void) {
  * with the date the copy was kept. Nothing while online.
  */
 function OfflineNote() {
-  const t = useT(TEXT);
+  const t = useListT();
   const lang = useLang();
   const online = useSyncExternalStore(subscribeOnline, () => navigator.onLine, () => true);
   const [kept, setKept] = useState<string | null>(null);

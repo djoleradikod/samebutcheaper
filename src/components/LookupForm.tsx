@@ -5,6 +5,13 @@ import { useRef, useState } from "react";
 import { Camera, ImageUp, Loader2, ScanBarcode, Search } from "lucide-react";
 import { readBarcode, shrinkImage } from "@/lib/client/photo";
 import type { PhotoResult } from "@/app/api/identify/route";
+import { useLang, useT } from "@/lib/i18n/client";
+import type { ClientT } from "@/lib/i18n/client-dict";
+import { pageLookup } from "@/lib/i18n/en/pages/lookup";
+
+/** The English this file reads (src/lib/i18n/client-dict.ts); the German loads on German pages only. */
+const TEXT = { pageLookup };
+const german = () => import("@/lib/i18n/de/pages/lookup");
 
 type Status = { kind: "idle" } | { kind: "busy"; text: string } | { kind: "error"; text: string };
 
@@ -33,37 +40,37 @@ export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
   const cameraRef = useRef<HTMLInputElement>(null);
   const uploadRef = useRef<HTMLInputElement>(null);
   const busy = status.kind === "busy";
+  const t: ClientT<typeof TEXT> = useT(TEXT, german);
+  // The check's own page in the page's language: /de/check on a German page.
+  const base = useLang() === "de" ? "/de/check" : "/check";
 
   async function onPhoto(file: File | undefined) {
     if (!file) return;
     try {
-      setStatus({ kind: "busy", text: "Looking for a barcode…" });
+      setStatus({ kind: "busy", text: t("pageLookup.lookingBarcode") });
       const code = await readBarcode(file);
       if (code) {
-        setStatus({ kind: "busy", text: `Found barcode ${code}. Looking it up…` });
-        router.push(`/check?upc=${code}`);
+        setStatus({ kind: "busy", text: t("pageLookup.foundBarcode", code) });
+        router.push(`${base}?upc=${code}`);
         return;
       }
-      setStatus({ kind: "busy", text: "No barcode found. Reading the label…" });
+      setStatus({ kind: "busy", text: t("pageLookup.noBarcode") });
       const body = new FormData();
       body.append("image", await shrinkImage(file), "photo.jpg");
       const res = await fetch("/api/identify", { method: "POST", body });
       const json = (await res.json().catch(() => null)) as { ok: boolean; error?: string; product?: PhotoResult } | null;
       if (!json?.ok || !json.product) {
-        setStatus({
-          kind: "error",
-          text: json?.error ?? "We couldn't read that photo. Try typing the product name instead.",
-        });
+        setStatus({ kind: "error", text: json?.error ?? t("pageLookup.unreadable") });
         return;
       }
       const r = json.product;
-      setStatus({ kind: "busy", text: `Found ${[r.brand, r.product_name].filter(Boolean).join(" ")}. Checking…` });
+      setStatus({ kind: "busy", text: t("pageLookup.found", [r.brand, r.product_name].filter(Boolean).join(" ")) });
       const q = r.search_query || [r.brand, r.product_name].filter(Boolean).join(" ");
       const digits = r.barcode.replace(/\D/g, "");
       const upc = /^\d{8}$|^\d{12,14}$/.test(digits) ? `&upc=${digits}` : "";
-      router.push(`/check?q=${encodeURIComponent(q)}${upc}&photo=${encodeURIComponent(photoParam(r))}`);
+      router.push(`${base}?q=${encodeURIComponent(q)}${upc}&photo=${encodeURIComponent(photoParam(r))}`);
     } catch {
-      setStatus({ kind: "error", text: "Something went wrong with that photo. Try again, or type the product name." });
+      setStatus({ kind: "error", text: t("pageLookup.photoWrong") });
     } finally {
       if (cameraRef.current) cameraRef.current.value = "";
       if (uploadRef.current) uploadRef.current.value = "";
@@ -72,7 +79,7 @@ export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
 
   return (
     <div className="max-w-2xl">
-      <form action="/check" role="search" className="flex gap-2">
+      <form action={base} role="search" className="flex gap-2">
         <div className="relative flex-1">
           <Search className="pointer-events-none absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted" />
           <input
@@ -81,13 +88,13 @@ export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
             type="search"
             defaultValue={params.get("q") ?? ""}
             autoFocus={autoFocus}
-            placeholder="Product name or barcode"
-            aria-label="Product name or barcode number"
+            placeholder={t("pageLookup.placeholder")}
+            aria-label={t("pageLookup.label")}
             className="h-14 w-full rounded-2xl border border-line bg-surface pr-4 pl-12 text-base placeholder:text-muted sm:text-lg focus:border-accent focus:outline-none"
           />
         </div>
         <button type="submit" className="btn btn-primary h-14 px-5 text-base" disabled={busy}>
-          Check
+          {t("pageLookup.check")}
         </button>
       </form>
 
@@ -99,10 +106,10 @@ export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
           className="btn btn-ghost px-4 py-2.5 text-sm"
         >
           <ScanBarcode className="h-4 w-4" />
-          Scan a barcode
-          <span className="text-muted">or</span>
+          {t("pageLookup.scan")}
+          <span className="text-muted">{t("pageLookup.or")}</span>
           <Camera className="h-4 w-4" />
-          snap the label
+          {t("pageLookup.snap")}
         </button>
         <button
           type="button"
@@ -110,7 +117,7 @@ export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
           disabled={busy}
           className="inline-flex items-center gap-1.5 rounded-lg px-2 py-2 text-sm text-muted underline-offset-2 hover:text-ink hover:underline"
         >
-          <ImageUp className="h-4 w-4" /> Upload a photo
+          <ImageUp className="h-4 w-4" /> {t("pageLookup.upload")}
         </button>
         <input
           ref={cameraRef}
@@ -141,10 +148,7 @@ export function LookupForm({ autoFocus = false }: { autoFocus?: boolean }) {
         )}
         {status.kind === "error" && <span className="text-warn">{status.text}</span>}
         {status.kind === "idle" && (
-          <span className="text-xs text-muted">
-            Barcodes are read on your device. If there&apos;s no barcode, the photo goes to our label reader and
-            isn&apos;t stored.
-          </span>
+          <span className="text-xs text-muted">{t("pageLookup.privacy")}</span>
         )}
       </p>
     </div>

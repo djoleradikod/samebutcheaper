@@ -6,7 +6,9 @@ import { noteCatalogue, pairLines, type Seen } from "./letter";
 import { localFor } from "./localize";
 import { log } from "./log";
 import { esc, mailConfigured, sendMail } from "./mail";
-import { button, COLORS, shell, tagged, textFooter, type Footer } from "./mail-layout";
+import { button, COLORS, readerLang, shell, sitePath, tagged, textFooter, type Footer } from "./mail-layout";
+import { getT } from "./i18n";
+import type { Lang } from "./i18n/lang";
 import { listHeaders, unsubscribeUrl } from "./newsletter";
 import type { Pair } from "./types";
 import { searchFields, wishMatcher } from "./wanted-match";
@@ -29,34 +31,37 @@ const SHOW = 3;
 
 type MailOpts = { siteUrl: string; contactEmail: string; postalAddress?: string | null };
 
-export function wishMail(input: { to: string; token: string; query: string; country: string | null; pairs: Pair[] }, opts: MailOpts) {
-  const local = localFor(input.country);
+export function wishMail(input: { to: string; token: string; query: string; country: string | null; lang?: Lang; pairs: Pair[] }, opts: MailOpts) {
+  const lang = input.lang ?? "en";
+  const t = getT(lang);
+  const local = localFor(input.country, false, lang);
   const campaign = "wish-answered";
   const lead = input.pairs[0];
-  const subject = `We've added a swap for “${input.query}”`;
-  const intro = `You asked us to tell you when we added a swap for “${input.query}”. We have${input.pairs.length > 1 ? `, ${input.pairs.length} of them` : ""}:`;
-  const rows = input.pairs.map((p) => pairLines(p, local, tagged(`${opts.siteUrl}/compare/${p.slug}`, campaign)));
+  const subject = t("mailWish.subject", input.query);
+  const intro = t("mailWish.intro", input.query, input.pairs.length);
+  const rows = input.pairs.map((p) => pairLines(p, local, tagged(`${opts.siteUrl}${sitePath(`/compare/${p.slug}`, lang)}`, campaign), lang));
   const footer: Footer = {
-    why: `You get this because you asked us to email you when we added a swap for “${input.query}”, and confirmed your address. That request has now ended: this is the only email about it.`,
+    why: t("mailWish.why", input.query),
     stopAll: unsubscribeUrl(opts.siteUrl, input.token),
     siteUrl: opts.siteUrl,
     contactEmail: opts.contactEmail,
     postalAddress: opts.postalAddress,
+    lang,
   };
-  const more = tagged(`${opts.siteUrl}/search?q=${encodeURIComponent(input.query)}`, campaign);
-  const priceNote = "Prices are as we last checked them at the store. Prices change between our checks: the store's own page has today's.";
+  const more = tagged(`${opts.siteUrl}${sitePath("/search", lang)}?q=${encodeURIComponent(input.query)}`, campaign);
+  const priceNote = t("mailWish.priceNote");
   const body =
     `<h1 style="margin:0 0 8px;font-size:21px;line-height:1.3">${esc(subject)}</h1>` +
     `<p style="margin:0 0 12px;font-size:15px;line-height:1.5;color:${COLORS.ink2}">${esc(intro)}</p>` +
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows.map((r) => r.html).join("")}</table>` +
-    `<p style="margin:18px 0 16px">${button("See everything for this search", more)}</p>` +
+    `<p style="margin:18px 0 16px">${button(t("mailWish.seeAll"), more)}</p>` +
     `<p style="margin:0;font-size:12px;line-height:1.5;color:${COLORS.muted}">${esc(priceNote)}</p>`;
-  const text = [subject, "", intro, "", ...rows.map((r) => r.text + "\n"), `See everything for this search: ${more}`, "", priceNote, "", textFooter(footer)].join("\n");
+  const text = [subject, "", intro, "", ...rows.map((r) => r.text + "\n"), `${t("mailWish.seeAll")}: ${more}`, "", priceNote, "", textFooter(footer)].join("\n");
   return {
     to: input.to,
     subject,
     text,
-    html: shell({ title: subject, preheader: `${lead.alternative.brand} instead of ${lead.brand.brand}`, body, footer }),
+    html: shell({ title: subject, preheader: t("mailWish.preheader", lead.alternative.brand, lead.brand.brand), body, footer }),
     headers: listHeaders(opts.siteUrl, input.token),
   };
 }
@@ -112,7 +117,7 @@ export async function runWishAnswers(db: DB, opts: MailOpts & { env?: Env; now?:
       .onConflictDoNothing()
       .returning({ id: sends.id });
     if (claim) {
-      const mail = wishMail({ to: sub.email, token: sub.token, query: wish.query, country: wish.country ?? sub.country, pairs }, opts);
+      const mail = wishMail({ to: sub.email, token: sub.token, query: wish.query, country: wish.country ?? sub.country, lang: readerLang(sub.lang), pairs }, opts);
       const result = await sendMail({ ...mail, idempotencyKey: key }, env);
       if (!result.ok) {
         await db.delete(sends).where(eq(sends.id, claim.id));

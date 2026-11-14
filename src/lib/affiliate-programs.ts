@@ -407,6 +407,16 @@ export const PROGRAMS: readonly Program[] = [
     signup: "https://ui.awin.com/merchant-profile/13812",
   },
   {
+    id: "pollin-de",
+    name: "Pollin Electronic",
+    country: "DE",
+    hosts: ["pollin.de"],
+    network: "awin",
+    merchantId: "15965",
+    terms: "Awin 15965; profile and terms couldn't be read from here (data/sellers/programmes.json), check them before joining",
+    signup: "https://ui.awin.com/merchant-profile-terms/15965",
+  },
+  {
     id: "alternate-de",
     name: "ALTERNATE",
     country: "DE",

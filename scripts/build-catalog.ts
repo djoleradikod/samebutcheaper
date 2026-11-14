@@ -34,6 +34,7 @@ import { INGREDIENT_MATCHES, ingredientPageKey, slugify } from "../src/lib/ingre
 import { sellerOf } from "../src/lib/sellers";
 import { basketCheckout, checkout, tillLine, type TillLine } from "../src/lib/delivery";
 import { isPerAmountRecord } from "../src/lib/unit-format";
+import { gtinConflicts } from "../src/lib/gtin";
 import { RATING_FLOOR, ratingCounts, ratingLabel, ratingShare } from "../src/lib/rating";
 import type { Bundle, BulkView, Catalog, Claim, Pair, Photo, Preset, PresetLine, Rating, ShelfLife } from "../src/lib/types";
 import { freshnessOf, freshnessWeight, isoDay, outOfStockSides, priceDoubtful, type Freshness, type PriceSeen } from "../src/lib/freshness";
@@ -655,8 +656,11 @@ for (const [slug, other] of sameSwaps) {
 }
 
 // German text for the /de/ pages, checked against each English record (src/lib/i18n/attach-de.ts).
-errors.push(...attachGerman(join(ROOT, "data", "i18n", "de"), pairs, claims, shelfLives));
+errors.push(...attachGerman(join(ROOT, "data", "i18n", "de"), pairs, claims, shelfLives, bundles, presets));
 const german = germanCoverage(pairs);
+const germanKits = germanCoverage([...bundles, ...presets]);
+// One barcode is one pack (src/lib/gtin.ts): a code on two packs would price one from the other's feed row.
+errors.push(...gtinConflicts([...pairs.flatMap((p) => (["brand", "alternative"] as const).map((s) => ({ ...p[s], where: `${p.slug} ${s}` }))), ...bundles.flatMap((b) => b.components.map((c, i) => ({ ...c, where: `${b.slug} item ${i}` })))], normalizeUnit));
 
 unusedPriceLog();
 if (warnings.length) console.warn(`\n${warnings.length} warning(s):\n  - ${warnings.join("\n  - ")}\n`);
@@ -697,6 +701,8 @@ const catalog: Catalog = {
 };
 mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(join(OUT_DIR, "catalog.json"), JSON.stringify(catalog));
+// How many buy links a feed's tracked link replaces, so wording about earning stays true with no env set (src/lib/affiliate.ts).
+writeFileSync(join(OUT_DIR, "feed-links.json"), JSON.stringify({ sides: [...catalog.pairs, ...catalog.bundles].flatMap((r) => Object.values(r.prices ?? {})).filter((s) => s?.feed?.link).length }));
 // Small list for the proxy, so a page that doesn't exist answers with a real 404.
 writeFileSync(
   join(OUT_DIR, "known-slugs.json"),
@@ -721,5 +727,5 @@ const pct = (n: number) => (pairs.length ? Math.round((n / pairs.length) * 100) 
 console.log(
   `Catalog built: ${pairs.length} pairs from ${files.length} file(s), ${bundles.length} bundles, ${presets.length} presets, ` +
     `${claims.length} claims, ${shelfLives.length} shelf-life records. Real image: any ${anySideReal} (${pct(anySideReal)}%), both ${bothSidesReal} (${pct(bothSidesReal)}%), any counting DailyMed ${withDailymed} (${pct(withDailymed)}%). ` +
-    `Medicine ${medicine} (${pct(medicine)}%). German text: ${german.translated} of ${german.of} German swaps.`,
+    `Medicine ${medicine} (${pct(medicine)}%). German text: ${german.translated} of ${german.of} German swaps, ${germanKits.translated} of ${germanKits.of} German kits and baskets.`,
 );

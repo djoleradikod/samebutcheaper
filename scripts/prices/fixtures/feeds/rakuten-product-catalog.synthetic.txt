@@ -1,4 +1,4 @@
 HDR|38605|Test Outfitters|11/12/2026 03:15:42
-1001|Test Value Ibuprofen Tablets 200 mg, 100 Count|TV-IBU-100|Health|Pain~~Tablets|https://click.linksynergy.com/link?id=AbCdEf&offerid=1234.1001&type=15&murl=https%3A%2F%2Fwww.test-outfitters.example%2Fibu|https://img.example/ibu.jpg||Ibuprofen tablets|"Long | description with a pipe"|||5.99|6.49|||Test Value|0.00|ibuprofen~~pain||Test Value Inc||in-stock|300450000017||USD||
+1001|Test Value Ibuprofen Tablets 200 mg, 100 Count|TV-IBU-100|Health|Pain~~Tablets|https://click.linksynergy.com/link?id=AbCdEf&offerid=1234.1001&type=15&murl=https%3A%2F%2Fwww.test-outfitters.example%2Fibu|https://img.example/ibu.jpg||Ibuprofen tablets|"Long | description with a pipe"|||5.99|6.49|||Test Value|0.00|ibuprofen~~pain||Test Value Inc||in-stock|300450000019||USD||
 1002|Testvil 100 Count|TV-ADV-100|Health||https://click.linksynergy.com/link?id=AbCdEf&offerid=1234.1002&type=15&murl=https%3A%2F%2Fwww.test-outfitters.example%2Fadv|https://img.example/adv.jpg||||||12.49|12.49|||Testvil||||||out-of-stock|||USD||
 TRL|2

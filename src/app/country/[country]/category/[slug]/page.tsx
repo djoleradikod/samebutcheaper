@@ -3,7 +3,7 @@ import CategoryPage from "@/app/category/[slug]/page";
 import { aisleMetadata } from "@/app/category/[slug]/aisle-meta";
 import { langForCountry } from "@/lib/i18n";
 import { countryForPrefix } from "@/lib/country-url";
-import { countryHead, prefixedSlugs } from "@/lib/seo-catalog";
+import { countryHead, languageCard, prefixedSlugs } from "@/lib/seo-catalog";
 import { metadataCountry, pageCountry } from "../../country-page";
 
 /** Only aisles this country lists something in. An empty one renders on the first visit and is noindex. */
@@ -18,7 +18,8 @@ export async function generateMetadata(props: PageProps<"/country/[country]/cate
   const { slug } = await props.params;
   const base = await aisleMetadata(slug, langForCountry(country));
   // An aisle no country lists anything in keeps its own noindex. One this country lists nothing in is noindex here.
-  return { ...base, ...(countryHead(`/category/${slug}`, country) ?? {}) };
+  const card = typeof base.title === "string" && base.description ? languageCard(country, base.title, base.description, `/category/${slug}`) : {};
+  return { ...base, ...card, ...(countryHead(`/category/${slug}`, country) ?? {}) };
 }
 
 /** An aisle in one country's view: the same page, with every CountryPart rendered for the URL's country. */

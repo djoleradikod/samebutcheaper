@@ -424,6 +424,7 @@
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/10898766",
+      "gtin": "0305210691001",
       "key_ingredients": [
         {
           "name": "White petrolatum USP",
@@ -483,6 +484,7 @@
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/681955595",
+      "gtin": "0301871373164",
       "key_ingredients": [
         {
           "name": "Ceramide NP, AP, EOP",
@@ -574,6 +576,7 @@
       "retailer": "walmart",
       "asin": null,
       "url": "https://www.walmart.com/ip/Sensodyne-Extra-Whitening-Sensitive-Toothpaste-Mint-4-Oz-for-Adults/3392",
+      "gtin": "0031015808404",
       "key_ingredients": [
         {
           "name": "Potassium nitrate",

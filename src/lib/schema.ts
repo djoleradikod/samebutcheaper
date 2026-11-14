@@ -2,6 +2,7 @@ import { z } from "zod";
 import { CATEGORY_SLUGS } from "./category-slugs";
 import { MARKET_CODES, RETAILERS } from "./markets";
 import { inRange, RATING_SCALES } from "./rating";
+import { isGtin, isPzn } from "./gtin";
 
 export { MARKET_CODES, RETAILERS };
 
@@ -114,13 +115,17 @@ const product = z.object({
   /** Product photo (https). Missing or invalid falls back to a drawn pack tile. */
   image: imageUrl,
   rating,
-  /** UPC/EAN barcode digits, used to fetch openly licensed photos and match affiliate feeds. */
+  /**
+   * The pack's GS1 barcode (EAN-13, UPC-A, EAN-8 or GTIN-14), the first key affiliate feeds are matched on
+   * (docs/feeds.md). A wrong check digit fails the build: a wrong code would match another product's price.
+   */
   gtin: z
     .string()
-    .regex(/^\d{8,14}$/)
+    .refine(isGtin, "gtin is not 8, 12, 13 or 14 digits with a valid check digit")
     .nullable()
-    .optional()
-    .catch(null),
+    .optional(),
+  /** German Pharmazentralnummer of this pack, only when the record's own sources state it. Not a GTIN. */
+  pzn: z.string().refine(isPzn, "pzn is not 8 digits with a valid check digit").nullable().optional(),
   /** Regulatory licence number: NDC (US), PL (UK), DIN (Canada), PZN (Germany). */
   license_id: z.string().min(3).max(40).nullable().optional().catch(null),
   key_ingredients: z.array(ingredient).default([]),
@@ -478,6 +483,34 @@ export const shelfLifeDeSchema = z
   })
   .strict();
 export type ShelfLifeDe = z.infer<typeof shelfLifeDeSchema>;
+
+/** One kit's German text (data/i18n/de/bundles/<the bundle file>.json, keyed by slug). Lists line up with the English. */
+export const bundleDeSchema = z
+  .object({
+    title: z.string().min(3),
+    name: z.string().min(1),
+    /** One per English bundle.items entry, same order. */
+    items: z.array(z.string().min(1)),
+    /** One per English bundle.extras entry, same order. */
+    extras: z.array(z.string().min(1)).default([]),
+    summary: z.string().min(10),
+    evidence: z.string().min(10),
+    differences: z.string().default(""),
+  })
+  .strict();
+export type BundleDe = z.infer<typeof bundleDeSchema>;
+
+/** One basket's German text (data/i18n/de/presets/<the preset file>.json, keyed by slug). Notes are keyed by the line's swap. */
+export const presetDeSchema = z
+  .object({
+    title: z.string().min(3),
+    audience: z.string().min(3),
+    blurb: z.string().min(10),
+    research: z.string().min(20),
+    notes: z.record(z.string(), z.string().min(1)).default({}),
+  })
+  .strict();
+export type PresetDe = z.infer<typeof presetDeSchema>;
 
 /** Words records share, keyed by the English: subcategory names. */
 export const glossaryDeSchema = z.object({ subcategories: z.record(z.string(), z.string().min(2)) }).strict();

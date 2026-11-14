@@ -128,7 +128,7 @@ function BundlesBody({ local }: { local: Local }) {
                   <h2 className="display mb-3 text-xl md:text-2xl">{t("bundlesPage.pricedIn", lang === "en" ? MARKETS[market].short : countryAt(market))}</h2>
                   <div className="grid gap-2 sm:gap-3 md:grid-cols-2 xl:grid-cols-3">
                     {list.map((p, i) => (
-                      <BasketCard key={p.slug} basket={toBasketSummary(p)} eager={g === 0 && i === 0} lang={lang} />
+                      <BasketCard key={p.slug} basket={toBasketSummary(p, undefined, lang)} eager={g === 0 && i === 0} lang={lang} />
                     ))}
                   </div>
                 </section>

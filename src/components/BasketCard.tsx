@@ -32,6 +32,8 @@ export type BasketSummary = {
   photos: { src: string; name: string }[];
   /** Brand names for typographic tiles, for a basket with no photos to show. */
   tileNames: string[];
+  /** The German title and audience, on a German page's card when the basket has them. */
+  de?: { title: string; audience: string };
 };
 
 /** Which grid cell each photo takes, by how many photos there are. */
@@ -82,9 +84,9 @@ export function BasketCard({ basket: b, eager = false, lang = "en" }: { basket: 
         <Collage basket={b} eager={eager} lang={lang} />
       </div>
       <div className="flex min-w-0 flex-1 flex-col">
-        {lang !== "en" && <p className="mb-0.5 text-xs font-medium text-muted">{clientT(lang, TEXT)("kits.inEnglish")}</p>}
-        <h3 lang={lang !== "en" ? "en" : undefined} className="display text-lg leading-tight group-hover:underline">{b.title}</h3>
-        <p lang={lang !== "en" ? "en" : undefined} className="mt-1 line-clamp-2 text-[13px] leading-snug text-ink-2">{b.audience}</p>
+        {lang !== "en" && !b.de && <p className="mb-0.5 text-xs font-medium text-muted">{clientT(lang, TEXT)("kits.inEnglish")}</p>}
+        <h3 lang={lang !== "en" && !b.de ? "en" : undefined} className="display text-lg leading-tight group-hover:underline">{b.de?.title ?? b.title}</h3>
+        <p lang={lang !== "en" && !b.de ? "en" : undefined} className="mt-1 line-clamp-2 text-[13px] leading-snug text-ink-2">{b.de?.audience ?? b.audience}</p>
         {/* Pinned to the bottom, so prices and tickets line up across a row whatever the title's length. */}
         <div className="mt-auto pt-2.5">
           <p className="flex flex-wrap gap-x-2 text-[13px] leading-tight font-medium text-ink-2">

@@ -325,14 +325,14 @@ const gbRecords = () => [
   record({
     slug: "panadol-vs-test-paracetamol-gb",
     market: "GB",
-    brand: { brand: "Panadol", product: "Panadol 32", size: 32, unit: "tablet", price: 4.0, retailer: "superdrug", url: "https://example.com/panadol", gtin: "5000000000017" },
-    alternative: { brand: "Test", product: "Test Paracetamol 32", size: 32, unit: "tablet", price: 2.0, retailer: "boots", url: "https://example.com/x", gtin: "5000000000017" },
+    brand: { brand: "Panadol", product: "Panadol 32", size: 32, unit: "tablet", price: 4.0, retailer: "superdrug", url: "https://example.com/panadol", gtin: "5000000000012" },
+    alternative: { brand: "Test", product: "Test Paracetamol 32", size: 32, unit: "tablet", price: 2.0, retailer: "boots", url: "https://example.com/x", gtin: "5000000000012" },
   }),
   record({
     slug: "zirtek-vs-test-cetirizine-gb",
     market: "GB",
     brand: { brand: "Zirtek", product: "Zirtek 30", size: 30, unit: "tablet", price: 6.0, retailer: "boots", url: "https://example.com/zirtek", gtin: "00012345678905" },
-    alternative: { brand: "Test", product: "Test Loratadine", size: 30, unit: "tablet", price: 2.5, retailer: "boots", url: "https://example.com/lor", gtin: "5000000000024" },
+    alternative: { brand: "Test", product: "Test Loratadine", size: 30, unit: "tablet", price: 2.5, retailer: "boots", url: "https://example.com/lor", gtin: "5000000000029" },
   }),
 ];
 

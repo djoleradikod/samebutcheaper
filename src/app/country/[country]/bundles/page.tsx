@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import BundlesPage, { metadata } from "@/app/bundles/page";
-import { countryHead } from "@/lib/seo-catalog";
+import { countryHead, languageCard } from "@/lib/seo-catalog";
 import { getT, langForCountry } from "@/lib/i18n";
 import { metadataCountry, pageCountry } from "../country-page";
 
 export async function generateMetadata({ params }: PageProps<"/country/[country]/bundles">): Promise<Metadata> {
   const country = await metadataCountry(params);
   const t = getT(langForCountry(country));
-  return { ...metadata, title: t("bundlesPage.metaTitle"), description: t("bundlesPage.metaDescription"), ...countryHead("/bundles", country) };
+  return { ...metadata, title: t("bundlesPage.metaTitle"), description: t("bundlesPage.metaDescription"), ...languageCard(country, t("bundlesPage.metaTitle"), t("bundlesPage.metaDescription"), "/bundles"), ...countryHead("/bundles", country) };
 }
 
 /** /bundles in one country's view: the same page, with every CountryPart rendered for the URL's country. */
