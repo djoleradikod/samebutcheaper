@@ -11,7 +11,7 @@
  * A link to a path the store's terms bar (its pharmacy) fails the build.
  */
 import { buildEnv } from "../src/lib/affiliate-env-file";
-import { linkStoreName } from "../src/lib/affiliate";
+import { linkStoreName } from "../src/lib/store-name";
 import { withholdBundle, withholdPair, withholdPreset, withoutStorePrices } from "../src/lib/price-expiry";
 import { barredPath, feedStores, historyBarred, photoBarred, priceLimit, rulesFor, termsOff, type Limited, type Withheld } from "../src/lib/programme-terms";
 import type { Bundle, Catalog, Pair, Preset } from "../src/lib/types";
