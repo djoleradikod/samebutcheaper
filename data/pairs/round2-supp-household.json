@@ -225,12 +225,13 @@
     "match_type": "identical_active",
     "confidence": "high",
     "summary": "Both are plain 5 mg melatonin tablets, one at bedtime.",
-    "evidence": "Target's Nature Made listing shows 5 mg melatonin per tablet (other ingredients croscarmellose sodium, magnesium stearate), $8.99 for 90. Walmart's Spring Valley listing states 5 mg melatonin per tablet, 120 servings, $6.24.",
-    "differences": "Inactive ingredients for Spring Valley were not listed. Nature Made is USP Verified. Note: Target's up&up 5 mg melatonin also adds 500 mcg lemon balm extract, so it is not a pure match.",
+    "evidence": "Both are plain 5 mg melatonin tablets. Target's Nature Made listing gives 5 mg melatonin per tablet with croscarmellose sodium and magnesium stearate, and Walmart's Spring Valley listing states 5 mg melatonin per tablet. A 2012 Spring Valley Melatonin 5 mg label in the NIH supplement label database says it was made by Pharmavite, the company behind Nature Made, but that label is old and may not match today's tablet. In November 2026 Target listed Nature Made 90-count at $8.99 and Walmart listed Spring Valley 120-count at $6.24.",
+    "differences": "Walmart's current Spring Valley listing does not give the inactive ingredients; the 2012 label used a different filler from Nature Made's. Nature Made is USP Verified, and we found no USP seal on Spring Valley. Target's up&up 5 mg melatonin adds 500 mcg lemon balm extract, so it is not a pure match.",
     "sources": [
       "https://www.target.com/p/nature-made-melatonin-5mg-100-drug-free-sleep-aid-for-adults-tablets-90ct/-/A-14161827",
       "https://www.walmart.com/ip/11047659",
-      "https://www.walmart.com/ip/3602593789"
+      "https://www.walmart.com/ip/3602593789",
+      "https://api.ods.od.nih.gov/dsld/v9/label/12210"
     ],
     "price_checked": "2026-11",
     "aspects": [
@@ -304,7 +305,7 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "Kirkland Flex-Tech bags are thicker and held more weight than Glad ForceFlex in Reviewed's load test, at about a third less per bag.",
+    "summary": "Kirkland Flex-Tech bags are thicker and held more weight than Glad ForceFlex in Reviewed's load test.",
     "evidence": "Reviewed.com loaded bags with dumbbells in 5-lb steps: Kirkland Flex-Tech held 35 lb versus 30 lb for Glad ForceFlex 13-gal. Today.com's two-month hands-on test lists Kirkland at 0.9 mil versus Glad at 0.72 mil, but scored Glad higher overall (4.5 vs 3.3), with Kirkland feeling slightly damp after a milk-leak test.",
     "differences": "Mixed results: Kirkland won on load strength and thickness, Glad won on leak resistance, snug fit and odor control in Today's test, and Kirkland's drawstring cinches less tightly. Kirkland needs a Costco membership. Glad's Febreze scent version is priced here.",
     "sources": [

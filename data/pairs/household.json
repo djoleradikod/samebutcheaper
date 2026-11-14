@@ -39,9 +39,9 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "Consumer Reports names Kirkland Ultra Clean its best-value liquid detergent, placing just behind Tide in its tests at roughly half the cost per load.",
+    "summary": "Consumer Reports names Kirkland Ultra Clean its best-value liquid detergent, placing just behind Tide in its tests.",
     "evidence": "Consumer Reports' liquid detergent tests (reported 2022 and again in Aug 2026) rank Kirkland Signature Ultra Clean in the top five of 49 liquids, directly behind four Tide products. It matched Tide on body oil and salad dressing stains and in hard water. Tide prices were taken from Walmart; the Kirkland price is Costco's online price as reported in an April 2026 deal post.",
-    "differences": "Not identical formulas. Tide scored better on tough stains such as grass and blood, so Tide still wins if those are your main problem. Kirkland is sold mainly at Costco (membership needed; third-party Walmart sellers charge about $32).",
+    "differences": "Not identical formulas. Tide scored better on tough stains such as grass and blood, so Tide still wins if those are your main problem. Kirkland is sold mainly at Costco, which needs a membership. In November 2026 third-party sellers on Walmart charged about $32 for it.",
     "sources": [
       "https://www.hunker.com/2235712/consumer-reports-best-value-liquid-laundry-detergent-costco-kirkland-signature/",
       "https://www.yahoo.com/news/best-worst-laundry-detergents-consumer-143456003.html",
@@ -120,8 +120,8 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "Consumer Reports rates Kirkland UltraShine pacs Excellent at cleaning and film resistance, the same top tier as Cascade, for about a third of the price per load.",
-    "evidence": "Consumer Reports' dishwasher detergent tests rated Kirkland Signature Platinum Performance UltraShine Excellent on food removal and film resistance and named it a Best Buy; Cascade ActionPacs were also rated Excellent and recommended. CR's model page confirms the 115-count pac with enzymes. Kirkland price is the typical Costco warehouse price from a price tracker (range $11.59-$12.99); CR lists it online from $20.99 delivered.",
+    "summary": "Consumer Reports rates Kirkland UltraShine pacs Excellent at cleaning and film resistance, the same top tier as Cascade.",
+    "evidence": "Consumer Reports' dishwasher detergent tests rated Kirkland Signature Platinum Performance UltraShine Excellent on food removal and film resistance and named it a Best Buy; Cascade ActionPacs were also rated Excellent and recommended. CR's model page confirms the 115-count pac with enzymes. The Kirkland price is the typical Costco warehouse price from a price tracker in November 2026 ($11.59 to $12.99); CR listed it online from $20.99 delivered.",
     "differences": "Different proprietary formulas; CR tested Cascade ActionPacs and Platinum lines, not a direct like-for-like lab comparison of this exact Cascade SKU. Kirkland needs a Costco membership; the online price is higher than in-warehouse.",
     "sources": [
       "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html",
@@ -182,9 +182,9 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "Consumer Reports rates both Finish Quantum and Kirkland UltraShine Excellent overall, and the Kirkland pac costs less than half as much per load.",
+    "summary": "Consumer Reports rates both Finish Quantum and Kirkland UltraShine Excellent overall.",
     "evidence": "In Consumer Reports' dishwasher detergent tests, Finish Powerball Quantum was rated Excellent overall (Finish's only recommended formula) and Kirkland UltraShine was rated Excellent on food removal and film resistance and named a Best Buy. Finish price is Amazon's typical non-sale price shown on a deal listing; Kirkland price is the typical Costco warehouse price.",
-    "differences": "Different proprietary formulas. The Finish price comes from a 2024 deal listing's struck-through price, and Amazon sale prices are often around $14, which narrows the gap. Kirkland needs a Costco membership.",
+    "differences": "Different proprietary formulas. The Finish price comes from a 2024 deal listing's struck-through price. Kirkland needs a Costco membership. Amazon sale prices for Finish were often around $14, which narrows the gap.",
     "sources": [
       "https://www.yahoo.com/news/best-dishwasher-detergents-consumer-reports-134734181.html",
       "https://www.consumerreports.org/appliances/dishwasher-detergents/kirkland-signature-costco-platinum-performance-ultrashine/m403607/",
@@ -265,7 +265,7 @@
     "confidence": "medium",
     "summary": "Both are sodium carbonate plus sodium percarbonate oxygen-bleach powders with a nonionic ethoxylate surfactant, listed in the same order.",
     "evidence": "Church & Dwight's ingredient disclosure for OxiClean Versatile lists sodium carbonate, sodium carbonate peroxide (sodium percarbonate), C10-16 alketh surfactant, fragrance, sodium chloride and colorant. Target lists up&up Powder Stain Remover as sodium carbonate, sodium percarbonate, laureth-7, sodium silicate and colorant. Same active oxygen-bleach chemistry in the same order, but neither discloses percentages.",
-    "differences": "Percentages are not disclosed, so active oxygen content may differ. up&up is unscented and uses sodium silicate instead of sodium chloride; OxiClean contains fragrance. Savings are modest (about 15% per oz); Target sometimes prices it lower (Shipt showed $6.79).",
+    "differences": "Percentages are not disclosed, so active oxygen content may differ. up&up is unscented and uses sodium silicate instead of sodium chloride; OxiClean contains fragrance. Savings were modest when we checked in November 2026 (about 15% per oz). Target sometimes prices it lower: Shipt showed $6.79.",
     "sources": [
       "https://churchdwight.com/ingredient-disclosure/laundry-fabric-care/42015066-oxiclean-versatile-stain-remover.aspx",
       "https://www.target.com/p/-/A-81069446",
@@ -289,7 +289,7 @@
         "source": "https://www.target.com/p/-/A-81069446"
       }
     ],
-    "why": "Both list sodium carbonate, then sodium percarbonate, then a nonionic surfactant, in the same order, and neither discloses percentages. The main listed difference is fragrance, which the OxiClean has, and the per-ounce saving on up&up is about 15%."
+    "why": "Both list sodium carbonate, then sodium percarbonate, then a nonionic surfactant, in the same order, and neither discloses percentages. The main listed difference is fragrance, which the OxiClean has."
   },
   {
     "slug": "mr-clean-magic-eraser-extra-durable-vs-amazon-basics-cleaning-eraser",
@@ -330,7 +330,7 @@
     },
     "match_type": "equivalent_spec",
     "confidence": "medium",
-    "summary": "A Magic Eraser is a block of melamine foam, and Amazon's cleaning erasers are the same kind of melamine foam pad for less per pad.",
+    "summary": "A Magic Eraser is a block of melamine foam, and Amazon's cleaning erasers are the same kind of melamine foam pad.",
     "evidence": "P&G Professional distributor listings describe the Magic Eraser as a melamine foam pad, and Apartment Therapy explains it works because melamine foam acts like very fine sandpaper. Amazon Basics Extra Durable Cleaning Erasers are the same product type, and buyers report similar results on tubs and scuffs. Prices are the usual non-sale Amazon prices shown on deal listings.",
     "differences": "Reviewers say the Amazon pads are slightly thinner, so each may wear out sooner, and density is not published for either. Mr. Clean's version is branded Durafoam. Both are frequently discounted with coupons and Subscribe & Save.",
     "sources": [

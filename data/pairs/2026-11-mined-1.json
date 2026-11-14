@@ -122,7 +122,7 @@
   "market": "US",
   "category": "food-pantry",
   "subcategory": "Soy sauce",
-  "title": "Kikkoman Soy sauce vs Great Value Soy sauce all purpose seasoning",
+  "title": "Kikkoman Soy Sauce vs Great Value Soy Sauce All Purpose Seasoning",
   "brand": {
    "brand": "Kikkoman",
    "product": "Kikkoman Soy sauce, 1.2 L",
@@ -194,7 +194,7 @@
   "match_type": "identical_formula",
   "confidence": "medium",
   "summary": "Both list water, wheat, soybeans, salt and sodium benzoate, in that order.",
-  "evidence": "Compared the two ingredient lists. Both prices were seen at Walmart Supercenter in Mountain View, Kikkoman on 25 April 2026 and Great Value on 10 December 2025.",
+  "evidence": "Open Food Facts lists the same five ingredients on both labels, in the same order: water, wheat, soybeans, salt and sodium benzoate. Both prices were seen at Walmart Supercenter in Mountain View, Kikkoman on 25 April 2026 and Great Value on 10 December 2025.",
   "differences": "The ingredient lists match, but they do not give amounts or how each sauce was made, and the Great Value name adds \"All Purpose Seasoning\". Both contain wheat and soy. The prices were seen about four months apart. Kikkoman is the bigger pack, so the saving does not come from buying more. No taste or performance test was found for this pair.",
   "why": "The two labels list the same five ingredients in the same order. The Kikkoman label shows no extra ingredient for the higher price per ounce.",
   "claims": [
@@ -272,7 +272,7 @@
   "market": "US",
   "category": "food-pantry",
   "subcategory": "Ketchup",
-  "title": "Heinz Tomato ketchup vs Great Value Tomato ketchup",
+  "title": "Heinz Tomato Ketchup vs Great Value Tomato Ketchup",
   "brand": {
    "brand": "Heinz",
    "product": "Heinz Tomato ketchup, 38 oz",
@@ -344,7 +344,7 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both are tomato ketchups made with tomato concentrate, distilled vinegar, high fructose corn syrup, corn syrup, salt, spice, onion powder and natural flavor.",
-  "evidence": "Compared the two ingredient lists. Both prices were seen at Walmart Supercenter in Mountain View on 1 February 2026.",
+  "evidence": "Open Food Facts lists the same ingredients on both labels: tomato concentrate, distilled vinegar, high fructose corn syrup, corn syrup, salt, spice, onion powder and natural flavor, with the vinegar and high fructose corn syrup in the opposite order. Both prices were seen at Walmart Supercenter in Mountain View on 1 February 2026.",
   "differences": "Heinz lists distilled vinegar ahead of high fructose corn syrup and Great Value lists them the other way round, so the balance of the two differs and the taste may too. Heinz also says its concentrate is from red ripe tomatoes. No taste or performance test was found for this pair. A big part of the saving comes from the bigger Great Value pack, 64 oz against 38 oz.",
   "why": "Both labels use the same kinds of ingredients, including both corn syrups. The Heinz label shows no ingredient the Great Value one lacks, only a different order.",
   "claims": [
@@ -363,7 +363,7 @@
   "market": "US",
   "category": "food-pantry",
   "subcategory": "Cocoa powder",
-  "title": "Hershey's Natural unsweetened cocoa vs Great Value Unsweetened baking cocoa",
+  "title": "Hershey's Natural Unsweetened Cocoa vs Great Value Unsweetened Baking Cocoa",
   "brand": {
    "brand": "Hershey's",
    "product": "Hershey's Natural unsweetened cocoa, 8 oz",
@@ -403,7 +403,7 @@
   "match_type": "equivalent_spec",
   "confidence": "medium",
   "summary": "Both are 8 oz packs of unsweetened cocoa powder with cocoa as the only ingredient.",
-  "evidence": "Compared names, sizes and ingredient lists. Both prices were seen at Walmart Supercenter in Mountain View on 30 October 2026.",
+  "evidence": "Open Food Facts lists cocoa as the only ingredient on both 8 oz packs, and neither lists an alkali. Both prices were seen at Walmart Supercenter in Mountain View on 30 October 2026.",
   "differences": "The labels show no ingredient difference, and neither lists an alkali. Hershey's says natural and 100% cacao, while the Great Value name does not say either. The data does not show fat content. No taste or performance test was found for this pair.",
   "why": "Each label lists one ingredient, cocoa, in the same pack size. Nothing on the Hershey's ingredient list shows what the higher price adds.",
   "claims": [

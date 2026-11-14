@@ -106,12 +106,14 @@
     "confidence": "high",
     "summary": "Both are 1% pyrithione zinc dandruff shampoos in the same 28.2 fl oz size, and Equate is labelled 'Compare to Head & Shoulders Active Ingredient'.",
     "evidence": "Head & Shoulders Classic Clean Drug Facts list pyrithione zinc 1%. The Walmart listing for Equate Everyday Clean Nourishing lists 'Pyrithione Zinc 1% w/w', and Equate's Everyday Clean label on file says 'Compare to Head & Shoulders'. The Equate label is distributed by Walmart and registered by Garcoa, Inc.",
-    "differences": "Only the active ingredient matches. The bases differ: for example, Equate uses cocamide MEA and H&S uses cocamidopropyl betaine and zinc carbonate. Scent also differs. When checked, Walmart showed the Equate 28.2 oz as out of stock; the 23.7 oz size was listed at $4.64.",
+    "differences": "Only the active ingredient matches. The bases differ: for example, Equate uses cocamide MEA and H&S uses cocamidopropyl betaine and zinc carbonate. Scent also differs. When checked in November 2026, Walmart showed the Equate 28.2 oz as out of stock. The 23.7 oz size was listed at $4.64.",
     "sources": [
       "https://www.walmart.com/c/kp/dandruff-shampoo",
       "https://www.walmart.com/ip/seort/14964719959",
       "https://otclabels.com/lib/otc/otc-meds/head-and-shoulders-classic-clean/",
-      "https://otclabels.com/lib/otc/otc-meds/equate-everyday-clean-dandruff-anti-dandruff/"
+      "https://otclabels.com/lib/otc/otc-meds/equate-everyday-clean-dandruff-anti-dandruff/",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=3064a5f4-0dd1-4f61-953d-9d71388b4d7a",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=f28a55cf-eb42-4a0d-a4a3-2bae72b58ac8"
     ],
     "price_checked": "2026-11",
     "aspects": [
@@ -450,13 +452,14 @@
     },
     "match_type": "identical_active",
     "confidence": "high",
-    "summary": "Both are single-ingredient 100% white petrolatum USP skin protectants, so the product is literally the same substance.",
+    "summary": "Both are single-ingredient 100% white petrolatum USP skin protectants.",
     "evidence": "Vaseline's Drug Facts list White Petrolatum USP (100%) as the only ingredient. Walmart lists Equate Petroleum Jelly's primary ingredient as 'White Petrolatum, USP (100%)', with 'Compare to Vaseline' in the product name.",
-    "differences": "Vaseline claims a triple-purification process. Both are USP grade, so purity standards are the same, but refining and odour can vary slightly. The Equate price is the single-jar price shown on the 3-pack listing ($8.34 for 3).",
+    "differences": "Vaseline claims a triple-purification process. Both are USP grade, so they meet the same purity standard, but refining and odour can vary slightly. The Equate price is the single-jar price shown on the 3-pack listing ($8.34 for 3 in November 2026).",
     "sources": [
       "https://www.walmart.com/ip/10898766",
       "https://www.walmart.com/ip/13374461277",
-      "https://www.vitacost.com/products/vaseline-healing-jelly-original-13-oz-368-g-83595"
+      "https://www.vitacost.com/products/vaseline-healing-jelly-original-13-oz-368-g-83595",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=bd4418b7-c6aa-5e71-e053-2995a90a4cc4"
     ],
     "price_checked": "2026-11",
     "aspects": [
@@ -611,13 +614,14 @@
     "match_type": "identical_active",
     "confidence": "medium",
     "summary": "Both are potassium nitrate plus sodium fluoride sensitivity toothpastes, and Equate's label reads 'Compare to Sensodyne Active Ingredients'.",
-    "evidence": "Sensodyne Extra Whitening's DailyMed label lists potassium nitrate 5% and sodium fluoride 0.24% (0.15% w/v fluoride ion). Walmart's Equate listing names potassium nitrate and sodium fluoride as the actives, and the 3-pack listing carries 'Compare to Sensodyne Active Ingredients'. We could not see Equate's printed percentages; 5% potassium nitrate is the standard OTC strength for sensitivity toothpaste.",
-    "differences": "We did not view Equate's Drug Facts percentages directly, which is why this pair is medium. The flavour and the whitening abrasive system may differ. The Equate price is the single-tube option ($6.94 for a 2-pack).",
+    "evidence": "Sensodyne Extra Whitening's DailyMed label lists potassium nitrate 5% and sodium fluoride 0.24% (0.15% w/v fluoride ion). Walmart's Equate listing names potassium nitrate and sodium fluoride as the actives, and the 3-pack listing carries 'Compare to Sensodyne Active Ingredients'. DailyMed's label for Equate Sensitive toothpaste (Wal-Mart Stores) lists the same potassium nitrate 5% and sodium fluoride 0.24%, but that label is not named Extra Whitening, so we have not tied it to this exact tube.",
+    "differences": "We did not see the Extra Whitening tube's own Drug Facts, which is why this pair is medium. The flavour and the whitening abrasive system may differ. The Equate price is the single-tube option ($6.94 for a 2-pack in November 2026).",
     "sources": [
       "https://www.walmart.com/ip/Sensodyne-Extra-Whitening-Sensitive-Toothpaste-Mint-4-Oz-for-Adults/3392",
       "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1ed4a62b-f1d3-4740-8150-b94e02398740",
       "https://www.walmart.com/ip/Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz-2-Pack/999612374",
-      "https://www.walmart.com/ip/3-pack-Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz/15365855306"
+      "https://www.walmart.com/ip/3-pack-Equate-Advanced-Extra-Whitening-Sensitive-Toothpaste-4-oz/15365855306",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=79899b59-3a16-6504-e053-2991aa0a895a"
     ],
     "price_checked": "2026-11",
     "aspects": [
@@ -706,7 +710,7 @@
       "key_ingredients": [
         {
           "name": "Stannous fluoride",
-          "amount": "not shown on retailer page"
+          "amount": "0.454% (0.16% w/v fluoride ion)"
         }
       ]
     },
@@ -722,19 +726,21 @@
       "key_ingredients": [
         {
           "name": "Stannous fluoride",
-          "amount": "not shown on retailer page"
+          "amount": "0.454% (0.16% w/v fluoride ion)"
         }
       ]
     },
-    "match_type": "same_kind",
+    "match_type": "identical_active",
     "confidence": "medium",
-    "summary": "Both are stannous fluoride 'whole mouth' toothpastes, and Equate is labelled 'Compare to Crest Pro-Health Advanced Deep Clean Mint active ingredient'.",
-    "evidence": "Walmart's Equate listing says it is formulated with stannous fluoride and carries the explicit compare-to statement naming Crest Pro-Health Advanced Deep Clean Mint. The same page lists the Crest 5.1 oz at $4.97.",
-    "differences": "We could not confirm the stannous fluoride percentage on either label, so these sources do not show the same strength. The savings are modest (about 27%). Flavour and inactive ingredients may differ.",
+    "summary": "Both are 0.454% stannous fluoride 'whole mouth' toothpastes, and Equate is labelled 'Compare to Crest Pro-Health Advanced Deep Clean Mint active ingredient'.",
+    "evidence": "DailyMed's label for Crest Pro-Health Advanced Deep Clean Mint (Procter & Gamble) lists stannous fluoride 0.454% (0.16% w/v fluoride ion), and the label for Equate Pro-Advanced toothpaste (Walmart) lists the same stannous fluoride 0.454% (0.16% w/v fluoride ion). The two inactive lists match except that Crest uses PEG-6 and Equate PEG-8, both with zinc lactate and blue 1. Walmart's Equate listing carries the compare-to statement naming Crest Pro-Health Advanced Deep Clean Mint. In November 2026 the same page listed the Crest 5.1 oz at $4.97.",
+    "differences": "The Equate DailyMed label is titled Pro-Advanced without the flavour name, so we matched it to this tube by name and the compare-to statement. Flavour may differ. The saving was modest when we checked in November 2026 (about 27%).",
     "sources": [
       "https://www.walmart.com/ip/Equate-Pro-Advanced-Toothpaste-Deep-Clean-Mint-5-1-oz/13625959089",
       "https://www.walmart.com/ip/Crest-Pro-Health-Advanced-Deep-Clean-Mint-Toothpaste-5-1-oz/196878437",
-      "https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=crest+pro-health+advanced"
+      "https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=crest+pro-health+advanced",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d774295f-8ebd-9877-e053-2a95a90a9a0e",
+      "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=1e6561fb-4e3b-40ba-e063-6294a90a2690"
     ],
     "price_checked": "2026-11",
     "aspects": [
