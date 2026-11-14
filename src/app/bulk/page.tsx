@@ -55,7 +55,8 @@ function toItem(p: Pair, local: Local): Omit<BulkItem, keyof BrowseRow> {
 
 /** Medicine pages carry a health note that this list doesn't, as on the home page's bulk section. */
 function bulkPairs(local: Local) {
-  return forCountry(getAllPairs(), local).filter((p) => p.bulkView.bigger && p.category !== MEDICINE);
+  // A swap whose prices a store's affiliate terms withhold (src/lib/programme-terms.ts) has no saving to buy in bulk.
+  return forCountry(getAllPairs(), local).filter((p) => p.bulkView.bigger && !p.withheld && p.category !== MEDICINE);
 }
 
 export default function BulkPage() {

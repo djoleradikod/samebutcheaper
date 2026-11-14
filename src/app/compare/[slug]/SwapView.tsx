@@ -60,6 +60,9 @@ import { RecordPart } from "@/components/ForCountry";
 import { Money, UnitAmount, OriginalPrice } from "@/components/Money";
 import { YearlyBlock } from "@/components/YearlyBlock";
 import { PriceChecked } from "@/components/PriceChecked";
+import { linkStoreName } from "@/lib/affiliate";
+import { disclosureFor } from "@/lib/programme-terms";
+import { priced, priceNotices, sidePriced, withheldChecked, withheldStores } from "@/lib/withheld";
 
 /** The swap's head for its unprefixed URL (country null) or one country's: title, description, and the rule in seo.ts. */
 export function swapMetadata(slug: string, country: PrefixedCountry | null): Metadata {
@@ -157,7 +160,8 @@ export function SwapView({ record, country }: { record: Pair; country: PrefixedC
 function swapFor(record: Pair, local: Local) {
   const pair = { ...localText(record, local), evidence_claims: record.evidence_claims.map((c) => localClaim(c, local)) };
   const compared = comparison(record, ingredientSlugFor);
-  const rows = readableRows(compared.rows, pair, local);
+  // A price row compares prices the store's terms withhold, so a swap without them has none.
+  const rows = readableRows(compared.rows, pair, local).filter((r) => priced(record) || r.kind !== "price");
   const wins = [...compared.ingredients, ...rows].filter((r) => r.verdict === "brand_better");
   const { points, caveats } = sortDifferences(pair.differences);
   // A test's name is a proper name, so it keeps its capitals.
@@ -242,13 +246,13 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
           <div className="min-w-0">
             <p className="text-[22px] leading-[1.2] font-semibold tracking-[-0.01em] md:text-[28px]">{verdict(record, lang)}</p>
 
-            <ReportedPriceNote record="pair" slug={record.slug} className="mt-3" lang={lang} />
+            {priced(record) && <ReportedPriceNote record="pair" slug={record.slug} className="mt-3" lang={lang} />}
             <div id={OFFERS} className="scroll-mt-16">
               <RecordPart>
                 {(local) => (
                   <>
                     <Offers pair={record} local={local} />
-                    <YearlyBlock pair={record} lang={local.lang} />
+                    {priced(record) && <YearlyBlock pair={record} lang={local.lang} />}
                   </>
                 )}
               </RecordPart>
@@ -263,7 +267,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
               <SaveButton slug={record.slug} className="sm:w-56" />
               <ShareButton
                 {...shareVersions(record)}
-                text={t("swap.share", a.brand, b.brand, Math.round(record.savingsPct))}
+                text={priced(record) ? t("swap.share", a.brand, b.brand, Math.round(record.savingsPct)) : t("terms.share", a.brand, b.brand)}
                 className="sm:w-56"
               />
               <a href={`#${WATCH}`} className="btn btn-ghost">
@@ -295,7 +299,7 @@ function CompareBody({ record, fixed }: { record: Pair; fixed: Local }) {
         </RecordPart>
       </div>
 
-      <RecordPart>{(local) => <BulkBox pair={swapFor(record, local).pair} local={local} className={BAND} />}</RecordPart>
+      {priced(record) && <RecordPart>{(local) => <BulkBox pair={swapFor(record, local).pair} local={local} className={BAND} />}</RecordPart>}
 
       <section id={WHERE_TO_BUY} aria-labelledby={`${WHERE_TO_BUY}-title`} className="container-page scroll-mt-16 py-8 md:py-10">
         <h2 id={`${WHERE_TO_BUY}-title`} className="display text-[22px] md:text-2xl">
@@ -347,7 +351,7 @@ function SameAmountAndAgainst({ record, local }: { record: Pair; local: Local })
   const hasDifferences = s.wins.length + s.points.length > 0;
   return (
     <>
-      <p className="mt-3 text-[15px] text-ink-2">{sameAmount(s.pair, local)}</p>
+      {priced(record) && <p className="mt-3 text-[15px] text-ink-2">{sameAmount(s.pair, local)}</p>}
       {hasDifferences && (
         <p className="mt-1.5 text-[15px] text-ink-2">
           {s.against && (
@@ -410,14 +414,18 @@ function SwapStickyBuy({ pair, local }: { pair: Pair; local: Local }) {
         <div className="min-w-0 flex-1">
           <p className="truncate text-[13px] font-medium text-ink-2">
             {a.brand}
-            {mayEarn(a, pair.market, pair.prices?.alternative) && adLabel(pair.market) && <span className="ml-2 text-[11px] text-muted">{t("swap.adLabel", pair.market)}</span>}
+            {adFor(a, pair, "alternative", local.lang) && <span className="ml-2 text-[11px] text-muted">{adFor(a, pair, "alternative", local.lang)}</span>}
           </p>
-          <p className="flex items-center gap-2">
-            <span className="price text-xl">
-              <Money n={a.price} from={pair.currency} />
-            </span>
-            <PctTicket pct={pair.savingsPct} size="sm" label={t("swap.ticket", Math.round(pair.savingsPct))} german={local.lang === "de"} />
-          </p>
+          {priced(pair) ? (
+            <p className="flex items-center gap-2">
+              <span className="price text-xl">
+                <Money n={a.price} from={pair.currency} />
+              </span>
+              <PctTicket pct={pair.savingsPct} size="sm" label={t("swap.ticket", Math.round(pair.savingsPct))} german={local.lang === "de"} />
+            </p>
+          ) : (
+            <p className="text-[15px] font-medium">{t("terms.seePrice", linkStoreName(a))}</p>
+          )}
         </div>
         <a href={`/go/${pair.slug}/alternative`} target="_blank" rel="sponsored nofollow noopener" className="btn btn-primary shrink-0">
           {a.retailer === "other" ? t("swap.seeItOnline") : t("swap.seeItAt", atStore(a.retailer, a.url, local.lang))}
@@ -439,14 +447,16 @@ function Shelf({ pair, lang }: { pair: Pair; lang: Lang }) {
       <ShelfColumn pair={pair} product={pair.brand} side="brand" lang={lang} />
       <ShelfColumn pair={pair} product={pair.alternative} side="alternative" lang={lang} />
       <div aria-hidden="true" className="col-span-2 col-start-1 row-start-1 h-[3px] self-end bg-ink" />
-      <div className="z-10 col-span-2 col-start-1 row-start-1 translate-y-1/2 self-end justify-self-center">
-        <PctTicket
-          pct={pair.savingsPct}
-          size="lg"
-          label={t("swap.ticket", Math.round(pair.savingsPct))} german={lang === "de"}
-          className="md:px-3.5 md:py-2.5 md:pl-[26px] md:text-[2.25rem] md:[--hole-r:5px] md:[--hole-x:12px]"
-        />
-      </div>
+      {priced(pair) && (
+        <div className="z-10 col-span-2 col-start-1 row-start-1 translate-y-1/2 self-end justify-self-center">
+          <PctTicket
+            pct={pair.savingsPct}
+            size="lg"
+            label={t("swap.ticket", Math.round(pair.savingsPct))} german={lang === "de"}
+            className="md:px-3.5 md:py-2.5 md:pl-[26px] md:text-[2.25rem] md:[--hole-r:5px] md:[--hole-x:12px]"
+          />
+        </div>
+      )}
       <PhotoLine className="col-span-2 mt-2" lang={lang} items={[pair.brand, pair.alternative].map((p) => ({ name: p.brand, photo: p.photo }))} />
     </div>
   );
@@ -475,20 +485,28 @@ function ShelfColumn({ pair, product: p, side, lang }: { pair: Pair; product: Pr
         <span className="block text-[13px] font-medium text-muted">{cheaper ? t("swap.shelf.cheaper") : t("swap.shelf.brand")}</span>
         <span className="block text-[15px] leading-tight font-bold break-words md:text-lg">{p.brand}</span>
       </p>
-      <p
-        className={`price mt-1.5 self-end ${cheaper ? "text-[2rem] text-ink min-[360px]:text-[2.5rem] md:text-[3.5rem] lg:text-[2.75rem]" : "text-[1.75rem] text-ink-2 min-[360px]:text-[2rem] md:text-[2.75rem] lg:text-[2.25rem]"}`}
-      >
-        <Money n={p.price} from={pair.currency} />
-        <OriginalPrice n={p.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
-      </p>
+      {sidePriced(pair, side) ? (
+        <p
+          className={`price mt-1.5 self-end ${cheaper ? "text-[2rem] text-ink min-[360px]:text-[2.5rem] md:text-[3.5rem] lg:text-[2.75rem]" : "text-[1.75rem] text-ink-2 min-[360px]:text-[2rem] md:text-[2.75rem] lg:text-[2.25rem]"}`}
+        >
+          <Money n={p.price} from={pair.currency} />
+          <OriginalPrice n={p.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
+        </p>
+      ) : (
+        <p className="mt-1.5 self-end text-[15px] leading-snug font-semibold md:text-lg">{t("terms.seePrice", linkStoreName(p))}</p>
+      )}
       <div className="mt-1 min-w-0 md:mt-1.5">
         <p className="text-sm font-medium text-ink-2">{packText(p.size, p.unit, lang)}</p>
-        <p className="mt-0.5 flex flex-wrap items-baseline gap-x-1">
-          <span className={`price text-xl md:text-2xl ${cheaper ? "text-ink" : "text-ink-2"}`}>
-            <UnitAmount ppu={p.ppu} unit={p.unit} from={pair.currency} />
-          </span>
-          <span className="text-[13px] leading-tight font-medium text-muted">{label}</span>
-        </p>
+        {sidePriced(pair, side) ? (
+          <p className="mt-0.5 flex flex-wrap items-baseline gap-x-1">
+            <span className={`price text-xl md:text-2xl ${cheaper ? "text-ink" : "text-ink-2"}`}>
+              <UnitAmount ppu={p.ppu} unit={p.unit} from={pair.currency} />
+            </span>
+            <span className="text-[13px] leading-tight font-medium text-muted">{label}</span>
+          </p>
+        ) : (
+          <p className="mt-0.5 text-[13px] font-medium text-muted">{withheldChecked(pair, side, lang)}</p>
+        )}
       </div>
     </div>
   );
@@ -507,6 +525,8 @@ type Offer = {
   primary: boolean;
   /** Set when the link earns us a commission in a market whose rules want the link itself marked as an ad. */
   ad?: string;
+  /** Set when the store's affiliate terms withhold this price: "See the price at Walmart" and the day we checked. */
+  withheld?: { see: string; checked: string | null };
 };
 
 /** The columns once there's room for them. Under that, each offer stacks and nothing scrolls sideways. */
@@ -531,7 +551,8 @@ function offersFor(pair: Pair, local: Local): Offer[] {
     href: sells(p.retailer) ? `/go/${pair.slug}/${which}` : null,
     buttonLabel: seeLabel(p, local.lang),
     primary: which === "alternative",
-    ad: mayEarn(p, pair.market, pair.prices?.[which]) ? t("swap.adLabel", pair.market) : undefined,
+    ad: adFor(p, pair, which, local.lang),
+    withheld: sidePriced(pair, which) ? undefined : { see: t("terms.seePrice", linkStoreName(p)), checked: withheldChecked(pair, which, local.lang) },
   });
   const offers = [side(a, "alternative"), side(b, "brand")];
   const big = bulkView.bigger;
@@ -546,7 +567,7 @@ function offersFor(pair: Pair, local: Local): Offer[] {
       href: sells(big.retailer) ? `/go/${pair.slug}/bigger` : null,
       buttonLabel: big.retailer === "other" ? t("swap.seeItOnline") : t("swap.seeItAt", atStore(big.retailer, undefined, local.lang)),
       primary: false,
-      ad: mayEarn({ retailer: big.retailer as ProductSide["retailer"], url: big.url }, pair.market) ? t("swap.adLabel", pair.market) : undefined,
+      ad: adLabelFor({ retailer: big.retailer as ProductSide["retailer"], url: big.url }, pair.market, local.lang),
     });
   }
   return offers;
@@ -587,22 +608,34 @@ function Offers({ pair, local }: { pair: Pair; local: Local }) {
             >
               {o.store}
             </p>
-            <p
-              role="cell"
-              className={`price col-start-2 row-span-2 row-start-1 text-right text-[1.375rem] @2xl:col-start-3 @2xl:row-span-1 @2xl:text-left ${o.primary ? "text-ink" : "text-ink-2"}`}
-            >
-              <Money n={o.price} from={pair.currency} />
-              <OriginalPrice n={o.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
-            </p>
+            {o.withheld ? (
+              <p role="cell" className="col-start-2 row-span-2 row-start-1 max-w-32 text-right text-[13px] leading-snug font-semibold @2xl:col-start-3 @2xl:row-span-1 @2xl:text-left">
+                {o.withheld.see}
+              </p>
+            ) : (
+              <p
+                role="cell"
+                className={`price col-start-2 row-span-2 row-start-1 text-right text-[1.375rem] @2xl:col-start-3 @2xl:row-span-1 @2xl:text-left ${o.primary ? "text-ink" : "text-ink-2"}`}
+              >
+                <Money n={o.price} from={pair.currency} />
+                <OriginalPrice n={o.price} from={pair.currency} market={pair.market} checked={pair.price_checked} className="mt-1 font-sans" />
+              </p>
+            )}
             <div className="col-span-2 col-start-1 row-start-3 flex flex-wrap items-baseline gap-x-2 @md:col-span-1 @2xl:contents">
               <p role="cell" className="text-[13px] font-medium text-ink-2 @2xl:col-start-4 @2xl:row-start-1">
                 {packText(o.size, unit, local.lang)}
               </p>
               <p role="cell" className="text-[13px] leading-tight font-medium text-muted @2xl:col-start-5 @2xl:row-start-1">
-                <span className="price text-[15px] text-ink">
-                  <UnitAmount ppu={o.ppu} unit={unit} from={pair.currency} />
-                </span>{" "}
-                {label}
+                {o.withheld ? (
+                  o.withheld.checked
+                ) : (
+                  <>
+                    <span className="price text-[15px] text-ink">
+                      <UnitAmount ppu={o.ppu} unit={unit} from={pair.currency} />
+                    </span>{" "}
+                    {label}
+                  </>
+                )}
               </p>
             </div>
             <div
@@ -629,6 +662,12 @@ function Offers({ pair, local }: { pair: Pair; local: Local }) {
           </div>
         ))}
       </div>
+      {!priced(pair) && <p className="mt-2 text-[13px] text-ink-2">{t("terms.why", withheldStores(pair, local.lang))}</p>}
+      {priceNotices(pair, local.lang).map((n) => (
+        <p key={n} className="mt-1 text-[13px] text-muted">
+          {n}
+        </p>
+      ))}
     </div>
   );
 }
@@ -639,6 +678,7 @@ function verdict(pair: Pair, lang: Lang) {
   const t = getT(lang);
   const { label } = unitDisplay(b.unit);
   const what = t(`swap.verdict.${pair.match_type}`, b.brand);
+  if (!priced(pair)) return t("terms.verdict", a.brand, what);
   return t("swap.verdict.line", a.brand, what, Math.round(pair.savingsPct), label === "each" ? "" : unitLabel(b.unit, lang));
 }
 
@@ -657,16 +697,23 @@ function sameAmount(pair: Pair, local: Local) {
   return t("swap.sameAmount.forSame", packText(b.size, b.unit, local.lang), local.bare(forSameAmount, currency), a.brand, local.money(b.price, currency), b.brand);
 }
 
-/**
- * The word an earning link carries beside it, where a market's rules want the link itself marked: German law wants
- * "Anzeige" or "Werbung" at the link, and the UK and Irish ad codes want "Ad". The line under the prices says the rest.
- */
-function adLabel(market: Pair["market"]) {
-  return market === "DE" ? "Anzeige" : market === "GB" || market === "IE" ? "Ad" : undefined;
-}
-
 // Decided per link, feed links included (src/lib/disclosure.ts).
 const disclosure = swapDisclosure;
+
+/**
+ * The label beside an earning link: the one its programme's terms ask for ("Paid link" for Walmart, section 4), else
+ * the one the market's rules want ("Anzeige", "Ad"). Nothing for a link that earns nothing.
+ */
+function adFor(p: ProductSide, pair: Pair, which: "brand" | "alternative", lang: Lang) {
+  if (!mayEarn(p, pair.market, pair.prices?.[which])) return undefined;
+  return adLabelFor(p, pair.market, lang, true);
+}
+
+function adLabelFor(p: Pick<ProductSide, "retailer" | "url">, market: Pair["market"], lang: Lang, earns = mayEarn(p, market)) {
+  if (!earns) return undefined;
+  const t = getT(lang);
+  return disclosureFor(p, market) === "paid-link" ? t("terms.paidLink") : t("swap.adLabel", market);
+}
 
 function listWords(words: string[]) {
   if (words.length < 2) return words.join("");

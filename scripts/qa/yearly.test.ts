@@ -87,7 +87,8 @@ test("every catalogue swap: the yearly figure is exactly packs a year times the 
     const exact = 12 * (p.brand.price - (p.alternative.price / p.alternative.size) * p.brand.size);
     assert.ok(Math.abs(yearlySaving(prices, "1m") - exact) < 1e-9, p.slug);
     // The catalogue rounds its per-pack saving to the cent, so twelve of them can be off by at most 6 cents.
-    assert.ok(Math.abs(yearlySaving(prices, "1m") - 12 * p.savingsPerPack) <= 0.06 + 1e-9, p.slug);
+    // A price a store's affiliate terms withhold keeps no saving at all (src/lib/programme-terms.ts).
+    if (!p.withheld) assert.ok(Math.abs(yearlySaving(prices, "1m") - 12 * p.savingsPerPack) <= 0.06 + 1e-9, p.slug);
   }
 });
 

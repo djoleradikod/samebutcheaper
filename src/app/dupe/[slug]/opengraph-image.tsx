@@ -21,7 +21,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     title: `Cheaper than ${d.brand}`,
     sub: `${n === 1 ? "1 cheaper match" : `${n} cheaper matches`}, led by ${top.alternative.brand}. ${top.summary}`,
     pct: top.savingsPct,
-    prices: {
+    // No figures where a store's affiliate terms withhold the prices (src/lib/programme-terms.ts).
+    prices: top.withheld ? undefined : {
       cheap: unitPrice(top.alternative.ppu, top.brand.unit, top.currency),
       brand: unitPrice(top.brand.ppu, top.brand.unit, top.currency),
       unit: unitDisplay(top.brand.unit).label,

@@ -7,6 +7,8 @@ export const kits = {
   insteadOf: (brand: string) => `Instead of the ${brand} kit`,
   andMore: (n: number) => `and ${n} more`,
   kit: "Kit",
+  /** In place of the prices where a store's affiliate terms withhold them (src/lib/programme-terms.ts). */
+  pricesAtStores: "Prices at the stores",
   builtYourself: "built yourself",
   costsMore: "Costs more today than the kit",
   smallSaving: "Small saving after delivery",

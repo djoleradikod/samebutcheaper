@@ -242,6 +242,9 @@ export const seo = {
   sameKindLead: (claim: string, pct: number, per: string, market: string) =>
     `${claim} and costs ${pct}% less${per ? ` ${per}` : ""} at ${ADJECTIVE[market]} prices, but our records don't show they match inside.`,
   more: "What differs, the sources, and where to buy.",
+  /** Where a store's affiliate terms withhold the prices (src/lib/programme-terms.ts): the claim with no saving. */
+  leadNoPrice: (claim: string, actives: string) => `${claim}${actives ? ` (${actives})` : ""}.`,
+  sameKindNoPrice: (claim: string) => `${claim}, but our records don't show they match inside.`,
 };
 
 /** What the feedback forms' server actions answer (src/app/feedback-actions.ts). */
@@ -362,4 +365,35 @@ export const rows = {
     licences: "licence numbers",
     ratings: "ratings",
   },
+};
+
+/**
+ * What a page says where an affiliate programme's own terms don't let us show a price (src/lib/programme-terms.ts):
+ * the store, the day we last checked, and why there's no figure.
+ */
+export const terms = {
+  seePrice: (store: string) => `See the price at ${store}`,
+  lastChecked: (date: string) => `Last checked by us: ${date}`,
+  why: (stores: string) =>
+    `${stores} lets its affiliates show only prices it supplies and keeps current, so this page shows no price or saving for it. Compare the price per unit at the store.`,
+  /** The verdict without a saving. */
+  verdict: (alt: string, what: string) => `${alt} ${what}.`,
+  share: (alt: string, brand: string) => `${alt} instead of ${brand}: what matches and what differs`,
+  /** The notice a programme wants beside a price we do show for it. */
+  notice: {
+    "store-price-applies": (store: string) => `If the price at ${store} differs, ${store}'s price applies.`,
+    "as-of-time": () => "Product prices and availability are accurate as of the date/time indicated and are subject to change.",
+  },
+  /** Beside each earning link of a programme that wants each link labelled. */
+  paidLink: "Paid link",
+  theKit: "The brand's kit",
+  thePieces: "The cheaper pieces",
+  replaces: (item: string) => `In place of: ${item}`,
+  insteadOf: (brand: string) => `instead of ${brand}`,
+  kit: (stores: string) =>
+    `${stores} lets its affiliates show only prices it supplies and keeps current, so this kit shows no prices or totals. Each piece links to its store.`,
+  basket: (stores: string) =>
+    `${stores} lets its affiliates show only prices it supplies and keeps current, so this basket shows no totals. Each line links to its swap.`,
+  /** The same, naming no store, for text every country's view shares. */
+  whyPlain: "The store lets its affiliates show only prices it supplies and keeps current, so this page shows no price or saving for it. Compare the price per unit at the store.",
 };

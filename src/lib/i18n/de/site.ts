@@ -265,6 +265,7 @@ export const home: Shape<typeof en.home> = {
   allAisles: "Alle Kategorien",
   tileSwaps: (n) => ` ${n === 1 ? "Vergleich" : "Vergleiche"}, bis zu `,
   tileCheaper: " günstiger",
+  tileCount: (n) => ` ${n === 1 ? "Vergleich" : "Vergleiche"}`,
   email: "Neue Vergleiche per E-Mail",
   questions: "Häufige Fragen",
   missing: "Kennst du einen Vergleich, der hier fehlt?",

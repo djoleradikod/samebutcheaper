@@ -55,7 +55,7 @@ const DROPS_ARG = new Set([
 ]);
 
 /** Functions whose answer is only their arguments and words both languages share ("Barcode 701", "701: 702."). */
-const SAME_ANSWER = new Set(["faq.actives", "faq.claimSentence", "calculator.number", "pageKitWhere.storeIn", "report.barcode"]);
+const SAME_ANSWER = new Set(["faq.actives", "faq.claimSentence", "calculator.number", "pageKitWhere.storeIn", "report.barcode", "seo.leadNoPrice", "terms.verdict"]);
 
 const placeholders = (s: string) => [...s.matchAll(/\{([a-zA-Z]+)\}/g)].map((m) => m[1]).sort();
 

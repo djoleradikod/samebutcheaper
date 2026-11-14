@@ -61,7 +61,9 @@ export function PairCard({ pair, rank, eager = false, lang = "en", via }: { pair
             {rank ? <span className="num">{rank}. </span> : null}
             {kind}
           </p>
-          <PctTicket pct={pair.savingsPct} size="sm" grow className="shrink-0" label={t("cards.cheaperPct", Math.round(pair.savingsPct))} german={lang === "de"} />
+          {!pair.seePriceAt && (
+            <PctTicket pct={pair.savingsPct} size="sm" grow className="shrink-0" label={t("cards.cheaperPct", Math.round(pair.savingsPct))} german={lang === "de"} />
+          )}
         </div>
         <p className="mt-1 line-clamp-2 text-sm leading-snug font-semibold group-hover:underline">
           {pair.brandName}
@@ -69,13 +71,11 @@ export function PairCard({ pair, rank, eager = false, lang = "en", via }: { pair
           {pair.altName}
         </p>
         <ProductLine pair={pair} lang={lang} className="mt-0.5 line-clamp-2" />
-        <UnitPrice
-          unit={pair.unit}
-          alt={pair.altPpu}
-          brand={pair.brandPpu}
-          currency={pair.currency}
-          className="mt-auto pt-1.5"
-        />
+        {pair.seePriceAt ? (
+          <p className="mt-auto pt-1.5 text-[13px] font-semibold">{t("cards.seePriceAt", pair.seePriceAt)}</p>
+        ) : (
+          <UnitPrice unit={pair.unit} alt={pair.altPpu} brand={pair.brandPpu} currency={pair.currency} className="mt-auto pt-1.5" />
+        )}
         <p className="mt-1 flex flex-wrap items-baseline justify-between gap-x-2 text-xs font-medium">
           <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={t("cards.matchDescription", pair.matchType)}>
             {t("cards.matchShort", pair.matchType)}
@@ -112,15 +112,23 @@ export function PairRow({ pair, lang = "en" }: { pair: PairSummary; lang?: Lang 
         {pair.altName}
         <ProductLine pair={pair} lang={lang} className="font-normal" />
       </p>
-      <PctTicket
-        pct={pair.savingsPct}
-        size="sm"
-        className="col-start-2 row-start-1 justify-self-end md:col-start-4"
-        label={t("cards.cheaperPct", Math.round(pair.savingsPct))}
-        german={lang === "de"}
-      />
+      {pair.seePriceAt ? (
+        <span className="col-start-2 row-start-1 justify-self-end text-xs font-semibold md:col-start-4" />
+      ) : (
+        <PctTicket
+          pct={pair.savingsPct}
+          size="sm"
+          className="col-start-2 row-start-1 justify-self-end md:col-start-4"
+          label={t("cards.cheaperPct", Math.round(pair.savingsPct))}
+          german={lang === "de"}
+        />
+      )}
       <div className="col-span-2 flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 md:contents">
-        <UnitPrice size="sm" unit={pair.unit} alt={pair.altPpu} brand={pair.brandPpu} currency={pair.currency} />
+        {pair.seePriceAt ? (
+          <span className="text-[13px] font-semibold">{t("cards.seePriceAt", pair.seePriceAt)}</span>
+        ) : (
+          <UnitPrice size="sm" unit={pair.unit} alt={pair.altPpu} brand={pair.brandPpu} currency={pair.currency} />
+        )}
         <p className="flex flex-wrap items-baseline gap-x-2 text-xs font-medium">
           <span className={pair.matchType === "same_kind" ? "text-muted" : "text-same"} title={t("cards.matchDescription", pair.matchType)}>
             {t("cards.matchShort", pair.matchType)}

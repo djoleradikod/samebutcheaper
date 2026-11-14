@@ -8,6 +8,8 @@ export const cards = {
   moreSwaps: "More swaps",
   /** What a screen reader hears for the "−52%" ticket. */
   cheaperPct: (n: number) => `${n}% cheaper`,
+  /** In place of the saving where a store's affiliate terms withhold the price (src/lib/programme-terms.ts). */
+  seePriceAt: (store: string) => `Price at ${store}`,
   save: "Save",
   noRating: NO_RATING,
   /** The match as a card shows it. "Same active" alone is jargon; the other short names read fine. */

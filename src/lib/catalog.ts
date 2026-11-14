@@ -8,6 +8,7 @@ import { INGREDIENT_MATCHES, ingredientKey, ingredientPageKey, slugify } from ".
 import { oneOfEachSwap } from "./localize";
 import { isCutOut } from "./photos";
 import { canLeadNow } from "./reported-state";
+import { linkStoreName } from "./affiliate";
 
 const catalog = catalogJson as unknown as Catalog;
 
@@ -132,7 +133,9 @@ export function getMarketCounts(): Partial<Record<MarketCode, number>> {
 export function getCategoryStats(pick: (pairs: Pair[]) => Pair[] = (pairs) => pairs) {
   return CATEGORIES.map((c) => {
     const pairs = pick(getPairsByCategory(c.slug));
-    const avg = pairs.length ? pairs.reduce((s, p) => s + p.savingsPct, 0) / pairs.length : 0;
+    // A saving a store's affiliate terms withhold is 0 and left out (src/lib/programme-terms.ts).
+    const priced = pairs.filter((p) => p.savingsPct > 0);
+    const avg = priced.length ? priced.reduce((s, p) => s + p.savingsPct, 0) / priced.length : 0;
     const max = pairs.reduce((m, p) => Math.max(m, p.savingsPct), 0);
     return { ...c, count: pairs.length, avgSavings: avg, maxSavings: max };
   });
@@ -153,6 +156,16 @@ export function getSiteStats() {
 }
 
 export function toSummary(p: Pair): PairSummary {
+  // A store's affiliate terms withhold a price here (src/lib/programme-terms.ts): the card names the store instead,
+  // and carries no figure at all, so nothing that reads it can show or rank by a saving we may not show.
+  if (p.withheld) {
+    const side = p.withheld.alternative ? p.alternative : p.brand;
+    return { ...summaryOf(p), seePriceAt: linkStoreName(side), brandPpu: 0, altPpu: 0, savingsPct: 0, savingsPerPack: 0, score: 0 };
+  }
+  return summaryOf(p);
+}
+
+function summaryOf(p: Pair): PairSummary {
   return {
     slug: p.slug,
     title: p.title,

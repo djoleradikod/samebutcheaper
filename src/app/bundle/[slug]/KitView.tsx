@@ -19,6 +19,7 @@ import { SaveButton } from "@/components/SaveButton";
 import { SaveTicket } from "@/components/Ticket";
 import { linksEarn, RETAILER_LABEL, storeName } from "@/lib/affiliate";
 import { kitEarns } from "@/lib/disclosure";
+import { disclosureFor } from "@/lib/programme-terms";
 import { packSize } from "@/lib/basket-view";
 import { getAllBundles, getBundle } from "@/lib/catalog";
 import { CATEGORY_MAP } from "@/lib/categories";
@@ -42,6 +43,8 @@ import { langForCountry } from "@/lib/i18n/lang";
 import { kitText } from "@/lib/i18n/record";
 import { rich } from "@/lib/i18n/rich";
 import { bundleDescriptionDe, bundleTitleDe } from "@/lib/i18n/seo-de";
+import { priced } from "@/lib/withheld";
+import { WithheldKit } from "@/components/WithheldRecord";
 
 /** The kit's head for its unprefixed URL (country null) or one country's: title, description, and the rule in seo.ts. */
 export function kitMetadata(slug: string, country: PrefixedCountry | null): Metadata {
@@ -104,6 +107,30 @@ function BundleBody({ record, local }: { record: Bundle; local: Local }) {
   const pieces = b.components.slice(0, 4);
   const eager = eagerTarget(b);
   const earns = kitEarns(b);
+  // A programme whose terms want its links labelled "paid link" (programmes.json `disclosure`) gets the words here too.
+  const paidLink = earns && [b.bundle, ...b.components].some((s) => disclosureFor(s, b.market) === "paid-link");
+  // A store's affiliate terms withhold a price in this kit (src/lib/programme-terms.ts): no prices or totals at all.
+  if (!priced(record)) {
+    return (
+      <article>
+        {!local.shows(record) && <NotListedHere market={record.market} local={local} />}
+        <div className="border-b border-line bg-canvas">
+          <div className="container-page pt-1 pb-6 md:pt-3 md:pb-8">
+            <Link href="/bundles" className="inline-flex min-h-11 items-center text-sm text-ink-2 hover:underline md:min-h-0">
+              {t("kitPage.crumb")}
+            </Link>
+            <h1 className="display max-w-[44ch] text-[1.375rem] md:mt-3 md:text-[1.875rem]" lang={textLang}>{b.bundle.name}</h1>
+            <p className="mt-2 max-w-[68ch] text-[15px] text-ink-2 md:text-base" lang={textLang}>{b.summary}</p>
+          </div>
+        </div>
+        <WithheldKit b={b} lang={lang} />
+        <div className="container-page">
+          {HEALTH_CATEGORIES.has(b.category) && <HealthNotice lang={lang} />}
+          <RecordFeedback record="bundle" slug={b.slug} />
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article>
@@ -318,6 +345,7 @@ function BundleBody({ record, local }: { record: Bundle; local: Local }) {
         <aside className="space-y-3 lg:sticky lg:top-24 lg:self-start">
           <BundleBuySection b={b} local={local} />
           <p className="text-xs text-muted">
+            {paidLink && <span className="font-semibold">{t("terms.paidLink")}. </span>}
             {earns ? t("kitPage.earns") : linksEarn() ? t("kitPage.searchMayEarn") : t("kitPage.noEarn")}{" "}
             <Link href="/disclosure" className="underline underline-offset-2">
               {t("kitPage.details")}

@@ -34,6 +34,8 @@ export type BasketSummary = {
   tileNames: string[];
   /** The German title and audience, on a German page's card when the basket has them. */
   de?: { title: string; audience: string };
+  /** A store's affiliate terms withhold some of its prices (src/lib/programme-terms.ts): the totals are 0, not shown. */
+  withheld?: boolean;
 };
 
 /** Which grid cell each photo takes, by how many photos there are. */
@@ -93,11 +95,15 @@ export function BasketCard({ basket: b, eager = false, lang = "en" }: { basket: 
             <span>{clientT(lang, TEXT)("kits.itemsStores", b.itemCount, b.storeCount)}</span>
             <MarketNote market={b.market} />
           </p>
-          <p className="mt-1 flex items-baseline whitespace-nowrap">
-            <span className="price text-base leading-none font-semibold text-muted"><Money n={b.brandTotal} from={b.currency} /></span>
-            <ToArrow className="text-muted" />
-            <span className="price text-xl leading-none text-ink"><Money n={b.altTotal} from={b.currency} /></span>
-          </p>
+          {b.withheld ? (
+            <p className="mt-1 text-[13px] font-semibold">{clientT(lang, TEXT)("kits.pricesAtStores")}</p>
+          ) : (
+            <p className="mt-1 flex items-baseline whitespace-nowrap">
+              <span className="price text-base leading-none font-semibold text-muted"><Money n={b.brandTotal} from={b.currency} /></span>
+              <ToArrow className="text-muted" />
+              <span className="price text-xl leading-none text-ink"><Money n={b.altTotal} from={b.currency} /></span>
+            </p>
+          )}
           <SaveTicket size="md" amount={b.savings} currency={b.currency} className="mt-2" word={clientT(lang, TEXT)("cards.save")} />
         </div>
       </div>

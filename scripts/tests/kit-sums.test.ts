@@ -16,6 +16,8 @@ const { bundles } = catalog as unknown as Catalog;
 test("every kit's rows add up to its saving, at home and delivered abroad", () => {
   assert.ok(bundles.length > 0);
   for (const record of bundles) {
+    // A kit with a price a store's affiliate terms withhold shows no sums (src/lib/programme-terms.ts).
+    if (record.withheld && Object.keys(record.withheld).length) continue;
     for (const country of [null, "AT", "IE", "FR"]) {
       const b = kitFor(record, country);
       // A rebuild that costs more than the kit shows no saving rather than a negative one, and says so in a caution.

@@ -25,6 +25,8 @@ import { dict, getT } from "@/lib/i18n";
 import { langForCountry } from "@/lib/i18n/lang";
 import { basketText } from "@/lib/i18n/record";
 import { basketDescriptionDe, basketTitleDe } from "@/lib/i18n/seo-de";
+import { priced } from "@/lib/withheld";
+import { WithheldBasket } from "@/components/WithheldRecord";
 
 const NEEDS_HEALTH_NOTE = new Set(["otc-medicine", "supplements", "baby", "pet"]);
 
@@ -124,6 +126,43 @@ function BasketBody({ p: record, local }: { p: Preset; local: Local }) {
     .sort((a, b) => Number(b.market === p.market) - Number(a.market === p.market) || b.score - a.score)
     .slice(0, 3);
   const health = p.lines.some((l) => NEEDS_HEALTH_NOTE.has(getPair(l.pair)?.category ?? ""));
+  // A store's affiliate terms withhold a line's prices (src/lib/programme-terms.ts): no totals, the lines lead to their swaps.
+  if (!priced(record)) {
+    return (
+      <article>
+        {!local.shows(p) && <NotListedHere market={p.market} local={local} />}
+        <div className="border-b border-line bg-canvas">
+          <div className="container-page pt-1 pb-6 md:pt-3 md:pb-8">
+            <Link href="/bundles" className="inline-flex min-h-11 items-center text-sm text-ink-2 hover:underline md:min-h-0">
+              {t("basketPage.crumb")}
+            </Link>
+            <header className="md:mt-3" lang={textLang}>
+              <h1 className="display text-[1.75rem] md:text-[2.5rem]">{p.title}</h1>
+              <p className="mt-1.5 text-base font-medium text-ink md:text-lg">{p.audience}</p>
+              <p className="mt-1 max-w-[62ch] text-[15px] text-ink-2">{p.blurb}</p>
+            </header>
+          </div>
+        </div>
+        <WithheldBasket p={p} lang={lang} notes={Object.fromEntries(lines.map((l) => [l.slug, l.note ?? ""]))} />
+        <section className="container-page pt-8 pb-8 md:pt-10">
+          <h2 className="display text-xl md:text-2xl">{t("basketPage.howChosen")}</h2>
+          <p className="mt-2 max-w-[62ch] text-[15px] text-ink-2" lang={textLang}>{p.research}</p>
+          <h3 className="mt-4 text-base">{t("basketPage.guides")}</h3>
+          <ul className="mt-1">
+            {p.sources.map((s) => (
+              <li key={s}>
+                <a href={s} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-cobalt underline underline-offset-2 md:min-h-8">
+                  {hostname(s)}
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          {health && <HealthNotice className="mt-4" lang={lang} />}
+        </section>
+      </article>
+    );
+  }
 
   return (
     <BasketProvider lines={lines} currency={p.currency} market={p.market} country={local.known ? local.country : null}>

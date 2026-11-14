@@ -39,7 +39,8 @@ export default async function IngredientPage({ params }: PageProps<"/ingredient/
 
 function IngredientBody({ ing, local }: { ing: NonNullable<ReturnType<typeof getIngredient>>; local: Local }) {
   const pairs = forCountry(ing.pairs, local);
-  const top = pairs.length ? pairs.reduce((a, b) => (b.savingsPct > a.savingsPct ? b : a)) : null;
+  // A saving a store's affiliate terms withhold reads 0 (src/lib/programme-terms.ts), so it is never "the biggest".
+  const top = pairs.some((p) => p.savingsPct > 0) ? pairs.reduce((a, b) => (b.savingsPct > a.savingsPct ? b : a)) : null;
   const strengths = Array.from(
     new Set(
       pairs.flatMap((p) =>

@@ -483,7 +483,7 @@ test("without a legal notice, readers in Germany and Austria wait for the letter
 
 test("new records lead the letter; the first sighting of the catalogue counts as old", { skip }, async () => {
   const seen = Object.fromEntries([...catalog.pairs.map((p) => [`p:${p.slug}`, "1970-01-01"]), ...catalog.bundles.map((b) => [`b:${b.slug}`, "1970-01-01"])]);
-  const fresh = catalog.pairs.find((p) => p.market === "GB")!;
+  const fresh = catalog.pairs.find((p) => p.market === "GB" && !p.withheld)!;
   seen[`p:${fresh.slug}`] = "2026-11-11";
   const issue = buildIssue({ catalogue: full, country: "GB", sent: new Set(), seen, now: THURSDAY })!;
   assert.equal(issue.fresh[0].kind === "pair" && issue.fresh[0].pair.slug, fresh.slug);

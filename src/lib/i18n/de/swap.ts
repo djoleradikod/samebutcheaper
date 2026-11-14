@@ -252,6 +252,8 @@ export const seo: Shape<typeof en.seo> = {
   sameKindLead: (claim, pct, per, market) =>
     `${claim} und kostet ${per ? `${per} ` : ""}${pct} % weniger bei ${ADJ_DATIVE_PLURAL[market] ?? market} Preisen. Unsere Daten zeigen aber nicht, dass beide im Inhalt übereinstimmen.`,
   more: "Was sich unterscheidet, die Quellen und wo du es kaufst.",
+  leadNoPrice: (claim, actives) => `${claim}${actives ? ` (${actives})` : ""}.`,
+  sameKindNoPrice: (claim) => `${claim}. Unsere Daten zeigen aber nicht, dass beide im Inhalt übereinstimmen.`,
 };
 
 export const actions: Shape<typeof en.actions> = {
@@ -361,4 +363,28 @@ export const rows: Shape<typeof en.rows> = {
     licences: "Zulassungsnummern",
     ratings: "Bewertungen",
   },
+};
+
+export const terms: Shape<typeof en.terms> = {
+  seePrice: (store) => `Preis bei ${store} ansehen`,
+  lastChecked: (date) => `Zuletzt von uns geprüft: ${date}`,
+  why: (stores) =>
+    `${stores} erlaubt seinen Partnern nur Preise, die ${stores} selbst liefert und aktuell hält. Deshalb zeigt diese Seite dafür keinen Preis und keine Ersparnis. Vergleiche den Grundpreis beim Händler.`,
+  verdict: (alt, what) => `${alt} ${what}.`,
+  share: (alt, brand) => `${alt} statt ${brand}: was übereinstimmt und was sich unterscheidet`,
+  notice: {
+    "store-price-applies": (store) => `Weicht der Preis bei ${store} ab, gilt der Preis von ${store}.`,
+    "as-of-time": () => "Produktpreise und Verfügbarkeit gelten zum angegebenen Datum und können sich ändern.",
+  },
+  paidLink: "Anzeige",
+  theKit: "Das Set der Marke",
+  thePieces: "Die günstigeren Teile",
+  replaces: (item) => `Anstelle von: ${item}`,
+  insteadOf: (brand) => `statt ${brand}`,
+  kit: (stores) =>
+    `${stores} erlaubt seinen Partnern nur Preise, die ${stores} selbst liefert und aktuell hält. Deshalb zeigt dieses Set keine Preise und keine Summen. Jedes Teil führt zu seinem Händler.`,
+  basket: (stores) =>
+    `${stores} erlaubt seinen Partnern nur Preise, die ${stores} selbst liefert und aktuell hält. Deshalb zeigt dieser Einkauf keine Summen. Jede Zeile führt zu ihrem Vergleich.`,
+  whyPlain:
+    "Der Händler erlaubt seinen Partnern nur Preise, die er selbst liefert und aktuell hält. Deshalb zeigt diese Seite dafür keinen Preis und keine Ersparnis. Vergleiche den Grundpreis beim Händler.",
 };

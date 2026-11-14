@@ -4,6 +4,7 @@ import type { MarketCurrency as Currency } from "./format";
 import type { LookFor, MarketCode } from "./markets";
 import type { RatingScale } from "./rating";
 import type { Freshness, PriceSeen } from "./freshness";
+import type { Withheld } from "./programme-terms";
 
 export type MatchType = PairInput["match_type"];
 export type CategorySlug = PairInput["category"];
@@ -82,6 +83,11 @@ export type Pair = Omit<PairInput, "brand" | "alternative"> & {
   freshness: Freshness;
   /** Who to credit for the nutrition records on this swap. Null when neither side has one. */
   nutritionSource: NutritionSource | null;
+  /**
+   * Sides whose price the store's affiliate terms don't let us show (src/lib/programme-terms.ts). Set only when one
+   * is: the page then shows no price, unit price or saving for the swap, only "see the price at <store>".
+   */
+  withheld?: Partial<Record<"brand" | "alternative", Withheld>>;
   /** The German text, from data/i18n/de/, when there is one. */
   de?: PairDe;
 };
@@ -133,6 +139,8 @@ export type Preset = Omit<PresetInput, "items"> & {
   checkout: Checkout;
   /** The German text, from data/i18n/de/presets/, when there is one. */
   de?: PresetDe;
+  /** Lines (by swap slug) whose prices a store's affiliate terms don't let us show; the basket then shows no totals. */
+  withheld?: string[];
 };
 
 export type BundleComponent = BundleInput["components"][number] & {
@@ -177,6 +185,8 @@ export type Bundle = Omit<BundleInput, "components"> & {
   freshness: Freshness;
   /** The German text, from data/i18n/de/bundles/, when there is one. */
   de?: BundleDe;
+  /** "kit" and "item-<n>" prices a store's affiliate terms don't let us show; the kit then shows no prices or totals. */
+  withheld?: Record<string, Withheld>;
 };
 
 export type Catalog = {
@@ -227,4 +237,9 @@ export type PairSummary = {
   confidence: "high" | "medium";
   score: number;
   keywords: string;
+  /**
+   * Set when a store's affiliate terms withhold a price on this swap (src/lib/programme-terms.ts): the store to name
+   * in place of the saving and unit prices, which are then 0 and must not be shown.
+   */
+  seePriceAt?: string;
 };

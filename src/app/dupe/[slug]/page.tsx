@@ -23,6 +23,8 @@ import { PairCard } from "@/components/PairCard";
 import { atLeastOneParam, ListLinks, ShelfHead, SwapGrid, TagLinks, NotListedHere } from "@/components/ShelfParts";
 import { forCountry, localText, oneOfEachSwap, type Local } from "@/lib/localize";
 import { CountryPart } from "@/components/ForCountry";
+import { getT } from "@/lib/i18n";
+import { withheldStores } from "@/lib/withheld";
 
 export function generateStaticParams() {
   return atLeastOneParam(getDupes().map((d) => d.slug));
@@ -127,7 +129,10 @@ function DupeBody({ d, local }: { d: DupeEntry; local: Local }) {
   const faq = [
     {
       q: `Is there a ${h.noun} for ${d.brand}?`,
-      a: `${matchCountAnswer(shown)} The biggest saving is ${top.alternative.brand}, ${Math.round(top.savingsPct)}% less ${per} at the prices we checked in ${monthYear(top.price_checked)}.`,
+      // A top swap whose prices a store's affiliate terms withhold (src/lib/programme-terms.ts) quotes no saving.
+      a: top.withheld
+        ? matchCountAnswer(shown)
+        : `${matchCountAnswer(shown)} The biggest saving is ${top.alternative.brand}, ${Math.round(top.savingsPct)}% less ${per} at the prices we checked in ${monthYear(top.price_checked)}.`,
     },
     {
       q: `Is ${top.alternative.brand} the same as ${d.brand}?`,
@@ -180,8 +185,16 @@ function DupeBody({ d, local }: { d: DupeEntry; local: Local }) {
           title={`${h.title} (${h.what})`}
           intro={
             <>
-              <strong className="font-semibold text-ink">{top.alternative.brand}</strong> is{" "}
-              {Math.round(top.savingsPct)}% cheaper: {cheaper} {per} against {dearer} for {d.brand}. {top.summary}
+              <strong className="font-semibold text-ink">{top.alternative.brand}</strong>
+              {top.withheld ? (
+                <>
+                  : {top.summary} {getT("en")("terms.why", withheldStores(top))}
+                </>
+              ) : (
+                <>
+                  {" "}is {Math.round(top.savingsPct)}% cheaper: {cheaper} {per} against {dearer} for {d.brand}. {top.summary}
+                </>
+              )}
             </>
           }
           best={top.savingsPct}
