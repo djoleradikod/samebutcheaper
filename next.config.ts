@@ -23,7 +23,9 @@ const HTTPS_SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "").startsWith("https://
 const nextConfig: NextConfig = {
   output: "standalone",
   cacheComponents: true,
-  partialPrefetching: true,
+  // Off: with it on, every request to a page with a per-request part rendered the whole page a second time, to embed a
+  // prefetch copy in its HTML (about 100 KB per page). Links still prefetch the prerendered page. See docs/deploy.md "Load test".
+  partialPrefetching: false,
   poweredByHeader: false,
   // Fixed at build time, so links can't start earning under pages built saying they don't. See src/lib/affiliate.ts.
   env: {

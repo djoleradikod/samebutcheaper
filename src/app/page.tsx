@@ -37,6 +37,8 @@ import { formatPercent } from "@/lib/i18n/format";
 import { toCard } from "@/components/ShelfParts";
 import type { MarketCode } from "@/lib/markets";
 import { CountryPart } from "@/components/ForCountry";
+import { ShopperBand } from "@/components/CountryBand";
+import { getPathCountry } from "@/lib/path-country";
 import { jsonLdText } from "@/lib/site";
 import type { CategorySlug, Claim, Pair as PairT, PairSummary, Preset, ShelfLife } from "@/lib/types";
 
@@ -199,6 +201,8 @@ export default function Home() {
   const t = getT(lang);
   return (
     <>
+      {/* The shopper's band; /de and the other prefixed homes get theirs from their layout (src/components/CountryBand.tsx). */}
+      {!getPathCountry() && <ShopperBand />}
       <div className="bg-canvas">
         <div className="container-page pt-4 md:pt-5">
           {/* The first screen is the shop: one line, then the baskets. */}

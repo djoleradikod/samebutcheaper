@@ -38,6 +38,9 @@ function readOthers() {
   }
 }
 
+/** For the 404's band (src/components/LateBand.tsx), which reads the cookies in the browser. */
+export { read as readCountryCookie, readOthers as readOthersCookie };
+
 /** The server's reading of the country, so the first render already matches it. Undefined outside a CountryPart: nobody has read it. */
 export const CountryContext = createContext<string | null | undefined>(undefined);
 /** The same for the shopper's choice to see other countries' swaps. */

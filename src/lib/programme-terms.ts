@@ -29,7 +29,7 @@
  *
  * Pure: no server-only imports, so the build script, pages and tests share it.
  */
-import { livePrograms } from "./affiliate-links";
+import { livePrograms, programSettingsKey } from "./affiliate-links";
 import { linkStore, NETWORK_TERMS, PROGRAMME_REGISTRY, programmeOf, TERM_RULES, type ProgrammeTerms } from "./programmes";
 import type { DatePrecision, PriceSeen } from "./freshness";
 
@@ -90,7 +90,20 @@ export function joined(store: string, env: Record<string, string | undefined> = 
  * Store ids whose display rules are off for this build, or "all": every programme not joined (unless
  * PROGRAMME_TERMS_ON names it), plus whatever PROGRAMME_TERMS_OFF names.
  */
-export function termsOff(env: Record<string, string | undefined> = process.env, fed: ReadonlySet<string> = new Set()): Set<string> | "all" {
+export function termsOff(env: Record<string, string | undefined> = process.env, fed: ReadonlySet<string> = NO_FEEDS): Set<string> | "all" {
+  // Every shown price asks this; the answer is kept while the settings it reads are the same (see livePrograms).
+  if (fed.size) return computeTermsOff(env, fed);
+  const key = [env.PROGRAMME_TERMS_OFF, env.PROGRAMME_TERMS_ON, env.PRICE_FEED_URLS, programSettingsKey(env)].join("\u0001");
+  if (lastOff?.env === env && lastOff.key === key) return lastOff.off;
+  const off = computeTermsOff(env, fed);
+  lastOff = { env, key, off };
+  return off;
+}
+
+const NO_FEEDS: ReadonlySet<string> = new Set();
+let lastOff: { env: object; key: string; off: Set<string> | "all" } | null = null;
+
+function computeTermsOff(env: Record<string, string | undefined>, fed: ReadonlySet<string>): Set<string> | "all" {
   const off = idList(env.PROGRAMME_TERMS_OFF);
   if (off === "all") return "all";
   const on = idList(env.PROGRAMME_TERMS_ON);

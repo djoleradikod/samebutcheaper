@@ -62,6 +62,10 @@ export function proxy(request: NextRequest) {
   }
   // sbc_src, the old 30-day source cookie, is retired (src/lib/traffic-source.ts): a browser that still has one loses it.
   if (request.cookies.has(RETIRED_SOURCE_COOKIE)) response.cookies.set(RETIRED_SOURCE_COOKIE, "", { path: "/", maxAge: 0, secure: servedOverHttps(request) });
+
+  // A prefixed page is a static file any cache may keep (Next marks it s-maxage), but not with this visitor's cookie on it:
+  // a shared cache would hand one shopper's detected country to the next. Next keeps a Cache-Control set here.
+  if (response.cookies.getAll().length) response.headers.set("Cache-Control", "private, no-cache");
   return response;
 }
 

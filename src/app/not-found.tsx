@@ -1,10 +1,16 @@
 import Link from "@/components/CountryLink";
 import { getT, type Lang } from "@/lib/i18n";
 import { ByLang } from "@/lib/i18n/client";
+import { NotFoundBand } from "@/components/CountryBand";
 
 /** Renders outside the page, so both languages come from the server and ByLang draws the page's one. */
 export default function NotFound() {
-  return <ByLang en={<Body lang="en" />} de={<Body lang="de" />} />;
+  return (
+    <>
+      <NotFoundBand />
+      <ByLang en={<Body lang="en" />} de={<Body lang="de" />} />
+    </>
+  );
 }
 
 function Body({ lang }: { lang: Lang }) {
