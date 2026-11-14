@@ -14,6 +14,7 @@ import { getT } from "./i18n";
 import { monthDe } from "./i18n/format";
 import type { Lang } from "./i18n/lang";
 import { productName } from "./i18n/product-name";
+import { watchTerms } from "./watch-terms";
 
 /**
  * Price watches. A watch holds a swap's prices from when it began (or from the last email about it). Prices only
@@ -54,14 +55,17 @@ export type WatchChange =
       prices: WatchPrices;
     };
 
-/** What has changed enough to write about, or null. */
-export function watchChange(stored: WatchPrices, current: WatchPrices | null): WatchChange | null {
+/**
+ * What has changed enough to write about, or null. `saving: false` when the brand's price comes from a store whose
+ * terms bar price alerts (src/lib/watch-terms.ts): then only the cheaper product's own price counts.
+ */
+export function watchChange(stored: WatchPrices, current: WatchPrices | null, { saving = true }: { saving?: boolean } = {}): WatchChange | null {
   if (!current) return { withdrawn: true };
   const comparable = stored.currency === current.currency && stored.unit === current.unit && stored.altPpu > 0;
   const move = comparable ? (current.altPpu - stored.altPpu) / stored.altPpu : null;
   // A tiny tolerance, so a stored 0.05 isn't missed to rounding.
   const moved = move === null || Math.abs(move) >= PRICE_MOVE - 1e-9;
-  const savingsDropped = stored.savingsPct >= SAVING_FLOOR && current.savingsPct < SAVING_FLOOR;
+  const savingsDropped = saving && stored.savingsPct >= SAVING_FLOOR && current.savingsPct < SAVING_FLOOR;
   return moved || savingsDropped ? { withdrawn: false, move, savingsDropped, prices: current } : null;
 }
 
@@ -129,12 +133,15 @@ export function watchMail(
     } else if (change.move === null) {
       parts.push(t("mailWatch.repriced", alt, cur(now.altPpu, now.currency)));
     }
-    parts.push(
-      change.savingsDropped
-        ? t("mailWatch.savingDropped", pair.brand.brand, Math.round(now.savingsPct), Math.round(before.savingsPct))
-        : t("mailWatch.cheaperThan", Math.round(now.savingsPct), pair.brand.brand, Math.round(before.savingsPct)),
-    );
-    const yearly = change.savingsDropped ? null : yearlyNote(pair, local, lang);
+    // The saving compares with the brand's price: left out when that price's store bars price alerts.
+    const brandBarred = watchTerms(pair).brand !== null;
+    if (!brandBarred)
+      parts.push(
+        change.savingsDropped
+          ? t("mailWatch.savingDropped", pair.brand.brand, Math.round(now.savingsPct), Math.round(before.savingsPct))
+          : t("mailWatch.cheaperThan", Math.round(now.savingsPct), pair.brand.brand, Math.round(before.savingsPct)),
+      );
+    const yearly = change.savingsDropped || brandBarred ? null : yearlyNote(pair, local, lang);
     if (yearly) parts.push(yearly);
     parts.push(t("mailWatch.pricesAsOf", monthName(now.priceChecked, lang)));
     subject = change.savingsDropped ? t("mailWatch.subjectDropped") : t("mailWatch.subjectChange", pair.alternative.brand);
@@ -166,7 +173,8 @@ function monthName(checked: string | null, lang: Lang): string | null {
   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
 }
 
-export type WatchRun = { checked: number; changed: number; sent: number; notSent: number };
+/** `barred`: active watches skipped because the cheaper product's store bars price alerts (src/lib/watch-terms.ts). */
+export type WatchRun = { checked: number; changed: number; sent: number; notSent: number; barred: number };
 
 /**
  * Writes to every active watch whose swap has changed enough. Without email set up it only logs what it would
@@ -188,11 +196,17 @@ export async function runWatches(
     .innerJoin(subscribers, eq(subscribers.id, watches.subscriberId))
     .where(and(eq(watches.status, "active"), eq(subscribers.status, "confirmed")))
     .orderBy(asc(watches.id));
-  const run: WatchRun = { checked: rows.length, changed: 0, sent: 0, notSent: 0 };
+  const run: WatchRun = { checked: rows.length, changed: 0, sent: 0, notSent: 0, barred: 0 };
   for (const { watch, sub } of rows) {
     const pair = bySlug.get(watch.slug) ?? null;
+    const terms = pair ? watchTerms(pair) : null;
+    if (terms?.alternative) {
+      // The cheaper product's price comes from a store whose affiliate terms bar price alerts: never written about.
+      run.barred++;
+      continue;
+    }
     const before = storedPrices(watch);
-    const change = watchChange(before, pair ? pricesOf(pair) : null);
+    const change = watchChange(before, pair ? pricesOf(pair) : null, { saving: !terms?.brand });
     if (!change) continue;
     run.changed++;
     if (!canSend || !sub.token) {
@@ -227,6 +241,7 @@ export async function runWatches(
     run.sent++;
     if (opts.pauseMs) await new Promise((r) => setTimeout(r, opts.pauseMs));
   }
+  if (run.barred) log.info("watch.barred_by_terms", { watches: run.barred });
   return run;
 }
 

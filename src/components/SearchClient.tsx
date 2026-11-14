@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "@/components/CountryLink";
-import type Fuse from "fuse.js";
 import { Search } from "lucide-react";
 import { cardIn, PAGE_SIZE, SWAP_GRID, type BundleSummary, type IndexPair } from "@/lib/browse";
 import { loadSwapIndex } from "@/lib/client/swap-index";
@@ -14,7 +13,7 @@ import { PairCard } from "./PairCard";
 import { WantedPrompt } from "./WantedPrompt";
 import { setShowOthers, useLocal } from "@/lib/client/country";
 import { localFor } from "@/lib/localize";
-import { BUNDLE_SEARCH, PAIR_SEARCH } from "@/lib/search-options";
+import { searchBundles, searchPairs } from "@/lib/search-index";
 import { useLang, useT } from "@/lib/i18n/client";
 import type { ClientT } from "@/lib/i18n/client-dict";
 import { search } from "@/lib/i18n/en/client/search";
@@ -26,22 +25,41 @@ const TEXT = { search, pageSearch };
 const german = () => import("@/lib/i18n/de/pages/search");
 const useSearchT = (): ClientT<typeof TEXT> => useT(TEXT, german);
 
-type Engine = { pairs: Fuse<IndexPair>; bundles: Fuse<BundleSummary> };
+type Engine = {
+  all: IndexPair[];
+  pairs: ReturnType<typeof searchPairs<IndexPair>>;
+  bundles: ReturnType<typeof searchBundles<BundleSummary>>;
+};
 
 let pendingEngine: Promise<Engine> | null = null;
 
-/** Fuse and the index load together, on the first sign of a search, so neither touches the first paint. */
+/** The index loads on the first sign of a search, so it never touches the first paint. */
 function loadEngine() {
-  pendingEngine ??= Promise.all([import("fuse.js"), loadSwapIndex()])
-    .then(([{ default: FuseSearch }, index]) => ({
-      pairs: new FuseSearch(index.pairs, { ...PAIR_SEARCH, includeScore: true }),
-      bundles: new FuseSearch(index.bundles, { ...BUNDLE_SEARCH, includeScore: true }),
+  pendingEngine ??= loadSwapIndex()
+    .then((index) => ({
+      all: index.pairs,
+      pairs: searchPairs(index.pairs, index.aisles ?? {}),
+      bundles: searchBundles(index.bundles),
     }))
     .catch((error: unknown) => {
       pendingEngine = null;
       throw error;
     });
   return pendingEngine;
+}
+
+/** How many swaps from the top hit's shelf show under "Related swaps". */
+const RELATED = 4;
+
+/**
+ * Swaps on the same shelf as the first hit, in the same market, that the search did not find: shown apart, under their
+ * own heading, and never counted as results.
+ */
+function relatedTo(hits: IndexPair[], all: IndexPair[], shows: (p: IndexPair) => boolean): IndexPair[] {
+  const top = hits[0];
+  if (!top) return [];
+  const found = new Set(hits.map((p) => p.slug));
+  return all.filter((p) => p.subcategory === top.subcategory && p.market === top.market && !found.has(p.slug) && shows(p)).slice(0, RELATED);
 }
 
 function queryFor(term: string) {
@@ -85,20 +103,28 @@ export function SearchClient({ total, children }: { total: number; children: Rea
 
   const results = useMemo(() => {
     if (!engine || !term) return null;
-    const pairHits = engine.pairs.search(term).filter((r) => local.shows(r.item));
-    const bundleHits = engine.bundles.search(term).filter((r) => local.shows(r.item));
+    const p = engine.pairs.search(term);
+    const b = engine.bundles.search(term);
+    // A spelling is only corrected when neither swaps nor kits match as typed, and then both use one correction.
+    const exact = (p.hits.length > 0 && !p.didYouMean) || (b.hits.length > 0 && !b.didYouMean);
+    const didYouMean = exact ? null : (p.didYouMean ?? b.didYouMean);
+    const allPairs = p.didYouMean === didYouMean ? p.hits : [];
+    const allBundles = b.didYouMean === didYouMean ? b.hits : [];
+    const pairHits = allPairs.filter((r) => local.shows(r.item));
+    const bundleHits = allBundles.filter((r) => local.shows(r.item));
     // What matched but isn't listed here, and would be with other countries' swaps shown: say so instead of hiding it.
     const wide = local.known && !local.others ? localFor(local.country, true) : null;
-    const elsewhere = wide
-      ? [...engine.pairs.search(term).map((r) => r.item), ...engine.bundles.search(term).map((r) => r.item)].filter((i) => !local.shows(i) && wide.shows(i)).length
-      : 0;
-    // Fuse scores run from 0 (exact) up. Kits lead only when one matches better than every swap.
-    const best = (hits: { score?: number }[]) => hits[0]?.score ?? Infinity;
+    const elsewhere = wide ? [...allPairs, ...allBundles].filter((r) => !local.shows(r.item) && wide.shows(r.item)).length : 0;
+    // Kits lead only when one matches better than every swap.
+    const rank = (hits: { tier: number; quality: number }[]) => (hits[0] ? hits[0].tier * 100 + hits[0].quality : Infinity);
+    const pairs = pairHits.map((r) => r.item);
     return {
-      pairs: pairHits.map((r) => r.item),
+      pairs,
       bundles: bundleHits.map((r) => r.item),
-      kitsFirst: best(bundleHits) < best(pairHits),
+      kitsFirst: rank(bundleHits) < rank(pairHits),
       elsewhere,
+      didYouMean,
+      related: relatedTo(pairs, engine.all, local.shows),
     };
   }, [engine, term, local]);
   const count = results ? results.pairs.length + results.bundles.length : 0;
@@ -160,7 +186,44 @@ export function SearchClient({ total, children }: { total: number; children: Rea
         </p>
       )}
 
-      {results && (
+      {results && results.didYouMean && (count > 0 || results.elsewhere > 0) && (
+        // Nothing matched as typed: the nearest spelling's results, said as such and not counted as hits for the term.
+        <>
+          <p className="mt-4 text-sm text-ink-2" aria-live="polite">
+            <span className="font-semibold text-ink">{t("pageSearch.noExact", term)}</span>{" "}
+            {rich(t("pageSearch.didYouMean"), {
+              term: (
+                <button
+                  type="button"
+                  onClick={() => setQ(results.didYouMean ?? "")}
+                  className="inline-flex min-h-11 cursor-pointer items-center font-semibold text-cobalt underline underline-offset-2 md:min-h-0"
+                >
+                  {results.didYouMean}
+                </button>
+              ),
+            })}
+          </p>
+          {results.elsewhere > 0 && <Elsewhere count={results.elsewhere} term={results.didYouMean} more={count > 0} />}
+          {count > 0 && <ResultList key={term} pairs={results.pairs} bundles={results.bundles} kitsFirst={results.kitsFirst} lang={lang} />}
+          {count > 0 ? (
+            // Not what they meant: the way to ask for it, as a line, since the suggestion probably was.
+            <p className="mt-4 text-sm text-ink-2">
+              {t("pageSearch.notMeant")}{" "}
+              <Link
+                href={`/suggest?brand=${encodeURIComponent(term)}`}
+                className="inline-flex min-h-11 items-center font-medium text-cobalt underline underline-offset-2 md:min-h-0"
+              >
+                {t("pageSearch.suggest", term)}
+              </Link>{" "}
+              {t("pageSearch.lookInto")}
+            </p>
+          ) : (
+            <WantedPrompt term={term} count={false} />
+          )}
+        </>
+      )}
+
+      {results && !(results.didYouMean && (count > 0 || results.elsewhere > 0)) && (
         <>
           <p className="mt-4 text-sm text-ink-2" aria-live="polite">
             <span className="num font-semibold text-ink">
@@ -170,7 +233,24 @@ export function SearchClient({ total, children }: { total: number; children: Rea
           </p>
           {results.elsewhere > 0 && <Elsewhere count={results.elsewhere} term={term} more={count > 0} />}
           {count > 0 ? (
-            <ResultList key={term} pairs={results.pairs} bundles={results.bundles} kitsFirst={results.kitsFirst} lang={lang} />
+            <>
+              <ResultList key={term} pairs={results.pairs} bundles={results.bundles} kitsFirst={results.kitsFirst} lang={lang} />
+              {results.related.length > 0 && (
+                <section className="mt-8" aria-labelledby="search-related">
+                  <h2 id="search-related" className="display text-lg">
+                    {t("pageSearch.related")}
+                  </h2>
+                  <p className="mt-1 text-sm text-ink-2">{t("pageSearch.relatedNote")}</p>
+                  <ul className={`${SWAP_GRID} mt-3`}>
+                    {results.related.map((p) => (
+                      <li key={p.slug} className="min-w-0">
+                        <PairCard pair={cardIn(p, lang)} lang={lang} via="search" />
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+            </>
           ) : results.elsewhere > 0 ? (
             // We have checked swaps for it, just not here: "we haven't checked" would be untrue.
             children
@@ -228,7 +308,7 @@ function ResultList({ pairs, bundles, kitsFirst, lang }: { pairs: IndexPair[]; b
       {bundles.map((b) => (
         <li key={b.slug} className="min-w-0">
           {/* The index carries only the fields BundleCard reads. */}
-          <BundleCard bundle={b as Bundle} lang={lang} />
+          <BundleCard bundle={b as Bundle} lang={lang} via="search" />
         </li>
       ))}
     </ul>
@@ -240,7 +320,7 @@ function ResultList({ pairs, bundles, kitsFirst, lang }: { pairs: IndexPair[]; b
         <ul className={`${SWAP_GRID} mt-3`}>
           {pairs.slice(0, limit).map((p) => (
             <li key={p.slug} className="min-w-0">
-              <PairCard pair={cardIn(p, lang)} lang={lang} />
+              <PairCard pair={cardIn(p, lang)} lang={lang} via="search" />
             </li>
           ))}
         </ul>

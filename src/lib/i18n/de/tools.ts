@@ -12,10 +12,10 @@ export const checkPage: Shape<typeof en.checkPage> = {
   listLink: "Eine ganze Einkaufsliste oder ein Kassenbon? Prüf alles auf einmal",
   tooMany: "Das waren viele Prüfungen in kurzer Zeit.",
   tooManyBody: "Warte eine Minute und versuch es dann noch einmal.",
-  inDatabases: "Dasselbe Produkt in Etikett-Datenbanken",
+  inDatabases: "Dasselbe Produkt in Etikettdatenbanken",
   inCatalogue: "Vergleiche, die schon in unserem Katalog sind",
   pick: "Wähl dein Produkt, um zu sehen, was drin ist",
-  resultsFor: (q) => `Treffer für „${q}“ aus öffentlichen Etikett-Datenbanken.`,
+  resultsFor: (q) => `Treffer für „${q}“ aus öffentlichen Etikettdatenbanken.`,
   failed: (sources) => `Manche Datenbanken haben gerade nicht geantwortet (${sources}). Versuch es in einer Minute noch einmal, um mehr Treffer zu bekommen.`,
   thatProduct: "dieses Produkt",
   barcode: (digits) => `den Barcode ${digits}`,
@@ -23,7 +23,7 @@ export const checkPage: Shape<typeof en.checkPage> = {
   invalid: (what) => `${what} ist keine gültige Barcode-Nummer.`,
   notFound: (what) => `Wir haben ${what} nicht gefunden.`,
   checkDigits: "Prüf die Ziffern unter dem Barcode oder such nach dem Produktnamen.",
-  notInDatabases: "Er ist noch nicht in den offenen Etikett-Datenbanken. Such stattdessen nach dem Produktnamen oder fotografiere das Etikett, damit wir es lesen können.",
+  notInDatabases: "Das steht noch nicht in den offenen Etikettdatenbanken. Such stattdessen nach dem Produktnamen oder fotografiere das Etikett, damit wir es lesen können.",
   tryName: "Versuch es mit Marke und Produktname, wie sie auf der Packung stehen, zum Beispiel „Nurofen 400 mg“ oder „Nivea Creme“.",
   tellUs: "Sag uns, wonach du gesucht hast",
   wellResearch: "und wir recherchieren es.",
@@ -38,7 +38,7 @@ export const checkPage: Shape<typeof en.checkPage> = {
   ],
   tryOne: "Probier eins aus:",
   onPhone: "Auf dem Handy öffnet „Barcode scannen“ deine Kamera.",
-  checking: "Wir durchsuchen die Etikett-Datenbanken",
+  checking: "Wir durchsuchen die Etikettdatenbanken",
   yourProduct: "Dein Produkt",
 };
 
@@ -54,7 +54,7 @@ export const checkList: Shape<typeof en.checkList> = {
 };
 
 export const listErrors: Shape<typeof en.listErrors> = {
-  browser: "Das funktioniert im Browser.",
+  browser: "Das funktioniert nur im Browser.",
   tooMany: "Das waren viele Listen in kurzer Zeit. Warte ein paar Minuten und versuch es dann noch einmal.",
   tooLong: (max) => `Das ist länger, als wir auf einmal lesen. Füg bis zu ${max.toLocaleString("de-DE")} Zeichen ein.`,
   sendText: "Schick die Liste als Text.",
@@ -62,7 +62,7 @@ export const listErrors: Shape<typeof en.listErrors> = {
   photoOff: "Das Lesen von Fotos ist noch nicht eingeschaltet.",
   tooManyPhotos: "Das waren viele Fotos. Versuch es in ein paar Minuten noch einmal.",
   tooLarge: "Das Foto ist zu groß. Nimm eines unter 5 MB.",
-  sendForm: "Schick das Foto als Formular-Upload.",
+  sendForm: "Lade das Foto über das Formular hoch.",
   noPhoto: "Kein Foto angekommen.",
   photoType: "Nimm ein Foto im Format JPEG, PNG oder WebP.",
   unreadable: "Wir konnten das Foto nicht lesen. Tipp die Liste stattdessen ein.",
@@ -74,7 +74,7 @@ export const myListPage: Shape<typeof en.myListPage> = {
   h1: "Meine Sparliste",
   intro: "Die Vergleiche, die du gespeichert hast, und was der Wechsel zusammen ausmacht.",
   detail: (subcategory, pack) => `${subcategory}, pro Packung mit ${pack}`,
-  cheaperItems: (n) => `${n} günstigere Artikel`,
+  cheaperItems: (n) => (n === 1 ? "1 günstigerer Artikel" : `${n} günstigere Artikel`),
 };
 
 export const searchPage: Shape<typeof en.searchPage> = {
@@ -109,17 +109,17 @@ export const report: Shape<typeof en.report> = {
   warnings: "Wichtigste Warnhinweise",
   readFull: (host) => `Den vollständigen Eintrag auf ${host} lesen`,
   cheaper: "Günstigere Optionen",
-  compared: "Vergleiche, die wir mit diesem Produkt angestellt haben",
+  compared: "Unsere Vergleiche mit diesem Produkt",
   eachSays: "Jeder sagt, worin er übereinstimmt und was sich unterscheidet.",
   sameKind: "Dieselbe Art Produkt, günstiger",
-  sameKindNote: "Unsere Daten zeigen nicht, dass diese bei Inhalt oder Wirkung übereinstimmen.",
+  sameKindNote: "Unsere Daten zeigen nicht, dass diese im Inhalt oder in der Wirkung übereinstimmen.",
   sameActive: "Günstigere wirkstoffgleiche Produkte aus unserem Katalog",
   bundles: "Sets dieser Marke, günstiger nachgebaut",
   noteActives:
     "Such eine Marke, die genau diese Wirkstoffe in derselben Stärke angibt. Darreichungsform und sonstige Bestandteile können sich trotzdem unterscheiden, und die Regeln für Arzneimittel sind von Land zu Land verschieden. Frag im Zweifel in der Apotheke.",
   noteFirstFive: (list) =>
     `Tipp: Produkte, deren erste fünf Zutaten (${list}) in derselben Reihenfolge übereinstimmen, sind sich in der Rezeptur meist ähnlich. Zutaten stehen nach Menge geordnet, die größte zuerst.`,
-  noteStore: "Eigenmarken sind meist am günstigsten. Vergleich das Etikett und den Preis pro Einheit.",
+  noteStore: "Eigenmarken sind meist am günstigsten. Vergleich das Etikett und den Grundpreis.",
   usLabel: "Dieselben Wirkstoffe laut offiziellem US-Etikett",
   usLabelNote: "Aus den Etikettdaten der FDA: dieselben Wirkstoffe, dieselbe Stärke, dieselbe Darreichungsform. Eigenmarken sind meist am günstigsten.",
   storeBrand: (name) => `Eigenmarke: ${name}`,

@@ -1,8 +1,8 @@
 {
   "varta-energy-aa-30-vs-ansmann-alkaline-aa-20-de": {
-    "summary": "Beide sind Alkaline-AA-Zellen mit 1,5 V im selben Shop, und die Ansmann-Packung kostet etwa 20 Cent pro Zelle gegenüber etwa 29 Cent bei Varta Energy, 32 % weniger.",
-    "evidence": "Beide Preise am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Varta 8,75 EUR für 30 (keine Reduzierung angezeigt), Ansmann 3,95 EUR für 20. Pollin zeigt neben der Ansmann-Packung einen Listenpreis von 12,48 EUR, wir verwenden den Shoppreis. Stückzahlen und Barcodes wurden auf der jeweiligen Produktseite abgelesen und stimmen mit den Open-Facts-Einträgen überein. LR6 ist die IEC-Bezeichnung für eine Alkaline-AA-Zelle, wie in der Batteriegrößentabelle von Wikipedia aufgeführt.",
-    "why": "Laut den eigenen Angaben des Shops haben beide dieselbe Größe und Chemie bei derselben Spannung, und nichts auf der Varta-Seite nennt einen Leistungswert, der der Ansmann fehlt.",
+    "summary": "Beide sind Alkaline-AA-Zellen mit 1,5 V beim selben Händler, und die Ansmann-Packung kostet etwa 20 Cent pro Zelle gegenüber etwa 29 Cent bei Varta Energy, 32 % weniger.",
+    "evidence": "Beide Preise am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Varta 8,75 € für 30 (keine Reduzierung angezeigt), Ansmann 3,95 € für 20. Pollin zeigt neben der Ansmann-Packung einen Listenpreis von 12,48 €, wir verwenden den Preis im Onlineshop. Stückzahlen und Barcodes wurden auf der jeweiligen Produktseite abgelesen und stimmen mit den Open-Facts-Einträgen überein. LR6 ist die IEC-Bezeichnung für eine Alkaline-AA-Zelle, wie in der Batteriegrößentabelle von Wikipedia aufgeführt.",
+    "why": "Laut den eigenen Angaben des Händlers haben beide dieselbe Größe und Chemie bei derselben Spannung, und nichts auf der Varta-Seite nennt einen Leistungswert, der der Ansmann fehlt.",
     "differences": [
       "Die Varta-Seite nennt 5 Jahre Lagerfähigkeit und keine Kapazität.",
       "Die Ansmann-Seite nennt 2800 mAh und keine Lagerdauer, also können wir keinen der beiden Werte zwischen den zweien vergleichen.",
@@ -22,8 +22,8 @@
     }
   },
   "duracell-plus-power-boost-aa-vs-ansmann-alkaline-aa-de": {
-    "summary": "Beide sind Alkaline-AA-Zellen mit 1,5 V im selben Shop, mit etwa 70 Cent pro Zelle bei der Duracell-4er-Packung und etwa 20 Cent bei der Ansmann-Packung.",
-    "evidence": "Beide Preise am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Duracell 2,79 EUR für 4 und Ansmann 3,95 EUR für 20, ein Abstand von 72 % pro Zelle. Gegenüber der größeren Duracell-Packung ist der Abstand kleiner: 9,99 EUR für 16 sind etwa 62 Cent pro Zelle, und Ansmann ist immer noch 68 % günstiger. Pollin zeigt neben der Ansmann-Packung einen Listenpreis von 12,48 EUR, wir verwenden den Shoppreis. Die Barcodes auf beiden Produktseiten stimmen mit den Open-Facts-Einträgen überein.",
+    "summary": "Beide sind Alkaline-AA-Zellen mit 1,5 V beim selben Händler, mit etwa 70 Cent pro Zelle bei der Duracell-4er-Packung und etwa 20 Cent bei der Ansmann-Packung.",
+    "evidence": "Beide Preise am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Duracell 2,79 € für 4 und Ansmann 3,95 € für 20, ein Abstand von 72 % pro Zelle. Gegenüber der größeren Duracell-Packung ist der Abstand kleiner: 9,99 € für 16 sind etwa 62 Cent pro Zelle, und Ansmann ist immer noch 68 % günstiger. Pollin zeigt neben der Ansmann-Packung einen Listenpreis von 12,48 €, wir verwenden den Preis im Onlineshop. Die Barcodes auf beiden Produktseiten stimmen mit den Open-Facts-Einträgen überein.",
     "why": "Die Angaben zeigen dieselbe Größe, Chemie und Spannung, und die Duracell-Seite nennt keine Kapazität und keine Laufzeit, die man dem niedrigeren Preis gegenüberstellen könnte.",
     "differences": [
       "Für diesen Preis musst du 20 Ansmann-Zellen kaufen, gegenüber 4 von Duracell.",
@@ -43,7 +43,7 @@
     }
   },
   "varta-longlife-power-aa-40-vs-intenso-energy-ultra-aa-40-de": {
-    "summary": "Gleiche Stückzahl von 40 Zellen, gleiche Größe und Chemie im selben Shop, wobei Intenso pro Zelle etwa 38 % günstiger ist.",
+    "summary": "Gleiche Stückzahl von 40 Zellen, gleiche Größe und Chemie beim selben Händler, wobei Intenso pro Zelle etwa 38 % günstiger ist.",
     "evidence": "Beide am 13. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Varta Longlife Power AA, 40 (EAN 4008496987948, Herstellernr. 04906121154) und Intenso Energy Ultra AA LR06, 40 (EAN 4034303027408, Herstellernr. 7501520). Beide Seiten nennen Alkaline-AA-Zellen mit 1,5 V. Dieselben beiden Barcodes standen auf den Packungen, die dieser Vergleich ursprünglich verglichen hat.",
     "why": "Für Geräte, die Batterien schnell verbrauchen, ist der Preisabstand groß, und die Zellen haben dieselbe Größe und Chemie. Wenn sie jahrelang in der Schublade liegen, ist der angegebene Auslaufschutz von Varta die besser belegte Wahl.",
     "differences": [
@@ -52,7 +52,7 @@
       "Keine der beiden Angaben hat genug Kundenbewertungen, um zu zählen, und kein Test, den wir gelesen haben, deckt diese beiden Packungen ab."
     ],
     "aspects": [
-      { "aspect": "Angegebener Auslaufschutz", "brand": "Ja (\"sicherer Auslaufschutz\")", "alternative": "Nicht angegeben" },
+      { "aspect": "Angegebener Auslaufschutz", "brand": "Ja („sicherer Auslaufschutz“)", "alternative": "Nicht angegeben" },
       { "aspect": "Angegebene Kapazität", "brand": "Nicht angegeben", "alternative": "2,6 Ah" }
     ],
     "ingredients": {
@@ -67,8 +67,8 @@
     }
   },
   "varta-longlife-power-aaa-40-vs-intenso-energy-ultra-aaa-40-de": {
-    "summary": "Gleiche Stückzahl von 40 Zellen, gleiche Größe und Chemie im selben Shop, wobei Intenso pro Zelle etwa 36 % günstiger ist.",
-    "evidence": "Beide am 13. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Varta 13,99 EUR und Intenso 8,99 EUR für 40, beide bestellbar. Die Barcodes auf den Seiten sind die, über die dieser Vergleich zuerst zugeordnet wurde: Varta 4008496987924, Intenso 4034303027415, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Gleiche Stückzahl von 40 Zellen, gleiche Größe und Chemie beim selben Händler, wobei Intenso pro Zelle etwa 36 % günstiger ist.",
+    "evidence": "Beide am 13. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Varta 13,99 € und Intenso 8,99 € für 40, beide bestellbar. Die Barcodes auf den Seiten sind die, über die dieser Vergleich zuerst zugeordnet wurde: Varta 4008496987924, Intenso 4034303027415, keiner davon in Open Facts, also kein Foto.",
     "why": "Die beiden haben dieselbe Größe und Chemie, und die Varta-Seite nennt keine Kapazität, die es rechtfertigen würde, bei regelmäßigem Gebrauch pro Zelle über die Hälfte mehr zu zahlen.",
     "differences": [
       "Die Varta-Seite sagt nur, dass die Zellen lange lagerfähig sind, die Intenso-Seite nichts zur Lagerung.",
@@ -89,7 +89,7 @@
   },
   "varta-alkaline-aaa-8-vs-gut-und-guenstig-alkaline-aaa-10-de": {
     "summary": "Beide sind Alkaline-AAA-Packungen aus deutschen Regalen, mit etwa 25 Cent pro Zelle bei Varta und 16 Cent bei der EDEKA-Eigenmarke.",
-    "evidence": "Einträge in Open Prices, von der Community mit Belegfoto eingereicht und nicht als reduziert gekennzeichnet: Varta 1,99 EUR für 8 bei Aldi Süd in München am 8. Januar 2026, Gut & Günstig 1,59 EUR für 10 bei EDEKA in München am 28. November 2025. Das sind pro Zelle etwa 36 % weniger. Zu jedem Barcode gibt es einen Eintrag, in verschiedenen Ketten, etwa sechs Wochen auseinander.",
+    "evidence": "Einträge in Open Prices, von der Community mit Belegfoto eingereicht und nicht als reduziert gekennzeichnet: Varta 1,99 € für 8 bei Aldi Süd in München am 8. Januar 2026, Gut & Günstig 1,59 € für 10 bei EDEKA in München am 28. November 2025. Das sind pro Zelle etwa 36 % weniger. Zu jedem Barcode gibt es einen Eintrag, in verschiedenen Ketten, etwa sechs Wochen auseinander.",
     "why": "Beide Packungen sind als Alkaline AAA gekennzeichnet, und Einträge und Etiketten zeigen hier keinen Grund bei Kapazität oder Laufzeit, den höheren Preis pro Zelle zu zahlen.",
     "differences": [
       "Verschiedene Ketten und Daten und je nur ein Eintrag, ein Preis heute kann also abweichen.",
@@ -103,8 +103,8 @@
     }
   },
   "duracell-plus-c-vs-ansmann-alkaline-c-de": {
-    "summary": "Gleiche Viererpackung, gleiche Größe und Chemie im selben Shop, wobei Ansmann 37 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Duracell 5,49 EUR für 4, Ansmann 3,45 EUR für 4 (reduziert von 3,51 EUR angezeigt). Barcodes auf den Seiten: Duracell 5000394141865, Ansmann 4013674005536, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Gleiche Viererpackung, gleiche Größe und Chemie beim selben Händler, wobei Ansmann 37 % günstiger ist.",
+    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Duracell 5,49 € für 4, Ansmann 3,45 € für 4 (reduziert von 3,51 € angezeigt). Barcodes auf den Seiten: Duracell 5000394141865, Ansmann 4013674005536, keiner davon in Open Facts, also kein Foto.",
     "why": "Die Angaben zeigen dieselbe Größe, Chemie und Spannung bei derselben Stückzahl, und die Duracell-Angabe nennt keine Kapazität, die man der Ersparnis gegenüberstellen könnte.",
     "differences": [
       "Ansmann nennt 7000 mAh, Duracell keine Kapazität.",
@@ -123,8 +123,8 @@
     }
   },
   "duracell-plus-d-vs-ansmann-alkaline-d-de": {
-    "summary": "Gleiche Viererpackung, gleiche Größe und Chemie im selben Shop, wobei Ansmann 28 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Duracell 6,49 EUR für 4, Ansmann 4,65 EUR für 4. Keiner zeigt eine Reduzierung. Barcodes auf den Seiten: Duracell 5000394142039, Ansmann 4013674005543, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Gleiche Viererpackung, gleiche Größe und Chemie beim selben Händler, wobei Ansmann 28 % günstiger ist.",
+    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Duracell 6,49 € für 4, Ansmann 4,65 € für 4. Keiner zeigt eine Reduzierung. Barcodes auf den Seiten: Duracell 5000394142039, Ansmann 4013674005543, keiner davon in Open Facts, also kein Foto.",
     "why": "Die Angaben zeigen dieselbe Größe, Chemie und Spannung bei derselben Stückzahl, und die Duracell-Angabe nennt keine Kapazität, die man der Ersparnis gegenüberstellen könnte.",
     "differences": [
       "Ansmann nennt 16000 mAh, Duracell keine Kapazität.",
@@ -143,8 +143,8 @@
     }
   },
   "duracell-electronics-cr2032-vs-intenso-cr2032-de": {
-    "summary": "Beide sind Lithium-Knopfzellen CR2032 mit 3 V im selben Shop, mit etwa 1,00 Euro pro Zelle bei Duracell und etwa 33 Cent bei Intenso.",
-    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt., ohne angezeigte Reduzierung: Duracell 3,99 EUR für 4, Intenso 1,95 EUR für 6, pro Zelle etwa 67 % weniger. Barcodes auf den Seiten: Duracell 5000394119376, Intenso 4034303027897, keiner davon in Open Facts, also kein Foto. CR2032 ist in der IEC-Benennung, wie sie bei Wikipedia aufgeführt ist, eine feste Größe von 20 x 3,2 mm.",
+    "summary": "Beide sind Lithium-Knopfzellen CR2032 mit 3 V beim selben Händler, mit etwa 1,00 Euro pro Zelle bei Duracell und etwa 33 Cent bei Intenso.",
+    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt., ohne angezeigte Reduzierung: Duracell 3,99 € für 4, Intenso 1,95 € für 6, pro Zelle etwa 67 % weniger. Barcodes auf den Seiten: Duracell 5000394119376, Intenso 4034303027897, keiner davon in Open Facts, also kein Foto. CR2032 ist in der IEC-Benennung, wie sie bei Wikipedia aufgeführt ist, eine feste Größe von 20 x 3,2 mm.",
     "why": "CR2032 legt Größe und Spannung fest, und die Duracell-Seite nennt keine Kapazität, die es aufwiegen würde, pro Zelle etwa dreimal so viel zu zahlen.",
     "differences": [
       "Intenso nennt 220 mAh und etwa 5 Jahre Lagerfähigkeit.",
@@ -158,8 +158,8 @@
     }
   },
   "varta-longlife-power-9v-vs-ansmann-industrial-9v-de": {
-    "summary": "Beide sind Alkaline-9-V-Blöcke im selben Shop, und die Ansmann-10er-Packung ist pro Zelle etwa 34 % günstiger, oder etwa 27 % pro mAh nach ihrer niedrigeren angegebenen Kapazität.",
-    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Varta 3,25 EUR für 2 (reduziert von 3,27 EUR angezeigt), Ansmann 10,80 EUR für 10 (reduziert von 10,84 EUR angezeigt). Pro Zelle sind das 1,63 EUR gegenüber 1,08 EUR. Eine einzelne Ansmann-Zelle kostet 1,39 EUR, das ist pro Zelle 14 % weniger als Varta. Der Ansmann-Barcode 4013674017287 ist nicht in Open Facts, diese Seite hat also kein Foto.",
+    "summary": "Beide sind Alkaline-9-V-Blöcke beim selben Händler, und die Ansmann-10er-Packung ist pro Zelle etwa 34 % günstiger, oder etwa 27 % pro mAh nach ihrer niedrigeren angegebenen Kapazität.",
+    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: Varta 3,25 € für 2 (reduziert von 3,27 € angezeigt), Ansmann 10,80 € für 10 (reduziert von 10,84 € angezeigt). Pro Zelle sind das 1,63 € gegenüber 1,08 €. Eine einzelne Ansmann-Zelle kostet 1,39 €, das ist pro Zelle 14 % weniger als Varta. Der Ansmann-Barcode 4013674017287 ist nicht in Open Facts, diese Seite hat also kein Foto.",
     "why": "Auch nach der niedrigeren angegebenen Kapazität ist die 10er-Packung pro mAh günstiger, sie passt also für alle, die genug 9-V-Zellen verbrauchen, um zehn zu kaufen, etwa für Rauchmelder.",
     "differences": [
       "Varta nennt mehr Kapazität, 580 mAh gegenüber 525 mAh.",
@@ -176,8 +176,8 @@
     }
   },
   "panasonic-eneloop-2000-aa-vs-varta-56706-2100-aa-de": {
-    "summary": "Beide sind NiMH-AA-Zellen mit geringer Selbstentladung und etwa 2000 mAh in Viererpackungen im selben Shop, wobei Varta 48 % günstiger ist und eine etwas höhere Kapazität angibt.",
-    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: eneloop 13,85 EUR für 4, Varta 7,26 EUR für 4 (reduziert von 7,45 EUR angezeigt). Barcodes auf den Seiten: eneloop 5410853064190, Varta 4008496550692, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Beide sind NiMH-AA-Zellen mit geringer Selbstentladung und etwa 2000 mAh in Viererpackungen beim selben Händler, wobei Varta 48 % günstiger ist und eine etwas höhere Kapazität angibt.",
+    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt.: eneloop 13,85 € für 4, Varta 7,26 € für 4 (reduziert von 7,45 € angezeigt). Barcodes auf den Seiten: eneloop 5410853064190, Varta 4008496550692, keiner davon in Open Facts, also kein Foto.",
     "why": "Wenn du nur ab und zu auflädst, erreichst du die zusätzlichen Ladezyklen, die eneloop verspricht, vielleicht nie. Wenn du wöchentlich auflädst, spricht die belegte Zyklenzahl von eneloop stärker.",
     "differences": [
       "Die eneloop-Seite verspricht bis zu 2100 Ladevorgänge und bis zu 70 % Ladung nach 10 Jahren Lagerung.",
@@ -195,8 +195,8 @@
     }
   },
   "panasonic-eneloop-2500-aa-vs-varta-5716-2600-aa-de": {
-    "summary": "Beide sind NiMH-AA-Viererpackungen mit hoher Kapazität im selben Shop, wobei Varta 32 % günstiger ist und eine etwas höhere Kapazität angibt.",
-    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt., ohne angezeigte Reduzierung: eneloop 16,95 EUR für 4, Varta 11,50 EUR für 4 (Artikel 271658, Barcode 4008496745975, der auch zum Open-Facts-Eintrag passt). Der eneloop-Barcode 5410853064152 ist nicht in Open Facts, diese Seite hat also kein Foto.",
+    "summary": "Beide sind NiMH-AA-Viererpackungen mit hoher Kapazität beim selben Händler, wobei Varta 32 % günstiger ist und eine etwas höhere Kapazität angibt.",
+    "evidence": "Beide am 6. November 2026 auf pollin.de abgelesen, inklusive MwSt., ohne angezeigte Reduzierung: eneloop 16,95 € für 4, Varta 11,50 € für 4 (Artikel 271658, Barcode 4008496745975, der auch zum Open-Facts-Eintrag passt). Der eneloop-Barcode 5410853064152 ist nicht in Open Facts, diese Seite hat also kein Foto.",
     "why": "Bei Zellen mit hoher Kapazität nennen beide etwa dieselben mAh, der Aufpreis kauft also die belegten Angaben von eneloop zu Lagerung und Zyklen. Ob sie zählen, hängt davon ab, wie du die Zellen nutzt.",
     "differences": [
       "Die eneloop-Seite verspricht bis zu 500 Ladevorgänge und bis zu 70 % Ladung nach 10 Jahren Lagerung.",
@@ -213,8 +213,8 @@
     }
   },
   "apple-20w-usb-c-adapter-vs-goobay-20w-usb-c-pd-gan-nano-de": {
-    "summary": "Beide sind USB-C-Netzteile mit 20 W und einem Anschluss im selben Shop, wobei goobay etwa 48 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide als sofort lieferbar angezeigt: Apple 19,09 EUR, goobay 9,99 EUR. Der Versand kostet bei beiden ab 7,99 EUR. Barcodes: Apple 0194252157022, goobay 4040849766916, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Beide sind USB-C-Netzteile mit 20 W und einem Anschluss beim selben Händler, wobei goobay etwa 48 % günstiger ist.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide als sofort lieferbar angezeigt: Apple 19,09 €, goobay 9,99 €. Der Versand kostet bei beiden ab 7,99 €. Barcodes: Apple 0194252157022, goobay 4040849766916, keiner davon in Open Facts, also kein Foto.",
     "why": "Laut diesen Angaben haben die beiden dieselbe Nennleistung und denselben Anschluss, und die Apple-Angabe nennt keine zusätzliche Ladefunktion, die fast den doppelten Preis rechtfertigen würde.",
     "differences": [
       "Die goobay-Angabe nennt Power Delivery, 5 bis 12 V bis zu 3 A und GaN.",
@@ -233,9 +233,9 @@
     }
   },
   "apple-30w-usb-c-adapter-vs-goobay-30w-usb-c-pd-gan-slim-de": {
-    "summary": "Beide sind USB-C-Netzteile mit 30 W und einem Anschluss im selben Shop, wobei goobay etwa 70 % günstiger und auf Lager ist.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Apple 40,99 EUR auf Bestellung, lieferbar in 16 bis 22 Tagen; goobay 12,49 EUR, sofort lieferbar. Der Versand kostet bei beiden ab 7,99 EUR. Barcodes: Apple 0195949376511, goobay 4040849757365, keiner davon in Open Facts, also kein Foto.",
-    "why": "Nennleistung und Anschluss stimmen laut Angaben überein, und das Apple-Netzteil kostet in diesem Shop mehr als dreimal so viel, mit etwa drei Wochen Wartezeit.",
+    "summary": "Beide sind USB-C-Netzteile mit 30 W und einem Anschluss beim selben Händler, wobei goobay etwa 70 % günstiger und auf Lager ist.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Apple 40,99 € auf Bestellung, lieferbar in 16 bis 22 Tagen; goobay 12,49 €, sofort lieferbar. Der Versand kostet bei beiden ab 7,99 €. Barcodes: Apple 0195949376511, goobay 4040849757365, keiner davon in Open Facts, also kein Foto.",
+    "why": "Nennleistung und Anschluss stimmen laut Angaben überein, und das Apple-Netzteil kostet bei diesem Händler mehr als dreimal so viel, mit etwa drei Wochen Wartezeit.",
     "differences": [
       "goobay nennt 5 bis 12 V bis zu 3 A und PD und erwähnt PPS nicht.",
       "Wenn ein Gerät für 30 W eine höhere Spannung braucht, zeigt die Angabe das nicht.",
@@ -253,11 +253,11 @@
     }
   },
   "ugreen-nexode-pro-65w-vs-d-link-dcp-651-65w-de": {
-    "summary": "Beide sind Netzteile mit 65 W und PD 3.0, zwei USB-C-Anschlüssen und einem USB-A im selben Shop, wobei D-Link etwa 37 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: UGREEN 36,19 EUR (angezeigt gegenüber 39,99 EUR), D-Link 22,79 EUR (angezeigt gegenüber 33,90 EUR). Beide nennen 65 W an jedem USB-C-Anschluss, 22,5 W an USB-A und 65 W insgesamt. Der Versand kostet bei beiden ab 7,99 EUR. Barcodes: UGREEN 6941876228713, D-Link 0790069478765, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Beide sind Netzteile mit 65 W und PD 3.0, zwei USB-C-Anschlüssen und einem USB-A beim selben Händler, wobei D-Link etwa 37 % günstiger ist.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: UGREEN 36,19 € (angezeigt gegenüber 39,99 €), D-Link 22,79 € (angezeigt gegenüber 33,90 €). Beide nennen 65 W an jedem USB-C-Anschluss, 22,5 W an USB-A und 65 W insgesamt. Der Versand kostet bei beiden ab 7,99 €. Barcodes: UGREEN 6941876228713, D-Link 0790069478765, keiner davon in Open Facts, also kein Foto.",
     "why": "Die angegebene Anschlussbelegung und die Wattzahlen stimmen überein. Wenn du schon ein Kabel hast, bringt dir der Aufpreis für UGREEN laut diesen Angaben wenig.",
     "differences": [
-      "UGREEN legt ein USB-C-Kabel mit 100 W und 1,5 m bei, die D-Link-Angabe zeigt keins, was den echten Abstand verringert, denn ein UGREEN-Kabel mit 100 W kostet in diesem Shop etwa 10 EUR.",
+      "UGREEN legt ein USB-C-Kabel mit 100 W und 1,5 m bei, die D-Link-Angabe zeigt keins, was den echten Abstand verringert, denn ein UGREEN-Kabel mit 100 W kostet bei diesem Händler etwa 10 €.",
       "UGREEN nennt QC 4.0 und D-Link QC 3.0.",
       "D-Link legt Steckeradapter für US, UK, EU und AU bei.",
       "PPS wird auf keiner der beiden Seiten erwähnt, und die Garantie ist nicht angegeben.",
@@ -273,8 +273,8 @@
     }
   },
   "apple-usb-c-cable-1m-60w-vs-delock-usb-c-cable-1m-60w-de": {
-    "summary": "Beide sind USB-C-Kabel mit USB 2.0 und 1 m Länge, ausgelegt bis 60 W, im selben Shop, wobei DeLOCK etwa 61 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Apple 12,79 EUR (angezeigt gegenüber 25,00 EUR, auf Bestellung mit 4 bis 8 Tagen Wartezeit), DeLOCK 4,99 EUR (sofort lieferbar). Der Versand kostet bei beiden ab 7,99 EUR, es lohnt sich also, sie zu einer größeren Bestellung dazuzunehmen. Barcodes: Apple 0195949371905, DeLOCK 4043619811243, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Beide sind USB-C-Kabel mit USB 2.0 und 1 m Länge, ausgelegt bis 60 W, beim selben Händler, wobei DeLOCK etwa 61 % günstiger ist.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt.: Apple 12,79 € (angezeigt gegenüber 25,00 €, auf Bestellung mit 4 bis 8 Tagen Wartezeit), DeLOCK 4,99 € (sofort lieferbar). Der Versand kostet bei beiden ab 7,99 €, es lohnt sich also, sie zu einer größeren Bestellung dazuzunehmen. Barcodes: Apple 0195949371905, DeLOCK 4043619811243, keiner davon in Open Facts, also kein Foto.",
     "why": "Beide Angaben nennen denselben Datenstandard und dieselbe Leistung bei derselben Länge, und die Seiten zeigen nichts weiter, womit das Apple-Kabel schneller laden würde.",
     "differences": [
       "Das Apple-Kabel hat einen gewebten Mantel.",
@@ -294,11 +294,11 @@
     }
   },
   "samsung-usb-c-cable-1m-100w-vs-adata-usb-c-cable-1m-100w-de": {
-    "summary": "Beide sind USB-C-Kabel mit USB 2.0 und 1 m Länge, ausgelegt bis 100 W, im selben Shop, wobei ADATA etwa 66 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: Samsung 8,49 EUR (angezeigt gegenüber 19,90 EUR), ADATA 2,89 EUR. Der Versand kostet bei beiden ab 7,99 EUR, es lohnt sich also, sie zu einer größeren Bestellung dazuzunehmen. Barcodes: Samsung 8806090144028, ADATA 4711085946225, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Beide sind USB-C-Kabel mit USB 2.0 und 1 m Länge, ausgelegt bis 100 W, beim selben Händler, wobei ADATA etwa 66 % günstiger ist.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: Samsung 8,49 € (angezeigt gegenüber 19,90 €), ADATA 2,89 €. Der Versand kostet bei beiden ab 7,99 €, es lohnt sich also, sie zu einer größeren Bestellung dazuzunehmen. Barcodes: Samsung 8806090144028, ADATA 4711085946225, keiner davon in Open Facts, also kein Foto.",
     "why": "Angegebene Leistung, Länge und Datengeschwindigkeit sind gleich, und die Ersparnis ist groß für ein Ladekabel, von dem du vielleicht mehrere brauchst.",
     "differences": [
-      "Bei beiden USB-2.0-Daten mit bis zu 480 Mbit/s.",
+      "Beide übertragen Daten nach USB 2.0 mit bis zu 480 Mbit/s.",
       "Keine der beiden Angaben zeigt das USB-IF-Logo oder eine Garantie.",
       "Das Programm von USB-IF verlangt auf zertifizierten Kabeln die Kennzeichnung 60W oder 240W, und diese Angabe von 100 W ist die Beschreibung des Verkäufers.",
       "Kein Test, den wir gelesen haben, deckt diese beiden ab."
@@ -312,8 +312,8 @@
     }
   },
   "lindy-gold-line-hdmi-2m-vs-goobay-ultra-high-speed-hdmi-2m-de": {
-    "summary": "Beide Angaben beschreiben ein 2 m langes Ultra-High-Speed-HDMI-2.1-Kabel mit 48 Gbit/s im selben Shop, wobei goobay etwa 76 % günstiger ist.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: Lindy 40,99 EUR, goobay 9,99 EUR (angezeigt gegenüber 14,99 EUR). Der Versand kostet bei beiden ab 7,99 EUR. Barcodes: Lindy 4002888376020, goobay 4040849410840, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Beide Angaben beschreiben ein 2 m langes Ultra-High-Speed-HDMI-2.1-Kabel mit 48 Gbit/s beim selben Händler, wobei goobay etwa 76 % günstiger ist.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: Lindy 40,99 €, goobay 9,99 € (angezeigt gegenüber 14,99 €). Der Versand kostet bei beiden ab 7,99 €. Barcodes: Lindy 4002888376020, goobay 4040849410840, keiner davon in Open Facts, also kein Foto.",
     "why": "Die Angaben nennen dieselbe Version, Bandbreite und Länge. Wenn dir eine Zertifizierung wichtig ist, such das Label auf der Packung, denn keine der beiden Angaben zeigt es.",
     "differences": [
       "Keine der beiden Seiten nennt eine HDMI-Zertifizierung.",
@@ -329,8 +329,8 @@
     }
   },
   "knipex-alligator-88-01-250-vs-bosch-water-pump-pliers-250-de": {
-    "summary": "Beide sind Wasserpumpenzangen mit 250 mm im selben Shop, wobei die Bosch etwa 27 % günstiger ist und die Knipex bei Greifweite und Stahl vorn liegt.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: Knipex 17,39 EUR (angezeigt gegenüber 29,21 EUR), Bosch 12,69 EUR (angezeigt gegenüber 20,81 EUR). Der Versand kostet bei beiden ab 7,99 EUR. Barcodes: Knipex 4003773022992, Bosch 4053423302325, keiner davon in Open Facts, also kein Foto.",
+    "summary": "Beide sind Wasserpumpenzangen mit 250 mm beim selben Händler, wobei die Bosch etwa 27 % günstiger ist und die Knipex bei Greifweite und Stahl vorn liegt.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., beide sofort lieferbar: Knipex 17,39 € (angezeigt gegenüber 29,21 €), Bosch 12,69 € (angezeigt gegenüber 20,81 €). Der Versand kostet bei beiden ab 7,99 €. Barcodes: Knipex 4003773022992, Bosch 4053423302325, keiner davon in Open Facts, also kein Foto.",
     "why": "Für gelegentliche Arbeiten im Haushalt erledigt die Bosch dieselbe Aufgabe für weniger. Bei regelmäßiger Arbeit sind der angegebene Stahl und die Greifweite der Knipex den Aufpreis wert.",
     "differences": [
       "Die Knipex ist besser belegt: Backen aus Chrom-Vanadium-Stahl und 50 mm Greifweite für Rohre.",

@@ -13,6 +13,7 @@ import { after, before, test } from "node:test";
 import * as schema from "../../src/db/schema";
 import { readExport, readExportFolder, type Earning } from "../revenue/exports";
 import { buildReport, mergeEarnings, pageTypeOf, periodOf, renderReport, type ClickRow } from "../revenue/report";
+import { viaOfClick, withVia } from "../../src/lib/via";
 import { parseArgs } from "../report-revenue";
 import { ALL_TABLES, testDb } from "./db-support";
 
@@ -26,7 +27,7 @@ test("page type: from our referrer, country prefixes stripped, else from the lin
   assert.equal(p(`${SITE}/de/compare/x`), "swap");
   assert.equal(p(`${SITE}/uk/bundle/x`, "item-2"), "kit");
   assert.equal(p(`${SITE}/basket/new-flat-gb`), "basket");
-  assert.equal(p(`${SITE}/check/list?x=1`, "search", "lookup"), "check");
+  assert.equal(p(`${SITE}/check/list?x=1`, "search", "lookup"), "listcheck");
   assert.equal(p(`${SITE}/us/check`, "search", "lookup"), "check");
   assert.equal(p(`${SITE}/my-list`), "list");
   assert.equal(p(`${SITE}/`), "other");
@@ -37,6 +38,31 @@ test("page type: from our referrer, country prefixes stripped, else from the lin
   assert.equal(p(null, "brand", "kit-a"), "kit", "a kit's own link");
   assert.equal(p(null, "search", "lookup"), "other");
   assert.equal(p("not a url"), "swap");
+});
+
+test("page type: a recorded via wins; old rows without one fall back to the referrer and the link", () => {
+  const row = (via: string | null, referrer: string | null = `${SITE}/compare/x`) => pageTypeOf({ referrer, side: "alternative", slug: "x", via });
+  assert.equal(row("basket"), "basket");
+  assert.equal(row("letter", null), "letter");
+  assert.equal(row("listcheck"), "listcheck");
+  assert.equal(row(null), "swap", "an old row");
+  assert.equal(row("nonsense"), "swap", "an unknown value is ignored");
+  assert.equal(pageTypeOf({ referrer: null, side: "alternative", slug: "x" }), "swap", "a row from before the column");
+});
+
+test("via at click time: the referring page's marker, then the link's, then the referring page", () => {
+  const go = `${SITE}/go/x/alternative`;
+  assert.equal(viaOfClick(go, `${SITE}/compare/x?via=basket`, ["samebutcheaper.test"]), "basket");
+  assert.equal(viaOfClick(go, `${SITE}/de/compare/x?utm_source=newsletter&via=letter`, ["samebutcheaper.test"]), "letter");
+  assert.equal(viaOfClick(`${go}?via=kit`, `${SITE}/bundle/k`, ["samebutcheaper.test"]), "kit");
+  assert.equal(viaOfClick(go, `${SITE}/uk/compare/x`, ["samebutcheaper.test"]), "swap");
+  assert.equal(viaOfClick(go, `${SITE}/check/list`, ["samebutcheaper.test"]), "listcheck");
+  assert.equal(viaOfClick(go, null, ["samebutcheaper.test"]), null, "no referrer: the report reads the link");
+  // Someone else's page can't claim a marker.
+  assert.equal(viaOfClick(go, "https://elsewhere.example/compare/x?via=letter", ["samebutcheaper.test"]), null);
+  assert.equal(viaOfClick(go, `${SITE}/compare/x?via=bogus`, ["samebutcheaper.test"]), "swap");
+  assert.equal(withVia("/compare/x", "search"), "/compare/x?via=search");
+  assert.equal(withVia("/compare/x?a=1#top", "basket"), "/compare/x?a=1&via=basket#top");
 });
 
 test("periods: UTC day, and the Monday of the week", () => {

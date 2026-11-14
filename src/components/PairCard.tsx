@@ -10,6 +10,7 @@ import { ToArrow, UnitPrice } from "./UnitPrice";
 import { cards } from "@/lib/i18n/en/client/cards";
 import { productDetail } from "@/lib/product-detail";
 import { productName } from "@/lib/i18n/product-name";
+import { withVia, type Via } from "@/lib/via";
 
 /** The English this component reads (src/lib/i18n/client-dict.ts). */
 const TEXT = { cards };
@@ -22,13 +23,13 @@ const TEXT = { cards };
  * Lists show a swap with no photo at all as a PairRow. The places that always show a card, such as
  * search results and related swaps, get this card with no tiles, so there's never a card of two empty ones.
  */
-export function PairCard({ pair, rank, eager = false, lang = "en" }: { pair: PairSummary; rank?: number; eager?: boolean; lang?: Lang }) {
+export function PairCard({ pair, rank, eager = false, lang = "en", via }: { pair: PairSummary; rank?: number; eager?: boolean; lang?: Lang; via?: Via }) {
   const t = clientT(lang, TEXT);
   const shelf = pair.subcategory || t("cards.aisle", pair.category);
   const kind = shelf.replace(/\s+-\s+/g, ": ");
   return (
     <Link
-      href={`/compare/${pair.slug}`}
+      href={via ? withVia(`/compare/${pair.slug}`, via) : `/compare/${pair.slug}`}
       className="card group flex h-full min-w-0 flex-col overflow-hidden transition-colors hover:border-ink-2"
     >
       {(pair.brandImage || pair.altImage) && (

@@ -512,5 +512,13 @@ export const presetDeSchema = z
   .strict();
 export type PresetDe = z.infer<typeof presetDeSchema>;
 
-/** Words records share, keyed by the English: subcategory names. */
-export const glossaryDeSchema = z.object({ subcategories: z.record(z.string(), z.string().min(2)) }).strict();
+/**
+ * Words records share, keyed by the English: subcategory names, and the German site's terms (one German word per
+ * English one, with the words to avoid; scripts/tests/i18n-de-dictionary.test.ts holds every German text to them).
+ */
+export const glossaryDeSchema = z
+  .object({
+    terms: z.record(z.string(), z.object({ de: z.string().min(2), avoid: z.array(z.string().min(2)), note: z.string().optional() }).strict()).optional(),
+    subcategories: z.record(z.string(), z.string().min(2)),
+  })
+  .strict();

@@ -148,7 +148,10 @@ test("client code carries only its own client sections", () => {
 test("German text uses the pharmacy terms, never 'identisch', and carries the legal notice", () => {
   const files = (dir: string): string[] =>
     readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? files(join(dir, e.name)) : [join(dir, e.name)]));
-  const texts = [...files(join(ROOT, "data/i18n/de")), ...files(join(ROOT, "src/lib/i18n/de"))].map((f) => readFileSync(f, "utf8")).join("\n");
+  // The glossary names "identisch" as a word to avoid, so it is not a text a visitor reads.
+  const texts = [...files(join(ROOT, "data/i18n/de")).filter((f) => !f.endsWith("glossary.json")), ...files(join(ROOT, "src/lib/i18n/de"))]
+    .map((f) => readFileSync(f, "utf8"))
+    .join("\n");
   assert.ok(!/identisch/i.test(texts));
   assert.match(texts, /Wirkstoffgleich/);
   assert.match(texts, /Gleicher Wirkstoff/);

@@ -164,6 +164,7 @@ test("a click is redirected, tagged when a program covers the store, and logged 
   assert.equal(row.side, "alternative");
   assert.equal(row.country, "DE");
   assert.equal(row.source, "google.cpc");
+  assert.equal(row.via, "swap", "made on the swap page");
   assert.match(row.clickId ?? "", /^[a-z0-9]{6,24}$/);
   assert.match(row.visitorHash ?? "", /^[0-9a-f]{64}$/);
   assert.ok(!JSON.stringify(row).includes(v.ip), "the address itself is never stored");
@@ -172,6 +173,11 @@ test("a click is redirected, tagged when a program covers the store, and logged 
   // Amazon's tag has no sub-ID field; every other program and both sub-networks take our click ID.
   if (row.program && network !== "amazon") assert.ok(location.includes(row.clickId!), "a tagged link carries our click ID");
   if (!row.program) assert.equal(location, store, "an untagged link is the store's own URL");
+
+  // A swap page reached from a basket carries ?via=basket, and the click out counts for the basket.
+  const fromBasket = freshSlug();
+  await get(`/go/${fromBasket}/alternative`, visitor({ referer: `${BASE}/uk/compare/${fromBasket}?via=basket` }).headers);
+  assert.equal((await clicksFor(fromBasket, 1))[0]?.via, "basket");
 });
 
 test("crawlers, HEAD requests and prefetches are redirected but not counted", { skip }, async () => {
@@ -422,7 +428,7 @@ test("swap and kit pages carry the report form; swap pages the price watch", { s
 test("admin: the new queues show and the most-wanted list downloads", { skip }, async () => {
   const auth = { ...visitor().headers, authorization: basic(ADMIN) };
   const page = await (await get("/admin", auth)).text();
-  for (const heading of ["Something wrong?", "Most wanted", "Weekly letter"]) assert.ok(page.includes(heading), heading);
+  for (const heading of ["Something wrong?", "Most wanted", "Weekly letter", "Clicks by page type", "Clicks that earned nothing, by store"]) assert.ok(page.includes(heading), heading);
   const csv = await get("/admin/export/wanted?days=30", auth);
   assert.equal(csv.status, 200);
   assert.match(await csv.text(), /^query,country,sources,last7,last30,waiting,waitingPending/);

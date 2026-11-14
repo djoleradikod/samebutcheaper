@@ -7,6 +7,11 @@ export const feedback = {
   saving: "Saving…",
   watch: "Watch this swap",
   watchIdle: "Only about this swap. Every email has a one-click stop link.",
+  /** The cheaper product's store bars price alerts in its affiliate terms (src/lib/watch-terms.ts): no watch. */
+  watchBarred: (store: string) => `No price watch here: ${store}'s affiliate terms don't allow price alerts for its products.`,
+  /** Only the brand's store does: the watch follows the cheaper product's price alone. */
+  watchBrandBarred: (store: string) =>
+    `${store}'s affiliate terms don't allow price alerts for its products, so this watch follows the cheaper product's price only, not the saving.`,
   howWeUse: "How we use your address",
   somethingWrong: "Something wrong on this page?",
   whatsWrong: "What's wrong?",

@@ -20,6 +20,7 @@ import { mostWanted, normaliseQuery, recordWanted } from "../../src/lib/wanted";
 import { runWishAnswers } from "../../src/lib/wanted-answer";
 import { coveredBy, namesMatch, searchFields, wishMatcher, words, wouldRelease } from "../../src/lib/wanted-match";
 import { pricesOf, runWatches, watchChange, watchMail } from "../../src/lib/watches";
+import { watchTerms } from "../../src/lib/watch-terms";
 import { savingKind } from "../../src/lib/yearly";
 import type { Bundle, Catalog, Pair } from "../../src/lib/types";
 import { ALL_TABLES, mailStub, testDb, type Sent } from "./db-support";
@@ -40,7 +41,8 @@ let letterEnv: Record<string, string> = {};
 const THURSDAY = new Date("2026-11-12T09:00:00Z");
 
 const catalog = catalogJson as unknown as Catalog;
-const usPair = catalog.pairs.find((p) => p.market === "US" && p.savingsPct > 30)!;
+/** A US swap a watch may follow in full: neither price from a store whose terms bar price alerts (watch-terms.ts). */
+const usPair = catalog.pairs.find((p) => p.market === "US" && p.savingsPct > 30 && !watchTerms(p).alternative && !watchTerms(p).brand)!;
 const dePair = catalog.pairs.find((p) => p.market === "DE" && p.savingsPct > 30)!;
 const full: CatalogueView = { pairs: catalog.pairs, bundles: catalog.bundles };
 /** The catalogue with one swap's cheaper product re-priced. */
@@ -294,6 +296,27 @@ test("the saving dropping under 5% and a withdrawal each get their email; a with
   assert.match(sent[1].subject, /withdrawn/);
   assert.equal((await db.select().from(watches))[0].status, "ended");
   assert.equal((await runWatches(db, opts({ catalogue: without(usPair.slug) }))).sent, 0);
+});
+
+test("a watch on a price from a store whose terms bar price alerts is never emailed; a barred brand price drops the saving", { skip }, async () => {
+  const altBarred = catalog.pairs.find((p) => p.market === "US" && watchTerms(p).alternative)!;
+  const brandBarred = catalog.pairs.find((p) => p.market === "US" && watchTerms(p).brand && !watchTerms(p).alternative)!;
+  await activeWatch("wa@example.com", altBarred);
+  await activeWatch("wb@example.com", brandBarred);
+  // The cheaper price moves 20% on both: only the brand-barred swap's watch writes, about the cheaper price alone.
+  const both: CatalogueView = { pairs: repriced(brandBarred, 1.2).pairs.map((p) => (p.slug === altBarred.slug ? repriced(altBarred, 1.2).pairs.find((q) => q.slug === p.slug)! : p)), bundles: catalog.bundles };
+  const run = await runWatches(db, opts({ catalogue: both }));
+  assert.deepEqual([run.sent, run.barred], [1, 1]);
+  assert.equal(sent[0].to[0], "wb@example.com");
+  assert.ok(!sent[0].text.includes(`cheaper than ${brandBarred.brand.brand}`), "no saving against the barred brand price");
+  // Withdrawing the swap is not a price alert: that one email still goes, with no price in it.
+  const gone = await runWatches(db, opts({ catalogue: without(altBarred.slug) }));
+  assert.deepEqual([gone.sent, gone.barred], [2, 0]);
+  const withdrawn = sent.find((m) => m.to[0] === "wa@example.com")!;
+  assert.match(withdrawn.subject, /withdrawn/);
+  assert.ok(!/\d+(?:\.\d+)?%|\$\d/.test(withdrawn.text.split("\n").slice(0, 3).join(" ")), "no price in it");
+  // A saving drop alone never writes when the brand's price can't be watched.
+  assert.equal(watchChange(pricesOf(brandBarred), { ...pricesOf(brandBarred), savingsPct: 1 }, { saving: false }), null);
 });
 
 test("watch emails use the reader's currency", { skip }, async () => {

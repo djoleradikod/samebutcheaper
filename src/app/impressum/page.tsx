@@ -35,10 +35,16 @@ async function Notice() {
   const n = legalNotice();
   if (!n) {
     return (
-      <p>
-        The legal notice for this site isn&apos;t published yet. Until it is, we don&apos;t send our weekly letter to
-        readers in Germany or Austria.
-      </p>
+      <>
+        <p lang="de">
+          Das Impressum dieser Website ist noch nicht veröffentlicht. Bis dahin schicken wir unseren wöchentlichen
+          Newsletter nicht an Leserinnen und Leser in Deutschland und Österreich.
+        </p>
+        <p>
+          The legal notice for this site isn&apos;t published yet. Until it is, we don&apos;t send our weekly letter to
+          readers in Germany or Austria.
+        </p>
+      </>
     );
   }
   return (
@@ -55,11 +61,11 @@ async function Notice() {
       </p>
       <h2>Kontakt (contact)</h2>
       <p>
-        Email: <a href={`mailto:${n.email}`}>{n.email}</a>
+        E-Mail: <a href={`mailto:${n.email}`}>{n.email}</a>
         {n.phone && (
           <>
             <br />
-            Phone: <a href={`tel:${n.phone.replace(/[^\d+]/g, "")}`}>{n.phone}</a>
+            Telefon (phone): <a href={`tel:${n.phone.replace(/[^\d+]/g, "")}`}>{n.phone}</a>
           </>
         )}
       </p>

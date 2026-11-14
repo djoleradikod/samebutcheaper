@@ -100,6 +100,8 @@ export function tagged(url: string, campaign: string) {
   u.searchParams.set("utm_source", "newsletter");
   u.searchParams.set("utm_medium", "email");
   u.searchParams.set("utm_campaign", campaign);
+  // A click out from the page this opens counts for the email it came from (src/lib/via.ts).
+  u.searchParams.set("via", campaign.startsWith("weekly-") ? "letter" : "email");
   return u.toString();
 }
 

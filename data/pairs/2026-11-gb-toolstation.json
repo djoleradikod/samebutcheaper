@@ -1,0 +1,827 @@
+[
+ {
+  "slug": "duracell-plus-power-aa-10-vs-gp-super-alkaline-aa-40-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "AA batteries",
+  "title": "Duracell Plus Power AA vs GP Super Alkaline AA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus Power AA LR6 alkaline, pack of 10 (MN1500B10)",
+   "size": 10,
+   "unit": "cell",
+   "price": 10.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/duracell-plus-power-batteries/pAH601",
+   "key_ingredients": [
+    {
+     "name": "AA (LR6) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated storage life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "GP",
+   "product": "GP Super Alkaline AA, pack of 40",
+   "size": 40,
+   "unit": "cell",
+   "price": 17.2,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gp-super-alkaline-battery/p90722",
+   "key_ingredients": [
+    {
+     "name": "AA (LR6) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated storage life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V AA alkaline cells with a stated 10-year storage life, sold by the same shop, and the GP costs 61% less per cell.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown on either: Duracell GBP 10.99 for 10 (GBP 1.10 a cell) and GP GBP 17.20 for 40 (43p a cell). Duracell's page gives AA LR6, alkaline, 1.5 V and a 10-year storage life; GP's gives AA, alkaline, 1.5 V and a 10-year shelf life.",
+  "differences": "The GP price is for a 40-pack, so you pay more at the till. Toolstation's 16-pack of Duracell +100% Plus Power AA was GBP 14.99 (94p a cell), still more than twice the GP price per cell, and a GP 24-pack was GBP 9.69 on a 10% offer. Duracell's page also lists a pack size of 12 in its specification table, which doesn't match the 10-pack it sells. Duracell says its Power Boost cells last longer; no test we read compares these two.",
+  "why": "Both are the same standard AA alkaline size and voltage with the same stated storage life, and the bigger GP pack costs well under half as much per cell.",
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/duracell-plus-power-batteries/pAH601",
+   "https://www.toolstation.com/gp-super-alkaline-battery/p90722"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-plus-power-aaa-10-vs-gp-super-alkaline-aaa-40-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "AAA batteries",
+  "title": "Duracell Plus Power AAA vs GP Super Alkaline AAA",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Plus Power AAA LR03 alkaline, pack of 10 (MN2400B10)",
+   "size": 10,
+   "unit": "cell",
+   "price": 10.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/duracell-plus-power-batteries/pAH603",
+   "key_ingredients": [
+    {
+     "name": "AAA (LR03) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated storage life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "GP",
+   "product": "GP Super Alkaline AAA, pack of 40",
+   "size": 40,
+   "unit": "cell",
+   "price": 17.29,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gp-super-alkaline-battery/p48516",
+   "key_ingredients": [
+    {
+     "name": "AAA (LR03) alkaline cell",
+     "amount": "1.5 V"
+    },
+    {
+     "name": "Stated storage life",
+     "amount": "10 years"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 1.5 V AAA alkaline cells with a stated 10-year storage life at the same shop, and the GP costs 61% less per cell.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown on either: Duracell GBP 10.99 for 10 (GBP 1.10 a cell) and GP GBP 17.29 for 40 (43p a cell). Duracell's page gives AAA LR03, alkaline, 1.5 V and a 10-year storage life; GP's gives AAA, alkaline, 1.5 V and a 10-year shelf life.",
+  "differences": "The GP is a 40-pack, so the till price is higher. Toolstation's 16-pack of Duracell Plus AAA was GBP 15.29 (96p a cell), still more than twice the GP price per cell. Duracell's page lists a pack size of 12 in its specification table against the 10-pack it sells. No test we read compares these two.",
+  "why": "Same AAA alkaline size, voltage and stated storage life; the GP pack costs well under half as much per cell.",
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/duracell-plus-power-batteries/pAH603",
+   "https://www.toolstation.com/gp-super-alkaline-battery/p48516"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-plus-power-9v-2-vs-gp-super-alkaline-9v-4-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "9V batteries",
+  "title": "Duracell +100% Plus Power 9V vs GP Super Alkaline 9V",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell +100% Plus Power 9V, pack of 2 (S18718)",
+   "size": 2,
+   "unit": "cell",
+   "price": 7.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/duracell-100-plus-power-batteries/p32145",
+   "key_ingredients": [
+    {
+     "name": "9 V block battery",
+     "amount": "9 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "GP",
+   "product": "GP Alkaline Battery Super 9V, pack of 4",
+   "size": 4,
+   "unit": "cell",
+   "price": 9.49,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gp-alkaline-battery/p37780",
+   "key_ingredients": [
+    {
+     "name": "9 V block battery",
+     "amount": "9 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 9 V block batteries at the same shop, and the GP four-pack costs 41% less per battery than the Duracell two-pack.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown: Duracell GBP 7.99 for 2 (GBP 4.00 each) and GP GBP 9.49 for 4 (GBP 2.37 each). Both pages give 9 V; GP's names it alkaline.",
+  "differences": "Duracell's page states up to 5 years in storage; GP's gives no storage life. Duracell's page doesn't state the chemistry. A Duracell Plus 9V four-pack was GBP 12.95 (GBP 3.24 each) but out of stock for delivery, so we used the two-pack. No test we read compares these two.",
+  "why": "For a smoke alarm or a guitar pedal, the GP is the same 9 V block size at well under two thirds of the price per battery. Duracell states a storage life and GP doesn't.",
+  "aspects": [
+   {
+    "aspect": "Stated storage life",
+    "brand": "Up to 5 years",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/duracell-100-plus-power-batteries/p32145",
+   "https://www.toolstation.com/gp-alkaline-battery/p37780"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-cr2032-2-vs-gp-cr2032-4-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "CR2032 batteries",
+  "title": "Duracell CR2032 vs GP CR2032",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Lithium Coin Cell 3V CR2032, pack of 2 (DLCR2032B2)",
+   "size": 2,
+   "unit": "cell",
+   "price": 5.0,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/duracell-lithium-coin-cell-batteries/pAH599",
+   "key_ingredients": [
+    {
+     "name": "CR2032 lithium coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "GP",
+   "product": "GP Lithium Coin 3V CR/DL2032, pack of 4",
+   "size": 4,
+   "unit": "cell",
+   "price": 5.25,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gp-lithium-coin/p93621",
+   "key_ingredients": [
+    {
+     "name": "CR2032 lithium coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 3 V CR2032 lithium coin cells at the same shop, and the GP costs 48% less per cell. Duracell's has a bitter coating against swallowing; GP's page doesn't mention one.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown: Duracell GBP 5.00 for 2 (GBP 2.50 a cell) and GP GBP 5.25 for 4 (GBP 1.31 a cell). Both pages give CR2032, lithium, 3 V.",
+  "differences": "Duracell's page describes a non-toxic bitter coating (Bitrex) on the back of the cell and a pack that is hard to open without scissors, to stop children swallowing a cell. GP's page says nothing about either. Duracell gives a 10-year storage guarantee; GP gives none. Both pages are inconsistent about pack size (Duracell's specification table says 10, GP's pack contents say 5); we used the pack each page sells, 2 and 4.",
+  "why": "In a car key or a kitchen scale, any CR2032 fits. If small children are around, Duracell's bitter coating is a real reason to pay more.",
+  "aspects": [
+   {
+    "aspect": "Bitter coating against swallowing",
+    "brand": "Yes, stated",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Stated storage life",
+    "brand": "10 years",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/duracell-lithium-coin-cell-batteries/pAH599",
+   "https://www.toolstation.com/gp-lithium-coin/p93621"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "duracell-cr2025-2-vs-gp-cr2025-4-gb",
+  "market": "GB",
+  "category": "batteries",
+  "subcategory": "CR2025 batteries",
+  "title": "Duracell CR2025 vs GP CR2025",
+  "brand": {
+   "brand": "Duracell",
+   "product": "Duracell Lithium Coin Cell 3V CR2025, pack of 2",
+   "size": 2,
+   "unit": "cell",
+   "price": 5.0,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/duracell-lithium-coin-cell-batteries/pAH596",
+   "key_ingredients": [
+    {
+     "name": "CR2025 lithium coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "GP",
+   "product": "GP Lithium Coin 3V CR/DL2025, pack of 4",
+   "size": 4,
+   "unit": "cell",
+   "price": 6.3,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/gp-lithium-coin/p83513",
+   "key_ingredients": [
+    {
+     "name": "CR2025 lithium coin cell",
+     "amount": "3 V"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are 3 V CR2025 lithium coin cells at the same shop, and the GP costs 37% less per cell. Duracell's has a bitter coating against swallowing; GP's page doesn't mention one.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown: Duracell GBP 5.00 for 2 (GBP 2.50 a cell) and GP GBP 6.30 for 4 (GBP 1.58 a cell). Both pages give CR2025, lithium, 3 V.",
+  "differences": "Duracell's page describes a bitter (Bitrex) coating to discourage swallowing and a 10-year storage guarantee; GP's page mentions neither. Both pages are inconsistent about pack size (Duracell's table says 10, GP's pack contents say 5) and Duracell's lists the CR2016 maker's code; we used the pack each page sells, 2 and 4.",
+  "why": "Any CR2025 fits a device that takes one. With small children in the house, Duracell's bitter coating is worth paying for.",
+  "aspects": [
+   {
+    "aspect": "Bitter coating against swallowing",
+    "brand": "Yes, stated",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Stated storage life",
+    "brand": "10 years",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/duracell-lithium-coin-cell-batteries/pAH596",
+   "https://www.toolstation.com/gp-lithium-coin/p83513"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "philips-led-7w-e27-806lm-vs-wessex-led-a60-5-9w-e27-806lm-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "LED light bulbs",
+  "title": "Philips LED 7W E27 806lm vs Wessex LED A60 5.9W E27 806lm",
+  "brand": {
+   "brand": "Philips",
+   "product": "Philips LED A Shape Lamp 7W ES (E27) 806lm, warm white",
+   "size": 1,
+   "unit": "bulb",
+   "price": 3.91,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/philips-led-a-shape-lamp/p72574",
+   "key_ingredients": [
+    {
+     "name": "Cap",
+     "amount": "E27 (ES)"
+    },
+    {
+     "name": "Light output",
+     "amount": "806 lm"
+    },
+    {
+     "name": "Colour temperature",
+     "amount": "2700 K"
+    },
+    {
+     "name": "Dimmable",
+     "amount": "No"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Wessex",
+   "product": "Wessex LED A60 GLS Bulbs 5.9W ES Warm White 806lm, pack of 5",
+   "size": 5,
+   "unit": "bulb",
+   "price": 6.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/wessex-led-a60-gls-bulbs/pAB271",
+   "key_ingredients": [
+    {
+     "name": "Cap",
+     "amount": "E27 (ES)"
+    },
+    {
+     "name": "Light output",
+     "amount": "806 lm"
+    },
+    {
+     "name": "Colour temperature",
+     "amount": "2700 K"
+    },
+    {
+     "name": "Dimmable",
+     "amount": "No"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are non-dimmable warm white 806-lumen E27 bulbs at the same shop, and the Wessex five-pack costs 64% less per bulb.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT: Philips GBP 3.91 for one bulb and Wessex GBP 6.99 for 5 (GBP 1.40 a bulb), no reduction shown on either. Both pages give an E27 cap, 806 lumens, 2700 K and non-dimmable.",
+  "differences": "Philips states a 15,000-hour life and a frosted glass bulb; Wessex states no life and a thermoplastic body. Wessex uses 5.9 W for the same light against 7 W, and is energy class D; Philips's page gives no class. Wessex's pack-contents line says 7.3 W, which doesn't match its title. No test we read compares these two.",
+  "why": "The same cap, brightness and colour of light for well under half the price per bulb, using a little less power.",
+  "aspects": [
+   {
+    "aspect": "Stated life",
+    "brand": "15,000 hours",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Power for the same light",
+    "brand": "7 W",
+    "alternative": "5.9 W",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Body",
+    "brand": "Frosted glass",
+    "alternative": "Thermoplastic",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/philips-led-a-shape-lamp/p72574",
+   "https://www.toolstation.com/wessex-led-a60-gls-bulbs/pAB271"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "philips-led-7w-b22-806lm-6-vs-wessex-led-a60-5-9w-b22-806lm-5-gb",
+  "market": "GB",
+  "category": "household",
+  "subcategory": "LED light bulbs",
+  "title": "Philips LED 7W B22 806lm 6-pack vs Wessex LED A60 5.9W B22 806lm 5-pack",
+  "brand": {
+   "brand": "Philips",
+   "product": "Philips LED A Shape Lamp 7W BC (B22d) 806lm, warm white, pack of 6",
+   "size": 6,
+   "unit": "bulb",
+   "price": 12.88,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/philips-led-a-shape-lamp/p60173",
+   "key_ingredients": [
+    {
+     "name": "Cap",
+     "amount": "B22 (BC)"
+    },
+    {
+     "name": "Light output",
+     "amount": "806 lm"
+    },
+    {
+     "name": "Colour temperature",
+     "amount": "2700 K"
+    },
+    {
+     "name": "Dimmable",
+     "amount": "No"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Wessex",
+   "product": "Wessex LED A60 GLS Bulbs 5.9W BC Warm White 806lm, pack of 5",
+   "size": 5,
+   "unit": "bulb",
+   "price": 6.49,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/wessex-led-a60-gls-bulbs/pAB270",
+   "key_ingredients": [
+    {
+     "name": "Cap",
+     "amount": "B22 (BC)"
+    },
+    {
+     "name": "Light output",
+     "amount": "806 lm"
+    },
+    {
+     "name": "Colour temperature",
+     "amount": "2700 K"
+    },
+    {
+     "name": "Dimmable",
+     "amount": "No"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are non-dimmable warm white 806-lumen bayonet bulbs at the same shop, and the Wessex costs 40% less per bulb even with the Philips pack on offer.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT: Philips GBP 12.88 for 6 (GBP 2.15 a bulb, shown reduced from GBP 16.10) and Wessex GBP 6.49 for 5 (GBP 1.30 a bulb). Both pages give a B22 cap, 806 lumens, 2700 K and non-dimmable.",
+  "differences": "Philips states a 15,000-hour life, a 200 degree beam and frosted glass, and is energy class E; Wessex states no life or beam, has a thermoplastic body and is class D. Wessex uses 5.9 W against 7 W. The Philips price is an offer; at its earlier GBP 16.10 the gap would be 52%.",
+  "why": "Same fitting, brightness and colour, a slightly better energy class, and 40% less per bulb.",
+  "aspects": [
+   {
+    "aspect": "Stated life",
+    "brand": "15,000 hours",
+    "alternative": "Not stated",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Energy class",
+    "brand": "E",
+    "alternative": "D",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Body",
+    "brand": "Frosted glass",
+    "alternative": "Thermoplastic",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/philips-led-a-shape-lamp/p60173",
+   "https://www.toolstation.com/wessex-led-a60-gls-bulbs/pAB270"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "aico-ei650-vs-fireangel-fa6620-r-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Smoke alarms",
+  "title": "Aico Ei650 vs FireAngel FA6620-R smoke alarm",
+  "brand": {
+   "brand": "Aico",
+   "product": "Aico Ei650 Optical Smoke Alarm, 10-year lithium battery, stand-alone",
+   "size": 1,
+   "unit": "alarm",
+   "price": 34.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/aico-optical-10-year-lithium-battery-smoke-alarm/p46324",
+   "key_ingredients": [
+    {
+     "name": "Sensor",
+     "amount": "Optical"
+    },
+    {
+     "name": "Power",
+     "amount": "Sealed 3 V lithium battery, 10-year life"
+    },
+    {
+     "name": "Standard",
+     "amount": "EN 14604:2005"
+    },
+    {
+     "name": "Interlink",
+     "amount": "No, stand-alone"
+    },
+    {
+     "name": "Alarm volume",
+     "amount": "85 dB"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "FireAngel",
+   "product": "FireAngel FA6620-R 10 Year Battery Smoke Alarm",
+   "size": 1,
+   "unit": "alarm",
+   "price": 14.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/fireangel-10-year-battery-smoke-alarm/p71669",
+   "key_ingredients": [
+    {
+     "name": "Sensor",
+     "amount": "Optical"
+    },
+    {
+     "name": "Power",
+     "amount": "Sealed 3 V lithium battery, 10-year life"
+    },
+    {
+     "name": "Standard",
+     "amount": "EN 14604:2005"
+    },
+    {
+     "name": "Interlink",
+     "amount": "No, stand-alone"
+    },
+    {
+     "name": "Alarm volume",
+     "amount": "85 dB"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are stand-alone optical smoke alarms with a sealed 10-year lithium battery, certified to EN 14604, and the FireAngel costs 57% less.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown: Aico GBP 34.99, FireAngel GBP 14.99. Aico's page gives an optical sensor, a sealed 3 V lithium battery with a 10-year life, EN14604:2005, 85 dB and stand-alone use. FireAngel's gives an optical sensor, a sealed 3 V lithium battery with a 10-year life, EN 14604:2005+AC:2008, 85 dB(A) and non-interlinkable.",
+  "differences": "Aico's page lists a self-test and a large test and silence button; FireAngel's lists a test button, a quiet test mode and an eight-hour silence for the low-battery chirp. Aico's alarm is ceiling-mounted only; FireAngel's goes on a wall or ceiling and is slimmer (31.5 mm against 50 mm deep). Aico sells a wireless-interlink version of this alarm; if you want alarms that set each other off, neither of these two does. Neither page gives a guarantee period.",
+  "why": "Both meet the same European standard with the same sensor type and the same sealed 10-year battery. Aico is the trade favourite, but on what these pages state, the FireAngel does the same job for under half the price.",
+  "aspects": [
+   {
+    "aspect": "Mounting",
+    "brand": "Ceiling",
+    "alternative": "Wall or ceiling",
+    "verdict": "alt_better"
+   },
+   {
+    "aspect": "Depth",
+    "brand": "50 mm",
+    "alternative": "31.5 mm",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/aico-optical-10-year-lithium-battery-smoke-alarm/p46324",
+   "https://www.toolstation.com/fireangel-10-year-battery-smoke-alarm/p71669"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "evo-stik-trade-decorators-caulk-380ml-vs-soudal-decorators-caulk-290ml-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Decorators caulk",
+  "title": "Evo-Stik Trade Decorators Caulk vs Soudal Decorators Caulk",
+  "brand": {
+   "brand": "Evo-Stik",
+   "product": "Evo-Stik Trade Decorators Caulk 380ml, white",
+   "size": 380,
+   "unit": "ml",
+   "price": 3.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/evo-stik-trade-decorators-caulk/p61539",
+   "key_ingredients": [
+    {
+     "name": "Decorators caulk, white",
+     "amount": ""
+    },
+    {
+     "name": "Use",
+     "amount": "Interior only"
+    },
+    {
+     "name": "Paintable",
+     "amount": "Yes"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Soudal",
+   "product": "Soudal Decorators Caulk 290ml, white",
+   "size": 290,
+   "unit": "ml",
+   "price": 1.69,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/soudal-decorators-caulk/p45080",
+   "key_ingredients": [
+    {
+     "name": "Decorators caulk, white",
+     "amount": ""
+    },
+    {
+     "name": "Use",
+     "amount": "Interior only"
+    },
+    {
+     "name": "Paintable",
+     "amount": "Yes"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are white interior decorators caulks that can be painted over, from the same shop, and the Soudal costs 44% less per ml.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown: Evo-Stik GBP 3.99 for 380 ml (GBP 10.50 a litre) and Soudal GBP 1.69 for 290 ml (GBP 5.83 a litre). Evo-Stik's page says water-based, interior only, paintable after 1 hour, can be sanded. Soudal's says solvent-free acrylic, interior only, paintable when fully cured.",
+  "differences": "Evo-Stik gives a time (paint after an hour, skins in 15 to 60 minutes); Soudal's page says only to paint once fully cured and gives no time, so you may wait longer before painting. Soudal's cartridge is smaller, so you change it more often. Neither page gives a movement rating. No test we read compares these two.",
+  "why": "For filling gaps along skirting and architrave before painting, both are interior paintable caulks, and the Soudal costs about half as much per ml.",
+  "aspects": [
+   {
+    "aspect": "Time before painting",
+    "brand": "1 hour, stated",
+    "alternative": "When fully cured, no time given",
+    "verdict": "brand_better"
+   },
+   {
+    "aspect": "Cartridge size",
+    "brand": "380 ml",
+    "alternative": "290 ml",
+    "verdict": "different"
+   }
+  ],
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/evo-stik-trade-decorators-caulk/p61539",
+   "https://www.toolstation.com/soudal-decorators-caulk/p45080"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "honeywell-ffp3-moulded-valved-10-vs-maverick-ffp3-moulded-valved-2-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Dust masks",
+  "title": "Honeywell FFP3 valved mask vs Maverick FFP3 valved mask",
+  "brand": {
+   "brand": "Honeywell",
+   "product": "Honeywell Moulded FFP3 Valved Face Mask, pack of 10",
+   "size": 10,
+   "unit": "mask",
+   "price": 29.99,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/honeywell-moulded-ffp3-valved-face-mask/p96903",
+   "key_ingredients": [
+    {
+     "name": "Standard",
+     "amount": "EN 149:2001+A1:2009"
+    },
+    {
+     "name": "Class",
+     "amount": "FFP3"
+    },
+    {
+     "name": "Shape",
+     "amount": "Moulded"
+    },
+    {
+     "name": "Exhalation valve",
+     "amount": "Yes"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Maverick Safety",
+   "product": "Maverick FFP3 Moulded Valved Disposable Face Mask, pack of 2",
+   "size": 2,
+   "unit": "mask",
+   "price": 4.48,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/maverick-ffp3-moulded-valved-disposable-face-mask/p94413",
+   "key_ingredients": [
+    {
+     "name": "Standard",
+     "amount": "EN 149:2001+A1:2009"
+    },
+    {
+     "name": "Class",
+     "amount": "FFP3"
+    },
+    {
+     "name": "Shape",
+     "amount": "Moulded"
+    },
+    {
+     "name": "Exhalation valve",
+     "amount": "Yes"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are moulded FFP3 disposable masks with an exhalation valve, to the same EN 149 standard, and the Maverick costs 25% less per mask.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown: Honeywell GBP 29.99 for 10 (GBP 3.00 a mask) and Maverick GBP 4.48 for 2 (GBP 2.24 a mask). Both pages give EN 149:2001+A1:2009, FFP3, moulded and valved.",
+  "differences": "Neither page says whether the mask is single-shift (NR) or reusable (R), or whether it passed the dolomite clogging test (D). Honeywell's page mentions a shielded valve. Fit matters more than brand for any FFP3: a mask that doesn't seal to your face doesn't protect, so try one before buying ten.",
+  "why": "The class on the mask is what tells you the filtering it is tested to, and both carry FFP3 under the same standard.",
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/honeywell-moulded-ffp3-valved-face-mask/p96903",
+   "https://www.toolstation.com/maverick-ffp3-moulded-valved-disposable-face-mask/p94413"
+  ],
+  "price_checked": "2026-11"
+ },
+ {
+  "slug": "moldex-2405-ffp2-valved-5-vs-maverick-ffp2-moulded-valved-2-gb",
+  "market": "GB",
+  "category": "tools-diy",
+  "subcategory": "Dust masks",
+  "title": "Moldex 2405 FFP2 valved mask vs Maverick FFP2 valved mask",
+  "brand": {
+   "brand": "Moldex",
+   "product": "Moldex 2405 FFP2 Classic Valved Disposable Face Mask, pack of 5",
+   "size": 5,
+   "unit": "mask",
+   "price": 21.49,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/moldex-2405-ffp2-classic-valved-disposable-face-mask/p74348",
+   "key_ingredients": [
+    {
+     "name": "Standard",
+     "amount": "EN 149:2001+A1:2009"
+    },
+    {
+     "name": "Class",
+     "amount": "FFP2"
+    },
+    {
+     "name": "Shape",
+     "amount": "Moulded"
+    },
+    {
+     "name": "Exhalation valve",
+     "amount": "Yes"
+    }
+   ]
+  },
+  "alternative": {
+   "brand": "Maverick Safety",
+   "product": "Maverick FFP2 Moulded Valved Disposable Face Mask, pack of 2",
+   "size": 2,
+   "unit": "mask",
+   "price": 3.98,
+   "retailer": "toolstation",
+   "asin": null,
+   "url": "https://www.toolstation.com/maverick-ffp2-moulded-valved-disposable-face-mask/p48610",
+   "key_ingredients": [
+    {
+     "name": "Standard",
+     "amount": "EN 149:2001+A1:2009"
+    },
+    {
+     "name": "Class",
+     "amount": "FFP2"
+    },
+    {
+     "name": "Shape",
+     "amount": "Moulded"
+    },
+    {
+     "name": "Exhalation valve",
+     "amount": "Yes"
+    }
+   ]
+  },
+  "match_type": "equivalent_spec",
+  "confidence": "medium",
+  "summary": "Both are moulded FFP2 disposable masks with an exhalation valve, to the same EN 149 standard, and the Maverick costs 54% less per mask.",
+  "evidence": "Both product pages read on toolstation.com on 14 November 2026, prices including VAT, no reduction shown: Moldex GBP 21.49 for 5 (GBP 4.30 a mask) and Maverick GBP 3.98 for 2 (GBP 1.99 a mask). Both pages give EN 149:2001+A1:2009, FFP2, moulded and valved.",
+  "differences": "Neither page says NR or R, or whether the mask passed the dolomite test (D). Moldex's page gives a protection level of 10 times the workplace exposure limit; Maverick's gives none. Fit is what makes either work, so try one first.",
+  "why": "Both carry the same FFP2 class under the same standard, and the Maverick costs under half as much per mask.",
+  "claims": [],
+  "sources": [
+   "https://www.toolstation.com/moldex-2405-ffp2-classic-valved-disposable-face-mask/p74348",
+   "https://www.toolstation.com/maverick-ffp2-moulded-valved-disposable-face-mask/p48610"
+  ],
+  "price_checked": "2026-11"
+ }
+]

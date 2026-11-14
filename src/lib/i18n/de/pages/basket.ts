@@ -24,7 +24,7 @@ export const pageBasket: Shape<typeof en> = {
   howMany: (name) => `Wie viele Packungen ${name}`,
   fewer: (name) => `Eine Packung ${name} weniger`,
   more: (name) => `Eine Packung ${name} mehr`,
-  pricesEvidence: "Preise und Nachweise",
+  pricesEvidence: "Preise und Belege",
   inAll: (amount) => `${amount} insgesamt`,
   packsOf: (n, pack) => `${n === 1 ? "Packung" : "Packungen"} à ${pack}`,
   brandName: "Marke ",

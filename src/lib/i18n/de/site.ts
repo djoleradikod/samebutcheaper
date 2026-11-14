@@ -111,13 +111,13 @@ export const categories: Shape<typeof en.categories> = {
     name: "Haushalt & Reinigung",
     short: "Wäsche, Geschirr, Papier, Putzen",
     description:
-      "Waschmittel, Spülmittel, Papier und Reiniger, verglichen pro Waschgang, pro Blatt oder pro Liter, mit Testergebnissen, wo es welche gibt.",
+      "Waschmittel, Spülmittel, Papier und Reiniger, verglichen pro Waschladung, pro Blatt oder pro Liter, mit Testergebnissen, wo es welche gibt.",
   },
   baby: {
     name: "Baby",
     short: "Säuglingsnahrung und Hautpflege",
     description:
-      "Dieselbe Art Produkt, verglichen pro Einheit. Sprich mit deiner Ärztin, deinem Arzt oder deiner Hebamme, bevor du die Säuglingsnahrung wechselst.",
+      "Dieselbe Art Produkt, verglichen pro Einheit. Sprich mit deiner Kinderärztin, deinem Kinderarzt oder deiner Hebamme, bevor du die Säuglingsnahrung wechselst.",
   },
   pet: {
     name: "Tier",
@@ -174,10 +174,10 @@ export const lists: Shape<typeof en.lists> = {
   averageSaving: "Durchschnittliche Ersparnis",
   pricesChecked: (month) => `Preise zuletzt im ${month} geprüft.`,
   biggestSaving: "größte Ersparnis",
-  upTo: (n) => `Bis zu ${n} % günstiger pro Einheit`,
+  upTo: (n) => `Bis zu ${n} % günstiger pro Einheit`,
   noneHere: (country) => `Für keinen dieser Vergleiche haben wir bisher einen Preis bei einem Händler erfasst, der ${countryAt(country)} verkauft.`,
   noneHereMore: (more, country) =>
-    ` Die ${more}, die wir anderswo erfasst haben, findest du oben auf der Seite unter „Vergleiche aus anderen Ländern zeigen“. Jeder sagt, worauf du in Geschäften ${countryAt(country)} achten kannst.`,
+    ` ${more === 1 ? "Den Vergleich mit Preisen aus einem anderen Land" : `Die ${more} Vergleiche mit Preisen aus anderen Ländern`} findest du oben auf der Seite unter „Vergleiche aus anderen Ländern zeigen“. Jeder sagt, worauf du ${countryAt(country)} im Handel achten kannst.`,
   category: {
     notFound: "Kategorie nicht gefunden",
     cheaper: (name) => `${name} günstiger`,
@@ -201,10 +201,10 @@ export const bundlesPage: Shape<typeof en.bundlesPage> = {
     "Ganze Einkaufskörbe und Marken-Sets, nachgebaut aus günstigeren Produkten. Beide Summen kaufen dieselbe Menge, und jeder Artikel verlinkt auf das, was uns dazu vorliegt.",
   both: "Einkaufskörbe und Marken-Sets",
   kitsOnly: "Marken-Sets",
-  none: "Noch ist keines gelistet. Die einzelnen Vergleiche sind fertig, und wenn dir ein Set zu teuer ist, sag uns, welches.",
+  none: "Noch ist keins aufgeführt. Die einzelnen Vergleiche gibt es schon, und wenn dir ein Set zu teuer ist, sag uns, welches.",
   seeBiggest: "Die größten Ersparnisse ansehen",
   suggestKit: "Set vorschlagen (Englisch)",
-  baskets: (n) => ` ${n === 1 ? "Einkaufskorb" : "Einkaufskörbe"} für einen Lebensabschnitt, zusammengestellt aus Vergleichen, die wir geprüft haben. Beide Summen kaufen dieselbe Menge. `,
+  baskets: (n) => ` ${n === 1 ? "Einkaufskorb" : "Einkaufskörbe"} für eine Lebenssituation, zusammengestellt aus Vergleichen, die wir geprüft haben. Beide Summen kaufen dieselbe Menge. `,
   kits: (n) => ` ${n === 1 ? "Marken-Set" : "Marken-Sets"}, zerlegt und Stück für Stück aus günstigeren Artikeln nachgebaut.`,
   onThisPage: "Auf dieser Seite",
   basketsJump: "Einkaufskörbe",
@@ -216,7 +216,7 @@ export const bundlesPage: Shape<typeof en.bundlesPage> = {
 };
 
 export const subscribe: Shape<typeof en.subscribe> = {
-  thanks: "Danke!",
+  thanks: "Danke.",
   validEmail: "Bitte gib eine gültige E-Mail-Adresse ein.",
   tooMany: "Das waren viele Versuche in kurzer Zeit. Bitte warte ein paar Minuten.",
   notOpen: "Anmeldungen sind noch nicht geöffnet. Bitte schau bald wieder vorbei.",
@@ -337,13 +337,13 @@ export const match: Shape<typeof en.match> = {
     label: "Gleiche Produktart",
     short: "Gleiche Art",
     description:
-      "Dieselbe Art Produkt, mit Preisen aus echten Quellen. Unsere Daten zeigen nicht, dass beide bei Inhalt oder Wirkung übereinstimmen.",
+      "Dieselbe Art Produkt, mit Preisen aus echten Quellen. Unsere Daten zeigen nicht, dass beide im Inhalt oder in der Wirkung übereinstimmen.",
   },
   sentence: (types) => {
     const phrases = MATCH_PHRASE.filter(([type]) => types.includes(type)).map(([, phrase]) => phrase);
     const list = phrases.length < 2 ? phrases.join("") : `${phrases.slice(0, -1).join(", ")} oder ${phrases[phrases.length - 1]}`;
     if (!types.includes("same_kind")) return list ? `Jede Alternative hat ${list}.` : "";
-    if (!list) return "Jede ist dieselbe Art Produkt. Unsere Daten zeigen nicht, dass beide bei Inhalt oder Wirkung übereinstimmen.";
+    if (!list) return "Jede Alternative ist nur dieselbe Art Produkt. Unsere Daten zeigen nicht, dass sie im Inhalt oder in der Wirkung mit der Marke übereinstimmt.";
     return `Manche haben ${list}, die übrigen sind nur dieselbe Art Produkt. Jeder Vergleich sagt, was zutrifft.`;
   },
 };

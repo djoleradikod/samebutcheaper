@@ -8,13 +8,15 @@ import { productName } from "@/lib/i18n/product-name";
 import { savingKind } from "@/lib/yearly";
 import { buildIndex, toCandidate, type Index } from "./match";
 import type { SwapView } from "./types";
+import { withVia } from "@/lib/via";
 
 /** The result's view of a swap. The yearly fields are read the same way as the swap page and My list (YearlyBlock). */
 export function swapView(p: Pair, lang: Lang = "en"): SwapView {
   const { brand: b, alternative: a } = p;
   return {
     slug: p.slug,
-    href: `/compare/${p.slug}`,
+    // Marked, so a click out from the swap page counts for the list check (src/lib/via.ts).
+    href: withVia(`/compare/${p.slug}`, "listcheck"),
     market: p.market,
     from: b.brand,
     fromProduct: productName(b.product, lang),

@@ -60,7 +60,7 @@ export function ratingLabelDe(r: Pick<Rating, "score" | "scale" | "publisher" | 
       : r.scale === "out-of-10"
         ? de.rows.rating.outOf(one(r.score), 10)
         : r.scale === "percent"
-          ? `${Math.round(r.score)} %`
+          ? `${Math.round(r.score)} %`
           : de.rows.rating.grade(germanFigures(r.score.toFixed(1)));
   if (r.publisher) return `${r.publisher} ${score}`;
   return r.count ? de.rows.rating.fromRatings(score, r.count.toLocaleString("de-DE")) : score;

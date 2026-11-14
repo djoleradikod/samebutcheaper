@@ -4,7 +4,7 @@
  *
  * - A side's source is the host of its link; a record citing Open Prices counts both sides as Open Prices; a
  *   record whose evidence credits Auto Express counts as that (scripts/qa/source_audit.ts).
- * - The verdict for a source comes from R4, then R5, R6 and R7 source verdicts, later files winning.
+ * - The verdict for a source comes from R4, then R5, R6, R7 and R10 source verdicts, later files winning.
  * - NEW: a side whose current price came from an affiliate feed (its newest observation is a feed line, see
  *   attach.ts feedInfoFor) counts as **licensed**, whatever the store's own terms say: the merchant gave us that
  *   price and link under the network's publisher agreement. Licensed counts as ok.
@@ -28,7 +28,7 @@ export type LicenceReport = {
   licensedSides: Record<string, number>;
 };
 
-export const VERDICT_FILES = ["R4-source-verdicts.json", "R5-source-verdicts.json", "R6-source-verdicts.json", "R7-source-verdicts.json"];
+export const VERDICT_FILES = ["R4-source-verdicts.json", "R5-source-verdicts.json", "R6-source-verdicts.json", "R7-source-verdicts.json", "R10-source-verdicts.json"];
 
 export function loadVerdicts(dir = join(ROOT, "docs", "research")): Record<string, Verdict> {
   const out: Record<string, Verdict> = {};

@@ -6,6 +6,19 @@ import { log } from "./log";
 import { isKnownCountry } from "./markets";
 import { LIMITS, rateLimit } from "./rate-limit";
 import { isPrefetch, visitorFrom } from "./visitor";
+import { SITE } from "./site";
+import { viaOfClick } from "./via";
+
+/** The hosts a referrer of ours can have: the site's own and the one this request came in on. */
+function ourHosts(request: Request) {
+  const hosts: string[] = [];
+  try {
+    hosts.push(new URL(SITE.url).host);
+  } catch {}
+  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
+  if (host) hosts.push(host);
+  return hosts;
+}
 
 /**
  * Sends a shopper to a store: tags the URL with the best affiliate program,
@@ -27,6 +40,8 @@ export function redirectOut(
   try {
     host = new URL(target.url).hostname.replace(/^www\./, "").slice(0, 80);
   } catch {}
+  // Which page type the click came from: a basket, the list check, search, an email (src/lib/via.ts).
+  const via = viaOfClick(request.url, referrer, ourHosts(request));
 
   // A click is a person following the link: not a crawler, a link checker's HEAD, a browser fetching ahead, or
   // the 61st from one address in a minute. Everyone is still redirected.
@@ -51,6 +66,7 @@ export function redirectOut(
         country,
         host,
         source,
+        via,
       });
     } catch (err) {
       log.error("click.log_failed", { err, slug: target.slug });

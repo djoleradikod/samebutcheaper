@@ -24,6 +24,23 @@ const entrySchema = z
     /** Where to apply, when it isn't the source page. */
     signup: z.string().url().optional(),
     note: z.string().default(""),
+    /**
+     * What the programme's own terms say about how we may use its prices, where we have read them. Only a rule the
+     * cited page states goes here; a programme without this block has terms we haven't read, not terms that allow all.
+     */
+    terms: z
+      .object({
+        /** false: the terms bar price tracking or price alerts for the store's products (src/lib/watch-terms.ts). */
+        priceAlerts: z.boolean().optional(),
+        /** The programme's own terms page that says so. */
+        source: z.string().url(),
+        /** The clause, quoted, with its section. */
+        quote: z.string().min(1),
+        /** When the page was read, ISO date. */
+        checked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+      })
+      .strict()
+      .optional(),
   })
   .refine((e) => e.network === "unknown" || e.source, { message: "a programme claim needs a source page", path: ["source"] })
   .refine((e) => !e.programme || PROGRAMS.some((p) => p.id === e.programme), { message: "programme is not an id in affiliate-programs.ts", path: ["programme"] });
