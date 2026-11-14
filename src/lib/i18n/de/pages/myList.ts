@@ -41,8 +41,8 @@ export const pageMyList: Shape<typeof en> = {
   },
   perAmount: (n) =>
     n === 1
-      ? "Ein Vergleich hat einen Preis pro Waschgang oder pro Menge, ohne Packung zum Zählen, deshalb ist er nicht enthalten."
-      : `${n} Vergleiche haben einen Preis pro Waschgang oder pro Menge, ohne Packung zum Zählen, deshalb sind sie nicht enthalten.`,
+      ? "Ein Vergleich hat einen Preis pro Waschladung oder pro Menge, ohne Packung zum Zählen, deshalb ist er nicht enthalten."
+      : `${n} Vergleiche haben einen Preis pro Waschladung oder pro Menge, ohne Packung zum Zählen, deshalb sind sie nicht enthalten.`,
   listSaves: "Deine Liste spart",
   perYear: (amount) => `${amount} im Jahr`,
   onceAmount: (amount) => `${amount} einmalig`,

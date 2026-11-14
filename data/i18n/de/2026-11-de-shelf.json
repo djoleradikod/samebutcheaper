@@ -33,7 +33,7 @@
     "why": "Die Etiketten nennen dieselbe Hauptzutat, Hartweizengrieß, und Form und Beutelgröße stimmen überein. Der Combino-Beutel kostet zu diesen Preisen 1,30 € weniger.",
     "differences": [
       "Das Combino-Etikett warnt vor möglichen Spuren von Ei und Soja.",
-      "Barilla-Nudeln können an manchen Tagen viel günstiger sein: Barilla Rigatoni 500 g wurden im September 2026 bei REWE in Jena für 0,88 erfasst.",
+      "Barilla-Nudeln können an manchen Tagen viel günstiger sein: Barilla Rigatoni 500 g wurden im September 2026 bei REWE in Jena für 0,88 € erfasst.",
       "Für dieses Paar haben wir keinen Koch- oder Geschmackstest."
     ],
     "ingredients": {
@@ -562,11 +562,11 @@
   "milka-haselnusscreme-vs-nussetti-nuss-nougat-creme-de": {
     "summary": "Beide sind süße Brotaufstriche aus Haselnuss und Kakao, erfasst im selben Markt am selben Tag.",
     "evidence": "Open Prices zeigt Milka Haselnusscreme für 3,79 für 350 g und Nussetti für 1,99 für 400 g, beide bei Netto Marken-Discount in Strausberg am 2. Nov. 2026. Milka kostete am 19. März 2026 bei Kaufland in Strausberg 3,69.",
-    "why": "Das Nussetti-Etikett zeigt mehr Haselnuss und mehr Kakao, im größeren Glas, für 1,80 € weniger. Wenn du nicht auf Palmöl verzichten willst, gibt das Etikett wenig Grund, mehr zu zahlen.",
+    "why": "Das Nussetti-Etikett zeigt mehr Haselnuss und mehr Kakao, im größeren Glas, für 1,80 € weniger. Solange du Palmöl nicht meidest, gibt das Etikett wenig Grund, mehr zu zahlen.",
     "differences": [
-      "Milka verwendet Sonnenblumenöl und Nussetti Raps- und Palmöl, wenn du Palmöl meidest, gewinnt also Milka.",
+      "Milka verwendet Sonnenblumenöl und Nussetti Raps- und Palmöl; wenn du Palmöl meidest, liegt also Milka vorn.",
       "Nussetti nennt 13 % Haselnüsse gegenüber 5 % Haselnussmasse bei Milka.",
-      "Milka nennt seinen Kakao nach diesen 5 %, hat also 5 % oder weniger, gegenüber 9 % bei Nussetti.",
+      "Milka nennt den Kakao erst nach diesen 5 %, hat also 5 % oder weniger, gegenüber 9 % bei Nussetti.",
       "Für dieses Paar haben wir keinen Geschmackstest."
     ],
     "ingredients": {
@@ -1392,7 +1392,7 @@
   },
   "royal-canin-indoor-27-vs-concept-for-life-indoor-cats-de": {
     "summary": "Beide sind Alleinfuttermittel (Trockenfutter) für erwachsene Wohnungskatzen, mit ähnlichem Fettgehalt und vergleichbarem Protein, verkauft bei zooplus.",
-    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Royal Canin Indoor 27 kostet 21,49 für 2 kg und Concept for Life Indoor Cats 19,99 für 3 kg zum regulären Shoppreis, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Katzen. Analyse: Royal Canin 27 % Protein, 13 % Fett, 4 % Rohfaser, 7 % Rohasche. Concept for Life 30 % Protein, 12,5 % Fett, 5,5 % Rohfaser, 7,2 % Rohasche.",
+    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Royal Canin Indoor 27 kostet 21,49 für 2 kg und Concept for Life Indoor Cats 19,99 für 3 kg zum regulären Preis im Onlineshop, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Katzen. Analyse: Royal Canin 27 % Protein, 13 % Fett, 4 % Rohfaser, 7 % Rohasche. Concept for Life 30 % Protein, 12,5 % Fett, 5,5 % Rohfaser, 7,2 % Rohasche.",
     "why": "Laut Analyse gibt Concept for Life etwas mehr Protein bei ähnlichem Fett, und es wird als Alleinfutter für dieselbe Wohnungskatze verkauft. Du zahlst in jeder geprüften Größe weniger pro Kilo.",
     "differences": [
       "Wir haben die nächstliegenden Packungsgrößen verglichen.",
@@ -1473,7 +1473,7 @@
   },
   "royal-canin-maxi-adult-vs-concept-for-life-large-adult-de": {
     "summary": "Beide sind Alleinfuttermittel (Trockenfutter) für große erwachsene Hunde mit denselben 26 % Protein und 17 % Fett, verkauft bei zooplus.",
-    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Royal Canin Maxi Adult kostet 64,49 für 15 kg und Concept for Life Large Adult 43,99 für 12 kg zum regulären Shoppreis, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Hunde ab 15 Monaten. Analyse: Royal Canin 26 % Protein, 17 % Fett, 1,6 % Rohfaser, 7,6 % Rohasche. Concept for Life 26 % Protein, 17 % Fett, 2 % Rohfaser, 7,2 % Rohasche.",
+    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Royal Canin Maxi Adult kostet 64,49 für 15 kg und Concept for Life Large Adult 43,99 für 12 kg zum regulären Preis im Onlineshop, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Hunde ab 15 Monaten. Analyse: Royal Canin 26 % Protein, 17 % Fett, 1,6 % Rohfaser, 7,6 % Rohasche. Concept for Life 26 % Protein, 17 % Fett, 2 % Rohfaser, 7,2 % Rohasche.",
     "why": "Protein- und Fettwerte stimmen genau überein, und beide werden als Alleinfutter für dieselbe Hundegröße verkauft. Für einen großen Hund, der viel frisst, summieren sich 63 Cent weniger pro Kilo.",
     "differences": [
       "Diese Ersparnis ist moderat, etwa 15 %.",
@@ -1555,7 +1555,7 @@
   },
   "hills-science-plan-adult-huhn-vs-concept-for-life-all-cats-adult-de": {
     "summary": "Beide sind Alleinfuttermittel (Trockenfutter) auf Hühnerbasis für erwachsene Katzen mit etwa 32 % Protein, verkauft bei zooplus im 3-kg-Sack.",
-    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Hill's Adult 1-6 Huhn kostet 28,49 für 3 kg und Concept for Life All Cats Adult 19,99 für 3 kg zum regulären Shoppreis, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Katzen. Analyse: Hill's 31,9 % Protein, 19,7 % Fett, 1,4 % Rohfaser, 5,5 % Rohasche. Concept for Life 32 % Protein, 18 % Fett, 4 % Rohfaser, 8,2 % Rohasche.",
+    "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Hill's Adult 1-6 Huhn kostet 28,49 für 3 kg und Concept for Life All Cats Adult 19,99 für 3 kg zum regulären Preis im Onlineshop, ohne Abo. Beide Seiten bezeichnen das Futter als Alleinfuttermittel für erwachsene Katzen. Analyse: Hill's 31,9 % Protein, 19,7 % Fett, 1,4 % Rohfaser, 5,5 % Rohasche. Concept for Life 32 % Protein, 18 % Fett, 4 % Rohfaser, 8,2 % Rohasche.",
     "why": "Das Protein ist laut Analyse gleich, und beide werden als Alleinfutter für dieselbe Katze verkauft. In derselben Sackgröße kostet Concept for Life 8,50 € weniger.",
     "differences": [
       "Hill's hat mehr Fett und weniger Rohfaser und Rohasche.",
@@ -1636,7 +1636,7 @@
   "catsan-ultra-plus-vs-biokats-micro-classic-de": {
     "summary": "Beide sind unparfümierte, klumpende Katzenstreu aus Ton, verkauft bei zooplus und nach Litern bepreist.",
     "evidence": "Produktseiten von zooplus.de, abgelesen am 6. Nov. 2026: Catsan Ultra plus kostet 23,99 für 15 l und Biokat's Micro Classic 10,29 für 14 l. Foto und Barcode von Catsan, die uns vorliegen, gehören zu einer 10-l-Packung Catsan Ultra plus, und zooplus führt die 15-l-Packung unter einem anderen Barcode. Beide Seiten beschreiben klumpende Tonstreu ohne zugesetzten Duft.",
-    "why": "Gleiches Material, gleiche Aufgabe beim Klumpen, gleicher Shop, und Biokat's kostet pro Liter weniger als die Hälfte. Catsan wird besser bewertet, probier also einen Sack, bevor du das Doppelpack kaufst.",
+    "why": "Gleiches Material, gleiche Aufgabe beim Klumpen, gleicher Händler, und Biokat's kostet pro Liter weniger als die Hälfte. Catsan wird besser bewertet, probier also erst einen Sack, bevor du die Doppelpackung kaufst.",
     "differences": [
       "Catsan wird bei zooplus besser bewertet: 4,1 von 5 aus 98 Bewertungen gegenüber 3,6 von 5 aus 412. Die Zusammenfassung der Bewertungen zu Biokat's bei zooplus erwähnt Staub, zerfallende Klumpen und geringere Eignung für mehrere Katzen.",
       "Biokat's hat ein sehr feines Korn.",

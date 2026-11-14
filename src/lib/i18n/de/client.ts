@@ -95,7 +95,7 @@ export const shared: Shape<typeof en.shared> = {
     home: (fee, freeOver, pickup) => `Versand ${fee} bei Einzelbestellung, ab ${freeOver} versandkostenfrei${pickup ? ", oder kostenlos im Markt abholen" : ""}`,
     notChecked: (dest) => `Versand ${to(dest)} nicht geprüft`,
     free: (dest) => `Versand ${to(dest)} bei dieser Bestellung kostenlos`,
-    abroad: (dest, fee, freeOver) => `Versand ${to(dest)} ${fee} bei Einzelbestellung${freeOver ? `, ab ${freeOver} kostenlos` : ""}`,
+    abroad: (dest, fee, freeOver) => `Versand ${to(dest)} ${fee} bei Einzelbestellung${freeOver ? `, ab ${freeOver} versandkostenfrei` : ""}`,
   },
   pharmacy: "Die meisten Arzneimittel gibt es dort nur in der Apotheke, auch online nur bei Apotheken.",
   onAmazon: "bei Amazon",
@@ -126,7 +126,7 @@ export const where: Shape<typeof en.where> = {
   maybe: (store, m) =>
     `${store} ${at(m)} verschickt viele Artikel ins Ausland, prüf also Versand und Einfuhrabgaben an der Kasse. Meist ist es günstiger, im eigenen Land zu kaufen.`,
   ownSite: (store, place, m) =>
-    `${store} verkauft ${at(place)} nur über einen eigenen Shop mit anderem Sortiment und anderen Preisen. Das Angebot, das wir ${at(m)} geprüft haben, gibt es dort also nicht. Such dort oder bei den Händlern unten nach dem gleichen Produkt.`,
+    `${store} verkauft ${at(place)} nur über einen eigenen Onlineshop mit anderem Sortiment und anderen Preisen. Das Angebot, das wir ${at(m)} geprüft haben, gibt es dort also nicht. Such dort oder bei den Händlern unten nach dem gleichen Produkt.`,
   sellsToo: (store, m, place) =>
     `Wir haben den Preis bei ${store} ${at(m)} geprüft. ${store} verkauft auch ${at(place)}, such es also dort und prüf den Preis, denn Sortiment und Preise können abweichen.`,
   noDelivery: (m, dest, actives) =>
@@ -145,13 +145,13 @@ export const where: Shape<typeof en.where> = {
   goTo: (store, site) => `Zu ${store} auf ${site}`,
   search: (store) => `Bei ${store} suchen`,
   noBigStore: (dest) =>
-    `Wir kennen noch keinen großen Onlinehändler, der ${to(dest)} liefert. Deine Apotheke oder dein Supermarkt vor Ort hat das Gleiche unter eigenem Namen.`,
+    `Wir kennen noch keinen großen Onlinehändler, der ${to(dest)} liefert. Deine Apotheke oder dein Supermarkt vor Ort führt meist dasselbe unter eigenem Namen.`,
   checkedIn: (m) => `Die Preise auf dieser Seite wurden ${at(m)} geprüft.`,
 };
 
 export const yearly: Shape<typeof en.yearly> = {
   perAmount: (per) => `Diese Preise gelten ${per}, nicht pro Packung. Deshalb rechnen wir keine Packungen aufs Jahr hoch.`,
-  saves: "Spart",
+  saves: "Du sparst",
   once: "einmalig",
   notRegular: "Kein regelmäßiger Einkauf, deshalb nennen wir keinen Betrag pro Jahr.",
   aYear: "im Jahr",
@@ -228,7 +228,7 @@ export const feedback: Shape<typeof en.feedback> = {
   placeholder: "Zum Beispiel den Preis, den du gesehen hast, und wo",
   sending: "Wird gesendet …",
   send: "Senden",
-  noAccount: "Kein Konto und keine E-Mail-Adresse nötig. Wir speichern deine IP-Adresse nie.",
+  noAccount: "Kein Konto und keine E-Mail-Adresse nötig. Deine IP-Adresse speichern wir nicht mit deiner Meldung.",
 };
 
 const swapsWord = (n: number) => `${n} ${n === 1 ? "Vergleich" : "Vergleiche"}`;
@@ -243,7 +243,7 @@ const MATCH_DE: Record<MatchType, [label: string, short: string, description: st
   same_manufacturer: [
     "Gleicher Hersteller",
     "Gleicher Hersteller",
-    "Öffentliche Unterlagen (Rückrufe, Behördenakten, Werkscodes) oder eine öffentliche Aussage eines der Unternehmen zeigen, dass dieselbe Firma beide herstellt.",
+    "Öffentliche Unterlagen (Rückrufe, Behördenakten, Werkskennzeichnungen) oder eine öffentliche Aussage eines der Unternehmen zeigen, dass dieselbe Firma beide herstellt.",
   ],
   equivalent_spec: [
     "Erfüllt denselben Zweck",
@@ -253,7 +253,7 @@ const MATCH_DE: Record<MatchType, [label: string, short: string, description: st
   same_kind: [
     "Gleiche Produktart",
     "Gleiche Art",
-    "Dieselbe Art Produkt, mit Preisen aus echten Quellen. Was uns vorliegt, zeigt nicht, dass beide beim Inhalt oder in der Wirkung übereinstimmen.",
+    "Dieselbe Art Produkt, mit Preisen aus echten Quellen. Unsere Daten zeigen nicht, dass beide im Inhalt oder in der Wirkung übereinstimmen.",
   ],
 };
 
@@ -284,7 +284,7 @@ export const unitPrice: Shape<typeof en.unitPrice> = {
 
 export const cards: Shape<typeof en.cards> = {
   moreSwaps: "Weitere Vergleiche",
-  cheaperPct: (n) => `${n} % günstiger`,
+  cheaperPct: (n) => `${n} % günstiger`,
   save: "Spare",
   noRating: "Noch keine Bewertung gefunden",
   matchShort: (type) => (type === "identical_active" ? MATCH_DE[type][0] : MATCH_DE[type][1]),
@@ -303,10 +303,10 @@ export const cards: Shape<typeof en.cards> = {
 };
 
 export const delivery: Shape<typeof en.delivery> = {
-  home: (cost, freeOver, pickup) => `Versand ${cost} bei Einzelkauf, ab ${freeOver} versandkostenfrei${pickup ? ", oder kostenlose Abholung im Markt" : ""}`,
+  home: (cost, freeOver, pickup) => `Versand ${cost} bei Einzelbestellung, ab ${freeOver} versandkostenfrei${pickup ? ", oder kostenlos im Markt abholen" : ""}`,
   notChecked: (country) => `Versand ${to(country)} nicht geprüft`,
   free: (country) => `Versand ${to(country)} bei dieser Bestellung kostenlos`,
-  abroad: (country, cost, freeOver) => `Versand ${to(country)} ${cost} bei Einzelkauf${freeOver !== null ? `, ab ${freeOver} versandkostenfrei` : ""}`,
+  abroad: (country, cost, freeOver) => `Versand ${to(country)} ${cost} bei Einzelbestellung${freeOver !== null ? `, ab ${freeOver} versandkostenfrei` : ""}`,
 };
 
 export const newsletter: Shape<typeof en.newsletter> = {
@@ -336,7 +336,7 @@ export const kits: Shape<typeof en.kits> = {
   aisle: "Kategorie",
   allAisles: "Alle Kategorien",
   sortKits: "Sets sortieren",
-  sorts: { recommended: "Beste zuerst", amount: "Größte Ersparnis nach Versand", pct: "Höchste Ersparnis in % nach Versand" },
+  sorts: { recommended: "Beste zuerst", amount: "Größte Ersparnis nach Versand", pct: "Größte Ersparnis in Prozent nach Versand" },
   count: (n) => `${n} ${n === 1 ? "Set" : "Sets"}`,
   noOneStore: "Keines dieser Sets bekommst du bei nur einem Händler.",
   showEvery: "Alle Sets zeigen",
@@ -351,8 +351,8 @@ export const browse: Shape<typeof en.browse> = {
   filters: "Filter",
   removeFilter: (label) => `Filter entfernen: ${label}`,
   clearAll: "Alle entfernen",
-  unitNote: "Die Einheiten unterscheiden sich zwischen Produkten, Preise pro Einheit lassen sich also am besten innerhalb einer Produktart vergleichen.",
-  unitNoteFx: " Andere Währungen werden für diese Reihenfolge grob umgerechnet.",
+  unitNote: "Die Einheiten unterscheiden sich von Produkt zu Produkt. Grundpreise lassen sich deshalb am besten innerhalb einer Produktart vergleichen.",
+  unitNoteFx: " Für diese Reihenfolge rechnen wir andere Währungen grob um.",
   howWeCheck: "So prüfen wir",
   didntLoad: "Der Rest der Liste wurde nicht geladen.",
   tryAgain: "Noch einmal versuchen",
@@ -388,7 +388,7 @@ export const myList: Shape<typeof en.myList> = {
 export const search: Shape<typeof en.search> = {
   elsewhere: (n, term, more) =>
     n === 1
-      ? `${more ? "Ein weiterer Treffer" : "Ein Treffer"} für „${term}“ hat Preise aus anderen Ländern.`
+      ? `${more ? "Ein weiterer Treffer" : "Ein Treffer"} für „${term}“ hat Preise aus einem anderen Land.`
       : `${n} ${more ? "weitere " : ""}Treffer für „${term}“ haben Preise aus anderen Ländern.`,
   showOthers: "Vergleiche aus anderen Ländern zeigen",
 };

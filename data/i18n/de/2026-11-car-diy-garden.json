@@ -1,8 +1,8 @@
 {
   "bosch-professional-hss-co-19-vs-metabo-hss-co-19-de": {
-    "summary": "Beide sind 19-teilige Kobalt-Bohrersätze nach DIN 338 mit den gleichen Größen und dem gleichen Spitzenwinkel, und der Metabo kostet im selben Shop etwa 23 % weniger.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., Versand ab 7,99 EUR. Bosch 38,69 EUR, angezeigt gegenüber 94,61 EUR, nicht auf Lager und 5 bis 9 Werktage nach Bestellung lieferbar. Metabo 29,90 EUR, angezeigt gegenüber 47,00 EUR, sofort lieferbar. Beide nennen 1 bis 10 mm in Schritten von 0,5 mm, DIN 338 und eine Spitze mit 135 Grad. Die eigene Website von Metabo bestätigt die Bestellnummer 627157000, die Größen und die Metallkassette. Barcodes auf den Seiten: Bosch 3165140689786, Metabo 4007430175861, keiner davon in Open Facts, also kein Foto.",
-    "why": "Die angegebenen Größen, Norm und Spitze stimmen überein, und der Metabo bringt für weniger Geld eine Metallkassette mit, der angegebene Vorteil des Bosch ist also der Kobaltanteil, den er veröffentlicht.",
+    "summary": "Beide sind 19-teilige Kobalt-Bohrersätze nach DIN 338 mit den gleichen Größen und dem gleichen Spitzenwinkel, und der Metabo kostet beim selben Händler etwa 23 % weniger.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., Versand ab 7,99 €. Bosch 38,69 €, angezeigt gegenüber 94,61 €, nicht auf Lager und 5 bis 9 Werktage nach Bestellung lieferbar. Metabo 29,90 €, angezeigt gegenüber 47,00 €, sofort lieferbar. Beide nennen 1 bis 10 mm in Schritten von 0,5 mm, DIN 338 und eine Spitze mit 135 Grad. Die eigene Website von Metabo bestätigt die Bestellnummer 627157000, die Größen und die Metallkassette. Barcodes auf den Seiten: Bosch 3165140689786, Metabo 4007430175861, keiner davon in Open Facts, also kein Foto.",
+    "why": "Die angegebenen Größen, Norm und Spitze stimmen überein, und der Metabo bringt für weniger Geld eine Metallkassette mit, was laut Angaben für den Bosch spricht, ist also der Kobaltanteil, den Bosch nennt.",
     "differences": [
       "Bosch nennt 5 % Kobalt, Metabo sagt kobaltlegiert ohne Prozentangabe, also können wir die Legierung nicht vergleichen.",
       "Metabo hat eine Bronze-Oberfläche und kommt in einer Metallkassette, Bosch in einer Kunststoffbox.",
@@ -19,8 +19,8 @@
     }
   },
   "compo-bio-tomatenduenger-vs-dehner-bio-tomaten-duenger-1l-de": {
-    "summary": "Beide sind organische Flüssigdünger für Tomaten mit 1 Liter bei Dehner, und die Eigenmarke kostet 25 % weniger und nennt etwas mehr Stickstoff und Kalium.",
-    "evidence": "Beide am 6. November 2026 auf dehner.de abgelesen, inklusive MwSt., zuzüglich Versand. Compo 11,99 EUR pro Liter, online als nicht verfügbar angezeigt. Dehner 8,99 EUR pro Liter, online in 2 bis 3 Werktagen lieferbar. Die Seiten nennen NK 3+5 für Compo und NK 3,5+6 für Dehner. Laut Dehner-Seite ergibt die Flasche etwa 150 Liter Düngelösung, bei einer Kappe auf 3 Liter Wasser. Die Compo-Seite nennt eine Dosierung pro Liter Wasser und keine Gesamtmenge, und das Open-Facts-Foto zum Barcode zeigt dieselbe Flasche COMPO BIO Tomatendünger, auch wenn der Eintrag die Größe nicht nennt.",
+    "summary": "Beide sind organische Flüssigdünger für Tomaten in der 1-Liter-Flasche bei Dehner, und die Eigenmarke kostet 25 % weniger und nennt etwas mehr Stickstoff und Kalium.",
+    "evidence": "Beide am 6. November 2026 auf dehner.de abgelesen, inklusive MwSt., zuzüglich Versand. Compo 11,99 € pro Liter, online als nicht verfügbar angezeigt. Dehner 8,99 € pro Liter, online in 2 bis 3 Werktagen lieferbar. Die Seiten nennen NK 3+5 für Compo und NK 3,5+6 für Dehner. Laut Dehner-Seite ergibt die Flasche etwa 150 Liter Düngelösung, bei einer Kappe auf 3 Liter Wasser. Die Compo-Seite nennt eine Dosierung pro Liter Wasser und keine Gesamtmenge, und das Open-Facts-Foto zum Barcode zeigt dieselbe Flasche COMPO BIO Tomatendünger, auch wenn der Eintrag die Größe nicht nennt.",
     "why": "Der Dehner-Dünger nennt pro Flasche etwas mehr Stickstoff und Kalium für ein Viertel weniger, und er ist für dieselbe Aufgabe, die Seiten zeigen also keinen Grund, mehr zu zahlen.",
     "differences": [
       "Die Compo-Seite nennt keine Ergiebigkeit pro Flasche, also können wir die Kosten pro Liter Düngelösung nicht genau vergleichen.",
@@ -38,8 +38,8 @@
     }
   },
   "neudorff-ferramol-schneckenkorn-vs-dehner-schneckenkorn-de": {
-    "summary": "Beide sind Schneckenkorn mit Eisen(III)-phosphat, ausgebracht mit 5 g pro Quadratmeter, und das Dehner kostet im selben Shop etwa 13 % weniger pro Kilo.",
-    "evidence": "Beide am 6. November 2026 auf dehner.de abgelesen, inklusive MwSt., zuzüglich Versand, beide online verfügbar. Ferramol 25,99 EUR für 2 kg (13,00 EUR pro kg). Dehner 13,49 EUR für 1,2 kg (11,24 EUR pro kg). Die eigene Seite von Neudorff nennt 9,9 g/kg Eisen(III)-phosphat und 5 g pro Quadratmeter. Die Dehner-Seite nennt denselben Wirkstoff und dieselbe Aufwandmenge ohne Konzentration. Die Zulassungsnummern unterscheiden sich: 034496-00 für Ferramol und 008016-62 für Dehner.",
+    "summary": "Beide sind Schneckenkorn mit Eisen(III)-phosphat, ausgebracht mit 5 g pro Quadratmeter, und das Dehner kostet beim selben Händler etwa 13 % weniger pro Kilo.",
+    "evidence": "Beide am 6. November 2026 auf dehner.de abgelesen, inklusive MwSt., zuzüglich Versand, beide online verfügbar. Ferramol 25,99 € für 2 kg (13,00 € pro kg). Dehner 13,49 € für 1,2 kg (11,24 € pro kg). Die eigene Seite von Neudorff nennt 9,9 g/kg Eisen(III)-phosphat und 5 g pro Quadratmeter. Die Dehner-Seite nennt denselben Wirkstoff und dieselbe Aufwandmenge ohne Konzentration. Die Zulassungsnummern unterscheiden sich: 034496-00 für Ferramol und 008016-62 für Dehner.",
     "why": "Gleicher Wirkstoff und gleiche Aufwandmenge auf beiden Seiten, und das Dehner kostet in den Packungsgrößen, die wir prüfen konnten, weniger pro Kilo. Die Ersparnis ist gering, sie lohnt sich also vor allem, wenn du viel brauchst.",
     "differences": [
       "Weil die Dehner-Seite die Konzentration nicht nennt, können wir nicht sagen, dass es derselbe Wirkstoff in derselben Konzentration ist.",
@@ -57,9 +57,9 @@
     }
   },
   "stanley-powerlock-5m-vs-einhell-bandmass-5m-de": {
-    "summary": "Beide sind 5-m-Bandmaße mit 19 mm breitem Band und Genauigkeitsklasse II im selben Shop, und das Einhell kostet etwa 17 % weniger.",
-    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., Versand ab 7,99 EUR. Stanley 12,09 EUR, angezeigt gegenüber 26,12 EUR, 2 auf Lager. Einhell 9,99 EUR ohne angezeigten Vergleichspreis, sofort lieferbar. Barcodes auf den Seiten: Stanley 3253560331948, Einhell 4009313705509, keiner davon in Open Facts, also kein Foto. Klasse II ist die mittlere Genauigkeitsklasse der EU und die gängigste.",
-    "why": "Gleiche Länge, Breite und Genauigkeitsklasse auf derselben Shopseite, für das Messen zu Hause bringt der Aufpreis des Stanley also eine Bandbeschichtung und ein verchromtes Gehäuse.",
+    "summary": "Beide sind 5-m-Bandmaße mit 19 mm breitem Band und Genauigkeitsklasse II beim selben Händler, und das Einhell kostet etwa 17 % weniger.",
+    "evidence": "Beide am 6. November 2026 auf alternate.de abgelesen, inklusive MwSt., Versand ab 7,99 €. Stanley 12,09 €, angezeigt gegenüber 26,12 €, 2 auf Lager. Einhell 9,99 € ohne angezeigten Vergleichspreis, sofort lieferbar. Barcodes auf den Seiten: Stanley 3253560331948, Einhell 4009313705509, keiner davon in Open Facts, also kein Foto. Klasse II ist die mittlere Genauigkeitsklasse der EU und die gängigste.",
+    "why": "Gleiche Länge, Breite und Genauigkeitsklasse auf derselben Produktseite, für das Messen zu Hause bringt der Aufpreis des Stanley also eine Bandbeschichtung und ein verchromtes Gehäuse.",
     "differences": [
       "Das Stanley hat ein Mylar-beschichtetes Band, ein verchromtes Gehäuse und einen dreifach genieteten Schiebehaken.",
       "Das Einhell hat einen Magnethaken, eine beidseitige Skala und zwei Bremstasten.",

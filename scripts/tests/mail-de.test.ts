@@ -55,10 +55,10 @@ test("a price watch email: German words and money, /de links, the watch's own un
     { siteUrl: SITE, contactEmail: CONTACT },
   );
   assert.match(de.subject, /^Preisänderung bei einem beobachteten Vergleich: /);
-  assert.ok(de.text.includes(`ist um 20 % günstiger geworden`));
+  assert.ok(de.text.includes(`ist um 20 % günstiger geworden`));
   assert.match(de.text, /\d[\s\u00a0\u202f](?:€|ct)/u, "German money");
   assert.ok(de.text.includes(`${SITE}/de/compare/${german.slug}?`));
-  assert.ok(de.text.includes("Von allem abmelden: "));
+  assert.ok(de.text.includes("Von allen E-Mails abmelden: "));
   assert.ok(de.html.includes('<html lang="de">'));
   assert.deepEqual(de.headers, listHeaders(SITE, TOKEN, "watch-9"));
   assert.doesNotMatch(visible(de.text.split("--")[0].split("\n").slice(1).join("\n")), ENGLISH);
@@ -77,10 +77,10 @@ test("the weekly letter in German: sections, links and the yearly line", () => {
   const de = letterMail(issue, { to: "x@example.com", token: TOKEN, issueKey: "2026-W46", lang: "de" }, { siteUrl: SITE, contactEmail: CONTACT, postalAddress: "Musterstraße 1" });
   const en = letterMail(issue, { to: "x@example.com", token: TOKEN, issueKey: "2026-W46" }, { siteUrl: SITE, contactEmail: CONTACT, postalAddress: "Musterstraße 1" });
   assert.ok(de.text.startsWith("Die Vergleiche dieser Woche"));
-  assert.ok(de.text.includes("Vom wöchentlichen Brief abmelden: "));
+  assert.ok(de.text.includes("Vom wöchentlichen Newsletter abmelden: "));
   assert.ok(de.text.includes(`${SITE}/de/compare/`));
   assert.ok(!de.text.includes(`${SITE}/compare/`));
-  assert.match(de.text, / % günstiger/);
+  assert.match(de.text, /\u00a0% günstiger/u);
   assert.deepEqual(de.headers, en.headers);
   assert.deepEqual(de.headers, listHeaders(SITE, TOKEN, "letter"));
   assert.ok(en.text.startsWith("This week's swaps"));

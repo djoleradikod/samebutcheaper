@@ -40,14 +40,14 @@ export function WantedPrompt({ term, count = true }: { term: string; count?: boo
 function WishForm({ term }: { term: string }) {
   const [state, action, pending] = useActionState<FeedbackState, FormData>(wishFor, null);
   const id = useId();
-  const lang = useLang();
   const t = useT(TEXT, german);
+  const lang = useLang();
   return (
     <div className="mt-3 rounded-card border border-line bg-paper p-4 md:p-5">
       <p id={`${id}-t`} className="font-semibold">
-        {t("pageSearch.wishTitle")}
+        {t("pageSearch.wantedTitle")}
       </p>
-      <p className="mt-1 text-sm text-ink-2">{t("pageSearch.wishBody", term)}</p>
+      <p className="mt-1 text-sm text-ink-2">{t("pageSearch.wantedText", term)}</p>
       {state?.ok ? (
         <p role="status" className="mt-2 text-[13px] text-same">
           {state.message}
@@ -56,7 +56,7 @@ function WishForm({ term }: { term: string }) {
         <form action={action} aria-labelledby={`${id}-t`} className="mt-3 max-w-xl">
           <div className="flex flex-col gap-2 sm:flex-row">
             <label htmlFor={`${id}-e`} className="sr-only">
-              {t("pageSearch.wishEmail")}
+              {t("pageSearch.emailLabel")}
             </label>
             <input
               id={`${id}-e`}
@@ -64,20 +64,20 @@ function WishForm({ term }: { term: string }) {
               type="email"
               required
               autoComplete="email"
-              placeholder="you@example.com"
+              placeholder={t("pageSearch.emailPlaceholder")}
               className="h-11 min-w-0 flex-1 rounded-tile border border-line-strong bg-paper px-3 text-base placeholder:text-muted focus:border-cobalt focus:outline-none"
             />
             <input type="hidden" name="query" value={term} />
             {lang !== "en" && <input type="hidden" name="lang" value={lang} />}
             <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
             <button type="submit" disabled={pending} className="btn btn-ghost disabled:opacity-60">
-              {pending ? t("pageSearch.wishSaving") : t("pageSearch.wishSend")}
+              {pending ? t("pageSearch.saving") : t("pageSearch.tellMe")}
             </button>
           </div>
           <p role="status" className={`mt-2 min-h-5 text-[13px] ${state ? "text-different" : "text-muted"}`}>
             {state?.message ?? (
               <Link href={lang === "de" ? "/datenschutz" : "/privacy"} className="inline-flex min-h-11 items-center underline underline-offset-2 md:min-h-0">
-                {t("pageSearch.wishPrivacy")}
+                {t("pageSearch.howWeUse")}
               </Link>
             )}
           </p>

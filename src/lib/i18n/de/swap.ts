@@ -140,7 +140,7 @@ export const evidence: Shape<typeof en.evidence> = {
   healthLead: "Lies das Etikett. ",
   medicineLead: "Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihre Ärztin, Ihren Arzt oder in Ihrer Apotheke. ",
   healthBody:
-    "Dieser Vergleich stützt sich auf Packungsangaben und veröffentlichte Belege und ist keine medizinische Beratung. Hilfsstoffe (Füllstoffe, Farbstoffe, Aromen) können sich unterscheiden, was bei Allergien wichtig ist. Frag im Zweifel in der Apotheke, in der Arztpraxis oder bei deiner Tierärztin oder deinem Tierarzt nach.",
+    "Dieser Vergleich stützt sich auf Packungsangaben und veröffentlichte Belege und ist keine medizinische Beratung. Hilfsstoffe (Füllstoffe, Farbstoffe, Aromen) können sich unterscheiden, was bei Allergien wichtig ist. Frag im Zweifel in der Apotheke oder in der Arztpraxis nach, für dein Tier in der Tierarztpraxis.",
   photos: "Fotos: ",
   by: "von",
   noPhotoOf: (names) => `Noch kein lizenziertes Foto von ${names.join(" oder ")}.`,
@@ -167,7 +167,7 @@ export const prices: Shape<typeof en.prices> = {
   pricesWeSaw: (name) => `${name}: Preise, die wir gesehen haben`,
   date: "Datum",
   price: "Preis",
-  outOfStock: (name, store, day) => `${name} war bei ${store} nicht vorrätig, als wir den Produkt-Feed am ${day} gelesen haben.`,
+  outOfStock: (name, store, day) => `${name} war bei ${store} nicht vorrätig, als wir am ${day} die Produktdaten des Händlers abgerufen haben.`,
 };
 
 export const bulk: Shape<typeof en.bulk> = {
@@ -212,9 +212,9 @@ export const faq: Shape<typeof en.faq> = {
   confidenceHigh: " Beide Etiketten wurden anhand von Primärquellen bestätigt.",
   confidenceMedium: " Die Belege sind stark, aber nicht jedes Detail stammt aus einer Primärquelle.",
   sameKind: (claim, subcategory) =>
-    `Das können wir nicht sagen. ${claim} (${subcategory}), mit Preisen aus echten Quellen. Unsere Daten zeigen nicht, dass beide bei Inhalt oder Wirkung übereinstimmen.`,
+    `Das können wir nicht sagen. ${claim} (${subcategory}), mit Preisen aus echten Quellen. Unsere Daten zeigen nicht, dass beide im Inhalt oder in der Wirkung übereinstimmen.`,
   actives: (claim, actives) => `${claim}${actives ? `: ${actives}` : ""}.`,
-  inactiveDiffer: " Die sonstigen Bestandteile können sich unterscheiden, lies bei Allergien deshalb die Packungsbeilage.",
+  inactiveDiffer: " Die sonstigen Bestandteile können sich unterscheiden. Lies deshalb bei Allergien die Packungsbeilage.",
   inactiveSame: " Laut Etikett sind auch die sonstigen Bestandteile gleich.",
   notSame: (claim) => `Nicht dasselbe Produkt, aber ${claim}.`,
   matchOn: (list, more) => ` Übereinstimmung bei: ${list}${more > 0 ? ` und ${more} weiteren Punkten` : ""}.`,
@@ -265,15 +265,15 @@ export const actions: Shape<typeof en.actions> = {
   validEmail: "Bitte gib eine gültige E-Mail-Adresse ein.",
   noSwap: "Wir konnten diesen Vergleich nicht finden.",
   watchesClosed: "Die Preisbeobachtung ist noch nicht verfügbar. Schau bald wieder vorbei.",
-  watchBarred: "Die Partnerbedingungen dieses Shops erlauben keine Preisalarme, deshalb lässt sich dieser Vergleich nicht beobachten.",
+  watchBarred: "Die Partnerbedingungen dieses Händlers erlauben keine Preisalarme, deshalb lässt sich dieser Vergleich nicht beobachten.",
   startWatching: "diesen Vergleich zu beobachten",
   searchFirst: "Such zuerst nach einem Produktnamen.",
   notOpen: "Das ist noch nicht verfügbar. Schau bald wieder vorbei.",
   confirm: "zu bestätigen",
-  reportedOut: "Kundinnen und Kunden melden, dass es beim Händler ausverkauft ist. Wir prüfen das gerade.",
-  reportedEither: "Kundinnen und Kunden melden, dass sich der Preis geändert hat oder es ausverkauft ist. Wir prüfen das gerade.",
-  reportedPrice: "Kundinnen und Kunden melden, dass sich der Preis geändert hat. Wir prüfen das gerade.",
-  reportedBy: "Gemeldet: ",
+  reportedOut: "Nutzerinnen und Nutzer melden, dass es beim Händler ausverkauft ist. Wir prüfen das gerade.",
+  reportedEither: "Nutzerinnen und Nutzer melden, dass sich der Preis geändert hat oder es ausverkauft ist. Wir prüfen das gerade.",
+  reportedPrice: "Nutzerinnen und Nutzer melden, dass sich der Preis geändert hat. Wir prüfen das gerade.",
+  reportedBy: "Von Nutzerinnen und Nutzern gemeldet: ",
   untilWe: "Bis dahin prüf Preis und Verfügbarkeit vor dem Kauf direkt beim Händler.",
 };
 
@@ -351,8 +351,8 @@ export const rows: Shape<typeof en.rows> = {
     onFile: (list) => `Für diesen Vergleich liegen vor: ${list}, Packungsgröße und Grundpreis.`,
     test: (name) => `das Ergebnis von ${name}`,
     tests: (n) => `${n} Testergebnisse`,
-    nutrition: "Nährwerte und Zutaten aus von Nutzern erfassten Einträgen",
-    communityIngredients: "Zutaten aus von Nutzern erfassten Einträgen",
+    nutrition: "Nährwerte und Zutaten aus von Freiwilligen gepflegten Einträgen",
+    communityIngredients: "Zutaten aus von Freiwilligen gepflegten Einträgen",
     ingredientList: "die Zutatenliste",
     maker: "der Hersteller",
     others: (n) => (n === 1 ? "1 weiterer Punkt" : `${n} weitere Punkte`),

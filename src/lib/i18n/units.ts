@@ -39,9 +39,9 @@ export const UNIT_DE: Record<string, Forms> = {
   sheet: ["Blatt", "Blatt"],
   pair: ["Paar", "Paar"],
   dose: ["Dosis", "Dosen"],
-  wash: ["Waschgang", "Waschgänge"],
-  washe: ["Waschgang", "Waschgänge"],
-  load: ["Waschgang", "Waschgänge"],
+  wash: ["Waschladung", "Waschladungen"],
+  washe: ["Waschladung", "Waschladungen"],
+  load: ["Waschladung", "Waschladungen"],
   "oz powder": ["oz Pulver", "oz Pulver"],
   packet: ["Päckchen", "Päckchen"],
   patch: ["Pflaster", "Pflaster"],
@@ -130,7 +130,7 @@ export function packDe(size: number, unit: string) {
 /** The shelf label's "per" in German, from the English one unitDisplay gives: "per 100 g" to "pro 100 g", "each" to "pro Stück". */
 export function unitLabelDe(englishLabel: string, unit: string) {
   if (englishLabel === "each") return "pro Stück";
-  if (englishLabel === "per wash") return "pro Waschgang";
+  if (englishLabel === "per wash") return "pro Waschladung";
   if (englishLabel === "per cell") return "pro Batterie";
   if (englishLabel === "per litre") return "pro Liter";
   if (englishLabel === "per serving") return "pro Portion";

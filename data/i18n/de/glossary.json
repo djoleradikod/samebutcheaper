@@ -1,4 +1,206 @@
 {
+  "terms": {
+    "swap (a comparison page)": {
+      "de": "Vergleich",
+      "avoid": [
+        "Swap",
+        "Swaps",
+        "Tausch"
+      ],
+      "note": "The page that sets a brand against a cheaper product. Plural: Vergleiche."
+    },
+    "swap (the cheaper product)": {
+      "de": "Alternative",
+      "avoid": [],
+      "note": "günstige(re) Alternative. The brand side is the Markenprodukt or die Marke."
+    },
+    "switching": {
+      "de": "Wechsel",
+      "avoid": [
+        "Umstieg"
+      ],
+      "note": "Verb: wechseln. \"Was der Wechsel spart\"."
+    },
+    "kit (a brand's set)": {
+      "de": "Set",
+      "avoid": [
+        "Kit",
+        "Kits",
+        "Bundle",
+        "Bundles",
+        "Paket"
+      ],
+      "note": "Marken-Set when it needs the brand; rebuilt: selbst zusammengestellt, nachgebaut."
+    },
+    "basket (our list for a life moment)": {
+      "de": "Einkaufskorb",
+      "avoid": [],
+      "note": "A store's cart is the Warenkorb; never call our basket a Warenkorb."
+    },
+    "basket (a store's cart)": {
+      "de": "Warenkorb",
+      "avoid": []
+    },
+    "saving": {
+      "de": "Ersparnis",
+      "avoid": [
+        "Einsparung",
+        "Einsparungen"
+      ],
+      "note": "Verb: sparen. \"Du sparst\"."
+    },
+    "checked": {
+      "de": "geprüft",
+      "avoid": [
+        "überprüft",
+        "gecheckt",
+        "checken"
+      ],
+      "note": "Noun: Prüfung. Prices: \"Preise geprüft am …\"."
+    },
+    "delivery (the cost)": {
+      "de": "Versand",
+      "avoid": [
+        "Lieferkosten",
+        "Liefergebühr",
+        "Liefergebühren",
+        "Zustellung"
+      ],
+      "note": "Versandkosten, versandkostenfrei, bei Einzelbestellung. \"liefern nach\" for where a store ships to."
+    },
+    "store (the seller)": {
+      "de": "Händler",
+      "avoid": [
+        "Retailer",
+        "Shop",
+        "Shops",
+        "Shoppreis",
+        "Shopseite"
+      ],
+      "note": "Its website: Onlineshop; a product's page there: Produktseite. Bare \"Shop\" only in a name (Shop Apotheke). Markt only for picking up in a store (im Markt abholen)."
+    },
+    "aisle": {
+      "de": "Kategorie",
+      "avoid": [
+        "Regalgang"
+      ]
+    },
+    "shelf (a kind of product in a filter)": {
+      "de": "Produktart",
+      "avoid": []
+    },
+    "item": {
+      "de": "Artikel",
+      "avoid": [],
+      "note": "1 Artikel, 2 Artikel."
+    },
+    "pack": {
+      "de": "Packung",
+      "avoid": [],
+      "note": "Packungsgröße; \"Packung mit 24 Tabletten\"; \"20er-Packung\"."
+    },
+    "unit price": {
+      "de": "Grundpreis",
+      "avoid": [],
+      "note": "As a noun Grundpreis; in a sentence \"pro Einheit\" is fine (\"günstiger pro Einheit\")."
+    },
+    "store brand, own label": {
+      "de": "Eigenmarke",
+      "avoid": [
+        "Handelsmarke",
+        "Handelsmarken",
+        "No-Name"
+      ]
+    },
+    "receipt": {
+      "de": "Kassenbon",
+      "avoid": [
+        "Kassenzettel",
+        "Quittung"
+      ]
+    },
+    "evidence": {
+      "de": "Belege",
+      "avoid": [],
+      "note": "Singular Beleg. \"Nachweis\" only in the legal sense (proof that you asked)."
+    },
+    "same active ingredient": {
+      "de": "Gleicher Wirkstoff / wirkstoffgleich",
+      "avoid": [
+        "identisch",
+        "baugleich",
+        "genauso wirksam"
+      ],
+      "note": "Never a claim that a medicine works as well. The leaflet: Packungsbeilage; ask: in der Apotheke."
+    },
+    "package leaflet": {
+      "de": "Packungsbeilage",
+      "avoid": [
+        "Beipackzettel"
+      ],
+      "note": "The word § 4 HWG uses: \"Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage …\"."
+    },
+    "medicine": {
+      "de": "Arzneimittel",
+      "avoid": [
+        "Medikament",
+        "Medikamente"
+      ],
+      "note": "Rezeptfrei, apothekenpflichtig, verschreibungspflichtig as the law uses them."
+    },
+    "price watch": {
+      "de": "Preisbeobachtung",
+      "avoid": [],
+      "note": "Verb: beobachten."
+    },
+    "unsubscribe": {
+      "de": "abmelden",
+      "avoid": [
+        "unsubscriben",
+        "austragen"
+      ]
+    },
+    "newsletter (the weekly letter)": {
+      "de": "Newsletter",
+      "avoid": []
+    },
+    "button": {
+      "de": "Schaltfläche",
+      "avoid": [
+        "Button",
+        "Knopf"
+      ]
+    },
+    "email": {
+      "de": "E-Mail",
+      "avoid": [
+        "Email",
+        "eMail",
+        "Mail"
+      ],
+      "note": "E-Mail-Adresse."
+    },
+    "upload": {
+      "de": "hochladen",
+      "avoid": [
+        "Upload",
+        "uploaden"
+      ]
+    },
+    "wash (a load of laundry)": {
+      "de": "Waschladung",
+      "avoid": [
+        "Waschgang",
+        "Waschgänge"
+      ],
+      "note": "As German packs count them (WL)."
+    },
+    "you": {
+      "de": "du",
+      "avoid": [],
+      "note": "Du-form throughout, lower case. Only the Heilmittelwerbegesetz notice keeps its fixed Sie wording."
+    }
+  },
   "subcategories": {
     "9V batteries": "9-V-Blockbatterien",
     "AA batteries": "AA-Batterien",
